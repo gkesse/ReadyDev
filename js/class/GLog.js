@@ -2,26 +2,30 @@
 class GLog {
     //===============================================
     constructor() {
-        this.m_type = "type";
-        this.m_side = "side";
-        this.m_msg = "msg";
+        this.m_category = "";
+        this.m_model = "";
+        this.m_type = "";
+        this.m_side = "";
+        this.m_msg = "";
+        this.m_title = "";
+        this.m_intro = "";
+        this.m_color = "";
+        this.m_data = "";
         this.m_map = [];
-        
-        this.m_clientColor = "#aaaafa";
-        this.m_serverColor = "#faaaaa";
-        this.m_serverPhpColor = "#aafaaa";
     }
     //===============================================
     clone() {
-        var lObj = new GLog();
-        return lObj;
+        return new GLog();
     }
     //===============================================
     setObj(_obj) {
-        if(!_obj) return;
         this.m_type = _obj.m_type;
         this.m_side = _obj.m_side;
         this.m_msg = _obj.m_msg;
+        this.m_title = _obj.m_title;
+        this.m_intro = _obj.m_intro;
+        this.m_color = _obj.m_color;
+        this.m_data = _obj.m_data;
     }
     //===============================================
     clearLogs() {
@@ -49,14 +53,6 @@ class GLog {
         lObj.m_type = "data";
         lObj.m_side = "client";
         lObj.m_msg =  btoa(_msg);
-        this.m_map.push(lObj);
-    }
-    //===============================================
-    addXml(_msg) {
-        var lObj = new GLog();
-        lObj.m_type = "data";
-        lObj.m_side = "client";
-        lObj.m_msg =  btoa(sprintfXml(_msg));
         this.m_map.push(lObj);
     }
     //===============================================
@@ -146,12 +142,59 @@ class GLog {
         return lDatas;
     }
     //===============================================
+    getColor() {
+        var lColorCpp = "#800000";
+        var lColorPhp = "#808000";
+        var lColorJs = "#008080";
+        var lColor = lColorJs;
+        if(this.hasServer()) lColor = lColorCpp;
+        else if(this.hasServerPhp()) lColor = lColorPhp;
+        return lColor;
+    }
+    //===============================================
+    initErrors() {
+        this.m_title = "Erreurs";
+        this.m_intro = "Consultez les erreurs.";
+        this.m_color = this.getColor();
+        this.m_data = this.getErrors();
+    }
+    //===============================================
+    initDatas() {
+        this.m_title = "Datas";
+        this.m_intro = "Consultez les données.";
+        this.m_color = this.getColor();
+        this.m_data = this.getDatas();
+    }
+    //===============================================
+    initLogs() {
+        this.m_title = "Logs";
+        this.m_intro = "Consultez les logs.";
+        this.m_color = this.getColor();
+        this.m_data = this.getLogs();
+    }
+    //===============================================
+    initUi() {
+        var lLogTitle = document.getElementById("LogTitle");
+        var lLogIntro = document.getElementById("LogIntro");
+        var lLogBody = document.getElementById("LogBody");
+
+        lLogTitle.style.color = this.m_color;
+        lLogTitle.innerHTML = this.m_title;
+        lLogIntro.innerHTML = this.m_intro;
+        lLogBody.innerHTML = this.m_data;
+    }
+    //===============================================
+    readLogPhp() {
+        var lLogPhp = document.getElementById("LogPhp");
+        this.m_data = lLogPhp.innerHTML;
+    }
+    //===============================================
     serialize(_code = "logs") {
         var lDom = new GCode();
         lDom.createDoc();
         lDom.addData(_code, "type", this.m_type);
         lDom.addData(_code, "side", this.m_side);
-        lDom.addData(_code, "msg", this.m_msg);
+        lDom.addData(_code, "msg", utf8_to_b64(this.m_msg));
         lDom.addMap(_code, this.m_map);
         return lDom.toString();
     }
@@ -161,7 +204,7 @@ class GLog {
         lDom.loadXml(_data);
         this.m_type = lDom.getItem(_code, "type");
         this.m_side = lDom.getItem(_code, "side");
-        this.m_msg = lDom.getItem(_code, "msg");
+        this.m_msg = b64_to_utf8(lDom.getItem(_code, "msg"));
         lDom.getMap(_code, this.m_map, this);
     }
     //===============================================
@@ -169,23 +212,15 @@ class GLog {
         if(this.hasDatas()) return;
         if(!this.hasErrors()) return;
         
-        var lTitleColor = this.m_clientColor;
-        if(this.hasServer()) lTitleColor = this.m_serverColor;
-        else if(this.hasServerPhp()) lTitleColor = this.m_serverPhpColor;
+        this.initErrors();
+        this.initUi();
         
-        var lModalErrors = document.getElementById("ModalErrors");
-        var lErrorsBody = document.getElementById("ErrorsBody");
-        var lErrorsTitle = document.getElementById("ErrorsTitle");
-        var lErrorsLabel = document.getElementById("ErrorsLabel");
-        if(!lErrorsBody) return;
-        var lClassName = lErrorsBody.className;
+        var lLogModal = document.getElementById("LogModal");
+        var lLogForm = document.getElementById("LogForm");
         
-        lErrorsBody.className = lClassName.replace(" AnimateShow", "");
-        lErrorsBody.className = lClassName.replace(" AnimateHide", "");
-        lErrorsBody.className += " AnimateShow";
-        lModalErrors.style.display = "block";
-        lErrorsLabel.innerHTML = this.getErrors();
-        lErrorsTitle.style.color = lTitleColor;
+        lLogForm.classList.remove("AnimateHide");
+        lLogForm.classList.add("AnimateShow");
+        lLogModal.style.display = "block";
     }
     //===============================================
     showLogs() {
@@ -193,51 +228,67 @@ class GLog {
         if(this.hasErrors()) return;
         if(!this.hasLogs()) return;
         
-        var lTitleColor = this.m_clientColor;
-        if(this.hasServer()) lTitleColor = this.m_serverColor;
-        else if(this.hasServerPhp()) lTitleColor = this.m_serverPhpColor;
-
-        var lModalLogs = document.getElementById("ModalLogs");
-        var lLogsBody = document.getElementById("LogsBody");
-        var lLogsTitle = document.getElementById("LogsTitle");
-        var lLogsLabel = document.getElementById("LogsLabel");
-        var lClassName = lLogsBody.className;
+        this.initLogs();
+        this.initUi();
         
-        lLogsBody.className = lClassName.replace(" AnimateShow", "");
-        lLogsBody.className = lClassName.replace(" AnimateHide", "");
-        lLogsBody.className += " AnimateShow";
-        lModalLogs.style.display = "block";
-        lLogsLabel.innerHTML = this.getLogs();
-        lLogsTitle.style.color = lTitleColor;
-        lLogsTitle.innerHTML = "Informations";
+        var lLogModal = document.getElementById("LogModal");
+        var lLogForm = document.getElementById("LogForm");
+        
+        lLogForm.classList.remove("AnimateHide");
+        lLogForm.classList.add("AnimateShow");
+        lLogModal.style.display = "block";
     }
     //===============================================
     showDatas() {
         if(!this.hasDatas()) return;
         
-        var lTitleColor = this.m_clientColor;        
-        if(this.hasServer()) lTitleColor = this.m_serverColor;
-        else if(this.hasServerPhp()) lTitleColor = this.m_serverPhpColor;
-
-        var lModalLogs = document.getElementById("ModalLogs");
-        var lLogsBody = document.getElementById("LogsBody");
-        var lLogsTitle = document.getElementById("LogsTitle");
-        var lLogsLabel = document.getElementById("LogsLabel");
-        var lClassName = lLogsBody.className;
+        this.initDatas();
+        this.initUi();
         
-        lLogsBody.className = lClassName.replace(" AnimateShow", "");
-        lLogsBody.className = lClassName.replace(" AnimateHide", "");
-        lLogsBody.className += " AnimateShow";
-        lModalLogs.style.display = "block";
-        lLogsLabel.innerHTML = this.getDatas();
-        lLogsTitle.style.color = lTitleColor;
-        lLogsTitle.innerHTML = "Datas";
+        var lLogModal = document.getElementById("LogModal");
+        var lLogForm = document.getElementById("LogForm");
+        
+        lLogForm.classList.remove("AnimateHide");
+        lLogForm.classList.add("AnimateShow");
+        lLogModal.style.display = "block";
     }
     //===============================================
     showLogsX() {
         this.showDatas();
         this.showErrors();
         this.showLogs();
+    }
+    //===============================================
+    run(_method, _obj, _data) {
+        if(_method == "") {
+            this.addError("La méthode est obligatoire.");
+        }
+        else if(_method == "close_logs") {
+            this.onCloseLogs();
+        }
+        else if(_method == "show_php_logs") {
+            this.onShowPhpLogs();
+        }
+        else {
+            this.addError("La méthode est inconnue.");
+        }
+    }
+    //===============================================
+    onCloseLogs() {
+        var lLogModal = document.getElementById("LogModal");
+        var lLogForm = document.getElementById("LogForm");
+        
+        lLogForm.classList.add("AnimateHide");
+
+        setTimeout(function() {
+            lLogModal.style.display = "none";
+        }, 400);
+    }
+    //===============================================
+    onShowPhpLogs() {
+        this.readLogPhp();
+        this.deserialize(this.m_data);
+        this.showLogsX();
     }
     //===============================================
 }

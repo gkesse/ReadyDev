@@ -15,42 +15,100 @@ class GMenu extends GObject {
     }    
     //===============================================
     init() {
-        var lMenus = document.getElementsByClassName("Menu2");
-        for(var i = 0; i < lMenus.length; i++) {
-            var lMenu = lMenus[i];
-            lMenu.addEventListener("click", function(e) {
-                var lMenus = this.parentNode.getElementsByClassName("Menu2");
-                for(var i = 0; i < lMenus.length; i++) {
-                    var lMenu = lMenus[i];
-                    lMenu.classList.remove("Active");
+        var lButtons = document.getElementsByClassName("Block18");
+        for(var i = 0; i < lButtons.length; i++) {
+            var lButton = lButtons[i];
+            lButton.addEventListener("click", function(e) {
+                var lContent = this.nextElementSibling;
+                if(!lContent) return;
+                lContent.classList.toggle("Show");
+                
+                var lContents = document.getElementsByClassName("Block22");
+                for(var i = 0; i < lContents.length; i++) {
+                    var lContent = lContents[i];
+                    var lLine = lContent.parentNode.firstElementChild;
+                    lLine.classList.remove("Active");
+                    lContent.classList.remove("Show");
                 }
-                this.classList.add("Active");
+            });
+            lButton.addEventListener("mousedown", function(e) {
+                e.preventDefault();
             });
         }
-    }
-    //===============================================
-    run(_method, _obj, _data) {
-        if(_method == "") {
-            this.addError("La méthode est obligatoire.");
+        
+        var lLines = document.getElementsByClassName("Block20");
+        for(var i = 0; i < lLines.length; i++) {
+            var lLine = lLines[i];
+            lLine.addEventListener("click", function(e) {
+                var lLines = document.getElementsByClassName("Block20");
+                for(var i = 0; i < lLines.length; i++) {
+                    var lLine = lLines[i];
+                    var lContent = lLine.nextElementSibling;
+                    if(!lContent) continue;
+                    var lSub = lContent.firstElementChild;
+                    if(!lSub) continue;
+                    if(lLine == this) continue;
+                    lContent.classList.remove("Show");
+                    lLine.classList.remove("Active");
+                }
+                
+                var lContent = null;
+                var lSub = null;
+                var lContentOk = false;
+                
+                lContent = this.nextElementSibling;
+                if(lContent) lSub = lContent.firstElementChild;
+                if(lContent) lContentOk = lContent.matches(".Block22");
+                
+                var lParentNode = this;
+
+                if(!lContent || !lSub || !lContentOk) {
+                    while(1) {
+                        var lParentNode = lParentNode.parentNode;
+                        if(lParentNode.matches(".Block19")) {
+                            lParentNode.classList.remove("Show");
+                            return;
+                        }
+                    }
+                }
+                
+                lContent.classList.toggle("Show");
+                this.classList.toggle("Active");
+                                
+                while(1) {
+                    var lParentNode = lParentNode.parentNode;
+                    if(lParentNode.matches(".Block19")) break;
+                    if(lParentNode.matches(".Block21")) continue;
+                    var lContent = lParentNode;
+                    var lLine = lContent.previousElementSibling;
+                    lLine.classList.toggle("Active");
+                    lContent.classList.toggle("Show");
+                }
+            });
+            lLine.addEventListener("mousedown", function(e) {
+                e.preventDefault();
+            });
         }
-        else if(_method == "open_menu") {
-            this.onOpenMenu(_obj, _data);
-        }
-        else {
-            this.addError("La méthode est inconnue.");
-        }
-        return true;
-    }
-    //===============================================
-    onOpenMenu(_obj, _data) {
-        var lHeaderMenu = document.getElementById("HeaderMenu");
-        var lHeaderMenuBars = document.getElementById("HeaderMenuBars");
-        var lBars = '<i class="fa fa-bars"></i>';
-        if(!lHeaderMenu.classList.contains("RWD")) {
-            lBars = '<i class="fa fa-close"></i>';
-        }
-        lHeaderMenu.classList.toggle("RWD");
-        lHeaderMenuBars.innerHTML = lBars;    
+        
+        document.addEventListener("click", function(e) {
+            var lHideOk = true;
+            lHideOk &&= !e.target.matches(".Block18");
+            lHideOk &&= !e.target.matches(".Block20");
+            lHideOk &&= !e.target.matches(".Block24");
+            
+            if (lHideOk) {
+                var lContents = document.getElementsByClassName("Block19");
+                for(var i = 0; i < lContents.length; i++) {
+                    var lContent = lContents[i];
+                    lContent.classList.remove("Show");
+                }
+                var lContents = document.getElementsByClassName("Block22");
+                for(var i = 0; i < lContents.length; i++) {
+                    var lContent = lContents[i];
+                    lContent.classList.remove("Show");
+                }
+            }
+        });
     }
     //===============================================
 }

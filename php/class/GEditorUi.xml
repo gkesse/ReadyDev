@@ -160,7 +160,7 @@
                 </data>
                 <!-- end -->
             </map>
-       	</data>                
+           </data>                
         <!-- ============================================ -->
         <!-- page -->
         <!-- ============================================ -->
@@ -236,18 +236,18 @@
                     <module>page</module>
                     <method>select_page_type</method>
                     <map>
-                    	<data>
-                    		<key>0</key>
-                    		<value>Sélectionner un type...</value>
-                    	</data>
-                    	<data>
-                    		<key>1</key>
-                    		<value>Fichier</value>
-                    	</data>
-                    	<data>
-                    		<key>2</key>
-                    		<value>Répertoire</value>
-                    	</data>
+                        <data>
+                            <key>0</key>
+                            <value>Sélectionner un type...</value>
+                        </data>
+                        <data>
+                            <key>1</key>
+                            <value>Fichier</value>
+                        </data>
+                        <data>
+                            <key>2</key>
+                            <value>Répertoire</value>
+                        </data>
                     </map>
                 </data>
                 <data>
@@ -257,16 +257,16 @@
                     <id>EditorPageDefault</id>
                     <default>0</default>
                     <map>
-                    	<data>
-                    		<id>EditorPageDefaultYes</id>
-                    		<value>1</value>
-                    		<label>Oui</label>
-                    	</data>
-                    	<data>
-                    		<id>EditorPageDefaultNo</id>
-                    		<value>0</value>
-                    		<label>Non</label>
-                    	</data>
+                        <data>
+                            <id>EditorPageDefaultYes</id>
+                            <value>1</value>
+                            <label>Oui</label>
+                        </data>
+                        <data>
+                            <id>EditorPageDefaultNo</id>
+                            <value>0</value>
+                            <label>Non</label>
+                        </data>
                     </map>
                 </data>
                 <!-- button -->
@@ -313,11 +313,11 @@
             <title>Edition</title>
             <id>EditorTab3</id>
             <map>
-            	<data>
-            		<category>body</category>
-            		<model>contenteditable</model>
-          			<id>EditorEditionContent</id>
-            	</data>
+                <data>
+                    <category>body</category>
+                    <model>contenteditable</model>
+                      <id>EditorEditionContent</id>
+                </data>
             </map>
         </data>
         <!-- ============================================ -->
@@ -368,9 +368,9 @@
                     <map>
                         <!-- Chemins -->
                         <data>
-                        	<category>text</category>
-                        	<label>Chemins</label>
-                        	<map>
+                            <category>text</category>
+                            <label>Chemins</label>
+                            <map>
                                 <data>
                                     <category>text</category>
                                     <module>editor</module>
@@ -401,13 +401,13 @@
                                     <method>delete_path_link</method>
                                     <label>Supprimer chemin lien</label>
                                 </data>
-                        	</map>
+                            </map>
                         </data>
                         <!-- Compétences -->
                         <data>
-                        	<category>text</category>
-                        	<label>Compétences</label>
-                        	<map>
+                            <category>text</category>
+                            <label>Compétences</label>
+                            <map>
                                 <data>
                                     <category>text</category>
                                     <module>editor</module>
@@ -420,7 +420,7 @@
                                     <method>delete_skill</method>
                                     <label>Supprimer compétence</label>
                                 </data>
-                        	</map>
+                            </map>
                         </data>
                         <!-- Entêtes -->
                         <data>
@@ -434,7 +434,7 @@
                                     <label>Ajouter entête</label>
                                 </data>                            
                             </map>
-                      	</data>
+                          </data>
                         <!-- Font Awesome -->
                         <data>
                             <category>text</category>
@@ -469,9 +469,9 @@
                         </data>
                         <!-- Lignes -->
                         <data>
-                        	<category>text</category>
-                        	<label>Lignes</label>
-                        	<map>
+                            <category>text</category>
+                            <label>Lignes</label>
+                            <map>
                                 <data>
                                     <category>text</category>
                                     <module>editor</module>
@@ -484,7 +484,7 @@
                                     <method>delete_line_icon</method>
                                     <label>Supprimer ligne icône</label>
                                 </data>
-                        	</map>
+                            </map>
                         </data>
                         <!-- Liens -->
                         <data>
@@ -559,7 +559,7 @@
                                     <label>Supprimer navigation</label>
                                 </data>
                             </map>
-                       	</data>
+                           </data>
                         <!-- Parallax -->
                         <data>
                             <category>text</category>
@@ -684,7 +684,7 @@
                 </data>
                 <!-- Formulaires -->
                 <data>
-                	<category>text</category>
+                    <category>text</category>
                     <label>Formulaires</label>
                     <map>
                         <data>
@@ -703,7 +703,7 @@
                 </data>
                 <!-- Images -->
                 <data>
-                	<category>text</category>
+                    <category>text</category>
                     <label>Images</label>
                     <map>
                         <data>
@@ -712,7 +712,7 @@
                             <method>load_image</method>
                             <label>Charger les images</label>
                         </data>
-                  	</map>
+                      </map>
                 </data>
                 <!-- Actions -->
                 <data>
@@ -762,12 +762,12 @@
             <title>Code</title>
             <id>EditorTab4</id>
             <map>
-            	<data>
-            		<category>body</category>
-            		<model>textarea</model>
-          			<id>EditorCodeText</id>
-          			<placeholder>Code source de la page...</placeholder>
-            	</data>
+                <data>
+                    <category>body</category>
+                    <model>textarea</model>
+                      <id>EditorCodeText</id>
+                      <placeholder>Code source de la page...</placeholder>
+                </data>
             </map>
         </data>
         <!-- ============================================ -->
@@ -799,10 +799,10 @@
                             <method>show_edition_page</method>
                             <label>Voir l'édition de la page</label>
                         </data>
-            		</map>
-             	</data>
+                    </map>
+                 </data>
             </map>
-    	</data>
+        </data>
         <!-- ============================================ -->
         <!-- end -->
         <!-- ============================================ -->

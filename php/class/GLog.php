@@ -27,7 +27,7 @@ class GLog {
         $lDom->createDoc();
         $lDom->addData($_code, "type", $this->m_type);
         $lDom->addData($_code, "side", $this->m_side);
-        $lDom->addData($_code, "msg", base64_encode($this->m_msg));
+        $lDom->addData($_code, "msg", base64_encode(utf8_decode($this->m_msg)));
         $lDom->addMap($_code, $this->m_map);
         return $lDom->toString();
     }
@@ -37,7 +37,7 @@ class GLog {
         $lDom->loadXml($_data);
         $this->m_type = $lDom->getItem($_code, "type");
         $this->m_side = $lDom->getItem($_code, "side");
-        $this->m_msg = base64_decode($lDom->getItem($_code, "msg"));
+        $this->m_msg = utf8_encode(base64_decode($lDom->getItem($_code, "msg")));
         $lDom->getMap($_code, $this->m_map, $this);
     }
     //===============================================
@@ -90,7 +90,7 @@ class GLog {
     //===============================================
     public function showLogs() {
         if(!count($this->m_map)) return;
-        echo sprintf("<div hidden='true' id='LogsPhpData'>%s</div>\n", $this->serialize());
+        echo sprintf("<div id='LogPhp' hidden>%s</div>\n", $this->serialize());
         echo sprintf("<script>call_server('logs', 'show_php_logs');</script>\n");
     }
     //===============================================

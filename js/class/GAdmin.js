@@ -173,35 +173,26 @@ class GAdmin extends GObject {
         //===============================================
         // tabs
         //===============================================
-        else if(_method == "open_editor_tab") {
+        else if(_method == "copen_editor_tab") {
             this.onOpenEditorTab(_obj, _data);
+        }
+        //===============================================
+        // keyevent
+        //===============================================
+        else if(_method == "ckeydown_event_editor") {
+            this.onKeydownEventEditor(_obj, _data);
         }
         //===============================================
         // actions
         //===============================================
-        else if(_method == "go_to_code") {
+        else if(_method == "cgo_to_code") {
             this.onGoToCode(_obj, _data);
         }
         //===============================================
         // edition
         //===============================================
-        else if(_method == "store_edition") {
+        else if(_method == "cstore_edition") {
             this.onStoreEdition(_obj, _data);
-        }
-        //===============================================
-        // project
-        //===============================================
-        else if(_method == "save_project") {
-            this.onSaveProject(_obj, _data);
-        }
-        else if(_method == "search_project") {
-            this.onSearchProject(_obj, _data);
-        }
-        else if(_method == "delete_project") {
-            this.onDeleteProject(_obj, _data);
-        }
-        else if(_method == "new_project") {
-            this.onNewProject(_obj, _data);
         }
         //===============================================
         else {
@@ -229,6 +220,12 @@ class GAdmin extends GObject {
         lTab.style.display = "block";
     }
     //===============================================
+    // keyevent
+    //===============================================
+    onKeydownEventEditor(_obj, _data) {
+
+    }
+    //===============================================
     // actions
     //===============================================
     onGoToCode(_obj, _data) {
@@ -250,25 +247,5 @@ class GAdmin extends GObject {
 
     }
     //===============================================
-    // project
-    //===============================================
-    onSaveProject(_obj, _data) {
-        
-    }
-    //===============================================
-    onSearchProject(_obj, _data) {
-        
-    }
-    //===============================================
-    onDeleteProject(_obj, _data) {
-        
-    }
-    //===============================================
-    onNewProject(_obj, _data) {
-        
-    }
-    //===============================================
 }
-//===============================================
-GAdmin.Instance().init();
 //===============================================

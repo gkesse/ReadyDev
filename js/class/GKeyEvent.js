@@ -25,33 +25,39 @@ class GKeyEvent extends GObject {
         this.m_filter = lEditorClipboardFilter.value;
     }
     //===============================================
-    encodeHtml(_data, _lang) {
-        var lEntityMap = {
-            '<': '&lt;|html;ace',
-            '>': '&gt;|html;ace',
-            '\n': '<br>|html',
-            '<br>': '\n|txt',
-            '&lt;': '<|txt',
-            '&gt;': '>|txt',
-            '&amp;': '&|tex;txt'
-        };
-        for(var lKey in lEntityMap) {
-            var lVal = lEntityMap[lKey];
-            var lSplit = lVal.split("|");
-            var lVal2 = lSplit[0];
-            if(lSplit.length > 1) {
-                var lVal3 = lSplit[1];
-                var lSplit2 = lVal3.split(";");
-                var lIncludes = lSplit2.includes(_lang);
-                if(!lIncludes) continue;
-            }
-            var lReg = new RegExp(lKey, 'g');
-            _data = _data.replace(lReg, lVal2);
+    pasteImage(e, _callback) {
+        if(e.clipboardData == false) return;
+        var lItems = e.clipboardData.items;
+        if(!lItems) return;
+        for (var i = 0; i < lItems.length; i++) {
+            if(lItems[i].type.indexOf("image") == -1) continue;
+            var lBlob = lItems[i].getAsFile();
+            _callback(lBlob);
         }
-        return _data;
-    }    
+    }
     //===============================================
-    onModule(_method, _obj, _data) {
+    pasteImageCB(_imageBlob) {
+        var lObj = new GKeyEvent();
+        var lEditor = new GEditor();
+        lEditor.readSelection();
+        
+        var lHtml = "";
+        lHtml += sprintf("<div class='GImage1 Img1'>\n");
+        lHtml += sprintf("<img alt='image.png'/>\n");
+        lHtml += sprintf("</div>\n");
+        
+        var lNode = lObj.createNode(lHtml);
+        var lImg = lNode.firstElementChild;
+        lEditor.appendNode(lNode);
+        
+        var lFileReader = new FileReader();
+        lFileReader.onload = function(e) {
+            lImg.src = e.target.result;
+        };
+        lFileReader.readAsDataURL(_imageBlob);
+    }
+    //===============================================
+    run(_method, _obj, _data) {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
         }
@@ -83,7 +89,7 @@ class GKeyEvent extends GObject {
         var lClipboardData = lEvent.clipboardData || window.clipboardData;
         // [clipboard] : on récupère le texte pour vérifier si on a un texte ou une iamge
         var lData = lClipboardData.getData("text");
-        // [clipboard] : on vérifie si on a un text
+        // [clipboard] : on vérifie si on a un texte
         if(lData != "") {
             this.readFilter();
             if(this.m_filter == "filter_text") {
@@ -94,7 +100,7 @@ class GKeyEvent extends GObject {
         // [clipboard] : sinon on a une image
         else {
             lEvent.preventDefault();
-            this.pasteImage(e, this.pasteImageCB);
+            this.pasteImage(lEvent, this.pasteImageCB);
         }
     }
     //===============================================

@@ -64,7 +64,7 @@ input:-webkit-autofill:active {
 }
 
 input[readonly] {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 * {
@@ -994,60 +994,60 @@ thead tr:first-child {
 /* ============================================== */
 
 .DropDown {
-	position: relative;
-	display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 .DropDownContent {
-	display: none;
+    display: none;
 }
 
 .DropDownContent.Show {
-	display: block;
-	position: absolute;
-	border: 2px solid #2f3959;
-	background-color: #051039;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	min-width: 300px;
-	max-height: 300px;
-	overflow: auto;
-	right: 0;
-	z-index: 2;
+    display: block;
+    position: absolute;
+    border: 2px solid #2f3959;
+    background-color: #051039;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
+    max-height: 300px;
+    overflow: auto;
+    right: 0;
+    z-index: 2;
 }
 
 .DropDownLine,
 .DropDownSub {
-	color: #eeeeee;
-	padding: 5px;
-	display: block;
-	border-bottom: 1px solid #2f3959;
-	cursor: pointer;
-	text-align: left;
+    color: #eeeeee;
+    padding: 5px;
+    display: block;
+    border-bottom: 1px solid #2f3959;
+    cursor: pointer;
+    text-align: left;
 }
 
 .DropDownLine:hover,
 .DropDownSub:hover {
-	background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .DropDownCaret {
-	float: right;
-	padding-right: 5px;
+    float: right;
+    padding-right: 5px;
 }
 
 .DropDownContainer {
-	display: none;
+    display: none;
 }
 
 .DropDownContainer.Show {
-	display: block;
-	background-color: #051039;
-	padding-left: 20px;
+    display: block;
+    background-color: #051039;
+    padding-left: 20px;
 }
 
 .DropDownSub.Active,
 .DropDownSub.Active:hover {
-	background-color: #2f5959;
+    background-color: #2f5959;
 }
 
 /* ============================================== */
@@ -1241,7 +1241,7 @@ thead tr:first-child {
 /* ============================================== */
 
 .Header1 {
-	text-align: center;
+    text-align: center;
     background-color: rgba(35, 47, 87, 0.9);
 }
 
@@ -1252,20 +1252,20 @@ thead tr:first-child {
 }
 
 .Header3 {
-	padding: 5px;
-	font-size: 0px;
+    padding: 5px;
+    font-size: 0px;
 }
 
 .Header4 {
-	display: inline-block;
-	margin: 5px;
-	font-size: 0px;
+    display: inline-block;
+    margin: 5px;
+    font-size: 0px;
 }
 
 .Header5 {
-	display: inline-block;
-	margin: 5px;
-	font-size: 20px;
+    display: inline-block;
+    margin: 5px;
+    font-size: 20px;
     width: 40px;
     line-height: 40px;
     border-radius: 50%;
@@ -1280,19 +1280,19 @@ thead tr:first-child {
 }
 
 .Header6 {
-	background-color: #2f3959;
-	display: inline-block;
-	font-size: 14px;
-	padding: 0px 10px;
-	line-height: 25px;
+    background-color: #2f3959;
+    display: inline-block;
+    font-size: 14px;
+    padding: 0px 10px;
+    line-height: 25px;
 }
 
 .Header7 {
-	background-color: #3f4969;
-	display: inline-block;
-	font-size: 14px;
-	padding: 0px 10px;
-	line-height: 25px;
+    background-color: #3f4969;
+    display: inline-block;
+    font-size: 14px;
+    padding: 0px 10px;
+    line-height: 25px;
 }
 
 /* ============================================== */
@@ -1559,38 +1559,38 @@ thead tr:first-child {
 /* ============================================== */
 
 .Line1 {
-	text-align: center;
-	position: relative;
-	font-size: 0px;
+    text-align: center;
+    position: relative;
+    font-size: 0px;
 }
 
 .Line2 {
     background-color: #051039; 
-	height: 5px;
-	position: absolute;
-	top: 50%;
-	left: 0px;
-	right: 0px;
-	transform: translate(0, -50%);
-	border: none;
+    height: 5px;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    right: 0px;
+    transform: translate(0, -50%);
+    border: none;
 }
 
 .Line3 {
     background-color: #051039; 
-	display: inline-block;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
 }
 
 .Line4 {
-	display: inline-block;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	font-size: 20px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
 }
 
 /* ============================================== */
@@ -1732,45 +1732,45 @@ thead tr:first-child {
 /* ============================================== */
 
 .Loader {
-  	text-align: center;
-  	padding: 20px;
+      text-align: center;
+      padding: 20px;
 }
 
 .LoaderBody {
-  	display: inline-block;
+      display: inline-block;
 }
 
 .LoaderRing {
-  	position: absolute;
-  	width: 120px;
-  	height: 120px;
-  	border-radius: 50%;
-  	animation: LoaderRing 2s linear infinite;
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      animation: LoaderRing 2s linear infinite;
 }
 @keyframes LoaderRing {
-  	0%{
-    	transform: rotate(0deg);
-    	box-shadow: 1px 5px 2px #e65c00;
-  	}
-  	50%{
-    	transform: rotate(180deg);
-    	box-shadow: 1px 5px 2px #18b201;
-  	}
-  	100%{
-    	transform: rotate(360deg);
-    	box-shadow: 1px 5px 2px #0456c8;
-  	}
+      0%{
+        transform: rotate(0deg);
+        box-shadow: 1px 5px 2px #e65c00;
+      }
+      50%{
+        transform: rotate(180deg);
+        box-shadow: 1px 5px 2px #18b201;
+      }
+      100%{
+        transform: rotate(360deg);
+        box-shadow: 1px 5px 2px #0456c8;
+      }
 }
 
 .LoaderRing:before {
-  	position: absolute;
-  	content: '';
-  	left: 0;
-  	top: 0;
-  	height: 100%;
-  	width: 100%;
-  	border-radius: 50%;
-  	box-shadow: 0 0 5px rgba(255,255,255,.3);
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      box-shadow: 0 0 5px rgba(255,255,255,.3);
 }
 
 .LoaderMsg {
@@ -1783,9 +1783,9 @@ thead tr:first-child {
   animation: LoaderMsg 3s ease-in-out infinite;
 }
 @keyframes LoaderMsg {
-  	50%{
-    	color: #5f5f5f;
-  	}
+      50%{
+        color: #5f5f5f;
+      }
 }
 
 /* ============================================== */
@@ -1836,7 +1836,7 @@ thead tr:first-child {
 
 .Menu {
     background-color: rgba(255, 255, 255, 0.2);
-	text-align: left;
+    text-align: left;
     font-size: 0px;
     line-height: 40px;
     position: relative;
@@ -1844,7 +1844,7 @@ thead tr:first-child {
 }
 
 .Menu2 {
-	position: relative;
+    position: relative;
 }
 
 .Menu2Input {
@@ -1853,10 +1853,10 @@ thead tr:first-child {
 }
 
 .Menu2Caret {
-	position: absolute;
-  	top: 50%;
+    position: absolute;
+      top: 50%;
     transform: translate(0, -50%);
-  	right: 5px;
+      right: 5px;
     cursor: pointer;
 }
 
@@ -1865,57 +1865,57 @@ thead tr:first-child {
 }
 
 .Menu2Content.Show {
-	display: block;
-	position: absolute;
-	top: 100%;
-	left: 0px;
-	right: 0px;
-	background-color: #051039;
-	border: 1px solid rgba(255, 255, 255, 0.4);
-	max-height: 250px;
-	overflow: auto;
-	z-index: 1;
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    right: 0px;
+    background-color: #051039;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    max-height: 250px;
+    overflow: auto;
+    z-index: 1;
 }
 
 .Menu2Line {
-	position: relative;
-	line-height: 30px;
+    position: relative;
+    line-height: 30px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     cursor: pointer;
     padding-left: 10px;
 }
 
 .Menu2Line:hover {
-	background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .Menu2Img {
-	position: absolute;
-	top: 50%;
-	right: 5px;
+    position: absolute;
+    top: 50%;
+    right: 5px;
     transform: translate(0, -50%);
-	width: 25px;
-	height: 25px;
-	border-radius: 50%;
-	background-size: cover;
-	z-index: 1;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-size: cover;
+    z-index: 1;
 }
 
 .Menu2Zoom {
-  	display: none;
+      display: none;
 }
 
 .Menu2Zoom.Show {
-  	display: block;
-	position: absolute;
-	top: 50%;
-	left: 100%;
-	margin-left: 5px;
+      display: block;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-left: 5px;
     transform: translate(0, -50%);
-	border-radius: 5px;
-	background-size: cover;
-	width: 100px;
-	height: auto;
+    border-radius: 5px;
+    background-size: cover;
+    width: 100px;
+    height: auto;
     border: 1px solid rgba(255, 255, 255, 0.2);
     z-index: 2;
 }
@@ -1957,6 +1957,9 @@ thead tr:first-child {
 }
 
 .Modal3 {
+    position: absolute;
+    top: 5px;
+    right: 5px;
     height: 300px;
     overflow: auto;
     padding: 0px 10px 10px 0px;
@@ -1968,19 +1971,19 @@ thead tr:first-child {
 
 .Navigation1 {
     background-color: rgba(255, 255, 255, 0.2);
-	border: 1px solid blue;
-	font-size: 0px;
-	text-align: left;
+    border: 1px solid blue;
+    font-size: 0px;
+    text-align: left;
 }
 
 .Navigation2,
 .Navigation3 {
-	border: 1px solid blue;
-	border-top: 5px solid transparent;
+    border: 1px solid blue;
+    border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
-	display: inline-block;
-	padding: 0px 10px;
-	line-height: 40px;
+    display: inline-block;
+    padding: 0px 10px;
+    line-height: 40px;
     vertical-align: middle;
     font-size: 18px;
     font-family: Aclonica;
@@ -2091,7 +2094,7 @@ thead tr:first-child {
 
 .Parallax5 {
     /* background-color: #803300; */
-	position: relative;
+    position: relative;
     min-height: 50px;
     font-size: 20px;
     color: white;
@@ -2112,8 +2115,8 @@ thead tr:first-child {
 }
 
 .Path2 {
-	vertical-align: middle;
-	background-color: rgba(255, 255, 255, 0.2);
+    vertical-align: middle;
+    background-color: rgba(255, 255, 255, 0.2);
     display: inline-block;
     font-family: Aclonica;
     font-size: 16px;
@@ -2123,7 +2126,7 @@ thead tr:first-child {
 }
 
 .Path3 {
-	vertical-align: middle;
+    vertical-align: middle;
     display: inline-block;
     font-size: 16px;
     margin: 5px;
@@ -2134,39 +2137,39 @@ thead tr:first-child {
 /* ============================================== */
 
 .RadioButton {
-	position: relative;
-  	display: inline-block;
-	margin-top: 5px;
-	margin-left: 5px;
-  	cursor: pointer;
-  	-webkit-user-select: none;
-  	-moz-user-select: none;
-  	-ms-user-select: none;
-  	user-select: none;
+    position: relative;
+      display: inline-block;
+    margin-top: 5px;
+    margin-left: 5px;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
 }
 
 .RadioButton:hover .RadioButtonCheck {
-  	background-color: #ccc;
+      background-color: #ccc;
 }
 
 .RadioButtonInput {
-  	position: absolute;
-  	opacity: 0;
-	cursor: pointer;
-	top: 50%;
-	left: 0px;
-	width: 14px;
-	height: 14px;
+      position: absolute;
+      opacity: 0;
+    cursor: pointer;
+    top: 50%;
+    left: 0px;
+    width: 14px;
+    height: 14px;
     transform: translate(0, -50%);
-  	z-index: 2;
+      z-index: 2;
 }
 
 .RadioButtonInput:checked ~ .RadioButtonCheck {
-  	background-color: #2196F3;
+      background-color: #2196F3;
 }
 
 .RadioButtonInput:checked ~ .RadioButtonCheck:after {
-  	display: block;
+      display: block;
 }
 
 .RadioButtonInput[disabled] ~ .RadioButtonCheck {
@@ -2174,40 +2177,40 @@ thead tr:first-child {
 }
 
 .RadioButtonInput[disabled] ~ .RadioButtonLabel {
-  	color: #808080;
+      color: #808080;
 }
 
 .RadioButtonInput[disabled] ~ .RadioButtonCheck:after {
-  	background-color: #fafafa;
+      background-color: #fafafa;
 }
 
 .RadioButtonCheck {
-	position: absolute;
-	top: 2px;
-	left: 0px;
-  	height: 12px;
-  	width: 12px;
-  	background-color: #eee;
-  	border-radius: 50%;
-  	z-index: 1;
+    position: absolute;
+    top: 2px;
+    left: 0px;
+      height: 12px;
+      width: 12px;
+      background-color: #eee;
+      border-radius: 50%;
+      z-index: 1;
 }
 
 .RadioButtonCheck:after {
-	display: none;
-	position: absolute;
-	content: "";
-	top: 50%;
-	left: 50%;
+    display: none;
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-	width: 6px;
-	height: 6px;
-	border-radius: 50%;
-	background-color: white;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: white;
 }
 
 .RadioButtonLabel {
-	padding-left: 16px;
-	cursor: pointer;
+    padding-left: 16px;
+    cursor: pointer;
 }
 
 /* ============================================== */
@@ -2507,7 +2510,7 @@ thead tr:first-child {
 
 .Skill1 {
     position: relative;
-	font-size: 0px;
+    font-size: 0px;
 }
 
 .Skill2 {
@@ -2519,7 +2522,7 @@ thead tr:first-child {
     top: 0px;
     left: 0px;
     text-align: center;
-	font-size: 20px;
+    font-size: 20px;
 }
 
 .Skill3 {
@@ -2534,7 +2537,7 @@ thead tr:first-child {
 
 .Skill4 {
     margin-left: 50px;
-	font-size: 16px;
+    font-size: 16px;
 }
 
 /* ============================================== */
@@ -2572,7 +2575,7 @@ thead tr:first-child {
 
 .Template2 {
     border: 2px solid rgba(255, 255, 255, 0.2);
-	height: 350px;
+    height: 350px;
     padding: 5px;
     margin-bottom: 50px;
 }
@@ -2580,10 +2583,10 @@ thead tr:first-child {
 .Template3 {
     border: 1px solid transparent;
     position: absolute;
-	height: 50px;
-	left: 0px;
-	right: 0px;
-	bottom: 0px;	
+    height: 50px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;    
     padding: 5px;
 }
 
@@ -2717,22 +2720,22 @@ thead tr:first-child {
 }
 
 .Text13 {
-	font-size: 0px;
-	position: relative;
+    font-size: 0px;
+    position: relative;
 }
 
 .Text14 {
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	position: absolute;
-	top: 0px;
-	left: 0px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
 
 .Text15 {
-	font-size: 20px;
-	margin-left: 50px;
+    font-size: 20px;
+    margin-left: 50px;
 }
 
 /* ============================================== */

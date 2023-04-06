@@ -5,16 +5,11 @@ class GEditor extends GObject {
     //===============================================
     constructor() {
         super();
-        
-        this.m_line = "";
-        this.m_text = "";
-        this.m_tabIndex = "";
-        this.m_codeSource = "";
-
-        this.m_tabId = null;
         this.m_selection = null;
         this.m_range = null;
         this.m_node = null;
+        this.m_line = "";
+        this.m_text = "";
     }
     //===============================================
     static Instance() {
@@ -25,7 +20,8 @@ class GEditor extends GObject {
     }
     //===============================================
     clone() {
-        return new GEditor();
+        var lObj = new GEditor();
+        return lObj;
     }
     //===============================================
     setObj(_obj) {
@@ -37,41 +33,30 @@ class GEditor extends GObject {
     }
     //===============================================
     init() {
-        this.readTabIndex();
-        this.initTab(this.m_tabIndex);
+        var lEditorTabs = document.getElementsByClassName("EditorTab");
+        var lEditorTabDefault = document.getElementById("EditorTabDefault");
+        if(lEditorTabs.length) {
+            var lDefaultId = +lEditorTabDefault.value;
+            var lEditorTab = lEditorTabs[lDefaultId];
+            this.onOpenHeader(lEditorTab, "EditorTab" + lDefaultId);
+        }
     }
     //===============================================
     initTab(_index) {
-        if(this.readTabId(_index)) {
-            this.onOpenEditorTab(this.m_tabId, "EditorTab" + _index);
-        }
-    }
-    //===============================================
-    readTabIndex() {
-        var lEditorTab = document.getElementById("EditorTab");
-        this.m_tabIndex = +lEditorTab.dataset.defaultId;
-    }
-    //===============================================
-    readTabId(_index) {
         var lEditorTabs = document.getElementsByClassName("EditorTab");
-        if(_index < 0 || _index >= lEditorTabs.length) {
-            this.addError("L'index de la tab est invalide.");
-            return false;
+        if(lEditorTabs.length) {
+            var lEditorTab = lEditorTabs[_index];
+            this.onOpenHeader(lEditorTab, "EditorTab" + _index);
         }
-        this.m_tabId = lEditorTabs[_index];
-        return !this.hasErrors();
     }
     //===============================================
-    appendData(_data) {
+    appendNode(_data) {
         this.m_node.appendChild(this.createNode(_data));
-    }
-    //===============================================
-    appendNode(_node) {
-        this.m_node.appendChild(_node);
     }
     //===============================================
     removeNode() {
         this.m_node.remove()
+        //document.execCommand("insertLineBreak");
         return !this.hasErrors();
     }
     //===============================================
@@ -134,35 +119,12 @@ class GEditor extends GObject {
         }
     }
     //===============================================
-    readCodeEdition() {
-        var lEditor = document.getElementById("GEndEditor");
-        this.m_codeSource = lEditor.innerHTML;
-    }
-    //===============================================
-    writeCodeEdition() {
-        var lEditor = document.getElementById("GEndEditor");
-        lEditor.innerHTML = this.m_codeSource;
-    }
-    //===============================================
-    readCodeSource() {
-        var lEditorCodeSource = document.getElementById("EditorCodeSource");
-        this.m_codeSource = lEditorCodeSource.innerHTML;
-    }
-    //===============================================
-    writeCodeSource() {
-        var lEditorCodeSource = document.getElementById("EditorCodeSource");
-        lEditorCodeSource.innerHTML = this.m_codeSource;
-    }
-    //===============================================
     run(_method, _obj, _data) {
         if(_method == "") {
             this.addError("Erreur la méthode est obligatoire.");
         }
-        //===============================================
-        // tabs
-        //===============================================
-        else if(_method == "open_editor_tab") {
-            this.onOpenEditorTab(_obj, _data);
+        else if(_method == "open_header") {
+            this.onOpenHeader(_obj, _data);
         }
         //===============================================
         // command_no_argument
@@ -172,10 +134,6 @@ class GEditor extends GObject {
         }
         //===============================================
         // page
-        //===============================================
-        else if(_method == "go_to_code") {
-            this.onGoToCode(_obj, _data);
-        }
         //===============================================
         else if(_method == "show_code_page") {
             this.onShowCodePage(_obj, _data);
@@ -419,7 +377,7 @@ class GEditor extends GObject {
         return !this.hasErrors();
     }
     //===============================================
-    onOpenEditorTab(_obj, _data) {
+    onOpenHeader(_obj, _data) {
         if(!_obj) return;
         var lTabs = document.getElementsByClassName("EditorTab");
         for(var i = 0; i < lTabs.length; i++) {
@@ -444,12 +402,6 @@ class GEditor extends GObject {
     }
     //===============================================
     // page
-    //===============================================
-    onGoToCode(_obj, _data) {
-        this.readCodeEdition();
-        this.writeCodeSource();
-        this.initTab(4);
-    }
     //===============================================
     onShowCodePage(_obj, _data) {
         this.initTab(4);
@@ -1187,8 +1139,8 @@ class GEditor extends GObject {
         lPath.m_link = "#";
         lPath.m_arrow = "chevron-right";
         
-        this.appendData(lPath.toArrow());
-        this.appendData(lPath.toLink());
+        this.appendNode(lPath.toArrow());
+        this.appendNode(lPath.toLink());
     }
     //===============================================
     onUpdatePathLink(_obj, _data) {
@@ -1524,6 +1476,4 @@ class GEditor extends GObject {
     }
     //===============================================
 }
-//===============================================
-GEditor.Instance().init();
 //===============================================

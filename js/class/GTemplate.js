@@ -5,14 +5,18 @@ class GTemplate extends GObject {
     //===============================================
     constructor() {
         super();
-        this.m_category = "";
-        this.m_model = "";
         this.m_id = "";
+        this.m_formId = "";
+        this.m_titleId = "";
+        this.m_introId = "";
+        this.m_bodyId = "";
         this.m_module = "";
         this.m_method = "";
         this.m_picto = "";
         this.m_label = "";
-        this.m_text = "";
+        this.m_data = "";
+        this.m_title = "";
+        this.m_intro = "";
     }
     //===============================================
     static Instance() {
@@ -28,26 +32,35 @@ class GTemplate extends GObject {
     }
     //===============================================
     setObj(_obj) {
-        this.m_category = _obj.m_category;
-        this.m_model = _obj.m_model;
+        super.setObj(_obj);
         this.m_id = _obj.m_id;
+        this.m_formId = _obj.m_formId;
+        this.m_titleId = _obj.m_titleId;
+        this.m_introId = _obj.m_introId;
+        this.m_bodyId = _obj.m_bodyId;
         this.m_module = _obj.m_module;
         this.m_method = _obj.m_method;
         this.m_picto = _obj.m_picto;
         this.m_label = _obj.m_label;
-        this.m_text = _obj.m_text;
+        this.m_data = _obj.m_data;
+        this.m_title = _obj.m_title;
+        this.m_intro = _obj.m_intro;
     }
     //===============================================
     isEqual(_obj) {
-        var lEqualOk = true;
-        lEqualOk &= (this.m_category == _obj.m_category);
-        lEqualOk &= (this.m_model == _obj.m_model);
+        var lEqualOk = super.isEqual(_obj);
         lEqualOk &= (this.m_id == _obj.m_id);
+        lEqualOk &= (this.m_formId == _obj.m_formId);
+        lEqualOk &= (this.m_titleId == _obj.m_titleId);
+        lEqualOk &= (this.m_introId == _obj.m_introId);
+        lEqualOk &= (this.m_bodyId == _obj.m_bodyId);
         lEqualOk &= (this.m_module == _obj.m_module);
         lEqualOk &= (this.m_method == _obj.m_method);
         lEqualOk &= (this.m_picto == _obj.m_picto);
         lEqualOk &= (this.m_label == _obj.m_label);
-        lEqualOk &= (this.m_text == _obj.m_text);
+        lEqualOk &= (this.m_data == _obj.m_data);
+        lEqualOk &= (this.m_title == _obj.m_title);
+        lEqualOk &= (this.m_intro == _obj.m_intro);
         return lEqualOk;
     }
     //===============================================
@@ -57,7 +70,7 @@ class GTemplate extends GObject {
         lObj.m_model = "label_edit";
         lObj.m_id = _id;
         lObj.m_label = _label;
-        lObj.m_text = _text;
+        lObj.m_data = _text;
         this.m_map.push(lObj);
     }
     //===============================================
@@ -68,8 +81,49 @@ class GTemplate extends GObject {
         lObj.m_module = _module;
         lObj.m_method = _method;
         lObj.m_picto = _picto;
-        lObj.m_text = _text;
+        lObj.m_data = _text;
         this.m_map.push(lObj);
+    }
+    //===============================================
+    initLog() {
+        var lObj = new GTemplate();
+        lObj.m_category = "log";
+        lObj.m_model = "log";
+        lObj.m_id = "LogModal";
+        lObj.m_formId = "LogForm";
+        lObj.m_titleId = "LogTitle";
+        lObj.m_introId = "LogIntro";
+        lObj.m_bodyId = "LogBody";
+        lObj.m_title = "Logs";
+        lObj.m_module = "logs";
+        lObj.m_method = "close_logs";
+        lObj.m_data = "OK";
+        lObj.m_intro = "Consultez les logs.";
+        this.m_map.push(lObj);
+    }
+    //===============================================
+    toLog() {
+        this.initLog();
+        var lObj = this.findObjMapCM("log", "log");
+        lObj.loadFromMap(0);
+        
+        var lHtml = "";
+        lHtml += sprintf("<div class='Modal1' id='%s'>\n", lObj.m_id);
+        lHtml += sprintf("<div class='Modal2' id='%s'>\n", lObj.m_formId);
+        lHtml += sprintf('<div class="Modal3" onclick="call_server(\'%s\', \'%s\', this)"><i class="fa fa-close"></i></div>\n', lObj.m_module, lObj.m_method);
+        lHtml += sprintf("<div class='Modal4' id='%s'>%s</div>\n", lObj.m_titleId, lObj.m_title);
+        lHtml += sprintf("<div class='Modal5'>\n");
+        lHtml += sprintf("<div class='Modal6' id='%s'>%s</div>\n", lObj.m_introId, lObj.m_intro);
+        lHtml += sprintf("<div class='Modal7'>\n");
+        lHtml += sprintf("<div id='%s'></div>\n", lObj.m_bodyId);
+        lHtml += sprintf("</div>\n");
+        lHtml += sprintf("<div class='Modal8'>\n");
+        lHtml += sprintf('<div class="Modal9" onclick="call_server(\'%s\', \'%s\', this)">%s</div>\n', lObj.m_module, lObj.m_method, lObj.m_data);
+        lHtml += sprintf("</div>\n");
+        lHtml += sprintf("</div>\n");
+        lHtml += sprintf("</div>\n");
+        lHtml += sprintf("</div>\n");
+        return lHtml;
     }
     //===============================================
     toHtml() {
@@ -83,7 +137,7 @@ class GTemplate extends GObject {
                 if(lObj.m_model == "label_edit") {
                     lHtml += sprintf("<div class='Template5'>\n");
                     lHtml += sprintf("<label class='Template6'>%s</label>\n", lObj.m_label);
-                    lHtml += sprintf("<div class='Template7'><input class='Template8' id='%s' value='%s'/></div>\n", lObj.m_id, lObj.m_text);
+                    lHtml += sprintf("<div class='Template7'><input class='Template8' id='%s' value='%s'/></div>\n", lObj.m_id, lObj.m_data);
                     lHtml += sprintf("</div>\n");
                 }
             }
@@ -97,7 +151,7 @@ class GTemplate extends GObject {
             if(lObj.m_category == "footer") {
                 if(lObj.m_model == "button") {
                     lHtml += sprintf("<button type='button' class='Template4' onclick='call_server(\"%s\", \"%s\", this)'><i class='fa fa-%s'></i> %s</button>\n"
-                    , lObj.m_module, lObj.m_method, lObj.m_picto, lObj.m_text);
+                    , lObj.m_module, lObj.m_method, lObj.m_picto, lObj.m_data);
                 }
             }
         }
@@ -105,35 +159,6 @@ class GTemplate extends GObject {
         lHtml += sprintf("</div>\n");
         lHtml += sprintf("</div>\n");
         return lHtml;
-    }
-    //===============================================
-    serialize(_code = "template") {
-        var lDom = new GCode();
-        lDom.createDoc();
-        lDom.addData(_code, "category", this.m_category);
-        lDom.addData(_code, "model", this.m_model);
-        lDom.addData(_code, "id", this.m_id);
-        lDom.addData(_code, "module", this.m_module);
-        lDom.addData(_code, "method", this.m_method);
-        lDom.addData(_code, "picto", this.m_picto);
-        lDom.addData(_code, "label", this.m_label);
-        lDom.addData(_code, "text", this.m_text);
-        lDom.addMap(_code, this.m_map);
-        return lDom.toString();
-    }
-    //===============================================
-    deserialize(_data, _code = "template") {
-        var lDom = new GCode();
-        lDom.loadXml(_data);
-        this.m_category = lDom.getItem(_code, "category");
-        this.m_model = lDom.getItem(_code, "model");
-        this.m_id = lDom.getItem(_code, "id");
-        this.m_module = lDom.getItem(_code, "module");
-        this.m_method = lDom.getItem(_code, "method");
-        this.m_picto = lDom.getItem(_code, "picto");
-        this.m_label = lDom.getItem(_code, "label");
-        this.m_text = lDom.getItem(_code, "text");
-        lDom.getMap(_code, this.m_map, this);
     }
     //===============================================
 }

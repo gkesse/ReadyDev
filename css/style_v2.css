@@ -64,7 +64,7 @@ input:-webkit-autofill:active {
 }
 
 input[readonly] {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 * {
@@ -125,7 +125,7 @@ textarea {
     color: white;
     width: 100%;
     resize: none;
-  	cursor: auto;
+      cursor: auto;
 }
 
 textarea:-webkit-autofill,
@@ -148,16 +148,16 @@ span {
 }
 
 table, th, td {
-	border: 2px solid #2f3959;
+    border: 2px solid #2f3959;
 }
 
 table {
-	width: 100%;
-  	border-collapse: collapse;
+    width: 100%;
+      border-collapse: collapse;
 }
 
 th, td {
-	padding: 5px 10px;
+    padding: 5px 10px;
 }
 
 tr {
@@ -165,11 +165,77 @@ tr {
 }
 
 tr:hover {
-	background-color: #512731;
+    background-color: #512731;
 }
 
 thead tr:first-child {
-	background-color: #2f3959;
+    background-color: #2f3959;
+}
+
+/* ============================================== */
+/* Animate */
+/* ============================================== */
+
+.AnimateShow {
+    animation-name: AnimateShow;
+    animation-duration: 0.4s
+    -webkit-animation-name: AnimateShow;
+    -webkit-animation-duration: 0.4s;
+    -moz-animation-name: AnimateShow;
+    -moz-animation-duration: 0.4s;
+    -o-animation-name: AnimateShow;
+    -o-animation-duration: 0.4s;
+}
+
+@keyframes AnimateShow {
+    from {top:-400px; opacity:0;}
+    to {top:0; opacity:1}
+}
+
+@-webkit-keyframes AnimateShow {
+    from {top:-400px; opacity:0;} 
+    to {top:0; opacity:1;}
+}
+
+@-moz-keyframes AnimateShow {
+    from {top:-400px; opacity:0;} 
+    to {top:0; opacity:1;}
+}
+
+@-o-keyframes AnimateShow {
+    from {top:-400px; opacity:0;} 
+    to {top:0; opacity:1;}
+}
+
+.AnimateHide {
+    animation-name: AnimateHide;
+    animation-duration: 0.4s
+    -webkit-animation-name: AnimateHide;
+    -webkit-animation-duration: 0.4s;
+    -moz-animation-name: AnimateHide;
+    -moz-animation-duration: 0.4s;
+    -o-animation-name: AnimateHide;
+    -o-animation-duration: 0.4s;
+}
+
+@keyframes AnimateHide {
+    from {top:0; opacity:1}
+    to {top:-400px; opacity:0}
+}
+
+@-webkit-keyframes AnimateHide {
+    from {top:0; opacity:1}
+    to {top:-400px; opacity:0}
+}
+
+@-moz-keyframes AnimateHide {
+    from {top:0; opacity:1}
+    to {top:-400px; opacity:0}
+}
+
+@-o-keyframes AnimateHide {
+    from {top:0; opacity:1}
+    to {top:-400px; opacity:0}
 }
 
 /* ============================================== */
@@ -185,7 +251,7 @@ thead tr:first-child {
     z-index: -1;
         
     background-image: url("/data/img/defaults/top_masque.png"),
-	url("/data/img/defaults/fond.jpg");
+    url("/data/img/defaults/fond.jpg");
     background-position: center top, left top;
     background-repeat: no-repeat, no-repeat;    
     background-size: auto 85%, 100% 100%;    
@@ -198,12 +264,12 @@ thead tr:first-child {
 }
 
 .Background2 {
-	position: absolute;
+    position: absolute;
     top: 300px;
     bottom: 300px;
     left: 0px;
     right: 0px;
-	z-index: -1;
+    z-index: -1;
     
     background-image: url("/data/img/defaults/middle.gif");
     background-position: center center;
@@ -219,7 +285,7 @@ thead tr:first-child {
     min-height: 300px;
     z-index: -1;
 
-  	background-image: url("/data/img/defaults/footer.jpg");
+    background-image: url("/data/img/defaults/footer.jpg");
     background-position: left top;
     background-repeat: no-repeat;    
     background-size: 100% 100%;    
@@ -236,11 +302,11 @@ thead tr:first-child {
 /* ============================================== */
 
 .Block1 {
-	padding: 10px;
+    padding: 10px;
 }
 
 .Block2 {
-	background-color: rgba(35, 47, 87, 0.9);
+    background-color: rgba(35, 47, 87, 0.9);
 }
 
 .Block3 {
@@ -264,7 +330,7 @@ thead tr:first-child {
 }
 
 .Block7 {
-	display: inline-block;
+    display: inline-block;
     vertical-align: middle;
     font-size: 14px;
     padding: 5px;
@@ -289,24 +355,24 @@ thead tr:first-child {
 }
 
 .Block10 {
-	border-bottom: 5px solid #051039;
+    border-bottom: 5px solid #051039;
     color: #f67b20;
     padding-bottom: 5px;
 }
 
 .Block11 {
-	padding: 10px 0px;
+    padding: 10px 0px;
     overflow: auto;
     scrollbar-color: #5f6681 #051039;
     scrollbar-width: auto;
 }
 
 .Block12 {
-	height: 400px;
+    height: 400px;
 }
 
 .Block13 {
-	background-color: #051039;
+    background-color: #051039;
     padding: 10px;
 }
 
@@ -325,9 +391,9 @@ thead tr:first-child {
 }
 
 .Block17 {
-	position: absolute;
-	top: 0px;
-	right: 10px;
+    position: absolute;
+    top: 0px;
+    right: 10px;
 }
 
 .Block18 {
@@ -341,36 +407,37 @@ thead tr:first-child {
 }
 
 .Block19 {
-	display: none;
+    display: none;
 }
 
 .Block19.Show {
-	display: block;
+    display: block;
     border: 1px solid #4f5979;
-	position: absolute;
-	top: 100%;
-	right: 0px;
-	width: 300px;
+    position: absolute;
+    top: 100%;
+    right: 0px;
+    width: 300px;
     background-color: #051039;
+    z-index: 1;
 }
 
 .Block20 {
-	color: #eeeeee;
-	padding: 5px 10px;
-	display: block;
-	border-bottom: 1px solid #2f3959;
-	cursor: pointer;
-	text-align: left;
-	position: relative;
+    color: #eeeeee;
+    padding: 5px 10px;
+    display: block;
+    border-bottom: 1px solid #2f3959;
+    cursor: pointer;
+    text-align: left;
+    position: relative;
 }
 
 .Block20:hover {
-	background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .Block20.Active,
 .Block20.Active:hover {
-	background-color: #2f5959;
+    background-color: #2f5959;
 }
 
 .Block21 {
@@ -378,12 +445,12 @@ thead tr:first-child {
 }
 
 .Block22 {
-	display: none;
+    display: none;
 }
 
 .Block22.Show {
-	display: block;
-	padding-left: 20px;
+    display: block;
+    padding-left: 20px;
 }
 
 .Block23 {
@@ -393,6 +460,10 @@ thead tr:first-child {
 }
 
 .Block24 {
+
+}
+
+.Block25 {
     position: absolute;
     top: 50%;
     right: 10px;
@@ -400,12 +471,48 @@ thead tr:first-child {
 }
 
 /* ============================================== */
+/* Form */ 
+/* ============================================== */
+
+.Form1 {
+    padding: 10px;
+}
+
+.Form2 {
+    position: relative;
+    margin: 10px 0px;
+}
+
+.Form3 {
+    background-color: rgba(255, 255, 255, 0.2);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    line-height: 30px;
+    padding: 0px 10px;
+}
+
+.Form4 {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-left: 200px;
+    height: 30px;   
+}
+
+.Form5 {
+    border: 1px solid #3a405b;
+    height: 100%;   
+    width: 100%;
+    padding: 5px 10px;
+}
+
+/* ============================================== */
 /* Html */ 
 /* ============================================== */
 
 .Html1 {
-	border: 1px solid transparent;
-	position: relative;
+    border: 1px solid transparent;
+    position: relative;
 }
 
 .Html2 {
@@ -416,7 +523,7 @@ thead tr:first-child {
     margin-bottom: 250px;
     min-height: 150px;
     
-	border: 10px solid transparent;
+    border: 10px solid transparent;
     border-image: url("/data/img/defaults/border.png") 30 round;
     -webkit-border-image: url("/data/img/defaults/border.png") 30 round; 
     -moz-border-image: url("/data/img/defaults/border.png") 30 round; 
@@ -424,36 +531,46 @@ thead tr:first-child {
 }
 
 /* ============================================== */
+/* Img */ 
+/* ============================================== */
+
+.Img1 {
+    overflow: auto;
+}
+
+/* ============================================== */
 /* Menu */ 
 /* ============================================== */
 
 .Menu1 {
-	background-color: rgba(255, 255, 255, 0.2);
-	text-align: left;
-	font-size: 0px;
+    background-color: rgba(255, 255, 255, 0.2);
+    text-align: left;
+    font-size: 0px;
 }
 
-.Menu2,
-.Menu3,
-.Menu8 {
-	border-top: 5px solid transparent;
+.Menu2 {
+    border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
-	display: inline-block;
-	padding: 0px 10px;
-	line-height: 40px;
+    display: inline-block;
+    padding: 0px 10px;
+    line-height: 35px;
     vertical-align: middle;
     font-size: 18px;
-    font-family: Aclonica;
+    font-family: arial;
 }
 
-.Menu2:hover,
-.Menu8:hover {
+.Menu2:hover {
     border-bottom: 5px solid #89a830;
 }
 
-.Menu2.Active,
-.Menu8.Active {
+.Menu2.Active {
     border-bottom: 5px solid #f67b20;
+}
+
+.Menu3 {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0px 10px;
 }
 
 .Menu4 {
@@ -464,6 +581,7 @@ thead tr:first-child {
     height: 30px;
     border-radius: 50%;
     padding: 3px;
+    margin-right: 5px;
 }
 
 .Menu5  {
@@ -475,40 +593,147 @@ thead tr:first-child {
     color: cyan;
 }
 
-.Menu6 {
-	position: relative;
-	display: inline-block;
+.Menu6  {
+    display: inline-block;
+    position: relative;
 }
 
-.Menu6:hover .Menu7,
-.Menu6:hover .Menu11 {
-	display: block;	
-}
-
-.Menu7,
-.Menu11 {
-	display: none;	
-	min-width: 300px;
+.Menu7  {
+    border: 1px solid #4f5979;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0px;
     background-color: #051039;
+    z-index: 1;
+    width: 300px;
+    max-height: 300px;
+    overflow: auto;
+}
+
+.Menu6:hover .Menu7 {
+    display: block;
 }
 
 .Menu8 {
-	display: block;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    display: inline-block;
+    padding: 0px 10px;
+    line-height: 30px;
+    vertical-align: middle;
+    font-size: 18px;
+    font-family: arial;
 }
 
-.Menu9 {
-	display: inline-block;
+.Menu8:hover {
+    border-bottom: 5px solid #89a830;
 }
 
-.Menu10 {
-	display: block;
+.Menu8.Active {
+    border-bottom: 5px solid #f67b20;
 }
 
-.Menu11 {
-	position: absolute;	
-	border: 2px solid rgba(255, 255, 255, 0.2);
-	top: 100%;
-	left: 0px;
+.Menu9  {
+    position: relative;
+}
+
+.Menu10  {
+    border-bottom: 1px solid #2f3959;
+}
+
+.Menu11  {
+    border: 1px solid #4f5979;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    background-color: #051039;
+    z-index: 1;
+    width: 250px;
+}
+
+/* ============================================== */
+/* Modal */
+/* ============================================== */
+
+.Modal1 {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    padding: 10px;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.4);
+    overflow: auto;
+    text-align: left;
+}
+
+.Modal2 {
+    background-color: #051039;
+    margin: auto;
+    max-width: 500px;
+    position: relative;
+}
+
+.Modal3 {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.Modal4 {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px 35px 10px 10px;
+    font-family: Anton;
+    font-size: 25px;
+}
+
+.Modal5 {
+    padding: 10px;
+}
+
+.Modal6 {
+    margin-bottom: 10px;
+}
+
+.Modal7 {
+    overflow: auto;
+    padding: 10px 0px;
+}
+
+.Modal8 {
+    text-align: right;
+    font-size: 0px;
+    padding-top: 10px;
+}
+
+.Modal9 {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0px 10px;
+    line-height: 30px; 
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.Modal9:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.Modal9:active {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* ============================================== */

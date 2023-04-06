@@ -84,6 +84,19 @@
             return false;
         }
         //===============================================
+        public function findObjMapC($_category, $_parent = null) {
+            $lMap = $this->clone();
+            for($i = 0; $i < count($this->m_map); $i++) {
+                $lObj = $this->m_map[$i];
+                if($lObj->m_category == $_category) {
+                    if($lObj->m_parentObj == $_parent) {
+                        $lMap->m_map[] = $lObj;
+                    }
+                }
+            }
+            return $lMap;
+        }
+        //===============================================
         public function findObjMapCM($_category, $_model, $_parent = null) {
             $lMap = $this->clone();
             for($i = 0; $i < count($this->m_map); $i++) {

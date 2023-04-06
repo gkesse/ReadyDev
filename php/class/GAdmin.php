@@ -15,6 +15,7 @@ class GAdmin extends GObject {
     private $m_methodKeydown = "";
     private $m_modulePaste = "";
     private $m_methodPaste = "";
+    private $m_label = "";
     private $m_data = "";
     private $m_key = "";
     private $m_menu = "";
@@ -31,6 +32,22 @@ class GAdmin extends GObject {
     public function setObj($_obj) {
         parent::setObj($_obj);
         $this->m_id = $_obj->m_id;
+        $this->m_tabId = $_obj->m_tabId;
+        $this->m_contentId = $_obj->m_contentId;
+        $this->m_defaultId = $_obj->m_defaultId;
+        $this->m_editorId = $_obj->m_editorId;
+        $this->m_title = $_obj->m_title;
+        $this->m_link = $_obj->m_link;
+        $this->m_module = $_obj->m_module;
+        $this->m_method = $_obj->m_method;
+        $this->m_moduleKeydown = $_obj->m_moduleKeydown;
+        $this->m_methodKeydown = $_obj->m_methodKeydown;
+        $this->m_modulePaste = $_obj->m_modulePaste;
+        $this->m_methodPaste = $_obj->m_methodPaste;
+        $this->m_key = $_obj->m_key;
+        $this->m_label = $_obj->m_label;
+        $this->m_data = $_obj->m_data;
+        $this->m_menu = $_obj->m_menu;
         $this->m_placeholder = $_obj->m_placeholder;
     }
     //===============================================
@@ -131,6 +148,26 @@ class GAdmin extends GObject {
         $this->m_currentObj = $lObj;
     }
     //===============================================
+    public function addLabelEdit($_category, $_id, $_label, $_data = "") {
+        $lObj = new GAdmin();
+        $lObj->m_category = $_category;
+        $lObj->m_model = "label_edit";
+        $lObj->m_id = $_id;
+        $lObj->m_label = $_label;
+        $lObj->m_data = $_data;
+        $this->m_map[] = $lObj;
+    }
+    //===============================================
+    public function addLabelPassord($_category, $_id, $_label, $_data = "") {
+        $lObj = new GAdmin();
+        $lObj->m_category = $_category;
+        $lObj->m_model = "label_password";
+        $lObj->m_id = $_id;
+        $lObj->m_label = $_label;
+        $lObj->m_data = $_data;
+        $this->m_map[] = $lObj;
+    }
+    //===============================================
     public function addMenuProject($_module, $_method, $_data = "", $_key = "") {
         $this->addMenu("menu", "project", $_module, $_method, $_data, $_key);
     }
@@ -194,7 +231,7 @@ class GAdmin extends GObject {
                     }
                     else {
                         $lMenu .= sprintf("<div class='Block21'>\n");
-                        $lMenu .= sprintf("<div class='Block20'>%s <i class='Block24 fa fa-caret-down'></i></div>\n", $lObj->m_data);
+                        $lMenu .= sprintf("<div class='Block20'>%s <i class='Block25 fa fa-caret-down'></i></div>\n", $lObj->m_data);
                         $lMenu .= sprintf("<div class='Block22'>\n");
                         $lMenu .= $this->writeMenu($_category, $_model, $lObj);
                         $lMenu .= sprintf("</div>\n");
@@ -218,8 +255,52 @@ class GAdmin extends GObject {
         return $this->toMenu("menu", "project");
     }
     //===============================================
+    public function toMenuPage() {
+        return $this->toMenu("menu", "project");
+    }
+    //===============================================
     public function toMenuEdition() {
         return $this->toMenu("menu", "edition");
+    }
+    //===============================================
+    public function toContentProject() {
+        $lHtml = "";
+        $lHtml .= sprintf("<div class='Form1'>\n");
+        
+        $lObj = $this->findObjMapC("project_content");
+        
+        for($i = 0; $i < count($lObj->m_map); $i++) {
+            $lObj->loadFromMap($i);
+            
+            if($lObj->m_model == "label_edit") {
+                $lHtml .= sprintf("<div class='Form2'>\n");
+                $lHtml .= sprintf("<label class='Form3'>%s</label>\n", $lObj->m_label);
+                $lHtml .= sprintf("<div class='Form4'><input id='%s' class='Form5' type='text' value='%s'/></div>\n", $lObj->m_id, $lObj->m_data);
+                $lHtml .= sprintf("</div>\n");
+            }
+            else if($lObj->m_model == "label_password") {
+                $lHtml .= sprintf("<div class='Form2'>\n");
+                $lHtml .= sprintf("<label class='Form3'>%s</label>\n", $lObj->m_label);
+                $lHtml .= sprintf("<div class='Form4'><input id='%s' class='Form5' type='password' value='%s'/></div>\n", $lObj->m_id, $lObj->m_data);
+                $lHtml .= sprintf("</div>\n");
+            }
+            else if($lObj->m_model == "input_hidden") {
+                $lHtml .= sprintf("<input id='%s' type='hidden' value='%s'/>\n", $lObj->m_id, $lObj->m_data);
+            }
+            else if($lObj->m_model == "div_hidden") {
+                $lHtml .= sprintf("<div id='%s'>%s</div>\n", $lObj->m_id, $lObj->m_data);
+            }
+        }
+        
+        $lHtml .= sprintf("</div>\n");
+        return $lHtml;
+    }
+    //===============================================
+    public function toContentPage() {
+        $lHtml = "";
+        $lHtml .= sprintf("<div class='Form1'>\n");
+        $lHtml .= sprintf("</div>\n");
+        return $lHtml;
     }
     //===============================================
     public function toContentEdition() {
@@ -241,7 +322,7 @@ class GAdmin extends GObject {
         return $lHtml;
     }
     //===============================================
-    public function initTabCode() {
+    public function initContentCode() {
         $lObj = new GAdmin();
         $lObj->m_category = "tab";
         $lObj->m_model = "code";
@@ -250,19 +331,25 @@ class GAdmin extends GObject {
         $this->m_map[] = $lObj;
     }
     //===============================================
+    public function initContentProject() {
+        $this->addLabelEdit("project_content", "EditorProjectName", "Nom : ");
+        $this->addLabelEdit("project_content", "EditorProjectLabel", "Libellé : ", "MON PROJECT");
+        $this->addLabelPassord("project_content", "EditorProjectType", "Type : ", "MES TYPES");
+    }
+    //===============================================
     public function initEditor() {
         $this->setId("editeur_page_html");
         $this->setTabId("EditorTab");
         $this->setContentId("EditorTabCtn");
-        $this->setDefaultId("3");
+        $this->setDefaultId("1");
         $this->setEditorId("GEndEditor");
-        $this->setModule("admin");
+        $this->setModule("editor");
         $this->setMethod("open_editor_tab");
         $this->setTitle("Editeur de page HTML");
         $this->setLink("#");
         $this->setMenu("Menu");
-        $this->setKeydownCB("admin", "keydown_event_editor");
-        $this->setPasteCB("admin", "paste_event_editor");
+        $this->setKeydownCB("page", "key_down_edition");
+        $this->setPasteCB("keyevent", "paste_text_edition");
         
         $this->addHeaderButton("<i class='fa fa-home'></i>");
         $this->addHeaderButton("Projet");
@@ -295,10 +382,10 @@ class GAdmin extends GObject {
         $this->popParent();
         $this->popParent();
         
-        $this->addMenuEdition("", "", "Formulaires");
+        $this->addMenuEdition("", "", "Templates");
         $this->pushParent();
         $this->initParent();
-        $this->addMenuEdition("admin", "create_log_form", "Log");
+        $this->addMenuEdition("editor", "create_log_form", "Log");
         $this->popParent();
         
         $this->addMenuEdition("", "", "Actions");
@@ -306,30 +393,30 @@ class GAdmin extends GObject {
         $this->pushParent();
         $this->initParent();
         
-        $this->addMenuEdition("admin", "save_edition", "Enregistrer");
-        $this->addMenuEdition("admin", "search_edition", "Rechercher");
-        $this->addMenuEdition("admin", "delete_edition", "Supprimer");
-        $this->addMenuEdition("admin", "new_edition", "Nouveau");
-        $this->addMenuEdition("admin", "go_to_code", "Voir le code");
-        $this->addMenuEdition("admin", "store_edition", "Sauvegarder");
-        $this->addMenuEdition("admin", "load_edition", "Charger");
+        $this->addMenuEdition("editor", "save_edition", "Enregistrer");
+        $this->addMenuEdition("editor", "search_edition", "Rechercher");
+        $this->addMenuEdition("editor", "delete_edition", "Supprimer");
+        $this->addMenuEdition("editor", "new_edition", "Nouveau");
+        $this->addMenuEdition("editor", "go_to_code", "Voir le code");
+        $this->addMenuEdition("editor", "store_edition", "Sauvegarder");
+        $this->addMenuEdition("editor", "load_edition", "Charger");
         
         $this->popParent();
-        
         
         //===============================================
         // [info] : on initialise l'onglet code
         //===============================================
         
-        $this->initTabCode();
+        $this->initContentCode();
+        $this->initContentProject();
         
         //===============================================
         // [info] : on écrit les contenus des onglets
         //===============================================
         
         $this->addContentText("ReadyHTML", $this->toHome());
-        $this->addContentForm("Projet", $this->toMenuProject());
-        $this->addContentForm("Page");
+        $this->addContentForm("Projet", $this->toMenuProject(), $this->toContentProject());
+        $this->addContentForm("Page", $this->toMenuPage(), $this->toContentPage());
         $this->addContentForm("Edition", $this->toMenuEdition(), $this->toContentEdition());
         $this->addContentForm("Code", "", $this->toContentCode());
     }

@@ -6,6 +6,6 @@ require $_SERVER["DOCUMENT_ROOT"]."/php/class/GDefine.php";
 $lProcess = new GProcess();
 // ===============================================
 $lProcess->main();
-$lProcess->printLogs();
+$lProcess->showLogs();
 //===============================================
 ?>

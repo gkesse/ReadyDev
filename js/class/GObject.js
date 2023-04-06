@@ -2,29 +2,25 @@
 class GObject {
     //===============================================
     constructor() {
+        this.m_category = "";
+        this.m_model = "";
         this.m_logs = new GLog();
         this.m_map = [];
     }
     //===============================================
     loadFromMap(_index) {
-        if(_index < 0 || _index >= this.m_map.length) {
-            this.addError("L'index de la donnée est incorrect.");
-            this.setObj(this.clone());
-            return this;
+        if(_index >= 0 && _index < this.m_map.length) {
+            var lObj = this.m_map[_index];
+            this.setObj(lObj);
         }
-        var lObj = this.m_map[_index];
-        this.setObj(lObj);
         return this;
     }
     //===============================================
     loadToMap(_index) {
-        if(_index < 0 || _index >= this.m_map.length) {
-            this.addError("L'index de la donnée est incorrect.");
-            return false;
+        if(_index >= 0 && _index < this.m_map.length) {
+            var lObj = this.m_map[_index];
+            lObj.setObj(this);
         }
-        var lObj = this.m_map[_index];
-        lObj.setObj(this);
-        return true;
     }
     //===============================================
     findObj(_obj) {
@@ -33,6 +29,19 @@ class GObject {
             if(lObj.isEqual(_obj)) return i;
         }
         return -1;
+    }
+    //===============================================
+    findObjMapCM(_category, _model) {
+        var lMap = this.clone();
+        for(var i = 0; i < this.m_map.length; i++) {
+            var lObj = this.m_map[i];
+            if(lObj.m_category == _category) {
+                if(lObj.m_model == _model) {
+                    lMap.m_map.push(lObj);
+                }
+            }
+        }
+        return lMap;
     }
     //===============================================
     addObj(_obj) {

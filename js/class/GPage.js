@@ -385,7 +385,7 @@ class GPage extends GObject {
         lDom.getMap(_code, this.m_map, this);
     }
     //===============================================
-    onModule(_method, _obj, _data) {
+    run(_method, _obj, _data) {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
         }

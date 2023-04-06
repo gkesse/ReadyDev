@@ -134,11 +134,16 @@ class GReady extends GObject {
         $this->addScriptJs("/js/script.js");
         $this->addScriptJs("/js/class/GLoader.js");
         $this->addScriptJs("/js/class/GAjax.js");
-        $this->addScriptJs("/js/class/GAdmin.js");
+        $this->addScriptJs("/js/class/GKeyEvent.js");
+        $this->addScriptJs("/js/class/GMenu.js");
+        $this->addScriptJs("/js/class/GTemplate.js");
+        $this->addScriptJs("/js/class/GEditor.js");
+        $this->addScriptJs("/js/class/GPage.js");
     }
     //===============================================
     public function initEnv() {
         $this->addEnvInput("TestEnv", $this->m_isTestEnv);
+        $this->addEnvInput("EditorClipboardFilter", "filter_text");
         
         $this->addEnvInput("SearchDataSize", "8");
         $this->addEnvInput("SearchDataCount", "0");
@@ -176,6 +181,13 @@ class GReady extends GObject {
         $this->pushParent();
         $this->initParent();
         $this->addMenu("cours", "Algèbre", "/home/cours/maths/algebra");
+        
+        $this->pushParent();
+        $this->initParent();
+        $this->addMenu("cours", "Algèbre booléen", "/home/cours/maths/algebra/boolean");
+        $this->addMenu("cours", "Algèbre linéaire", "/home/cours/maths/algebra/linear");
+        $this->popParent();
+        
         $this->addMenu("cours", "Géométrie", "/home/cours/maths/geometrics");
         $this->popParent();
         
@@ -206,7 +218,7 @@ class GReady extends GObject {
         return $this->findObjMapCM("menu", "menu", $_parent);
     }
     //===============================================
-    public function writeMenu($_parent = null, $_classA = "Menu2", $_classB = "Menu9") {
+    public function writeMenu($_parent = null) {
         $lMenuI = $this->findMenuMap($_parent);
         for($i = 0; $i < count($lMenuI->m_map); $i++) {
             $lObj = $lMenuI->m_map[$i];
@@ -221,19 +233,32 @@ class GReady extends GObject {
                         $lActiveOk |= $lObj->isEqual($this->m_currentMenu);
                         $lActiveOk |= ($lObj->m_menu == $this->m_currentMenu->m_menu && !$lObj->m_parentObj);
                         
-                        if($lActiveOk) $lActive = "Active";
+                        if($lActiveOk) $lActive = " Active";
                         
-                        if(empty($lMenuJ->m_map)) {
-                            echo sprintf("<div class='%s'><a class='%s %s' href='%s'>%s</a></div>\n", $_classB, $_classA, $lActive,  $lObj->m_link, $lObj->m_data);
+                        if(empty($lMenuJ->m_map) && !$_parent) {
+                            echo sprintf("<a class='Menu2%s' href='%s'>%s</a>\n", $lActive, $lObj->m_link, $lObj->m_data);
+                        }
+                        else if(empty($lMenuJ->m_map) && $_parent) {
+                            echo sprintf("<div class='Menu10'><a class='Menu8%s' href='%s'>%s</a></div>\n", $lActive, $lObj->m_link, $lObj->m_data);
                         }
                         else {
-                            $lBorder = "Menu7";
-                            if(!$lObj->m_parentObj) $lBorder = "Menu11";
+                            if(!$_parent) {
+                                echo sprintf("<div class='Menu6'>\n");
+                                echo sprintf("<a class='Menu2%s' href='%s'>%s</a>\n", $lActive, $lObj->m_link, $lObj->m_data);
+                            }
+                            else if($_parent) {
+                                echo sprintf("<div class='Menu9'>\n");
+                                echo sprintf("<div class='Menu10'><a class='Menu8%s' href='%s'>%s</a></div>\n", $lActive, $lObj->m_link, $lObj->m_data);
+                            }
                             
-                            echo sprintf("<div class='Menu6'>\n");
-                            echo sprintf("<div class='%s'><a class='%s %s' href='%s'>%s</a></div>\n", $_classB, $_classA, $lActive,  $lObj->m_link, $lObj->m_data);
-                            echo sprintf("<div class='%s'>\n", $lBorder);
-                            $this->writeMenu($lObj, "Menu2", "Menu10");
+                            if(!$_parent) {
+                                echo sprintf("<div class='Menu7'>\n");
+                            }
+                            else if($_parent) {
+                                echo sprintf("<div class='Menu11'>\n");
+                            }
+                            
+                            $this->writeMenu($lObj);
                             echo sprintf("</div>\n");
                             echo sprintf("</div>\n");
                         }                        
@@ -347,6 +372,12 @@ class GReady extends GObject {
         echo sprintf("<div class='Background1'></div>\n");
         echo sprintf("<div class='Background2'></div>\n");
         echo sprintf("<div class='Background3'></div>\n");
+        
+        //===============================================
+        // [info] : on initialise les fenêtres modales
+        //===============================================
+        
+        require "./php/form/log.php";
         
         //===============================================
         
