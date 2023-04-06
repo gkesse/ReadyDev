@@ -624,6 +624,7 @@ thead tr:first-child {
     vertical-align: middle;
     font-size: 18px;
     font-family: arial;
+    cursor: pointer;
 }
 
 .Menu8:hover {
@@ -651,6 +652,19 @@ thead tr:first-child {
     background-color: #051039;
     z-index: 1;
     width: 250px;
+}
+
+.Menu12  {
+    border-bottom: 1px solid #2f3959;
+    position: relative;
+}
+
+.Menu13 {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0, -50%);
+    z-index: 1;
 }
 
 /* ============================================== */

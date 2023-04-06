@@ -248,7 +248,7 @@ class GReady extends GObject {
                             }
                             else if($_parent) {
                                 echo sprintf("<div class='Menu9'>\n");
-                                echo sprintf("<div class='Menu10'><a class='Menu8%s' href='%s'>%s</a></div>\n", $lActive, $lObj->m_link, $lObj->m_data);
+                                echo sprintf("<div class='Menu12'><div class='Menu8'>%s <i class='Menu13 fa fa-caret-down'></i></div></div>\n", $lObj->m_data);
                             }
                             
                             if(!$_parent) {
