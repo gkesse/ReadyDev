@@ -507,6 +507,28 @@ thead tr:first-child {
 }
 
 /* ============================================== */
+/* Footer */ 
+/* ============================================== */
+
+.Footer1 {
+    background-color: rgba(255, 255, 255, 0);
+    position: absolute;
+    bottom: 35px;
+    left: 0px;
+    right: 0px;
+}
+
+.Footer2 {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    border-radius: 50%;
+    text-align: center;
+    margin: 5px 5px 20px 5px;
+}
+
+/* ============================================== */
 /* Html */ 
 /* ============================================== */
 
@@ -616,23 +638,23 @@ thead tr:first-child {
 }
 
 .Menu8 {
+    display: inline-block;
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
-    display: inline-block;
     padding: 0px 10px;
     line-height: 30px;
     vertical-align: middle;
     font-size: 18px;
     font-family: arial;
-    cursor: pointer;
 }
 
-.Menu8:hover {
+.Menu10:hover .Menu8 {
     border-bottom: 5px solid #89a830;
 }
 
-.Menu8.Active {
-    border-bottom: 5px solid #f67b20;
+.Menu8.Active,
+.Menu10:hover .Menu8.Active {
+    border-bottom: 5px solid #aaaafa;
 }
 
 .Menu9  {
@@ -640,23 +662,36 @@ thead tr:first-child {
 }
 
 .Menu10  {
+    display: block;
     border-bottom: 1px solid #2f3959;
 }
 
-.Menu11  {
-    border: 1px solid #4f5979;
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0px;
-    background-color: #051039;
-    z-index: 1;
-    width: 250px;
+.Menu10:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-.Menu12  {
+.Menu11 {
+    display: none;
+}
+
+.Menu11.Show {
+    display: block;
+    background-color: #051039;
+    padding-left: 20px;
+}
+
+.Menu12 {
     border-bottom: 1px solid #2f3959;
     position: relative;
+    cursor: pointer;
+}
+
+.Menu12:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.Menu6:hover .Menu12.Active {
+    background-color: #2f5959;
 }
 
 .Menu13 {
@@ -751,4 +786,63 @@ thead tr:first-child {
 }
 
 /* ============================================== */
+/* View */
+/* ============================================== */
 
+.View1 {
+    text-align: center;
+    background-color: rgba(35, 47, 87, 0.9);
+    margin: 10px;
+}
+
+.View2 {
+    background-color: #2f3959; /* L2  5f6681*/
+    color: #bf8e3a;
+    padding: 20px 10px;
+}
+
+.View3 {
+    padding: 5px;
+    font-size: 0px;
+}
+
+.View4 {
+    display: inline-block;
+    margin: 5px;
+    font-size: 0px;
+}
+
+.View5 {
+    display: inline-block;
+    margin: 5px;
+    font-size: 20px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+}
+
+.View5.Facebook {
+    background-color: #3b5998;
+}
+
+.View5.Linkedin {
+    background-color: #0e76a8;
+}
+
+.View6 {
+    background-color: #2f3959;
+    display: inline-block;
+    font-size: 14px;
+    padding: 0px 10px;
+    line-height: 25px;
+}
+
+.View7 {
+    background-color: #3f4969;
+    display: inline-block;
+    font-size: 14px;
+    padding: 0px 10px;
+    line-height: 25px;
+}
+
+/* ============================================== */

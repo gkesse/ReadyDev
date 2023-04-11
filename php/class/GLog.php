@@ -90,7 +90,7 @@ class GLog {
     //===============================================
     public function showLogs() {
         if(!count($this->m_map)) return;
-        echo sprintf("<div id='LogPhp' hidden>%s</div>\n", $this->serialize());
+        echo sprintf("<div id='LogsPhpData' hidden>%s</div>\n", $this->serialize());
         echo sprintf("<script>call_server('logs', 'show_php_logs');</script>\n");
     }
     //===============================================

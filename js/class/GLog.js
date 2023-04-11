@@ -134,7 +134,7 @@ class GLog {
         for(var i = 0; i < this.m_map.length; i++) {
             var lObj = this.m_map[i];
             if(lObj.m_type != "data") continue;
-            var lData = atob(lObj.m_msg);
+            var lData = lObj.m_msg;
             if(i != 0) lDatas += "<br>";
             lData = sprintf("<xmp>%s</xmp>", lData);
             lDatas += lData;
@@ -185,8 +185,8 @@ class GLog {
     }
     //===============================================
     readLogPhp() {
-        var lLogPhp = document.getElementById("LogPhp");
-        this.m_data = lLogPhp.innerHTML;
+        var lLogsPhpData = document.getElementById("LogsPhpData");
+        this.m_data = lLogsPhpData.innerHTML;
     }
     //===============================================
     serialize(_code = "logs") {

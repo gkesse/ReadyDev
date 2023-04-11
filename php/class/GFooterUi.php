@@ -34,7 +34,7 @@
                 $lIcon = $this->m_dom->getItem3("networks", "icon", $i);
                 $lLink = $this->m_dom->getItem3("networks", "link", $i);
                 
-                echo sprintf("<a href='%s'>\n", $lLink);
+                echo sprintf("<a href='%s' target='_blank'>\n", $lLink);
                 echo sprintf("<i class='Network %s'></i>\n", $lIcon);
                 echo sprintf("</a>\n");
             }

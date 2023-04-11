@@ -15,6 +15,10 @@
         protected $m_parentObj = null;
         protected $m_currentObj = null;
         //===============================================
+        public function __construct() {
+            $this->m_logs = new GLog();
+        }
+        //===============================================
         public function clone() {
             return new GObject();
         }
@@ -22,6 +26,8 @@
         public function setObj($_obj) {
             $this->m_category = $_obj->m_category;
             $this->m_model = $_obj->m_model;
+            $this->m_parentObj = $_obj->m_parentObj;
+            $this->m_currentObj = $_obj;
         }
         //===============================================
         public function isEqual($_obj) {
@@ -31,32 +37,8 @@
             return $lEqualOk;
         }
         //===============================================
-        public function __construct() {
-            $this->m_logs = new GLog();
-        }
-        //===============================================
-        public function initTestEnv() {
-            $this->m_isTestEnv = ($this->getEnv("GPROJECT_ENV") == "TEST");
-        }
-        //===============================================
-        public function initHomePage() {
-            $this->setHomePage("/home");
-        }
-        //===============================================
-        public function initParent() {
-            $this->m_parentObj = $this->m_currentObj;
-        }
-        //===============================================
-        public function setHomePage($_homePage) {
-            $this->m_homePage = $_homePage;
-        }
-        //===============================================
-        public function pushParent() {
-            $this->m_parentMap[] = $this->m_parentObj;
-        }
-        //===============================================
-        public function popParent() {
-            $this->m_parentObj = array_pop($this->m_parentMap);
+        public function size() {
+            return count($this->m_map);
         }
         //===============================================
         public function loadFromMap($_index) {
@@ -84,12 +66,12 @@
             return false;
         }
         //===============================================
-        public function findObjMapC($_category, $_parent = null) {
+        public function findObjMapC($_category, $_parent = null, $_isParent = true) {
             $lMap = $this->clone();
             for($i = 0; $i < count($this->m_map); $i++) {
                 $lObj = $this->m_map[$i];
                 if($lObj->m_category == $_category) {
-                    if($lObj->m_parentObj == $_parent) {
+                    if($lObj->m_parentObj == $_parent || !$_isParent) {
                         $lMap->m_map[] = $lObj;
                     }
                 }
@@ -97,13 +79,13 @@
             return $lMap;
         }
         //===============================================
-        public function findObjMapCM($_category, $_model, $_parent = null) {
+        public function findObjMapCM($_category, $_model, $_parent = null, $_isParent = true) {
             $lMap = $this->clone();
             for($i = 0; $i < count($this->m_map); $i++) {
                 $lObj = $this->m_map[$i];
                 if($lObj->m_category == $_category) {
                     if($lObj->m_model == $_model) {
-                        if($lObj->m_parentObj == $_parent) {
+                        if($lObj->m_parentObj == $_parent || !$_isParent) {
                             $lMap->m_map[] = $lObj;
                         }
                     }
@@ -114,6 +96,30 @@
         //===============================================
         public function isEmpty() {
             return $this->isEqual($this->clone());
+        }
+        //===============================================
+        public function initTestEnv() {
+            $this->m_isTestEnv = ($this->getEnv("GPROJECT_ENV") == "TEST");
+        }
+        //===============================================
+        public function initHomePage() {
+            $this->setHomePage("/home");
+        }
+        //===============================================
+        public function initParent() {
+            $this->m_parentObj = $this->m_currentObj;
+        }
+        //===============================================
+        public function setHomePage($_homePage) {
+            $this->m_homePage = $_homePage;
+        }
+        //===============================================
+        public function pushParent() {
+            $this->m_parentMap[] = $this->m_parentObj;
+        }
+        //===============================================
+        public function popParent() {
+            $this->m_parentObj = array_pop($this->m_parentMap);
         }
         //===============================================
         public function addError($_msg) {

@@ -15,6 +15,63 @@ class GMenu extends GObject {
     }    
     //===============================================
     init() {
+        this.initMenu();
+        this.initMenuBlock();
+    }
+    //===============================================
+    initMenu() {
+        var lLines = document.getElementsByClassName("Menu12");
+        for(var i = 0; i < lLines.length; i++) {
+            var lLine = lLines[i];
+            lLine.addEventListener("click", function(e) {
+                var lLines = document.getElementsByClassName("Menu12");
+                for(var i = 0; i < lLines.length; i++) {
+                    var lLine = lLines[i];
+                    var lContent = lLine.nextElementSibling;
+                    if(lLine == this) continue;
+                    lContent.classList.remove("Show");
+                    lLine.classList.remove("Active");
+                }
+                
+                var lContent = this.nextElementSibling;
+                lContent.classList.toggle("Show");
+                this.classList.toggle("Active");
+                
+                var lParentNode = this;
+                
+                if(lParentNode) {
+                    while(1) {
+                        lParentNode = lParentNode.parentNode;
+                        if(lParentNode.matches(".Menu7")) break;
+                        if(lParentNode.matches(".Menu11")) {
+                            var lLine = lParentNode.previousElementSibling;
+                            lParentNode.classList.add("Show");
+                            lLine.classList.add("Active");
+                            return;
+                        }
+                    }
+                }
+            });
+            lLine.addEventListener("mousedown", function(e) {
+                e.preventDefault();
+            });
+        }
+        var lMenus = document.getElementsByClassName("Menu7");
+        for(var i = 0; i < lMenus.length; i++) {
+            var lMenu = lMenus[i];
+            lMenu.addEventListener("mouseleave", function(e) {
+                var lLines = this.getElementsByClassName("Menu12");
+                for(var i = 0; i < lLines.length; i++) {
+                    var lLine = lLines[i];
+                    var lContent = lLine.nextElementSibling;
+                    lContent.classList.remove("Show");
+                    lLine.classList.remove("Active");
+                }
+            });
+        }
+    }
+    //===============================================
+    initMenuBlock() {
         var lButtons = document.getElementsByClassName("Block18");
         for(var i = 0; i < lButtons.length; i++) {
             var lButton = lButtons[i];
@@ -64,7 +121,7 @@ class GMenu extends GObject {
 
                 if(!lContent || !lSub || !lContentOk) {
                     while(1) {
-                        var lParentNode = lParentNode.parentNode;
+                        lParentNode = lParentNode.parentNode;
                         if(lParentNode.matches(".Block19")) {
                             lParentNode.classList.remove("Show");
                             return;
