@@ -32,7 +32,7 @@ class GAdmin extends GObject {
             var lEditorTab = lEditorTabs[_index];
             this.onOpenEditorTab(lEditorTab, "EditorTab" + _index);
         }
-    }
+    } 
     //===============================================
     initMenu() {
         var lButtons = document.getElementsByClassName("Block18");
@@ -94,7 +94,7 @@ class GAdmin extends GObject {
                 
                 lContent.classList.toggle("Show");
                 this.classList.toggle("Active");
-                                
+
                 while(1) {
                     var lParentNode = lParentNode.parentNode;
                     if(lParentNode.matches(".Block19")) break;
@@ -105,11 +105,12 @@ class GAdmin extends GObject {
                     lContent.classList.toggle("Show");
                 }
             });
+            
             lLine.addEventListener("mousedown", function(e) {
                 e.preventDefault();
             });
         }
-        
+
         document.addEventListener("click", function(e) {
             var lHideOk = true;
             lHideOk &&= !e.target.matches(".Block18");

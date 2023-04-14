@@ -179,7 +179,7 @@
         //===============================================
         public function getUrl() {
             $lUrl = "";
-            $lUrl .= "http://";
+            $lUrl .= "https://";
             $lUrl .= $_SERVER['HTTP_HOST'];
             $lUrl .=  $_SERVER['REQUEST_URI'];
             return $lUrl;
