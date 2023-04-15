@@ -4,8 +4,20 @@ class GObject {
     constructor() {
         this.m_category = "";
         this.m_model = "";
+        this.m_pageId = "";
         this.m_logs = new GLog();
         this.m_map = [];
+    }
+    //===============================================
+    readPageId() {
+        var lPageId = document.getElementById("gPageId");
+        this.m_pageId = lPageId.value;
+    }
+    //===============================================
+    isAdmin() {
+        this.readPageId();
+        if(this.m_pageId == "/home/admin") return true;
+        return false;
     }
     //===============================================
     loadFromMap(_index) {

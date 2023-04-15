@@ -11,6 +11,7 @@ class GReady extends GObject {
     private $m_method = "";
     private $m_intro = "";
     private $m_name = "";
+    private $m_root = "";
     private $m_link = "";
     private $m_icon = "";
     private $m_label = "";
@@ -18,6 +19,7 @@ class GReady extends GObject {
     private $m_data = "";
     private $m_value = "";
     private $m_filename = "";
+    private $m_path = "";
     private $m_views = "";
     private $m_class = "";
     private $m_startYear = "";
@@ -27,8 +29,10 @@ class GReady extends GObject {
     private $m_isBlank = false;
     //===============================================
     private $m_admin = null;
-    private $m_currentMenu = null;
+    private $m_menu = null;
     private $m_header = null;
+    private $m_project = null;
+    private $m_page = null;
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -45,7 +49,9 @@ class GReady extends GObject {
         $this->m_title = $_obj->m_title;
         $this->m_logo = $_obj->m_logo;
         $this->m_name = $_obj->m_name;
+        $this->m_root = $_obj->m_root;
         $this->m_filename = $_obj->m_filename;
+        $this->m_path = $_obj->m_path;
         $this->m_link = $_obj->m_link;
         $this->m_label = $_obj->m_label;
         $this->m_text = $_obj->m_text;
@@ -70,7 +76,9 @@ class GReady extends GObject {
         $lEqualOk &= ($this->m_title == $_obj->m_title);
         $lEqualOk &= ($this->m_logo == $_obj->m_logo);
         $lEqualOk &= ($this->m_name == $_obj->m_name);
+        $lEqualOk &= ($this->m_root == $_obj->m_root);
         $lEqualOk &= ($this->m_filename == $_obj->m_filename);
+        $lEqualOk &= ($this->m_path == $_obj->m_path);
         $lEqualOk &= ($this->m_link == $_obj->m_link);
         $lEqualOk &= ($this->m_label == $_obj->m_label);
         $lEqualOk &= ($this->m_text == $_obj->m_text);
@@ -89,18 +97,10 @@ class GReady extends GObject {
         return $lEqualOk;
     }
     //===============================================
-    public function addFontCss($_filename) {
+    public function addFile($_category, $_model, $_filename) {
         $lObj = new GReady();
-        $lObj->m_category = "font";
-        $lObj->m_model = "css";
-        $lObj->m_filename = $_filename;
-        $this->m_map[] = $lObj;
-    }
-    //===============================================
-    public function addScriptJs($_filename) {
-        $lObj = new GReady();
-        $lObj->m_category = "script";
-        $lObj->m_model = "js";
+        $lObj->m_category = $_category;
+        $lObj->m_model = $_model;
         $lObj->m_filename = $_filename;
         $this->m_map[] = $lObj;
     }
@@ -115,19 +115,10 @@ class GReady extends GObject {
         $this->m_map[] = $lObj;
     }
     //===============================================
-    public function addEnvInput($_id, $_value = "") {
+    public function addEnv($_model, $_id, $_value = "") {
         $lObj = new GReady();
         $lObj->m_category = "env";
-        $lObj->m_model = "input";
-        $lObj->m_id = $_id;
-        $lObj->m_value = $_value;
-        $this->m_map[] = $lObj;
-    }
-    //===============================================
-    public function addEnvDiv($_id, $_value = "") {
-        $lObj = new GReady();
-        $lObj->m_category = "env";
-        $lObj->m_model = "div";
+        $lObj->m_model = $_model;
         $lObj->m_id = $_id;
         $lObj->m_value = $_value;
         $this->m_map[] = $lObj;
@@ -165,68 +156,96 @@ class GReady extends GObject {
         $this->m_map[] = $lObj;
     }
     //===============================================
-    public function initObj() {
-        $this->m_currentMenu = new GReady();
+    public function initReady() {
+        $this->initPageId();
+        $this->initTestEnv();
+        $this->initHomePage();
+        
+        $this->m_menu = new GReady();
         $this->m_admin = new GAdmin();
-    }
-    //===============================================
-    public function initHeader() {
+
         $lObj = new GReady();
         $lObj->m_category = "header";
-        $lObj->m_model = "data";
+        $lObj->m_model = "config";
         $lObj->m_title = "ReadyDev";
         $lObj->m_charset = "UTF-8";
         $lObj->m_logo = "/data/img/defaults/readydev.png";
+        $this->m_map[] = $lObj;
         $this->m_header = $lObj;
-    }
-    //===============================================
-    public function initFontCss() {
-        $this->addFontCss("/libs/google_fonts/Aclonica/css.css");
-        $this->addFontCss("/libs/google_fonts/Akronim/css.css");
-        $this->addFontCss("/libs/google_fonts/Allan/css.css");
-        $this->addFontCss("/libs/google_fonts/Archivo_Narrow/css.css");
-        $this->addFontCss("/libs/google_fonts/Anton/css.css");
-        $this->addFontCss("/libs/font_awesome/css/font-awesome.min.css");
-        $this->addFontCss("/css/style_v2.css");
-    }
-    //===============================================
-    public function initScriptJs() {
-        $this->addScriptJs("/js/functions.js");
-        $this->addScriptJs("/js/class/GLog.js");
-        $this->addScriptJs("/js/class/GXml.js");
-        $this->addScriptJs("/js/class/GCode.js");
-        $this->addScriptJs("/js/class/GObject.js");
-        $this->addScriptJs("/js/class/GServer.js");
-        $this->addScriptJs("/js/script.js");
-        $this->addScriptJs("/js/class/GLoader.js");
-        $this->addScriptJs("/js/class/GAjax.js");
-        $this->addScriptJs("/js/class/GKeyEvent.js");
-        $this->addScriptJs("/js/class/GMenu.js");
-        $this->addScriptJs("/js/class/GTemplate.js");
-        $this->addScriptJs("/js/class/GEditor.js");
-        $this->addScriptJs("/js/class/GPage.js");
-    }
-    //===============================================
-    public function initEnv() {
-        $this->addEnvInput("TestEnv", $this->m_isTestEnv);
-        $this->addEnvInput("EditorClipboardFilter", "filter_text");
+
+        $lObj = new GReady();
+        $lObj->m_category = "project";
+        $lObj->m_model = "config";
+        $lObj->m_name = "readydev";
+        $this->m_map[] = $lObj;
+        $this->m_project = $lObj;
+
+        $lObj = new GReady();
+        $lObj->m_category = "page";
+        $lObj->m_model = "config";
+        $lObj->m_root = "/data/cache/page";
+        $lObj->m_id = $this->m_pageId;
+        $lObj->m_filename = "main.php";
+        $this->m_map[] = $lObj;
+        $this->m_page = $lObj;
         
-        $this->addEnvInput("SearchDataSize", "8");
-        $this->addEnvInput("SearchDataCount", "0");
-        $this->addEnvInput("SearchDataOffset", "0");
-        $this->addEnvInput("SearchLastId", "-1");
+        //===============================================
+        // [info] : on initialise les feuilles de style
+        //===============================================
         
-        $this->addEnvInput("TableCurrentData");
-        $this->addEnvInput("TableHeaderVisible");
-        $this->addEnvInput("TableSelectModule");
-        $this->addEnvInput("TableSelectMethod");
-        $this->addEnvInput("TableNextModule");
-        $this->addEnvInput("TableNextMethod");
+        $this->addFile("font", "css", "/libs/google_fonts/Aclonica/css.css");
+        $this->addFile("font", "css", "/libs/google_fonts/Akronim/css.css");
+        $this->addFile("font", "css", "/libs/google_fonts/Allan/css.css");
+        $this->addFile("font", "css", "/libs/google_fonts/Archivo_Narrow/css.css");
+        $this->addFile("font", "css", "/libs/google_fonts/Anton/css.css");
+        $this->addFile("font", "css", "/libs/font_awesome/css/font-awesome.min.css");
+        $this->addFile("font", "css", "/css/style_v2.css");
+
+        //===============================================
+        // [info] : on initialise les scripts js
+        //===============================================
         
-        $this->addEnvDiv("ImageData");
-    }
-    //===============================================
-    public function initMenu() {
+        $this->addFile("script", "js", "/js/functions.js");
+        $this->addFile("script", "js", "/js/class/GLog.js");
+        $this->addFile("script", "js", "/js/class/GXml.js");
+        $this->addFile("script", "js", "/js/class/GCode.js");
+        $this->addFile("script", "js", "/js/class/GObject.js");
+        $this->addFile("script", "js", "/js/class/GLoader.js");
+        $this->addFile("script", "js", "/js/class/GAjax.js");
+        $this->addFile("script", "js", "/js/class/GKeyEvent.js");
+        $this->addFile("script", "js", "/js/class/GMenu.js");
+        $this->addFile("script", "js", "/js/class/GTemplate.js");
+        $this->addFile("script", "js", "/js/class/GEditor.js");
+        $this->addFile("script", "js", "/js/class/GPage.js");
+        $this->addFile("script", "js", "/js/class/GServer.js");
+        $this->addFile("script", "js", "/js/script.js");
+
+        //===============================================
+        // [info] : on initialise les variables globales
+        //===============================================
+        
+        $this->addEnv("input", "TestEnv", $this->m_isTestEnv);
+        $this->addEnv("input", "gPageId", $this->m_pageId);
+        $this->addEnv("input", "EditorClipboardFilter", "filter_text");
+        
+        $this->addEnv("input", "SearchDataSize", "8");
+        $this->addEnv("input", "SearchDataCount", "0");
+        $this->addEnv("input", "SearchDataOffset", "0");
+        $this->addEnv("input", "SearchLastId", "-1");
+        
+        $this->addEnv("input", "TableCurrentData");
+        $this->addEnv("input", "TableHeaderVisible");
+        $this->addEnv("input", "TableSelectModule");
+        $this->addEnv("input", "TableSelectMethod");
+        $this->addEnv("input", "TableNextModule");
+        $this->addEnv("input", "TableNextMethod");
+        
+        $this->addEnv("div", "ImageData");
+        
+        //===============================================
+        // [info] : on initialise le menu de navigation
+        //===============================================
+        
         $this->addMenu("home", "Accueil", "/home", false);
         $this->addMenu("cv", "CV", "/home/cv");
         
@@ -264,48 +283,45 @@ class GReady extends GObject {
         
         $this->addMenu("admin", "Admin", "/home/admin");
         $this->addMenu("connection", "Connexion", "/home/connexion");
-    }
-    //===============================================
-    public function initCurrentMenu() {
+        
+        //===============================================
+        // [info] : on initialise le menu courant
+        //===============================================
+        
         $lObj = $this->findObjMapCM("menu", "menu", null, false);
         for($i = 0; $i < $lObj->size(); $i++) {
             $lObj->loadFromMap($i);
             if($lObj->m_link == $this->m_pageId) {
-                $this->m_currentMenu->setObj($lObj);
+                $this->m_menu->setObj($lObj);
                 break;
             }
         }
-    }
-    //===============================================
-    public function initFooter() {
-        $lObj = new GReady();
-        $lObj->m_category = "footer";
-        $lObj->m_model = "data";
-        $lObj->m_title = "Réseaux Sociaux - Réjoignez-nous";
-        $this->m_map[] = $lObj;
+        
+        //===============================================
+        // [info] : on initialise le pied de la page
+        //===============================================
+        
+        $lTitle = sprintf("%s | %s", $this->m_menu->m_data, $this->m_header->m_title);
         
         $lObj = new GReady();
-        $lObj->m_category = "footer";
-        $lObj->m_model = "copyright";
-        $lObj->m_title = "ReadDev";
-        $lObj->m_startYear = "2017";
-        $lObj->m_endYear = date("Y");
-        $lObj->m_text = "";
-        $lObj->m_text .= "Plateforme de Développement Continu<br/>";
-        $lObj->m_text .= "Produit par <b>Gérard KESSE</b><br/>";
-        $lObj->m_text .= "Polytech'Montpellier<br/>";
+        $lObj->m_category = "metadata";
+        $lObj->m_model = "canonical";
+        $lObj->m_data = $this->getUrl();
         $this->m_map[] = $lObj;
         
-        $lObj = new GReady();
-        $lObj->m_category = "footer";
-        $lObj->m_model = "copyright_icon";
-        $lObj->m_icon = "copyright";
-        $this->m_map[] = $lObj;
+        $this->addMetadata("google", "description", $this->toDescription());
         
-        $this->addFooterNetwork("facebook");
-        $this->addFooterNetwork("skype");
-        $this->addFooterNetwork("github", "https://github.com/gkesse/", true);
-        $this->addFooterNetwork("linkedin", "https://www.linkedin.com/in/tia-gerard-kesse/", true);
+        $this->addMetadata("facebook", "og:type", "website");
+        $this->addMetadata("facebook", "og:image", "https://raw.githubusercontent.com/gkesse/ReadyDev/2.0/data/img/defaults/b_readydev.png");
+        $this->addMetadata("facebook", "og:image:secure_url", "https://raw.githubusercontent.com/gkesse/ReadyDev/2.0/data/img/defaults/b_readydev.png");
+        $this->addMetadata("facebook", "og:image:type", "image/png");
+        $this->addMetadata("facebook", "og:image:width", "440");
+        $this->addMetadata("facebook", "og:image:height", "440");
+        $this->addMetadata("facebook", "og:locale", "fr_FR");
+        $this->addMetadata("facebook", "og:url", $this->getUrl());
+        $this->addMetadata("facebook", "og:title", $lTitle);
+        $this->addMetadata("facebook", "og:site_name", $this->m_header->m_title);
+        $this->addMetadata("facebook", "og:description", $this->toDescription());
     }
     //===============================================
     public function initLog() {
@@ -362,38 +378,45 @@ class GReady extends GObject {
         $lObj = new GReady();
         $lObj->m_category = "view";
         $lObj->m_model = "data";
-        $lObj->m_title = $this->m_currentMenu->m_data;
+        $lObj->m_title = $this->m_menu->m_data;
         $lObj->m_icon = "eye";
         $lObj->m_label = "Vues";
         $lObj->m_views = "12345";
         $this->m_map[] = $lObj;
-        
-        $this->addNetwork("view", "network", "facebook", "#", "Facebook");
-        $this->addNetwork("view", "network", "linkedin", "#", "Linkedin");
+                
+        $this->addNetwork("view", "network", "facebook", $this->toFacebookUrl(), "Facebook");
+        $this->addNetwork("view", "network", "linkedin", $this->toLinkedInUrl(), "Linkedin");
     }
     //===============================================
-    public function initMetadata() {
-        $lTitle = sprintf("%s | %s", $this->m_currentMenu->m_data, $this->m_header->m_title);
-
+    public function initFooter() {
         $lObj = new GReady();
-        $lObj->m_category = "metadata";
-        $lObj->m_model = "canonical";
-        $lObj->m_data = $this->getUrl();
+        $lObj->m_category = "footer";
+        $lObj->m_model = "data";
+        $lObj->m_title = "Réseaux Sociaux - Réjoignez-nous";
         $this->m_map[] = $lObj;
         
-        $this->addMetadata("google", "description", $this->toDescription());
+        $lObj = new GReady();
+        $lObj->m_category = "footer";
+        $lObj->m_model = "copyright";
+        $lObj->m_title = "ReadDev";
+        $lObj->m_startYear = "2017";
+        $lObj->m_endYear = date("Y");
+        $lObj->m_text = "";
+        $lObj->m_text .= sprintf("Plateforme de Développement Continu<br/>\n");
+        $lObj->m_text .= sprintf("Produit par <b>Gérard KESSE</b><br/>\n");
+        $lObj->m_text .= sprintf("Polytech'Montpellier<br/>\n");
+        $this->m_map[] = $lObj;
         
-        $this->addMetadata("facebook", "og:type", "website");
-        $this->addMetadata("facebook", "og:image", "https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/readydev_banner.png");
-        $this->addMetadata("facebook", "og:image:secure_url", "https://raw.githubusercontent.com/gkesse/ReadyDev/master/data/img/defaults/readydev_banner.png");
-        $this->addMetadata("facebook", "og:image:type", "image/png");
-        $this->addMetadata("facebook", "og:image:width", "440");
-        $this->addMetadata("facebook", "og:image:height", "440");
-        $this->addMetadata("facebook", "og:locale", "fr_FR");
-        $this->addMetadata("facebook", "og:url", $this->getUrl());
-        $this->addMetadata("facebook", "og:title", $lTitle);
-        $this->addMetadata("facebook", "og:site_name", $this->m_header->m_title);
-        $this->addMetadata("facebook", "og:description", $this->toDescription());
+        $lObj = new GReady();
+        $lObj->m_category = "footer";
+        $lObj->m_model = "copyright_icon";
+        $lObj->m_icon = "copyright";
+        $this->m_map[] = $lObj;
+        
+        $this->addFooterNetwork("facebook");
+        $this->addFooterNetwork("skype");
+        $this->addFooterNetwork("github", "https://github.com/gkesse/", true);
+        $this->addFooterNetwork("linkedin", "https://www.linkedin.com/in/tia-gerard-kesse/", true);
     }
     //===============================================
     public function writeMenu($_parent = null) {
@@ -406,8 +429,8 @@ class GReady extends GObject {
                 $lActive = "";
                 
                 $lActiveOk = false;
-                $lActiveOk |= $lMenuI->isEqual($this->m_currentMenu);
-                $lActiveOk |= (($lMenuI->m_name == $this->m_currentMenu->m_name) && !$lMenuI->m_parentObj);
+                $lActiveOk |= $lMenuI->isEqual($this->m_menu);
+                $lActiveOk |= (($lMenuI->m_name == $this->m_menu->m_name) && !$lMenuI->m_parentObj);
                 
                 if($lActiveOk) $lActive = " Active";
                 
@@ -451,6 +474,38 @@ class GReady extends GObject {
         return $lData;
     }
     //===============================================
+    public function toFacebookUrl() {
+        $lUrl = "http://www.facebook.com/sharer.php";
+        $lUrl = sprintf("%s?u=%s", $lUrl, $this->getUrl());
+        return $lUrl;
+    }
+    //===============================================
+    public function toLinkedInUrl() {
+        $lUrl = "https://www.linkedin.com/shareArticle";
+        $lTitle = sprintf("%s | %s", $this->m_menu->m_data, $this->m_header->m_title);
+        $lUrl = sprintf("%s?mini=true&url=%s&title=%s&summary=%s", $lUrl, $this->getUrl(), urlencode($lTitle), urlencode($this->toDescription()));
+        return $lUrl;
+    }
+    //===============================================
+    public function readPagePath() {
+        $lProject = $this->m_project;
+        $lPage = $this->m_page;
+        $lPath = sprintf("%s/%s%s/%s", $lPage->m_root, $lProject->m_name, $lPage->m_id, $lPage->m_filename);
+        $lPath = $this->getPath($lPath);
+        $lPage->m_path = $lPath;
+    }
+    //===============================================
+    public function isPage() {
+        $lPage = $this->m_page;
+        if(file_exists($lPage->m_path)) return true;
+        return false;
+    }
+    //===============================================
+    public function showPage() {
+        $lPage = $this->m_page;
+        require $lPage->m_path;
+    }
+    //===============================================
     public function serialize($_code = "ready") {
         $lDom = new GCode();
         $lDom->createDoc();
@@ -489,17 +544,7 @@ class GReady extends GObject {
         // [info] : on initialise les données
         //===============================================
         
-        $this->initObj();
-        $this->initPageId();
-        $this->initTestEnv();
-        $this->initHeader();
-        $this->initFontCss();
-        $this->initScriptJs();
-        $this->initEnv();
-        $this->initMenu();
-        $this->initCurrentMenu();
-        $this->initHomePage();
-        $this->initMetadata();
+        $this->initReady();
         
         //===============================================
         // [info] : on initialise la page
@@ -508,7 +553,7 @@ class GReady extends GObject {
         echo sprintf("<!DOCTYPE html>\n");
         echo sprintf("<html lang='%s'>\n", $this->m_header->m_lang);
         echo sprintf("<head>\n");
-        echo sprintf("<title>%s | %s</title>\n", $this->m_currentMenu->m_data, $this->m_header->m_title);
+        echo sprintf("<title>%s | %s</title>\n", $this->m_menu->m_data, $this->m_header->m_title);
         echo sprintf("<meta charset='%s'/>\n", $this->m_header->m_charset);
         echo sprintf("<link rel='shortcut icon' type='image/png' href='%s'/>\n", $this->m_header->m_logo);
         echo sprintf("<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>\n");
@@ -608,13 +653,16 @@ class GReady extends GObject {
         echo sprintf("</div>\n");
         
         //===============================================
-        // [info] : initialise le corps de la page
+        // [info] : initialise le nombre de vues
         //===============================================
         
         $this->runView();
-        $this->m_admin->run();
         
-        $this->addLogs($this->m_admin->getLogs());
+        //===============================================
+        // [info] : initialise le corps de la page
+        //===============================================
+        
+        $this->runPage();
         
         //===============================================
         
@@ -710,7 +758,7 @@ class GReady extends GObject {
         echo sprintf("<div id='%s'></div>\n", $lBodyId->m_id);
         echo sprintf("</div>\n");
         echo sprintf("<div class='Modal8'>\n");
-        echo sprintf("<div class='Modal9' onclick='call_server('%s', '%s', this)'>%s</div>\n", $lButtonOk->m_module, $lButtonOk->m_method, $lButtonOk->m_text);
+        echo sprintf("<div class='Modal9' onclick='call_server(\"%s\", \"%s\", this)'>%s</div>\n", $lButtonOk->m_module, $lButtonOk->m_method, $lButtonOk->m_text);
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
@@ -738,12 +786,27 @@ class GReady extends GObject {
         
         for($i = 0; $i < $lNetwork->size(); $i++) {
             $lNetwork->loadFromMap($i);
-            echo sprintf("<a href='%s'><i class='View5 %s fa fa-%s'></i></a>\n", $lNetwork->m_link, $lNetwork->m_class, $lNetwork->m_icon);
+            echo sprintf("<a href=\"%s\" target='_blank'><i class='View5 %s fa fa-%s'></i></a>\n", $lNetwork->m_link, $lNetwork->m_class, $lNetwork->m_icon);
         }
 
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
+    }
+    //===============================================
+    public function runPage() {
+        $this->readPagePath();
+        if($this->isAdmin()) {
+            $this->m_admin->run();
+            $this->addLogs($this->m_admin->getLogs());
+        }
+        else if($this->isPage()) {
+            $this->showPage();
+        }
+        else {
+            $this->addError("Page non trouvée !");
+        }
+        return !$this->hasErrors();
     }
     //===============================================
 }

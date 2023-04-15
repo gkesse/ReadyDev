@@ -79,6 +79,11 @@
             return $lMap;
         }
         //===============================================
+        public function countC($_category, $_parent = null, $_isParent = true) {
+            $lMap = $this->findObjMapC($_category, $_parent, $_isParent);
+            return $lMap->size();
+        }
+        //===============================================
         public function findObjMapCM($_category, $_model, $_parent = null, $_isParent = true) {
             $lMap = $this->clone();
             for($i = 0; $i < count($this->m_map); $i++) {
@@ -94,6 +99,16 @@
             return $lMap;
         }
         //===============================================
+        public function countCM($_category, $_model, $_parent = null, $_isParent = true) {
+            $lMap = $this->findObjMapCM($_category, $_model, $_parent, $_isParent);
+            return $lMap->size();
+        }
+        //===============================================
+        public function isAdmin() {
+            if($this->m_pageId == "/home/admin") return true;
+            return false;
+        }
+        //===============================================
         public function isEmpty() {
             return $this->isEqual($this->clone());
         }
@@ -103,15 +118,11 @@
         }
         //===============================================
         public function initHomePage() {
-            $this->setHomePage("/home");
+            $this->m_homePage = "/home";
         }
         //===============================================
         public function initParent() {
             $this->m_parentObj = $this->m_currentObj;
-        }
-        //===============================================
-        public function setHomePage($_homePage) {
-            $this->m_homePage = $_homePage;
         }
         //===============================================
         public function pushParent() {
@@ -182,6 +193,13 @@
             $lUrl .= "https://";
             $lUrl .= $_SERVER['HTTP_HOST'];
             $lUrl .=  $_SERVER['REQUEST_URI'];
+            return $lUrl;
+        }
+        //===============================================
+        public function getPath($_path) {
+            $lUrl = "";
+            $lUrl .= $_SERVER['DOCUMENT_ROOT'];
+            $lUrl .=  $_path;
             return $lUrl;
         }
         //===============================================

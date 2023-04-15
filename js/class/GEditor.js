@@ -37,6 +37,7 @@ class GEditor extends GObject {
     }
     //===============================================
     init() {
+        if(!this.isAdmin()) return;
         this.readTabIndex();
         this.initTab(this.m_tabIndex);
     }
