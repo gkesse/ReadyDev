@@ -506,6 +506,21 @@ thead tr:first-child {
     padding: 5px 10px;
 }
 
+.Form6 {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 2px;
+    font-size: 12px;
+    color: cyan;
+}
+
+.Form7 {
+    display: inline-block;
+    vertical-align: middle;
+    color: cyan;
+    cursor: pointer;
+}
+
 /* ============================================== */
 /* Footer */ 
 /* ============================================== */
@@ -558,6 +573,175 @@ thead tr:first-child {
 
 .Img1 {
     overflow: auto;
+}
+
+/* ============================================== */
+/* Loader */
+/* ============================================== */
+
+.Loader1 {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    padding: 10px;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.4);
+    overflow: auto;
+    text-align: left;
+}
+
+.Loader2 {
+    background-color: #051039;
+    margin: auto;
+    max-width: 500px;
+    position: relative;
+    padding: 10px 0px;
+}
+
+.Loader3 {
+      text-align: center;
+      padding: 20px;
+}
+
+.Loader4 {
+      display: inline-block;
+}
+
+.Loader5 {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      animation: LoaderRing 2s linear infinite;
+}
+
+.Loader5:before {
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      box-shadow: 0 0 5px rgba(255,255,255,.3);
+}
+
+.Loader6 {
+    color: #f0f0f0;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 120px;
+    text-align: center;
+    animation: LoaderMsg 3s ease-in-out infinite;
+}
+
+@keyframes LoaderRing {
+    0% {
+        transform: rotate(0deg);
+        box-shadow: 1px 5px 2px #e65c00;
+    }
+    50% {
+        transform: rotate(180deg);
+        box-shadow: 1px 5px 2px #18b201;
+    }
+    100% {
+        transform: rotate(360deg);
+        box-shadow: 1px 5px 2px #0456c8;
+    }
+}
+
+@keyframes LoaderMsg {
+    50% {
+        color: #5f5f5f;
+    }
+}
+
+
+/* ============================================== */
+/* Log */
+/* ============================================== */
+
+.Log1 {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    padding: 10px;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.4);
+    overflow: auto;
+    text-align: left;
+}
+
+.Log2 {
+    background-color: #051039;
+    margin: auto;
+    max-width: 500px;
+    position: relative;
+}
+
+.Log3 {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.Log4 {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px 35px 10px 10px;
+    font-family: Anton;
+    font-size: 25px;
+}
+
+.Log5 {
+    padding: 10px;
+}
+
+.Log6 {
+    margin-bottom: 10px;
+}
+
+.Log7 {
+    overflow: auto;
+    padding: 10px 0px;
+}
+
+.Log8 {
+    text-align: right;
+    font-size: 0px;
+    padding-top: 10px;
+}
+
+.Log9 {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0px 10px;
+    line-height: 30px; 
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.Log9:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.Log9:active {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* ============================================== */
@@ -703,13 +887,13 @@ thead tr:first-child {
 }
 
 /* ============================================== */
-/* Modal */
+/* Table */
 /* ============================================== */
 
-.Modal1 {
+.Table1 {
     display: none;
     position: fixed;
-    z-index: 2;
+    z-index: 1;
     padding: 10px;
     left: 0px;
     top: 0px;
@@ -720,14 +904,14 @@ thead tr:first-child {
     text-align: left;
 }
 
-.Modal2 {
+.Table2 {
     background-color: #051039;
     margin: auto;
     max-width: 500px;
     position: relative;
 }
 
-.Modal3 {
+.Table3 {
     position: absolute;
     top: 5px;
     right: 5px;
@@ -740,33 +924,33 @@ thead tr:first-child {
     cursor: pointer;
 }
 
-.Modal4 {
+.Table4 {
     background-color: rgba(255, 255, 255, 0.2);
     padding: 10px 35px 10px 10px;
     font-family: Anton;
     font-size: 25px;
 }
 
-.Modal5 {
+.Table5 {
     padding: 10px;
 }
 
-.Modal6 {
+.Table6 {
     margin-bottom: 10px;
 }
 
-.Modal7 {
+.Table7 {
     overflow: auto;
     padding: 10px 0px;
 }
 
-.Modal8 {
+.Table8 {
     text-align: right;
     font-size: 0px;
     padding-top: 10px;
 }
 
-.Modal9 {
+.Table9 {
     display: inline-block;
     vertical-align: middle;
     background-color: rgba(255, 255, 255, 0.2);
@@ -777,11 +961,11 @@ thead tr:first-child {
     margin: 5px;
 }
 
-.Modal9:hover {
+.Table9:hover {
     background-color: rgba(255, 255, 255, 0.4);
 }
 
-.Modal9:active {
+.Table9:active {
     background-color: rgba(255, 255, 255, 0.2);
 }
 

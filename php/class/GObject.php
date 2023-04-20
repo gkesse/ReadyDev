@@ -1,10 +1,6 @@
 <?php   
     class GObject {
         //===============================================
-        protected $m_isTestEnv = false;
-        protected $m_homePage = "";
-        protected $m_pageId = "";
-        //===============================================
         protected $m_category = "";
         protected $m_model = "";
         //===============================================
@@ -105,7 +101,7 @@
         }
         //===============================================
         public function isAdmin() {
-            if($this->m_pageId == "/home/admin") return true;
+            if($this->getPageId() == "/home/admin") return true;
             return false;
         }
         //===============================================
@@ -113,12 +109,12 @@
             return $this->isEqual($this->clone());
         }
         //===============================================
-        public function initTestEnv() {
-            $this->m_isTestEnv = ($this->getEnv("GPROJECT_ENV") == "TEST");
+        public function isTestEnv() {
+            return ($this->getEnv("GPROJECT_ENV") == "TEST");
         }
         //===============================================
-        public function initHomePage() {
-            $this->m_homePage = "/home";
+        public function getHomePage() {
+            return "/home";
         }
         //===============================================
         public function initParent() {
@@ -177,7 +173,7 @@
             $this->m_logs->printLogs();
         }
         //===============================================
-        public function initPageId() {
+        public function getPageId() {
             $lPageId = $this->getGet("pageid");
             if($lPageId != "") {
                 if(substr($lPageId, -1) == "/") {
@@ -185,7 +181,7 @@
                 }
             }
             $lPageId = sprintf("/%s", $lPageId);
-            $this->m_pageId = $lPageId;
+            return $lPageId;
         }
         //===============================================
         public function getUrl() {
@@ -201,16 +197,6 @@
             $lUrl .= $_SERVER['DOCUMENT_ROOT'];
             $lUrl .=  $_path;
             return $lUrl;
-        }
-        //===============================================
-        public function validate() {
-            $lValidate = true;
-            if(!isset($_SESSION["login"])) $lValidate = false;
-            else if($_SESSION["login"]["group"] != "admin") $lValidate = false;
-            
-            if(!$lValidate) {
-                header("Location: ".$_SESSION["lasturl"]);
-            }
         }
         //===============================================
         public function getGet($key, $defaultValue = "") {

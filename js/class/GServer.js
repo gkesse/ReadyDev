@@ -12,20 +12,14 @@ class GServer extends GObject {
         else if(_module == "logs") {
             this.onLogs(_method, _obj, _data);
         }
-        else if(_module == "admin") {
-            this.onAdmin(_method, _obj, _data);
+        else if(_module == "table") {
+            this.onTable(_method, _obj, _data);
         }
         else if(_module == "editor") {
             this.onEditor(_method, _obj, _data);
         }
         else if(_module == "page") {
             this.onPage(_method, _obj, _data);
-        }
-        else if(_module == "template") {
-            this.onTemplate(_method, _obj, _data);
-        }
-        else if(_module == "keyevent") {
-            this.onKeyevent(_method, _obj, _data);
         }
         else {
             this.addError("Le module est inconnu.");
@@ -37,8 +31,8 @@ class GServer extends GObject {
         lObj.run(_method, _obj, _data)
     }
     //===============================================
-    onAdmin(_method, _obj, _data) {
-        var lObj = new GAdmin();
+    onTable(_method, _obj, _data) {
+        var lObj = new GTable();
         lObj.run(_method, _obj, _data)
         this.addLogs(lObj.getLogs());
     }
@@ -51,18 +45,6 @@ class GServer extends GObject {
     //===============================================
     onPage(_method, _obj, _data) {
         var lObj = new GPage();
-        lObj.run(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
-    }
-    //===============================================
-    onTemplate(_method, _obj, _data) {
-        var lObj = new GTemplate();
-        lObj.run(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
-    }
-    //===============================================
-    onKeyevent(_method, _obj, _data) {
-        var lObj = new GKeyEvent();
         lObj.run(_method, _obj, _data)
         this.addLogs(lObj.getLogs());
     }

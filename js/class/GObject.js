@@ -35,6 +35,10 @@ class GObject {
         }
     }
     //===============================================
+    size() {
+        return this.m_map.length;
+    }
+    //===============================================
     findObj(_obj) {
         for(var i = 0; i < this.m_map.length; i++) {
             var lObj = this.m_map[i];

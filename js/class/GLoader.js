@@ -29,19 +29,19 @@ class GLoader extends GObject {
         return !this.hasErrors();
     }
     //===============================================
-    onOpenLoader() {
-        var lModalLoader = document.getElementById("ModalLoader");
+    onOpenLoader(_obj, _data) {
+        var lLoaderModal = document.getElementById("LoaderModal");
         var lLoaderBody = document.getElementById("LoaderBody");
         var lClassName = lLoaderBody.className;
         
         lLoaderBody.className = lClassName.replace(" AnimateShow", "");
         lLoaderBody.className = lClassName.replace(" AnimateHide", "");
         lLoaderBody.className += " AnimateShow";
-        lModalLoader.style.display = "block";
+        lLoaderModal.style.display = "block";
     }
     //===============================================
-    onCloseLoader() {
-        var lModalLoader = document.getElementById("ModalLoader");
+    onCloseLoader(_obj, _data) {
+        var lLoaderModal = document.getElementById("LoaderModal");
         var lLoaderBody = document.getElementById("LoaderBody");
         var lClassName = lLoaderBody.className;
         
@@ -50,7 +50,7 @@ class GLoader extends GObject {
         lLoaderBody.className += " AnimateHide";
         
         setTimeout(function() {
-            lModalLoader.style.display = "none";
+            lLoaderModal.style.display = "none";
         }, 400);
     }
     //===============================================

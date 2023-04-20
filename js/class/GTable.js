@@ -40,138 +40,16 @@ class GTable extends GModule {
         return this.m_type;
     }
     //===============================================
-    serialize(_code = "table") {
-        var lDom = new GCode();
-        lDom.createDoc();
-        lDom.addData(_code, "data", utf8_to_b64(this.m_data));
-        lDom.addData(_code, "type", this.m_type);
-        lDom.addData(_code, "row", ""+this.m_row);
-        lDom.addData(_code, "col", ""+this.m_col);
-        lDom.addData(_code, "value", this.m_value);
-        return lDom.toString();
-    }
-    //===============================================
-    deserialize(_data, _code = "table") {
-        super.deserialize(_data);
-        var lDom = new GCode();
-        lDom.loadXml(_data);
-        this.m_data = b64_to_utf8(lDom.getItem(_code, "data"));
-        this.m_type = lDom.getItem(_code, "type");
-        this.m_row = +lDom.getItem(_code, "row");
-        this.m_col = +lDom.getItem(_code, "col");
-        this.m_value = lDom.getItem(_code, "value");
-    }
-    //===============================================
-    onModule(_method, _obj, _data) {
-        if(_method == "") {
-            this.addError("La méthode est obligatoire.");
-        }
-        else if(_method == "close_table") {
-            this.onCloseTable(_method, _obj, _data);
-        }
-        else if(_method == "current_data") {
-            this.onCurrentData(_method, _obj, _data);
-        }
-        else if(_method == "select_data") {
-            this.onSelectData(_method, _obj, _data);
-        }
-        else if(_method == "next_data") {
-            this.onNextData(_method, _obj, _data);
-        }
-        else {
-            this.addError("La méthode est inconnue.");
-        }
-        return !this.hasErrors();
-    }
-    //===============================================
-    showData() {
-        var lModalTable = document.getElementById("ModalTable");
-        var lTableBody = document.getElementById("TableBody");
-        var lTableMsg = document.getElementById("TableMsg");
-        var lClassName = lTableBody.className;
-        lTableMsg.style.display = "none";
-        lTableBody.className = lClassName.replace(" AnimateShow", "");
-        lTableBody.className = lClassName.replace(" AnimateHide", "");
-        lTableBody.className += " AnimateShow";
-        lModalTable.style.display = "block";
-    }
-    //===============================================
-    onCloseTable(_method, _obj, _data) {
-        var lModalTable = document.getElementById("ModalTable");
-        var lTableBody = document.getElementById("TableBody");
-        var lClassName = lTableBody.className;
-        lTableBody.className = lClassName.replace(" AnimateShow", "");
-        lTableBody.className = lClassName.replace(" AnimateHide", "");
-        lTableBody.className += " AnimateHide";
-        setTimeout(function() {
-            lModalTable.style.display = "none";
-        }, 400);
-        this.clear();
-    }
-    //===============================================
-    onCurrentData(_method, _obj, _data) {
-        this.readUi();
-        this.deserialize(_data);
-        this.m_currentData = _data;
+    setSelectCB(_module, _method) {
+        this.m_selectModule = _module;
+        this.m_selectMethod = _method;
         this.writeUi();
-        return true;
     }
     //===============================================
-    onSelectData(_method, _obj, _data) {
-        this.readUi();
-        if(this.m_selectModule == "") {
-            this.addError("Le module courant est obligatoire.");
-            return false;
-        }
-        if(this.m_selectMethod == "") {
-            this.addError("La méthode courant est obligatoire.");
-            return false;
-        }
-        call_server(this.m_selectModule, this.m_selectMethod, this, this.m_currentData);
+    setNextCB(_module, _method) {
+        this.m_nextModule = _module;
+        this.m_nextMethod = _method;
         this.writeUi();
-        return !this.hasErrors();
-    }
-    //===============================================
-    onNextData(_method, _obj, _data) {
-        this.readUi();
-        if(this.nextModule == "") {
-            this.addError("Le module suivant est obligatoire.");
-            return false;
-        }
-        if(this.nextMethod == "") {
-            this.addError("La méthode suivante est obligatoire.");
-            return false;
-        }
-        call_server(this.nextModule, this.nextMethod);
-        this.writeUi();
-        return true;
-    }
-    //===============================================
-    setCallback(_key, module, method) {
-        this.readUi();
-        if(_key == "") {
-            this.addError("La clé est obligatoire.");
-            return false;
-        }
-        if(module == "") {
-            this.addError("Le module est obligatoire.");
-            return false;
-        }
-        if(method == "") {
-            this.addError("La méthode est obligatoire.");
-            return false;
-        }
-
-        if(_key == "select") {
-            this.m_selectModule = module;
-            this.m_selectMethod = method;
-        }
-        else if(_key == "next") {
-            this.nextModule = module;
-            this.nextMethod = method;
-        }
-        this.writeUi();
-        return !this.hasErrors();
     }
     //===============================================
     clear() {
@@ -200,7 +78,7 @@ class GTable extends GModule {
         this.m_colH.innerHTML = lValue;
         var lRow = this.m_rowH.rowIndex;
         var lCol = this.m_colH.cellIndex;
-        //
+
         this.m_colH.addEventListener("click", function(e) {
             var lTable = new GTable();
             lTable.m_data = _data;
@@ -211,7 +89,7 @@ class GTable extends GModule {
             var lData = lTable.serialize();
             call_server("table", "current_data", this, lData);
         });
-        //
+
         this.m_colH.addEventListener("dblclick", function(e) {
             var lTable = new GTable();
             lTable.m_data = _data;
@@ -222,6 +100,7 @@ class GTable extends GModule {
             var lData = lTable.serialize();
             call_server("table", "select_data", this, lData);
         });
+        
         this.writeUi();
     }
     //===============================================
@@ -297,6 +176,15 @@ class GTable extends GModule {
         this.m_nextData.disabled = !_isEnable;
     }
     //===============================================
+    showData() {
+        var lTableModal = document.getElementById("TableModal");
+        var lTableForm = document.getElementById("TableForm");
+        
+        lTableForm.classList.remove("AnimateHide");
+        lTableForm.classList.add("AnimateShow");
+        lTableModal.style.display = "block";
+    }
+    //===============================================
     readUi() {
         var lHeaderVisible = document.getElementById("TableHeaderVisible");
         var lSelectModule = document.getElementById("TableSelectModule");
@@ -313,11 +201,11 @@ class GTable extends GModule {
         this.m_headerVisible = stob(lHeaderVisible.value);
         this.m_selectModule = lSelectModule.value;
         this.m_selectMethod = lSelectMethod.value;
-        this.nextModule = lNextModule.value;
-        this.nextMethod = lNextMethod.value;
+        this.m_nextModule = lNextModule.value;
+        this.m_nextMethod = lNextMethod.value;
         this.m_currentData = lCurrentData.value;
 
-        this.tableId = lTableId;
+        this.m_tableId = lTableId;
         this.m_tablePage = lTablePage;
         this.m_nextData = lNextData;
         this.m_selectData = lSelectData;
@@ -334,9 +222,103 @@ class GTable extends GModule {
         lHeaderVisible.value = this.m_headerVisible;
         lSelectModule.value = this.m_selectModule;
         lSelectMethod.value = this.m_selectMethod;
-        lNextModule.value = this.nextModule;
-        lNextMethod.value = this.nextMethod;
+        lNextModule.value = this.m_nextModule;
+        lNextMethod.value = this.m_nextMethod;
         lCurrentData.value = this.m_currentData;
+    }
+    //===============================================
+    serialize(_code = "table") {
+        var lDom = new GCode();
+        lDom.createDoc();
+        lDom.addData(_code, "data", utf8_to_b64(this.m_data));
+        lDom.addData(_code, "type", this.m_type);
+        lDom.addData(_code, "row", ""+this.m_row);
+        lDom.addData(_code, "col", ""+this.m_col);
+        lDom.addData(_code, "value", this.m_value);
+        return lDom.toString();
+    }
+    //===============================================
+    deserialize(_data, _code = "table") {
+        super.deserialize(_data);
+        var lDom = new GCode();
+        lDom.loadXml(_data);
+        this.m_data = b64_to_utf8(lDom.getItem(_code, "data"));
+        this.m_type = lDom.getItem(_code, "type");
+        this.m_row = +lDom.getItem(_code, "row");
+        this.m_col = +lDom.getItem(_code, "col");
+        this.m_value = lDom.getItem(_code, "value");
+    }
+    //===============================================
+    run(_method, _obj, _data) {
+        if(_method == "") {
+            this.addError("La méthode est obligatoire.");
+        }
+        else if(_method == "close_table") {
+            this.onCloseTable(_method, _obj, _data);
+        }
+        else if(_method == "current_data") {
+            this.onCurrentData(_method, _obj, _data);
+        }
+        else if(_method == "select_data") {
+            this.onSelectData(_method, _obj, _data);
+        }
+        else if(_method == "next_data") {
+            this.onNextData(_method, _obj, _data);
+        }
+        else {
+            this.addError("La méthode est inconnue.");
+        }
+        return !this.hasErrors();
+    }
+    //===============================================
+    onCloseTable(_method, _obj, _data) {
+        var lTableModal = document.getElementById("TableModal");
+        var lTableForm = document.getElementById("TableForm");
+        
+        lTableForm.classList.add("AnimateHide");
+
+        setTimeout(function() {
+            lTableModal.style.display = "none";
+        }, 400);
+        this.clear();
+    }
+    //===============================================
+    onCurrentData(_method, _obj, _data) {
+        this.readUi();
+        this.deserialize(_data);
+        this.m_currentData = _data;
+        this.writeUi();
+        return true;
+    }
+    //===============================================
+    onSelectData(_method, _obj, _data) {
+        this.readUi();
+        if(this.m_selectModule == "") {
+            this.addError("Le module courant est obligatoire.");
+            return false;
+        }
+        if(this.m_selectMethod == "") {
+            this.addError("La méthode courant est obligatoire.");
+            return false;
+        }
+        call_server(this.m_selectModule, this.m_selectMethod, this, this.m_currentData);
+        this.writeUi();
+        return !this.hasErrors();
+    }
+    //===============================================
+    onNextData(_method, _obj, _data) {
+        this.readUi();
+        if(this.m_nextModule == "") {
+            this.addError("Le module suivant est obligatoire.");
+            return false;
+        }
+        if(this.m_nextMethod == "") {
+            this.addError("La méthode suivante est obligatoire.");
+            return false;
+        }
+        call_server(this.m_nextModule, this.m_nextMethod);
+        this.writeUi();
+        return true;
     }
     //===============================================
 }

@@ -23,10 +23,6 @@ class GAjax extends GObject {
             this.addError("La méthode est obligatoire.");            
             return false;
         }
-        if(_callback == null) {
-            this.addError("La fonction de rappel est obligatoire.");            
-            return false;
-        }
         var lDom = new GCode();
         lDom.createDoc();
         lDom.addData("manager", "module", _module);
@@ -38,12 +34,12 @@ class GAjax extends GObject {
         return !this.hasErrors();
     }
     //===============================================
-    callLocal(_module, _method, _params, _callback) {
+    callLocal(_module, _method, _params, _callback = null) {
         this.call(_module, _method, _params, _callback, "local");
         return !this.hasErrors();
     }
     //===============================================
-    callRemote(_module, _method, _params, _callback) {
+    callRemote(_module, _method, _params, _callback = null) {
         this.call(_module, _method, _params, _callback, "remote");
         return !this.hasErrors();
     }
@@ -51,10 +47,6 @@ class GAjax extends GObject {
     callServer(_data, _callback) {
         if(_data == "") {
             this.addError("La donnée est obligatoire.");            
-            return false;
-        }
-        if(_callback == null) {
-            this.addError("La fonction de rappel est obligatoire.");            
             return false;
         }
         var lLoader = new GLoader();
