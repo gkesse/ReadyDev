@@ -8,6 +8,7 @@ class GPage extends GObject {
         this.m_root = "";
         this.m_path = "";
         this.m_name = "";
+        this.m_content = "";
         this.m_defaultAddress = "";
         this.m_defaultPage = "";
     }
@@ -27,6 +28,7 @@ class GPage extends GObject {
         this.m_root = _obj.m_root;
         this.m_path = _obj.m_path;
         this.m_name = _obj.m_name;
+        this.m_content = _obj.m_content;
         this.m_defaultAddress = _obj.m_defaultAddress;
         this.m_defaultPage = _obj.m_defaultPage;
     }
@@ -36,6 +38,7 @@ class GPage extends GObject {
         lEqualOk &= (this.m_root == _obj.m_root);
         lEqualOk &= (this.m_path == _obj.m_path);
         lEqualOk &= (this.m_name == _obj.m_name);
+        lEqualOk &= (this.m_content == _obj.m_content);
         lEqualOk &= (this.m_defaultAddress == _obj.m_defaultAddress);
         lEqualOk &= (this.m_defaultPage == _obj.m_defaultPage);
         return lEqualOk;
@@ -135,6 +138,16 @@ class GPage extends GObject {
         lEditorPageDefaultPage.innerHTML = lPage.serialize();
     }
     //===============================================
+    readEditionPage() {
+        var lEditorEditionPage = document.getElementById("EditorEditionPage");
+        this.m_content = lEditorEditionPage.innerHTML;
+    }
+    //===============================================
+    writeEditionPage() {
+        var lEditorEditionPage = document.getElementById("EditorEditionPage");
+        lEditorEditionPage.innerHTML = this.m_content;
+    }
+    //===============================================
     readUi() {
         var lEditorPageRoot = document.getElementById("EditorPageRoot");
         var lEditorPagePath = document.getElementById("EditorPagePath");
@@ -161,6 +174,7 @@ class GPage extends GObject {
         lDom.addData(_code, "root", this.m_root);
         lDom.addData(_code, "path", this.m_path);
         lDom.addData(_code, "name", this.m_name);
+        lDom.addData(_code, "content", utf8_to_b64(this.m_content));
         lDom.addData(_code, "default_address", utf8_to_b64(this.m_defaultAddress));
         lDom.addData(_code, "default_page", utf8_to_b64(this.m_defaultPage));
         lDom.addMap(_code, this.m_map);
@@ -173,6 +187,7 @@ class GPage extends GObject {
         this.m_root = lDom.getItem(_code, "root");
         this.m_path = lDom.getItem(_code, "path");
         this.m_name = lDom.getItem(_code, "name");
+        this.m_content = b64_to_utf8(lDom.getItem(_code, "content"));
         this.m_defaultAddress = b64_to_utf8(lDom.getItem(_code, "default_address"));
         this.m_defaultPage = b64_to_utf8(lDom.getItem(_code, "default_page"));
         lDom.getMap(_code, this.m_map, this);
@@ -182,6 +197,7 @@ class GPage extends GObject {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
         }
+        // page
         else if(_method == "load_page") {
             this.onLoadPage(_obj, _data);
         }
@@ -200,11 +216,21 @@ class GPage extends GObject {
         else if(_method == "new_page") {
             this.onNewPage(_obj, _data);
         }
+        // edition
+        else if(_method == "load_page_edition") {
+            this.onLoadPageEdition(_obj, _data);
+        }
+        else if(_method == "save_page_edition") {
+            this.onSavePageEdition(_obj, _data);
+        }
+        //
         else {
             this.addError("Erreur la méthode est inconnue.");            
         }
         return !this.hasErrors();
     }
+    //===============================================
+    // page
     //===============================================
     onLoadPage(_obj, _data) {
         this.readUi();
@@ -373,6 +399,31 @@ class GPage extends GObject {
         lPage.readRoot();
         lPage.readPath();
         lPage.writeUi();
+    }
+    //===============================================
+    // edition
+    //===============================================
+    onLoadPageEdition(_obj, _data) {
+        this.readUi();
+        var lAjax = new GAjax();
+        var lData = this.serialize();
+        lAjax.callLocal("page", "load_page_edition", lData, this.onLoadPageEditionCB);        
+    }
+    //===============================================
+    onLoadPageEditionCB(_data, _isOk) {
+        if(_isOk) {
+            var lPage = new GPage();
+            lPage.deserialize(_data);
+            lPage.writeEditionPage();
+        }
+    }
+    //===============================================
+    onSavePageEdition(_obj, _data) {
+        this.readUi();
+        this.readEditionPage();
+        var lAjax = new GAjax();
+        var lData = this.serialize();
+        lAjax.callLocal("page", "save_page_edition", lData);        
     }
     //===============================================
 }

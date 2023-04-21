@@ -4,6 +4,7 @@ class GPageFac extends GModule {
     private $m_root = "";
     private $m_path = "";
     private $m_name = "";
+    private $m_content = "";
     private $m_defaultAddress = "";
     private $m_defaultPage = "";
     //===============================================
@@ -19,6 +20,7 @@ class GPageFac extends GModule {
         $this->m_root = $_obj->m_root;
         $this->m_path = $_obj->m_path;
         $this->m_name = $_obj->m_name;
+        $this->m_content = $_obj->m_content;
         $this->m_defaultAddress = $_obj->m_defaultAddress;
         $this->m_defaultPage = $_obj->m_defaultPage;
     }
@@ -28,6 +30,7 @@ class GPageFac extends GModule {
         $lEqualOk &= ($this->m_root == $_obj->m_root);
         $lEqualOk &= ($this->m_path == $_obj->m_path);
         $lEqualOk &= ($this->m_name == $_obj->m_name);
+        $lEqualOk &= ($this->m_content == $_obj->m_content);
         $lEqualOk &= ($this->m_defaultAddress == $_obj->m_defaultAddress);
         $lEqualOk &= ($this->m_defaultPage == $_obj->m_defaultPage);
         return $lEqualOk;
@@ -39,6 +42,7 @@ class GPageFac extends GModule {
         $lDom->addData($_code, "root", $this->m_root);
         $lDom->addData($_code, "path", $this->m_path);
         $lDom->addData($_code, "name", $this->m_name);
+        $lDom->addData($_code, "content", base64_encode($this->m_content));
         $lDom->addData($_code, "default_address", base64_encode($this->m_defaultAddress));
         $lDom->addData($_code, "default_page", base64_encode($this->m_defaultPage));
         $lDom->addMap($_code, $this->m_map);
@@ -52,6 +56,7 @@ class GPageFac extends GModule {
         $this->m_root = $lDom->getItem($_code, "root");
         $this->m_path = $lDom->getItem($_code, "path");
         $this->m_name = $lDom->getItem($_code, "name");
+        $this->m_content = base64_decode($lDom->getItem($_code, "content"));
         $this->m_defaultAddress = base64_decode($lDom->getItem($_code, "default_address"));
         $this->m_defaultPage = base64_decode($lDom->getItem($_code, "default_page"));
         $lDom->getMap($_code, $this->m_map, $this);
@@ -62,6 +67,7 @@ class GPageFac extends GModule {
         if($this->m_method == "") {
             $this->addError("La méthode est obligatoire.");
         }
+        // page
         else if($this->m_method == "load_page") {
             $this->onLoadPage($_data);
         }
@@ -83,11 +89,21 @@ class GPageFac extends GModule {
         else if($this->m_method == "load_default_page") {
             $this->onLoadDefaultPage($_data);
         }
+        // edition
+        else if($this->m_method == "save_page_edition") {
+            $this->onSavePageEdition($_data);
+        }
+        else if($this->m_method == "load_page_edition") {
+            $this->onLoadPageEdition($_data);
+        }
+        //
         else {
             $this->addError("La méthode est inconnue.");
         }
         return !$this->hasErrors();
     }
+    //===============================================
+    // page
     //===============================================
     public function onLoadPage($_data) {
         $lPath = sprintf("%s%s", $this->m_root, $this->m_path);
@@ -195,6 +211,29 @@ class GPageFac extends GModule {
         $lPath = $this->getPath($lPath);
         if(file_exists($lPath)) {
             $this->m_defaultPage = file_get_contents($lPath);
+        }
+        return !$this->hasErrors();
+    }
+    //===============================================
+    // edition
+    //===============================================
+    public function onSavePageEdition($_data) {
+        $lPath = sprintf("%s%s/%s", $this->m_root, $this->m_path, $this->m_name);
+        $lPath = $this->getPath($lPath);
+        if(file_exists($lPath)) {
+            file_put_contents($lPath, $this->m_content);
+        }
+        else {
+            $this->addError("Le fichier n'existe pas.");
+        }
+        return !$this->hasErrors();
+    }
+    //===============================================
+    public function onLoadPageEdition($_data) {
+        $lPath = sprintf("%s%s/%s", $this->m_root, $this->m_path, $this->m_name);
+        $lPath = $this->getPath($lPath);
+        if(file_exists($lPath)) {
+            $this->m_content = file_get_contents($lPath);
         }
         return !$this->hasErrors();
     }

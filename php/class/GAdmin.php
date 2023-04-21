@@ -85,7 +85,7 @@ class GAdmin extends GObject {
         //
         echo sprintf("<div class='Block5'>\n");
         // default_tab
-        echo sprintf("<input type='hidden' id='EditorDefaultTab' value='1'>\n");
+        echo sprintf("<input type='hidden' id='EditorDefaultTab' value='2'>\n");
         //
         $this->toEditorTab();
         $this->toEditorHome();
@@ -256,12 +256,21 @@ class GAdmin extends GObject {
     }
     //===============================================
     public function toEditorEditionMenu() {
-
+        $lMenu = new GAdmin();
+        // page
+        $lMenu->addMenu("", "", "Page");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("page", "save_page_edition", "Enregistrer");
+        $lMenu->addMenu("page", "load_page_edition", "Charger");
+        $lMenu->popParent();
+        //
+        $lMenu->toMenu();
     }
     //===============================================
     public function toEditorEditionForm() {
         echo sprintf("<div class='Block24 GEndEditor'>\n");
-        echo sprintf("<div id='GEndEditor' class='Block23 GEndEditor' contentEditable='true'\n");
+        echo sprintf("<div id='EditorEditionPage' class='Block23 GEndEditor' contentEditable='true'\n");
         echo sprintf("onkeydown='call_server(\"editor\", \"keydown_event_edition\", event)'\n");
         echo sprintf("onpaste='call_server(\"editor\", \"paste_event_edition\", event)'></div>\n");
         echo sprintf("</div>\n");

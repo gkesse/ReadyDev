@@ -40,13 +40,24 @@ class GEditor extends GObject {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
         }
+        // editor
         else if(_method == "open_editor_tab") {
             this.onOpenEditorTab(_obj, _data);
         }
+        // edition
+        else if(_method == "keydown_event_edition") {
+            this.onKeydownEventEdition(_obj, _data);
+        }
+        else if(_method == "paste_event_edition") {
+            this.onPasteEventEdition(_obj, _data);
+        }
+        //
         else {
             this.addError("La méthode est inconnue.");
         }
     }
+    //===============================================
+    // editor
     //===============================================
     onOpenEditorTab(_obj, _data) {
         var lTabs = document.getElementsByClassName("EditorTab");
@@ -63,6 +74,15 @@ class GEditor extends GObject {
         var lContentId = _obj.dataset.contentId;
         var lContent = document.getElementById(lContentId);
         lContent.style.display = "block";
+    }
+    //===============================================
+    // edition
+    //===============================================
+    onKeydownEventEdition(_obj, _data) {
+        
+    }
+    onPasteEventEdition(_obj, _data) {
+        
     }
     //===============================================
 }
