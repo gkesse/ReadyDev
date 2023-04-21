@@ -2057,7 +2057,7 @@ thead tr:first-child {
 }
 
 .Parallax2 {
-    /* background-image: url("/data/img/defaults/binary.png"); */
+    background-image: url("/data/img/defaults/binary.png");
     min-height: 500px;
     position: relative;
     opacity: 0.65;

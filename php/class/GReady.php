@@ -301,7 +301,7 @@ class GReady extends GObject {
         // env_input
         echo sprintf("<input type='hidden' id='gPageId' value='%s'/>\n", $this->getPageId());
         // env_div
-        echo sprintf("<div id='' hidden></div>\n");
+        echo sprintf("<div id='gData' hidden='true'></div>\n");
         //
         echo sprintf("<div class='Html1'>\n");
         // background
@@ -313,7 +313,7 @@ class GReady extends GObject {
         $this->runTable();
         $this->runLoader();
         //
-        echo sprintf("<div class='Html2'>\n");
+        echo sprintf("<div class='Html2 HtmlPage'>\n");
         // menu       
         echo sprintf("<div class='Menu1'>\n");
         echo sprintf("<a class='Menu3' href='%s'>\n", $this->getHomePage());
@@ -463,9 +463,7 @@ class GReady extends GObject {
         echo sprintf("<div>\n");
         echo sprintf("<div class='View4'>\n");
         // label
-        echo sprintf("<div class='View6'>\n");
-        echo sprintf("<i class='fa fa-eye'></i> Vues\n");
-        echo sprintf("</div>\n");
+        echo sprintf("<div class='View6'><i class='fa fa-eye'></i> Vues</div>\n");
         // vues
         echo sprintf("<div class='View7'>%d</div>\n", $this->toView());
         //

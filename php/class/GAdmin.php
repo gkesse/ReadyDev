@@ -85,7 +85,7 @@ class GAdmin extends GObject {
         //
         echo sprintf("<div class='Block5'>\n");
         // default_tab
-        echo sprintf("<input type='hidden' id='EditorDefaultTab' value='2'>\n");
+        echo sprintf("<input type='hidden' id='EditorDefaultTab' value='2'/>\n");
         //
         $this->toEditorTab();
         $this->toEditorHome();
@@ -116,17 +116,17 @@ class GAdmin extends GObject {
         // page
         echo sprintf("<div class='Block7'>\n");
         echo sprintf("<button class='Block8 EditorTab' data-content-id='EditorTab1'\n");
-        echo sprintf("onclick='call_server(\"editor\", \"open_editor_tab\", this)'>Page</i></button>\n");
+        echo sprintf("onclick='call_server(\"editor\", \"open_editor_tab\", this)'>Page</button>\n");
         echo sprintf("</div>\n");
         // edition
         echo sprintf("<div class='Block7'>\n");
         echo sprintf("<button class='Block8 EditorTab' data-content-id='EditorTab2'\n");
-        echo sprintf("onclick='call_server(\"editor\", \"open_editor_tab\", this)'>Edition</i></button>\n");
+        echo sprintf("onclick='call_server(\"editor\", \"open_editor_tab\", this)'>Edition</button>\n");
         echo sprintf("</div>\n");
         // code
         echo sprintf("<div class='Block7'>\n");
         echo sprintf("<button class='Block8 EditorTab' data-content-id='EditorTab3'\n");
-        echo sprintf("onclick='call_server(\"editor\", \"open_editor_tab\", this)'>Code</i></button>\n");
+        echo sprintf("onclick='call_server(\"editor\", \"open_editor_tab\", this)'>Code</button>\n");
         echo sprintf("</div>\n");
         //
         echo sprintf("</div>\n");
@@ -148,12 +148,12 @@ class GAdmin extends GObject {
     }
     //===============================================
     public function toEditorHomeForm() {
-        echo sprintf("<b>ReadyEditor</b> est un éditeur de pages HTML.<br>\n");
+        echo sprintf("<b>ReadyEditor</b> est un éditeur de pages HTML.<br/>\n");
         echo sprintf("Il permet d'éditer les pages HTML du siteweb.\n");
         echo sprintf("Cela accélère l'ajout de nouveaux contenus\n");
         echo sprintf("et évite de passer du temps inutilement à écrire du code\n");
         echo sprintf("dans le but d'ajouter de nouveaux contenus.\n");
-        echo sprintf("<br>Produit par <b>Gérard KESSE</b>.\n");
+        echo sprintf("<br/>Produit par <b>Gérard KESSE</b>.\n");
     }
     //===============================================
     public function toEditorPage() {
@@ -189,6 +189,7 @@ class GAdmin extends GObject {
         $lMenu->initParent();
         $lMenu->addMenu("page", "load_page", "Charger");
         $lMenu->addMenu("page", "create_page", "Créer");
+        $lMenu->addMenu("page", "new_page", "Nouveau");
         $lMenu->popParent();
         // folder
         $lMenu->addMenu("", "", "Répertoire");
@@ -208,9 +209,9 @@ class GAdmin extends GObject {
         echo sprintf("<input type='hidden' value=''/>\n");
         echo sprintf("</div>\n");
         // default_address
-        echo sprintf("<div id='EditorPageDefaultAddress' hidden></div>\n");
+        echo sprintf("<div id='EditorPageDefaultAddress' hidden='true'></div>\n");
         // default_page
-        echo sprintf("<div id='EditorPageDefaultPage' hidden></div>\n");
+        echo sprintf("<div id='EditorPageDefaultPage' hidden='true'></div>\n");
         // root
         echo sprintf("<div class='Form2'>\n");
         echo sprintf("<label class='Form3'>Racine :</label>\n");
@@ -257,12 +258,31 @@ class GAdmin extends GObject {
     //===============================================
     public function toEditorEditionMenu() {
         $lMenu = new GAdmin();
+        // template
+        $lMenu->addMenu("", "", "Templates");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        // template/parallax
+        $lMenu->addMenu("", "", "Parallax");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "add_parallax", "Ajouter");
+        $lMenu->addMenu("editor", "delete_parallax", "Supprimer");
+        $lMenu->popParent();
+        //
+        $lMenu->popParent();
         // page
         $lMenu->addMenu("", "", "Page");
         $lMenu->pushParent();
         $lMenu->initParent();
         $lMenu->addMenu("page", "save_page_edition", "Enregistrer");
         $lMenu->addMenu("page", "load_page_edition", "Charger");
+        $lMenu->popParent();
+        // code
+        $lMenu->addMenu("", "", "Code");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("page", "show_edition_code", "Afficher");
         $lMenu->popParent();
         //
         $lMenu->toMenu();
@@ -302,11 +322,21 @@ class GAdmin extends GObject {
     }
     //===============================================
     public function toEditorCodeMenu() {
-        
+        $lMenu = new GAdmin();
+        // code
+        $lMenu->addMenu("", "", "Edition");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("page", "show_code_edition", "Afficher");
+        $lMenu->addMenu("page", "load_code_edition", "Charger");
+        $lMenu->popParent();
+        //
+        $lMenu->toMenu();
     }
     //===============================================
     public function toEditorCodeForm() {
-        
+        echo sprintf("<textarea id='EditorCodePage' class='Block23'\n");
+        echo sprintf("placeholder='Code source de la page...'></textarea>\n");
     }
     //===============================================
 }

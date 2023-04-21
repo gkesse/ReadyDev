@@ -148,6 +148,16 @@ class GPage extends GObject {
         lEditorEditionPage.innerHTML = this.m_content;
     }
     //===============================================
+    readCodePage() {
+        var lEditorCodePage = document.getElementById("EditorCodePage");
+        this.m_content = lEditorCodePage.value;
+    }
+    //===============================================
+    writeCodePage() {
+        var lEditorCodePage = document.getElementById("EditorCodePage");
+        lEditorCodePage.innerHTML = this.m_content;
+    }
+    //===============================================
     readUi() {
         var lEditorPageRoot = document.getElementById("EditorPageRoot");
         var lEditorPagePath = document.getElementById("EditorPagePath");
@@ -197,7 +207,9 @@ class GPage extends GObject {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
         }
+        //===============================================
         // page
+        //===============================================
         else if(_method == "load_page") {
             this.onLoadPage(_obj, _data);
         }
@@ -216,14 +228,28 @@ class GPage extends GObject {
         else if(_method == "new_page") {
             this.onNewPage(_obj, _data);
         }
+        //===============================================
         // edition
-        else if(_method == "load_page_edition") {
-            this.onLoadPageEdition(_obj, _data);
-        }
+        //===============================================
         else if(_method == "save_page_edition") {
             this.onSavePageEdition(_obj, _data);
         }
-        //
+        else if(_method == "load_page_edition") {
+            this.onLoadPageEdition(_obj, _data);
+        }
+        else if(_method == "show_edition_code") {
+            this.onShowEditionCode(_obj, _data);
+        }
+        //===============================================
+        // code
+        //===============================================
+        else if(_method == "show_code_edition") {
+            this.onShowCodeEdition(_obj, _data);
+        }
+        else if(_method == "load_code_edition") {
+            this.onLoadCodeEdition(_obj, _data);
+        }
+        //===============================================
         else {
             this.addError("Erreur la méthode est inconnue.");            
         }
@@ -425,6 +451,24 @@ class GPage extends GObject {
         var lAjax = new GAjax();
         var lData = this.serialize();
         lAjax.callLocal("page", "save_page_edition", lData);        
+    }
+    //===============================================
+    onShowEditionCode(_obj, _data) {
+        this.readEditionPage();
+        this.writeCodePage();
+        call_server("editor", "open_code_tab");        
+    }
+    //===============================================
+    // code
+    //===============================================
+    onShowCodeEdition(_obj, _data) {
+        call_server("editor", "open_edition_tab");        
+    }
+    //===============================================
+    onLoadCodeEdition(_obj, _data) {
+        this.readCodePage();
+        this.writeEditionPage();
+        call_server("editor", "open_edition_tab");        
     }
     //===============================================
 }

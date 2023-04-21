@@ -887,6 +887,62 @@ thead tr:first-child {
 }
 
 /* ============================================== */
+/* Parallax */
+/* ============================================== */
+
+.Parallax1 {
+    position: relative;
+    text-align: center;
+}
+
+.Parallax2 {
+    background-image: url("/data/img/defaults/binary.png");
+    min-height: 500px;
+    position: relative;
+    opacity: 0.65;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover; 
+    -moz-background-size: cover; 
+    -o-background-size: cover; 
+}
+
+.Parallax3 {
+    background-color: #051039;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 40px;
+    margin-top: -20px; 
+    opacity: 0.8;
+}
+
+.Parallax4 {
+    background-color: #111;
+    color: #fff;
+    padding: 18px 10px;
+    font-size: 25px;
+    display: inline-block;
+    font-family: Anton;
+    letter-spacing: 5px;
+    margin-top: -20px; 
+}
+
+.Parallax5 {
+    background-color: #803300;
+    position: relative;
+    min-height: 50px;
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+    font-family: Archivo Narrow;
+    text-align: left;
+}
+
+/* ============================================== */
 /* Table */
 /* ============================================== */
 
