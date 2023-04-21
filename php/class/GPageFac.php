@@ -42,9 +42,9 @@ class GPageFac extends GModule {
         $lDom->addData($_code, "root", $this->m_root);
         $lDom->addData($_code, "path", $this->m_path);
         $lDom->addData($_code, "name", $this->m_name);
-        $lDom->addData($_code, "content", base64_encode($this->m_content));
-        $lDom->addData($_code, "default_address", base64_encode($this->m_defaultAddress));
-        $lDom->addData($_code, "default_page", base64_encode($this->m_defaultPage));
+        $lDom->addData($_code, "content", utf8_to_b64($this->m_content));
+        $lDom->addData($_code, "default_address", utf8_to_b64($this->m_defaultAddress));
+        $lDom->addData($_code, "default_page", utf8_to_b64($this->m_defaultPage));
         $lDom->addMap($_code, $this->m_map);
         return $lDom->toString();
     }
@@ -56,9 +56,9 @@ class GPageFac extends GModule {
         $this->m_root = $lDom->getItem($_code, "root");
         $this->m_path = $lDom->getItem($_code, "path");
         $this->m_name = $lDom->getItem($_code, "name");
-        $this->m_content = base64_decode($lDom->getItem($_code, "content"));
-        $this->m_defaultAddress = base64_decode($lDom->getItem($_code, "default_address"));
-        $this->m_defaultPage = base64_decode($lDom->getItem($_code, "default_page"));
+        $this->m_content = b64_to_utf8($lDom->getItem($_code, "content"));
+        $this->m_defaultAddress = b64_to_utf8($lDom->getItem($_code, "default_address"));
+        $this->m_defaultPage = b64_to_utf8($lDom->getItem($_code, "default_page"));
         $lDom->getMap($_code, $this->m_map, $this);
     }
     //===============================================

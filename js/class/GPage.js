@@ -301,6 +301,7 @@ class GPage extends GObject {
                 lPage.writeUi();
                 lPage.updateAddress();
                 lPage.writeDefaultAddress();
+                lPage.onLoadPageEdition();
             }
         }
     }
