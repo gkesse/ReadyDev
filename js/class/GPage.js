@@ -243,11 +243,14 @@ class GPage extends GObject {
         //===============================================
         // code
         //===============================================
-        else if(_method == "show_code_edition") {
-            this.onShowCodeEdition(_obj, _data);
+        else if(_method == "store_code_edition") {
+            this.onStoreCodeEdition(_obj, _data);
         }
         else if(_method == "load_code_edition") {
             this.onLoadCodeEdition(_obj, _data);
+        }
+        else if(_method == "show_code_edition") {
+            this.onShowCodeEdition(_obj, _data);
         }
         //===============================================
         else {
@@ -461,13 +464,17 @@ class GPage extends GObject {
     //===============================================
     // code
     //===============================================
-    onShowCodeEdition(_obj, _data) {
-        call_server("editor", "open_edition_tab");        
+    onStoreCodeEdition(_obj, _data) {
+        this.readCodePage();
+        this.writeEditionPage();
     }
     //===============================================
     onLoadCodeEdition(_obj, _data) {
-        this.readCodePage();
-        this.writeEditionPage();
+        this.readEditionPage();
+        this.writeCodePage();
+    }
+    //===============================================
+    onShowCodeEdition(_obj, _data) {
         call_server("editor", "open_edition_tab");        
     }
     //===============================================

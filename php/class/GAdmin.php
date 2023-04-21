@@ -324,11 +324,17 @@ class GAdmin extends GObject {
     public function toEditorCodeMenu() {
         $lMenu = new GAdmin();
         // code
+        $lMenu->addMenu("", "", "Code");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("page", "store_code_edition", "Sauvegarder");
+        $lMenu->addMenu("page", "load_code_edition", "Charger");
+        $lMenu->popParent();
+        // edition
         $lMenu->addMenu("", "", "Edition");
         $lMenu->pushParent();
         $lMenu->initParent();
         $lMenu->addMenu("page", "show_code_edition", "Afficher");
-        $lMenu->addMenu("page", "load_code_edition", "Charger");
         $lMenu->popParent();
         //
         $lMenu->toMenu();
