@@ -6,6 +6,7 @@ class GEditor extends GObject {
     constructor() {
         super();
         this.m_node = null;
+        this.m_range = null;
     }
     //===============================================
     static Instance() {
@@ -20,7 +21,8 @@ class GEditor extends GObject {
     }
     //===============================================
     setObj(_obj) {
-
+        this.m_node = _obj.m_node;
+        this.m_range = _obj.m_range;
     }
     //===============================================
     init() {
@@ -60,6 +62,24 @@ class GEditor extends GObject {
         var lSelection = document.getSelection();
         var lNode = lSelection.anchorNode;
         return lNode;
+    }
+    //===============================================
+    toRange() {
+        var lSelection = document.getSelection();
+        var lRange = lSelection.getRangeAt(0);
+        return lRange;
+    }
+    //===============================================
+    saveRange() {
+        this.m_range = this.toRange();
+    }
+    //===============================================
+    restoreRange() {
+        if(this.m_range) {
+            var lSelection = document.getSelection();
+            lSelection.removeAllRanges();
+            lSelection.addRange(this.m_range);
+        }
     }
     //===============================================
     openDefaultTab() {
@@ -135,6 +155,9 @@ class GEditor extends GObject {
         }
         else if(_method == "update_parallax") {
             this.onUpdateParallax(_obj, _data);
+        }
+        else if(_method == "update_parallax_form") {
+            this.onUpdateParallaxForm(_obj, _data);
         }
         else if(_method == "delete_parallax") {
             this.onDeleteParallax(_obj, _data);
@@ -255,6 +278,36 @@ class GEditor extends GObject {
         lForm.addLabelColor("m_bgColor", "Couleur :", lBgColor);
         lForm.showForm();
         this.addLogs(lForm.getLogs());
+        
+        GEditor.Instance().saveRange();
+    }
+    //===============================================
+    onUpdateParallaxForm(_obj, _data) {
+        GEditor.Instance().restoreRange();
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GParallax1")) {
+            this.addError("Vous n'êtes pas dans un effet parallax.");
+            return false;
+        }
+        
+        var lImage = GImage.Instance();
+        var lForm = GForm.Instance();
+        lForm.readForm();
+
+        var lTitle = lForm.loadFromMap(0).m_value;
+        var lBgImg = lImage.loadFromMap(lForm.loadFromMap(1).m_index).m_path;
+        var lBgColor = lForm.loadFromMap(2).m_value;
+        
+        var lNode = this.m_node;
+        var lImgId = lNode.firstElementChild;
+        var lBodyId = lNode.firstElementChild.nextElementSibling;
+        var lTitleId = lNode.firstElementChild.firstElementChild.firstElementChild;
+        lTitleId.innerHTML = lTitle;
+        lImgId.style.backgroundImage = sprintf("url('%s')", lBgImg);
+        lBodyId.style.backgroundColor = lBgColor;
     }
     //===============================================
     onDeleteParallax(_obj, _data) {

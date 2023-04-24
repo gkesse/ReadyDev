@@ -442,7 +442,9 @@ class GReady extends GObject {
         echo sprintf("</div>\n");
         echo sprintf("<div class='Forms8'>\n");
         // ok
-        echo sprintf("<div class='Forms9' onclick='call_server(\"form\", \"close_form\", this)'>OK</div>\n");
+        echo sprintf("<div class='Forms9' onclick='call_server(\"form\", \"ok_form\", this)'>Enregistrer</div>\n");
+        // cancel
+        echo sprintf("<div class='Forms9' onclick='call_server(\"form\", \"close_form\", this)'>Annuler</div>\n");
         //
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");

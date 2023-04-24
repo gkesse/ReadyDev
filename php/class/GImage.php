@@ -159,7 +159,7 @@ class GImage extends GModule {
                 $lImgData64 = base64_encode($lImgData);
                 
                 $lFile = substr($lFilename, strlen($lPath) + 1);
-                $lFilelPath = sprintf("/%s/%s", $this->toImagePath(), $lFile);
+                $lFilelPath = sprintf("%s/%s", $this->toImagePath(), $lFile);
                 
                 $lObj = new GImage();
                 $lObj->m_mimeType = $lMimeType;
@@ -206,7 +206,7 @@ class GImage extends GModule {
                 $lImgData64 = base64_encode($lImgData);
                 
                 $lFile = substr($lFilename, strlen($lPath) + 1);
-                $lFilelPath = sprintf("/%s/%s", $this->toImagePath(), $lFile);
+                $lFilelPath = sprintf("%s/%s", $this->toImagePath(), $lFile);
                 
                 $lObj = new GImage();
                 $lObj->m_mimeType = $lMimeType;
@@ -253,7 +253,7 @@ class GImage extends GModule {
                 $lImgData64 = base64_encode($lImgData);
                 
                 $lFile = substr($lFilename, strlen($lPath) + 1);
-                $lFilelPath = sprintf("/%s/%s", $this->toImagePath(), $lFile);
+                $lFilelPath = sprintf("%s/%s", $this->toImagePath(), $lFile);
                 
                 $lObj = new GImage();
                 $lObj->m_mimeType = $lMimeType;
