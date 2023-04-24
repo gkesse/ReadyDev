@@ -258,6 +258,12 @@ class GAdmin extends GObject {
     //===============================================
     public function toEditorEditionMenu() {
         $lMenu = new GAdmin();
+        // text
+        $lMenu->addMenu("", "", "Textes");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "exec_command", "Gras", "bold");
+        $lMenu->popParent();
         // template
         $lMenu->addMenu("", "", "Templates");
         $lMenu->pushParent();
@@ -269,6 +275,14 @@ class GAdmin extends GObject {
         $lMenu->addMenu("editor", "add_parallax", "Ajouter");
         $lMenu->addMenu("editor", "update_parallax", "Modifier");
         $lMenu->addMenu("editor", "delete_parallax", "Supprimer");
+        $lMenu->popParent();
+        // template/link
+        $lMenu->addMenu("", "", "Liens");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "add_link", "Ajouter");
+        $lMenu->addMenu("editor", "update_link", "Modifier");
+        $lMenu->addMenu("editor", "delete_link", "Supprimer");
         $lMenu->popParent();
         //
         $lMenu->popParent();

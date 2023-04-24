@@ -221,7 +221,12 @@ class GPageFac extends GModule {
         $lPath = sprintf("%s%s/%s", $this->m_root, $this->m_path, $this->m_name);
         $lPath = $this->getPath($lPath);
         if(file_exists($lPath)) {
-            file_put_contents($lPath, $this->m_content);
+            if(!is_dir($lPath)) {
+                file_put_contents($lPath, $this->m_content);
+            }
+            else {
+                $this->addError("La page est un répertoire.");
+            }
         }
         else {
             $this->addError("Le fichier n'existe pas.");
