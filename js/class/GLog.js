@@ -52,7 +52,7 @@ class GLog {
         var lObj = new GLog();
         lObj.m_type = "data";
         lObj.m_side = "client";
-        lObj.m_msg =  btoa(_msg);
+        lObj.m_msg =  _msg;
         this.m_map.push(lObj);
     }
     //===============================================
@@ -263,12 +263,14 @@ class GLog {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
         }
+        //===============================================
         else if(_method == "close_logs") {
             this.onCloseLogs();
         }
         else if(_method == "show_php_logs") {
             this.onShowPhpLogs();
         }
+        //===============================================
         else {
             this.addError("La méthode est inconnue.");
         }
@@ -278,6 +280,7 @@ class GLog {
         var lLogModal = document.getElementById("LogModal");
         var lLogForm = document.getElementById("LogForm");
         
+        lLogForm.classList.remove("AnimateShow");
         lLogForm.classList.add("AnimateHide");
 
         setTimeout(function() {

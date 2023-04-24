@@ -9,11 +9,15 @@ class GServer extends GObject {
         if(_module == "") {
             this.addError("Le module est obligatoire.");
         }
+        //===============================================
         else if(_module == "logs") {
             this.onLogs(_method, _obj, _data);
         }
         else if(_module == "table") {
             this.onTable(_method, _obj, _data);
+        }
+        else if(_module == "form") {
+            this.onForm(_method, _obj, _data);
         }
         else if(_module == "editor") {
             this.onEditor(_method, _obj, _data);
@@ -21,6 +25,7 @@ class GServer extends GObject {
         else if(_module == "page") {
             this.onPage(_method, _obj, _data);
         }
+        //===============================================
         else {
             this.addError("Le module est inconnu.");
         }
@@ -33,6 +38,12 @@ class GServer extends GObject {
     //===============================================
     onTable(_method, _obj, _data) {
         var lObj = new GTable();
+        lObj.run(_method, _obj, _data)
+        this.addLogs(lObj.getLogs());
+    }
+    //===============================================
+    onForm(_method, _obj, _data) {
+        var lObj = new GForm();
         lObj.run(_method, _obj, _data)
         this.addLogs(lObj.getLogs());
     }

@@ -5,7 +5,7 @@ class GEditor extends GObject {
     //===============================================
     constructor() {
         super();
-        this.m_tabIndex = 0;
+        this.m_node = null;
     }
     //===============================================
     static Instance() {
@@ -30,13 +30,13 @@ class GEditor extends GObject {
     }
     //===============================================
     hasParent(_className) {
-        var lNode = this.toNode();
+        this.m_node = this.toNode();
         while(1) {
-            if(!lNode) return false;
-            lNode = lNode.parentNode;
-            if(lNode.matches("." + _className)) return true;
-            if(lNode.matches(".GEndEditor")) return false;
-            if(lNode.matches(".HtmlPage")) return false;
+            if(!this.m_node) return false;
+            this.m_node = this.m_node.parentNode;
+            if(this.m_node.matches("." + _className)) return true;
+            if(this.m_node.matches(".GEndEditor")) return false;
+            if(this.m_node.matches(".HtmlPage")) return false;
         }
         return false;
     }
@@ -52,6 +52,10 @@ class GEditor extends GObject {
         return (lLine);
     }
     //===============================================
+    isFilter() {
+        return true;
+    }
+    //===============================================
     toNode() {
         var lSelection = document.getSelection();
         var lNode = lSelection.anchorNode;
@@ -65,7 +69,14 @@ class GEditor extends GObject {
         this.onOpenEditorTab(lTab);
     }
     //===============================================
+    removeNode() {
+        this.m_node.remove();
+    }
+    //===============================================
     toParallax() {
+        var lBgImg = "/data/img/defaults/binary.png";
+        var lBgColor = "#803300";
+        
         var lHtml = "";
         lHtml += sprintf("<div class='GParallax1 Parallax1'>\n");
         lHtml += sprintf("<div class='Parallax2'>\n");
@@ -77,6 +88,14 @@ class GEditor extends GObject {
         lHtml += sprintf("Ajouter un texte...\n");
         lHtml += sprintf("</div>\n");
         lHtml += sprintf("</div>\n");
+                
+        var lNode = this.createNode(lHtml);
+        var lImgId = lNode.firstElementChild;
+        var lBodyId = lNode.firstElementChild.nextElementSibling;
+        lImgId.style.backgroundImage = sprintf("url('%s')", lBgImg);
+        lBodyId.style.backgroundColor = lBgColor;
+        lHtml = lNode.outerHTML;
+
         return lHtml;
     }
     //===============================================
@@ -84,11 +103,15 @@ class GEditor extends GObject {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
         }
+        //===============================================
         // editor
+        //===============================================
         else if(_method == "open_editor_tab") {
             this.onOpenEditorTab(_obj, _data);
         }
+        //===============================================
         // edition
+        //===============================================
         else if(_method == "keydown_event_edition") {
             this.onKeydownEventEdition(_obj, _data);
         }
@@ -98,15 +121,25 @@ class GEditor extends GObject {
         else if(_method == "open_edition_tab") {
             this.onOpenEditionTab(_obj, _data);
         }
+        //===============================================
         // code
+        //===============================================
         else if(_method == "open_code_tab") {
             this.onOpenCodeTab(_obj, _data);
         }
+        //===============================================
         // parallax
+        //===============================================
         else if(_method == "add_parallax") {
             this.onAddParallax(_obj, _data);
         }
-        //
+        else if(_method == "update_parallax") {
+            this.onUpdateParallax(_obj, _data);
+        }
+        else if(_method == "delete_parallax") {
+            this.onDeleteParallax(_obj, _data);
+        }
+        //===============================================
         else {
             this.addError("La méthode est inconnue.");
         }
@@ -134,10 +167,31 @@ class GEditor extends GObject {
     // edition
     //===============================================
     onKeydownEventEdition(_obj, _data) {
-        
+        var lEvent = _obj || window.event;
+        var lKeyCode = lEvent.charCode || lEvent.keyCode;
+        if(lKeyCode == 13) {
+            document.execCommand("insertLineBreak")
+            lEvent.preventDefault();
+        }
     }
+    //===============================================
     onPasteEventEdition(_obj, _data) {
-        
+        var lEvent = _obj || window.event;
+        var lClipboardData = lEvent.clipboardData || window.clipboardData;
+        // [info] : on récupère le texte pour vérifier si on a un texte ou une iamge
+        var lData = lClipboardData.getData("text");
+        // [info] : on vérifie si on a un texte
+        if(lData != "") {
+            if(this.isFilter()) {
+                lEvent.preventDefault();
+                document.execCommand("insertHTML", false, lData);
+            }
+        }
+        // [info] : sinon on a une image
+        else {
+            lEvent.preventDefault();
+            this.pasteImage(lEvent, this.pasteImageCB);
+        }
     }
     //===============================================
     onOpenEditionTab(_obj, _data) {
@@ -170,6 +224,49 @@ class GEditor extends GObject {
 
         document.execCommand("insertHTML", false, this.toParallax());
         return !this.hasErrors();
+    }
+    //===============================================
+    onUpdateParallax(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GParallax1")) {
+            this.addError("Vous n'êtes pas dans un effet parallax.");
+            return false;
+        }
+
+        var lNode = this.m_node;
+        var lImgId = lNode.firstElementChild;
+        var lBodyId = lNode.firstElementChild.nextElementSibling;
+        var lTitleId = lNode.firstElementChild.firstElementChild.firstElementChild;
+        var lTitle = lTitleId.innerHTML;
+        var lBgImg = lImgId.style.backgroundImage.getPathFromUrl();
+        var lBgColor = lBodyId.style.backgroundColor.getHexFromRgb();
+
+        var lImage = GImage.Instance();
+        var lIndex = lImage.findImg(lBgImg);
+
+        var lForm = GForm.Instance();
+        lForm.clearMap();
+        lForm.setCallback("editor", "update_parallax_form");
+        lForm.addLabelEdit("m_title", "Titre :", lTitle);
+        lForm.addLabelImage("m_bgImg", "Image :", lImage.toForm(), lIndex);
+        lForm.addLabelColor("m_bgColor", "Couleur :", lBgColor);
+        lForm.showForm();
+        this.addLogs(lForm.getLogs());
+    }
+    //===============================================
+    onDeleteParallax(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GParallax1")) {
+            this.addError("Vous n'êtes pas dans un effet parallax.");
+            return false;
+        }
+        this.removeNode();
     }
     //===============================================
 }

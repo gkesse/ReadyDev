@@ -253,6 +253,7 @@ class GTable extends GModule {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
         }
+        //===============================================
         else if(_method == "close_table") {
             this.onCloseTable(_method, _obj, _data);
         }
@@ -265,6 +266,7 @@ class GTable extends GModule {
         else if(_method == "next_data") {
             this.onNextData(_method, _obj, _data);
         }
+        //===============================================
         else {
             this.addError("La méthode est inconnue.");
         }

@@ -27,7 +27,7 @@ class GLog {
         $lDom->createDoc();
         $lDom->addData($_code, "type", $this->m_type);
         $lDom->addData($_code, "side", $this->m_side);
-        $lDom->addData($_code, "msg", base64_encode(utf8_decode($this->m_msg)));
+        $lDom->addData($_code, "msg", utf8_to_b64($this->m_msg));
         $lDom->addMap($_code, $this->m_map);
         return $lDom->toString();
     }
@@ -37,7 +37,7 @@ class GLog {
         $lDom->loadXml($_data);
         $this->m_type = $lDom->getItem($_code, "type");
         $this->m_side = $lDom->getItem($_code, "side");
-        $this->m_msg = utf8_encode(base64_decode($lDom->getItem($_code, "msg")));
+        $this->m_msg = b64_to_utf8($lDom->getItem($_code, "msg"));
         $lDom->getMap($_code, $this->m_map, $this);
     }
     //===============================================

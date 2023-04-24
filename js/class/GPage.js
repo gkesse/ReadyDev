@@ -155,7 +155,7 @@ class GPage extends GObject {
     //===============================================
     writeCodePage() {
         var lEditorCodePage = document.getElementById("EditorCodePage");
-        lEditorCodePage.innerHTML = this.m_content;
+        lEditorCodePage.value = this.m_content;
     }
     //===============================================
     readUi() {
@@ -467,6 +467,7 @@ class GPage extends GObject {
     onStoreCodeEdition(_obj, _data) {
         this.readCodePage();
         this.writeEditionPage();
+        call_server("editor", "open_edition_tab");        
     }
     //===============================================
     onLoadCodeEdition(_obj, _data) {

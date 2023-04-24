@@ -267,6 +267,7 @@ class GAdmin extends GObject {
         $lMenu->pushParent();
         $lMenu->initParent();
         $lMenu->addMenu("editor", "add_parallax", "Ajouter");
+        $lMenu->addMenu("editor", "update_parallax", "Modifier");
         $lMenu->addMenu("editor", "delete_parallax", "Supprimer");
         $lMenu->popParent();
         //

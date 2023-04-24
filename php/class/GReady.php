@@ -230,6 +230,25 @@ class GReady extends GObject {
         return $lUrl;
     }
     //===============================================
+    public function toScriptJs() {
+        echo sprintf("<script src='/js/functions.js'></script>\n");
+        echo sprintf("<script src='/js/class/GLog.js'></script>\n");
+        echo sprintf("<script src='/js/class/GXml.js'></script>\n");
+        echo sprintf("<script src='/js/class/GCode.js'></script>\n");
+        echo sprintf("<script src='/js/class/GObject.js'></script>\n");
+        echo sprintf("<script src='/js/class/GLoader.js'></script>\n");
+        echo sprintf("<script src='/js/class/GAjax.js'></script>\n");
+        echo sprintf("<script src='/js/class/GModule.js'></script>\n");
+        echo sprintf("<script src='/js/class/GMenu.js'></script>\n");
+        echo sprintf("<script src='/js/class/GImage.js'></script>\n");
+        echo sprintf("<script src='/js/class/GTable.js'></script>\n");
+        echo sprintf("<script src='/js/class/GForm.js'></script>\n");
+        echo sprintf("<script src='/js/class/GPage.js'></script>\n");
+        echo sprintf("<script src='/js/class/GEditor.js'></script>\n");
+        echo sprintf("<script src='/js/class/GServer.js'></script>\n");
+        echo sprintf("<script src='/js/script.js'></script>\n");
+    }
+    //===============================================
     public function serialize($_code = "ready") {
         $lDom = new GCode();
         $lDom->createDoc();
@@ -312,6 +331,7 @@ class GReady extends GObject {
         $this->runLog();
         $this->runTable();
         $this->runLoader();
+        $this->runForms();
         //
         echo sprintf("<div class='Html2 HtmlPage'>\n");
         // menu       
@@ -332,20 +352,7 @@ class GReady extends GObject {
         //
         echo sprintf("</div>\n");
         //
-        echo sprintf("<script src='/js/functions.js'></script>\n");
-        echo sprintf("<script src='/js/class/GLog.js'></script>\n");
-        echo sprintf("<script src='/js/class/GXml.js'></script>\n");
-        echo sprintf("<script src='/js/class/GCode.js'></script>\n");
-        echo sprintf("<script src='/js/class/GObject.js'></script>\n");
-        echo sprintf("<script src='/js/class/GLoader.js'></script>\n");
-        echo sprintf("<script src='/js/class/GAjax.js'></script>\n");
-        echo sprintf("<script src='/js/class/GModule.js'></script>\n");
-        echo sprintf("<script src='/js/class/GMenu.js'></script>\n");
-        echo sprintf("<script src='/js/class/GTable.js'></script>\n");
-        echo sprintf("<script src='/js/class/GPage.js'></script>\n");
-        echo sprintf("<script src='/js/class/GEditor.js'></script>\n");
-        echo sprintf("<script src='/js/class/GServer.js'></script>\n");
-        echo sprintf("<script src='/js/script.js'></script>\n");        
+        $this->toScriptJs();
         //
         echo sprintf("</body>\n");
         echo sprintf("</html>\n");
@@ -385,16 +392,58 @@ class GReady extends GObject {
     public function runLog() {
         echo sprintf("<div class='Log1' id='LogModal'>\n");
         echo sprintf("<div class='Log2' id='LogForm'>\n");
+        // close
         echo sprintf("<div class='Log3' onclick='call_server(\"logs\", \"close_logs\", this)'>\n");
         echo sprintf("<i class='fa fa-times'></i></div>\n");
+        // title
         echo sprintf("<div class='Log4' id='LogTitle'>Logs</div>\n");
+        //
         echo sprintf("<div class='Log5'>\n");
+        // intro
         echo sprintf("<div class='Log6' id='LogIntro'>Consultez les logs.</div>\n");
+        //
         echo sprintf("<div class='Log7'>\n");
+        // body
         echo sprintf("<div id='LogBody'></div>\n");
+        //
         echo sprintf("</div>\n");
         echo sprintf("<div class='Log8'>\n");
+        // ok
         echo sprintf("<div class='Log9' onclick='call_server(\"logs\", \"close_logs\", this)'>OK</div>\n");
+        //
+        echo sprintf("</div>\n");
+        echo sprintf("</div>\n");
+        echo sprintf("</div>\n");
+        echo sprintf("</div>\n");
+    }
+    //===============================================
+    public function runForms() {
+        echo sprintf("<div class='Forms1' id='FormModal'>\n");
+        echo sprintf("<div class='Forms2' id='FormForm'>\n");
+        // close
+        echo sprintf("<div class='Forms3' onclick='call_server(\"form\", \"close_form\", this)'>\n");
+        echo sprintf("<i class='fa fa-times'></i></div>\n");
+        // title
+        echo sprintf("<div class='Forms4' id='FormTitle'>Formulaire</div>\n");
+        //
+        echo sprintf("<div class='Forms5'>\n");
+        // intro
+        echo sprintf("<div class='Forms6' id='FormIntro'>Saisissez vos données.</div>\n");
+        //
+        echo sprintf("<div class='Forms7'>\n");
+        //
+        echo sprintf("<input id='FormModule' type='hidden'/>\n");
+        echo sprintf("<input id='FormMethod' type='hidden'/>\n");
+        echo sprintf("<input id='FormModuleLine' type='hidden'/>\n");
+        echo sprintf("<input id='FormMethodLine' type='hidden'/>\n");
+        // body
+        echo sprintf("<div id='FormContent'></div>\n");
+        //
+        echo sprintf("</div>\n");
+        echo sprintf("<div class='Forms8'>\n");
+        // ok
+        echo sprintf("<div class='Forms9' onclick='call_server(\"form\", \"close_form\", this)'>OK</div>\n");
+        //
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");

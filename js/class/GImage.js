@@ -37,6 +37,12 @@ class GImage extends GObject {
         return lEqualOk;
     }
     //===============================================
+    init() {
+        if(this.isAdmin()) {
+            this.onLoadImage();
+        }
+    }
+    //===============================================
     getImageData() {
         var lData = sprintf("data:%s;base64,%s", this.m_mimeType, this.m_img);
         return lData;
@@ -47,10 +53,6 @@ class GImage extends GObject {
         lObj.m_path = _imgPath;
         var lIndex = this.findObj(lObj);
         return lIndex;
-    }
-    //===============================================
-    loadImage() {
-        call_server("image", "load_image", this);
     }
     //===============================================
     loadData() {
@@ -106,9 +108,11 @@ class GImage extends GObject {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
         }
+        //===============================================
         else if(_method == "load_image") {
             this.onLoadImage(_obj, _data);
         }
+        //===============================================
         else {
             this.addError("La méthode est inconnue.");
         }
@@ -129,4 +133,6 @@ class GImage extends GObject {
     }
     //===============================================
 }
+//===============================================
+GImage.Instance().init();
 //===============================================

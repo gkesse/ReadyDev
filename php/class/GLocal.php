@@ -10,15 +10,14 @@ class GLocal extends GModule {
         if($this->m_module == "") {
             $this->addError("Le module est obligatoire.");
         }
+        //===============================================
         else if($this->m_module == "page") {
             $this->onPage($_data);
-        }
-        else if($this->m_module == "site") {
-            $this->onSite($_data);
         }
         else if($this->m_module == "image") {
             $this->onImage($_data);
         }
+        //===============================================
         else {
             $this->addError("Le module est inconnu.");
         }

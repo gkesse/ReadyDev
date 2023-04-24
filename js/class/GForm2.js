@@ -6,6 +6,8 @@ class GForm extends GObject {
     constructor() {
         super();
         
+        this.m_title = "";
+        this.m_intro = "";
         this.m_module = "";
         this.m_method = "";
         this.m_moduleLine = "";
@@ -20,6 +22,8 @@ class GForm extends GObject {
         this.m_value = "";
         this.m_img = "";
         this.m_index = -1;
+  
+        this.initUi();
     }
     //===============================================
     static Instance() {
@@ -30,7 +34,8 @@ class GForm extends GObject {
     }    
     //===============================================
     clone() {
-        return new GForm();
+        var lObj = new GForm();
+        return lObj;
     }
     //===============================================
     setObj(_obj) {
@@ -44,7 +49,7 @@ class GForm extends GObject {
     }
     //===============================================
     init() {
-        var lInputs = document.getElementsByClassName("FormInput");
+        var lInputs = document.getElementsByClassName("Menu2Input");
         
         for(var i = 0; i < lInputs.length; i++) {
             var lInput = lInputs[i];
@@ -86,7 +91,7 @@ class GForm extends GObject {
                 lContent = lInput.nextElementSibling.nextElementSibling.nextElementSibling;
             }
             
-            var lLines = lContent.getElementsByClassName("FormLine");
+            var lLines = lContent.getElementsByClassName("Menu2Line");
                                                             
             for(var j = 0; j < lLines.length; j++) {
                 var lLine = lLines[j];
@@ -141,14 +146,14 @@ class GForm extends GObject {
         }
         
         document.addEventListener("click", function(e) {
-            var lForm = document.getElementById("FormModal");
+            var lForm = document.getElementById("ModalForm");
             var lFormOk = (lForm.style.display != "none");
             var lHideOk = lFormOk 
-                       && !e.target.matches(".FormCaret")
-                       && !e.target.matches(".FormInput")
+                       && !e.target.matches(".Menu2Caret")
+                       && !e.target.matches(".Menu2Input")
                        
             if(lHideOk) {
-                var lInputs = document.getElementsByClassName("FormInput");
+                var lInputs = document.getElementsByClassName("Menu2Input");
                 
                 for(var i = 0; i < lInputs.length; i++) {
                     var lInput = lInputs[i];
@@ -164,6 +169,23 @@ class GForm extends GObject {
                 }
             }
         });
+    }
+    //===============================================
+    initUi(_intro) {
+        var lFormTitle = document.getElementById("FormTitle");
+        var lFormIntro = document.getElementById("FormIntro");
+        this.m_title = lFormTitle.innerHTML;
+        this.m_intro = lFormIntro.innerHTML;
+    }
+    //===============================================
+    setTitle(_title) {
+        this.m_title = _title;
+        this.writeUi();
+    }
+    //===============================================
+    setIntro(_intro) {
+        this.m_intro = _intro;
+        this.writeUi();
     }
     //===============================================
     setCallback(_module, _method) {
@@ -250,21 +272,21 @@ class GForm extends GObject {
             }
 
             if(lObj.m_model == "label_edit") {
-                lContent += sprintf("<div class='Forms10'>\n");
-                lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
-                lContent += sprintf("<div class='Forms12'><input type='text' class='Forms20 FormEdit' id='%s' value='%s' data-index='%s' data-position='%s'/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
+                lContent += sprintf("<div class='Row12'>\n");
+                lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
+                lContent += sprintf("<div class='Field3'><input type='text' class='FormEdit Input2' id='%s' value='%s' data-index='%s' data-position='%s'/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
                 lContent += sprintf("</div>\n");
             }
             else if(lObj.m_model == "label_text") {
-                lContent += sprintf("<div class='Forms10'>\n");
-                lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
-                lContent += sprintf("<div class='Forms12'><input type='text' class='Forms20 FormReadOnly' id='%s' value='%s' data-index='%s' data-position='%s' readonly/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
+                lContent += sprintf("<div class='Row12'>\n");
+                lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
+                lContent += sprintf("<div class='Field3'><input type='text' class='FormReadOnly Input2' id='%s' value='%s' data-index='%s' data-position='%s' readonly/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
                 lContent += sprintf("</div>\n");
             }
             else if(lObj.m_model == "label_color") {
-                lContent += sprintf("<div class='Forms10'>\n");
-                lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
-                lContent += sprintf("<div class='Forms12'><input type='color' class='Forms20 FormColor' id='%s' value='%s' data-index='%s' data-position='%s'/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
+                lContent += sprintf("<div class='Row12'>\n");
+                lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
+                lContent += sprintf("<div class='Field3'><input type='color' class='FormColor Input2' id='%s' value='%s' data-index='%s' data-position='%s'/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
                 lContent += sprintf("</div>\n");
             }
             else if(lObj.m_model == "label_image") {
@@ -277,17 +299,17 @@ class GForm extends GObject {
                     continue;
                 }
 
-                lContent += sprintf("<div class='Forms10'>\n");
-                lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
-                lContent += sprintf("<div class='Forms13'>\n");
-                lContent += sprintf("<input type='text' data-type='image' class='Forms14 FormInput' id='%s' value='%s' data-index='%s' data-position='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index, lObj.m_position);
-                lContent += sprintf("<i data-type='image' class='Forms15 FormCaret fa fa-caret-down'></i>\n");
-                lContent += sprintf("<img class='Forms16'/>\n");
-                lContent += sprintf("<div class='Forms17'>\n");
+                lContent += sprintf("<div class='Row12'>\n");
+                lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
+                lContent += sprintf("<div class='Field3 Menu2'>");
+                lContent += sprintf("<input type='text' data-type='image' class='Input4 Menu2Input' id='%s' value='%s' data-index='%s' data-position='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index, lObj.m_position);
+                lContent += sprintf("<i data-type='image' class='Menu2Caret fa fa-caret-down'></i>\n");
+                lContent += sprintf("<img class='Menu2Zoom'/>\n");
+                lContent += sprintf("<div class='Menu2Content'>\n");
                 
                 for(var j = 0; j < lForm.m_map.length; j++) {
                     lForm.loadFromMap(j);
-                    lContent += sprintf("<div class='Forms18 FormLine' data-type='image' data-index='%s' data-position='%s' data-value='%s'>%s <img class='Forms19' src='%s' alt='%s'/></div>\n", j, lObj.m_position, lForm.m_value, lForm.m_value, lForm.m_img, lForm.m_value);
+                    lContent += sprintf("<div class='Menu2Line' data-type='image' data-index='%s' data-position='%s' data-value='%s'>%s <img class='Menu2Img' src='%s' alt='%s'/></div>\n", j, lObj.m_position, lForm.m_value, lForm.m_value, lForm.m_img, lForm.m_value);
                 }
                 
                 lContent += sprintf("</div>\n");
@@ -304,16 +326,16 @@ class GForm extends GObject {
                     continue;
                 }
                                 
-                lContent += sprintf("<div class='Forms10'>\n");
-                lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
-                lContent += sprintf("<div class='Forms13'>\n");
-                lContent += sprintf("<input type='text' data-type='combo' class='Forms14 FormInput' id='%s' value='%s' data-index='%s' data-position='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index, lObj.m_position);
-                lContent += sprintf("<i data-type='combo' class='Forms15 FormCaret fa fa-caret-down'></i>\n");
-                lContent += sprintf("<div class='Forms17'>\n");
+                lContent += sprintf("<div class='Row12'>\n");
+                lContent += sprintf("<label class='Label3' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
+                lContent += sprintf("<div class='Field3 Menu2'>");
+                lContent += sprintf("<input type='text' data-type='combo' class='Input4 Menu2Input' id='%s' value='%s' data-index='%s' data-position='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index, lObj.m_position);
+                lContent += sprintf("<i data-type='combo' class='Menu2Caret fa fa-caret-down'></i>\n");
+                lContent += sprintf("<div class='Menu2Content'>\n");
                 
                 for(var j = 0; j < lForm.m_map.length; j++) {
                     lForm.loadFromMap(j);
-                    lContent += sprintf("<div class='Forms18 FormLine' data-type='combo' data-index='%s' data-position='%s' data-value='%s'>%s</div>\n", j, lObj.m_position, lForm.m_value, lForm.m_value);
+                    lContent += sprintf("<div class='Menu2Line' data-type='combo' data-index='%s' data-position='%s' data-value='%s'>%s</div>\n", j, lObj.m_position, lForm.m_value, lForm.m_value);
                 }
                 
                 lContent += sprintf("</div>\n");
@@ -348,12 +370,16 @@ class GForm extends GObject {
     }
     //===============================================
     readUi() {
+        var lFormTitle = document.getElementById("FormTitle");
+        var lFormIntro = document.getElementById("FormIntro");
         var lFormModule = document.getElementById("FormModule");
         var lFormMethod = document.getElementById("FormMethod");
         var lFormModuleLine = document.getElementById("FormModuleLine");
         var lFormMethodLine = document.getElementById("FormMethodLine");
         var lFormContent = document.getElementById("FormContent");
         
+        this.m_title = lFormTitle.innerHTML;
+        this.m_intro = lFormIntro.innerHTML;
         this.m_module = lFormModule.value;
         this.m_method = lFormMethod.value;
         this.m_moduleLine = lFormModuleLine.value;
@@ -362,12 +388,16 @@ class GForm extends GObject {
     }
     //===============================================
     writeUi() {
+        var lFormTitle = document.getElementById("FormTitle");
+        var lFormIntro = document.getElementById("FormIntro");
         var lFormModule = document.getElementById("FormModule");
         var lFormMethod = document.getElementById("FormMethod");
         var lFormModuleLine = document.getElementById("FormModuleLine");
         var lFormMethodLine = document.getElementById("FormMethodLine");
         var lFormContent = document.getElementById("FormContent");
 
+        lFormTitle.innerHTML = this.m_title;
+        lFormIntro.innerHTML = this.m_intro;
         lFormModule.value = this.m_module;
         lFormMethod.value = this.m_method;
         lFormModuleLine.value = this.m_moduleLine;
@@ -437,24 +467,29 @@ class GForm extends GObject {
         return !this.hasErrors();
     }
     //===============================================
+    // form
+    //===============================================
     onOpenForm(_obj, _data) {
-        var lFormModal = document.getElementById("FormModal");
-        var lFormForm = document.getElementById("FormForm");
+        var lModalForm = document.getElementById("ModalForm");
+        var lFormBody = document.getElementById("FormBody");
+        var lFormMsg = document.getElementById("FormMsg");
+        var lClassName = lFormBody.className;
         
-        lFormForm.classList.remove("AnimateHide");
-        lFormForm.classList.add("AnimateShow");
-        lFormModal.style.display = "block";
+        lFormMsg.style.display = "none";
+        lFormBody.classList.remove("AnimateHide");
+        lFormBody.classList.add("AnimateShow");
+        lModalForm.style.display = "block";
     }
     //===============================================
     onCloseForm(_obj, _data) {
-        var lFormModal = document.getElementById("FormModal");
-        var lFormForm = document.getElementById("FormForm");
+        var lFormsModal = document.getElementById("FormsModal");
+        var lFormsBody = document.getElementById("FormsBody");
         
-        lFormForm.classList.remove("AnimateShow");
-        lFormForm.classList.add("AnimateHide");
+        lFormsBody.classList.add("AnimateShow");
+        lFormsBody.classList.add("AnimateHide");
         
         setTimeout(function() {
-            lFormModal.style.display = "none";
+            lFormsModal.style.display = "none";
         }, 400);
     }
     //===============================================
