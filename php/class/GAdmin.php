@@ -268,14 +268,6 @@ class GAdmin extends GObject {
         $lMenu->addMenu("", "", "Templates");
         $lMenu->pushParent();
         $lMenu->initParent();
-        // template/parallax
-        $lMenu->addMenu("", "", "Parallax");
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "add_parallax", "Ajouter");
-        $lMenu->addMenu("editor", "update_parallax", "Modifier");
-        $lMenu->addMenu("editor", "delete_parallax", "Supprimer");
-        $lMenu->popParent();
         // template/link
         $lMenu->addMenu("", "", "Liens");
         $lMenu->pushParent();
@@ -284,7 +276,21 @@ class GAdmin extends GObject {
         $lMenu->addMenu("editor", "update_link", "Modifier");
         $lMenu->addMenu("editor", "delete_link", "Supprimer");
         $lMenu->popParent();
+        // template/parallax
+        $lMenu->addMenu("", "", "Parallax");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "add_parallax", "Ajouter");
+        $lMenu->addMenu("editor", "update_parallax", "Modifier");
+        $lMenu->addMenu("editor", "delete_parallax", "Supprimer");
+        $lMenu->popParent();
         //
+        $lMenu->popParent();
+        // font_awesome
+        $lMenu->addMenu("", "", "Font Awesome");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("font_awesome", "extract_font_awesome", "Extraire");
         $lMenu->popParent();
         // page
         $lMenu->addMenu("", "", "Page");

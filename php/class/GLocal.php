@@ -17,6 +17,9 @@ class GLocal extends GModule {
         else if($this->m_module == "image") {
             $this->onImage($_data);
         }
+        else if($this->m_module == "font_awesome") {
+            $this->onFontAwesome($_data);
+        }
         //===============================================
         else {
             $this->addError("Le module est inconnu.");
@@ -30,15 +33,15 @@ class GLocal extends GModule {
         $this->addResponse($lObj->serialize());
     }
     //===============================================
-    public function onSite($_data) {
-        $lObj = new GSite();
+    public function onImage($_data) {
+        $lObj = new GImage();
         $lObj->run($_data);
         $this->addLogs($lObj->getLogs());
         $this->addResponse($lObj->serialize());
     }
     //===============================================
-    public function onImage($_data) {
-        $lObj = new GImage();
+    public function onFontAwesome($_data) {
+        $lObj = new GFontAwesome();
         $lObj->run($_data);
         $this->addLogs($lObj->getLogs());
         $this->addResponse($lObj->serialize());

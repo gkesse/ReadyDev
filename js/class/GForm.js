@@ -219,6 +219,17 @@ class GForm extends GObject {
         this.m_map.push(lObj);
     }
     //===============================================
+    addLabelPicto(_id, _label, _combo, _index = -1) {
+        var lObj = new GForm();
+        lObj.m_position = this.m_map.length;
+        lObj.m_model = "label_picto";
+        lObj.m_id = _id;
+        lObj.m_label = _label;
+        lObj.m_index = _index;
+        lObj.m_combo = _combo;
+        this.m_map.push(lObj);
+    }
+    //===============================================
     addLabelImage(_id, _label, _combo, _index = -1) {
         var lObj = new GForm();
         lObj.m_position = this.m_map.length;
@@ -314,6 +325,32 @@ class GForm extends GObject {
                 for(var j = 0; j < lForm.m_map.length; j++) {
                     lForm.loadFromMap(j);
                     lContent += sprintf("<div class='Forms18 FormLine' data-type='combo' data-index='%s' data-position='%s' data-value='%s'>%s</div>\n", j, lObj.m_position, lForm.m_value, lForm.m_value);
+                }
+                
+                lContent += sprintf("</div>\n");
+                lContent += sprintf("</div>\n");
+                lContent += sprintf("</div>\n");
+            }
+            else if(lObj.m_model == "label_picto") {
+                var lForm = new GForm();
+                lForm.deserialize(lObj.m_combo);
+                lForm.loadFromMap(lObj.m_index);
+                
+                if(!lForm.m_map.length) {
+                    this.addError("La donnée est obligatoire.");
+                    continue;
+                }
+                                
+                lContent += sprintf("<div class='Forms10'>\n");
+                lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
+                lContent += sprintf("<div class='Forms13'>\n");
+                lContent += sprintf("<input type='text' data-type='combo' class='Forms14 FormInput' id='%s' value='%s' data-index='%s' data-position='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index, lObj.m_position);
+                lContent += sprintf("<i data-type='combo' class='Forms15 FormCaret fa fa-caret-down'></i>\n");
+                lContent += sprintf("<div class='Forms17'>\n");
+                
+                for(var j = 0; j < lForm.m_map.length; j++) {
+                    lForm.loadFromMap(j);
+                    lContent += sprintf("<div class='Forms18 FormLine' data-type='combo' data-index='%s' data-position='%s' data-value='%s'>%s <i class='Forms21 fa %s'></i></div>\n", j, lObj.m_position, lForm.m_value, lForm.m_value, lForm.m_value);
                 }
                 
                 lContent += sprintf("</div>\n");

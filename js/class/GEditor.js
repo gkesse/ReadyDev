@@ -303,22 +303,22 @@ class GEditor extends GObject {
         }
 
         var lNode = this.m_node;
-        var lImgId = lNode.firstElementChild;
-        var lBodyId = lNode.firstElementChild.nextElementSibling;
-        var lTitleId = lNode.firstElementChild.firstElementChild.firstElementChild;
-        var lTitle = lTitleId.innerHTML;
-        var lBgImg = lImgId.style.backgroundImage.getPathFromUrl();
-        var lBgColor = lBodyId.style.backgroundColor.getHexFromRgb();
+        var lIconId = lNode.firstElementChild;
+        var lLinkId = lNode.firstElementChild.nextElementSibling;
+        
+        var lIcon = lIconId.getAttribute("class").split(" ")[2];
+        var lLink = lLinkId.getAttribute("href");
+        var lTitle = lLinkId.innerHTML;
 
-        var lImage = GImage.Instance();
-        var lIndex = lImage.findImg(lBgImg);
+        var lFont = GFontAwesome.Instance();
+        var lIndex = lFont.findFont(lIcon);
 
         var lForm = GForm.Instance();
         lForm.clearMap();
-        lForm.setCallback("editor", "update_parallax_form");
+        lForm.setCallback("editor", "update_link_form");
+        lForm.addLabelPicto("m_icon", "Icône :", lFont.toForm(), lIndex);
+        lForm.addLabelEdit("m_link", "Lien :", lLink);
         lForm.addLabelEdit("m_title", "Titre :", lTitle);
-        lForm.addLabelImage("m_bgImg", "Image :", lImage.toForm(), lIndex);
-        lForm.addLabelColor("m_bgColor", "Couleur :", lBgColor);
         lForm.showForm();
         this.addLogs(lForm.getLogs());
         
@@ -336,21 +336,22 @@ class GEditor extends GObject {
             return false;
         }
         
-        var lImage = GImage.Instance();
         var lForm = GForm.Instance();
         lForm.readForm();
 
-        var lTitle = lForm.loadFromMap(0).m_value;
-        var lBgImg = lImage.loadFromMap(lForm.loadFromMap(1).m_index).m_path;
-        var lBgColor = lForm.loadFromMap(2).m_value;
+        var lIcon = lForm.loadFromMap(0).m_value;
+        var lLink = lForm.loadFromMap(1).m_value;
+        var lTitle = lForm.loadFromMap(2).m_value;
         
         var lNode = this.m_node;
-        var lImgId = lNode.firstElementChild;
-        var lBodyId = lNode.firstElementChild.nextElementSibling;
-        var lTitleId = lNode.firstElementChild.firstElementChild.firstElementChild;
-        lTitleId.innerHTML = lTitle;
-        lImgId.style.backgroundImage = sprintf("url('%s')", lBgImg);
-        lBodyId.style.backgroundColor = lBgColor;
+        var lIconId = lNode.firstElementChild;
+        var lLinkId = lNode.firstElementChild.nextElementSibling;
+        
+        lIcon = sprintf("Link2 fa %s", lIcon);
+        
+        lIconId.setAttribute("class", lIcon);
+        lLinkId.setAttribute("href", lLink);
+        lLinkId.innerHTML = lTitle;
     }
     //===============================================
     onDeleteLink(_obj, _data) {

@@ -67,7 +67,9 @@ class GPageFac extends GModule {
         if($this->m_method == "") {
             $this->addError("La méthode est obligatoire.");
         }
+        //===============================================
         // page
+        //===============================================
         else if($this->m_method == "load_page") {
             $this->onLoadPage($_data);
         }
@@ -89,14 +91,16 @@ class GPageFac extends GModule {
         else if($this->m_method == "load_default_page") {
             $this->onLoadDefaultPage($_data);
         }
+        //===============================================
         // edition
+        //===============================================
         else if($this->m_method == "save_page_edition") {
             $this->onSavePageEdition($_data);
         }
         else if($this->m_method == "load_page_edition") {
             $this->onLoadPageEdition($_data);
         }
-        //
+        //===============================================
         else {
             $this->addError("La méthode est inconnue.");
         }

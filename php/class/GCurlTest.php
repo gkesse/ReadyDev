@@ -15,6 +15,7 @@
             if($this->m_method == "") {
                 $this->addError("La méthode est obligatoire.");
             }
+            //===============================================
             else if($this->m_method == "test") {
                 $this->runTest();
             }
@@ -33,6 +34,7 @@
             else if($this->m_method == "https_post") {
                 $this->runHttpsPost();
             }
+            //===============================================
             else {
                 $this->addError("La méthode est inconnue.");
             }

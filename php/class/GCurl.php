@@ -191,7 +191,7 @@ class GCurl extends GObject {
     //===============================================
     public function callPostHttp($_data) {
         $this->setAction("http_post");
-        $this->setUrl("http://readydev.ovh:9081/readyapi 1.0");
+        $this->setUrl("http://readydev.ovh:9081/readyapi-1.0");
         $this->setUserAgent("rdvapp/1.0");
         $this->setUsername("admin");
         $this->setPassword("adminpass");

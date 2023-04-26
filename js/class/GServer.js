@@ -16,6 +16,9 @@ class GServer extends GObject {
         else if(_module == "table") {
             this.onTable(_method, _obj, _data);
         }
+        else if(_module == "font_awesome") {
+            this.onFontAwesome(_method, _obj, _data);
+        }
         else if(_module == "form") {
             this.onForm(_method, _obj, _data);
         }
@@ -38,6 +41,12 @@ class GServer extends GObject {
     //===============================================
     onTable(_method, _obj, _data) {
         var lObj = new GTable();
+        lObj.run(_method, _obj, _data)
+        this.addLogs(lObj.getLogs());
+    }
+    //===============================================
+    onFontAwesome(_method, _obj, _data) {
+        var lObj = new GFontAwesome();
         lObj.run(_method, _obj, _data)
         this.addLogs(lObj.getLogs());
     }
