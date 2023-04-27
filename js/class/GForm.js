@@ -10,6 +10,10 @@ class GForm extends GObject {
         this.m_method = "";
         this.m_moduleLine = "";
         this.m_methodLine = "";
+        this.m_moduleEdit = "";
+        this.m_methodEdit = "";
+        this.m_moduleInput = "";
+        this.m_methodInput = "";
         this.m_content = "";
         this.m_combo = "";
 
@@ -58,6 +62,9 @@ class GForm extends GObject {
                 else if(lType == "image") {
                     lContent = this.nextElementSibling.nextElementSibling.nextElementSibling;
                 }
+                else if(lType == "picto") {
+                    lContent = this.nextElementSibling.nextElementSibling.nextElementSibling;
+                }
                 lContent.classList.toggle("Show");
                 call_server("form", "change_input_form", this);
             });
@@ -73,6 +80,9 @@ class GForm extends GObject {
                 else if(lType == "image") {
                     lContent = this.nextElementSibling.nextElementSibling;
                 }
+                else if(lType == "picto") {
+                    lContent = this.nextElementSibling.nextElementSibling;
+                }
                 lContent.classList.toggle("Show");
             });
 
@@ -83,6 +93,9 @@ class GForm extends GObject {
                 lContent = lInput.nextElementSibling.nextElementSibling;
             }
             else if(lType == "image") {
+                lContent = lInput.nextElementSibling.nextElementSibling.nextElementSibling;
+            }
+            else if(lType == "picto") {
                 lContent = lInput.nextElementSibling.nextElementSibling.nextElementSibling;
             }
             
@@ -99,6 +112,9 @@ class GForm extends GObject {
                         lInput = this.parentNode.previousElementSibling.previousElementSibling;
                     }
                     else if(lType == "image") {
+                        lInput = this.parentNode.previousElementSibling.previousElementSibling.previousElementSibling;
+                    }
+                    else if(lType == "picto") {
                         lInput = this.parentNode.previousElementSibling.previousElementSibling.previousElementSibling;
                     }
                     lInput.value = this.dataset.value;
@@ -119,11 +135,24 @@ class GForm extends GObject {
                         lZoom.src = lImg.src;
                         lZoom.alt = lImg.alt;
                     }
+                    else if(lType == "picto") {
+                        var lZoom = this.parentNode.previousElementSibling;
+                        var lIconId = this;
+                        var lIcon = lIconId.dataset.value;
+                        lIcon = "Forms22 fa " +  lIcon;
+                        lZoom.setAttribute("class", lIcon);
+                        lZoom.classList.remove("Show");
+                        lZoom.classList.add("Show");
+                    }
                 });
                 
                 lLine.addEventListener("mouseout", function(e) {
                     var lType = this.dataset.type;
                     if(lType == "image") {
+                        var lZoom = this.parentNode.previousElementSibling;
+                        lZoom.classList.remove("Show");
+                    }
+                    else if(lType == "picto") {
                         var lZoom = this.parentNode.previousElementSibling;
                         lZoom.classList.remove("Show");
                     }
@@ -160,6 +189,9 @@ class GForm extends GObject {
                     else if(lType == "image") {
                         lContent = lInput.nextElementSibling.nextElementSibling.nextElementSibling;
                     }
+                    else if(lType == "picto") {
+                        lContent = lInput.nextElementSibling.nextElementSibling.nextElementSibling;
+                    }
                     lContent.classList.remove("Show");
                 }
             }
@@ -175,6 +207,18 @@ class GForm extends GObject {
     setCallbackLine(_module, _method) {
         this.m_moduleLine = _module;
         this.m_methodLine = _method;
+        this.writeUi();
+    }
+    //===============================================
+    setCallbackEdit(_module, _method) {
+        this.m_moduleEdit = _module;
+        this.m_methodEdit = _method;
+        this.writeUi();
+    }
+    //===============================================
+    setCallbackInput(_module, _method) {
+        this.m_moduleInput = _module;
+        this.m_methodInput = _method;
         this.writeUi();
     }
     //===============================================
@@ -344,13 +388,14 @@ class GForm extends GObject {
                 lContent += sprintf("<div class='Forms10'>\n");
                 lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
                 lContent += sprintf("<div class='Forms13'>\n");
-                lContent += sprintf("<input type='text' data-type='combo' class='Forms14 FormInput' id='%s' value='%s' data-index='%s' data-position='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index, lObj.m_position);
-                lContent += sprintf("<i data-type='combo' class='Forms15 FormCaret fa fa-caret-down'></i>\n");
+                lContent += sprintf("<input type='text' data-type='picto' class='Forms14 FormInput' id='%s' value='%s' data-index='%s' data-position='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index, lObj.m_position);
+                lContent += sprintf("<i data-type='picto' class='Forms15 FormCaret fa fa-caret-down'></i>\n");
+                lContent += sprintf("<i class='Forms22 fa fa-book'></i>\n");
                 lContent += sprintf("<div class='Forms17'>\n");
                 
                 for(var j = 0; j < lForm.m_map.length; j++) {
                     lForm.loadFromMap(j);
-                    lContent += sprintf("<div class='Forms18 FormLine' data-type='combo' data-index='%s' data-position='%s' data-value='%s'>%s <i class='Forms21 fa %s'></i></div>\n", j, lObj.m_position, lForm.m_value, lForm.m_value, lForm.m_value);
+                    lContent += sprintf("<div class='Forms18 FormLine' data-type='picto' data-index='%s' data-position='%s' data-value='%s'>%s <i class='Forms21 fa %s'></i></div>\n", j, lObj.m_position, lForm.m_value, lForm.m_value, lForm.m_value);
                 }
                 
                 lContent += sprintf("</div>\n");
@@ -389,12 +434,20 @@ class GForm extends GObject {
         var lFormMethod = document.getElementById("FormMethod");
         var lFormModuleLine = document.getElementById("FormModuleLine");
         var lFormMethodLine = document.getElementById("FormMethodLine");
+        var lFormModuleEdit = document.getElementById("FormModuleEdit");
+        var lFormMethodEdit = document.getElementById("FormMethodEdit");
+        var lFormModuleInput = document.getElementById("FormModuleInput");
+        var lFormMethodInput = document.getElementById("FormMethodInput");
         var lFormContent = document.getElementById("FormContent");
         
         this.m_module = lFormModule.value;
         this.m_method = lFormMethod.value;
         this.m_moduleLine = lFormModuleLine.value;
         this.m_methodLine = lFormMethodLine.value;
+        this.m_moduleEdit = lFormModuleEdit.value;
+        this.m_methodEdit = lFormMethodEdit.value;
+        this.m_moduleInput = lFormModuleInput.value;
+        this.m_methodInput = lFormMethodInput.value;
         this.m_content = lFormContent.innerHTML;
     }
     //===============================================
@@ -403,12 +456,20 @@ class GForm extends GObject {
         var lFormMethod = document.getElementById("FormMethod");
         var lFormModuleLine = document.getElementById("FormModuleLine");
         var lFormMethodLine = document.getElementById("FormMethodLine");
+        var lFormModuleEdit = document.getElementById("FormModuleEdit");
+        var lFormMethodEdit = document.getElementById("FormMethodEdit");
+        var lFormModuleInput = document.getElementById("FormMethodInput");
+        var lFormMethodInput = document.getElementById("FormMethodInput");
         var lFormContent = document.getElementById("FormContent");
 
         lFormModule.value = this.m_module;
         lFormMethod.value = this.m_method;
         lFormModuleLine.value = this.m_moduleLine;
         lFormMethodLine.value = this.m_methodLine;
+        lFormModuleEdit.value = this.m_moduleEdit;
+        lFormMethodEdit.value = this.m_methodEdit;
+        lFormModuleInput.value = this.m_moduleInput;
+        lFormMethodInput.value = this.m_methodInput;
         lFormContent.innerHTML = this.m_content;
     }
     //===============================================
@@ -505,10 +566,21 @@ class GForm extends GObject {
     }
     //===============================================
     onChangeInputForm(_obj, _data) {
+        this.readUi();
+        if(this.m_moduleInput == "") return;
+        if(this.m_methodInput == "") return;
+        var lObj = new GForm();
+        var lLine = _obj;
+        lObj.m_position = lLine.dataset.position;
+        lObj.m_index = lLine.dataset.index;
+        lObj.m_value = lLine.dataset.value;
+        var lData = lObj.serialize();
+        call_server(this.m_moduleInput, this.m_methodInput, _obj, lData);
         return !this.hasErrors();
     }
     //===============================================
     onChangeLineForm(_obj, _data) {
+        this.readUi();
         if(this.m_moduleLine == "") return;
         if(this.m_methodLine == "") return;
         var lObj = new GForm();
@@ -522,6 +594,16 @@ class GForm extends GObject {
     }
     //===============================================
     onChangeEditForm(_obj, _data) {
+        this.readUi();
+        if(this.m_moduleEdit == "") return;
+        if(this.m_methodEdit == "") return;
+        var lObj = new GForm();
+        var lLine = _obj;
+        lObj.m_position = lLine.dataset.position;
+        lObj.m_index = lLine.dataset.index;
+        lObj.m_value = lLine.value;
+        var lData = lObj.serialize();
+        call_server(this.m_moduleEdit, this.m_methodEdit, _obj, lData);
         return !this.hasErrors();
     }
     //===============================================

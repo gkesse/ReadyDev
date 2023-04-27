@@ -471,6 +471,25 @@ thead tr:first-child {
 }
 
 /* ============================================== */
+/* Bullet */
+/* ============================================== */
+
+.Bullet1 {
+    margin-left: 20px;
+    position: relative;
+}
+
+.Bullet2 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.Bullet3 {
+    margin-left: 25px;
+}
+
+/* ============================================== */
 /* Form */ 
 /* ============================================== */
 
@@ -727,6 +746,27 @@ thead tr:first-child {
     border-radius: 50%;
     font-size: 14px;
     text-align: center;
+    z-index: 1;
+}
+
+.Forms22 {
+      display: none;
+}
+
+.Forms22.Show {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-left: 5px;
+    transform: translate(0, -50%);
+    border-radius: 5px;
+    background-color: #051039;
+    width: 100px;
+    line-height: 80px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    font-size: 50px;
     z-index: 1;
 }
 
@@ -1198,6 +1238,62 @@ thead tr:first-child {
 }
 
 /* ============================================== */
+/* Section */
+/* ============================================== */
+
+.Section1 {
+    max-width: 800px;
+    margin: auto;
+}
+
+.Section2 {
+    padding: 0px 10px;
+}
+
+.Section3 {
+    background-color: rgba(35, 47, 87, 0.9);
+}
+
+.Section4 {
+    background-color: #2f3959; /* L2  5f6681*/
+    color: #bf8e3a;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+.Section5 {
+    color: #89a830;
+    word-break: break-word;
+}
+
+.Section6 {
+    padding: 10px;
+    text-align: left;
+    word-break: break-word;
+}
+
+/* ============================================== */
+/* Summary */
+/* ============================================== */
+
+.Summary1 {
+    padding-left: 20px;
+}
+
+.Summary2 {
+    padding-right: 10px;
+    color: cyan;
+}
+
+.Summary3 {
+    color: cyan;
+}
+
+.Summary3:hover {
+    text-decoration: underline;
+}
+
+/* ============================================== */
 /* Table */
 /* ============================================== */
 
@@ -1278,6 +1374,29 @@ thead tr:first-child {
 
 .Table9:active {
     background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================== */
+/* Text */
+/* ============================================== */
+
+.Text1 {
+    font-size: 0px;
+    position: relative;
+}
+
+.Text2 {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.Text3 {
+    font-size: 20px;
+    margin-left: 50px;
 }
 
 /* ============================================== */

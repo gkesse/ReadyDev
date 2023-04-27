@@ -2,6 +2,7 @@
 class GFontAwesome extends GModule {
     //===============================================
     private $m_name = "";
+    private $m_size = 0;
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -75,6 +76,7 @@ class GFontAwesome extends GModule {
         $lDom = new GCode();
         $lDom->createDoc();
         $lDom->addData($_code, "name", $this->m_name);
+        $lDom->addData($_code, "size", $this->m_size);
         $lDom->addMap($_code, $this->m_map);
         return $lDom->toString();
     }
@@ -84,6 +86,7 @@ class GFontAwesome extends GModule {
         $lDom = new GCode();
         $lDom->loadXml($_data);
         $this->m_name = $lDom->getItem($_code, "name");
+        $this->m_size = $lDom->getItem($_code, "size");
         $lDom->getMap($_code, $this->m_map, $this);
     }
     //===============================================
@@ -124,6 +127,7 @@ class GFontAwesome extends GModule {
             $lObj->m_name = $lName;
             $this->m_map[] = $lObj;
         }
+        $this->m_size = count($this->m_map);
         $lPath = $this->getPath($this->toCachePath());
         if(!file_exists($lPath)) {
             mkdir($lPath, 0777, true);

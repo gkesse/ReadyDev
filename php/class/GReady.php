@@ -440,6 +440,10 @@ class GReady extends GObject {
         echo sprintf("<input id='FormMethod' type='hidden'/>\n");
         echo sprintf("<input id='FormModuleLine' type='hidden'/>\n");
         echo sprintf("<input id='FormMethodLine' type='hidden'/>\n");
+        echo sprintf("<input id='FormModuleEdit' type='hidden'/>\n");
+        echo sprintf("<input id='FormMethodEdit' type='hidden'/>\n");
+        echo sprintf("<input id='FormModuleInput' type='hidden'/>\n");
+        echo sprintf("<input id='FormMethodInput' type='hidden'/>\n");
         // body
         echo sprintf("<div id='FormContent'></div>\n");
         //

@@ -269,6 +269,14 @@ class GAdmin extends GObject {
         $lMenu->pushParent();
         $lMenu->initParent();
         // template/graduation
+        $lMenu->addMenu("", "", "Compétences");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "add_skill", "Ajouter");
+        $lMenu->addMenu("editor", "update_skill", "Modifier");
+        $lMenu->addMenu("editor", "delete_skill", "Supprimer");
+        $lMenu->popParent();
+        // template/graduation
         $lMenu->addMenu("", "", "Formations");
         $lMenu->pushParent();
         $lMenu->initParent();
@@ -291,6 +299,38 @@ class GAdmin extends GObject {
         $lMenu->addMenu("editor", "add_parallax", "Ajouter");
         $lMenu->addMenu("editor", "update_parallax", "Modifier");
         $lMenu->addMenu("editor", "delete_parallax", "Supprimer");
+        $lMenu->popParent();
+        // template/parallax
+        $lMenu->addMenu("", "", "Section");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "add_section", "Ajouter");
+        $lMenu->addMenu("editor", "update_section", "Modifier");
+        $lMenu->addMenu("editor", "delete_section", "Supprimer");
+        $lMenu->popParent();
+        // template/bullet
+        $lMenu->addMenu("", "", "Puces");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "add_bullet", "Ajouter");
+        $lMenu->addMenu("editor", "update_bullet", "Modifier");
+        $lMenu->addMenu("editor", "delete_bullet", "Supprimer");
+        $lMenu->popParent();
+        // template/summary_main
+        $lMenu->addMenu("", "", "Sommaire principal");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "add_summary_main", "Ajouter");
+        $lMenu->addMenu("editor", "update_summary_main", "Modifier");
+        $lMenu->addMenu("editor", "delete_summary_main", "Supprimer");
+        $lMenu->popParent();
+        // template/text_image_left
+        $lMenu->addMenu("", "", "Texte image gauche");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "add_text_image_left", "Ajouter");
+        $lMenu->addMenu("editor", "update_text_image_left", "Modifier");
+        $lMenu->addMenu("editor", "delete_text_image_left", "Supprimer");
         $lMenu->popParent();
         //
         $lMenu->popParent();
