@@ -268,6 +268,14 @@ class GAdmin extends GObject {
         $lMenu->addMenu("", "", "Templates");
         $lMenu->pushParent();
         $lMenu->initParent();
+        // template/graduation
+        $lMenu->addMenu("", "", "Formations");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "add_graduation", "Ajouter");
+        $lMenu->addMenu("editor", "update_graduation", "Modifier");
+        $lMenu->addMenu("editor", "delete_graduation", "Supprimer");
+        $lMenu->popParent();
         // template/link
         $lMenu->addMenu("", "", "Liens");
         $lMenu->pushParent();

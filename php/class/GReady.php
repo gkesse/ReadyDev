@@ -49,42 +49,42 @@ class GReady extends GObject {
     //===============================================
     public function initObj() {
         $this->m_menu = new GReady();
-        // menu
+        //
         $this->addMenu("home", "Accueil", "/home", false);
         $this->addMenu("cv", "CV", "/home/cv");
-        
+        // cv
         $this->pushParent();
         $this->initParent();
         $this->addMenu("cv", "CV Simplifié", "/home/cv/simple");
         $this->addMenu("cv", "CV Détaillé", "/home/cv/full");
         $this->popParent();
-        
+        //
         $this->addMenu("presentation", "Présentation", "/home/presentation");
         $this->addMenu("tutoriels", "Tutoriels", "/home/tutoriels");
-        
+        //
         $this->addMenu("cours", "Cours", "/home/cours");
         $this->pushParent();
         $this->initParent();
         $this->addMenu("cours", "Mathematiques", "/home/cours/maths");
-        
+        //
         $this->pushParent();
         $this->initParent();
         $this->addMenu("cours", "Algèbre", "/home/cours/maths/algebra");
-        
+        //
         $this->pushParent();
         $this->initParent();
         $this->addMenu("cours", "Algèbre booléen", "/home/cours/maths/algebra/boolean");
         $this->addMenu("cours", "Algèbre linéaire", "/home/cours/maths/algebra/linear");
         $this->popParent();
-        
+        //
         $this->addMenu("cours", "Géométrie", "/home/cours/maths/geometrics");
         $this->popParent();
-        
+        //
         $this->addMenu("cours", "Physique", "/home/cours/physics");
         $this->addMenu("cours", "Chmie", "/home/cours/chimistry");
         $this->addMenu("cours", "Technologie", "/home/cours/technology");
         $this->popParent();
-        
+        //
         $this->addMenu("admin", "Admin", "/home/admin");
         $this->addMenu("connection", "Connexion", "/home/connexion");
         // current_menu
@@ -215,7 +215,10 @@ class GReady extends GObject {
     }
     //===============================================
     public function toView() {
-        return 1234;
+        $lObj = new GViews();
+        $lViews = $lObj->getViews();
+        $this->addLogs($lObj->getLogs());
+        return $lViews;
     }
     //===============================================
     public function toFacebookUrl() {

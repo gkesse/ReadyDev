@@ -132,6 +132,23 @@ class GEditor extends GObject {
         return lHtml;
     }
     //===============================================
+    toGraduation() {
+        var lHtml = "";
+        lHtml += sprintf("<div class='GGraduation1 Graduation1'>\n");
+        lHtml += sprintf("<i class='Graduation2 fa fa-graduation-cap'></i>\n");
+        lHtml += sprintf("<div class='Graduation3'>%s</div>\n", this.toGraduationText());
+        lHtml += sprintf("</div>\n");
+        return lHtml;
+    }
+    //===============================================
+    toGraduationText() {
+        var lHtml = "";
+        lHtml += sprintf("<b>2006 - 2009</b><br/>\n");
+        lHtml += sprintf("DUT Electronique Industrielle,<br/>\n");
+        lHtml += sprintf("Faculté des Sciences de Bizerte, Tunisie.<br/>\n");
+        return lHtml;
+    }
+    //===============================================
     run(_method, _obj, _data) {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
@@ -162,6 +179,21 @@ class GEditor extends GObject {
         //===============================================
         else if(_method == "open_code_tab") {
             this.onOpenCodeTab(_obj, _data);
+        }
+        //===============================================
+        // template/graduation
+        //===============================================
+        else if(_method == "add_graduation") {
+            this.onAddGraduation(_obj, _data);
+        }
+        else if(_method == "update_graduation") {
+            this.onUpdateGraduation(_obj, _data);
+        }
+        else if(_method == "update_graduation_form") {
+            this.onUpdateGraduationForm(_obj, _data);
+        }
+        else if(_method == "delete_graduation") {
+            this.onDeleteGraduation(_obj, _data);
         }
         //===============================================
         // template/link
@@ -272,6 +304,113 @@ class GEditor extends GObject {
         this.onOpenEditorTab(lTab);
     }
     //===============================================
+    // template/graduation
+    //===============================================
+    onAddGraduation(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GGraduation1")) {
+            this.addError("Vous êtes dans un effet graduation.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+
+        document.execCommand("insertHTML", false, this.toGraduation());
+        return !this.hasErrors();
+    }
+    //===============================================
+    onUpdateGraduation(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GGraduation1")) {
+            this.addError("Vous n'êtes pas dans un effet graduation.");
+            return false;
+        }
+
+        var lNode = this.m_node;
+        var lIconId = lNode.firstElementChild;
+        var lGradeId = lNode.firstElementChild.nextElementSibling;
+        
+        var lIcon = lIconId.getAttribute("class").split(" ")[2];
+        var lGrade = lGradeId.innerHTML;
+        
+        var lPeriodT = lGrade.split("<br>")[0];
+        var lPeriodR = new RegExp("<b>(.*)</b>");
+        var lPeriodS = lPeriodT.match(lPeriodR);
+        var lPeriod = lPeriodS[1];
+        
+        var lGraduation = (lGrade.split("<br>")[1]).split(",")[0];
+        var lSchool = (lGrade.split("<br>")[2]).split(".")[0];
+        
+        var lFont = GFontAwesome.Instance();
+        var lIndex = lFont.findFont(lIcon);
+
+        var lForm = GForm.Instance();
+        lForm.clearMap();
+        lForm.setCallback("editor", "update_graduation_form");
+        lForm.addLabelPicto("m_icon", "Icône :", lFont.toForm(), lIndex);
+        lForm.addLabelEdit("m_period", "Période :", lPeriod);
+        lForm.addLabelEdit("m_graduation", "Diplôme :", lGraduation);
+        lForm.addLabelEdit("m_school", "Ecole :", lSchool);
+        lForm.showForm();
+        this.addLogs(lForm.getLogs());
+        
+        GEditor.Instance().saveRange();
+    }
+    //===============================================
+    onUpdateGraduationForm(_obj, _data) {
+        GEditor.Instance().restoreRange();
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GGraduation1")) {
+            this.addError("Vous n'êtes pas dans un effet parallax.");
+            return false;
+        }
+        
+        var lForm = GForm.Instance();
+        lForm.readForm();
+
+        var lIcon = lForm.loadFromMap(0).m_value;
+        var lPeriod = lForm.loadFromMap(1).m_value;
+        var lGraduation = lForm.loadFromMap(2).m_value;
+        var lSchool = lForm.loadFromMap(3).m_value;
+        
+        var lNode = this.m_node;
+        var lIconId = lNode.firstElementChild;
+        var lGradeId = lNode.firstElementChild.nextElementSibling;
+        
+        lIcon = sprintf("Graduation2 fa %s", lIcon);
+        
+        var lHtml = "";
+        lHtml += sprintf("<b>%s</b><br/>\n", lPeriod);
+        lHtml += sprintf("%s,<br/>\n", lGraduation);
+        lHtml += sprintf("%s.<br/>\n", lSchool);
+
+        lIconId.setAttribute("class", lIcon);
+        lGradeId.innerHTML = lHtml;
+    }
+    //===============================================
+    onDeleteGraduation(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GGraduation1")) {
+            this.addError("Vous n'êtes pas dans un effet lien.");
+            return false;
+        }
+        this.removeNode();
+    }
+    //===============================================
     // template/link
     //===============================================
     onAddLink(_obj, _data) {
@@ -360,7 +499,7 @@ class GEditor extends GObject {
             return false;
         }
         if(!this.hasParent("GLink1")) {
-            this.addError("Vous n'êtes pas dans un effet parallax.");
+            this.addError("Vous n'êtes pas dans un effet lien.");
             return false;
         }
         this.removeNode();
