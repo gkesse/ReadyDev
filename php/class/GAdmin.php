@@ -317,6 +317,20 @@ class GAdmin extends GObject {
         $lMenu->addMenu("editor", "update_parallax", "Modifier");
         $lMenu->addMenu("editor", "delete_parallax", "Supprimer");
         $lMenu->popParent();
+        // template/bullet
+        $lMenu->addMenu("", "", "Puces");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "add_bullet", "Ajouter");
+        $lMenu->addMenu("", "", "Insérer");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "insert_bullet_before", "Avant");
+        $lMenu->addMenu("editor", "insert_bullet_after", "Après");
+        $lMenu->popParent();
+        $lMenu->addMenu("editor", "update_bullet", "Modifier");
+        $lMenu->addMenu("editor", "delete_bullet", "Supprimer");
+        $lMenu->popParent();
         // template/parallax
         $lMenu->addMenu("", "", "Section");
         $lMenu->pushParent();
@@ -324,14 +338,6 @@ class GAdmin extends GObject {
         $lMenu->addMenu("editor", "add_section", "Ajouter");
         $lMenu->addMenu("editor", "update_section", "Modifier");
         $lMenu->addMenu("editor", "delete_section", "Supprimer");
-        $lMenu->popParent();
-        // template/bullet
-        $lMenu->addMenu("", "", "Puces");
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "add_bullet", "Ajouter");
-        $lMenu->addMenu("editor", "update_bullet", "Modifier");
-        $lMenu->addMenu("editor", "delete_bullet", "Supprimer");
         $lMenu->popParent();
         // template/summary_main
         $lMenu->addMenu("", "", "Sommaire principal");

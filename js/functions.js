@@ -100,10 +100,10 @@ String.prototype.getNormalize = function() {
 // node
 //===============================================
 Element.prototype.appendBefore = function(_node) {
-    _node.parentNode.insertBefore(this, _node);
+    this.parentNode.insertBefore(_node, this);
 }
 //===============================================
 Element.prototype.appendAfter = function(_node) {
-    _node.parentNode.insertBefore(this, _node.nextSibling);
+    this.parentNode.insertBefore(_node, this.nextSibling);
 }
 //===============================================

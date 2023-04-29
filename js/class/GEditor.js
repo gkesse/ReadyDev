@@ -409,6 +409,12 @@ class GEditor extends GObject {
         else if(_method == "add_bullet") {
             this.onAddBullet(_obj, _data);
         }
+        else if(_method == "insert_bullet_before") {
+            this.onInsertBulletBefore(_obj, _data);
+        }
+        else if(_method == "insert_bullet_after") {
+            this.onInsertBulletAfter(_obj, _data);
+        }
         else if(_method == "update_bullet") {
             this.onUpdateBullet(_obj, _data);
         }
@@ -1108,10 +1114,44 @@ class GEditor extends GObject {
             return false;
         }
 
-        var lText = sprintf("Ajouter un texte...");
+        var lText = "Ajouter un texte...";
         if(this.selectLine()) lText = this.toLine();
         
         document.execCommand("insertHTML", false, this.toBullet(lText));
+        return !this.hasErrors();
+    }
+    //===============================================
+    onInsertBulletBefore(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GBullet1")) {
+            this.addError("Vous n'êtes pas dans un effet puce.");
+            return false;
+        }
+
+        var lNode = this.m_node;
+        var lText = "Ajouter un texte...";
+        var lNew = this.createNode(this.toBullet(lText));
+        lNode.appendBefore(lNew);
+        return !this.hasErrors();
+    }
+    //===============================================
+    onInsertBulletAfter(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GBullet1")) {
+            this.addError("Vous n'êtes pas dans un effet puce.");
+            return false;
+        }
+
+        var lNode = this.m_node;
+        var lText = "Ajouter un texte...";
+        var lNew = this.createNode(this.toBullet(lText));
+        lNode.appendAfter(lNew);
         return !this.hasErrors();
     }
     //===============================================
