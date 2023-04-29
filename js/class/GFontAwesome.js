@@ -46,9 +46,7 @@ class GFontAwesome extends GObject {
         var lForm = new GForm();
         for(var i = 0; i < this.m_map.length; i++) {
             var lFont = this.m_map[i];
-            var lObj = new GForm();
-            lObj.m_value = lFont.m_name;
-            lForm.m_map.push(lObj);
+            lForm.addValue(lFont.m_name);
         }
         var lData = lForm.serialize();
         return lData;

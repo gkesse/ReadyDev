@@ -417,7 +417,9 @@ thead tr:first-child {
     top: 100%;
     right: 0px;
     width: 300px;
+    max-height: 400px;
     background-color: #051039;
+    overflow: auto;
     z-index: 1;
 }
 
@@ -699,7 +701,7 @@ thead tr:first-child {
     right: 0px;
     background-color: #051039;
     border: 1px solid rgba(255, 255, 255, 0.4);
-    max-height: 250px;
+    max-height: 400px;
     overflow: auto;
     z-index: 1;
 }
@@ -816,6 +818,7 @@ thead tr:first-child {
 .Graduation3 {
     margin-left: 50px;
     font-size: 18px;
+    font-family: Archivo Narrow;
 }
 
 /* ============================================== */
@@ -848,6 +851,45 @@ thead tr:first-child {
 
 .Img1 {
     overflow: auto;
+}
+
+/* ============================================== */
+/* Line */
+/* ============================================== */
+
+.Line1 {
+    text-align: center;
+    position: relative;
+    font-size: 0px;
+}
+
+.Line2 {
+    background-color: #051039; 
+    height: 5px;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    right: 0px;
+    transform: translate(0, -50%);
+    border: none;
+}
+
+.Line3 {
+    background-color: #051039; 
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.Line4 {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
 }
 
 /* ============================================== */
@@ -1270,6 +1312,42 @@ thead tr:first-child {
     padding: 10px;
     text-align: left;
     word-break: break-word;
+}
+
+/* ============================================== */
+/* Skill */
+/* ============================================== */
+
+.Skill1 {
+    position: relative;
+    font-size: 0px;
+}
+
+.Skill2 {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.Skill3 {
+    display: inline-block;
+    font-size: 14px;
+    position: absolute;
+    top: 45px;
+    left: 20px;
+    transform: translate(-50%, 0);
+    font-weight: bold;
+}
+
+.Skill4 {
+    margin-left: 50px;
+    font-size: 16px;
 }
 
 /* ============================================== */

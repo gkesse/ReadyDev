@@ -222,6 +222,19 @@ class GForm extends GObject {
         this.writeUi();
     }
     //===============================================
+    addValue(_value) {
+        var lObj = new GForm();
+        lObj.m_value = _value;
+        this.m_map.push(lObj);
+    }
+    //===============================================
+    addImage(_value, _img) {
+        var lObj = new GForm();
+        lObj.m_value = _value;
+        lObj.m_img = _img;
+        this.m_map.push(lObj);
+    }
+    //===============================================
     addLabelEdit(_id, _label, _value = "") {
         var lObj = new GForm();
         lObj.m_position = this.m_map.length;
@@ -282,6 +295,16 @@ class GForm extends GObject {
         lObj.m_label = _label;
         lObj.m_index = _index;
         lObj.m_combo = _combo;
+        this.m_map.push(lObj);
+    }
+    //===============================================
+    addVariable(_id, _value = "") {
+        var lObj = new GForm();
+        lObj.m_position = this.m_map.length;
+        lObj.m_model = "variable";
+        lObj.m_id = _id;
+        lObj.m_label = "label";
+        lObj.m_value = _value;
         this.m_map.push(lObj);
     }
     //===============================================
@@ -401,6 +424,9 @@ class GForm extends GObject {
                 lContent += sprintf("</div>\n");
                 lContent += sprintf("</div>\n");
                 lContent += sprintf("</div>\n");
+            }
+            else if(lObj.m_model == "variable") {
+                lContent += sprintf("<input type='hidden' id='%s' value='%s' data-index='%s' data-position='%s'/>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
             }
         }
         

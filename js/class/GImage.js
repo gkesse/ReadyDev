@@ -64,10 +64,7 @@ class GImage extends GObject {
         var lForm = new GForm();
         for(var i = 0; i < this.m_map.length; i++) {
             var lImg = this.m_map[i];
-            var lObj = new GForm();
-            lObj.m_value = lImg.m_name;
-            lObj.m_img = lImg.getImageData();
-            lForm.m_map.push(lObj);
+            lForm.addImage(lImg.m_name, lImg.getImageData);
         }
         var lData = lForm.serialize();
         return lData;

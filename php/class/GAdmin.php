@@ -262,6 +262,15 @@ class GAdmin extends GObject {
         $lMenu->addMenu("", "", "Textes");
         $lMenu->pushParent();
         $lMenu->initParent();
+        //
+        $lMenu->addMenu("editor", "", "Couleur premier plan");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "add_text_fg_color", "Ajouter");
+        $lMenu->addMenu("editor", "update_text_fg_color", "Modifier");
+        $lMenu->addMenu("editor", "delete_text_fg_color", "Supprimer");
+        $lMenu->popParent();
+        //
         $lMenu->addMenu("editor", "exec_command", "Gras", "bold");
         $lMenu->popParent();
         // template
@@ -291,6 +300,14 @@ class GAdmin extends GObject {
         $lMenu->addMenu("editor", "add_link", "Ajouter");
         $lMenu->addMenu("editor", "update_link", "Modifier");
         $lMenu->addMenu("editor", "delete_link", "Supprimer");
+        $lMenu->popParent();
+        // template/line
+        $lMenu->addMenu("", "", "Lignes");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "add_line", "Ajouter");
+        $lMenu->addMenu("editor", "update_line", "Modifier");
+        $lMenu->addMenu("editor", "delete_line", "Supprimer");
         $lMenu->popParent();
         // template/parallax
         $lMenu->addMenu("", "", "Parallax");

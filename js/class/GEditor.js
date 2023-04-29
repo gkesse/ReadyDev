@@ -99,6 +99,12 @@ class GEditor extends GObject {
         return lNode.data;
     }
     //===============================================
+    toData() {
+        var lSelection = document.getSelection();
+        var lData = lSelection.toString();
+        return lData;
+    }
+    //===============================================
     toRange() {
         var lSelection = document.getSelection();
         var lRange = lSelection.getRangeAt(0);
@@ -244,6 +250,35 @@ class GEditor extends GObject {
         return lHtml;
     }
     //===============================================
+    toSkill() {
+        var lHtml = "";
+        lHtml += sprintf("<div class='GSkill1 Skill1'>\n");
+        lHtml += sprintf("<i class='Skill2 fa fa-building-o'></i>\n");
+        lHtml += sprintf("<div class='Skill3'>1/7</div>\n");
+        lHtml += sprintf("<div class='Skill4'>Ajouter un texte...</div>\n");
+        lHtml += sprintf("</div>\n");
+        return lHtml;
+    }
+    //===============================================
+    toLineBar() {
+        var lHtml = "";
+        lHtml += sprintf("<div class='GLine1 Line1'>\n");
+        lHtml += sprintf("<hr class='Line2'/>\n");
+        lHtml += sprintf("<div class='Line3'>\n");
+        lHtml += sprintf("<i class='Line4 fa fa-thumbs-up'></i>\n");
+        lHtml += sprintf("</div>\n");
+        lHtml += sprintf("</div>\n");
+        return lHtml;
+    }
+    //===============================================
+    toTextFgColor(_data) {
+        var lHtml = "";
+        lHtml += sprintf("<span class='GText2' style='\n");
+        lHtml += sprintf("color: #00ff00;\n");
+        lHtml += sprintf("'>%s</span>\n", _data);
+        return lHtml;
+    }
+    //===============================================
     run(_method, _obj, _data) {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
@@ -254,8 +289,26 @@ class GEditor extends GObject {
         else if(_method == "open_editor_tab") {
             this.onOpenEditorTab(_obj, _data);
         }
+        //===============================================
+        // command
+        //===============================================
         else if(_method == "exec_command") {
             this.onExecCommand(_obj, _data);
+        }
+        //===============================================
+        // text
+        //===============================================
+        else if(_method == "add_text_fg_color") {
+            this.onAddTextFgColor(_obj, _data);
+        }
+        else if(_method == "update_text_fg_color") {
+            this.onUpdateTextFgColor(_obj, _data);
+        }
+        else if(_method == "update_text_fg_color_form") {
+            this.onUpdateTextFgColorForm(_obj, _data);
+        }
+        else if(_method == "delete_text_fg_color") {
+            this.onDeleteTextFgColor(_obj, _data);
         }
         //===============================================
         // edition
@@ -274,6 +327,21 @@ class GEditor extends GObject {
         //===============================================
         else if(_method == "open_code_tab") {
             this.onOpenCodeTab(_obj, _data);
+        }
+        //===============================================
+        // template/skill
+        //===============================================
+        else if(_method == "add_skill") {
+            this.onAddSkill(_obj, _data);
+        }
+        else if(_method == "update_skill") {
+            this.onUpdateSkill(_obj, _data);
+        }
+        else if(_method == "update_skill_form") {
+            this.onUpdateSkillForm(_obj, _data);
+        }
+        else if(_method == "delete_skill") {
+            this.onDeleteSkill(_obj, _data);
         }
         //===============================================
         // template/graduation
@@ -304,6 +372,21 @@ class GEditor extends GObject {
         }
         else if(_method == "delete_link") {
             this.onDeleteLink(_obj, _data);
+        }
+        //===============================================
+        // template/line
+        //===============================================
+        else if(_method == "add_line") {
+            this.onAddLine(_obj, _data);
+        }
+        else if(_method == "update_line") {
+            this.onUpdateLine(_obj, _data);
+        }
+        else if(_method == "update_line_form") {
+            this.onUpdateLineForm(_obj, _data);
+        }
+        else if(_method == "delete_line") {
+            this.onDeleteLine(_obj, _data);
         }
         //===============================================
         // template/parallax
@@ -405,6 +488,8 @@ class GEditor extends GObject {
         lContent.style.display = "block";
     }
     //===============================================
+    // command
+    //===============================================
     onExecCommand(_obj, _data) {
         if(!this.isEditor()) {
             this.addError("La sélection est hors du cadre.");
@@ -415,6 +500,82 @@ class GEditor extends GObject {
             return false;
         }
         document.execCommand(_data, false, null);
+    }
+    //===============================================
+    // text/fg_color
+    //===============================================
+    onAddTextFgColor(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GText2")) {
+            this.addError("Vous êtes dans un effet texte couleur premier plan.");
+            return false;
+        }
+        if(!this.isData()) {
+            this.addError("Vous n'avez pas sélectionné de texte.");
+            return false;
+        }
+        document.execCommand("insertHTML", false, this.toTextFgColor(this.toData()));
+    }
+    //===============================================
+    onUpdateTextFgColor(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GText2")) {
+            this.addError("Vous n'êtes pas dans un effet texte couleur premier plan.");
+            return false;
+        }
+        
+        var lNode = this.m_node;
+        var lColor = lNode.style.color.getHexFromRgb();;
+        
+        var lForm = GForm.Instance();
+        lForm.clearMap();
+        lForm.setCallback("editor", "update_text_fg_color_form");
+        lForm.addLabelColor("m_color", "Couleur :", lColor);
+        lForm.showForm();
+        this.addLogs(lForm.getLogs());
+        
+        GEditor.Instance().saveRange();
+    }
+    //===============================================
+    onUpdateTextFgColorForm(_obj, _data) {
+        GEditor.Instance().restoreRange();
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GText2")) {
+            this.addError("Vous n'êtes pas dans un effet texte couleur premier plan.");
+            return false;
+        }
+        
+        var lForm = GForm.Instance();
+        lForm.readForm();
+        
+        var lColor = lForm.loadFromMap(0).m_value;
+        
+        var lNode = this.m_node;
+        
+        lNode.style.color = lColor;
+    }
+    //===============================================
+    onDeleteTextFgColor(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GText2")) {
+            this.addError("Vous n'êtes pas dans un effet texte couleur premier plan.");
+            return false;
+        }
+        var lNode = this.m_node;
+        var lText = lNode.innerHTML;
+        lNode.replaceWith(lText);
     }
     //===============================================
     // edition
@@ -459,6 +620,113 @@ class GEditor extends GObject {
         this.onOpenEditorTab(lTab);
     }
     //===============================================
+    // template/skill
+    //===============================================
+    onAddSkill(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GSkill1")) {
+            this.addError("Vous êtes dans un effet compétence.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+
+        document.execCommand("insertHTML", false, this.toSkill());
+        return !this.hasErrors();
+    }
+    //===============================================
+    onUpdateSkill(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GSkill1")) {
+            this.addError("Vous n'êtes pas dans un effet compétence.");
+            return false;
+        }
+
+        var lNode = this.m_node;
+        var lIconId = lNode.firstElementChild;
+        
+        var lIcon = lIconId.getAttribute("class").split(" ")[2];
+        
+        var lFont = GFontAwesome.Instance();
+        var lIndex = lFont.findFont(lIcon);
+
+        var lSort = new GForm();
+        lSort.addValue("Croissant");
+        lSort.addValue("Décroissant");
+
+        var lForm = GForm.Instance();
+        lForm.clearMap();
+        lForm.setCallback("editor", "update_skill_form");
+        lForm.addLabelPicto("m_icon", "Icône :", lFont.toForm(), lIndex);
+        lForm.addLabelCombo("m_sort", "Tri :", lSort.serialize(), 1);
+        lForm.showForm();
+        this.addLogs(lForm.getLogs());
+        
+        GEditor.Instance().saveRange();
+    }
+    //===============================================
+    onUpdateSkillForm(_obj, _data) {
+        GEditor.Instance().restoreRange();
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GSkill1")) {
+            this.addError("Vous n'êtes pas dans un effet compétence.");
+            return false;
+        }
+        if(!this.hasParent("GSection1")) {
+            this.addError("Vous n'êtes pas dans un effet section.");
+            return false;
+        }
+        
+        var lForm = GForm.Instance();
+        lForm.readForm();
+
+        var lIcon = lForm.loadFromMap(0).m_value;
+        var lSort = lForm.loadFromMap(1).m_index;
+        
+        lIcon = sprintf("Skill2 fa %s", lIcon);
+
+        var lNode = this.m_node;
+        var lNodes = lNode.getElementsByClassName("GSkill1");
+        var lSize = lNodes.length;
+        
+        for(var i = 0; i < lNodes.length; i++) {
+            var lNode = lNodes[i];
+            var lIconId = lNode.firstElementChild;
+            var lNumId = lNode.firstElementChild.nextElementSibling;
+            
+            var lPos = i + 1;
+            if(lSort == "1") lPos = lSize - lPos + 1;
+                
+            var lNum = sprintf("%s/%s", lPos, lSize);
+            
+            lIconId.setAttribute("class", lIcon);
+            lNumId.innerHTML = lNum;
+        }
+    }
+    //===============================================
+    onDeleteSkill(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GSkill1")) {
+            this.addError("Vous n'êtes pas dans un effet compétence.");
+            return false;
+        }
+        this.removeNode();
+    }
+    //===============================================
     // template/graduation
     //===============================================
     onAddGraduation(_obj, _data) {
@@ -467,7 +735,7 @@ class GEditor extends GObject {
             return false;
         }
         if(this.hasParent("GGraduation1")) {
-            this.addError("Vous êtes dans un effet graduation.");
+            this.addError("Vous êtes dans un effet formation.");
             return false;
         }
         if(this.isLine()) {
@@ -485,25 +753,15 @@ class GEditor extends GObject {
             return false;
         }
         if(!this.hasParent("GGraduation1")) {
-            this.addError("Vous n'êtes pas dans un effet graduation.");
+            this.addError("Vous n'êtes pas dans un effet formation.");
             return false;
         }
 
         var lNode = this.m_node;
         var lIconId = lNode.firstElementChild;
-        var lGradeId = lNode.firstElementChild.nextElementSibling;
         
         var lIcon = lIconId.getAttribute("class").split(" ")[2];
-        var lGrade = lGradeId.innerHTML;
-        
-        var lPeriodT = lGrade.split("<br>")[0];
-        var lPeriodR = new RegExp("<b>(.*)</b>");
-        var lPeriodS = lPeriodT.match(lPeriodR);
-        var lPeriod = lPeriodS[1];
-        
-        var lGraduation = (lGrade.split("<br>")[1]).split(",")[0];
-        var lSchool = (lGrade.split("<br>")[2]).split(".")[0];
-        
+                
         var lFont = GFontAwesome.Instance();
         var lIndex = lFont.findFont(lIcon);
 
@@ -511,9 +769,6 @@ class GEditor extends GObject {
         lForm.clearMap();
         lForm.setCallback("editor", "update_graduation_form");
         lForm.addLabelPicto("m_icon", "Icône :", lFont.toForm(), lIndex);
-        lForm.addLabelEdit("m_period", "Période :", lPeriod);
-        lForm.addLabelEdit("m_graduation", "Diplôme :", lGraduation);
-        lForm.addLabelEdit("m_school", "Ecole :", lSchool);
         lForm.showForm();
         this.addLogs(lForm.getLogs());
         
@@ -527,7 +782,7 @@ class GEditor extends GObject {
             return false;
         }
         if(!this.hasParent("GGraduation1")) {
-            this.addError("Vous n'êtes pas dans un effet parallax.");
+            this.addError("Vous n'êtes pas dans un effet formation.");
             return false;
         }
         
@@ -535,23 +790,13 @@ class GEditor extends GObject {
         lForm.readForm();
 
         var lIcon = lForm.loadFromMap(0).m_value;
-        var lPeriod = lForm.loadFromMap(1).m_value;
-        var lGraduation = lForm.loadFromMap(2).m_value;
-        var lSchool = lForm.loadFromMap(3).m_value;
         
         var lNode = this.m_node;
         var lIconId = lNode.firstElementChild;
-        var lGradeId = lNode.firstElementChild.nextElementSibling;
         
         lIcon = sprintf("Graduation2 fa %s", lIcon);
         
-        var lHtml = "";
-        lHtml += sprintf("<b>%s</b><br/>\n", lPeriod);
-        lHtml += sprintf("%s,<br/>\n", lGraduation);
-        lHtml += sprintf("%s.<br/>\n", lSchool);
-
         lIconId.setAttribute("class", lIcon);
-        lGradeId.innerHTML = lHtml;
     }
     //===============================================
     onDeleteGraduation(_obj, _data) {
@@ -560,7 +805,7 @@ class GEditor extends GObject {
             return false;
         }
         if(!this.hasParent("GGraduation1")) {
-            this.addError("Vous n'êtes pas dans un effet lien.");
+            this.addError("Vous n'êtes pas dans un effet formation.");
             return false;
         }
         this.removeNode();
@@ -574,7 +819,7 @@ class GEditor extends GObject {
             return false;
         }
         if(this.hasParent("GLink1")) {
-            this.addError("Vous êtes dans un effet link.");
+            this.addError("Vous êtes dans un effet lien.");
             return false;
         }
         if(this.isLine()) {
@@ -592,7 +837,7 @@ class GEditor extends GObject {
             return false;
         }
         if(!this.hasParent("GLink1")) {
-            this.addError("Vous n'êtes pas dans un effet link.");
+            this.addError("Vous n'êtes pas dans un effet lien.");
             return false;
         }
 
@@ -626,7 +871,7 @@ class GEditor extends GObject {
             return false;
         }
         if(!this.hasParent("GLink1")) {
-            this.addError("Vous n'êtes pas dans un effet parallax.");
+            this.addError("Vous n'êtes pas dans un effet lien.");
             return false;
         }
         
@@ -655,6 +900,100 @@ class GEditor extends GObject {
         }
         if(!this.hasParent("GLink1")) {
             this.addError("Vous n'êtes pas dans un effet lien.");
+            return false;
+        }
+        this.removeNode();
+    }
+    //===============================================
+    // template/line
+    //===============================================
+    onAddLine(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GLine1")) {
+            this.addError("Vous êtes dans un effet ligne.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+
+        document.execCommand("insertHTML", false, this.toLineBar());
+        return !this.hasErrors();
+    }
+    //===============================================
+    onUpdateLine(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GLine1")) {
+            this.addError("Vous n'êtes pas dans un effet ligne.");
+            return false;
+        }
+
+        var lNode = this.m_node;
+        var lIconId = lNode.firstElementChild;
+        var lLineId = lNode.firstElementChild.nextElementSibling;
+        
+        var lIcon = lIconId.getAttribute("class").split(" ")[2];
+        var lLine = lLineId.getAttribute("href");
+        var lTitle = lLinkId.innerHTML;
+
+        var lFont = GFontAwesome.Instance();
+        var lIndex = lFont.findFont(lIcon);
+
+        var lForm = GForm.Instance();
+        lForm.clearMap();
+        lForm.setCallback("editor", "update_link_form");
+        lForm.addLabelPicto("m_icon", "Icône :", lFont.toForm(), lIndex);
+        lForm.addLabelEdit("m_link", "Lien :", lLink);
+        lForm.addLabelEdit("m_title", "Titre :", lTitle);
+        lForm.showForm();
+        this.addLogs(lForm.getLogs());
+        
+        GEditor.Instance().saveRange();
+    }
+    //===============================================
+    onUpdateLineForm(_obj, _data) {
+        GEditor.Instance().restoreRange();
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GLine1")) {
+            this.addError("Vous n'êtes pas dans un effet ligne.");
+            return false;
+        }
+        
+        var lForm = GForm.Instance();
+        lForm.readForm();
+
+        var lIcon = lForm.loadFromMap(0).m_value;
+        var lLink = lForm.loadFromMap(1).m_value;
+        var lTitle = lForm.loadFromMap(2).m_value;
+        
+        var lNode = this.m_node;
+        var lIconId = lNode.firstElementChild;
+        var lLinkId = lNode.firstElementChild.nextElementSibling;
+        
+        lIcon = sprintf("Link2 fa %s", lIcon);
+        
+        lIconId.setAttribute("class", lIcon);
+        lLinkId.setAttribute("href", lLink);
+        lLinkId.innerHTML = lTitle;
+    }
+    //===============================================
+    onDeleteLine(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GLine1")) {
+            this.addError("Vous n'êtes pas dans un effet ligne.");
             return false;
         }
         this.removeNode();
@@ -841,8 +1180,9 @@ class GEditor extends GObject {
             this.addError("Vous n'êtes pas dans un effet puce.");
             return false;
         }
+        var lNode = this.m_node;
         var lText = sprintf("%s\n", this.toLine());
-        this.m_node.replaceWith(lText);
+        lNode.replaceWith(lText);
     }
     //===============================================
     // template/section

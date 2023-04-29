@@ -228,6 +228,9 @@ class GPage extends GObject {
         else if(_method == "new_page") {
             this.onNewPage(_obj, _data);
         }
+        else if(_method == "create_folder") {
+            this.onCreateFolder(_obj, _data);
+        }
         //===============================================
         // edition
         //===============================================
@@ -417,11 +420,7 @@ class GPage extends GObject {
         this.readUi();
         var lAjax = new GAjax();
         var lData = this.serialize();
-        lAjax.callLocal("page", "create_page", lData, this.onCreatePageCB);        
-    }
-    //===============================================
-    onCreatePageCB(_data, _isOk) {
-
+        lAjax.callLocal("page", "create_page", lData);        
     }
     //===============================================
     onNewPage(_obj, _data) {
@@ -429,6 +428,13 @@ class GPage extends GObject {
         lPage.readRoot();
         lPage.readPath();
         lPage.writeUi();
+    }
+    //===============================================
+    onCreateFolder(_obj, _data) {
+        this.readUi();
+        var lAjax = new GAjax();
+        var lData = this.serialize();
+        lAjax.callLocal("page", "create_folder", lData);        
     }
     //===============================================
     // edition

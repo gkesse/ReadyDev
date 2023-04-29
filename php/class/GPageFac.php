@@ -79,6 +79,9 @@ class GPageFac extends GModule {
         else if($this->m_method == "create_page") {
             $this->onCreatePage($_data);
         }
+        else if($this->m_method == "create_folder") {
+            $this->onCreateFolder($_data);
+        }
         else if($this->m_method == "store_default_address") {
             $this->onStoreDefaultAddress($_data);
         }
@@ -176,6 +179,38 @@ class GPageFac extends GModule {
         else {
             $this->addError("Le chemin du fichier est vide.");
         }
+        return !$this->hasErrors();
+    }
+    //===============================================
+    public function onCreateFolder($_data) {
+        if($this->m_root == "") {
+            $this->addError("Le chemin du répertoire racine est vide.");
+            return false;
+        }
+        if($this->m_path == "") {
+            $this->addError("Le chemin du répertoire source est vide.");
+            return false;
+        }
+        if($this->m_name == "") {
+            $this->addError("Le nom répertoire est vide.");
+            return false;
+        }
+        
+        $lPath = sprintf("%s%s/%s", $this->m_root, $this->m_path, $this->m_name);
+        $lPath = $this->getPath($lPath);
+        
+        $lFile = sprintf("%s/index.php", $lPath);
+        
+        if(!file_exists($lFile)) {
+            file_put_contents($lFile, "");
+        }
+        
+        if(file_exists($lPath)) {
+            $this->addError("Le répertoire existe déjà.");
+            return false;
+        }
+        
+        mkdir($lPath, 0777, true);
         return !$this->hasErrors();
     }
     //===============================================
