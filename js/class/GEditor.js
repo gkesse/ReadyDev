@@ -7,6 +7,7 @@ class GEditor extends GObject {
         super();
         this.m_node = null;
         this.m_range = null;
+        this.m_copy = null;
     }
     //===============================================
     static Instance() {
@@ -64,6 +65,12 @@ class GEditor extends GObject {
         return true;
     }
     //===============================================
+    isNode(_className) {
+        if(!this.m_node) return false;
+        if(!this.m_node.matches("." + _className)) return false;
+        return true;
+    }
+    //===============================================
     toNode() {
         var lSelection = document.getSelection();
         var lNode = lSelection.anchorNode;
@@ -99,6 +106,11 @@ class GEditor extends GObject {
         return lNode.data;
     }
     //===============================================
+    toLines() {
+        var lSelection = document.getSelection();
+        return lSelection.toString();
+    }
+    //===============================================
     toData() {
         var lSelection = document.getSelection();
         var lData = lSelection.toString();
@@ -128,6 +140,18 @@ class GEditor extends GObject {
         var lIndex = +lEditorDefaultTab.value;
         var lTab = document.getElementsByClassName("EditorTab")[lIndex];
         this.onOpenEditorTab(lTab);
+    }
+    //===============================================
+    copyNode() {
+        var lObj = GEditor.Instance();
+        lObj.m_copy = this.m_node;
+    }
+    //===============================================
+    restoreCopy() {
+        var lObj = GEditor.Instance();
+        this.m_node = lObj.m_copy;
+        if(!this.m_node) return false;
+        return true;
     }
     //===============================================
     removeNode() {
@@ -334,6 +358,12 @@ class GEditor extends GObject {
         else if(_method == "add_skill") {
             this.onAddSkill(_obj, _data);
         }
+        else if(_method == "copy_skill") {
+            this.onCopySkill(_obj, _data);
+        }
+        else if(_method == "paste_skill") {
+            this.onPasteSkill(_obj, _data);
+        }
         else if(_method == "update_skill") {
             this.onUpdateSkill(_obj, _data);
         }
@@ -348,6 +378,12 @@ class GEditor extends GObject {
         //===============================================
         else if(_method == "add_graduation") {
             this.onAddGraduation(_obj, _data);
+        }
+        else if(_method == "copy_graduation") {
+            this.onCopyGraduation(_obj, _data);
+        }
+        else if(_method == "paste_graduation") {
+            this.onPasteGraduation(_obj, _data);
         }
         else if(_method == "update_graduation") {
             this.onUpdateGraduation(_obj, _data);
@@ -409,6 +445,9 @@ class GEditor extends GObject {
         else if(_method == "add_bullet") {
             this.onAddBullet(_obj, _data);
         }
+        else if(_method == "add_bullet_group") {
+            this.onAddBulletGroup(_obj, _data);
+        }
         else if(_method == "insert_bullet_before") {
             this.onInsertBulletBefore(_obj, _data);
         }
@@ -421,6 +460,9 @@ class GEditor extends GObject {
         else if(_method == "update_bullet_form") {
             this.onUpdateBulletForm(_obj, _data);
         }
+        else if(_method == "cancel_bullet") {
+            this.onCancelBullet(_obj, _data);
+        }
         else if(_method == "delete_bullet") {
             this.onDeleteBullet(_obj, _data);
         }
@@ -429,6 +471,12 @@ class GEditor extends GObject {
         //===============================================
         else if(_method == "add_section") {
             this.onAddSection(_obj, _data);
+        }
+        else if(_method == "copy_section") {
+            this.onCopySection(_obj, _data);
+        }
+        else if(_method == "paste_section") {
+            this.onPasteSection(_obj, _data);
         }
         else if(_method == "update_section") {
             this.onUpdateSection(_obj, _data);
@@ -646,6 +694,47 @@ class GEditor extends GObject {
         return !this.hasErrors();
     }
     //===============================================
+    onCopySkill(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GSkill1")) {
+            this.addError("Vous n'êtes pas dans un effet compétence.");
+            return false;
+        }
+        
+        this.copyNode();
+        return !this.hasErrors();
+    }
+    //===============================================
+    onPasteSkill(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GSkill1")) {
+            this.addError("Vous êtes dans un effet compétence.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+        if(!this.restoreCopy()) {
+            this.addError("Aucun noeud n'a été copié.");
+            return false;
+        }
+        if(!this.isNode("GSkill1")) {
+            this.addError("Le noeud copié n'est pas un effet compétence.");
+            return false;
+        }
+
+        var lNode = this.m_node;
+        document.execCommand("insertHTML", false, lNode.outerHTML);
+        return !this.hasErrors();
+    }
+    //===============================================
     onUpdateSkill(_obj, _data) {
         if(!this.isEditor()) {
             this.addError("La sélection est hors du cadre.");
@@ -750,6 +839,47 @@ class GEditor extends GObject {
         }
 
         document.execCommand("insertHTML", false, this.toGraduation());
+        return !this.hasErrors();
+    }
+    //===============================================
+    onCopyGraduation(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GGraduation1")) {
+            this.addError("Vous n'êtes pas dans un effet formation.");
+            return false;
+        }
+        
+        this.copyNode();
+        return !this.hasErrors();
+    }
+    //===============================================
+    onPasteGraduation(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GGraduation1")) {
+            this.addError("Vous êtes dans un effet formation.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+        if(!this.restoreCopy()) {
+            this.addError("Aucun noeud n'a été copié.");
+            return false;
+        }
+        if(!this.isNode("GGraduation1")) {
+            this.addError("Le noeud copié n'est pas un effet formation.");
+            return false;
+        }
+
+        var lNode = this.m_node;
+        document.execCommand("insertHTML", false, lNode.outerHTML);
         return !this.hasErrors();
     }
     //===============================================
@@ -1121,6 +1251,34 @@ class GEditor extends GObject {
         return !this.hasErrors();
     }
     //===============================================
+    onAddBulletGroup(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GBullet1")) {
+            this.addError("Vous êtes dans un effet puce.");
+            return false;
+        }
+        if(!this.isData()) {
+            this.addError("Vous n'avez pas sélectionné de texte.");
+            return false;
+        }
+
+        var lText = this.toLines();
+        var lLines = lText.split("\n");
+        
+        var lHtml = "";
+
+        for(var i = 0; i < lLines.length; i++) {
+            var lLine = lLines[i];
+            lHtml += this.toBullet(lLine);
+        }
+        
+        document.execCommand("insertHTML", false, lHtml);
+        return !this.hasErrors();
+    }
+    //===============================================
     onInsertBulletBefore(_obj, _data) {
         if(!this.isEditor()) {
             this.addError("La sélection est hors du cadre.");
@@ -1211,7 +1369,7 @@ class GEditor extends GObject {
         }
     }
     //===============================================
-    onDeleteBullet(_obj, _data) {
+    onCancelBullet(_obj, _data) {
         if(!this.isEditor()) {
             this.addError("La sélection est hors du cadre.");
             return false;
@@ -1223,6 +1381,18 @@ class GEditor extends GObject {
         var lNode = this.m_node;
         var lText = sprintf("%s\n", this.toLine());
         lNode.replaceWith(lText);
+    }
+    //===============================================
+    onDeleteBullet(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GBullet1")) {
+            this.addError("Vous n'êtes pas dans un effet puce.");
+            return false;
+        }
+        this.removeNode();
     }
     //===============================================
     // template/section
@@ -1242,6 +1412,47 @@ class GEditor extends GObject {
         }
 
         document.execCommand("insertHTML", false, this.toSection());
+        return !this.hasErrors();
+    }
+    //===============================================
+    onCopySection(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GSection1")) {
+            this.addError("Vous n'êtes pas dans un effet section.");
+            return false;
+        }
+        
+        this.copyNode();
+        return !this.hasErrors();
+    }
+    //===============================================
+    onPasteSection(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GSection1")) {
+            this.addError("Vous êtes dans un effet section.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+        if(!this.restoreCopy()) {
+            this.addError("Aucun noeud n'a été copié.");
+            return false;
+        }
+        if(!this.isNode("GSection1")) {
+            this.addError("Le noeud copié n'est pas un effet compétence.");
+            return false;
+        }
+
+        var lNode = this.m_node;
+        document.execCommand("insertHTML", false, lNode.outerHTML);
         return !this.hasErrors();
     }
     //===============================================
