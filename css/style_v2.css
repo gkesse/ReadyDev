@@ -1258,6 +1258,15 @@ thead tr:first-child {
     z-index: 1;
 }
 
+.Menu16  {
+    display: none;
+    border-bottom: 1px solid #2f3959;
+}
+
+.Menu16:hover .Menu8 {
+    border-bottom: 5px solid #89a830;
+}
+
 /* ============================================== */
 /* Parallax */
 /* ============================================== */
@@ -1659,6 +1668,10 @@ thead tr:first-child {
         right: 10px;
         transform: translate(0, -50%);
         z-index: 1;
+    }
+    
+    .RWD .Menu16 {
+        display: block;
     }
     
     /* ---------------------------------------------- */

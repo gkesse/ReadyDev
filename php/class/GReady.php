@@ -100,6 +100,8 @@ class GReady extends GObject {
     //===============================================
     public function toMenu($_parent = null) {
         $lMenuI = $this->findObjMapCM("menu", "nav", $_parent);
+        $lMenuK = null;
+        
         for($i = 0; $i < $lMenuI->size(); $i++) {
             $lMenuI->loadFromMap($i);
             if($lMenuI->m_isActive) {
@@ -112,7 +114,7 @@ class GReady extends GObject {
                 $lActiveOk |= (($lMenuI->m_name == $this->m_menu->m_name) && !$lMenuI->m_parentObj);
                 
                 if($lActiveOk) $lActive = " Active";
-                
+                                
                 if(!$lMenuJ->size() && !$_parent) {
                     echo sprintf("<a class='Menu2%s' href='%s'><div class='Menu14'>%s</div></a>\n", $lActive, $lMenuI->m_link, $lMenuI->m_title);
                 }
@@ -123,6 +125,7 @@ class GReady extends GObject {
                     if(!$_parent) {
                         echo sprintf("<div class='Menu6'>\n");
                         echo sprintf("<a class='Menu2%s' href='%s' onclick='return call_server(\"app\", \"open_menu_group\", this)'><div class='Menu14'>%s</div><i class='Menu13 fa fa-caret-down'></i></a>\n", $lActive, $lMenuI->m_link, $lMenuI->m_title);
+                        $lMenuK = $lMenuI;
                     }
                     else if($_parent) {
                         echo sprintf("<div class='Menu9'>\n");
@@ -131,6 +134,7 @@ class GReady extends GObject {
                     
                     if(!$_parent) {
                         echo sprintf("<div class='Menu7'>\n");
+                        echo sprintf("<a class='Menu16' href='%s'><div class='Menu8'>%s</div></a>\n", $lMenuK->m_link, $lMenuK->m_title);
                     }
                     else if($_parent) {
                         echo sprintf("<div class='Menu11'>\n");

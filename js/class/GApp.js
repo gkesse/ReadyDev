@@ -71,6 +71,9 @@ class GApp extends GObject {
         if(this.toWidth() <= this.toWidthRWD()) {
             this.addErrorNS("Le lien ne doit pas être suivi.");
             
+            var lHref = _obj.getAttribute("href");
+            var lTitle = _obj.firstElementChild.innerHTML;
+                        
             var lMenus = document.getElementsByClassName("Menu7");
             
             for(var i = 0; i < lMenus.length; i++) {
