@@ -298,6 +298,25 @@ thead tr:first-child {
 }
 
 /* ============================================== */
+/* Bars */
+/* ============================================== */
+
+.Bars1 {
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    font-size: 25px;
+    font-family: Akronim;
+    color: white;
+    padding: 0 10px 0 10px;
+    display: none;
+    vertical-align: middle;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+}
+
+/* ============================================== */
 /* Block */ 
 /* ============================================== */
 
@@ -837,7 +856,7 @@ thead tr:first-child {
     margin-top: 250px;
     margin-bottom: 250px;
     min-height: 150px;
-    
+
     border: 10px solid transparent;
     border-image: url("/data/img/defaults/border.png") 30 round;
     -webkit-border-image: url("/data/img/defaults/border.png") 30 round; 
@@ -1089,25 +1108,16 @@ thead tr:first-child {
     background-color: rgba(255, 255, 255, 0.2);
     text-align: left;
     font-size: 0px;
+    position: relative;
+    line-height: 45px;
 }
 
 .Menu2 {
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
     display: inline-block;
-    padding: 0px 10px;
-    line-height: 35px;
     vertical-align: middle;
     font-size: 18px;
     font-family: arial;
-}
-
-.Menu2:hover {
-    border-bottom: 5px solid #89a830;
-}
-
-.Menu2.Active {
-    border-bottom: 5px solid #f67b20;
+    position: relative;
 }
 
 .Menu3 {
@@ -1216,6 +1226,31 @@ thead tr:first-child {
 }
 
 .Menu13 {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1;
+}
+
+.Menu14 {
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    display: inline-block;
+    padding: 0px 10px;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+.Menu2:hover .Menu14 {
+    border-bottom: 5px solid #89a830;
+}
+
+.Menu2.Active .Menu14 {
+    border-bottom: 5px solid #f67b20;
+}
+
+.Menu15 {
     position: absolute;
     top: 50%;
     right: 10px;
@@ -1535,6 +1570,98 @@ thead tr:first-child {
     font-size: 14px;
     padding: 0px 10px;
     line-height: 25px;
+}
+
+/* ============================================== */
+/* Mobile */ 
+/* ============================================== */
+
+@media (max-width:1024px) {
+
+}
+
+/* ============================================== */
+
+@media (max-width:960px) {
+    /* ---------------------------------------------- */
+    /* Bar */
+    /* ---------------------------------------------- */
+    
+    .Bars1 {
+        display: inline-block;
+    }
+
+    /* ---------------------------------------------- */
+    /* Menu */
+    /* ---------------------------------------------- */
+    
+    .Menu2 {
+        display: none;
+    }
+    
+    .RWD .Menu2 {
+        display: block;
+    }
+    
+    .Menu6 {
+        display: none;
+    }
+    
+    .RWD .Menu6 {
+        display: block;
+    }
+    
+    .RWD .Menu7 {
+        position: relative;
+        width: 100%;
+        max-height: 100%;
+    }
+    
+    .RWD .Menu7.Show {
+        display: block;
+    }
+    
+    .RWD .Menu6:hover .Menu7 {
+        display: none;
+    }
+    
+    .RWD .Menu6:hover .Menu7.Show {
+        display: block;
+    }
+    
+    .RWD .Menu10 {
+        display: block;
+    }
+    
+    .RWD .Menu10:hover {
+        background-color: #051039;
+    }
+    
+    .RWD .Menu12:hover {
+        background-color: #051039;
+    }
+    
+    .RWD .Menu6:hover .Menu12.Active {
+        background-color: #051039;
+    }
+    
+    .RWD .Menu13 {
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translate(-20px, -50%);
+        z-index: 1;
+    }
+    
+    .RWD .Menu15 {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translate(0, -50%);
+        z-index: 1;
+    }
+    
+    /* ---------------------------------------------- */
 }
 
 /* ============================================== */

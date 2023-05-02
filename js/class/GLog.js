@@ -40,6 +40,14 @@ class GLog {
         this.m_map.push(lObj);
     }
     //===============================================
+    addErrorNS(_msg) {
+        var lObj = new GLog();
+        lObj.m_type = "error_no_show";
+        lObj.m_side = "client";
+        lObj.m_msg = _msg;
+        this.m_map.push(lObj);
+    }
+    //===============================================
     addLog(_msg) {
         var lObj = new GLog();
         lObj.m_type = "log";
@@ -67,6 +75,14 @@ class GLog {
         for(var i = 0; i < this.m_map.length; i++) {
             var lObj = this.m_map[i];
             if(lObj.m_type == "error") return true;
+        }
+        return false;
+    }
+    //===============================================
+    hasErrorsNS() {
+        for(var i = 0; i < this.m_map.length; i++) {
+            var lObj = this.m_map[i];
+            if(lObj.m_type == "error_no_show") return true;
         }
         return false;
     }

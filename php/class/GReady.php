@@ -114,7 +114,7 @@ class GReady extends GObject {
                 if($lActiveOk) $lActive = " Active";
                 
                 if(!$lMenuJ->size() && !$_parent) {
-                    echo sprintf("<a class='Menu2%s' href='%s'>%s</a>\n", $lActive, $lMenuI->m_link, $lMenuI->m_title);
+                    echo sprintf("<a class='Menu2%s' href='%s'><div class='Menu14'>%s</div></a>\n", $lActive, $lMenuI->m_link, $lMenuI->m_title);
                 }
                 else if(!$lMenuJ->size() && $_parent) {
                     echo sprintf("<a class='Menu10' href='%s'><div class='Menu8%s'>%s</div></a>\n", $lMenuI->m_link, $lActive, $lMenuI->m_title);
@@ -122,11 +122,11 @@ class GReady extends GObject {
                 else {
                     if(!$_parent) {
                         echo sprintf("<div class='Menu6'>\n");
-                        echo sprintf("<a class='Menu2%s' href='%s'>%s</a>\n", $lActive, $lMenuI->m_link, $lMenuI->m_title);
+                        echo sprintf("<a class='Menu2%s' href='%s' onclick='return call_server(\"app\", \"open_menu_group\", this)'><div class='Menu14'>%s</div><i class='Menu13 fa fa-caret-down'></i></a>\n", $lActive, $lMenuI->m_link, $lMenuI->m_title);
                     }
                     else if($_parent) {
                         echo sprintf("<div class='Menu9'>\n");
-                        echo sprintf("<div class='Menu12'><div class='Menu8'>%s <i class='Menu13 fa fa-caret-down'></i></div></div>\n", $lMenuI->m_title);
+                        echo sprintf("<div class='Menu12'><div class='Menu8'>%s <i class='Menu15 fa fa-caret-down'></i></div></div>\n", $lMenuI->m_title);
                     }
                     
                     if(!$_parent) {
@@ -247,6 +247,7 @@ class GReady extends GObject {
         echo sprintf("<script src='/js/class/GTable.js'></script>\n");
         echo sprintf("<script src='/js/class/GFontAwesome.js'></script>\n");
         echo sprintf("<script src='/js/class/GForm.js'></script>\n");
+        echo sprintf("<script src='/js/class/GApp.js'></script>\n");
         echo sprintf("<script src='/js/class/GPage.js'></script>\n");
         echo sprintf("<script src='/js/class/GEditor.js'></script>\n");
         echo sprintf("<script src='/js/class/GServer.js'></script>\n");
@@ -339,12 +340,13 @@ class GReady extends GObject {
         //
         echo sprintf("<div class='Html2 HtmlPage'>\n");
         // menu       
-        echo sprintf("<div class='Menu1'>\n");
+        echo sprintf("<div class='Menu1' id='HeaderMenu'>\n");
         echo sprintf("<a class='Menu3' href='%s'>\n", $this->getHomePage());
         echo sprintf("<img class='Menu4' src='%s' alt='logo.png'/>\n", $this->toLogo());
         echo sprintf("<span class='Menu5'>%s</span>\n", $this->toSiteName());
         echo sprintf("</a>\n");
         $this->toMenu();
+        echo sprintf("<div class='Bars1' onclick='call_server(\"app\", \"open_menu_bars\", this)'><i class='fa fa-bars'></i></div>\n");
         echo sprintf("</div>\n");
         // 
         $this->runView();

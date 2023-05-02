@@ -60,6 +60,8 @@ class GMenu extends GObject {
         for(var i = 0; i < lMenus.length; i++) {
             var lMenu = lMenus[i];
             lMenu.addEventListener("mouseleave", function(e) {
+                var lObj = new GMenu();
+                if(lObj.toWidth() <= lObj.toWidthRWD()) return;                
                 var lLines = this.getElementsByClassName("Menu12");
                 for(var i = 0; i < lLines.length; i++) {
                     var lLine = lLines[i];

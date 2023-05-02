@@ -5,6 +5,13 @@ class GServer extends GObject {
         super();
     }
     //===============================================
+    hasErrors() {
+        var lErrorOk = false;
+        lErrorOk |= super.hasErrors();
+        lErrorOk |= super.hasErrorsNS();
+        return lErrorOk;
+    }
+    //===============================================
     run(_module, _method, _obj, _data) {
         if(_module == "") {
             this.addError("Le module est obligatoire.");
@@ -21,6 +28,9 @@ class GServer extends GObject {
         }
         else if(_module == "form") {
             this.onForm(_method, _obj, _data);
+        }
+        else if(_module == "app") {
+            this.onApp(_method, _obj, _data);
         }
         else if(_module == "editor") {
             this.onEditor(_method, _obj, _data);
@@ -53,6 +63,12 @@ class GServer extends GObject {
     //===============================================
     onForm(_method, _obj, _data) {
         var lObj = new GForm();
+        lObj.run(_method, _obj, _data)
+        this.addLogs(lObj.getLogs());
+    }
+    //===============================================
+    onApp(_method, _obj, _data) {
+        var lObj = new GApp();
         lObj.run(_method, _obj, _data)
         this.addLogs(lObj.getLogs());
     }

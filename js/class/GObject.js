@@ -9,6 +9,24 @@ class GObject {
         this.m_map = [];
     }
     //===============================================
+    toWidth() {
+        var lWidth = window.innerWidth
+        || document.documentElement.clientWidth
+        || document.body.clientWidth;
+        return lWidth;
+    }
+    //===============================================
+    toHeight() {
+        var lHeight = window.innerHeight
+        || document.documentElement.clientHeight
+        || document.body.clientHeight;
+        return lHeight;
+    }
+    //===============================================
+    toWidthRWD() {
+        return 960;
+    }
+    //===============================================
     readPageId() {
         var lPageId = document.getElementById("gPageId");
         this.m_pageId = lPageId.value;
@@ -83,6 +101,10 @@ class GObject {
         this.m_logs.addError(_error);
     }
     //===============================================
+    addErrorNS(_error) {
+        this.m_logs.addErrorNS(_error);
+    }
+    //===============================================
     addLog(_log) {
         this.m_logs.addLog(_log);
     }
@@ -109,6 +131,10 @@ class GObject {
     //===============================================
     hasErrors() {
         return this.m_logs.hasErrors();
+    }
+    //===============================================
+    hasErrorsNS() {
+        return this.m_logs.hasErrorsNS();
     }
     //===============================================
     showErrors() {
