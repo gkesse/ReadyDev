@@ -173,6 +173,30 @@ thead tr:first-child {
 }
 
 /* ============================================== */
+/* Access */
+/* ============================================== */
+
+.Access1 {
+    text-align: center;
+}
+
+.Access2 {
+    background-color: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    vertical-align: middle;
+    padding: 2px 5px;
+    font-size: 18px;
+    margin: 5px 0px;
+}
+
+.Access3 {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0px 5px;
+    font-size: 18px;
+}
+
+/* ============================================== */
 /* Animate */
 /* ============================================== */
 
@@ -1519,6 +1543,35 @@ thead tr:first-child {
 .Text3 {
     font-size: 20px;
     margin-left: 50px;
+}
+
+.Text4 {
+    text-align: center;
+}
+
+.Text5 {
+    position: relative;
+    display: inline-block;
+    padding: 2px 10px;
+}
+
+.Text6 {
+    background-color: rgba(255, 255, 255, 0.2);
+    display: inline-block;
+    font-size: 20px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+}
+
+.Text7 {
+    display: inline-block;
+    font-family: allan;
+    font-size: 14px;
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translate(-50%, 0);
 }
 
 /* ============================================== */

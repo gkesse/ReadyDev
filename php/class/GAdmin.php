@@ -270,6 +270,29 @@ class GAdmin extends GObject {
         $lMenu->addMenu("editor", "update_text_fg_color", "Modifier");
         $lMenu->addMenu("editor", "delete_text_fg_color", "Supprimer");
         $lMenu->popParent();
+        // text/icon_bottom_horizontal
+        $lMenu->addMenu("editor", "", "Icône bas horizontale");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "add_text_3", "Ajouter");
+        $lMenu->addMenu("", "", "Insérer");
+        //
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "insert_text_3_left", "Gauche");
+        $lMenu->addMenu("editor", "insert_text_3_right", "Droite");
+        $lMenu->popParent();
+        //
+        $lMenu->addMenu("editor", "update_text_3", "Modifier");
+        $lMenu->addMenu("", "", "Supprimer");
+        //
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "delete_text_3_simple", "Simple");
+        $lMenu->addMenu("editor", "delete_text_3_group", "Groupe");
+        $lMenu->popParent();
+        //
+        $lMenu->popParent();
         //
         $lMenu->addMenu("editor", "exec_command", "Gras", "bold");
         $lMenu->popParent();
@@ -277,22 +300,48 @@ class GAdmin extends GObject {
         $lMenu->addMenu("", "", "Templates");
         $lMenu->pushParent();
         $lMenu->initParent();
+        // template/barre_acces_rapide
+        $lMenu->addMenu("", "", "Barre d'accès rapide");
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "add_access_1", "Ajouter");
+        $lMenu->addMenu("", "", "Insérer");
+        //
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "insert_access_1_left", "Gauche");
+        $lMenu->addMenu("editor", "insert_access_1_right", "Droite");
+        $lMenu->popParent();
+        //
+        $lMenu->addMenu("editor", "update_access_1", "Modifier");
+        $lMenu->addMenu("", "", "Supprimer");
+        //
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "delete_access_1_simple", "Simple");
+        $lMenu->addMenu("editor", "delete_access_1_group", "Groupe");
+        $lMenu->popParent();
+        //
+        $lMenu->popParent();
         // template/graduation
         $lMenu->addMenu("", "", "Compétences");
         $lMenu->pushParent();
         $lMenu->initParent();
         $lMenu->addMenu("editor", "add_skill", "Ajouter");
         $lMenu->addMenu("", "", "Dupliquer");
+        //
         $lMenu->pushParent();
         $lMenu->initParent();
         $lMenu->addMenu("editor", "copy_skill", "Copier");
         $lMenu->addMenu("editor", "paste_skill", "Coller");
         $lMenu->popParent();
+        //
         $lMenu->addMenu("editor", "update_skill", "Modifier");
         $lMenu->addMenu("editor", "delete_skill", "Supprimer");
         $lMenu->popParent();
         // template/graduation
         $lMenu->addMenu("", "", "Formations");
+        //
         $lMenu->pushParent();
         $lMenu->initParent();
         $lMenu->addMenu("editor", "add_graduation", "Ajouter");

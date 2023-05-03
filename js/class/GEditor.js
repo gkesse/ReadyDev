@@ -71,6 +71,12 @@ class GEditor extends GObject {
         return true;
     }
     //===============================================
+    countNode(_className) {
+        var lNode = this.m_node.parentNode;
+        var lNodes = lNode.getElementsByClassName(_className);
+        return lNodes.length;
+    }
+    //===============================================
     toNode() {
         var lSelection = document.getSelection();
         var lNode = lSelection.anchorNode;
@@ -239,6 +245,25 @@ class GEditor extends GObject {
         return lHtml;
     }
     //===============================================
+    toText3Group() {
+        var lHtml = "";
+        lHtml += sprintf("<div class='GText3 Text4'>\n");
+        lHtml += this.toText3Simple();
+        lHtml += sprintf("</div>\n");
+        return lHtml;
+    }
+    //===============================================
+    toText3Simple() {
+        var lHtml = "";
+        lHtml += sprintf("<a href='#'>\n");
+        lHtml += sprintf("<div class='GText4 Text5'>\n");
+        lHtml += sprintf("<i class='Text6 fa fa-file-pdf-o'></i>\n");
+        lHtml += sprintf("<div class='Text7'>CV<br>Simplifié</div>\n");
+        lHtml += sprintf("</div>\n");
+        lHtml += sprintf("</a>\n");
+        return lHtml;
+    }
+    //===============================================
     toTextImageLeft() {
         var lHtml = "";
         lHtml += sprintf("<div class='GText1 Text1'>\n");
@@ -284,6 +309,26 @@ class GEditor extends GObject {
         return lHtml;
     }
     //===============================================
+    toAccess1() {
+        var lHtml = "";
+        lHtml += sprintf("<div class='GAccess1 Access1'>\n");
+        lHtml += this.toAccess2();
+        lHtml += sprintf("</div>\n");
+        return lHtml;
+    }
+    //===============================================
+    toAccess2() {
+        var lHtml = "";
+        lHtml += sprintf("<a class='GAccess2 Access2' href='/home'>home</a>\n");
+        return lHtml;
+    }
+    //===============================================
+    toAccess3() {
+        var lHtml = "";
+        lHtml += sprintf("<i class='GAccess3 Access3 fa fa-chevron-right'></i>\n");
+        return lHtml;
+    }
+    //===============================================
     toLineBar() {
         var lHtml = "";
         lHtml += sprintf("<div class='GLine1 Line1'>\n");
@@ -320,7 +365,7 @@ class GEditor extends GObject {
             this.onExecCommand(_obj, _data);
         }
         //===============================================
-        // text
+        // text/fg_color
         //===============================================
         else if(_method == "add_text_fg_color") {
             this.onAddTextFgColor(_obj, _data);
@@ -333,6 +378,30 @@ class GEditor extends GObject {
         }
         else if(_method == "delete_text_fg_color") {
             this.onDeleteTextFgColor(_obj, _data);
+        }
+        //===============================================
+        // text/icon_bottom_horizontal
+        //===============================================
+        else if(_method == "add_text_3") {
+            this.onAddText3(_obj, _data);
+        }
+        else if(_method == "insert_text_3_left") {
+            this.onInsertText3Left(_obj, _data);
+        }
+        else if(_method == "insert_text_3_right") {
+            this.onInsertText3Right(_obj, _data);
+        }
+        else if(_method == "update_text_3") {
+            this.onUpdateText3(_obj, _data);
+        }
+        else if(_method == "update_text_3_form") {
+            this.onUpdateText3Form(_obj, _data);
+        }
+        else if(_method == "delete_text_3_simple") {
+            this.onDeleteText3Simple(_obj, _data);
+        }
+        else if(_method == "delete_text_3_group") {
+            this.onDeleteText3Group(_obj, _data);
         }
         //===============================================
         // edition
@@ -351,6 +420,30 @@ class GEditor extends GObject {
         //===============================================
         else if(_method == "open_code_tab") {
             this.onOpenCodeTab(_obj, _data);
+        }
+        //===============================================
+        // template/barre_acces_rapide
+        //===============================================
+        else if(_method == "add_access_1") {
+            this.onAddAcess1(_obj, _data);
+        }
+        else if(_method == "insert_access_1_left") {
+            this.onInsertAcess1Left(_obj, _data);
+        }
+        else if(_method == "insert_access_1_right") {
+            this.onInsertAcess1Right(_obj, _data);
+        }
+        else if(_method == "update_access_1") {
+            this.onUpdateAcess1(_obj, _data);
+        }
+        else if(_method == "update_access_1_form") {
+            this.onUpdateAcess1Form(_obj, _data);
+        }
+        else if(_method == "delete_access_1_simple") {
+            this.onDeleteAcess1Simple(_obj, _data);
+        }
+        else if(_method == "delete_access_1_group") {
+            this.onDeleteAcess1Group(_obj, _data);
         }
         //===============================================
         // template/skill
@@ -585,7 +678,7 @@ class GEditor extends GObject {
         }
         
         var lNode = this.m_node;
-        var lColor = lNode.style.color.getHexFromRgb();;
+        var lColor = lNode.style.color.getHexFromRgb();
         
         var lForm = GForm.Instance();
         lForm.clearMap();
@@ -632,6 +725,144 @@ class GEditor extends GObject {
         lNode.replaceWith(lText);
     }
     //===============================================
+    // text/icon_bottom_horizontal
+    //===============================================
+    onAddText3(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GText3")) {
+            this.addError("Vous êtes dans un effet texte icône bas horizontale.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+        document.execCommand("insertHTML", false, this.toText3Group());
+    }
+    //===============================================
+    onInsertText3Left(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GText4")) {
+            this.addError("Vous n'êtes pas dans un effet texte icône bas horizontale.");
+            return false;
+        }
+        
+        var lNode = this.m_node;
+        var lNew = this.createNode(this.toText3Simple());
+        lNode.appendBefore(lNew);
+    }
+    //===============================================
+    onInsertText3Right(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GText4")) {
+            this.addError("Vous n'êtes pas dans un effet texte icône bas horizontale.");
+            return false;
+        }
+        
+        var lNode = this.m_node;
+        var lNew = this.createNode(this.toText3Simple());
+        lNode.appendAfter(lNew);
+    }
+    //===============================================
+    onUpdateText3(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GText4")) {
+            this.addError("Vous n'êtes pas dans un effet texte icône bas horizontale.");
+            return false;
+        }
+        
+        var lNode = this.m_node;
+        var lLinkId = lNode.parentNode;
+        var lIconId = lNode.firstElementChild;
+        
+        var lLink = lLinkId.getAttribute("href");
+        var lIcon = lIconId.getAttribute("class").split(" ")[2];
+                
+        var lFont = GFontAwesome.Instance();
+        var lIndex = lFont.findFont(lIcon);
+        
+        var lForm = GForm.Instance();
+        lForm.clearMap();
+        lForm.setCallback("editor", "update_text_3_form");
+        lForm.addLabelPicto("m_icon", "Icône :", lFont.toForm(), lIndex);
+        lForm.addLabelEdit("m_link", "Lien :", lLink);
+        lForm.showForm();
+        this.addLogs(lForm.getLogs());
+        
+        GEditor.Instance().saveRange();
+    }
+    //===============================================
+    onUpdateText3Form(_obj, _data) {
+        GEditor.Instance().restoreRange();
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GText4")) {
+            this.addError("Vous n'êtes pas dans un effet texte icône bas horizontale.");
+            return false;
+        }
+        
+        var lForm = GForm.Instance();
+        lForm.readForm();
+        
+        var lIcon = lForm.loadFromMap(0).m_value;
+        var lLink = lForm.loadFromMap(1).m_value;
+        
+        lIcon = sprintf("Text6 fa %s", lIcon);
+        
+        var lNode = this.m_node;
+        var lLinkId = lNode.parentNode;
+        var lIconId = lNode.firstElementChild;
+        
+        lLinkId.setAttribute("href", lLink);
+        lIconId.setAttribute("class", lIcon);
+    }
+    //===============================================
+    onDeleteText3Simple(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GText3")) {
+            this.addError("Vous n'êtes pas dans un effet texte icône bas horizontale groupe.");
+            return false;
+        }
+        if(!this.hasParent("GText4")) {
+            this.addError("Vous n'êtes pas dans un effet texte icône bas horizontale simple.");
+            return false;
+        }
+        if(this.countNode("GText4") <= 1) {
+            this.addError("Vous voulez supprimer le parent.");
+            return false;
+        }
+        this.removeNode();
+    }
+    //===============================================
+    onDeleteText3Group(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GText3")) {
+            this.addError("Vous n'êtes pas dans un effet texte icône bas horizontale groupe.");
+            return false;
+        }
+        this.removeNode();
+    }
+    //===============================================
     // edition
     //===============================================
     onKeydownEventEdition(_obj, _data) {
@@ -672,6 +903,143 @@ class GEditor extends GObject {
     onOpenCodeTab(_obj, _data) {
         var lTab = document.getElementsByClassName("EditorTab")[3];
         this.onOpenEditorTab(lTab);
+    }
+    //===============================================
+    // template/barre_acces_rapide
+    //===============================================
+    onAddAcess1(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GAccess1")) {
+            this.addError("Vous êtes dans un effet barre d'accès rapide.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+
+        document.execCommand("insertHTML", false, this.toAccess1());
+        return !this.hasErrors();
+    }
+    //===============================================
+    onInsertAcess1Left(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GAccess2")) {
+            this.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
+            return false;
+        }
+        
+        var lNode = this.m_node;
+        var lNewLink = this.createNode(this.toAccess2());
+        var lNewChevron = this.createNode(this.toAccess3());
+        lNode.appendBefore(lNewLink);
+        lNode.appendBefore(lNewChevron);
+    }
+    //===============================================
+    onInsertAcess1Right(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GAccess2")) {
+            this.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
+            return false;
+        }
+        
+        var lNode = this.m_node;
+        var lNewLink = this.createNode(this.toAccess2());
+        var lNewChevron = this.createNode(this.toAccess3());
+        lNode.appendAfter(lNewLink);
+        lNode.appendAfter(lNewChevron);
+    }
+    //===============================================
+    onUpdateAcess1(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GAccess2")) {
+            this.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
+            return false;
+        }
+        
+        var lNode = this.m_node;
+        
+        var lLink = lNode.getAttribute("href");
+        var lText = lNode.innerHTML;
+        
+        var lForm = GForm.Instance();
+        lForm.clearMap();
+        lForm.setCallback("editor", "update_access_1_form");
+        lForm.addLabelEdit("m_text", "Texte :", lText);
+        lForm.addLabelEdit("m_link", "Lien :", lLink);
+        lForm.showForm();
+        this.addLogs(lForm.getLogs());
+        
+        GEditor.Instance().saveRange();
+    }
+    //===============================================
+    onUpdateAcess1Form(_obj, _data) {
+        GEditor.Instance().restoreRange();
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GAccess2")) {
+            this.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
+            return false;
+        }
+        
+        var lForm = GForm.Instance();
+        lForm.readForm();
+        
+        var lText = lForm.loadFromMap(0).m_value;
+        var lLink = lForm.loadFromMap(1).m_value;
+                
+        var lNode = this.m_node;
+        
+        lNode.setAttribute("href", lLink);
+        lNode.innerHTML = lText;
+    }
+    //===============================================
+    onDeleteAcess1Simple(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GAccess2")) {
+            this.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
+            return false;
+        }
+        
+        var lNode = this.m_node;
+        var lChevron = lNode.previousElementSibling;
+        
+        if(!lChevron) {
+            this.addError("Vous voulez supprimer le parent.");
+            return false;
+        }
+        
+        lChevron.remove();
+        lNode.remove();
+    }
+    //===============================================
+    onDeleteAcess1Group(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GAccess1")) {
+            this.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
+            return false;
+        }
+        this.removeNode();
     }
     //===============================================
     // template/skill
