@@ -296,6 +296,22 @@ class GAdmin extends GObject {
         //
         $lMenu->addMenu("editor", "exec_command", "Gras", "bold");
         $lMenu->popParent();
+        // fichier
+        $lMenu->addMenu("", "", "Fichiers");
+        //
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("", "", "Pdf");
+        //
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "add_pdf_1", "Ajouter");
+        $lMenu->addMenu("editor", "update_pdf_1", "Modifier");
+        $lMenu->addMenu("editor", "delete_pdf_1", "Supprimer");
+        $lMenu->popParent();
+        //
+        $lMenu->popParent();
+        //
         // template
         $lMenu->addMenu("", "", "Templates");
         $lMenu->pushParent();
@@ -311,6 +327,14 @@ class GAdmin extends GObject {
         $lMenu->initParent();
         $lMenu->addMenu("editor", "insert_access_1_left", "Gauche");
         $lMenu->addMenu("editor", "insert_access_1_right", "Droite");
+        $lMenu->popParent();
+        //
+        $lMenu->addMenu("", "", "Dupliquer");
+        //
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "copy_access_1", "Copier");
+        $lMenu->addMenu("editor", "paste_access_1", "Coller");
         $lMenu->popParent();
         //
         $lMenu->addMenu("editor", "update_access_1", "Modifier");

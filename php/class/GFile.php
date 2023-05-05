@@ -1,147 +1,126 @@
 <?php
-class GFile extends GObject {
+class GFile extends GModule {
     //===============================================
-    private $m_action = "";
-    private $m_filename = "";
-    private $m_data = "";
-    private $m_isFound = true;
+    private $m_id = 0;
+    private $m_parentId = 0;
+    private $m_name = "";
+    private $m_path = "";
+    private $m_mimeType = "";
+    private $m_isDir = false;
     //===============================================
     public function __construct() {
         parent::__construct();
     }
     //===============================================
-    public function setAction($_action) {
-        $this->m_action = $_action;
+    public function clone() {
+        return new GFile();
     }
     //===============================================
-    public function setFilename($_filename) {
-        $this->m_filename = $_filename;
+    public function setObj($_obj) {
+        $this->m_id = $_obj->m_id;
+        $this->m_parentId = $_obj->m_parentId;
+        $this->m_name = $_obj->m_name;
+        $this->m_path = $_obj->m_path;
+        $this->m_mimeType = $_obj->m_mimeType;
+        $this->m_isDir = $_obj->m_isDir;
     }
     //===============================================
-    public function setData($_data) {
-        $this->m_data = $_data;
+    public function isEqual($_obj) {
+        $lEqualOk = true;
+        $lEqualOk &= ($this->m_id == $_obj->m_id);
+        $lEqualOk &= ($this->m_parentId == $_obj->m_parentId);
+        $lEqualOk &= ($this->m_name == $_obj->m_name);
+        $lEqualOk &= ($this->m_path == $_obj->m_path);
+        $lEqualOk &= ($this->m_mimeType == $_obj->m_mimeType);
+        $lEqualOk &= ($this->m_isDir == $_obj->m_isDir);
+        return $lEqualOk;
     }
     //===============================================
-    public function isFound() {
-        return $this->m_isFound;
+    public function toPath() {
+        return "/data";
     }
     //===============================================
-    public function loadData($_path, $_filename = "") {
-        $this->setAction("load_data_file");
-        $this->setFilename(GPath::create($_path, $_filename));
-        $this->run();
-        return $this->m_data;
+    public function toFilter() {
+        return "*";
     }
     //===============================================
-    public function loadBin($_path, $_filename = "") {
-        $this->setAction("load_bin_file");
-        $this->setFilename(GPath::create($_path, $_filename));
-        $this->run();
-        return $this->m_data;
-    }
-    //===============================================
-    public function saveData($_path, $_filename = "", $_data) {
-        $this->setAction("save_data_file");
-        $this->setFilename(GPath::create($_path, $_filename));
-        $this->setData($_data);
-        $this->run();
-        return !$this->hasErrors();
-    }
-    //===============================================
-    public function run() {
-        if($this->m_action == "") {
-            $this->addError("L'action est obligatoire.");
+    public function loadFileTree($_path, $_obj) {
+        $lPath = $this->getPath($_path);
+        $lPattern = sprintf("%s/%s", $lPath, $this->toFilter());
+        $lFilenames = glob($lPattern);
+        for($i = 0; $i < count($lFilenames); $i++) {
+            $lFilename = $lFilenames[$i];
+            $lFile = substr($lFilename, strlen($lPath) + 1);
+            $lFilepath = sprintf("%s/%s", $_path, $lFile);
+            
+            if($lFilepath == "/data/cache") continue;
+            if($lFilepath == "/data/sqlite") continue;
+            if($lFilepath == "/data/img") continue;
+            
+            $lDirOk = is_dir($lFilename);
+            $lMimeType = "";
+            
+            if(!$lDirOk) {
+                $lMimeType = mime_content_type($lFilename);
+            }
+            
+            $lObj = new GFile();
+            $lObj->m_id = $this->size() + 1;
+            $lObj->m_parentId = $_obj->m_id;
+            $lObj->m_name = $lFile;
+            $lObj->m_path = $lFilepath;
+            $lObj->m_mimeType = $lMimeType;
+            $lObj->m_isDir = $lDirOk;
+            $this->m_map[] = $lObj;
+            
+            if($lDirOk) {
+                $this->loadFileTree($lFilepath, $lObj);
+            }
         }
-        else if($this->m_action == "load_data_file") {
-            $this->runLoadDataFile();
+    }
+    //===============================================
+    public function serialize($_code = "file") {
+        $lDom = new GCode();
+        $lDom->createDoc();
+        $lDom->addData($_code, "id", $this->m_id);
+        $lDom->addData($_code, "parent_id", $this->m_parentId);
+        $lDom->addData($_code, "name", $this->m_name);
+        $lDom->addData($_code, "path", $this->m_path);
+        $lDom->addData($_code, "is_dir", $this->m_isDir);
+        $lDom->addMap($_code, $this->m_map);
+        return $lDom->toString();
+    }
+    //===============================================
+    public function deserialize($_data, $_code = "file") {
+        parent::deserialize($_data);
+        $lDom = new GCode();
+        $lDom->loadXml($_data);
+        $this->m_id = $lDom->getItem($_code, "id");
+        $this->m_parentId = $lDom->getItem($_code, "parent_id");
+        $this->m_name = $lDom->getItem($_code, "name");
+        $this->m_path = $lDom->getItem($_code, "path");
+        $this->m_isDir = $lDom->getItem($_code, "is_dir");
+        $lDom->getMap($_code, $this->m_map, $this);
+    }
+    //===============================================
+    public function run($_data) {
+        $this->deserialize($_data);
+        if($this->m_method == "") {
+            $this->addError("La méthode est obligatoire.");
         }
-        else if($this->m_action == "load_bin_file") {
-            $this->runLoadBinFile();
+        //===============================================
+        else if($this->m_method == "load_file_tree") {
+            $this->onLoadFileTree($_data);
         }
-        else if($this->m_action == "save_data_file") {
-            $this->runSaveDataFile();
-        }
-        else if($this->m_action == "save_bin_file") {
-            $this->runSaveBinFile();
-        }
-        else if($this->m_action == "create_path_file") {
-            $this->runCreateFilePath();
-        }
+        //===============================================
         else {
-            $this->addError("L'action est inconnue.");
+            $this->addError("La méthode est inconnue.");
         }
         return !$this->hasErrors();
     }
     //===============================================
-    public function runLoadDataFile() {
-        if($this->m_filename == "") {
-            $this->addError("Le chemin du fichier est obligatoire.");
-            return false;
-        }
-        if(!file_exists($this->m_filename)) {
-            $this->m_isFound = false;
-            return false;
-        }
-        $this->m_data = utf8_decode(file_get_contents($this->m_filename));
-        if($this->m_data === false) {
-            $this->addError("La lecture du fichier a échoué.");
-        }
-        return !$this->hasErrors();
-    }
-    //===============================================
-    public function runLoadBinFile() {
-        if($this->m_filename == "") {
-            $this->addError("Le chemin du fichier est obligatoire.");
-            return false;
-        }
-        $lFilesize = filesize($this->m_filename);
-        $lFile = fopen($this->m_filename, 'rb');
-        $this->m_data = fread($lFile, $lFilesize);
-        fclose($lFile);
-        if($this->m_data === false) {
-            $this->addError("La lecture du fichier a échoué.");
-        }
-        return !$this->hasErrors();
-    }
-    //===============================================
-    public function runSaveDataFile() {
-        if($this->m_filename == "") {
-            $this->addError("Le chemin du fichier est obligatoire.");
-            return false;
-        }
-        if(!$this->runCreateFilePath()) return false;
-        $lOk = file_put_contents($this->m_filename, utf8_encode($this->m_data));
-        if($lOk == false) {
-            $this->addError("L'enregistrement du fichier a échoué.");
-        }
-        return !$this->hasErrors();
-    }
-    //===============================================
-    public function runSaveBinFile() {
-        if($this->m_filename == "") {
-            $this->addError("Le chemin du fichier est obligatoire.");
-            return false;
-        }
-        if(!$this->runCreateFilePath()) return false;
-        $lFile = fopen($this->m_filename, 'wb');
-        $lOk = fwrite($lFile, $this->m_data);
-        fclose($lFile);
-        if($lOk == false) {
-            $this->addError("L'enregistrement du fichier a échoué.");
-        }
-        return !$this->hasErrors();
-    }
-    //===============================================
-    public function runCreateFilePath() {
-        if($this->m_filename == "") {
-            $this->addError("Le chemin du fichier est obligatoire.");
-            return false;
-        }
-        $lPath = dirname($this->m_filename);
-        if(!file_exists($lPath)) {
-            mkdir($lPath, 0777, true);
-        }
-        return !$this->hasErrors();
+    public function onLoadFileTree($_data) {
+        $this->loadFileTree($this->toPath(), $this);
     }
     //===============================================
 }

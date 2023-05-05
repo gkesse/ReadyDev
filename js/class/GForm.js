@@ -17,13 +17,15 @@ class GForm extends GObject {
         this.m_content = "";
         this.m_combo = "";
 
-        this.m_position = -1;
+        this.m_position = 0;
         this.m_model = "";
         this.m_label = "";
         this.m_id = "";
         this.m_value = "";
         this.m_img = "";
-        this.m_index = -1;
+        this.m_index = 0;
+        this.m_parentIndex = 0;
+        this.m_isDir = false;
     }
     //===============================================
     static Instance() {
@@ -45,9 +47,27 @@ class GForm extends GObject {
         this.m_value = _obj.m_value;
         this.m_img = _obj.m_img;
         this.m_index = _obj.m_index;
+        this.m_parentIndex = _obj.m_parentIndex;
+        this.m_isDir = _obj.m_isDir;
+    }
+    //===============================================
+    isEqual(_obj) {
+        var lEqualOk = true;
+        lEqualOk &= (this.m_parentIndex == _obj.m_parentIndex);
+        return lEqualOk;
+    }
+    //===============================================
+    findMap(_parentIndex) {
+        var lObj = this.clone();
+        lObj.m_parentIndex = _parentIndex;
+        var lMap = super.findMap(lObj);
+        return lMap;
     }
     //===============================================
     init() {
+        //===============================================
+        // inputs
+        //===============================================
         var lInputs = document.getElementsByClassName("FormInput");
         
         for(var i = 0; i < lInputs.length; i++) {
@@ -57,6 +77,9 @@ class GForm extends GObject {
                 var lType = this.dataset.type;
                 var lContent = null;
                 if(lType == "combo") {
+                    lContent = this.nextElementSibling.nextElementSibling;
+                }
+                else if(lType == "tree") {
                     lContent = this.nextElementSibling.nextElementSibling;
                 }
                 else if(lType == "image") {
@@ -77,6 +100,9 @@ class GForm extends GObject {
                 if(lType == "combo") {
                     lContent = this.nextElementSibling;
                 }
+                else if(lType == "tree") {
+                    lContent = this.nextElementSibling;
+                }
                 else if(lType == "image") {
                     lContent = this.nextElementSibling.nextElementSibling;
                 }
@@ -90,6 +116,9 @@ class GForm extends GObject {
             var lContent = null;
             
             if(lType == "combo") {
+                lContent = lInput.nextElementSibling.nextElementSibling;
+            }
+            else if(lType == "tree") {
                 lContent = lInput.nextElementSibling.nextElementSibling;
             }
             else if(lType == "image") {
@@ -110,6 +139,11 @@ class GForm extends GObject {
                     var lInput = null;
                     if(lType == "combo") {
                         lInput = this.parentNode.previousElementSibling.previousElementSibling;
+                    }
+                    else if(lType == "tree") {
+                        var lObj = new GForm();
+                        lInput = lObj.toParentNode(this, "FormPopup");
+                        lInput = lInput.previousElementSibling.previousElementSibling;
                     }
                     else if(lType == "image") {
                         lInput = this.parentNode.previousElementSibling.previousElementSibling.previousElementSibling;
@@ -159,7 +193,9 @@ class GForm extends GObject {
                 });
             }
         }
-        
+        //===============================================
+        // edition
+        //===============================================
         var lEdits = document.getElementsByClassName("FormEdit");
         
         for(var i = 0; i < lEdits.length; i++) {
@@ -168,15 +204,63 @@ class GForm extends GObject {
                 call_server("form", "change_edit_form", this, e);
             });
         }
+        //===============================================
+        // menu
+        //===============================================
+        var lMenus = document.getElementsByClassName("FormMenu");
         
+        for(var i = 0; i < lMenus.length; i++) {
+            var lMenu = lMenus[i];
+            lMenu.addEventListener("click", function(e) {
+                var lMenu = this;
+                var lContents = lMenu.parentNode.getElementsByClassName("FormTree");
+                var lContent = lMenu.nextElementSibling;
+
+                for(var i = 0; i < lContents.length; i++) {
+                    var lContentI = lContents[i];
+                    if(lContentI == lContent) continue;
+                    lContentI.classList.remove("Show");
+                    var lMenuI = lContentI.previousElementSibling;
+                    var lContinue = true
+                                 && !lMenuI.matches(".FormMenu")
+                                 && !lMenuI.matches(".FormEmpty");
+                    if(lContinue) continue;
+                    lMenuI.classList.remove("Active");
+                }
+                
+                lContent.classList.toggle("Show");
+                lMenu.classList.toggle("Active");
+            });
+        }
+        //===============================================
+        // empty
+        //===============================================
+        var lEmptys = document.getElementsByClassName("FormEmpty");
+        
+        for(var i = 0; i < lEmptys.length; i++) {
+            var lEmpty = lEmptys[i];
+            lEmpty.addEventListener("click", function(e) {
+                var lEmpty = this;
+                lEmpty.classList.remove("Active");
+                lEmpty.classList.add("Active");
+            });
+        }
+        //===============================================
+        // document
+        //===============================================
         document.addEventListener("click", function(e) {
             var lForm = document.getElementById("FormModal");
             var lFormOk = (lForm.style.display != "none");
             var lHideOk = lFormOk 
                        && !e.target.matches(".FormCaret")
                        && !e.target.matches(".FormInput")
+                       && !e.target.matches(".FormMenu")
+                       && !e.target.matches(".FormEmpty")
                        
             if(lHideOk) {
+                //===============================================
+                // inputs
+                //===============================================
                 var lInputs = document.getElementsByClassName("FormInput");
                 
                 for(var i = 0; i < lInputs.length; i++) {
@@ -186,12 +270,24 @@ class GForm extends GObject {
                     if(lType == "combo") {
                         lContent = lInput.nextElementSibling.nextElementSibling;
                     }
+                    else if(lType == "tree") {
+                        lContent = lInput.nextElementSibling.nextElementSibling;
+                    }
                     else if(lType == "image") {
                         lContent = lInput.nextElementSibling.nextElementSibling.nextElementSibling;
                     }
                     else if(lType == "picto") {
                         lContent = lInput.nextElementSibling.nextElementSibling.nextElementSibling;
                     }
+                    lContent.classList.remove("Show");
+                }
+                //===============================================
+                // menu
+                //===============================================
+                var lContents = document.getElementsByClassName("FormTree");
+
+                for(var i = 0; i < lContents.length; i++) {
+                    var lContent = lContents[i];
                     lContent.classList.remove("Show");
                 }
             }
@@ -232,6 +328,15 @@ class GForm extends GObject {
         var lObj = new GForm();
         lObj.m_value = _value;
         lObj.m_img = _img;
+        this.m_map.push(lObj);
+    }
+    //===============================================
+    addTree(_index, _parentIndex, _value, _isDir) {
+        var lObj = new GForm();
+        lObj.m_index = _index;
+        lObj.m_parentIndex = _parentIndex;
+        lObj.m_value = _value;
+        lObj.m_isDir = _isDir;
         this.m_map.push(lObj);
     }
     //===============================================
@@ -298,6 +403,17 @@ class GForm extends GObject {
         this.m_map.push(lObj);
     }
     //===============================================
+    addLabelTree(_id, _label, _combo, _index = 0) {
+        var lObj = new GForm();
+        lObj.m_position = this.m_map.length;
+        lObj.m_model = "label_tree";
+        lObj.m_id = _id;
+        lObj.m_label = _label;
+        lObj.m_index = _index;
+        lObj.m_combo = _combo;
+        this.m_map.push(lObj);
+    }
+    //===============================================
     addVariable(_id, _value = "") {
         var lObj = new GForm();
         lObj.m_position = this.m_map.length;
@@ -306,6 +422,63 @@ class GForm extends GObject {
         lObj.m_label = "label";
         lObj.m_value = _value;
         this.m_map.push(lObj);
+    }
+    //===============================================
+    toTree(_obj, _form, _parentIndex) {
+        var lFormI = _form.findMap(_parentIndex);
+        var lHtml = "";
+        for(var j = 1; j <= lFormI.size(); j++) {
+            lFormI.loadFromMap(j);
+            var lFormJ = _form.findMap(lFormI.m_index);
+            
+            if(!lFormI.m_isDir) {
+                lHtml += sprintf("<div class='Forms18 FormLine' data-type='tree' data-index='%s' data-position='%s' data-value='%s'>%s\n"
+                , lFormI.m_index
+                , _obj.m_position
+                , lFormI.m_value
+                , lFormI.m_value
+                );
+            }
+            else {
+                if(lFormJ.size() > 0) {
+                    lHtml += sprintf("<div class='Forms18 FormMenu' data-type='tree' data-index='%s' data-position='%s' data-value='%s'>%s\n"
+                    , lFormI.m_index
+                    , _obj.m_position
+                    , lFormI.m_value
+                    , lFormI.m_value
+                    );
+                    lHtml += sprintf("<i class='Forms24 fa fa-caret-down'></i>\n");
+                }
+                else {
+                    lHtml += sprintf("<div class='Forms25 FormEmpty' data-type='tree' data-index='%s' data-position='%s' data-value='%s'>%s\n"
+                    , lFormI.m_index
+                    , _obj.m_position
+                    , lFormI.m_value
+                    , lFormI.m_value
+                    );
+                    lHtml += sprintf("<i class='Forms26 fa fa-caret-down'></i>\n");
+                }
+            }
+            
+            lHtml += sprintf("</div>\n");
+                        
+            if(lFormI.m_isDir) {
+                lHtml += sprintf("<div class='Forms23 FormTree'>\n");
+                lHtml += this.toTree(_obj, _form, lFormI.m_index);
+                lHtml += sprintf("</div>\n");
+            }
+        }
+        return lHtml;
+    }
+    //===============================================
+    toParentNode(_node, _className) {
+        var lNode = _node;
+        while(1) {
+            if(!lNode) break;
+            if(lNode.matches("." + _className)) break;
+            var lNode = lNode.parentNode;
+        }
+        return lNode;
     }
     //===============================================
     writeContent() {
@@ -327,24 +500,36 @@ class GForm extends GObject {
                 continue;
             }
 
+            //===============================================
+            // label_edit
+            //===============================================
             if(lObj.m_model == "label_edit") {
                 lContent += sprintf("<div class='Forms10'>\n");
                 lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
                 lContent += sprintf("<div class='Forms12'><input type='text' class='Forms20 FormEdit' id='%s' value='%s' data-index='%s' data-position='%s'/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
                 lContent += sprintf("</div>\n");
             }
+            //===============================================
+            // label_text
+            //===============================================
             else if(lObj.m_model == "label_text") {
                 lContent += sprintf("<div class='Forms10'>\n");
                 lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
                 lContent += sprintf("<div class='Forms12'><input type='text' class='Forms20 FormReadOnly' id='%s' value='%s' data-index='%s' data-position='%s' readonly/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
                 lContent += sprintf("</div>\n");
             }
+            //===============================================
+            // label_color
+            //===============================================
             else if(lObj.m_model == "label_color") {
                 lContent += sprintf("<div class='Forms10'>\n");
                 lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
                 lContent += sprintf("<div class='Forms12'><input type='color' class='Forms20 FormColor' id='%s' value='%s' data-index='%s' data-position='%s'/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
                 lContent += sprintf("</div>\n");
             }
+            //===============================================
+            // label_image
+            //===============================================
             else if(lObj.m_model == "label_image") {
                 var lForm = new GForm();
                 lForm.deserialize(lObj.m_combo);
@@ -372,6 +557,9 @@ class GForm extends GObject {
                 lContent += sprintf("</div>\n");
                 lContent += sprintf("</div>\n");
             }
+            //===============================================
+            // label_combo
+            //===============================================
             else if(lObj.m_model == "label_combo") {
                 var lForm = new GForm();
                 lForm.deserialize(lObj.m_combo);
@@ -398,6 +586,9 @@ class GForm extends GObject {
                 lContent += sprintf("</div>\n");
                 lContent += sprintf("</div>\n");
             }
+            //===============================================
+            // label_picto
+            //===============================================
             else if(lObj.m_model == "label_picto") {
                 var lForm = new GForm();
                 lForm.deserialize(lObj.m_combo);
@@ -425,6 +616,35 @@ class GForm extends GObject {
                 lContent += sprintf("</div>\n");
                 lContent += sprintf("</div>\n");
             }
+            //===============================================
+            // label_tree
+            //===============================================
+            else if(lObj.m_model == "label_tree") {
+                var lForm = new GForm();
+                lForm.deserialize(lObj.m_combo);
+                lForm.loadFromMap(lObj.m_index);
+                
+                if(!lForm.m_map.length) {
+                    this.addError("La donnée est obligatoire.");
+                    continue;
+                }
+                                
+                lContent += sprintf("<div class='Forms10'>\n");
+                lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
+                lContent += sprintf("<div class='Forms13'>\n");
+                lContent += sprintf("<input type='text' data-type='tree' class='Forms14 FormInput' id='%s' value='%s' data-index='%s' data-position='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index, lObj.m_position);
+                lContent += sprintf("<i data-type='tree' class='Forms15 FormCaret fa fa-caret-down'></i>\n");
+                lContent += sprintf("<div class='Forms17 FormPopup'>\n");
+                //
+                lContent += this.toTree(lObj, lForm, 0);
+                //
+                lContent += sprintf("</div>\n");
+                lContent += sprintf("</div>\n");
+                lContent += sprintf("</div>\n");
+            }
+            //===============================================
+            // variable
+            //===============================================
             else if(lObj.m_model == "variable") {
                 lContent += sprintf("<input type='hidden' id='%s' value='%s' data-index='%s' data-position='%s'/>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
             }
@@ -507,13 +727,15 @@ class GForm extends GObject {
     serialize(_code = "form") {
         var lDom = new GCode();
         lDom.createDoc();
-        lDom.addData(_code, "position", ""+this.m_position);
+        lDom.addData(_code, "position", this.m_position);
         lDom.addData(_code, "model", this.m_model);
         lDom.addData(_code, "label", this.m_label);
         lDom.addData(_code, "id", this.m_id);
         lDom.addData(_code, "img", this.m_img);
         lDom.addData(_code, "value", this.m_value);
-        lDom.addData(_code, "index", ""+this.m_index);
+        lDom.addData(_code, "index", this.m_index);
+        lDom.addData(_code, "parent_index", this.m_parentIndex);
+        lDom.addData(_code, "is_dir", this.m_isDir);
         lDom.addMap(_code, this.m_map);
         return lDom.toString();
     }
@@ -521,13 +743,15 @@ class GForm extends GObject {
     deserialize(_data, _code = "form") {
         var lDom = new GCode();
         lDom.loadXml(_data);
-        this.m_position = +lDom.getItem(_code, "position");
+        this.m_position = lDom.getItem(_code, "position");
         this.m_model = lDom.getItem(_code, "model");
         this.m_label = lDom.getItem(_code, "label");
         this.m_id = lDom.getItem(_code, "id");
         this.m_img = lDom.getItem(_code, "img");
         this.m_value = lDom.getItem(_code, "value");
-        this.m_index = +lDom.getItem(_code, "index");
+        this.m_index = lDom.getItem(_code, "index");
+        this.m_parentIndex = lDom.getItem(_code, "parent_index");
+        this.m_isDir = lDom.getItem(_code, "is_dir");
         lDom.getMap(_code, this.m_map, this);
     }
     //===============================================

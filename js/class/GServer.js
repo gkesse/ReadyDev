@@ -26,6 +26,9 @@ class GServer extends GObject {
         else if(_module == "font_awesome") {
             this.onFontAwesome(_method, _obj, _data);
         }
+        else if(_module == "file") {
+            this.onFile(_method, _obj, _data);
+        }
         else if(_module == "form") {
             this.onForm(_method, _obj, _data);
         }
@@ -57,6 +60,12 @@ class GServer extends GObject {
     //===============================================
     onFontAwesome(_method, _obj, _data) {
         var lObj = new GFontAwesome();
+        lObj.run(_method, _obj, _data)
+        this.addLogs(lObj.getLogs());
+    }
+    //===============================================
+    onFile(_method, _obj, _data) {
+        var lObj = new GFile();
         lObj.run(_method, _obj, _data)
         this.addLogs(lObj.getLogs());
     }

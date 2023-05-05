@@ -1,33 +1,36 @@
 //===============================================
-class GImage extends GObject {
+class GFile extends GObject {
     //===============================================
     static m_instance = null;
     //===============================================
     constructor() {
         super();
-        this.m_mimeType = "";
+        this.m_id = 0;
+        this.m_parentId = 0;
         this.m_name = "";
         this.m_path = "";
-        this.m_img = "";
-        this.m_data = "";
+        this.m_mimeType = "";
+        this.m_isDir = false;
     }
     //===============================================
     static Instance() {
         if(this.m_instance == null) {
-            this.m_instance = new GImage();
+            this.m_instance = new GFile();
         }
         return this.m_instance;
     }    
     //===============================================
     clone() {
-        return new GImage();
+        return new GFile();
     }
     //===============================================
     setObj(_obj) {
-        this.m_mimeType = _obj.m_mimeType;
+        this.m_id = _obj.m_id;
+        this.m_parentId = _obj.m_parentId;
         this.m_name = _obj.m_name;
         this.m_path = _obj.m_path;
-        this.m_img = _obj.m_img;
+        this.m_mimeType = _obj.m_mimeType;
+        this.m_isDir = _obj.m_isDir;
     }
     //===============================================
     isEqual(_obj) {
@@ -36,77 +39,61 @@ class GImage extends GObject {
         return lEqualOk;
     }
     //===============================================
-    init() {
-        if(this.isAdmin()) {
-            this.onLoadImage();
-        }
-    }
-    //===============================================
-    getImageData() {
-        var lData = sprintf("data:%s;base64,%s", this.m_mimeType, this.m_img);
-        return lData;
-    }
-    //===============================================
-    findImg(_imgPath) {
+    findObj(_path) {
         var lObj = this.clone();
-        lObj.m_path = _imgPath;
-        var lIndex = this.findObj(lObj);
+        lObj.m_path = _path;
+        var lIndex = super.findObj(lObj);
         return lIndex;
     }
     //===============================================
-    loadData() {
-        this.readData();
-        this.deserialize(this.m_data);
+    init() {
+        if(this.isAdmin()) {
+            this.onLoadFileTree();
+        }
     }
     //===============================================
     toForm() {
         var lForm = new GForm();
         for(var i = 0; i < this.m_map.length; i++) {
-            var lImg = this.m_map[i];
-            lForm.addImage(lImg.m_name, lImg.getImageData);
+            var lObj = this.m_map[i];
+            lForm.addTree(lObj.m_id, lObj.m_parentId, lObj.m_name, lObj.m_isDir);
         }
         var lData = lForm.serialize();
         return lData;
     }
     //===============================================
-    readData() {
-        var lImageData = document.getElementById("ImageData");
-        this.m_data = b64_to_utf8(lImageData.innerHTML);
-    }
-    //===============================================
-    writeData() {
-        var lImageData = document.getElementById("ImageData");
-        lImageData.innerHTML = utf8_to_b64(this.serialize());
-    }
-    //===============================================
-    serialize(_code = "image") {
+    serialize(_code = "file") {
         var lDom = new GCode();
         lDom.createDoc();
-        lDom.addData(_code, "mime_type", this.m_mimeType);
+        lDom.addData(_code, "id", this.m_id);
+        lDom.addData(_code, "parent_id", this.m_parentId);
         lDom.addData(_code, "name", this.m_name);
         lDom.addData(_code, "path", this.m_path);
-        lDom.addData(_code, "img", utf8_to_b64(this.m_img));
+        lDom.addData(_code, "mime_type", this.m_mimeType);
+        lDom.addData(_code, "is_dir", this.m_isDir);
         lDom.addMap(_code, this.m_map);
         return lDom.toString();
     }
     //===============================================
-    deserialize(_data, _code = "image") {
+    deserialize(_data, _code = "file") {
         var lDom = new GCode();
         lDom.loadXml(_data);
-        this.m_mimeType = lDom.getItem(_code, "mime_type");
+        this.m_id = lDom.getItem(_code, "id");
+        this.m_parentId = lDom.getItem(_code, "parent_id");
         this.m_name = lDom.getItem(_code, "name");
         this.m_path = lDom.getItem(_code, "path");
-        this.m_img = b64_to_utf8(lDom.getItem(_code, "img"));
+        this.m_mimeType = lDom.getItem(_code, "mime_type");
+        this.m_isDir = lDom.getItem(_code, "is_dir");
         lDom.getMap(_code, this.m_map, this);
     }
     //===============================================
-    onModule(_method, _obj, _data) {
+    run(_method, _obj, _data) {
         if(_method == "") {
             this.addError("La méthode est obligatoire.");
         }
         //===============================================
-        else if(_method == "load_image") {
-            this.onLoadImage(_obj, _data);
+        else if(_method == "load_file_tree") {
+            this.onLoadFileTree(_obj, _data);
         }
         //===============================================
         else {
@@ -115,20 +102,20 @@ class GImage extends GObject {
         return !this.hasErrors();
     }
     //===============================================
-    onLoadImage(_obj, _data) {
+    onLoadFileTree(_obj, _data) {
         var lAjax = new GAjax();
         var lData = this.serialize();
-        lAjax.callLocal("image", "load_image", lData, this.onLoadImageCB);
+        lAjax.callLocal("file", "load_file_tree", lData, this.onLoadFileTreeCB);
     }
     //===============================================
-    onLoadImageCB(_data, _isOk) {
+    onLoadFileTreeCB(_data, _isOk) {
         if(_isOk) {
-            var lObj = GImage.Instance();
+            var lObj = GFile.Instance();
             lObj.deserialize(_data);
         }
     }
     //===============================================
 }
 //===============================================
-GImage.Instance().init();
+GFile.Instance().init();
 //===============================================

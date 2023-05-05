@@ -177,16 +177,23 @@ thead tr:first-child {
 /* ============================================== */
 
 .Access1 {
+    font-family: Arial;
     text-align: center;
+    font-size: 0px;
+    padding: 5px;
 }
 
 .Access2 {
     background-color: rgba(255, 255, 255, 0.2);
     display: inline-block;
     vertical-align: middle;
-    padding: 2px 5px;
-    font-size: 18px;
+    padding: 5px 5px;
+    font-size: 16px;
     margin: 5px 0px;
+}
+
+.Access2:hover {
+    text-decoration: underline;
 }
 
 .Access3 {
@@ -709,7 +716,7 @@ thead tr:first-child {
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
-    right: 5px;
+    right: 10px;
     cursor: pointer;
 }
 
@@ -759,6 +766,10 @@ thead tr:first-child {
 
 .Forms18:hover {
     background-color: rgba(255, 255, 255, 0.2);
+}
+
+.Forms18.Active {
+    background-color: #2f5959;
 }
 
 .Forms19 {
@@ -813,6 +824,40 @@ thead tr:first-child {
     text-align: center;
     font-size: 50px;
     z-index: 1;
+}
+
+.Forms23 {
+    display: none;
+}
+
+.Forms23.Show {
+    display: block;
+    margin-left: 20px;
+}
+
+.Forms24 {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0, -50%);
+}
+
+.Forms25 {
+    background-color: rgba(150, 150, 150, 0.5);
+    position: relative;
+    line-height: 30px;
+    border-bottom: 1px solid rgba(127, 127, 127, 0.5);
+    cursor: pointer;
+    padding-left: 10px;
+    color: #808080;
+}
+
+.Forms26 {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(0, -50%);
+    color: #808080;
 }
 
 /* ============================================== */
@@ -1348,6 +1393,19 @@ thead tr:first-child {
 }
 
 /* ============================================== */
+/* Pdf */
+/* ============================================== */
+
+.Pdf1 {
+    font-size: 0px;
+}
+
+.Pdf2 {
+    width: 100%;
+    height: 100vh;
+}
+
+/* ============================================== */
 /* Section */
 /* ============================================== */
 
@@ -1581,7 +1639,7 @@ thead tr:first-child {
 .View1 {
     text-align: center;
     background-color: rgba(35, 47, 87, 0.9);
-    margin: 10px;
+    margin: 10px 10px 0px 10px;
 }
 
 .View2 {

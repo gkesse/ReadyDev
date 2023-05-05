@@ -2,8 +2,6 @@
 class GLog {
     //===============================================
     constructor() {
-        this.m_category = "";
-        this.m_model = "";
         this.m_type = "";
         this.m_side = "";
         this.m_msg = "";

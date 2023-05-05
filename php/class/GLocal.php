@@ -20,6 +20,9 @@ class GLocal extends GModule {
         else if($this->m_module == "font_awesome") {
             $this->onFontAwesome($_data);
         }
+        else if($this->m_module == "file") {
+            $this->onFile($_data);
+        }
         //===============================================
         else {
             $this->addError("Le module est inconnu.");
@@ -42,6 +45,13 @@ class GLocal extends GModule {
     //===============================================
     public function onFontAwesome($_data) {
         $lObj = new GFontAwesome();
+        $lObj->run($_data);
+        $this->addLogs($lObj->getLogs());
+        $this->addResponse($lObj->serialize());
+    }
+    //===============================================
+    public function onFile($_data) {
+        $lObj = new GFile();
         $lObj->run($_data);
         $this->addLogs($lObj->getLogs());
         $this->addResponse($lObj->serialize());

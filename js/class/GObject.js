@@ -2,8 +2,6 @@
 class GObject {
     //===============================================
     constructor() {
-        this.m_category = "";
-        this.m_model = "";
         this.m_pageId = "";
         this.m_logs = new GLog();
         this.m_map = [];
@@ -39,16 +37,16 @@ class GObject {
     }
     //===============================================
     loadFromMap(_index) {
-        if(_index >= 0 && _index < this.m_map.length) {
-            var lObj = this.m_map[_index];
+        if(_index >= 1 && _index <= this.m_map.length) {
+            var lObj = this.m_map[_index - 1];
             this.setObj(lObj);
         }
         return this;
     }
     //===============================================
     loadToMap(_index) {
-        if(_index >= 0 && _index < this.m_map.length) {
-            var lObj = this.m_map[_index];
+        if(_index >= 1 && _index <= this.m_map.length) {
+            var lObj = this.m_map[_index - 1];
             lObj.setObj(this);
         }
     }
@@ -58,21 +56,19 @@ class GObject {
     }
     //===============================================
     findObj(_obj) {
-        for(var i = 0; i < this.m_map.length; i++) {
+        for(var i = 0; i < this.size(); i++) {
             var lObj = this.m_map[i];
-            if(lObj.isEqual(_obj)) return i;
+            if(lObj.isEqual(_obj)) return i + 1;
         }
-        return -1;
+        return 0;
     }
     //===============================================
-    findObjMapCM(_category, _model) {
+    findMap(_obj) {
         var lMap = this.clone();
-        for(var i = 0; i < this.m_map.length; i++) {
+        for(var i = 0; i < this.size(); i++) {
             var lObj = this.m_map[i];
-            if(lObj.m_category == _category) {
-                if(lObj.m_model == _model) {
-                    lMap.m_map.push(lObj);
-                }
+            if(lObj.isEqual(_obj)) {
+                lMap.addObj(lObj);
             }
         }
         return lMap;

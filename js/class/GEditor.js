@@ -36,10 +36,12 @@ class GEditor extends GObject {
         this.m_node = this.toNode();
         while(1) {
             if(!this.m_node) return false;
+                if(this.m_node.nodeType != Node.TEXT_NODE) {
+                if(this.m_node.matches("." + _className)) return true;
+                if(this.m_node.matches(".GEndEditor")) return false;
+                if(this.m_node.matches(".HtmlPage")) return false;
+            }
             this.m_node = this.m_node.parentNode;
-            if(this.m_node.matches("." + _className)) return true;
-            if(this.m_node.matches(".GEndEditor")) return false;
-            if(this.m_node.matches(".HtmlPage")) return false;
         }
         return false;
     }
@@ -319,13 +321,23 @@ class GEditor extends GObject {
     //===============================================
     toAccess2() {
         var lHtml = "";
-        lHtml += sprintf("<a class='GAccess2 Access2' href='/home'>home</a>\n");
+        lHtml += sprintf("<a class='GAccess2 Access2' href='/home'>Accueil</a>\n");
         return lHtml;
     }
     //===============================================
     toAccess3() {
         var lHtml = "";
-        lHtml += sprintf("<i class='GAccess3 Access3 fa fa-chevron-right'></i>\n");
+        lHtml += sprintf("<i class='Access3 fa fa-chevron-right'></i>\n");
+        return lHtml;
+    }
+    //===============================================
+    toPdf1() {
+        var lFile = "/data/file/cv/KESSE_Gerard_CV_Simplifie.pdf";
+        var lHtml = "";
+        lHtml += sprintf("<div class='GPdf1 Pdf1'>\n");
+        lHtml += sprintf("<object data='%s#navpanes=0' class='Pdf2' type='application/pdf'>\n", lFile);
+        lHtml += sprintf("</object>\n");
+        lHtml += sprintf("</div>\n");
         return lHtml;
     }
     //===============================================
@@ -422,7 +434,22 @@ class GEditor extends GObject {
             this.onOpenCodeTab(_obj, _data);
         }
         //===============================================
-        // template/barre_acces_rapide
+        // edition/fichier/pdf
+        //===============================================
+        else if(_method == "add_pdf_1") {
+            this.onAddPdf1(_obj, _data);
+        }
+        else if(_method == "update_pdf_1") {
+            this.onUpdatePdf1(_obj, _data);
+        }
+        else if(_method == "update_pdf_1_form") {
+            this.onUpdatePdf1Form(_obj, _data);
+        }
+        else if(_method == "delete_pdf_1") {
+            this.onDeletePdf1(_obj, _data);
+        }
+        //===============================================
+        // edition/template/barre_acces_rapide
         //===============================================
         else if(_method == "add_access_1") {
             this.onAddAcess1(_obj, _data);
@@ -432,6 +459,12 @@ class GEditor extends GObject {
         }
         else if(_method == "insert_access_1_right") {
             this.onInsertAcess1Right(_obj, _data);
+        }
+        else if(_method == "copy_access_1") {
+            this.onCopyAccess1(_obj, _data);
+        }
+        else if(_method == "paste_access_1") {
+            this.onPasteAccess1(_obj, _data);
         }
         else if(_method == "update_access_1") {
             this.onUpdateAcess1(_obj, _data);
@@ -905,6 +938,92 @@ class GEditor extends GObject {
         this.onOpenEditorTab(lTab);
     }
     //===============================================
+    // edition/fichier/pdf
+    //===============================================
+    onAddPdf1(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GPdf1")) {
+            this.addError("Vous êtes dans un effet pdf.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+
+        document.execCommand("insertHTML", false, this.toPdf1());
+    }
+    //===============================================
+    onUpdatePdf1(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GPdf1")) {
+            this.addError("Vous n'êtes pas dans un effet pdf.");
+            return false;
+        }
+
+        var lNode = this.m_node;
+        var lObject = lNode.firstElementChild;
+        
+        var lFilename = lObject.getAttribute("data").split("#")[0];
+        
+        var lFile = GFile.Instance();
+        var lIndex = lFile.findObj(lFilename);
+        
+        var lForm = GForm.Instance();
+        lForm.clearMap();
+        lForm.setCallback("editor", "update_pdf_1_form");
+        lForm.addLabelTree("m_filename", "Fichier :", lFile.toForm(), lIndex);
+        lForm.showForm();
+        this.addLogs(lForm.getLogs());
+        
+        GEditor.Instance().saveRange();
+    }
+    //===============================================
+    onUpdatePdf1Form(_obj, _data) {
+        GEditor.Instance().restoreRange();
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GPdf1")) {
+            this.addError("Vous n'êtes pas dans un effet pdf.");
+            return false;
+        }
+        
+        var lFile = GFile.Instance();
+        var lForm = GForm.Instance();
+        lForm.readForm();
+        
+        var lFilenameI = lForm.loadFromMap(1).m_index;
+        var lFilename = lFile.loadFromMap(lFilenameI).m_path;
+        
+        lFilename = sprintf("%s#navpanes=0", lFilename);
+        
+        var lNode = this.m_node;
+        var lObject = lNode.firstElementChild;
+
+        lObject.setAttribute("data", lFilename);
+    }
+    //===============================================
+    onDeletePdf1(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GPdf1")) {
+            this.addError("Vous n'êtes pas dans un effet pdf.");
+            return false;
+        }
+        
+        this.removeNode();
+    }
+    //===============================================
     // template/barre_acces_rapide
     //===============================================
     onAddAcess1(_obj, _data) {
@@ -920,9 +1039,8 @@ class GEditor extends GObject {
             this.addError("Vous êtes sur une ligne.");
             return false;
         }
-
+        
         document.execCommand("insertHTML", false, this.toAccess1());
-        return !this.hasErrors();
     }
     //===============================================
     onInsertAcess1Left(_obj, _data) {
@@ -957,6 +1075,45 @@ class GEditor extends GObject {
         var lNewChevron = this.createNode(this.toAccess3());
         lNode.appendAfter(lNewLink);
         lNode.appendAfter(lNewChevron);
+    }
+    //===============================================
+    onCopyAccess1(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GAccess1")) {
+            this.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
+            return false;
+        }
+        
+        this.copyNode();
+    }
+    //===============================================
+    onPasteAccess1(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GAccess1")) {
+            this.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+        if(!this.restoreCopy()) {
+            this.addError("Aucun noeud n'a été copié.");
+            return false;
+        }
+        if(!this.isNode("GAccess1")) {
+            this.addError("Le noeud copié n'est pas un effet barre d'accès rapide.");
+            return false;
+        }
+
+        var lNode = this.m_node;
+        document.execCommand("insertHTML", false, lNode.outerHTML);
     }
     //===============================================
     onUpdateAcess1(_obj, _data) {

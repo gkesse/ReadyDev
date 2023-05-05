@@ -248,6 +248,7 @@ class GReady extends GObject {
         echo sprintf("<script src='/js/class/GModule.js'></script>\n");
         echo sprintf("<script src='/js/class/GMenu.js'></script>\n");
         echo sprintf("<script src='/js/class/GImage.js'></script>\n");
+        echo sprintf("<script src='/js/class/GFile.js'></script>\n");
         echo sprintf("<script src='/js/class/GTable.js'></script>\n");
         echo sprintf("<script src='/js/class/GFontAwesome.js'></script>\n");
         echo sprintf("<script src='/js/class/GForm.js'></script>\n");
