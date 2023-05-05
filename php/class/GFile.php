@@ -86,6 +86,7 @@ class GFile extends GModule {
         $lDom->addData($_code, "parent_id", $this->m_parentId);
         $lDom->addData($_code, "name", $this->m_name);
         $lDom->addData($_code, "path", $this->m_path);
+        $lDom->addData($_code, "mime_type", $this->m_mimeType);
         $lDom->addData($_code, "is_dir", $this->m_isDir);
         $lDom->addMap($_code, $this->m_map);
         return $lDom->toString();
@@ -99,6 +100,7 @@ class GFile extends GModule {
         $this->m_parentId = $lDom->getItem($_code, "parent_id");
         $this->m_name = $lDom->getItem($_code, "name");
         $this->m_path = $lDom->getItem($_code, "path");
+        $this->m_mimeType = $lDom->getItem($_code, "mime_type");
         $this->m_isDir = $lDom->getItem($_code, "is_dir");
         $lDom->getMap($_code, $this->m_map, $this);
     }

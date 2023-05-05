@@ -1002,6 +1002,12 @@ class GEditor extends GObject {
         
         var lFilenameI = lForm.loadFromMap(1).m_index;
         var lFilename = lFile.loadFromMap(lFilenameI).m_path;
+        var lMimeType = lFile.loadFromMap(lFilenameI).m_mimeType;
+        
+        if(lMimeType != "application/pdf") {
+            this.addError("Le fichier n'est pas un pdf.");
+            return false;
+        }
         
         lFilename = sprintf("%s#navpanes=0", lFilename);
         
