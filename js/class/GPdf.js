@@ -42,7 +42,7 @@ class GPdf extends GObject {
             this.addError("La méthode est obligatoire.");
         }
         //===============================================
-        else if(_method == "load_pdf_file") {
+        else if(_method == "load_file_file") {
             this.onLoadPdfFile(_obj, _data);
         }
         //===============================================
@@ -55,7 +55,7 @@ class GPdf extends GObject {
     onLoadPdfFile(_obj, _data) {
         var lAjax = new GAjax();
         var lData = this.serialize();
-        lAjax.callLocal("pdf", "load_pdf_file", lData, this.onLoadImageCB);
+        lAjax.callLocal("pdf", "load_file_file", lData, this.onLoadImageCB);
     }
     //===============================================
 }

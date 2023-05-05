@@ -128,8 +128,8 @@ class GTable extends GModule {
             lRowP.classList.add("Active");
             lTable.m_data = _data;
             lTable.m_type = "cell";
-            lTable.m_row = lRow;
-            lTable.m_col = lCol;
+            lTable.m_row = lRow + 1;
+            lTable.m_col = lCol + 1;
             lTable.m_value = _value;
             var lData = lTable.serialize();
             call_server("table", "current_data", this, lData);
@@ -139,8 +139,8 @@ class GTable extends GModule {
             var lTable = new GTable();
             lTable.m_data = _data;
             lTable.m_type = "cell";
-            lTable.m_row = lRow;
-            lTable.m_col = lCol;
+            lTable.m_row = lRow + 1;
+            lTable.m_col = lCol + 1;
             lTable.m_value = _value;
             var lData = lTable.serialize();
             call_server("table", "select_data", this, lData);
@@ -232,8 +232,8 @@ class GTable extends GModule {
         lDom.createDoc();
         lDom.addData(_code, "data", utf8_to_b64(this.m_data));
         lDom.addData(_code, "type", this.m_type);
-        lDom.addData(_code, "row", ""+this.m_row);
-        lDom.addData(_code, "col", ""+this.m_col);
+        lDom.addData(_code, "row", this.m_row);
+        lDom.addData(_code, "col", this.m_col);
         lDom.addData(_code, "value", this.m_value);
         return lDom.toString();
     }
@@ -244,8 +244,8 @@ class GTable extends GModule {
         lDom.loadXml(_data);
         this.m_data = b64_to_utf8(lDom.getItem(_code, "data"));
         this.m_type = lDom.getItem(_code, "type");
-        this.m_row = +lDom.getItem(_code, "row");
-        this.m_col = +lDom.getItem(_code, "col");
+        this.m_row = lDom.getItem(_code, "row");
+        this.m_col = lDom.getItem(_code, "col");
         this.m_value = lDom.getItem(_code, "value");
     }
     //===============================================

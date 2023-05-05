@@ -737,7 +737,7 @@ class GEditor extends GObject {
         var lForm = GForm.Instance();
         lForm.readForm();
         
-        var lColor = lForm.loadFromMap(0).m_value;
+        var lColor = lForm.loadFromMap(1).m_value;
         
         var lNode = this.m_node;
         
@@ -851,8 +851,8 @@ class GEditor extends GObject {
         var lForm = GForm.Instance();
         lForm.readForm();
         
-        var lIcon = lForm.loadFromMap(0).m_value;
-        var lLink = lForm.loadFromMap(1).m_value;
+        var lIcon = lForm.loadFromMap(1).m_value;
+        var lLink = lForm.loadFromMap(2).m_value;
         
         lIcon = sprintf("Text6 fa %s", lIcon);
         
@@ -1156,8 +1156,8 @@ class GEditor extends GObject {
         var lForm = GForm.Instance();
         lForm.readForm();
         
-        var lText = lForm.loadFromMap(0).m_value;
-        var lLink = lForm.loadFromMap(1).m_value;
+        var lText = lForm.loadFromMap(1).m_value;
+        var lLink = lForm.loadFromMap(2).m_value;
                 
         var lNode = this.m_node;
         
@@ -1311,8 +1311,8 @@ class GEditor extends GObject {
         var lForm = GForm.Instance();
         lForm.readForm();
 
-        var lIcon = lForm.loadFromMap(0).m_value;
-        var lSort = lForm.loadFromMap(1).m_index;
+        var lIcon = lForm.loadFromMap(1).m_value;
+        var lSort = lForm.loadFromMap(2).m_index;
         
         lIcon = sprintf("Skill2 fa %s", lIcon);
 
@@ -1450,7 +1450,7 @@ class GEditor extends GObject {
         var lForm = GForm.Instance();
         lForm.readForm();
 
-        var lIcon = lForm.loadFromMap(0).m_value;
+        var lIcon = lForm.loadFromMap(1).m_value;
         
         var lNode = this.m_node;
         var lIconId = lNode.firstElementChild;
@@ -1539,9 +1539,9 @@ class GEditor extends GObject {
         var lForm = GForm.Instance();
         lForm.readForm();
 
-        var lIcon = lForm.loadFromMap(0).m_value;
-        var lLink = lForm.loadFromMap(1).m_value;
-        var lTitle = lForm.loadFromMap(2).m_value;
+        var lIcon = lForm.loadFromMap(1).m_value;
+        var lLink = lForm.loadFromMap(2).m_value;
+        var lTitle = lForm.loadFromMap(3).m_value;
         
         var lNode = this.m_node;
         var lIconId = lNode.firstElementChild;
@@ -1633,9 +1633,9 @@ class GEditor extends GObject {
         var lForm = GForm.Instance();
         lForm.readForm();
 
-        var lIcon = lForm.loadFromMap(0).m_value;
-        var lLink = lForm.loadFromMap(1).m_value;
-        var lTitle = lForm.loadFromMap(2).m_value;
+        var lIcon = lForm.loadFromMap(1).m_value;
+        var lLink = lForm.loadFromMap(2).m_value;
+        var lTitle = lForm.loadFromMap(3).m_value;
         
         var lNode = this.m_node;
         var lIconId = lNode.firstElementChild;
@@ -1728,10 +1728,12 @@ class GEditor extends GObject {
         var lForm = GForm.Instance();
         lForm.readForm();
 
-        var lTitle = lForm.loadFromMap(0).m_value;
-        var lBgImg = lImage.loadFromMap(lForm.loadFromMap(1).m_index).m_path;
-        var lBgColor = lForm.loadFromMap(2).m_value;
+        var lTitle = lForm.loadFromMap(1).m_value;
+        var lBgImgI = lForm.loadFromMap(2).m_index;
+        var lBgColor = lForm.loadFromMap(3).m_value;
         
+        var lBgImg = lImage.loadFromMap(lBgImgI).m_path;
+
         var lNode = this.m_node;
         var lImgId = lNode.firstElementChild;
         var lBodyId = lNode.firstElementChild.nextElementSibling;
@@ -1880,7 +1882,7 @@ class GEditor extends GObject {
         var lForm = GForm.Instance();
         lForm.readForm();
 
-        var lIcon = lForm.loadFromMap(0).m_value;
+        var lIcon = lForm.loadFromMap(1).m_value;
         
         lIcon = sprintf("Bullet2 fa %s", lIcon);
         
@@ -2023,7 +2025,7 @@ class GEditor extends GObject {
         var lForm = GForm.Instance();
         lForm.readForm();
 
-        var lTitle = lForm.loadFromMap(0).m_value;
+        var lTitle = lForm.loadFromMap(1).m_value;
         var lId = lTitle.getNormalize();
 
         var lNode = this.m_node;
@@ -2198,9 +2200,11 @@ class GEditor extends GObject {
         var lForm = GForm.Instance();
         lForm.readForm();
 
-        var lTitle = lForm.loadFromMap(0).m_value;
-        var lBgImg = lImage.loadFromMap(lForm.loadFromMap(1).m_index).m_path;
-        var lBgColor = lForm.loadFromMap(2).m_value;
+        var lTitle = lForm.loadFromMap(1).m_value;
+        var lBgImgI = lForm.loadFromMap(2).m_index;
+        var lBgColor = lForm.loadFromMap(3).m_value;
+        
+        var lBgImg = lImage.loadFromMap(lBgImgI).m_path;
         
         var lNode = this.m_node;
         var lImgId = lNode.firstElementChild;

@@ -277,7 +277,7 @@ class GPage extends GObject {
             lPage.clearMap();
             lPage.deserialize(_data);
             if(lPage.m_map.length == 1) {
-                lPage.loadFromMap(0);
+                lPage.loadFromMap(1);
                 lPage.writeUi();
                 lPage.writeDefaultPage();
                 lPage.onStoreDefaultPage();
@@ -352,7 +352,7 @@ class GPage extends GObject {
             lPage.clearMap();
             lPage.deserialize(_data);
             if(lPage.m_map.length == 1) {
-                lPage.loadFromMap(0);
+                lPage.loadFromMap(1);
                 lPage.m_name = "";
                 lPage.writeUi();
                 lPage.updateAddress();
