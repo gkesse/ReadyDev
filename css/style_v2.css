@@ -1242,10 +1242,9 @@ thead tr:first-child {
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
     padding: 0px 10px;
-    line-height: 30px;
     vertical-align: middle;
     font-size: 18px;
-    font-family: arial;
+    font-family: arial; 
 }
 
 .Menu10:hover .Menu8 {
@@ -1264,6 +1263,7 @@ thead tr:first-child {
 .Menu10  {
     display: block;
     border-bottom: 1px solid #2f3959;
+    line-height: 30px;
 }
 
 .Menu10:hover {
@@ -1277,13 +1277,14 @@ thead tr:first-child {
 .Menu11.Show {
     display: block;
     background-color: #051039;
-    padding-left: 20px;
+    margin-left: 20px;
 }
 
 .Menu12 {
     border-bottom: 1px solid #2f3959;
     position: relative;
     cursor: pointer;
+    line-height: 30px;
 }
 
 .Menu12:hover {
@@ -1307,7 +1308,7 @@ thead tr:first-child {
     border-bottom: 5px solid transparent;
     display: inline-block;
     padding: 0px 10px;
-    line-height: 30px;
+    line-height: 35px;
     vertical-align: middle;
 }
 
@@ -1330,6 +1331,7 @@ thead tr:first-child {
 .Menu16  {
     display: none;
     border-bottom: 1px solid #2f3959;
+    line-height: 30px;
 }
 
 .Menu16:hover .Menu8 {
@@ -1630,6 +1632,93 @@ thead tr:first-child {
     left: 50%;
     bottom: 100%;
     transform: translate(-50%, 0);
+}
+
+/* ============================================== */
+/* Tuto */
+/* ============================================== */
+
+.Tuto1 {
+    text-align: center;
+    font-size: 0px;
+}
+
+.Tuto2 {
+    border: 2px solid #5c5c5c;
+    display: inline-block;
+    vertical-align: middle;
+    width: 174px;
+    height: 200px;
+    margin: 6px;
+    position: relative;
+}
+
+.Tuto2:hover {
+    border: 2px solid #ffcc00;
+}
+    
+.Tuto3 {
+    background-color: #5c5c5c;
+    height: 40px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+.Tuto4 {
+    background-color: #333333;
+    position: absolute;
+    top: 40px;
+    bottom: 40px;
+    left: 0px;
+    right: 0px;
+}
+
+.Tuto5 {
+    background-color: #ffcc00;
+    height: 40px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+.Tuto6 {
+    min-height: 12px;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    right: 0px;
+    transform: translate(0, -50%);
+    font-size: 30px;
+}
+
+.Tuto7 {
+    min-height: 12px;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    right: 0px;
+    transform: translate(0, -50%);
+    font-family: Aclonia;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 20px;
+}
+
+.Tuto8 {
+    min-height: 12px;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    right: 0px;
+    transform: translate(0, -50%);
+    font-family: arial;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 12px;
+    color: #555555;
 }
 
 /* ============================================== */

@@ -62,6 +62,17 @@ class GReady extends GObject {
         $this->addMenu("presentation", "Présentation", "/home/presentation");
         $this->addMenu("tutoriels", "Tutoriels", "/home/tutoriels");
         //
+        $this->pushParent();
+        $this->initParent();
+        $this->addMenu("tutoriels", "Logiciel", "/home/tutoriels/logiciel");
+        //
+        $this->pushParent();
+        $this->initParent();
+        $this->addMenu("tutoriels", "C", "/home/tutoriels/logiciel/c");
+        $this->popParent();
+        //
+        $this->popParent();
+        //
         $this->addMenu("cours", "Cours", "/home/cours");
         $this->pushParent();
         $this->initParent();

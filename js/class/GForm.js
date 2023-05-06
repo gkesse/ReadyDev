@@ -342,7 +342,7 @@ class GForm extends GObject {
     //===============================================
     addLabelEdit(_id, _label, _value = "") {
         var lObj = new GForm();
-        lObj.m_position = this.m_map.length;
+        lObj.m_position = this.m_map.length + 1;
         lObj.m_model = "label_edit";
         lObj.m_id = _id;
         lObj.m_label = _label;
@@ -352,7 +352,7 @@ class GForm extends GObject {
     //===============================================
     addLabelText(_id, _label, _value = "") {
         var lObj = new GForm();
-        lObj.m_position = this.m_map.length;
+        lObj.m_position = this.m_map.length + 1;
         lObj.m_model = "label_text";
         lObj.m_id = _id;
         lObj.m_label = _label;
@@ -362,7 +362,7 @@ class GForm extends GObject {
     //===============================================
     addLabelColor(_id, _label, _value = "#800000") {
         var lObj = new GForm();
-        lObj.m_position = this.m_map.length;
+        lObj.m_position = this.m_map.length + 1;
         lObj.m_model = "label_color";
         lObj.m_id = _id;
         lObj.m_label = _label;
@@ -370,9 +370,9 @@ class GForm extends GObject {
         this.m_map.push(lObj);
     }
     //===============================================
-    addLabelCombo(_id, _label, _combo, _index = -1) {
+    addLabelCombo(_id, _label, _combo, _index = 0) {
         var lObj = new GForm();
-        lObj.m_position = this.m_map.length;
+        lObj.m_position = this.m_map.length + 1;
         lObj.m_model = "label_combo";
         lObj.m_id = _id;
         lObj.m_label = _label;
@@ -381,9 +381,9 @@ class GForm extends GObject {
         this.m_map.push(lObj);
     }
     //===============================================
-    addLabelPicto(_id, _label, _combo, _index = -1) {
+    addLabelPicto(_id, _label, _combo, _index = 0) {
         var lObj = new GForm();
-        lObj.m_position = this.m_map.length;
+        lObj.m_position = this.m_map.length + 1;
         lObj.m_model = "label_picto";
         lObj.m_id = _id;
         lObj.m_label = _label;
@@ -392,9 +392,9 @@ class GForm extends GObject {
         this.m_map.push(lObj);
     }
     //===============================================
-    addLabelImage(_id, _label, _combo, _index = -1) {
+    addLabelImage(_id, _label, _combo, _index = 0) {
         var lObj = new GForm();
-        lObj.m_position = this.m_map.length;
+        lObj.m_position = this.m_map.length + 1;
         lObj.m_model = "label_image";
         lObj.m_id = _id;
         lObj.m_label = _label;
@@ -405,7 +405,7 @@ class GForm extends GObject {
     //===============================================
     addLabelTree(_id, _label, _combo, _index = 0) {
         var lObj = new GForm();
-        lObj.m_position = this.m_map.length;
+        lObj.m_position = this.m_map.length + 1;
         lObj.m_model = "label_tree";
         lObj.m_id = _id;
         lObj.m_label = _label;
@@ -416,7 +416,7 @@ class GForm extends GObject {
     //===============================================
     addVariable(_id, _value = "") {
         var lObj = new GForm();
-        lObj.m_position = this.m_map.length;
+        lObj.m_position = this.m_map.length + 1;
         lObj.m_model = "variable";
         lObj.m_id = _id;
         lObj.m_label = "label";

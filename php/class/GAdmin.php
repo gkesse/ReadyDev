@@ -295,8 +295,10 @@ class GAdmin extends GObject {
         $lMenu->popParent();
         //
         $lMenu->addMenu("editor", "exec_command", "Gras", "bold");
+        //
         $lMenu->popParent();
-        // fichier
+        //
+        // fichier/pdf
         $lMenu->addMenu("", "", "Fichiers");
         //
         $lMenu->pushParent();
@@ -312,10 +314,36 @@ class GAdmin extends GObject {
         //
         $lMenu->popParent();
         //
+        // tutoriels
+        $lMenu->addMenu("", "", "Tutoriels");
+        //
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "add_tuto_1", "Ajouter");
+        $lMenu->addMenu("", "", "Insérer");
+        //
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "insert_tuto_1_left", "Gauche");
+        $lMenu->addMenu("editor", "insert_tuto_1_right", "Droite");
+        $lMenu->popParent();
+        //
+        $lMenu->addMenu("editor", "update_tuto_1", "Modifier");
+        $lMenu->addMenu("", "", "Supprimer");
+        //
+        $lMenu->pushParent();
+        $lMenu->initParent();
+        $lMenu->addMenu("editor", "delete_tuto_1_simple", "Simple");
+        $lMenu->addMenu("editor", "delete_tuto_1_group", "Groupe");
+        $lMenu->popParent();
+        //
+        $lMenu->popParent();
+        //
         // template
         $lMenu->addMenu("", "", "Templates");
         $lMenu->pushParent();
         $lMenu->initParent();
+        //
         // template/barre_acces_rapide
         $lMenu->addMenu("", "", "Barre d'accès rapide");
         $lMenu->pushParent();
@@ -347,6 +375,7 @@ class GAdmin extends GObject {
         $lMenu->popParent();
         //
         $lMenu->popParent();
+        //
         // template/graduation
         $lMenu->addMenu("", "", "Compétences");
         $lMenu->pushParent();
@@ -363,6 +392,7 @@ class GAdmin extends GObject {
         $lMenu->addMenu("editor", "update_skill", "Modifier");
         $lMenu->addMenu("editor", "delete_skill", "Supprimer");
         $lMenu->popParent();
+        //
         // template/graduation
         $lMenu->addMenu("", "", "Formations");
         //
@@ -380,22 +410,27 @@ class GAdmin extends GObject {
         $lMenu->addMenu("editor", "update_graduation", "Modifier");
         $lMenu->addMenu("editor", "delete_graduation", "Supprimer");
         $lMenu->popParent();
+        //
         // template/link
         $lMenu->addMenu("", "", "Liens");
+        //
         $lMenu->pushParent();
         $lMenu->initParent();
         $lMenu->addMenu("editor", "add_link", "Ajouter");
         $lMenu->addMenu("editor", "update_link", "Modifier");
         $lMenu->addMenu("editor", "delete_link", "Supprimer");
         $lMenu->popParent();
+        //
         // template/line
         $lMenu->addMenu("", "", "Lignes");
+        //
         $lMenu->pushParent();
         $lMenu->initParent();
         $lMenu->addMenu("editor", "add_line", "Ajouter");
         $lMenu->addMenu("editor", "update_line", "Modifier");
         $lMenu->addMenu("editor", "delete_line", "Supprimer");
         $lMenu->popParent();
+        //
         // template/parallax
         $lMenu->addMenu("", "", "Parallax");
         $lMenu->pushParent();
@@ -404,22 +439,28 @@ class GAdmin extends GObject {
         $lMenu->addMenu("editor", "update_parallax", "Modifier");
         $lMenu->addMenu("editor", "delete_parallax", "Supprimer");
         $lMenu->popParent();
+        //
         // template/bullet
         $lMenu->addMenu("", "", "Puces");
+        //
         $lMenu->pushParent();
         $lMenu->initParent();
         $lMenu->addMenu("", "", "Ajouter");
+        //
         $lMenu->pushParent();
         $lMenu->initParent();
         $lMenu->addMenu("editor", "add_bullet", "Simple");
         $lMenu->addMenu("editor", "add_bullet_group", "Groupe");
         $lMenu->popParent();
+        //
         $lMenu->addMenu("", "", "Insérer");
+        //
         $lMenu->pushParent();
         $lMenu->initParent();
         $lMenu->addMenu("editor", "insert_bullet_before", "Avant");
         $lMenu->addMenu("editor", "insert_bullet_after", "Après");
         $lMenu->popParent();
+        //
         $lMenu->addMenu("editor", "update_bullet", "Modifier");
         $lMenu->addMenu("", "", "Supprimer");
         //
@@ -430,6 +471,7 @@ class GAdmin extends GObject {
         $lMenu->popParent();
         //
         $lMenu->popParent();
+        //
         // template/parallax
         $lMenu->addMenu("", "", "Section");
         $lMenu->pushParent();
@@ -446,16 +488,20 @@ class GAdmin extends GObject {
         $lMenu->addMenu("editor", "update_section", "Modifier");
         $lMenu->addMenu("editor", "delete_section", "Supprimer");
         $lMenu->popParent();
+        //
         // template/summary_main
         $lMenu->addMenu("", "", "Sommaire principal");
+        //
         $lMenu->pushParent();
         $lMenu->initParent();
         $lMenu->addMenu("editor", "add_summary_main", "Ajouter");
         $lMenu->addMenu("editor", "update_summary_main", "Modifier");
         $lMenu->addMenu("editor", "delete_summary_main", "Supprimer");
         $lMenu->popParent();
+        //
         // template/text_image_left
         $lMenu->addMenu("", "", "Texte image gauche");
+        //
         $lMenu->pushParent();
         $lMenu->initParent();
         $lMenu->addMenu("editor", "add_text_image_left", "Ajouter");
@@ -464,21 +510,27 @@ class GAdmin extends GObject {
         $lMenu->popParent();
         //
         $lMenu->popParent();
+        //
         // font_awesome
         $lMenu->addMenu("", "", "Font Awesome");
+        //
         $lMenu->pushParent();
         $lMenu->initParent();
         $lMenu->addMenu("font_awesome", "extract_font_awesome", "Extraire");
         $lMenu->popParent();
+        //
         // page
         $lMenu->addMenu("", "", "Page");
+        //
         $lMenu->pushParent();
         $lMenu->initParent();
         $lMenu->addMenu("page", "save_page_edition", "Enregistrer");
         $lMenu->addMenu("page", "load_page_edition", "Charger");
         $lMenu->popParent();
+        //
         // code
         $lMenu->addMenu("", "", "Code");
+        //
         $lMenu->pushParent();
         $lMenu->initParent();
         $lMenu->addMenu("page", "show_edition_code", "Afficher");

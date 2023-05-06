@@ -331,13 +331,35 @@ class GEditor extends GObject {
         return lHtml;
     }
     //===============================================
+    toPdfFile() {
+        return "/data/file/cv/KESSE_Gerard_CV_Simplifie.pdf";
+    }
+    //===============================================
     toPdf1() {
-        var lFile = "/data/file/cv/KESSE_Gerard_CV_Simplifie.pdf";
+        var lFile = this.toPdfFile();
         var lHtml = "";
         lHtml += sprintf("<div class='GPdf1 Pdf1'>\n");
         lHtml += sprintf("<object data='%s#navpanes=0' class='Pdf2' type='application/pdf'>\n", lFile);
         lHtml += sprintf("</object>\n");
         lHtml += sprintf("</div>\n");
+        return lHtml;
+    }
+    //===============================================
+    toTuto1() {
+        var lHtml = "";
+        lHtml += sprintf("<div class='GTuto1 Tuto1'>\n");
+        lHtml += this.toTuto2();
+        lHtml += sprintf("</div>\n");
+        return lHtml;
+    }
+    //===============================================
+    toTuto2() {
+        var lHtml = "";
+        lHtml += sprintf("<a class='GTuto2 Tuto2' href='#'>\n");
+        lHtml += sprintf("<div class='Tuto3'><i class='Tuto6 fa fa-book'></i></div>\n");
+        lHtml += sprintf("<div class='Tuto4'><div class='Tuto7'>C++</div></div>\n");
+        lHtml += sprintf("<div class='Tuto5'><div class='Tuto8'>Programmez en<br>C++</div></div>\n");
+        lHtml += sprintf("</a>\n");
         return lHtml;
     }
     //===============================================
@@ -447,6 +469,30 @@ class GEditor extends GObject {
         }
         else if(_method == "delete_pdf_1") {
             this.onDeletePdf1(_obj, _data);
+        }
+        //===============================================
+        // edition/tutoriels
+        //===============================================
+        else if(_method == "add_tuto_1") {
+            this.onAddTuto1(_obj, _data);
+        }
+        else if(_method == "insert_tuto_1_left") {
+            this.onInsertTuto1Left(_obj, _data);
+        }
+        else if(_method == "insert_tuto_1_right") {
+            this.onInsertTuto1Right(_obj, _data);
+        }
+        else if(_method == "update_tuto_1") {
+            this.onUpdateTuto1(_obj, _data);
+        }
+        else if(_method == "update_tuto_1_form") {
+            this.onUpdateTuto1Form(_obj, _data);
+        }
+        else if(_method == "delete_tuto_1_simple") {
+            this.onDeleteTuto1Simple(_obj, _data);
+        }
+        else if(_method == "delete_tuto_1_group") {
+            this.onDeleteTuto1Group(_obj, _data);
         }
         //===============================================
         // edition/template/barre_acces_rapide
@@ -1027,6 +1073,140 @@ class GEditor extends GObject {
             return false;
         }
         
+        this.removeNode();
+    }
+    //===============================================
+    // edition/tutoriels
+    //===============================================
+    onAddTuto1(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GTuto1")) {
+            this.addError("Vous êtes dans un effet tutoriel.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+        
+        document.execCommand("insertHTML", false, this.toTuto1());
+    }
+    //===============================================
+    onInsertTuto1Left(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GTuto2")) {
+            this.addError("Vous n'êtes pas dans un effet tutoriel.");
+            return false;
+        }
+        var lNode = this.m_node;
+        var lNew = this.createNode(this.toTuto2());
+        lNode.appendBefore(lNew);
+    }
+    //===============================================
+    onInsertTuto1Right(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GTuto2")) {
+            this.addError("Vous n'êtes pas dans un effet tutoriel.");
+            return false;
+        }
+        var lNode = this.m_node;
+        var lNew = this.createNode(this.toTuto2());
+        lNode.appendAfter(lNew);
+    }
+    //===============================================
+    onDeleteTuto1Simple(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GTuto2")) {
+            this.addError("Vous n'êtes pas dans un effet tutoriel.");
+            return false;
+        }
+        if(this.countNode("GTuto2") <= 1) {
+            this.addError("Vous voulez supprimer le parent.");
+            return false;
+        }
+        this.removeNode();
+    }
+    //===============================================
+    onUpdateTuto1(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GTuto2")) {
+            this.addError("Vous n'êtes pas dans un effet tutoriel.");
+            return false;
+        }
+
+        var lFont = GFontAwesome.Instance();
+
+        var lNode = this.m_node;
+        var lLinkId = lNode;
+        var lIconId = lNode.firstElementChild.firstElementChild;
+        
+        var lLink = lLinkId.getAttribute("href");
+        var lIcon = lIconId.getAttribute("class").split(" ")[2];
+        
+        var lIconI = lFont.findFont(lIcon);
+        
+        var lForm = GForm.Instance();
+        lForm.clearMap();
+        lForm.setCallback("editor", "update_tuto_1_form");
+        lForm.addLabelPicto("m_icon", "Icône :", lFont.toForm(), lIconI);
+        lForm.addLabelEdit("m_link", "Lien :", lLink);
+        lForm.showForm();
+        this.addLogs(lForm.getLogs());
+        
+        GEditor.Instance().saveRange();
+    }
+    //===============================================
+    onUpdateTuto1Form(_obj, _data) {
+        GEditor.Instance().restoreRange();
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GTuto2")) {
+            this.addError("Vous n'êtes pas dans un effet tutoriel.");
+            return false;
+        }
+
+        var lForm = GForm.Instance();
+        lForm.readForm();
+        
+        var lIcon = lForm.loadFromMap(1).m_value;
+        var lLink = lForm.loadFromMap(2).m_value;
+        
+        lIcon = sprintf("Tuto6 fa %s", lIcon);
+        
+        var lNode = this.m_node;
+        var lLinkId = lNode;
+        var lIconId = lNode.firstElementChild.firstElementChild;
+        
+        lLinkId.setAttribute("href", lLink);
+        lIconId.setAttribute("class", lIcon);
+    }
+    //===============================================
+    onDeleteTuto1Group(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GTuto1")) {
+            this.addError("Vous n'êtes pas dans un effet tutoriel.");
+            return false;
+        }
         this.removeNode();
     }
     //===============================================
@@ -2048,13 +2228,13 @@ class GEditor extends GObject {
         var lForm = GForm.Instance();
         lForm.readForm();
         
-        if(lFormData.m_position == 0) {
+        if(lFormData.m_position == 1) {
             var lTitle = lFormData.m_value;
             var lId = lTitle.getNormalize();
 
-            lForm.loadFromMap(1);
+            lForm.loadFromMap(2);
             lForm.m_value = lId;
-            lForm.loadToMap(1);
+            lForm.loadToMap(2);
         }
         
         lForm.updateForm();
