@@ -3,6 +3,7 @@
 class GReady extends GObject {
     //===============================================
     private $m_name = "";
+    private $m_label = "";
     private $m_title = "";
     private $m_link = "";
     private $m_isActive = "";
@@ -20,6 +21,7 @@ class GReady extends GObject {
     public function setObj($_obj) {
         parent::setObj($_obj);
         $this->m_name = $_obj->m_name;
+        $this->m_label = $_obj->m_label;
         $this->m_title = $_obj->m_title;
         $this->m_link = $_obj->m_link;
         $this->m_isActive = $_obj->m_isActive;
@@ -28,17 +30,19 @@ class GReady extends GObject {
     public function isEqual($_obj) {
         $lEqualOk = parent::isEqual($_obj);
         $lEqualOk &= ($this->m_name == $_obj->m_name);
+        $lEqualOk &= ($this->m_label == $_obj->m_label);
         $lEqualOk &= ($this->m_title == $_obj->m_title);
         $lEqualOk &= ($this->m_link == $_obj->m_link);
         $lEqualOk &= ($this->m_isActive == $_obj->m_isActive);
         return $lEqualOk;
     }
     //===============================================
-    public function addMenu($_name, $_title, $_link = "#", $_isActive = true) {
+    public function addMenu($_name, $_label, $_title, $_link = "#", $_isActive = true) {
         $lObj = new GReady();
         $lObj->m_category = "menu";
         $lObj->m_model = "nav";
         $lObj->m_name = $_name;
+        $lObj->m_label = $_label;
         $lObj->m_title = $_title;
         $lObj->m_link = $_link;
         $lObj->m_isActive = $_isActive;
@@ -49,56 +53,68 @@ class GReady extends GObject {
     //===============================================
     public function initObj() {
         $this->m_menu = new GReady();
-        //
-        $this->addMenu("home", "Accueil", "/home", false);
-        $this->addMenu("cv", "CV", "/home/cv");
-        // cv
+        // home/menu
+        $this->addMenu("home", "Accueil", "Accueil", "/home", false);
+        
+        // cv/menu
+        $this->addMenu("cv", "CV",  "CV", "/home/cv");
+        // cv/items
         $this->pushParent();
         $this->initParent();
-        $this->addMenu("cv", "CV Simplifié", "/home/cv/simple");
-        $this->addMenu("cv", "CV Détaillé", "/home/cv/full");
+        $this->addMenu("cv", "CV Simplifié", "CV Simplifié", "/home/cv/simple");
+        $this->addMenu("cv", "CV Détaillé", "CV Détaillé", "/home/cv/full");
         $this->popParent();
-        //
-        $this->addMenu("presentation", "Présentation", "/home/presentation");
-        $this->addMenu("tutoriels", "Tutoriels", "/home/tutoriels");
-        //
+        
+        // presentation/menu
+        $this->addMenu("presentation", "Présentation", "Présentation", "/home/presentation");
+        
+        // tutoriels/menu
+        $this->addMenu("tutoriels", "Tutoriels", "Tutoriels", "/home/tutoriels");
+        // tutoriels/items
         $this->pushParent();
         $this->initParent();
-        $this->addMenu("tutoriels", "Logiciel", "/home/tutoriels/logiciel");
-        //
+        $this->addMenu("tutoriels", "C", "C");
+        // tutoriels/c/items
         $this->pushParent();
         $this->initParent();
-        $this->addMenu("tutoriels", "C", "/home/tutoriels/logiciel/c");
+        $this->addMenu("tutoriels", "Cours", "C", "/home/tutoriels/c/cours");
+        $this->addMenu("tutoriels", "MinGW", "MinGW", "/home/tutoriels/c/mingw");
         $this->popParent();
         //
-        $this->popParent();
-        //
-        $this->addMenu("cours", "Cours", "/home/cours");
+        $this->addMenu("tutoriels", "C++", "C++");
+        // tutoriels/cpp/items
         $this->pushParent();
         $this->initParent();
-        $this->addMenu("cours", "Mathematiques", "/home/cours/maths");
+        $this->addMenu("tutoriels", "Cours", "C++", "/home/tutoriels/cpp/cours");
+        $this->addMenu("tutoriels", "MinGW", "MinGW", "/home/tutoriels/cpp/mingw");
+        $this->popParent();
         //
+        $this->addMenu("tutoriels", "Java", "Java");
+        // tutoriels/cpp/items
         $this->pushParent();
         $this->initParent();
-        $this->addMenu("cours", "Algèbre", "/home/cours/maths/algebra");
+        $this->addMenu("tutoriels", "Cours", "Java", "/home/tutoriels/java/cours");
+        $this->popParent();
         //
+        $this->addMenu("tutoriels", "Python", "Python");
+        // tutoriels/cpp/items
         $this->pushParent();
         $this->initParent();
-        $this->addMenu("cours", "Algèbre booléen", "/home/cours/maths/algebra/boolean");
-        $this->addMenu("cours", "Algèbre linéaire", "/home/cours/maths/algebra/linear");
+        $this->addMenu("tutoriels", "Cours", "Python", "/home/tutoriels/python/cours");
         $this->popParent();
         //
-        $this->addMenu("cours", "Géométrie", "/home/cours/maths/geometrics");
         $this->popParent();
-        //
-        $this->addMenu("cours", "Physique", "/home/cours/physics");
-        $this->addMenu("cours", "Chmie", "/home/cours/chimistry");
-        $this->addMenu("cours", "Technologie", "/home/cours/technology");
-        $this->popParent();
-        //
-        $this->addMenu("admin", "Admin", "/home/admin");
-        $this->addMenu("connection", "Connexion", "/home/connexion");
-        // current_menu
+        
+        // cours/menu
+        $this->addMenu("cours", "Cours", "Cours", "/home/cours");
+        
+        // admin/menu
+        $this->addMenu("admin", "Admin", "Admin", "/home/admin");
+        
+        // connexion/menu
+        $this->addMenu("connection", "Connexion", "Connexion", "/home/connexion");
+
+        // menu_courant
         $lObj = $this->findObjMapCM("menu", "nav", null, false);
         for($i = 0; $i < $lObj->size(); $i++) {
             $lObj->loadFromMap($i);
@@ -127,25 +143,25 @@ class GReady extends GObject {
                 if($lActiveOk) $lActive = " Active";
                                 
                 if(!$lMenuJ->size() && !$_parent) {
-                    echo sprintf("<a class='Menu2%s' href='%s'><div class='Menu14'>%s</div></a>\n", $lActive, $lMenuI->m_link, $lMenuI->m_title);
+                    echo sprintf("<a class='Menu2%s' href='%s'><div class='Menu14'>%s</div></a>\n", $lActive, $lMenuI->m_link, $lMenuI->m_label);
                 }
                 else if(!$lMenuJ->size() && $_parent) {
-                    echo sprintf("<a class='Menu10' href='%s'><div class='Menu8%s'>%s</div></a>\n", $lMenuI->m_link, $lActive, $lMenuI->m_title);
+                    echo sprintf("<a class='Menu10' href='%s'><div class='Menu8%s'>%s</div></a>\n", $lMenuI->m_link, $lActive, $lMenuI->m_label);
                 }
                 else {
                     if(!$_parent) {
                         echo sprintf("<div class='Menu6'>\n");
-                        echo sprintf("<a class='Menu2%s' href='%s' onclick='return call_server(\"app\", \"open_menu_group\", this)'><div class='Menu14'>%s</div><i class='Menu13 fa fa-caret-down'></i></a>\n", $lActive, $lMenuI->m_link, $lMenuI->m_title);
+                        echo sprintf("<a class='Menu2%s' href='%s' onclick='return call_server(\"app\", \"open_menu_group\", this)'><div class='Menu14'>%s</div><i class='Menu13 fa fa-caret-down'></i></a>\n", $lActive, $lMenuI->m_link, $lMenuI->m_label);
                         $lMenuK = $lMenuI;
                     }
                     else if($_parent) {
                         echo sprintf("<div class='Menu9'>\n");
-                        echo sprintf("<div class='Menu12'><div class='Menu8'>%s <i class='Menu15 fa fa-caret-down'></i></div></div>\n", $lMenuI->m_title);
+                        echo sprintf("<div class='Menu12'><div class='Menu8'>%s <i class='Menu15 fa fa-caret-down'></i></div></div>\n", $lMenuI->m_label);
                     }
                     
                     if(!$_parent) {
                         echo sprintf("<div class='Menu7'>\n");
-                        echo sprintf("<a class='Menu16' href='%s'><div class='Menu8'>%s</div></a>\n", $lMenuK->m_link, $lMenuK->m_title);
+                        echo sprintf("<a class='Menu16' href='%s'><div class='Menu8'>%s</div></a>\n", $lMenuK->m_link, $lMenuK->m_label);
                     }
                     else if($_parent) {
                         echo sprintf("<div class='Menu11'>\n");
@@ -164,6 +180,10 @@ class GReady extends GObject {
         return false;
     }
     //===============================================
+    public function isTemplate() {
+        return true;
+    }
+    //===============================================
     public function toPath() {
         $lPath = sprintf("%s/%s%s/main.php", $this->toRoot(), $this->toProjectName(), $this->getPageId());
         $lPath = $this->getPath($lPath);
@@ -179,8 +199,14 @@ class GReady extends GObject {
     }
     //===============================================
     public function showPage() {
-        $lPath = $this->toPath();
-        require $lPath;
+        if($this->isTemplate()) {
+            $lPath = $this->toPath();
+            $this->getTemplate()->render($lPath);
+        }
+        else {
+            $lPath = $this->toPath();
+            require $lPath;
+        }        
     }
     //===============================================
     public function toBanner() {

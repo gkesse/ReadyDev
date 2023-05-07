@@ -131,6 +131,14 @@ class GEditor extends GObject {
         return lRange;
     }
     //===============================================
+    toPasteImage() {
+        var lHtml = "";
+        lHtml += "<div class='GImg1 Img1'>";
+        lHtml += "<img alt='image.png'/>";
+        lHtml += "</div>";
+        return lHtml;
+    }
+    //===============================================
     saveRange() {
         this.m_range = this.toRange();
     }
@@ -290,7 +298,7 @@ class GEditor extends GObject {
         return lHtml;
     }
     //===============================================
-    toSummaryMain() {
+    toSummary1() {
         var lHtml = "";
         lHtml += sprintf("<div class='GSummary1'>\n");
         lHtml += sprintf("<div class='Summary1'>\n");
@@ -298,6 +306,14 @@ class GEditor extends GObject {
         lHtml += sprintf("<a class='Summary3' href='#'>Modifier le titre principal...</a>\n");
         lHtml += sprintf("</div>\n");
         lHtml += sprintf("</div>\n");
+        return lHtml;
+    }
+    //===============================================
+    toSummary2(_text, _sectionId = "") {
+        var lHtml = "";
+        lHtml += sprintf("<h2 class='GSummary2 Summary4'>\n");
+        lHtml += sprintf("<a class='Summary5' href='#%s'>%s</a>\n", _sectionId, _text);
+        lHtml += sprintf("</h2>\n");
         return lHtml;
     }
     //===============================================
@@ -374,7 +390,7 @@ class GEditor extends GObject {
         return lHtml;
     }
     //===============================================
-    toTextFgColor(_data) {
+    toTextColor1(_data) {
         var lHtml = "";
         lHtml += sprintf("<span class='GText2' style='\n");
         lHtml += sprintf("color: #00ff00;\n");
@@ -387,31 +403,31 @@ class GEditor extends GObject {
             this.addError("La méthode est obligatoire.");
         }
         //===============================================
-        // editor
+        // editeur
         //===============================================
         else if(_method == "open_editor_tab") {
             this.onOpenEditorTab(_obj, _data);
         }
         //===============================================
-        // command
+        // commande
         //===============================================
         else if(_method == "exec_command") {
             this.onExecCommand(_obj, _data);
         }
         //===============================================
-        // text/fg_color
+        // texte/couleur/premier_plan
         //===============================================
-        else if(_method == "add_text_fg_color") {
-            this.onAddTextFgColor(_obj, _data);
+        else if(_method == "add_text_color_1") {
+            this.onAddTextColor1(_obj, _data);
         }
-        else if(_method == "update_text_fg_color") {
-            this.onUpdateTextFgColor(_obj, _data);
+        else if(_method == "update_text_color_1") {
+            this.onUpdateTextColor1(_obj, _data);
         }
-        else if(_method == "update_text_fg_color_form") {
-            this.onUpdateTextFgColorForm(_obj, _data);
+        else if(_method == "update_text_color_1_form") {
+            this.onUpdateTextColor1Form(_obj, _data);
         }
-        else if(_method == "delete_text_fg_color") {
-            this.onDeleteTextFgColor(_obj, _data);
+        else if(_method == "delete_text_color_1") {
+            this.onDeleteTextColor1(_obj, _data);
         }
         //===============================================
         // text/icon_bottom_horizontal
@@ -436,6 +452,12 @@ class GEditor extends GObject {
         }
         else if(_method == "delete_text_3_group") {
             this.onDeleteText3Group(_obj, _data);
+        }
+        //===============================================
+        // images
+        //===============================================
+        else if(_method == "delete_image_1") {
+            this.onDeleteImage1(_obj, _data);
         }
         //===============================================
         // edition
@@ -663,16 +685,28 @@ class GEditor extends GObject {
             this.onDeleteSection(_obj, _data);
         }
         //===============================================
-        // template/summary_main
+        // template/sommaire/principal
         //===============================================
-        else if(_method == "add_summary_main") {
-            this.onAddSummaryMain(_obj, _data);
+        else if(_method == "add_summary_1") {
+            this.onAddSummary1(_obj, _data);
         }
-        else if(_method == "update_summary_main") {
-            this.onUpdateSummaryMain(_obj, _data);
+        else if(_method == "update_summary_1") {
+            this.onUpdateSummary1(_obj, _data);
         }
-        else if(_method == "delete_summary_main") {
-            this.onDeleteSummaryMain(_obj, _data);
+        else if(_method == "delete_summary_1") {
+            this.onDeleteSummary1(_obj, _data);
+        }
+        //===============================================
+        // template/sommaire_secondaire
+        //===============================================
+        else if(_method == "add_summary_2") {
+            this.onAddSummary2(_obj, _data);
+        }
+        else if(_method == "update_summary_2") {
+            this.onUpdateSummary2(_obj, _data);
+        }
+        else if(_method == "delete_summary_2") {
+            this.onDeleteSummary2(_obj, _data);
         }
         //===============================================
         // template/text_image_left
@@ -728,9 +762,9 @@ class GEditor extends GObject {
         document.execCommand(_data, false, null);
     }
     //===============================================
-    // text/fg_color
+    // text/color_1
     //===============================================
-    onAddTextFgColor(_obj, _data) {
+    onAddTextColor1(_obj, _data) {
         if(!this.isEditor()) {
             this.addError("La sélection est hors du cadre.");
             return false;
@@ -743,10 +777,10 @@ class GEditor extends GObject {
             this.addError("Vous n'avez pas sélectionné de texte.");
             return false;
         }
-        document.execCommand("insertHTML", false, this.toTextFgColor(this.toData()));
+        document.execCommand("insertHTML", false, this.toTextColor1(this.toData()));
     }
     //===============================================
-    onUpdateTextFgColor(_obj, _data) {
+    onUpdateTextColor1(_obj, _data) {
         if(!this.isEditor()) {
             this.addError("La sélection est hors du cadre.");
             return false;
@@ -761,7 +795,7 @@ class GEditor extends GObject {
         
         var lForm = GForm.Instance();
         lForm.clearMap();
-        lForm.setCallback("editor", "update_text_fg_color_form");
+        lForm.setCallback("editor", "update_text_color_1_form");
         lForm.addLabelColor("m_color", "Couleur :", lColor);
         lForm.showForm();
         this.addLogs(lForm.getLogs());
@@ -769,7 +803,7 @@ class GEditor extends GObject {
         GEditor.Instance().saveRange();
     }
     //===============================================
-    onUpdateTextFgColorForm(_obj, _data) {
+    onUpdateTextColor1Form(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
             this.addError("La sélection est hors du cadre.");
@@ -790,7 +824,7 @@ class GEditor extends GObject {
         lNode.style.color = lColor;
     }
     //===============================================
-    onDeleteTextFgColor(_obj, _data) {
+    onDeleteTextColor1(_obj, _data) {
         if(!this.isEditor()) {
             this.addError("La sélection est hors du cadre.");
             return false;
@@ -942,6 +976,20 @@ class GEditor extends GObject {
         this.removeNode();
     }
     //===============================================
+    // images
+    //===============================================
+    onDeleteImage1(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GImg1")) {
+            this.addError("Vous n'êtes pas dans un effet image.");
+            return false;
+        }
+        this.removeNode();
+    }
+    //===============================================
     // edition
     //===============================================
     onKeydownEventEdition(_obj, _data) {
@@ -968,8 +1016,31 @@ class GEditor extends GObject {
         // [info] : sinon on a une image
         else {
             lEvent.preventDefault();
-            this.pasteImage(lEvent, this.pasteImageCB);
+            if(!lEvent.clipboardData) return false;
+            var lItems = lEvent.clipboardData.items;
+            if(!lItems) return false;
+            for(var i = 0; i < lItems.length; i++) {
+                if (lItems[i].type.indexOf("image") == -1) continue;
+                var lBlob = lItems[i].getAsFile();
+                this.onPasteImageCB(lBlob);
+            }
         }
+        
+        return true;
+    }
+    //===============================================
+    onPasteImageCB(_imgBlob) {
+        var lNode = this.createNode(this.toPasteImage());
+        var lImg = lNode.firstElementChild;
+        
+        var lFileReader = new FileReader();
+        
+        lFileReader.onload = function(e) {
+            lImg.src = e.target.result;
+            document.execCommand("insertHTML", false, lNode.outerHTML);
+        };
+        
+        lFileReader.readAsDataURL(_imgBlob);
     }
     //===============================================
     onOpenEditionTab(_obj, _data) {
@@ -2252,9 +2323,9 @@ class GEditor extends GObject {
         this.removeNode();
     }
     //===============================================
-    // template/summary_main
+    // template/sommaire/principal
     //===============================================
-    onAddSummaryMain(_obj, _data) {
+    onAddSummary1(_obj, _data) {
         if(!this.isEditor()) {
             this.addError("La sélection est hors du cadre.");
             return false;
@@ -2268,11 +2339,11 @@ class GEditor extends GObject {
             return false;
         }
 
-        document.execCommand("insertHTML", false, this.toSummaryMain());
+        document.execCommand("insertHTML", false, this.toSummary1());
         return !this.hasErrors();
     }
     //===============================================
-    onUpdateSummaryMain(_obj, _data) {
+    onUpdateSummary1(_obj, _data) {
         if(!this.isEditor()) {
             this.addError("La sélection est hors du cadre.");
             return false;
@@ -2306,7 +2377,7 @@ class GEditor extends GObject {
         lNode.innerHTML = lHtml;
     }
     //===============================================
-    onDeleteSummaryMain(_obj, _data) {
+    onDeleteSummary1(_obj, _data) {
         if(!this.isEditor()) {
             this.addError("La sélection est hors du cadre.");
             return false;
@@ -2316,6 +2387,101 @@ class GEditor extends GObject {
             return false;
         }
         this.removeNode();
+    }
+    //===============================================
+    // template/sommaire/secondaire
+    //===============================================
+    onAddSummary2(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GSummary2")) {
+            this.addError("Vous êtes dans un effet sommaire secondaire.");
+            return false;
+        }
+        if(!this.hasParent("GSection1")) {
+            this.addError("Vous n'êtes pas dans un effet section.");
+            return false;
+        }
+        
+        var lNode = this.m_node;
+        var lTitle = lNode.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
+        
+        var lId = lTitle.id;
+        
+        var lText = "Ajouter un titre...";
+        if(this.selectLine()) lText = this.toLine();
+
+        document.execCommand("insertHTML", false, this.toSummary2(lText, lId));
+        return !this.hasErrors();
+    }
+    //===============================================
+    onUpdateSummary2(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GSummary2")) {
+            this.addError("Vous n'êtes pas dans un effet sommaire secondaire.");
+            return false;
+        }
+
+        var lNode = this.m_node;
+        var lSummary = lNode.firstElementChild;
+        
+        var lLink = lSummary.getAttribute("href");
+        var lText = lSummary.innerHTML;
+
+        var lForm = GForm.Instance();
+        lForm.clearMap();
+        lForm.setCallback("editor", "update_summary_2_form");
+        lForm.addLabelEdit("m_link", "Lien :", lLink);
+        lForm.addLabelEdit("m_text", "Texte :", lText);
+        lForm.showForm();
+        this.addLogs(lForm.getLogs());
+        
+        GEditor.Instance().saveRange();
+    }
+    //===============================================
+    onUpdateSummary2Form(_obj, _data) {
+        GEditor.Instance().restoreRange();
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GSummary2")) {
+            this.addError("Vous n'êtes pas dans un effet sommaire secondaire.");
+            return false;
+        }
+        
+        var lForm = GForm.Instance();
+        lForm.readForm();
+
+        var lLink = lForm.loadFromMap(1).m_value;
+        var lText = lForm.loadFromMap(2).m_value;
+                
+        var lNode = this.m_node;
+        var lSummary = lNode.firstElementChild;
+
+        lSummary.setAttribute("href", lLink);
+        lSummary.innerHTML = lText;
+    }
+    //===============================================
+    onDeleteSummary2(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GSummary2")) {
+            this.addError("Vous n'êtes pas dans un effet sommaire secondaire.");
+            return false;
+        }
+        
+        var lNode = this.m_node;
+        var lSummary = lNode.firstElementChild;
+        var lText = lSummary.innerHTML;
+        lNode.replaceWith(lText);
     }
     //===============================================
     // template/text_image_left

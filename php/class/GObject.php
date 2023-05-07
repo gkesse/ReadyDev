@@ -7,12 +7,14 @@
         protected $m_map = array();
         protected $m_parentMap = array();
         //===============================================
-        protected $m_logs = null;
+        private $m_logs = null;
+        private $m_template = null;
         protected $m_parentObj = null;
         protected $m_currentObj = null;
         //===============================================
         public function __construct() {
             $this->m_logs = new GLog();
+            $this->m_template = new GTemplate();
         }
         //===============================================
         public function clone() {
@@ -127,6 +129,10 @@
         //===============================================
         public function popParent() {
             $this->m_parentObj = array_pop($this->m_parentMap);
+        }
+        //===============================================
+        public function getTemplate() {
+            return $this->m_template;
         }
         //===============================================
         public function addError($_msg) {

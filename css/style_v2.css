@@ -1499,6 +1499,20 @@ thead tr:first-child {
     text-decoration: underline;
 }
 
+.Summary4 {
+    font-weight: normal;
+}
+
+.Summary5 {
+    background-color: #3a405b;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: arial;
+    font-size: 18px;
+    color: #bf8e3a;
+    padding: 10px;
+}
+
 /* ============================================== */
 /* Table */
 /* ============================================== */
