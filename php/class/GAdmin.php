@@ -24,7 +24,7 @@ class GAdmin extends GObject {
     }
     //===============================================
     public function isEqual($_obj) {
-        $lEqualOk = parent::isEqual($_obj);
+        $lEqualOk = true;
         $lEqualOk &= ($this->m_title == $_obj->m_title);
         $lEqualOk &= ($this->m_module == $_obj->m_module);
         $lEqualOk &= ($this->m_method == $_obj->m_method);
@@ -43,17 +43,17 @@ class GAdmin extends GObject {
         return $lObj;
     }
     //===============================================
-    public function toMenum() {
+    public function toMenu($_parent) {
         echo sprintf("<div class='Block19'>\n");
-        echo $this->toMenuItemm($this->m_index);
+        echo $this->toMenuItem($_parent);
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function toMenuItemm($_parentIndex) {
-        $lMenuI = $this->findMapm($_parentIndex);
+    public function toMenuItem($_parent) {
+        $lMenuI = $this->findMap($_parent);
         for($i = 1; $i <= $lMenuI->size(); $i++) {
-            $lMenuI->loadFromMapm($i);
-            $lMenuJ = $this->findMap($lMenuI->m_index);
+            $lMenuI->loadFromMap($i);
+            $lMenuJ = $this->findMap($lMenuI);
             
             if(!$lMenuJ->size()) {
                 echo sprintf("<div class='Block20' onclick='call_server(\"%s\", \"%s\", this, \"%s\")'>%s</div>\n",
@@ -63,7 +63,7 @@ class GAdmin extends GObject {
                 echo sprintf("<div class='Block21'>\n");
                 echo sprintf("<div class='Block20'>%s <i class='Block25 fa fa-caret-down'></i></div>\n", $lMenuI->m_title);
                 echo sprintf("<div class='Block22'>\n");
-                $this->toMenuItem($lMenuI->m_index);
+                $this->toMenuItem($lMenuI);
                 echo sprintf("</div>\n");
                 echo sprintf("</div>\n");
             }
@@ -194,7 +194,7 @@ class GAdmin extends GObject {
         $lObj2 = $lMenu->addMenu("", "", "Répertoire", $lObj);
         $lMenu->addMenu("page", "create_folder", "Créer", $lObj2);
         //===============================================
-        $lMenu->toMenu();
+        $lMenu->toMenu($this);
     }
     //===============================================
     public function toEditorPageForm() {
@@ -382,16 +382,33 @@ class GAdmin extends GObject {
         $lMenu->addMenu("editor", "paste_section", "Coller", $lObj3);
         $lMenu->addMenu("editor", "update_section", "Modifier", $lObj2);
         $lMenu->addMenu("editor", "delete_section", "Supprimer", $lObj2);
-        // template/sommaire
+        // template/sommaire/primaire
         $lObj2 = $lMenu->addMenu("", "", "Sommaire", $lObj);
         $lObj3 = $lMenu->addMenu("", "", "Principal", $lObj2);
         $lMenu->addMenu("editor", "add_summary_1", "Ajouter", $lObj3);
         $lMenu->addMenu("editor", "update_summary_1", "Modifier", $lObj3);
         $lMenu->addMenu("editor", "delete_summary_1", "Supprimer", $lObj3);
+        // template/sommaire/secondaire
         $lObj3 = $lMenu->addMenu("", "", "Secondaire", $lObj2);
         $lMenu->addMenu("editor", "add_summary_2", "Ajouter", $lObj3);
         $lMenu->addMenu("editor", "update_summary_2", "Modifier", $lObj3);
         $lMenu->addMenu("editor", "delete_summary_2", "Supprimer", $lObj3);
+        // template/sommaire/tertiaire
+        $lObj3 = $lMenu->addMenu("", "", "Tertiaire", $lObj2);
+        $lMenu->addMenu("editor", "add_summary_3", "Ajouter", $lObj3);
+        $lMenu->addMenu("editor", "update_summary_3", "Modifier", $lObj3);
+        $lMenu->addMenu("editor", "delete_summary_3", "Supprimer", $lObj3);
+        // template/titre/primaire
+        $lObj2 = $lMenu->addMenu("", "", "Titre", $lObj);
+        $lObj3 = $lMenu->addMenu("", "", "Primaire", $lObj2);
+        $lMenu->addMenu("editor", "add_title_1", "Ajouter", $lObj3);
+        $lMenu->addMenu("editor", "update_title_1", "Modifier", $lObj3);
+        $lMenu->addMenu("editor", "delete_title_1", "Supprimer", $lObj3);
+        // template/titre/secondaire
+        $lObj3 = $lMenu->addMenu("", "", "Secondaire", $lObj2);
+        $lMenu->addMenu("editor", "add_title_2", "Ajouter", $lObj3);
+        $lMenu->addMenu("editor", "update_title_2", "Modifier", $lObj3);
+        $lMenu->addMenu("editor", "delete_title_2", "Supprimer", $lObj3);
         //===============================================
         // actions
         //===============================================
@@ -407,7 +424,7 @@ class GAdmin extends GObject {
         $lObj2 = $lMenu->addMenu("", "", "Code", $lObj);
         $lMenu->addMenu("page", "show_edition_code", "Afficher", $lObj2);
         //===============================================
-        $lMenu->toMenu();
+        $lMenu->toMenu($this);
     }
     //===============================================
     public function toEditorEditionForm() {
@@ -454,7 +471,7 @@ class GAdmin extends GObject {
         $lObj2 = $lMenu->addMenu("", "", "Edition", $lObj);
         $lMenu->addMenu("page", "show_code_edition", "Afficher", $lObj2);
         //===============================================
-        $lMenu->toMenu();
+        $lMenu->toMenu($this);
     }
     //===============================================
     public function toEditorCodeForm() {

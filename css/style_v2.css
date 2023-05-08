@@ -1243,7 +1243,7 @@ thead tr:first-child {
     border-bottom: 5px solid transparent;
     padding: 0px 10px;
     vertical-align: middle;
-    font-size: 18px;
+    font-size: 16px;
     font-family: arial; 
 }
 
@@ -1263,7 +1263,7 @@ thead tr:first-child {
 .Menu10  {
     display: block;
     border-bottom: 1px solid #2f3959;
-    line-height: 30px;
+    line-height: 25px;
 }
 
 .Menu10:hover {
@@ -1284,7 +1284,7 @@ thead tr:first-child {
     border-bottom: 1px solid #2f3959;
     position: relative;
     cursor: pointer;
-    line-height: 30px;
+    line-height: 25px;
 }
 
 .Menu12:hover {
@@ -1331,7 +1331,7 @@ thead tr:first-child {
 .Menu16  {
     display: none;
     border-bottom: 1px solid #2f3959;
-    line-height: 30px;
+    line-height: 25px;
 }
 
 .Menu16:hover .Menu8 {
@@ -1500,17 +1500,20 @@ thead tr:first-child {
 }
 
 .Summary4 {
-    font-weight: normal;
+    padding-left: 20px;
 }
 
 .Summary5 {
-    background-color: #3a405b;
-    display: inline-block;
-    vertical-align: middle;
-    font-family: arial;
-    font-size: 18px;
-    color: #bf8e3a;
-    padding: 10px;
+    padding-right: 10px;
+    color: cyan;
+}
+
+.Summary6 {
+    color: cyan;
+}
+
+.Summary6:hover {
+    text-decoration: underline;
 }
 
 /* ============================================== */
@@ -1646,6 +1649,37 @@ thead tr:first-child {
     left: 50%;
     bottom: 100%;
     transform: translate(-50%, 0);
+}
+
+/* ============================================== */
+/* Title */
+/* ============================================== */
+
+.Title1 {
+    font-weight: normal;
+}
+
+.Title2 {
+    background-color: #3a405b;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: arial;
+    font-size: 18px;
+    color: #bf8e3a;
+    padding: 10px;
+}
+
+.Title3 {
+    font-weight: bold;
+}
+
+.Title4 {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: arial;
+    font-size: 18px;
+    color: dodgerblue;
+    padding: 10px;
 }
 
 /* ============================================== */

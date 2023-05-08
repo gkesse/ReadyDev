@@ -155,6 +155,16 @@ class GObject {
         return lParent.firstElementChild;
     }
     //===============================================
+    toParentNode(_node, _className) {
+        var lNode = _node;
+        while(1) {
+            if(!lNode) break;
+            if(lNode.matches("." + _className)) break;
+            var lNode = lNode.parentNode;
+        }
+        return lNode;
+    }
+    //===============================================
     clone() {return new GObject();}
     setObj(_obj) {}
     isEqual(_obj) {return false;}

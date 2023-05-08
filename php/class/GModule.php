@@ -1,6 +1,6 @@
 <?php   
 //===============================================
-class GModule extends GSession {
+class GModule extends GObject {
     //===============================================
     protected $m_module = "";
     protected $m_method = "";
@@ -36,7 +36,6 @@ class GModule extends GSession {
     }
     //===============================================
     public function deserialize($_data, $_code = "manager") {
-        parent::deserialize($_data);
         $lDom = new GCode();
         $lDom->loadXml($_data);
         $this->m_module = $lDom->getItem($_code, "module");

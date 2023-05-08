@@ -1,5 +1,5 @@
 <?php
-class GPageFac extends GModule {
+class GPage extends GModule {
     //===============================================
     private $m_root = "";
     private $m_path = "";
@@ -13,7 +13,7 @@ class GPageFac extends GModule {
     }
     //===============================================
     public function clone() {
-        return new GPageFac();
+        return new GPage();
     }
     //===============================================
     public function setObj($_obj) {

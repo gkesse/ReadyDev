@@ -36,7 +36,7 @@ class GEditor extends GObject {
         this.m_node = this.toNode();
         while(1) {
             if(!this.m_node) return false;
-                if(this.m_node.nodeType != Node.TEXT_NODE) {
+            if(this.m_node.nodeType != Node.TEXT_NODE) {
                 if(this.m_node.matches("." + _className)) return true;
                 if(this.m_node.matches(".GEndEditor")) return false;
                 if(this.m_node.matches(".HtmlPage")) return false;
@@ -106,6 +106,21 @@ class GEditor extends GObject {
         }
         
         return lNodes;
+    }
+    //===============================================
+    toPreviousNode(_className) {
+        var lNode = this.toNode();
+        
+        while(1) {
+            if(!lNode) break;
+            if(lNode.nodeType != Node.TEXT_NODE) {
+                if(lNode.matches("." + _className)) break;
+                if(lNode.matches(".GEndEditor")) break;
+            }
+            lNode = lNode.previousElementSibling;
+        }
+        
+        return lNode;
     }
     //===============================================
     toLine() {
@@ -309,11 +324,50 @@ class GEditor extends GObject {
         return lHtml;
     }
     //===============================================
-    toSummary2(_text, _sectionId = "") {
+    toSummary2() {
+        var lHref = "#";
+        var lIcon = "fa-book";
+        var lText = "Modifier le titre principal...";
+        
         var lHtml = "";
-        lHtml += sprintf("<h2 class='GSummary2 Summary4'>\n");
-        lHtml += sprintf("<a class='Summary5' href='#%s'>%s</a>\n", _sectionId, _text);
+        lHtml += sprintf("<div class='GSummary2'>\n");
+        lHtml += this.toSummary21(lHref, lIcon, lText);
+        lHtml += sprintf("</div>\n");
+        return lHtml;
+    }
+    //===============================================
+    toSummary21(_href, _icon, _text) {
+        var lHtml = "";
+        lHtml += sprintf("<div class='Summary4'>\n");
+        lHtml += sprintf("<i class='Summary5 fa %s'></i>\n", _icon);
+        lHtml += sprintf("<a class='Summary6' href='%s'>%s</a>\n", _href, _text);
+        lHtml += sprintf("</div>\n");
+        return lHtml;
+    }
+    //===============================================
+    toTitle1(_id, _href, _text) {
+        var lHtml = "";
+        lHtml += sprintf("<h2 class='GTitle1 Title1'>\n");
+        if(_id == "") {
+            lHtml += sprintf("<a class='Title2' href='#%s'>%s</a>\n", _href, _text);
+        }
+        else {
+            lHtml += sprintf("<a class='Title2' id='%s' href='#%s'>%s</a>\n", _id, _href, _text);
+        }
         lHtml += sprintf("</h2>\n");
+        return lHtml;
+    }
+    //===============================================
+    toTitle2(_id, _href, _text) {
+        var lHtml = "";
+        lHtml += sprintf("<h3 class='GTitle2 Title3'>\n");
+        if(_id == "") {
+            lHtml += sprintf("<a class='Title4' href='#%s'>%s</a>\n", _href, _text);
+        }
+        else {
+            lHtml += sprintf("<a class='Title4' id='%s' href='#%s'>%s</a>\n", _id, _href, _text);
+        }
+        lHtml += sprintf("</h3>\n");
         return lHtml;
     }
     //===============================================
@@ -430,7 +484,7 @@ class GEditor extends GObject {
             this.onDeleteTextColor1(_obj, _data);
         }
         //===============================================
-        // text/icon_bottom_horizontal
+        // texte/icone/horizontal/bas
         //===============================================
         else if(_method == "add_text_3") {
             this.onAddText3(_obj, _data);
@@ -452,6 +506,21 @@ class GEditor extends GObject {
         }
         else if(_method == "delete_text_3_group") {
             this.onDeleteText3Group(_obj, _data);
+        }
+        //===============================================
+        // texte/image/gauche
+        //===============================================
+        else if(_method == "add_text_image_left") {
+            this.onAddTextImageLeft(_obj, _data);
+        }
+        else if(_method == "update_text_image_left") {
+            this.onUpdateTextImageLeft(_obj, _data);
+        }
+        else if(_method == "update_text_image_left_form") {
+            this.onUpdateTextImageLeftForm(_obj, _data);
+        }
+        else if(_method == "delete_text_image_left") {
+            this.onDeleteTextImageLeft(_obj, _data);
         }
         //===============================================
         // images
@@ -589,7 +658,7 @@ class GEditor extends GObject {
             this.onDeleteGraduation(_obj, _data);
         }
         //===============================================
-        // template/link
+        // template/lien
         //===============================================
         else if(_method == "add_link") {
             this.onAddLink(_obj, _data);
@@ -604,7 +673,7 @@ class GEditor extends GObject {
             this.onDeleteLink(_obj, _data);
         }
         //===============================================
-        // template/line
+        // template/ligne
         //===============================================
         else if(_method == "add_line") {
             this.onAddLine(_obj, _data);
@@ -634,7 +703,7 @@ class GEditor extends GObject {
             this.onDeleteParallax(_obj, _data);
         }
         //===============================================
-        // template/bullet
+        // template/puce
         //===============================================
         else if(_method == "add_bullet") {
             this.onAddBullet(_obj, _data);
@@ -697,7 +766,7 @@ class GEditor extends GObject {
             this.onDeleteSummary1(_obj, _data);
         }
         //===============================================
-        // template/sommaire_secondaire
+        // template/sommaire/secondaire
         //===============================================
         else if(_method == "add_summary_2") {
             this.onAddSummary2(_obj, _data);
@@ -709,20 +778,36 @@ class GEditor extends GObject {
             this.onDeleteSummary2(_obj, _data);
         }
         //===============================================
-        // template/text_image_left
+        // template/titre/primaire
         //===============================================
-        else if(_method == "add_text_image_left") {
-            this.onAddTextImageLeft(_obj, _data);
+        else if(_method == "add_title_1") {
+            this.onAddTitle1(_obj, _data);
         }
-        else if(_method == "update_text_image_left") {
-            this.onUpdateTextImageLeft(_obj, _data);
+        else if(_method == "update_title_1") {
+            this.onUpdateTitle1(_obj, _data);
         }
-        else if(_method == "update_text_image_left_form") {
-            this.onUpdateTextImageLeftForm(_obj, _data);
+        else if(_method == "update_title_1_form") {
+            this.onUpdateTitle1Form(_obj, _data);
         }
-        else if(_method == "delete_text_image_left") {
-            this.onDeleteTextImageLeft(_obj, _data);
+        else if(_method == "delete_title_1") {
+            this.onDeleteTitle1(_obj, _data);
         }
+        //===============================================
+        // template/titre/secondaire
+        //===============================================
+        else if(_method == "add_title_2") {
+            this.onAddTitle2(_obj, _data);
+        }
+        else if(_method == "update_title_2") {
+            this.onUpdateTitle2(_obj, _data);
+        }
+        else if(_method == "update_title_2_form") {
+            this.onUpdateTitle2Form(_obj, _data);
+        }
+        else if(_method == "delete_title_2") {
+            this.onDeleteTitle2(_obj, _data);
+        }
+        //===============================================
         //===============================================
         else {
             this.addError("La méthode est inconnue.");
@@ -762,7 +847,7 @@ class GEditor extends GObject {
         document.execCommand(_data, false, null);
     }
     //===============================================
-    // text/color_1
+    // texte/couleur/premier_plan
     //===============================================
     onAddTextColor1(_obj, _data) {
         if(!this.isEditor()) {
@@ -838,7 +923,7 @@ class GEditor extends GObject {
         lNode.replaceWith(lText);
     }
     //===============================================
-    // text/icon_bottom_horizontal
+    // texte/icone/horizontal/bas
     //===============================================
     onAddText3(_obj, _data) {
         if(!this.isEditor()) {
@@ -971,6 +1056,101 @@ class GEditor extends GObject {
         }
         if(!this.hasParent("GText3")) {
             this.addError("Vous n'êtes pas dans un effet texte icône bas horizontale groupe.");
+            return false;
+        }
+        this.removeNode();
+    }
+    //===============================================
+    // texte/image/gauche
+    //===============================================
+    onAddTextImageLeft(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GText1")) {
+            this.addError("Vous êtes dans un effet texte image gauche.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+
+        document.execCommand("insertHTML", false, this.toTextImageLeft());
+        return !this.hasErrors();
+    }
+    //===============================================
+    onUpdateTextImageLeft(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GParallax1")) {
+            this.addError("Vous n'êtes pas dans un effet texte image gauche.");
+            return false;
+        }
+
+        var lNode = this.m_node;
+        var lImgId = lNode.firstElementChild;
+        var lBodyId = lNode.firstElementChild.nextElementSibling;
+        var lTitleId = lNode.firstElementChild.firstElementChild.firstElementChild;
+        var lTitle = lTitleId.innerHTML;
+        var lBgImg = lImgId.style.backgroundImage.getPathFromUrl();
+        var lBgColor = lBodyId.style.backgroundColor.getHexFromRgb();
+
+        var lImage = GImage.Instance();
+        var lIndex = lImage.findImg(lBgImg);
+
+        var lForm = GForm.Instance();
+        lForm.clearMap();
+        lForm.setCallback("editor", "update_parallax_form");
+        lForm.addLabelEdit("m_title", "Titre :", lTitle);
+        lForm.addLabelImage("m_bgImg", "Image :", lImage.toForm(), lIndex);
+        lForm.addLabelColor("m_bgColor", "Couleur :", lBgColor);
+        lForm.showForm();
+        this.addLogs(lForm.getLogs());
+        
+        GEditor.Instance().saveRange();
+    }
+    //===============================================
+    onUpdateTextImageLeftForm(_obj, _data) {
+        GEditor.Instance().restoreRange();
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GParallax1")) {
+            this.addError("Vous n'êtes pas dans un effet parallax.");
+            return false;
+        }
+        
+        var lImage = GImage.Instance();
+        var lForm = GForm.Instance();
+        lForm.readForm();
+
+        var lTitle = lForm.loadFromMap(1).m_value;
+        var lBgImgI = lForm.loadFromMap(2).m_index;
+        var lBgColor = lForm.loadFromMap(3).m_value;
+        
+        var lBgImg = lImage.loadFromMap(lBgImgI).m_path;
+        
+        var lNode = this.m_node;
+        var lImgId = lNode.firstElementChild;
+        var lBodyId = lNode.firstElementChild.nextElementSibling;
+        var lTitleId = lNode.firstElementChild.firstElementChild.firstElementChild;
+        lTitleId.innerHTML = lTitle;
+        lImgId.style.backgroundImage = sprintf("url('%s')", lBgImg);
+        lBodyId.style.backgroundColor = lBgColor;
+    }
+    //===============================================
+    onDeleteTextImageLeft(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GText1")) {
+            this.addError("Vous n'êtes pas dans un effet parallax.");
             return false;
         }
         this.removeNode();
@@ -2334,6 +2514,10 @@ class GEditor extends GObject {
             this.addError("Vous êtes dans un effet sommaire principal.");
             return false;
         }
+        if(this.hasParent("GSection1")) {
+            this.addError("Vous êtes dans un effet section.");
+            return false;
+        }
         if(this.isLine()) {
             this.addError("Vous êtes sur une ligne.");
             return false;
@@ -2404,16 +2588,12 @@ class GEditor extends GObject {
             this.addError("Vous n'êtes pas dans un effet section.");
             return false;
         }
-        
-        var lNode = this.m_node;
-        var lTitle = lNode.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
-        
-        var lId = lTitle.id;
-        
-        var lText = "Ajouter un titre...";
-        if(this.selectLine()) lText = this.toLine();
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
 
-        document.execCommand("insertHTML", false, this.toSummary2(lText, lId));
+        document.execCommand("insertHTML", false, this.toSummary2());
         return !this.hasErrors();
     }
     //===============================================
@@ -2428,44 +2608,22 @@ class GEditor extends GObject {
         }
 
         var lNode = this.m_node;
-        var lSummary = lNode.firstElementChild;
+        var lSummary = lNode.firstElementChild.firstElementChild;
+        var lIcon = lSummary.getAttribute("class").split(" ")[2];
         
-        var lLink = lSummary.getAttribute("href");
-        var lText = lSummary.innerHTML;
-
-        var lForm = GForm.Instance();
-        lForm.clearMap();
-        lForm.setCallback("editor", "update_summary_2_form");
-        lForm.addLabelEdit("m_link", "Lien :", lLink);
-        lForm.addLabelEdit("m_text", "Texte :", lText);
-        lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        var lSection = this.toParentNode(lNode, "GSection1");
+        var lTitles = lSection.getElementsByClassName("GTitle1");
         
-        GEditor.Instance().saveRange();
-    }
-    //===============================================
-    onUpdateSummary2Form(_obj, _data) {
-        GEditor.Instance().restoreRange();
-        if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
-            return false;
-        }
-        if(!this.hasParent("GSummary2")) {
-            this.addError("Vous n'êtes pas dans un effet sommaire secondaire.");
-            return false;
+        var lHtml = "";
+        for(var i = 0; i < lTitles.length; i++) {
+            var lTitle = lTitles[i];
+            var lTitleI = lTitle.firstElementChild;
+            var lHref = sprintf("#%s", lTitleI.id)
+            var lText = lTitleI.innerHTML;
+            lHtml += this.toSummary21(lHref, lIcon, lText);
         }
         
-        var lForm = GForm.Instance();
-        lForm.readForm();
-
-        var lLink = lForm.loadFromMap(1).m_value;
-        var lText = lForm.loadFromMap(2).m_value;
-                
-        var lNode = this.m_node;
-        var lSummary = lNode.firstElementChild;
-
-        lSummary.setAttribute("href", lLink);
-        lSummary.innerHTML = lText;
+        lNode.innerHTML = lHtml;
     }
     //===============================================
     onDeleteSummary2(_obj, _data) {
@@ -2477,6 +2635,108 @@ class GEditor extends GObject {
             this.addError("Vous n'êtes pas dans un effet sommaire secondaire.");
             return false;
         }
+        this.removeNode();
+    }
+    //===============================================
+    // template/titre/primaire
+    //===============================================
+    onAddTitle1(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GTitle1")) {
+            this.addError("Vous êtes dans un effet titre primaire.");
+            return false;
+        }
+        if(!this.hasParent("GSection1")) {
+            this.addError("Vous n'êtes pas dans un effet section.");
+            return false;
+        }
+        
+        var lNode = this.m_node;
+        var lSection = lNode.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
+        
+        var lHref = lSection.id;
+        var lText = "Ajouter un titre...";
+        var lId = "";
+        
+        if(this.selectLine()) {
+            lText = this.toLine();
+            lId = sprintf("%s_%s", lHref.getNormalize(), lText.getNormalize());
+        }
+
+        document.execCommand("insertHTML", false, this.toTitle1(lId, lHref, lText));
+        return !this.hasErrors();
+    }
+    //===============================================
+    onUpdateTitle1(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GTitle1")) {
+            this.addError("Vous n'êtes pas dans un effet titre primaire.");
+            return false;
+        }
+
+        var lNode = this.m_node;
+        var lSection = this.toParentNode(lNode, "GSection1");
+        var lSectionI = lSection.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
+        var lTitle = lNode.firstElementChild;
+        
+        var lText = lTitle.innerHTML;
+        var lLink = lTitle.getAttribute("href");
+        var lSectionId = lSectionI.innerHTML;
+        var lId = sprintf("%s_%s", lSectionId.getNormalize(), lText.getNormalize());
+        
+        var lForm = GForm.Instance();
+        lForm.clearMap();
+        lForm.setCallback("editor", "update_title_1_form");
+        lForm.addLabelEdit("m_text", "Texte :", lText);
+        lForm.addLabelEdit("m_link", "Lien :", lLink);
+        lForm.addLabelEdit("m_id", "Id :", lId);
+        lForm.showForm();
+        this.addLogs(lForm.getLogs());
+        
+        GEditor.Instance().saveRange();
+    }
+    //===============================================
+    onUpdateTitle1Form(_obj, _data) {
+        GEditor.Instance().restoreRange();
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GTitle1")) {
+            this.addError("Vous n'êtes pas dans un effet titre primaire.");
+            return false;
+        }
+        
+        var lForm = GForm.Instance();
+        lForm.readForm();
+
+        var lText = lForm.loadFromMap(1).m_value;
+        var lLink = lForm.loadFromMap(2).m_value;
+        var lId = lForm.loadFromMap(3).m_value;
+                
+        var lNode = this.m_node;
+        var lTitle = lNode.firstElementChild;
+
+        lTitle.setAttribute("id", lId);
+        lTitle.setAttribute("href", lLink);
+        lTitle.innerHTML = lText;
+    }
+    //===============================================
+    onDeleteTitle1(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GTitle1")) {
+            this.addError("Vous n'êtes pas dans un effet titre primaire.");
+            return false;
+        }
         
         var lNode = this.m_node;
         var lSummary = lNode.firstElementChild;
@@ -2484,99 +2744,124 @@ class GEditor extends GObject {
         lNode.replaceWith(lText);
     }
     //===============================================
-    // template/text_image_left
+    // template/titre/secondaire
     //===============================================
-    onAddTextImageLeft(_obj, _data) {
+    onAddTitle2(_obj, _data) {
         if(!this.isEditor()) {
             this.addError("La sélection est hors du cadre.");
             return false;
         }
-        if(this.hasParent("GText1")) {
-            this.addError("Vous êtes dans un effet texte image gauche.");
+        if(this.hasParent("GTitle2")) {
+            this.addError("Vous êtes dans un effet titre secondaire.");
             return false;
         }
-        if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+        if(!this.hasParent("GSection1")) {
+            this.addError("Vous n'êtes pas dans un effet section.");
             return false;
         }
+        if(!this.toPreviousNode("GTitle1")) {
+            this.addError("Vous n'êtes pas dans un effet titre primaire.");
+            return false;
+        }
+        
+        var lNode = this.m_node;
+        var lSection = lNode.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
 
-        document.execCommand("insertHTML", false, this.toTextImageLeft());
+        var lHref = lSection.id;
+        var lText = "Ajouter un titre...";
+        var lId = "";
+
+        var lTitle1 = this.toPreviousNode("GTitle1");
+        lTitle1 = lTitle1.firstElementChild;
+        var lTitle = lTitle1.innerHTML;
+
+        if(this.selectLine()) {
+            lText = this.toLine();
+            lHref = sprintf("%s_%s", lHref.getNormalize(), lTitle.getNormalize());
+            lId = sprintf("%s_%s_%s", lHref.getNormalize(), lTitle.getNormalize(), lText.getNormalize());
+        }
+        
+        document.execCommand("insertHTML", false, this.toTitle2(lId, lHref, lText));
         return !this.hasErrors();
     }
     //===============================================
-    onUpdateTextImageLeft(_obj, _data) {
+    onUpdateTitle2(_obj, _data) {
         if(!this.isEditor()) {
             this.addError("La sélection est hors du cadre.");
             return false;
         }
-        if(!this.hasParent("GParallax1")) {
-            this.addError("Vous n'êtes pas dans un effet texte image gauche.");
+        if(!this.hasParent("GTitle2")) {
+            this.addError("Vous n'êtes pas dans un effet titre secondaire.");
             return false;
         }
 
         var lNode = this.m_node;
-        var lImgId = lNode.firstElementChild;
-        var lBodyId = lNode.firstElementChild.nextElementSibling;
-        var lTitleId = lNode.firstElementChild.firstElementChild.firstElementChild;
-        var lTitle = lTitleId.innerHTML;
-        var lBgImg = lImgId.style.backgroundImage.getPathFromUrl();
-        var lBgColor = lBodyId.style.backgroundColor.getHexFromRgb();
+        var lSection = this.toParentNode(lNode, "GSection1");
+        lSection = lSection.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
+        var lTitle3N = lNode.firstElementChild;
+        
+        var lText = lTitle.innerHTML;
+        var lLink = lTitle3N.getAttribute("href");
+        var lSectionId = lSection.innerHTML;
+        
+        var lTitle1N = this.toPreviousNode("GTitle1");
+        lTitle1N = lTitle1N.firstElementChild;
+        var lTitle1 = lTitle1N.innerHTML;
 
-        var lImage = GImage.Instance();
-        var lIndex = lImage.findImg(lBgImg);
-
+        var lId = sprintf("%s_%s_%s", lSectionId.getNormalize(), lTitle1.getNormalize(), lText.getNormalize());
+        
         var lForm = GForm.Instance();
         lForm.clearMap();
-        lForm.setCallback("editor", "update_parallax_form");
-        lForm.addLabelEdit("m_title", "Titre :", lTitle);
-        lForm.addLabelImage("m_bgImg", "Image :", lImage.toForm(), lIndex);
-        lForm.addLabelColor("m_bgColor", "Couleur :", lBgColor);
+        lForm.setCallback("editor", "update_title_2_form");
+        lForm.addLabelEdit("m_text", "Texte :", lText);
+        lForm.addLabelEdit("m_link", "Lien :", lLink);
+        lForm.addLabelEdit("m_id", "Id :", lId);
         lForm.showForm();
         this.addLogs(lForm.getLogs());
         
         GEditor.Instance().saveRange();
     }
     //===============================================
-    onUpdateTextImageLeftForm(_obj, _data) {
+    onUpdateTitle2Form(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
             this.addError("La sélection est hors du cadre.");
             return false;
         }
-        if(!this.hasParent("GParallax1")) {
-            this.addError("Vous n'êtes pas dans un effet parallax.");
+        if(!this.hasParent("GTitle2")) {
+            this.addError("Vous n'êtes pas dans un effet titre secondaire.");
             return false;
         }
         
-        var lImage = GImage.Instance();
         var lForm = GForm.Instance();
         lForm.readForm();
 
-        var lTitle = lForm.loadFromMap(1).m_value;
-        var lBgImgI = lForm.loadFromMap(2).m_index;
-        var lBgColor = lForm.loadFromMap(3).m_value;
-        
-        var lBgImg = lImage.loadFromMap(lBgImgI).m_path;
-        
+        var lText = lForm.loadFromMap(1).m_value;
+        var lLink = lForm.loadFromMap(2).m_value;
+        var lId = lForm.loadFromMap(3).m_value;
+                
         var lNode = this.m_node;
-        var lImgId = lNode.firstElementChild;
-        var lBodyId = lNode.firstElementChild.nextElementSibling;
-        var lTitleId = lNode.firstElementChild.firstElementChild.firstElementChild;
-        lTitleId.innerHTML = lTitle;
-        lImgId.style.backgroundImage = sprintf("url('%s')", lBgImg);
-        lBodyId.style.backgroundColor = lBgColor;
+        var lTitle = lNode.firstElementChild;
+
+        lTitle.setAttribute("id", lId);
+        lTitle.setAttribute("href", lLink);
+        lTitle.innerHTML = lText;
     }
     //===============================================
-    onDeleteTextImageLeft(_obj, _data) {
+    onDeleteTitle1(_obj, _data) {
         if(!this.isEditor()) {
             this.addError("La sélection est hors du cadre.");
             return false;
         }
-        if(!this.hasParent("GText1")) {
-            this.addError("Vous n'êtes pas dans un effet parallax.");
+        if(!this.hasParent("GTitle1")) {
+            this.addError("Vous n'êtes pas dans un effet titre primaire.");
             return false;
         }
-        this.removeNode();
+        
+        var lNode = this.m_node;
+        var lSummary = lNode.firstElementChild;
+        var lText = lSummary.innerHTML;
+        lNode.replaceWith(lText);
     }
     //===============================================
 }

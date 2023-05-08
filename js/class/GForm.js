@@ -471,16 +471,6 @@ class GForm extends GObject {
         return lHtml;
     }
     //===============================================
-    toParentNode(_node, _className) {
-        var lNode = _node;
-        while(1) {
-            if(!lNode) break;
-            if(lNode.matches("." + _className)) break;
-            var lNode = lNode.parentNode;
-        }
-        return lNode;
-    }
-    //===============================================
     writeContent() {
         var lContent = "";
         
