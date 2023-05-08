@@ -1,16 +1,12 @@
 <?php   
     class GObject {
         //===============================================
-        protected $m_category = "";
-        protected $m_model = "";
-        //===============================================
+        protected $m_index = 0;
+        protected $m_parentIndex = 0;
         protected $m_map = array();
-        protected $m_parentMap = array();
         //===============================================
         private $m_logs = null;
         private $m_template = null;
-        protected $m_parentObj = null;
-        protected $m_currentObj = null;
         //===============================================
         public function __construct() {
             $this->m_logs = new GLog();
@@ -22,17 +18,8 @@
         }
         //===============================================
         public function setObj($_obj) {
-            $this->m_category = $_obj->m_category;
-            $this->m_model = $_obj->m_model;
-            $this->m_parentObj = $_obj->m_parentObj;
-            $this->m_currentObj = $_obj;
-        }
-        //===============================================
-        public function isEqual($_obj) {
-            $lEqualOk = true;
-            $lEqualOk &= ($this->m_category == $_obj->m_category);
-            $lEqualOk &= ($this->m_model == $_obj->m_model);
-            return $lEqualOk;
+            $this->m_index = $_obj->m_index;
+            $this->m_parentIndex = $_obj->m_parentIndex;
         }
         //===============================================
         public function size() {
@@ -40,66 +27,40 @@
         }
         //===============================================
         public function loadFromMap($_index) {
-            if($_index >= 0 && $_index < count($this->m_map)) {
-                $lObj = $this->m_map[$_index];
+            if($_index >= 1 && $_index <= $this->size()) {
+                $lObj = $this->m_map[$_index - 1];
                 $this->setObj($lObj);
             }
         }
         //===============================================
         public function loadToMap($_index) {
-            if($_index >= 0 && $_index < count($this->m_map)) {
-                $lObj = $this->m_map[$_index];
+            if($_index >= 1 && $_index <= $this->size()) {
+                $lObj = $this->m_map[$_index - 1];
                 $lObj->setObj($this);
             }
         }
         //===============================================
         public function findObj($_obj) {
-            for($i = 0; $i < count($this->m_map); $i++) {
+            for($i = 0; $i < $this->size(); $i++) {
                 $lObj = $this->m_map[$i];
                 if($lObj->isEqual($_obj)) {
-                    $this->setObj($this);
-                    return true;
+                    return $i + 1;
                 }
             }
-            return false;
+            return 0;
         }
         //===============================================
-        public function findObjMapC($_category, $_parent = null, $_isParent = true) {
+        public function findMap($_parent) {
             $lMap = $this->clone();
-            for($i = 0; $i < count($this->m_map); $i++) {
+            for($i = 0; $i < $this->size(); $i++) {
                 $lObj = $this->m_map[$i];
-                if($lObj->m_category == $_category) {
-                    if($lObj->m_parentObj == $_parent || !$_isParent) {
-                        $lMap->m_map[] = $lObj;
-                    }
+                if($lObj->m_parentIndex == $_parent->m_index) {
+                    $lClone = $this->clone();
+                    $lClone->setObj($lObj);
+                    $lMap->m_map[] = $lClone;
                 }
             }
             return $lMap;
-        }
-        //===============================================
-        public function countC($_category, $_parent = null, $_isParent = true) {
-            $lMap = $this->findObjMapC($_category, $_parent, $_isParent);
-            return $lMap->size();
-        }
-        //===============================================
-        public function findObjMapCM($_category, $_model, $_parent = null, $_isParent = true) {
-            $lMap = $this->clone();
-            for($i = 0; $i < count($this->m_map); $i++) {
-                $lObj = $this->m_map[$i];
-                if($lObj->m_category == $_category) {
-                    if($lObj->m_model == $_model) {
-                        if($lObj->m_parentObj == $_parent || !$_isParent) {
-                            $lMap->m_map[] = $lObj;
-                        }
-                    }
-                }
-            }
-            return $lMap;
-        }
-        //===============================================
-        public function countCM($_category, $_model, $_parent = null, $_isParent = true) {
-            $lMap = $this->findObjMapCM($_category, $_model, $_parent, $_isParent);
-            return $lMap->size();
         }
         //===============================================
         public function isAdmin() {
@@ -117,18 +78,6 @@
         //===============================================
         public function getHomePage() {
             return "/home";
-        }
-        //===============================================
-        public function initParent() {
-            $this->m_parentObj = $this->m_currentObj;
-        }
-        //===============================================
-        public function pushParent() {
-            $this->m_parentMap[] = $this->m_parentObj;
-        }
-        //===============================================
-        public function popParent() {
-            $this->m_parentObj = array_pop($this->m_parentMap);
         }
         //===============================================
         public function getTemplate() {
@@ -241,6 +190,7 @@
             echo sprintf("<xmp style='text-align: left;'>%s</xmp>\n", $this->serialize());
         }
         //===============================================
+        public function isEqual($_obj) {return false;}
         public function serialize($_code = "object") {return "";}
         public function deserialize($_data, $_code = "object") {}
         //===============================================

@@ -32,30 +32,28 @@ class GAdmin extends GObject {
         return $lEqualOk;
     }
     //===============================================
-    public function addMenu($_module, $_method, $_title = "", $_key = "") {
+    public function addMenu($_module, $_method, $_title, $_obj) {
         $lObj = new GAdmin();
-        $lObj->m_category = "menu";
-        $lObj->m_model = "item";
+        $lObj->m_index = $this->size() + 1;
+        $lObj->m_parentIndex = $_obj->m_index;
         $lObj->m_module = $_module;
         $lObj->m_method = $_method;
         $lObj->m_title = $_title;
-        $lObj->m_key = $_key;
-        $lObj->m_parentObj = $this->m_parentObj;
         $this->m_map[] = $lObj;
-        $this->m_currentObj = $lObj;
+        return $lObj;
     }
     //===============================================
-    public function toMenu() {
+    public function toMenum() {
         echo sprintf("<div class='Block19'>\n");
-        echo $this->toMenuItem();
+        echo $this->toMenuItemm($this->m_index);
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function toMenuItem($_parent = null) {
-        $lMenuI = $this->findObjMapCM("menu", "item", $_parent);
-        for($i = 0; $i < $lMenuI->size(); $i++) {
-            $lMenuI->loadFromMap($i);
-            $lMenuJ = $this->findObjMapCM("menu", "item", $lMenuI->m_currentObj);
+    public function toMenuItemm($_parentIndex) {
+        $lMenuI = $this->findMapm($_parentIndex);
+        for($i = 1; $i <= $lMenuI->size(); $i++) {
+            $lMenuI->loadFromMapm($i);
+            $lMenuJ = $this->findMap($lMenuI->m_index);
             
             if(!$lMenuJ->size()) {
                 echo sprintf("<div class='Block20' onclick='call_server(\"%s\", \"%s\", this, \"%s\")'>%s</div>\n",
@@ -65,7 +63,7 @@ class GAdmin extends GObject {
                 echo sprintf("<div class='Block21'>\n");
                 echo sprintf("<div class='Block20'>%s <i class='Block25 fa fa-caret-down'></i></div>\n", $lMenuI->m_title);
                 echo sprintf("<div class='Block22'>\n");
-                $this->toMenuItem($lMenuI->m_currentObj);
+                $this->toMenuItem($lMenuI->m_index);
                 echo sprintf("</div>\n");
                 echo sprintf("</div>\n");
             }
@@ -183,21 +181,19 @@ class GAdmin extends GObject {
     //===============================================
     public function toEditorPageMenu() {
         $lMenu = new GAdmin();
-        // page
-        $lMenu->addMenu("", "", "Page");
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("page", "load_page", "Charger");
-        $lMenu->addMenu("page", "create_page", "Créer");
-        $lMenu->addMenu("page", "new_page", "Nouveau");
-        $lMenu->popParent();
-        // folder
-        $lMenu->addMenu("", "", "Répertoire");
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("page", "create_folder", "Créer");
-        $lMenu->popParent();
-        //
+        //===============================================
+        // actions
+        //===============================================
+        $lObj = $lMenu->addMenu("", "", "Actions", $this);
+        // actions/page
+        $lObj2 = $lMenu->addMenu("", "", "Page", $lObj);
+        $lMenu->addMenu("page", "load_page", "Charger", $lObj2);
+        $lMenu->addMenu("page", "create_page", "Créer", $lObj2);
+        $lMenu->addMenu("page", "new_page", "Nouveau", $lObj2);
+        // actions/repertoire
+        $lObj2 = $lMenu->addMenu("", "", "Répertoire", $lObj);
+        $lMenu->addMenu("page", "create_folder", "Créer", $lObj2);
+        //===============================================
         $lMenu->toMenu();
     }
     //===============================================
@@ -259,345 +255,157 @@ class GAdmin extends GObject {
     public function toEditorEditionMenu() {
         $lMenu = new GAdmin();
         //===============================================
-        // text
+        // texte
         //===============================================
-        $lMenu->addMenu("", "", "Textes");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        //
-        // text/couleur
-        $lMenu->addMenu("", "", "Couleur");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        //
-        // text/couleur/premier_plan
-        $lMenu->addMenu("", "", "Premier plan");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "add_text_color_1", "Ajouter");
-        $lMenu->addMenu("editor", "update_text_color_1", "Modifier");
-        $lMenu->addMenu("editor", "delete_text_color_1", "Supprimer");
-        $lMenu->popParent();
-        //
-        $lMenu->popParent();
-        //
-        // texte/icone
-        $lMenu->addMenu("", "", "Icône");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        //
-        // texte/icone/horizontale
-        $lMenu->addMenu("", "", "Horizontale");
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        //
+        // texte/couleur/premier_plan
+        $lObj = $lMenu->addMenu("", "", "Texte", $this);
+        $lObj2 = $lMenu->addMenu("", "", "Couleur", $lObj);
+        $lObj3 = $lMenu->addMenu("", "", "Premier plan", $lObj2);
+        $lMenu->addMenu("editor", "add_text_color_1", "Ajouter", $lObj3);
+        $lMenu->addMenu("editor", "update_text_color_1", "Modifier", $lObj3);
+        $lMenu->addMenu("editor", "delete_text_color_1", "Supprimer", $lObj3);
         // texte/icone/horizontale/bas
-        $lMenu->addMenu("", "", "Bas");
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        //
-        $lMenu->addMenu("editor", "add_text_3", "Ajouter");
-        $lMenu->addMenu("", "", "Insérer");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "insert_text_3_left", "Gauche");
-        $lMenu->addMenu("editor", "insert_text_3_right", "Droite");
-        $lMenu->popParent();
-        //
-        $lMenu->addMenu("editor", "update_text_3", "Modifier");
-        $lMenu->addMenu("", "", "Supprimer");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "delete_text_3_simple", "Simple");
-        $lMenu->addMenu("editor", "delete_text_3_group", "Groupe");
-        $lMenu->popParent();
-        //
-        $lMenu->popParent();
-        $lMenu->popParent();
-        $lMenu->popParent();
-        //
-        $lMenu->addMenu("editor", "exec_command", "Gras", "bold");
-        //
-        $lMenu->popParent();
+        $lObj2 = $lMenu->addMenu("", "", "Icône", $lObj);
+        $lObj3 = $lMenu->addMenu("", "", "Horizontale", $lObj2);
+        $lObj4 = $lMenu->addMenu("", "", "Bas", $lObj3);
+        $lMenu->addMenu("editor", "add_text_3", "Ajouter", $lObj4);
+        $lObj5 = $lMenu->addMenu("", "", "Insérer", $lObj4);
+        $lMenu->addMenu("editor", "insert_text_3_left", "Gauche", $lObj5);
+        $lMenu->addMenu("editor", "insert_text_3_right", "Droite", $lObj5);
+        $lMenu->addMenu("editor", "update_text_3", "Modifier", $lObj4);
+        $lObj5 = $lMenu->addMenu("", "", "Supprimer", $lObj4);
+        $lMenu->addMenu("editor", "delete_text_3_simple", "Simple", $lObj5);
+        $lMenu->addMenu("editor", "delete_text_3_group", "Groupe", $lObj5);
+        // texte/image/gauche
+        $lObj2 = $lMenu->addMenu("", "", "Image", $lObj);
+        $lObj3 = $lMenu->addMenu("", "", "Gauche", $lObj2);
+        $lMenu->addMenu("editor", "add_text_image_left", "Ajouter", $lObj3);
+        $lMenu->addMenu("editor", "update_text_image_left", "Modifier", $lObj3);
+        $lMenu->addMenu("editor", "delete_text_image_left", "Supprimer", $lObj3);
+        // texte/style
+        $lObj2 = $lMenu->addMenu("", "", "Style", $lObj);
+        $lMenu->addMenu("editor", "add_text_bold", "Gras", $lObj2);
+        $lMenu->addMenu("editor", "add_text_italic", "Italic", $lObj2);
+        $lMenu->addMenu("editor", "add_text_underline", "Souligné", $lObj2);
         //===============================================
-        // images
+        // image
         //===============================================
-        $lMenu->addMenu("", "", "Images");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "delete_image_1", "Supprimer");
-        $lMenu->popParent();
+        $lObj = $lMenu->addMenu("", "", "Image", $this);
+        $lMenu->addMenu("editor", "delete_image_1", "Supprimer", $lObj);
         //===============================================
         // fichier
         //===============================================
-        $lMenu->addMenu("", "", "Fichiers");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("", "", "Pdf");
         // fichier/pdf
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "add_pdf_1", "Ajouter");
-        $lMenu->addMenu("editor", "update_pdf_1", "Modifier");
-        $lMenu->addMenu("editor", "delete_pdf_1", "Supprimer");
-        $lMenu->popParent();
-        //
-        $lMenu->popParent();
+        $lObj = $lMenu->addMenu("", "", "Fichier", $this);
+        $lObj2 = $lMenu->addMenu("", "", "Pdf", $lObj);
+        $lMenu->addMenu("editor", "add_pdf_1", "Ajouter", $lObj2);
+        $lMenu->addMenu("editor", "update_pdf_1", "Modifier", $lObj2);
+        $lMenu->addMenu("editor", "delete_pdf_1", "Supprimer", $lObj2);
         //===============================================
         // tutoriels
         //===============================================
-        $lMenu->addMenu("", "", "Tutoriels");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "add_tuto_1", "Ajouter");
-        $lMenu->addMenu("", "", "Insérer");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "insert_tuto_1_left", "Gauche");
-        $lMenu->addMenu("editor", "insert_tuto_1_right", "Droite");
-        $lMenu->popParent();
-        //
-        $lMenu->addMenu("editor", "update_tuto_1", "Modifier");
-        $lMenu->addMenu("", "", "Supprimer");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "delete_tuto_1_simple", "Simple");
-        $lMenu->addMenu("editor", "delete_tuto_1_group", "Groupe");
-        $lMenu->popParent();
-        //
-        $lMenu->popParent();
+        $lObj = $lMenu->addMenu("", "", "Tutoriels", $this);
+        $lMenu->addMenu("editor", "add_tuto_1", "Ajouter", $lObj);
+        $lObj2 = $lMenu->addMenu("", "", "Insérer", $lObj);
+        $lMenu->addMenu("editor", "insert_tuto_1_left", "Gauche", $lObj2);
+        $lMenu->addMenu("editor", "insert_tuto_1_right", "Droite", $lObj2);
+        $lMenu->addMenu("editor", "update_tuto_1", "Modifier", $lObj);
+        $lObj2 = $lMenu->addMenu("", "", "Supprimer", $lObj);
+        $lMenu->addMenu("editor", "delete_tuto_1_simple", "Simple", $lObj2);
+        $lMenu->addMenu("editor", "delete_tuto_1_group", "Groupe", $lObj2);
         //===============================================
         // template
         //===============================================
-        $lMenu->addMenu("", "", "Templates");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        //
-        // template/barre_acces_rapide
-        $lMenu->addMenu("", "", "Barre d'accès rapide");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "add_access_1", "Ajouter");
-        $lMenu->addMenu("", "", "Insérer");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "insert_access_1_left", "Gauche");
-        $lMenu->addMenu("editor", "insert_access_1_right", "Droite");
-        $lMenu->popParent();
-        //
-        $lMenu->addMenu("", "", "Dupliquer");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "copy_access_1", "Copier");
-        $lMenu->addMenu("editor", "paste_access_1", "Coller");
-        $lMenu->popParent();
-        //
-        $lMenu->addMenu("editor", "update_access_1", "Modifier");
-        $lMenu->addMenu("", "", "Supprimer");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "delete_access_1_simple", "Simple");
-        $lMenu->addMenu("editor", "delete_access_1_group", "Groupe");
-        $lMenu->popParent();
-        //
-        $lMenu->popParent();
-        //
+        // template/barre/acces_rapide
+        $lObj = $lMenu->addMenu("", "", "Templates", $this);
+        $lObj2 = $lMenu->addMenu("", "", "Barre", $lObj);
+        $lObj3 = $lMenu->addMenu("", "", "Accès rapide", $lObj2);
+        $lMenu->addMenu("editor", "add_access_1", "Ajouter", $lObj3);
+        $lObj4 = $lMenu->addMenu("", "", "Insérer", $lObj3);
+        $lMenu->addMenu("editor", "insert_access_1_left", "Gauche", $lObj4);
+        $lMenu->addMenu("editor", "insert_access_1_right", "Droite", $lObj4);
+        $lObj4 = $lMenu->addMenu("", "", "Dupliquer", $lObj3);
+        $lMenu->addMenu("editor", "copy_access_1", "Copier", $lObj4);
+        $lMenu->addMenu("editor", "paste_access_1", "Coller", $lObj4);
+        $lMenu->addMenu("editor", "update_access_1", "Modifier", $lObj3);
+        $lObj4 = $lMenu->addMenu("", "", "Supprimer", $lObj3);
+        $lMenu->addMenu("editor", "delete_access_1_simple", "Simple", $lObj4);
+        $lMenu->addMenu("editor", "delete_access_1_group", "Groupe", $lObj4);
+        // template/competence
+        $lObj2 = $lMenu->addMenu("", "", "Compétence", $lObj);
+        $lMenu->addMenu("editor", "add_skill", "Ajouter", $lObj2);
+        $lObj3 = $lMenu->addMenu("", "", "Dupliquer", $lObj2);
+        $lMenu->addMenu("editor", "copy_skill", "Copier", $lObj3);
+        $lMenu->addMenu("editor", "paste_skill", "Coller", $lObj3);
+        $lMenu->addMenu("editor", "update_skill", "Modifier", $lObj2);
+        $lMenu->addMenu("editor", "delete_skill", "Supprimer", $lObj2);
         // template/graduation
-        $lMenu->addMenu("", "", "Compétences");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "add_skill", "Ajouter");
-        $lMenu->addMenu("", "", "Dupliquer");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "copy_skill", "Copier");
-        $lMenu->addMenu("editor", "paste_skill", "Coller");
-        $lMenu->popParent();
-        //
-        $lMenu->addMenu("editor", "update_skill", "Modifier");
-        $lMenu->addMenu("editor", "delete_skill", "Supprimer");
-        $lMenu->popParent();
-        //
-        // template/graduation
-        $lMenu->addMenu("", "", "Formations");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "add_graduation", "Ajouter");
-        $lMenu->addMenu("", "", "Dupliquer");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "copy_graduation", "Copier");
-        $lMenu->addMenu("editor", "paste_graduation", "Coller");
-        $lMenu->popParent();
-        //
-        $lMenu->addMenu("editor", "update_graduation", "Modifier");
-        $lMenu->addMenu("editor", "delete_graduation", "Supprimer");
-        $lMenu->popParent();
-        //
-        // template/link
-        $lMenu->addMenu("", "", "Liens");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "add_link", "Ajouter");
-        $lMenu->addMenu("editor", "update_link", "Modifier");
-        $lMenu->addMenu("editor", "delete_link", "Supprimer");
-        $lMenu->popParent();
-        //
-        // template/line
-        $lMenu->addMenu("", "", "Lignes");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "add_line", "Ajouter");
-        $lMenu->addMenu("editor", "update_line", "Modifier");
-        $lMenu->addMenu("editor", "delete_line", "Supprimer");
-        $lMenu->popParent();
-        //
+        $lObj2 = $lMenu->addMenu("", "", "Formations", $lObj);
+        $lMenu->addMenu("editor", "add_graduation", "Ajouter", $lObj2);
+        $lObj3 = $lMenu->addMenu("", "", "Dupliquer", $lObj2);
+        $lMenu->addMenu("editor", "copy_graduation", "Copier", $lObj3);
+        $lMenu->addMenu("editor", "paste_graduation", "Coller", $lObj3);
+        $lMenu->addMenu("editor", "update_graduation", "Modifier", $lObj2);
+        $lMenu->addMenu("editor", "delete_graduation", "Supprimer", $lObj2);
+        // template/lien
+        $lObj2 = $lMenu->addMenu("", "", "Liens", $lObj);
+        $lMenu->addMenu("editor", "add_link", "Ajouter", $lObj2);
+        $lMenu->addMenu("editor", "update_link", "Modifier", $lObj2);
+        $lMenu->addMenu("editor", "delete_link", "Supprimer", $lObj2);
+        // template/ligne
+        $lObj2 = $lMenu->addMenu("", "", "Lignes", $lObj);
+        $lMenu->addMenu("editor", "add_line", "Ajouter", $lObj2);
+        $lMenu->addMenu("editor", "update_line", "Modifier", $lObj2);
+        $lMenu->addMenu("editor", "delete_line", "Supprimer", $lObj2);
         // template/parallax
-        $lMenu->addMenu("", "", "Parallax");
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "add_parallax", "Ajouter");
-        $lMenu->addMenu("editor", "update_parallax", "Modifier");
-        $lMenu->addMenu("editor", "delete_parallax", "Supprimer");
-        $lMenu->popParent();
-        //
-        // template/bullet
-        $lMenu->addMenu("", "", "Puces");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("", "", "Ajouter");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "add_bullet", "Simple");
-        $lMenu->addMenu("editor", "add_bullet_group", "Groupe");
-        $lMenu->popParent();
-        //
-        $lMenu->addMenu("", "", "Insérer");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "insert_bullet_before", "Avant");
-        $lMenu->addMenu("editor", "insert_bullet_after", "Après");
-        $lMenu->popParent();
-        //
-        $lMenu->addMenu("editor", "update_bullet", "Modifier");
-        $lMenu->addMenu("", "", "Supprimer");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "cancel_bullet", "Annuler");
-        $lMenu->addMenu("editor", "delete_bullet", "Supprimer");
-        $lMenu->popParent();
-        //
-        $lMenu->popParent();
-        //
-        // template/parallax
-        $lMenu->addMenu("", "", "Section");
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "add_section", "Ajouter");
-        $lMenu->addMenu("", "", "Dupliquer");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "copy_section", "Copier");
-        $lMenu->addMenu("editor", "paste_section", "Coller");
-        $lMenu->popParent();
-        //
-        $lMenu->addMenu("editor", "update_section", "Modifier");
-        $lMenu->addMenu("editor", "delete_section", "Supprimer");
-        $lMenu->popParent();
-        //
+        $lObj2 = $lMenu->addMenu("", "", "Parallax", $lObj);
+        $lMenu->addMenu("editor", "add_parallax", "Ajouter", $lObj2);
+        $lMenu->addMenu("editor", "update_parallax", "Modifier", $lObj2);
+        $lMenu->addMenu("editor", "delete_parallax", "Supprimer", $lObj2);
+        // template/puce
+        $lObj2 = $lMenu->addMenu("", "", "Puce", $lObj);
+        $lObj3 = $lMenu->addMenu("", "", "Ajouter", $lObj2);
+        $lMenu->addMenu("editor", "add_bullet", "Simple", $lObj3);
+        $lMenu->addMenu("editor", "add_bullet_group", "Groupe", $lObj3);
+        $lObj3 = $lMenu->addMenu("", "", "Insérer", $lObj2);
+        $lMenu->addMenu("editor", "insert_bullet_before", "Avant", $lObj3);
+        $lMenu->addMenu("editor", "insert_bullet_after", "Après", $lObj3);
+        $lMenu->addMenu("editor", "update_bullet", "Modifier", $lObj2);
+        $lObj3 = $lMenu->addMenu("", "", "Supprimer", $lObj2);
+        $lMenu->addMenu("editor", "cancel_bullet", "Annuler", $lObj3);
+        $lMenu->addMenu("editor", "delete_bullet", "Supprimer", $lObj3);
+        // template/section
+        $lObj2 = $lMenu->addMenu("", "", "Section", $lObj);
+        $lMenu->addMenu("editor", "add_section", "Ajouter", $lObj2);
+        $lObj3 = $lMenu->addMenu("", "", "Dupliquer", $lObj2);
+        $lMenu->addMenu("editor", "copy_section", "Copier", $lObj3);
+        $lMenu->addMenu("editor", "paste_section", "Coller", $lObj3);
+        $lMenu->addMenu("editor", "update_section", "Modifier", $lObj2);
+        $lMenu->addMenu("editor", "delete_section", "Supprimer", $lObj2);
         // template/sommaire
-        $lMenu->addMenu("", "", "Sommaire");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        //
-        // template/sommaire/principal
-        $lMenu->addMenu("", "", "Principal");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "add_summary_1", "Ajouter");
-        $lMenu->addMenu("editor", "update_summary_1", "Modifier");
-        $lMenu->addMenu("editor", "delete_summary_1", "Supprimer");
-        $lMenu->popParent();
-        //
-        // template/sommaire/secondaire
-        $lMenu->addMenu("", "", "Secondaire");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "add_summary_2", "Ajouter");
-        $lMenu->addMenu("editor", "update_summary_2", "Modifier");
-        $lMenu->addMenu("editor", "delete_summary_2", "Supprimer");
-        $lMenu->popParent();
-        //
-        $lMenu->popParent();
-        //
-        $lMenu->addMenu("", "", "Texte image gauche");
-        // template/text_image_left
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("editor", "add_text_image_left", "Ajouter");
-        $lMenu->addMenu("editor", "update_text_image_left", "Modifier");
-        $lMenu->addMenu("editor", "delete_text_image_left", "Supprimer");
-        $lMenu->popParent();
-        //
-        $lMenu->popParent();
+        $lObj2 = $lMenu->addMenu("", "", "Sommaire", $lObj);
+        $lObj3 = $lMenu->addMenu("", "", "Principal", $lObj2);
+        $lMenu->addMenu("editor", "add_summary_1", "Ajouter", $lObj3);
+        $lMenu->addMenu("editor", "update_summary_1", "Modifier", $lObj3);
+        $lMenu->addMenu("editor", "delete_summary_1", "Supprimer", $lObj3);
+        $lObj3 = $lMenu->addMenu("", "", "Secondaire", $lObj2);
+        $lMenu->addMenu("editor", "add_summary_2", "Ajouter", $lObj3);
+        $lMenu->addMenu("editor", "update_summary_2", "Modifier", $lObj3);
+        $lMenu->addMenu("editor", "delete_summary_2", "Supprimer", $lObj3);
         //===============================================
-        // font_awesome
+        // actions
         //===============================================
-        $lMenu->addMenu("", "", "Font Awesome");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("font_awesome", "extract_font_awesome", "Extraire");
-        $lMenu->popParent();
-        //===============================================
-        // page
-        //===============================================
-        $lMenu->addMenu("", "", "Page");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("page", "save_page_edition", "Enregistrer");
-        $lMenu->addMenu("page", "load_page_edition", "Charger");
-        $lMenu->popParent();
-        //===============================================
-        // code
-        //===============================================
-        $lMenu->addMenu("", "", "Code");
-        //
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("page", "show_edition_code", "Afficher");
-        $lMenu->popParent();
+        $lObj = $lMenu->addMenu("", "", "Actions", $this);
+        // actions/font_awesome
+        $lObj2 = $lMenu->addMenu("", "", "Font Awesome", $lObj);
+        $lMenu->addMenu("font_awesome", "extract_font_awesome", "Extraire", $lObj2);
+        // actions/page
+        $lObj2 = $lMenu->addMenu("", "", "Page", $lObj);
+        $lMenu->addMenu("page", "save_page_edition", "Enregistrer", $lObj2);
+        $lMenu->addMenu("page", "load_page_edition", "Charger", $lObj2);
+        // actions/code
+        $lObj2 = $lMenu->addMenu("", "", "Code", $lObj);
+        $lMenu->addMenu("page", "show_edition_code", "Afficher", $lObj2);
         //===============================================
         $lMenu->toMenu();
     }
@@ -637,20 +445,15 @@ class GAdmin extends GObject {
     //===============================================
     public function toEditorCodeMenu() {
         $lMenu = new GAdmin();
-        // code
-        $lMenu->addMenu("", "", "Code");
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("page", "store_code_edition", "Sauvegarder");
-        $lMenu->addMenu("page", "load_code_edition", "Charger");
-        $lMenu->popParent();
-        // edition
-        $lMenu->addMenu("", "", "Edition");
-        $lMenu->pushParent();
-        $lMenu->initParent();
-        $lMenu->addMenu("page", "show_code_edition", "Afficher");
-        $lMenu->popParent();
-        //
+        //===============================================
+        // actions
+        $lObj = $lMenu->addMenu("", "", "Actions", $this);
+        $lObj2 = $lMenu->addMenu("", "", "Code", $lObj);
+        $lMenu->addMenu("page", "store_code_edition", "Sauvegarder", $lObj2);
+        $lMenu->addMenu("page", "load_code_edition", "Charger", $lObj2);
+        $lObj2 = $lMenu->addMenu("", "", "Edition", $lObj);
+        $lMenu->addMenu("page", "show_code_edition", "Afficher", $lObj2);
+        //===============================================
         $lMenu->toMenu();
     }
     //===============================================

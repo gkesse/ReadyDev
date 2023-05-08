@@ -8,8 +8,6 @@ class GReady extends GObject {
     private $m_link = "";
     private $m_isActive = "";
     //===============================================
-    private $m_menu = null;
-    //===============================================
     public function __construct() {
         parent::__construct();
     }
@@ -28,7 +26,7 @@ class GReady extends GObject {
     }
     //===============================================
     public function isEqual($_obj) {
-        $lEqualOk = parent::isEqual($_obj);
+        $lEqualOk = true;
         $lEqualOk &= ($this->m_name == $_obj->m_name);
         $lEqualOk &= ($this->m_label == $_obj->m_label);
         $lEqualOk &= ($this->m_title == $_obj->m_title);
@@ -37,137 +35,127 @@ class GReady extends GObject {
         return $lEqualOk;
     }
     //===============================================
-    public function addMenu($_name, $_label, $_title, $_link = "#", $_isActive = true) {
+    public function addMenu($_name, $_label, $_title, $_link = "#", $_obj, $_isActive = true) {
         $lObj = new GReady();
-        $lObj->m_category = "menu";
-        $lObj->m_model = "nav";
+        $lObj->m_index = $this->size() + 1;
+        $lObj->m_parentIndex = $_obj->m_index;
         $lObj->m_name = $_name;
         $lObj->m_label = $_label;
         $lObj->m_title = $_title;
         $lObj->m_link = $_link;
         $lObj->m_isActive = $_isActive;
-        $lObj->m_parentObj = $this->m_parentObj;
         $this->m_map[] = $lObj;
-        $this->m_currentObj = $lObj;
+        return $lObj;
     }
     //===============================================
-    public function initObj() {
-        $this->m_menu = new GReady();
-        // home/menu
-        $this->addMenu("home", "Accueil", "Accueil", "/home", false);
-        
-        // cv/menu
-        $this->addMenu("cv", "CV",  "CV", "/home/cv");
-        // cv/items
-        $this->pushParent();
-        $this->initParent();
-        $this->addMenu("cv", "CV Simplifié", "CV Simplifié", "/home/cv/simple");
-        $this->addMenu("cv", "CV Détaillé", "CV Détaillé", "/home/cv/full");
-        $this->popParent();
-        
-        // presentation/menu
-        $this->addMenu("presentation", "Présentation", "Présentation", "/home/presentation");
-        
-        // tutoriels/menu
-        $this->addMenu("tutoriels", "Tutoriels", "Tutoriels", "/home/tutoriels");
-        // tutoriels/items
-        $this->pushParent();
-        $this->initParent();
-        $this->addMenu("tutoriels", "C", "C");
-        // tutoriels/c/items
-        $this->pushParent();
-        $this->initParent();
-        $this->addMenu("tutoriels", "Cours", "C", "/home/tutoriels/c/cours");
-        $this->addMenu("tutoriels", "MinGW", "MinGW", "/home/tutoriels/c/mingw");
-        $this->popParent();
-        //
-        $this->addMenu("tutoriels", "C++", "C++");
-        // tutoriels/cpp/items
-        $this->pushParent();
-        $this->initParent();
-        $this->addMenu("tutoriels", "Cours", "C++", "/home/tutoriels/cpp/cours");
-        $this->addMenu("tutoriels", "MinGW", "MinGW", "/home/tutoriels/cpp/mingw");
-        $this->popParent();
-        //
-        $this->addMenu("tutoriels", "Java", "Java");
-        // tutoriels/cpp/items
-        $this->pushParent();
-        $this->initParent();
-        $this->addMenu("tutoriels", "Cours", "Java", "/home/tutoriels/java/cours");
-        $this->popParent();
-        //
-        $this->addMenu("tutoriels", "Python", "Python");
-        // tutoriels/cpp/items
-        $this->pushParent();
-        $this->initParent();
-        $this->addMenu("tutoriels", "Cours", "Python", "/home/tutoriels/python/cours");
-        $this->popParent();
-        //
-        $this->popParent();
-        
-        // cours/menu
-        $this->addMenu("cours", "Cours", "Cours", "/home/cours");
-        
-        // admin/menu
-        $this->addMenu("admin", "Admin", "Admin", "/home/admin");
-        
-        // connexion/menu
-        $this->addMenu("connection", "Connexion", "Connexion", "/home/connexion");
-
-        // menu_courant
-        $lObj = $this->findObjMapCM("menu", "nav", null, false);
-        for($i = 0; $i < $lObj->size(); $i++) {
-            $lObj->loadFromMap($i);
-            if($lObj->m_link == $this->getPageId()) {
-                $this->m_menu->setObj($lObj);
+    public function toInitMenu() {
+        $lMenu = new GReady();        
+        //===============================================
+        // home
+        //===============================================
+        $lMenu->addMenu("home", "Accueil", "Accueil", "/home", $this, false);
+        //===============================================
+        // cv
+        //===============================================
+        $lObj = $lMenu->addMenu("cv", "CV",  "CV", "/home/cv", $this);
+        $lMenu->addMenu("cv", "CV Simplifié", "CV Simplifié", "/home/cv/simple", $lObj);
+        $lMenu->addMenu("cv", "CV Détaillé", "CV Détaillé", "/home/cv/full", $lObj);
+        //===============================================
+        // presentation
+        //===============================================
+        $lMenu->addMenu("presentation", "Présentation", "Présentation", "/home/presentation", $this);
+        //===============================================
+        // tutoriels
+        //===============================================
+        $lObj = $lMenu->addMenu("tutoriels", "Tutoriels", "Tutoriels", "/home/tutoriels", $this);
+        $lObj2 = $lMenu->addMenu("tutoriels", "C", "C", "", $lObj);
+        // tutoriels/c
+        $lMenu->addMenu("tutoriels", "Cours", "C", "/home/tutoriels/c/cours", $lObj2);
+        $lMenu->addMenu("tutoriels", "MinGW", "MinGW", "/home/tutoriels/c/mingw", $lObj2);
+        // tutoriels/c++
+        $lObj2 = $lMenu->addMenu("tutoriels", "C++", "C++", "", $lObj);
+        $lMenu->addMenu("tutoriels", "Cours", "C++", "/home/tutoriels/cpp/cours", $lObj2);
+        $lMenu->addMenu("tutoriels", "MinGW", "MinGW", "/home/tutoriels/cpp/mingw", $lObj2);
+        // tutoriels/java
+        $lObj2 = $lMenu->addMenu("tutoriels", "Java", "Java", "", $lObj);
+        $lMenu->addMenu("tutoriels", "Cours", "Java", "/home/tutoriels/java/cours", $lObj2);
+        // tutoriels/python
+        $lObj2 = $lMenu->addMenu("tutoriels", "Python", "Python", "", $lObj);
+        $lMenu->addMenu("tutoriels", "Cours", "Python", "/home/tutoriels/python/cours", $lObj2);
+        //===============================================
+        // cours
+        //===============================================
+        $lMenu->addMenu("cours", "Cours", "Cours", "/home/cours", $this);
+        //===============================================
+        // admin
+        //===============================================
+        $lMenu->addMenu("admin", "Admin", "Admin", "/home/admin", $this);
+        //===============================================
+        // connection
+        //===============================================
+        $lMenu->addMenu("connection", "Connexion", "Connexion", "/home/connexion", $this);
+        //===============================================
+        return $lMenu;
+    }
+    //===============================================
+    public function toCurrentMenu() {
+        $lMenu = new GReady();
+        $lPageId = $this->getPageId();
+        for($i = 1; $i <= $this->size(); $i++) {
+            $this->loadFromMap($i);
+            if($this->m_link == $lPageId) {
+                $lMenu->setObj($this);
                 break;
             }
         }
+        return $lMenu;
     }
     //===============================================
-    public function toMenu($_parent = null) {
-        $lMenuI = $this->findObjMapCM("menu", "nav", $_parent);
+    public function toMenu($_parent, $_currentMenu) {
+        $lMenuI = $this->findMap($_parent);
         $lMenuK = null;
         
-        for($i = 0; $i < $lMenuI->size(); $i++) {
+        for($i = 1; $i <= $lMenuI->size(); $i++) {
             $lMenuI->loadFromMap($i);
             if($lMenuI->m_isActive) {
-                $lMenuJ = $this->findObjMapCM("menu", "nav", $lMenuI->m_currentObj);
+                $lMenuJ = $this->findMap($lMenuI);
                 
                 $lActive = "";
                 
                 $lActiveOk = false;
-                $lActiveOk |= $lMenuI->isEqual($this->m_menu);
-                $lActiveOk |= (($lMenuI->m_name == $this->m_menu->m_name) && !$lMenuI->m_parentObj);
+                $lActiveOk |= $lMenuI->isEqual($_currentMenu);
+                $lActiveOk |= (($lMenuI->m_name == $_currentMenu->m_name) && !$lMenuI->m_parentIndex);
                 
                 if($lActiveOk) $lActive = " Active";
                                 
-                if(!$lMenuJ->size() && !$_parent) {
-                    echo sprintf("<a class='Menu2%s' href='%s'><div class='Menu14'>%s</div></a>\n", $lActive, $lMenuI->m_link, $lMenuI->m_label);
-                }
-                else if(!$lMenuJ->size() && $_parent) {
-                    echo sprintf("<a class='Menu10' href='%s'><div class='Menu8%s'>%s</div></a>\n", $lMenuI->m_link, $lActive, $lMenuI->m_label);
+                if(!$lMenuJ->size()) {
+                    if(!$lMenuI->m_parentIndex) {
+                        echo sprintf("<a class='Menu2%s' href='%s'><div class='Menu14'>%s</div></a>\n", $lActive, $lMenuI->m_link, $lMenuI->m_label);
+                    }
+                    else if($lMenuI->m_parentIndex) {
+                        echo sprintf("<a class='Menu10' href='%s'><div class='Menu8%s'>%s</div></a>\n", $lMenuI->m_link, $lActive, $lMenuI->m_label);
+                    }
                 }
                 else {
-                    if(!$_parent) {
+                    if(!$lMenuI->m_parentIndex) {
                         echo sprintf("<div class='Menu6'>\n");
                         echo sprintf("<a class='Menu2%s' href='%s' onclick='return call_server(\"app\", \"open_menu_group\", this)'><div class='Menu14'>%s</div><i class='Menu13 fa fa-caret-down'></i></a>\n", $lActive, $lMenuI->m_link, $lMenuI->m_label);
                         $lMenuK = $lMenuI;
                     }
-                    else if($_parent) {
+                    else if($lMenuI->m_parentIndex) {
                         echo sprintf("<div class='Menu9'>\n");
                         echo sprintf("<div class='Menu12'><div class='Menu8'>%s <i class='Menu15 fa fa-caret-down'></i></div></div>\n", $lMenuI->m_label);
                     }
                     
-                    if(!$_parent) {
+                    if(!$lMenuI->m_parentIndex) {
                         echo sprintf("<div class='Menu7'>\n");
                         echo sprintf("<a class='Menu16' href='%s'><div class='Menu8'>%s</div></a>\n", $lMenuK->m_link, $lMenuK->m_label);
                     }
-                    else if($_parent) {
+                    else if($lMenuI->m_parentIndex) {
                         echo sprintf("<div class='Menu11'>\n");
                     }
                     
-                    $this->toMenu($lMenuI->m_currentObj);
+                    $this->toMenu($lMenuI, $_currentMenu);
                     echo sprintf("</div>\n");
                     echo sprintf("</div>\n");
                 }
@@ -213,8 +201,8 @@ class GReady extends GObject {
         return "https://raw.githubusercontent.com/gkesse/ReadyDev/2.0/data/img/defaults/b_readydev.png";
     }
     //===============================================
-    public function toTitle() {
-        $lTitle = sprintf("%s | %s", $this->toPageTitle(), $this->toSiteName());
+    public function toTitle($_currentMenu) {
+        $lTitle = sprintf("%s | %s", $this->toPageTitle($_currentMenu), $this->toSiteName());
         return $lTitle;
     }
     //===============================================
@@ -222,8 +210,8 @@ class GReady extends GObject {
         return "/data/img/defaults/readydev.png";
     }
     //===============================================
-    public function toPageTitle() {
-        return $this->m_menu->m_title;
+    public function toPageTitle($_currentMenu) {
+        return $_currentMenu->m_title;
     }
     //===============================================
     public function toSiteName() {
@@ -268,9 +256,9 @@ class GReady extends GObject {
         return $lUrl;
     }
     //===============================================
-    public function toLinkedInUrl() {
+    public function toLinkedInUrl($_currentMenu) {
         $lUrl = "https://www.linkedin.com/shareArticle";
-        $lUrl = sprintf("%s?mini=true&url=%s&title=%s&summary=%s", $lUrl, $this->getUrl(), urlencode($this->toTitle()), urlencode($this->toDescription()));
+        $lUrl = sprintf("%s?mini=true&url=%s&title=%s&summary=%s", $lUrl, $this->getUrl(), urlencode($this->toTitle($_currentMenu)), urlencode($this->toDescription()));
         return $lUrl;
     }
     //===============================================
@@ -322,15 +310,16 @@ class GReady extends GObject {
     }
     //===============================================
     public function run() {
-        $this->initObj();
-        //
+        $lMenu = $this->toInitMenu();
+        $lCurrentMenu = $lMenu->toCurrentMenu();
+        
         echo sprintf("<!DOCTYPE html>\n");
         // lang
         echo sprintf("<html lang='fr'>\n");
         //
         echo sprintf("<head>\n");
         // title
-        echo sprintf("<title>%s</title>\n", $this->toTitle());
+        echo sprintf("<title>%s</title>\n", $this->toTitle($lCurrentMenu));
         // charset
         echo sprintf("<meta charset='UTF-8'/>\n");
         // logo
@@ -349,7 +338,7 @@ class GReady extends GObject {
         echo sprintf("<meta property='og:image:height' content=\"440\"/>\n");
         echo sprintf("<meta property='og:locale' content=\"fr_FR\"/>\n");
         echo sprintf("<meta property='og:url' content=\"%s\"/>\n", $this->getUrl());
-        echo sprintf("<meta property='og:title' content=\"%s\"/>\n", $this->toTitle());
+        echo sprintf("<meta property='og:title' content=\"%s\"/>\n", $this->toTitle($lCurrentMenu));
         echo sprintf("<meta property='og:site_name' content=\"%s\"/>\n", $this->toSiteName());
         echo sprintf("<meta property='og:description' content=\"%s\"/>\n", $this->toDescription());
         // css
@@ -381,17 +370,17 @@ class GReady extends GObject {
         $this->runForms();
         //
         echo sprintf("<div class='Html2 HtmlPage'>\n");
-        // menu       
+        // menu
         echo sprintf("<div class='Menu1' id='HeaderMenu'>\n");
         echo sprintf("<a class='Menu3' href='%s'>\n", $this->getHomePage());
         echo sprintf("<img class='Menu4' src='%s' alt='logo.png'/>\n", $this->toLogo());
         echo sprintf("<span class='Menu5'>%s</span>\n", $this->toSiteName());
         echo sprintf("</a>\n");
-        $this->toMenu();
+        $lMenu->toMenu($this, $lCurrentMenu);
         echo sprintf("<div class='Bars1' onclick='call_server(\"app\", \"open_menu_bars\", this)'><i class='fa fa-bars'></i></div>\n");
         echo sprintf("</div>\n");
         // 
-        $this->runView();
+        $this->runView($lCurrentMenu);
         $this->runPage();
         //
         echo sprintf("</div>\n");
@@ -557,10 +546,10 @@ class GReady extends GObject {
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function runView() {        
+    public function runView($_currentMenu) {        
         echo sprintf("<div class='View1'>\n");
         // title
-        echo sprintf("<h1 class='View2'>%s</h1>\n", $this->toPageTitle());
+        echo sprintf("<h1 class='View2'>%s</h1>\n", $this->toPageTitle($_currentMenu));
         //
         echo sprintf("<div class='View3'>\n");
         echo sprintf("<div>\n");
@@ -575,7 +564,7 @@ class GReady extends GObject {
         echo sprintf("<div>\n");
         // network
         echo sprintf("<a href=\"%s\" target='_blank'><i class='View5 Facebook fa fa-facebook'></i></a>\n", $this->toFacebookUrl());
-        echo sprintf("<a href=\"%s\" target='_blank'><i class='View5 Linkedin fa fa-linkedin'></i></a>\n", $this->toLinkedInUrl());
+        echo sprintf("<a href=\"%s\" target='_blank'><i class='View5 Linkedin fa fa-linkedin'></i></a>\n", $this->toLinkedInUrl($_currentMenu));
         //
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
