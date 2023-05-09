@@ -159,8 +159,11 @@ class GObject {
         var lNode = _node;
         while(1) {
             if(!lNode) break;
-            if(lNode.matches("." + _className)) break;
-            var lNode = lNode.parentNode;
+            if(lNode.nodeType != Node.TEXT_NODE) {
+                if(lNode.matches("." + _className)) break;
+                if(lNode.matches(".GEndEditor")) return 0;
+            }
+            lNode = lNode.parentNode;
         }
         return lNode;
     }

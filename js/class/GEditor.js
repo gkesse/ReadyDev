@@ -108,14 +108,14 @@ class GEditor extends GObject {
         return lNodes;
     }
     //===============================================
-    toPreviousNode(_className) {
-        var lNode = this.toNode();
+    toPreviousNode(_node, _className) {
+        var lNode = _node;
         
         while(1) {
             if(!lNode) break;
             if(lNode.nodeType != Node.TEXT_NODE) {
                 if(lNode.matches("." + _className)) break;
-                if(lNode.matches(".GEndEditor")) break;
+                if(lNode.matches(".GEndEditor")) return 0;
             }
             lNode = lNode.previousElementSibling;
         }
@@ -202,10 +202,10 @@ class GEditor extends GObject {
         return true;
     }
     //===============================================
-    selectNode() {
+    selectNode(_node) {
         var lSelection = document.getSelection();
         var lRange = document.createRange();
-        lRange.selectNode(this.m_node);
+        lRange.selectNode(_node);
         lSelection.removeAllRanges();
         lSelection.addRange(lRange);
         return true;
@@ -789,6 +789,9 @@ class GEditor extends GObject {
         else if(_method == "update_title_1_form") {
             this.onUpdateTitle1Form(_obj, _data);
         }
+        else if(_method == "update_title_1_form_edit") {
+            this.onUpdateTitle1FormEdit(_obj, _data);
+        }
         else if(_method == "delete_title_1") {
             this.onDeleteTitle1(_obj, _data);
         }
@@ -803,6 +806,9 @@ class GEditor extends GObject {
         }
         else if(_method == "update_title_2_form") {
             this.onUpdateTitle2Form(_obj, _data);
+        }
+        else if(_method == "update_title_2_form_edit") {
+            this.onUpdateTitle2FormEdit(_obj, _data);
         }
         else if(_method == "delete_title_2") {
             this.onDeleteTitle2(_obj, _data);
@@ -2681,21 +2687,24 @@ class GEditor extends GObject {
         }
 
         var lNode = this.m_node;
-        var lSection = this.toParentNode(lNode, "GSection1");
-        var lSectionI = lSection.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
-        var lTitle = lNode.firstElementChild;
+        var lSectionN = this.toParentNode(lNode, "GSection1");
+        lSectionN = lSectionN.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
+        var lTitleN = lNode.firstElementChild;
         
-        var lText = lTitle.innerHTML;
-        var lLink = lTitle.getAttribute("href");
-        var lSectionId = lSectionI.innerHTML;
-        var lId = sprintf("%s_%s", lSectionId.getNormalize(), lText.getNormalize());
+        var lTitle = lTitleN.innerHTML;
+        var lLink = lTitleN.getAttribute("href");
+        var lSectionT = lSectionN.innerHTML;
+        var lIdRef = lSectionT.getNormalize();
+        var lId = sprintf("%s_%s", lIdRef, lTitle.getNormalize());
         
         var lForm = GForm.Instance();
         lForm.clearMap();
         lForm.setCallback("editor", "update_title_1_form");
-        lForm.addLabelEdit("m_text", "Texte :", lText);
-        lForm.addLabelEdit("m_link", "Lien :", lLink);
-        lForm.addLabelEdit("m_id", "Id :", lId);
+        lForm.setCallbackEdit("editor", "update_title_1_form_edit");
+        lForm.addLabelEdit("m_title", "Titre :", lTitle);
+        lForm.addLabelText("m_link", "Lien :", lLink);
+        lForm.addLabelText("m_id", "Id :", lId);
+        lForm.addVariable("m_idRef", lIdRef);
         lForm.showForm();
         this.addLogs(lForm.getLogs());
         
@@ -2716,16 +2725,36 @@ class GEditor extends GObject {
         var lForm = GForm.Instance();
         lForm.readForm();
 
-        var lText = lForm.loadFromMap(1).m_value;
+        var lTitle = lForm.loadFromMap(1).m_value;
         var lLink = lForm.loadFromMap(2).m_value;
         var lId = lForm.loadFromMap(3).m_value;
                 
         var lNode = this.m_node;
-        var lTitle = lNode.firstElementChild;
+        var lTitleN = lNode.firstElementChild;
 
-        lTitle.setAttribute("id", lId);
-        lTitle.setAttribute("href", lLink);
-        lTitle.innerHTML = lText;
+        lTitleN.id = lId;
+        lTitleN.setAttribute("href", lLink);
+        lTitleN.innerHTML = lTitle;
+    }
+    //===============================================
+    onUpdateTitle1FormEdit(_obj, _data) {
+        var lFormData = new GForm();
+        lFormData.deserialize(_data);
+        
+        var lForm = GForm.Instance();
+        lForm.readForm();
+        
+        if(lFormData.m_position == 1) {
+            var lTitle = lFormData.m_value;
+            var lIdRef = lForm.loadFromMap(4).m_value;
+            var lId = sprintf("%s_%s", lIdRef, lTitle.getNormalize());
+
+            lForm.loadFromMap(3);
+            lForm.m_value = lId;
+            lForm.loadToMap(3);
+        }
+        
+        lForm.updateForm();
     }
     //===============================================
     onDeleteTitle1(_obj, _data) {
@@ -2759,29 +2788,51 @@ class GEditor extends GObject {
             this.addError("Vous n'êtes pas dans un effet section.");
             return false;
         }
-        if(!this.toPreviousNode("GTitle1")) {
-            this.addError("Vous n'êtes pas dans un effet titre primaire.");
-            return false;
-        }
         
         var lNode = this.m_node;
-        var lSection = lNode.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
+        var lSectionN = lNode.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
 
-        var lHref = lSection.id;
-        var lText = "Ajouter un titre...";
+        var lHref = lSectionN.id;
+        var lTitle = "Ajouter un titre...";
         var lId = "";
 
-        var lTitle1 = this.toPreviousNode("GTitle1");
-        lTitle1 = lTitle1.firstElementChild;
-        var lTitle = lTitle1.innerHTML;
+        if(this.isLine()) {
+            if(!this.toPreviousNode(this.toNode(), "GTitle1")) {
+                this.addError("Vous n'êtes pas dans un effet titre primaire.");
+                return false;
+            }
 
-        if(this.selectLine()) {
-            lText = this.toLine();
-            lHref = sprintf("%s_%s", lHref.getNormalize(), lTitle.getNormalize());
-            lId = sprintf("%s_%s_%s", lHref.getNormalize(), lTitle.getNormalize(), lText.getNormalize());
+            var lTitle1N = this.toPreviousNode(this.toNode(), "GTitle1");
+            lTitle1N = lTitle1N.firstElementChild;
+            var lTitle1 = lTitle1N.innerHTML;
+
+            lTitle = this.toLine();
+            lHref = sprintf("%s_%s", lHref.getNormalize(), lTitle1.getNormalize());
+            lId = sprintf("%s_%s_%s", lHref.getNormalize(), lTitle1.getNormalize(), lTitle.getNormalize());
+            
+            this.selectLine();
+            document.execCommand("insertHTML", false, this.toTitle2(lId, lHref, lTitle));
+        }
+        else {
+            document.execCommand("insertHTML", false, this.toTitle2(lId, lHref, lTitle));
+            var lNode = this.toNode();
+            lNode = this.toParentNode(lNode, "GTitle2");
+            var lTitleN = lNode.firstElementChild;
+            
+            if(!this.toPreviousNode(lNode, "GTitle1")) {
+                this.addError("Vous n'êtes pas dans un effet titre primaire.");
+                lNode.remove();
+                return false;
+            }
+            
+            var lTitle1N = this.toPreviousNode(lNode, "GTitle1");
+            lTitle1N = lTitle1N.firstElementChild;
+            var lTitle1 = lTitle1N.innerHTML;
+
+            lHref = sprintf("#%s_%s", lHref.getNormalize(), lTitle1.getNormalize());
+            lTitleN.setAttribute("href", lHref);
         }
         
-        document.execCommand("insertHTML", false, this.toTitle2(lId, lHref, lText));
         return !this.hasErrors();
     }
     //===============================================
@@ -2796,26 +2847,29 @@ class GEditor extends GObject {
         }
 
         var lNode = this.m_node;
-        var lSection = this.toParentNode(lNode, "GSection1");
-        lSection = lSection.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
-        var lTitle3N = lNode.firstElementChild;
+        var lTitle2N = lNode.firstElementChild;
+        var lSectionN = this.toParentNode(lNode, "GSection1");
+        lSectionN = lSectionN.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
         
-        var lText = lTitle.innerHTML;
-        var lLink = lTitle3N.getAttribute("href");
-        var lSectionId = lSection.innerHTML;
+        var lTitle2 = lTitle2N.innerHTML;
+        var lLink = lTitle2N.getAttribute("href");
+        var lSectionId = lSectionN.innerHTML;
         
-        var lTitle1N = this.toPreviousNode("GTitle1");
+        var lTitle1N = this.toPreviousNode(lNode, "GTitle1");
         lTitle1N = lTitle1N.firstElementChild;
         var lTitle1 = lTitle1N.innerHTML;
 
-        var lId = sprintf("%s_%s_%s", lSectionId.getNormalize(), lTitle1.getNormalize(), lText.getNormalize());
+        var lIdRef = sprintf("%s_%s", lSectionId.getNormalize(), lTitle1.getNormalize());
+        var lId = sprintf("%s_%s", lIdRef, lTitle2.getNormalize());
         
         var lForm = GForm.Instance();
         lForm.clearMap();
         lForm.setCallback("editor", "update_title_2_form");
-        lForm.addLabelEdit("m_text", "Texte :", lText);
-        lForm.addLabelEdit("m_link", "Lien :", lLink);
-        lForm.addLabelEdit("m_id", "Id :", lId);
+        lForm.setCallbackEdit("editor", "update_title_2_form_edit");
+        lForm.addLabelEdit("m_title", "Titre :", lTitle2);
+        lForm.addLabelText("m_link", "Lien :", lLink);
+        lForm.addLabelText("m_id", "Id :", lId);
+        lForm.addVariable("m_idRef", lIdRef);
         lForm.showForm();
         this.addLogs(lForm.getLogs());
         
@@ -2836,32 +2890,52 @@ class GEditor extends GObject {
         var lForm = GForm.Instance();
         lForm.readForm();
 
-        var lText = lForm.loadFromMap(1).m_value;
+        var lTitle = lForm.loadFromMap(1).m_value;
         var lLink = lForm.loadFromMap(2).m_value;
         var lId = lForm.loadFromMap(3).m_value;
                 
         var lNode = this.m_node;
-        var lTitle = lNode.firstElementChild;
+        var lTitleN = lNode.firstElementChild;
 
-        lTitle.setAttribute("id", lId);
-        lTitle.setAttribute("href", lLink);
-        lTitle.innerHTML = lText;
+        lTitleN.id = lId;
+        lTitleN.setAttribute("href", lLink);
+        lTitleN.innerHTML = lTitle;
     }
     //===============================================
-    onDeleteTitle1(_obj, _data) {
+    onUpdateTitle2FormEdit(_obj, _data) {
+        var lFormData = new GForm();
+        lFormData.deserialize(_data);
+        
+        var lForm = GForm.Instance();
+        lForm.readForm();
+        
+        if(lFormData.m_position == 1) {
+            var lTitle = lFormData.m_value;
+            var lIdRef = lForm.loadFromMap(4).m_value;
+            var lId = sprintf("%s_%s", lIdRef, lTitle.getNormalize());
+
+            lForm.loadFromMap(3);
+            lForm.m_value = lId;
+            lForm.loadToMap(3);
+        }
+        
+        lForm.updateForm();
+    }
+    //===============================================
+    onDeleteTitle2(_obj, _data) {
         if(!this.isEditor()) {
             this.addError("La sélection est hors du cadre.");
             return false;
         }
-        if(!this.hasParent("GTitle1")) {
-            this.addError("Vous n'êtes pas dans un effet titre primaire.");
+        if(!this.hasParent("GTitle2")) {
+            this.addError("Vous n'êtes pas dans un effet titre secondaire.");
             return false;
         }
         
         var lNode = this.m_node;
-        var lSummary = lNode.firstElementChild;
-        var lText = lSummary.innerHTML;
-        lNode.replaceWith(lText);
+        var lTitleN = lNode.firstElementChild;
+        var lTitle = lTitleN.innerHTML;
+        lNode.replaceWith(lTitle);
     }
     //===============================================
 }
