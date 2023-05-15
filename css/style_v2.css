@@ -14,6 +14,46 @@
     outline: none;
 }
 
+* {
+    scrollbar-color: #aaaaff #111111;
+    scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+}
+
+::-webkit-scrollbar-track {
+      background: transparent; 
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+      background: #aaaaff; 
+    border-left: 2px solid #111111;
+    border-right: 2px solid #111111;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+      background: #aaaaff; 
+    border-top: 2px solid #111111;
+    border-bottom: 2px solid #111111;
+}
+
+::-webkit-scrollbar-thumb:hover {
+      background: #aaaaff; 
+}
+
+::-webkit-scrollbar-button:horizontal {
+    background: #aaaaff;
+    width: 5px;
+}
+
+::-webkit-scrollbar-button:vertical {
+    background: #aaaaff;
+    height: 5px;
+}
+
 html {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
@@ -67,46 +107,6 @@ input[readonly] {
     cursor: pointer;
 }
 
-* {
-    scrollbar-color: #aaaaff #111111;
-    scrollbar-width: thin;
-}
-
-*::-webkit-scrollbar {
-      width: 10px;
-      height: 10px;
-}
-
-::-webkit-scrollbar-track {
-      background: transparent; 
-}
-
-::-webkit-scrollbar-thumb:horizontal {
-      background: #aaaaff; 
-    border-left: 2px solid #111111;
-    border-right: 2px solid #111111;
-}
-
-::-webkit-scrollbar-thumb:vertical {
-      background: #aaaaff; 
-    border-top: 2px solid #111111;
-    border-bottom: 2px solid #111111;
-}
-
-::-webkit-scrollbar-thumb:hover {
-      background: #aaaaff; 
-}
-
-::-webkit-scrollbar-button:horizontal {
-    background: #aaaaff;
-    width: 5px;
-}
-
-::-webkit-scrollbar-button:vertical {
-    background: #aaaaff;
-    height: 5px;
-}
-
 select {
     background-color: transparent;
     border: none;
@@ -125,7 +125,7 @@ textarea {
     color: white;
     width: 100%;
     resize: none;
-      cursor: auto;
+    cursor: auto;
 }
 
 textarea:-webkit-autofill,
@@ -542,6 +542,17 @@ thead tr:first-child {
 }
 
 /* ============================================== */
+/* Code */ 
+/* ============================================== */
+
+.Code1 {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-height: 20px;
+    max-height: 500px;
+    overflow: auto;
+}
+
+/* ============================================== */
 /* Form */ 
 /* ============================================== */
 
@@ -858,6 +869,19 @@ thead tr:first-child {
     right: 10px;
     transform: translate(0, -50%);
     color: #808080;
+}
+
+.Forms27 {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-left: 150px;
+    height: 200px;   
+}
+
+.Forms28 {
+    border: 1px solid #3A405B;
+    height: 100%;   
+    width: 100%;
+    font-family: courier;
 }
 
 /* ============================================== */
@@ -1513,6 +1537,23 @@ thead tr:first-child {
 }
 
 .Summary6:hover {
+    text-decoration: underline;
+}
+
+.Summary7 {
+    padding-left: 20px;
+}
+
+.Summary8 {
+    padding-right: 10px;
+    color: cyan;
+}
+
+.Summary9 {
+    color: cyan;
+}
+
+.Summary9:hover {
     text-decoration: underline;
 }
 

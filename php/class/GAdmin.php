@@ -302,6 +302,14 @@ class GAdmin extends GObject {
         $lMenu->addMenu("editor", "update_pdf_1", "Modifier", $lObj2);
         $lMenu->addMenu("editor", "delete_pdf_1", "Supprimer", $lObj2);
         //===============================================
+        // formule
+        //===============================================
+        // formule
+        $lObj = $lMenu->addMenu("", "", "Formule", $this);
+        $lMenu->addMenu("editor", "add_formula_1", "Ajouter", $lObj);
+        $lMenu->addMenu("editor", "update_formula_1", "Modifier", $lObj);
+        $lMenu->addMenu("editor", "delete_formula_1", "Supprimer", $lObj);
+        //===============================================
         // tutoriels
         //===============================================
         $lObj = $lMenu->addMenu("", "", "Tutoriels", $this);
@@ -331,6 +339,14 @@ class GAdmin extends GObject {
         $lObj4 = $lMenu->addMenu("", "", "Supprimer", $lObj3);
         $lMenu->addMenu("editor", "delete_access_1_simple", "Simple", $lObj4);
         $lMenu->addMenu("editor", "delete_access_1_group", "Groupe", $lObj4);
+        // template/code
+        $lObj2 = $lMenu->addMenu("", "", "Code", $lObj);
+        $lMenu->addMenu("editor", "add_code_1", "Ajouter", $lObj2);
+        $lObj3 = $lMenu->addMenu("", "", "Dupliquer", $lObj2);
+        $lMenu->addMenu("editor", "copy_code_1", "Copier", $lObj3);
+        $lMenu->addMenu("editor", "paste_code_1", "Coller", $lObj3);
+        $lMenu->addMenu("editor", "update_code_1", "Modifier", $lObj2);
+        $lMenu->addMenu("editor", "delete_code_1", "Supprimer", $lObj2);
         // template/competence
         $lObj2 = $lMenu->addMenu("", "", "Compétence", $lObj);
         $lMenu->addMenu("editor", "add_skill", "Ajouter", $lObj2);
@@ -348,10 +364,20 @@ class GAdmin extends GObject {
         $lMenu->addMenu("editor", "update_graduation", "Modifier", $lObj2);
         $lMenu->addMenu("editor", "delete_graduation", "Supprimer", $lObj2);
         // template/lien
-        $lObj2 = $lMenu->addMenu("", "", "Liens", $lObj);
-        $lMenu->addMenu("editor", "add_link", "Ajouter", $lObj2);
-        $lMenu->addMenu("editor", "update_link", "Modifier", $lObj2);
-        $lMenu->addMenu("editor", "delete_link", "Supprimer", $lObj2);
+        $lObj2 = $lMenu->addMenu("", "", "Lien", $lObj);
+        $lObj3 = $lMenu->addMenu("", "", "Simple", $lObj2);
+        $lObj4 = $lMenu->addMenu("", "", "Interne", $lObj3);
+        $lMenu->addMenu("editor", "add_link_2", "Ajouter", $lObj4);
+        $lMenu->addMenu("editor", "update_link_2", "Modifier", $lObj4);
+        $lMenu->addMenu("editor", "delete_link_2", "Supprimer", $lObj4);
+        $lObj4 = $lMenu->addMenu("", "", "Externe", $lObj3);
+        $lMenu->addMenu("editor", "add_link_3", "Ajouter", $lObj4);
+        $lMenu->addMenu("editor", "update_link_3", "Modifier", $lObj4);
+        $lMenu->addMenu("editor", "delete_link_3", "Supprimer", $lObj4);
+        $lObj3 = $lMenu->addMenu("", "", "Groupe", $lObj2);
+        $lMenu->addMenu("editor", "add_link_1", "Ajouter", $lObj3);
+        $lMenu->addMenu("editor", "update_link_1", "Modifier", $lObj3);
+        $lMenu->addMenu("editor", "delete_link_1", "Supprimer", $lObj3);
         // template/ligne
         $lObj2 = $lMenu->addMenu("", "", "Lignes", $lObj);
         $lMenu->addMenu("editor", "add_line", "Ajouter", $lObj2);
@@ -420,6 +446,7 @@ class GAdmin extends GObject {
         $lObj2 = $lMenu->addMenu("", "", "Page", $lObj);
         $lMenu->addMenu("page", "save_page_edition", "Enregistrer", $lObj2);
         $lMenu->addMenu("page", "load_page_edition", "Charger", $lObj2);
+        $lMenu->addMenu("editor", "update_edition_page", "Modifier", $lObj2);
         // actions/code
         $lObj2 = $lMenu->addMenu("", "", "Code", $lObj);
         $lMenu->addMenu("page", "show_edition_code", "Afficher", $lObj2);

@@ -68,8 +68,8 @@ class GReady extends GObject {
         // tutoriels
         //===============================================
         $lObj = $lMenu->addMenu("tutoriels", "Tutoriels", "Tutoriels", "/home/tutoriels", $this);
-        $lObj2 = $lMenu->addMenu("tutoriels", "C", "C", "", $lObj);
         // tutoriels/c
+        $lObj2 = $lMenu->addMenu("tutoriels", "C", "C", "", $lObj);
         $lMenu->addMenu("tutoriels", "Cours", "C", "/home/tutoriels/c/cours", $lObj2);
         $lMenu->addMenu("tutoriels", "MinGW", "MinGW", "/home/tutoriels/c/mingw", $lObj2);
         // tutoriels/c++
@@ -82,6 +82,9 @@ class GReady extends GObject {
         // tutoriels/python
         $lObj2 = $lMenu->addMenu("tutoriels", "Python", "Python", "", $lObj);
         $lMenu->addMenu("tutoriels", "Cours", "Python", "/home/tutoriels/python/cours", $lObj2);
+        // tutoriels/javascript
+        $lObj2 = $lMenu->addMenu("tutoriels", "JavaScript", "JavaScript", "", $lObj);
+        $lMenu->addMenu("tutoriels", "MathJax", "MathJax", "/home/tutoriels/javascript/mathjax", $lObj2);
         //===============================================
         // cours
         //===============================================
@@ -263,6 +266,7 @@ class GReady extends GObject {
     }
     //===============================================
     public function toScriptJs() {
+        $this->toScriptJsLib();
         echo sprintf("<script src='/js/functions.js'></script>\n");
         echo sprintf("<script src='/js/class/GLog.js'></script>\n");
         echo sprintf("<script src='/js/class/GXml.js'></script>\n");
@@ -282,6 +286,11 @@ class GReady extends GObject {
         echo sprintf("<script src='/js/class/GEditor.js'></script>\n");
         echo sprintf("<script src='/js/class/GServer.js'></script>\n");
         echo sprintf("<script src='/js/script.js'></script>\n");
+    }
+    //===============================================
+    public function toScriptJsLib() {
+        echo sprintf("<script src='/libs/ace/src-min-noconflict/ace.js'></script>");
+        echo sprintf("<script src='/libs/mathjax/es5/tex-mml-chtml.js'></script>");
     }
     //===============================================
     public function serialize($_code = "ready") {
@@ -325,7 +334,6 @@ class GReady extends GObject {
         // logo
         echo sprintf("<link rel='shortcut icon' type='image/png' href='%s'/>\n", $this->toLogo());
         //
-        echo sprintf("<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>\n");
         echo sprintf("<meta name='viewport' content='width=device-width, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0, user-scalable=no'/>\n");
         // google        
         echo sprintf("<meta name='description' content=\"%s\"/>\n", $this->toDescription());

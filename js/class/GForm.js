@@ -49,6 +49,20 @@ class GForm extends GObject {
         this.m_index = _obj.m_index;
         this.m_parentIndex = _obj.m_parentIndex;
         this.m_isDir = _obj.m_isDir;
+        //
+        this.m_module = _obj.m_module;
+        this.m_method = _obj.m_method;
+        this.m_moduleLine = _obj.m_moduleLine;
+        this.m_methodLine = _obj.m_methodLine;
+        this.m_moduleEdit = _obj.m_moduleEdit;
+        this.m_methodEdit = _obj.m_methodEdit;
+        this.m_moduleInput = _obj.m_moduleInput;
+        this.m_methodInput = _obj.m_methodInput;
+    }
+    //===============================================
+    clearMap() {
+        super.clearMap();
+        this.setObj(this.clone());
     }
     //===============================================
     isEqual(_obj) {
@@ -360,6 +374,16 @@ class GForm extends GObject {
         this.m_map.push(lObj);
     }
     //===============================================
+    addLabelLine(_id, _label, _value = "") {
+        var lObj = new GForm();
+        lObj.m_position = this.m_map.length + 1;
+        lObj.m_model = "label_line";
+        lObj.m_id = _id;
+        lObj.m_label = _label;
+        lObj.m_value = _value;
+        this.m_map.push(lObj);
+    }
+    //===============================================
     addLabelColor(_id, _label, _value = "#800000") {
         var lObj = new GForm();
         lObj.m_position = this.m_map.length + 1;
@@ -503,6 +527,17 @@ class GForm extends GObject {
             // label_text
             //===============================================
             else if(lObj.m_model == "label_text") {
+                lContent += sprintf("<div class='Forms10'>\n");
+                lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
+                lContent += sprintf("<div class='Forms27'>\n");
+                lContent += sprintf("<textarea wrap='off' class='Forms28 FormEdit' id='%s' data-index='%s' data-position='%s'>%s</textarea>\n", lObj.m_id, lObj.m_index, lObj.m_position, lObj.m_value);
+                lContent += sprintf("</div>\n");
+                lContent += sprintf("</div>\n");
+            }
+            //===============================================
+            // label_line
+            //===============================================
+            else if(lObj.m_model == "label_line") {
                 lContent += sprintf("<div class='Forms10'>\n");
                 lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
                 lContent += sprintf("<div class='Forms12'><input type='text' class='Forms20 FormReadOnly' id='%s' value='%s' data-index='%s' data-position='%s' readonly/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
