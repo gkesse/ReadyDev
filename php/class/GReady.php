@@ -35,7 +35,7 @@ class GReady extends GObject {
         return $lEqualOk;
     }
     //===============================================
-    public function addMenu($_name, $_label, $_title, $_link = "#", $_obj, $_isActive = true) {
+    public function addMenu($_name, $_label, $_title, $_link = "#", $_obj = null, $_isActive = true) {
         $lObj = new GReady();
         $lObj->m_index = $this->size() + 1;
         $lObj->m_parentIndex = $_obj->m_index;
@@ -84,7 +84,17 @@ class GReady extends GObject {
         $lMenu->addMenu("tutoriels", "Cours", "Python", "/home/tutoriels/python/cours", $lObj2);
         // tutoriels/javascript
         $lObj2 = $lMenu->addMenu("tutoriels", "JavaScript", "JavaScript", "", $lObj);
+        $lMenu->addMenu("tutoriels", "Ace", "Ace", "/home/tutoriels/javascript/ace", $lObj2);
         $lMenu->addMenu("tutoriels", "MathJax", "MathJax", "/home/tutoriels/javascript/mathjax", $lObj2);
+        $lMenu->addMenu("tutoriels", "Google Tag Manager", "Google Tag Manager", "/home/tutoriels/javascript/google_tag_manager", $lObj2);
+        // tutoriels/php
+        $lObj2 = $lMenu->addMenu("tutoriels", "PHP", "PHP", "", $lObj);
+        $lMenu->addMenu("tutoriels", "Cours", "PHP", "/home/tutoriels/php/cours", $lObj2);
+        $lMenu->addMenu("tutoriels", "Smarty", "Smarty", "/home/tutoriels/php/smarty", $lObj2);
+        // tutoriels/css
+        $lObj2 = $lMenu->addMenu("tutoriels", "CSS", "CSS", "", $lObj);
+        $lMenu->addMenu("tutoriels", "Font Awesome", "Font Awesome", "/home/tutoriels/css/font_awesome", $lObj2);
+        $lMenu->addMenu("tutoriels", "Google Fonts", "Google Fonts", "/home/tutoriels/css/google_fonts", $lObj2);
         //===============================================
         // cours
         //===============================================
@@ -265,9 +275,23 @@ class GReady extends GObject {
         return $lUrl;
     }
     //===============================================
+    public function toCss() {
+        echo sprintf("<link rel='stylesheet' href='/libs/google_fonts/v0.3.8/Aclonica/css.css'/>\n");
+        echo sprintf("<link rel='stylesheet' href='/libs/google_fonts/v0.3.8/Akronim/css.css'/>\n");
+        echo sprintf("<link rel='stylesheet' href='/libs/google_fonts/v0.3.8/Allan/css.css'/>\n");
+        echo sprintf("<link rel='stylesheet' href='/libs/google_fonts/v0.3.8/Archivo_Narrow/css.css'/>\n");
+        echo sprintf("<link rel='stylesheet' href='/libs/google_fonts/v0.3.8/Anton/css.css'/>\n");
+        echo sprintf("<link rel='stylesheet' href='/libs/google_fonts/v0.3.8/Aclonica/css.css'/>\n");
+        //
+        echo sprintf("<link rel='stylesheet' href='/libs/font_awesome/v4.7.0/css/font-awesome.min.css'/>\n");
+        //
+        echo sprintf("<link rel='stylesheet' href='/css/style.css'/>\n");       
+    }
+    //===============================================
     public function toScriptJs() {
         $this->toScriptJsLib();
         echo sprintf("<script src='/js/functions.js'></script>\n");
+        //
         echo sprintf("<script src='/js/class/GLog.js'></script>\n");
         echo sprintf("<script src='/js/class/GXml.js'></script>\n");
         echo sprintf("<script src='/js/class/GCode.js'></script>\n");
@@ -285,12 +309,13 @@ class GReady extends GObject {
         echo sprintf("<script src='/js/class/GPage.js'></script>\n");
         echo sprintf("<script src='/js/class/GEditor.js'></script>\n");
         echo sprintf("<script src='/js/class/GServer.js'></script>\n");
+        //
         echo sprintf("<script src='/js/script.js'></script>\n");
     }
     //===============================================
     public function toScriptJsLib() {
-        echo sprintf("<script src='/libs/ace/src-min-noconflict/ace.js'></script>");
-        echo sprintf("<script src='/libs/mathjax/es5/tex-mml-chtml.js'></script>");
+        echo sprintf("<script src='/libs/ace/v1.21.0/src-min-noconflict/ace.js'></script>");
+        echo sprintf("<script src='/libs/mathjax/v3.2.2/es5/tex-mml-chtml.js'></script>");
     }
     //===============================================
     public function serialize($_code = "ready") {
@@ -350,14 +375,7 @@ class GReady extends GObject {
         echo sprintf("<meta property='og:site_name' content=\"%s\"/>\n", $this->toSiteName());
         echo sprintf("<meta property='og:description' content=\"%s\"/>\n", $this->toDescription());
         // css
-        echo sprintf("<link rel='stylesheet' href='/libs/google_fonts/Aclonica/css.css'/>\n");
-        echo sprintf("<link rel='stylesheet' href='/libs/google_fonts/Akronim/css.css'/>\n");
-        echo sprintf("<link rel='stylesheet' href='/libs/google_fonts/Allan/css.css'/>\n");
-        echo sprintf("<link rel='stylesheet' href='/libs/google_fonts/Archivo_Narrow/css.css'/>\n");
-        echo sprintf("<link rel='stylesheet' href='/libs/google_fonts/Anton/css.css'/>\n");
-        echo sprintf("<link rel='stylesheet' href='/libs/google_fonts/Aclonica/css.css'/>\n");
-        echo sprintf("<link rel='stylesheet' href='/libs/font_awesome/css/font-awesome.min.css'/>\n");
-        echo sprintf("<link rel='stylesheet' href='/css/style_v2.css'/>\n");
+        $this->toCss();
         //
         echo sprintf("</head>\n");
         echo sprintf("<body>\n");

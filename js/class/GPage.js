@@ -455,6 +455,8 @@ class GPage extends GObject {
     }
     //===============================================
     onSavePageEdition(_obj, _data) {
+        var lEditor = new GEditor();
+        lEditor.onUpdateEditionPage();
         this.readUi();
         this.readEditionPage();
         var lAjax = new GAjax();

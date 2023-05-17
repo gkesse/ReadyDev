@@ -304,9 +304,11 @@ class GAdmin extends GObject {
         //===============================================
         // formule
         //===============================================
-        // formule
         $lObj = $lMenu->addMenu("", "", "Formule", $this);
         $lMenu->addMenu("editor", "add_formula_1", "Ajouter", $lObj);
+        $lObj2 = $lMenu->addMenu("", "", "Dupliquer", $lObj);
+        $lMenu->addMenu("editor", "copy_formula_1", "Copier", $lObj2);
+        $lMenu->addMenu("editor", "paste_formula_1", "Coller", $lObj2);
         $lMenu->addMenu("editor", "update_formula_1", "Modifier", $lObj);
         $lMenu->addMenu("editor", "delete_formula_1", "Supprimer", $lObj);
         //===============================================

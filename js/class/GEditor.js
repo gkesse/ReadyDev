@@ -506,6 +506,12 @@ class GEditor extends GObject {
         return lHtml;
     }
     //===============================================
+    toFormula1() {
+        var lHtml = "";
+        lHtml += sprintf("<div class='GFormula1 Formula1'>Ajouter une formule...</div>\n");
+        return lHtml;
+    }
+    //===============================================
     toUpdateSummary1() {
         var lSummaryNs = document.getElementsByClassName("GSummary1");
         if(!lSummaryNs.length) return;
@@ -557,6 +563,69 @@ class GEditor extends GObject {
             }
             
             lSummaryN.innerHTML = lHtml;
+        }
+    }
+    //===============================================
+    toUpdateSummary3() {
+        var lSummary3Ns = document.getElementsByClassName("GSummary3");
+
+        for(var i = 0; i < lSummary3Ns.length; i++) {
+            var lSummary3N = lSummary3Ns[i];
+            var lTitle2Ns = this.toNodeNexts(lSummary3N, "GTitle2", "GTitle1");
+            
+            var lHtml = "";
+            for(var j = 0; j < lTitle2Ns.length; j++) {
+                var lTitle2N = lTitle2Ns[j];
+                var lTitle2AN = lTitle2N.firstElementChild;
+                var lTitle2AI = lTitle2AN.id;
+                var lTitle2AT = lTitle2AN.innerHTML;
+                
+                lHtml += sprintf("<div class='Summary7'>\n");
+                lHtml += sprintf("<i class='Summary8 fa fa-book'></i>\n");
+                lHtml += sprintf("<a class='Summary9' href='#%s'>%s</a>\n", lTitle2AI, lTitle2AT);
+                lHtml += sprintf("</div>\n");
+            }
+            lSummary3N.innerHTML = lHtml;        
+        }    
+    }
+    //===============================================
+    toUpdateTitle1() {
+        var lSectionNs = document.getElementsByClassName("GSection1");
+        var lIcon = "fa-book";
+
+        for(var i = 0; i < lSectionNs.length; i++) {
+            var lSectionN = lSectionNs[i];
+            var lSectionTN = lSectionN.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
+            var lTitleNs = lSectionN.getElementsByClassName("GTitle1");
+            var lSectionId = lSectionTN.id;
+            var lHref = "#" + lSectionId;
+
+            for(var j = 0; j < lTitleNs.length; j++) {
+                var lTitleN = lTitleNs[j];
+                lTitleN = lTitleN.firstElementChild;
+                lTitleN.setAttribute("href", lHref);
+            }
+        }
+    }
+    //===============================================
+    toUpdateTitle2() {
+        var lTitle2Ns = document.getElementsByClassName("GTitle2");
+        
+        for(var i = 0; i < lTitle2Ns.length; i++) {
+            var lTitle2N = lTitle2Ns[i];
+            var lTitle2AN = lTitle2N.firstElementChild;
+            var lTitle2AT = lTitle2AN.innerHTML;
+            
+            var lTitle1N = this.toPreviousNode(lTitle2N, "GTitle1");
+            if(!lTitle1N) continue;
+            var lTitle1AN = lTitle1N.firstElementChild;
+            var lTitle1AI = lTitle1AN.id;
+            
+            var lTitle2AH = sprintf("#%s", lTitle1AI);
+            var lTitle2AI = sprintf("%s_%s", lTitle1AI, lTitle2AT.getNormalize());
+            
+            lTitle2AN.id = lTitle2AI;
+            lTitle2AN.setAttribute("href", lTitle2AH);
         }
     }
     //===============================================
@@ -701,6 +770,27 @@ class GEditor extends GObject {
         }
         else if(_method == "delete_tuto_1_group") {
             this.onDeleteTuto1Group(_obj, _data);
+        }
+        //===============================================
+        // edition/formule
+        //===============================================
+        else if(_method == "add_formula_1") {
+            this.onAddFormula1(_obj, _data);
+        }
+        else if(_method == "copy_formula_1") {
+            this.onCopyFormula1(_obj, _data);
+        }
+        else if(_method == "paste_formula_1") {
+            this.onPasteFormula1(_obj, _data);
+        }
+        else if(_method == "update_formula_1") {
+            this.onUpdateFormula1(_obj, _data);
+        }
+        else if(_method == "update_formula_1_form") {
+            this.onUpdateFormula1Form(_obj, _data);
+        }
+        else if(_method == "delete_formula_1") {
+            this.onDeleteFormula1(_obj, _data);
         }
         //===============================================
         // edition/template/barre_acces_rapide
@@ -1431,6 +1521,9 @@ class GEditor extends GObject {
     onUpdateEditionPage(_obj, _data) {
         this.toUpdateSummary1();
         this.toUpdateSummary2();
+        this.toUpdateSummary3();
+        this.toUpdateTitle1();
+        this.toUpdateTitle2();
     }
     //===============================================
     // code
@@ -1661,6 +1754,120 @@ class GEditor extends GObject {
         }
         if(!this.hasParent("GTuto1")) {
             this.addError("Vous n'êtes pas dans un effet tutoriel.");
+            return false;
+        }
+        this.removeNode();
+    }
+    //===============================================
+    // edition/formule
+    //===============================================
+    onAddFormula1(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GFormula1")) {
+            this.addError("Vous êtes dans un effet formule.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+        
+        document.execCommand("insertHTML", false, this.toFormula1());
+    }
+    //===============================================
+    onCopyFormula1(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GFormula1")) {
+            this.addError("Vous n'êtes pas dans un effet formule.");
+            return false;
+        }
+        
+        this.copyNode();
+    }
+    //===============================================
+    onPasteFormula1(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(this.hasParent("GFormula1")) {
+            this.addError("Vous n'êtes pas dans un effet formule.");
+            return false;
+        }
+        if(this.isLine()) {
+            this.addError("Vous êtes sur une ligne.");
+            return false;
+        }
+        if(!this.restoreCopy()) {
+            this.addError("Aucun noeud n'a été copié.");
+            return false;
+        }
+        if(!this.isNode("GFormula1")) {
+            this.addError("Le noeud copié n'est pas un effet formule.");
+            return false;
+        }
+
+        var lNode = this.m_node;
+        document.execCommand("insertHTML", false, lNode.outerHTML);
+    }
+    //===============================================
+    onUpdateFormula1(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GFormula1")) {
+            this.addError("Vous n'êtes pas dans un effet formule.");
+            return false;
+        }
+
+        var lNode = this.m_node;
+        var lFormula = lNode.innerHTML;
+        
+        var lForm = GForm.Instance();
+        lForm.clearMap();
+        lForm.setCallback("editor", "update_formula_1_form");
+        lForm.addLabelText("m_formula", "Formule :", lFormula);
+        lForm.showForm();
+        this.addLogs(lForm.getLogs());
+        
+        GEditor.Instance().saveRange();
+    }
+    //===============================================
+    onUpdateFormula1Form(_obj, _data) {
+        GEditor.Instance().restoreRange();
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GFormula1")) {
+            this.addError("Vous n'êtes pas dans un effet formule.");
+            return false;
+        }
+
+        var lForm = GForm.Instance();
+        lForm.readForm();
+        
+        var lFormula = lForm.loadFromMap(1).m_value;
+
+        var lNode = this.m_node;
+
+        lNode.innerHTML = lFormula;
+    }
+    //===============================================
+    onDeleteFormula1(_obj, _data) {
+        if(!this.isEditor()) {
+            this.addError("La sélection est hors du cadre.");
+            return false;
+        }
+        if(!this.hasParent("GFormula1")) {
+            this.addError("Vous n'êtes pas dans un effet formule.");
             return false;
         }
         this.removeNode();
@@ -2249,12 +2456,11 @@ class GEditor extends GObject {
             this.addError("Vous êtes dans un effet lien simple.");
             return false;
         }
-        if(!this.isData()) {
-            this.addError("Vous n'avez pas sélectionné de texte.");
-            return false;
-        }
+        
+        var lText = "Ajouter un lien";
+        if(this.isData()) lText = this.toData();
 
-        document.execCommand("insertHTML", false, this.toLink2(this.toData()));
+        document.execCommand("insertHTML", false, this.toLink2(lText));
         return !this.hasErrors();
     }
     //===============================================
@@ -2334,12 +2540,11 @@ class GEditor extends GObject {
             this.addError("Vous êtes dans un effet lien simple externe.");
             return false;
         }
-        if(!this.isData()) {
-            this.addError("Vous n'avez pas sélectionné de texte.");
-            return false;
-        }
-
-        document.execCommand("insertHTML", false, this.toLink3(this.toData()));
+        
+        var lText = "Ajouter un lien";
+        if(this.isData()) lText = this.toData();
+        
+        document.execCommand("insertHTML", false, this.toLink3(lText));
         return !this.hasErrors();
     }
     //===============================================
@@ -2424,7 +2629,7 @@ class GEditor extends GObject {
             return false;
         }
 
-        document.execCommand("insertHTML", false, this.toLink());
+        document.execCommand("insertHTML", false, this.toLink1());
         return !this.hasErrors();
     }
     //===============================================
@@ -3364,7 +3569,7 @@ class GEditor extends GObject {
 
             lTitle = this.toLine();
             lHref = sprintf("%s_%s", lHref.getNormalize(), lTitle1.getNormalize());
-            lId = sprintf("%s_%s_%s", lHref.getNormalize(), lTitle1.getNormalize(), lTitle.getNormalize());
+            lId = sprintf("%s_%s", lHref.getNormalize(), lTitle.getNormalize());
             
             this.selectLine();
             document.execCommand("insertHTML", false, this.toTitle2(lId, lHref, lTitle));
