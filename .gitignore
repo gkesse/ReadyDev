@@ -12,9 +12,9 @@
 /**/*/config.dat
 /**/*.bak
 /**/logs
+!/**/logs/index.php
 /sitemap*.xml
 /tmp/
-/data/cache/
 
 #================================================
 # Directory
