@@ -11,7 +11,7 @@
 /**/~$*
 /**/*/config.dat
 /**/*.bak
-/**/logs
+/**/logs/*
 !/**/logs/index.php
 /sitemap*.xml
 /tmp/
