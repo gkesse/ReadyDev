@@ -261,19 +261,19 @@ class GEditor extends GObject {
         return lHtml;
     }
     //===============================================
-    toLink2(_text) {
+    toLink2(_text, _href) {
         var lHtml = "";
         lHtml += sprintf("<a class='GLink2 Link4' style='");
         lHtml += sprintf(" color: lime;");
-        lHtml += sprintf("' href='#'>%s</a>\n", _text);
+        lHtml += sprintf("' href='%s'>%s</a>\n", _href, _text);
         return lHtml;
     }
     //===============================================
-    toLink3(_text) {
+    toLink3(_text, _href) {
         var lHtml = "";
         lHtml += sprintf("<a class='GLink3 Link4' style='");
         lHtml += sprintf(" color: lime;");
-        lHtml += sprintf("' href='#' target='_blank'>%s</a>\n", _text);
+        lHtml += sprintf("' href='%s' target='_blank'>%s</a>\n", _href, _text);
         return lHtml;
     }
     //===============================================
@@ -510,6 +510,14 @@ class GEditor extends GObject {
         var lHtml = "";
         lHtml += sprintf("<div class='GFormula1 Formula1'>Ajouter une formule...</div>\n");
         return lHtml;
+    }
+    //===============================================
+    toUpdateEditionPage() {
+        this.toUpdateSummary1();
+        this.toUpdateSummary2();
+        this.toUpdateSummary3();
+        this.toUpdateTitle1();
+        this.toUpdateTitle2();
     }
     //===============================================
     toUpdateSummary1() {
@@ -1519,11 +1527,8 @@ class GEditor extends GObject {
     }
     //===============================================
     onUpdateEditionPage(_obj, _data) {
-        this.toUpdateSummary1();
-        this.toUpdateSummary2();
-        this.toUpdateSummary3();
-        this.toUpdateTitle1();
-        this.toUpdateTitle2();
+        this.toUpdateEditionPage();
+        this.toUpdateEditionPage();
     }
     //===============================================
     // code
@@ -2457,10 +2462,12 @@ class GEditor extends GObject {
             return false;
         }
         
+        var lHref = "#";
         var lText = "Ajouter un lien";
         if(this.isData()) lText = this.toData();
+        if(this.isData()) lHref = this.toData();
 
-        document.execCommand("insertHTML", false, this.toLink2(lText));
+        document.execCommand("insertHTML", false, this.toLink2(lText, lHref));
         return !this.hasErrors();
     }
     //===============================================
@@ -2541,10 +2548,12 @@ class GEditor extends GObject {
             return false;
         }
         
+        var lHref = "#";
         var lText = "Ajouter un lien";
         if(this.isData()) lText = this.toData();
+        if(this.isData()) lHref = this.toData();
         
-        document.execCommand("insertHTML", false, this.toLink3(lText));
+        document.execCommand("insertHTML", false, this.toLink3(lText, lHref));
         return !this.hasErrors();
     }
     //===============================================

@@ -191,6 +191,13 @@ class GReady extends GObject {
         return $lPath;
     }
     //===============================================
+    public function toAdminIntroPath() {
+        $lPath = "/home/admin/intro";
+        $lPath = sprintf("%s/%s%s/main.php", $this->toRoot(), $this->toProjectName(), $lPath);
+        $lPath = $this->getPath($lPath);
+        return $lPath;
+    }
+    //===============================================
     public function toRoot() {
         return "/data/cache/page";
     }
@@ -199,15 +206,18 @@ class GReady extends GObject {
         return "readydev";
     }
     //===============================================
-    public function showPage() {
+    public function showPage($_path) {
+        if(!file_exists($_path)) {
+            $this->addError("Page non trouvée !");
+            return false;
+        }
         if($this->isTemplate()) {
-            $lPath = $this->toPath();
-            $this->getTemplate()->render($lPath);
+            $this->getTemplate()->render($_path);
         }
         else {
-            $lPath = $this->toPath();
-            require $lPath;
-        }        
+            require $_path;
+        }
+        return true;
     }
     //===============================================
     public function toBanner() {
@@ -599,16 +609,12 @@ class GReady extends GObject {
     //===============================================
     public function runPage() {
         if($this->isAdmin()) {
+            $this->showPage($this->toAdminIntroPath());
             $lObj = new GAdmin();
             $lObj->run();
             $this->addLogs($lObj->getLogs());
         }
-        else if($this->isPage()) {
-            $this->showPage();
-        }
-        else {
-            $this->addError("Page non trouvée !");
-        }
+        $this->showPage($this->toPath());
         return !$this->hasErrors();
     }
     //===============================================
