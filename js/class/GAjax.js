@@ -3,7 +3,6 @@ class GAjax extends GObject {
     //===============================================
     constructor() {
         super();
-        this.m_xhttp = new XMLHttpRequest();
         this.m_method = "POST";
         this.m_url = "/php/req/server.php";
         this.m_async = true;
@@ -50,7 +49,8 @@ class GAjax extends GObject {
             return false;
         }
         var lLoader = new GLoader();
-        this.m_xhttp.onreadystatechange = function() {
+        var lXhttp = new XMLHttpRequest();
+        lXhttp.onreadystatechange = function() {
             if(this.readyState == 4 && this.status == 200) {
                 var lData = this.responseText;
                 var lLog = new GLog();
@@ -60,14 +60,14 @@ class GAjax extends GObject {
                 lLoader.closeLoader();
             }
         }
-        this.m_xhttp.open(this.m_method, this.m_url, this.m_async, this.m_user, this.m_password);
+        lXhttp.open(this.m_method, this.m_url, this.m_async, this.m_user, this.m_password);
         for(var lHeader in this.m_headers) {
             var lValue = this.m_headers[lHeader];
-            this.m_xhttp.setRequestHeader(lHeader, lValue);
+            lXhttp.setRequestHeader(lHeader, lValue);
         }
         var lReq = "";
         lReq += sprintf("req=%s", _data);
-        this.m_xhttp.send(lReq);
+        lXhttp.send(lReq);
         lLoader.showLoader();
         return !this.hasErrors();
     }
