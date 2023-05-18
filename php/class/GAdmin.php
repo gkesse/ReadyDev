@@ -413,9 +413,14 @@ class GAdmin extends GObject {
         // template/sommaire/primaire
         $lObj2 = $lMenu->addMenu("", "", "Sommaire", $lObj);
         $lObj3 = $lMenu->addMenu("", "", "Principal", $lObj2);
-        $lMenu->addMenu("editor", "add_summary_1", "Ajouter", $lObj3);
-        $lMenu->addMenu("editor", "update_summary_1", "Modifier", $lObj3);
-        $lMenu->addMenu("editor", "delete_summary_1", "Supprimer", $lObj3);
+        $lObj4 = $lMenu->addMenu("", "", "Edition", $lObj3);
+        $lMenu->addMenu("editor", "add_summary_1", "Ajouter", $lObj4);
+        $lMenu->addMenu("editor", "update_summary_1", "Modifier", $lObj4);
+        $lMenu->addMenu("editor", "delete_summary_1", "Supprimer", $lObj4);
+        $lObj4 = $lMenu->addMenu("", "", "Fichier", $lObj3);
+        $lMenu->addMenu("editor", "add_summary_4", "Ajouter", $lObj4);
+        $lMenu->addMenu("editor", "update_summary_4", "Modifier", $lObj4);
+        $lMenu->addMenu("editor", "delete_summary_4", "Supprimer", $lObj4);
         // template/sommaire/secondaire
         $lObj3 = $lMenu->addMenu("", "", "Secondaire", $lObj2);
         $lMenu->addMenu("editor", "add_summary_2", "Ajouter", $lObj3);

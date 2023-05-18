@@ -521,11 +521,12 @@ class GEditor extends GObject {
     }
     //===============================================
     toUpdateSummary1() {
-        var lSummaryNs = document.getElementsByClassName("GSummary1");
+        var lEditionN = document.getElementById("EditorEditionPage");
+        var lSummaryNs = lEditionN.getElementsByClassName("GSummary1");
         if(!lSummaryNs.length) return;
         var lSummaryN = lSummaryNs[0];
         
-        var lNodes = document.getElementsByClassName("GSection1");
+        var lNodes = lEditionN.getElementsByClassName("GSection1");
         
         var lHtml = "";
 
@@ -547,7 +548,8 @@ class GEditor extends GObject {
     }
     //===============================================
     toUpdateSummary2() {
-        var lSectionNs = document.getElementsByClassName("GSection1");
+        var lEditionN = document.getElementById("EditorEditionPage");
+        var lSectionNs = lEditionN.getElementsByClassName("GSection1");
         var lIcon = "fa-book";
 
         for(var i = 0; i < lSectionNs.length; i++) {
@@ -575,7 +577,8 @@ class GEditor extends GObject {
     }
     //===============================================
     toUpdateSummary3() {
-        var lSummary3Ns = document.getElementsByClassName("GSummary3");
+        var lEditionN = document.getElementById("EditorEditionPage");
+        var lSummary3Ns = lEditionN.getElementsByClassName("GSummary3");
 
         for(var i = 0; i < lSummary3Ns.length; i++) {
             var lSummary3N = lSummary3Ns[i];
@@ -598,7 +601,8 @@ class GEditor extends GObject {
     }
     //===============================================
     toUpdateTitle1() {
-        var lSectionNs = document.getElementsByClassName("GSection1");
+        var lEditionN = document.getElementById("EditorEditionPage");
+        var lSectionNs = lEditionN.getElementsByClassName("GSection1");
         var lIcon = "fa-book";
 
         for(var i = 0; i < lSectionNs.length; i++) {
@@ -617,7 +621,8 @@ class GEditor extends GObject {
     }
     //===============================================
     toUpdateTitle2() {
-        var lTitle2Ns = document.getElementsByClassName("GTitle2");
+        var lEditionN = document.getElementById("EditorEditionPage");
+        var lTitle2Ns = lEditionN.getElementsByClassName("GTitle2");
         
         for(var i = 0; i < lTitle2Ns.length; i++) {
             var lTitle2N = lTitle2Ns[i];
