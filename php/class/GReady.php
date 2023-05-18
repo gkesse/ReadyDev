@@ -95,6 +95,9 @@ class GReady extends GObject {
         $lObj2 = $lMenu->addMenu("tutoriels", "CSS", "CSS", "", $lObj);
         $lMenu->addMenu("tutoriels", "Font Awesome", "Font Awesome", "/home/tutoriels/css/font_awesome", $lObj2);
         $lMenu->addMenu("tutoriels", "Google Fonts", "Google Fonts", "/home/tutoriels/css/google_fonts", $lObj2);
+        // tutoriels/database
+        $lObj2 = $lMenu->addMenu("tutoriels", "Base de données", "Base de données", "", $lObj);
+        $lMenu->addMenu("tutoriels", "SQLite", "SQLite", "/home/tutoriels/database/sqlite", $lObj2);
         // tutoriels/controle_version
         $lObj2 = $lMenu->addMenu("tutoriels", "Contrôle de version", "Contrôle de version", "", $lObj);
         $lMenu->addMenu("tutoriels", "Git", "Git", "/home/tutoriels/controle_version/git", $lObj2);

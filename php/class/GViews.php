@@ -4,7 +4,7 @@ class GViews extends GObject {
     //===============================================
     private $m_id = 0;
     private $m_url = "";
-    private $m_view = 0;
+    private $m_view = 100;
     //===============================================
     public function __construct() {
         parent::__construct();
