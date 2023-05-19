@@ -69,7 +69,7 @@
         }
         //===============================================
         public function isLogin() {
-            return false;
+            return $this->isTestEnv();
         }
         //===============================================
         public function isEmpty() {
@@ -77,7 +77,12 @@
         }
         //===============================================
         public function isTestEnv() {
-            return ($this->getEnv("GPROJECT_ENV") == "TEST");
+            return ($this->toProjectEnv() == "TEST");
+        }
+        //===============================================
+        public function toProjectEnv() {
+            $lEnv = getenv("GPROJECT_ENV");
+            return $lEnv;
         }
         //===============================================
         public function getHomePage() {
