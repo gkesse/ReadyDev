@@ -397,6 +397,7 @@ class GReady extends GObject {
         echo sprintf("<body>\n");
         // env_input
         echo sprintf("<input type='hidden' id='gPageId' value='%s'/>\n", $this->getPageId());
+        echo sprintf("<input type='hidden' id='gLoginOk' value='%s'/>\n", $this->isLogin());
         // env_div
         echo sprintf("<div id='gData' hidden='true'></div>\n");
         //
@@ -615,12 +616,17 @@ class GReady extends GObject {
     //===============================================
     public function runPage() {
         if($this->isAdmin()) {
-            $this->showPage($this->toAdminIntroPath());
-            $lObj = new GAdmin();
-            $lObj->run();
-            $this->addLogs($lObj->getLogs());
+            if($this->isLogin()) {
+                $this->showPage($this->toAdminIntroPath());
+                $lObj = new GAdmin();
+                $lObj->run();
+                $this->addLogs($lObj->getLogs());
+                $this->showPage($this->toPath());
+            }
         }
-        $this->showPage($this->toPath());
+        else {
+            $this->showPage($this->toPath());
+        }
         return !$this->hasErrors();
     }
     //===============================================

@@ -64,7 +64,11 @@
         }
         //===============================================
         public function isAdmin() {
-            if($this->getPageId() == "/home/admin") return true;
+            if($this->getPageId() != "/home/admin") return false;
+            return true;
+        }
+        //===============================================
+        public function isLogin() {
             return false;
         }
         //===============================================

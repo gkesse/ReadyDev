@@ -2,7 +2,6 @@
 class GObject {
     //===============================================
     constructor() {
-        this.m_pageId = "";
         this.m_logs = new GLog();
         this.m_map = [];
     }
@@ -25,15 +24,22 @@ class GObject {
         return 960;
     }
     //===============================================
-    readPageId() {
+    toPageId() {
         var lPageId = document.getElementById("gPageId");
-        this.m_pageId = lPageId.value;
+        return lPageId.value;
+    }
+    //===============================================
+    isLogin() {
+        var lLoginOk = document.getElementById("gLoginOk");
+        return lLoginOk.value;
     }
     //===============================================
     isAdmin() {
-        this.readPageId();
-        if(this.m_pageId == "/home/admin") return true;
-        return false;
+        var lPageId = this.toPageId();
+        var lLoginOk = this.isLogin();
+        if(lPageId != "/home/admin") return false;
+        if(!lLoginOk) return false;
+        return true;
     }
     //===============================================
     loadFromMap(_index) {
