@@ -4,8 +4,5 @@
 <div class="Parallax3"><a href="#" class="Parallax4">CV Simplifié</a></div>
 </div>
 <div class="Parallax5" style="background-color: rgb(128, 51, 0);"><br><div class="GPdf1 Pdf1">
-<object data="/data/file/cv/KESSE_Gerard_CV_Simplifie.pdf#navpanes=0" class="Pdf2" type="application/pdf">
-</object>
-</div><br><div class="GPdf1 Pdf1">
 <iframe class="Pdf2" src="/data/file/cv/KESSE_Gerard_CV_Simplifie.pdf"></iframe>
 </div><br></div></div>

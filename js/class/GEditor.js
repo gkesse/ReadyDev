@@ -469,16 +469,6 @@ class GEditor extends GObject {
         return lHtml;
     }
     //===============================================
-    toPdf12() {
-        var lFile = this.toPdfFile();
-        var lHtml = "";
-        lHtml += sprintf("<div class='GPdf1 Pdf1'>\n");
-        lHtml += sprintf("<object data='%s#navpanes=0' class='Pdf2' type='application/pdf'>\n", lFile);
-        lHtml += sprintf("</object>\n");
-        lHtml += sprintf("</div>\n");
-        return lHtml;
-    }
-    //===============================================
     toTuto1() {
         var lHtml = "";
         lHtml += sprintf("<div class='GTuto1 Tuto1'>\n");
@@ -1585,7 +1575,7 @@ class GEditor extends GObject {
         var lNode = this.m_node;
         var lObject = lNode.firstElementChild;
         
-        var lFilename = lObject.getAttribute("data").split("#")[0];
+        var lFilename = lObject.getAttribute("src");
         
         var lFile = GFile.Instance();
         var lIndex = lFile.findObj(lFilename);
@@ -1623,13 +1613,11 @@ class GEditor extends GObject {
             this.addError("Le fichier n'est pas un pdf.");
             return false;
         }
-        
-        lFilename = sprintf("%s#navpanes=0", lFilename);
-        
+                
         var lNode = this.m_node;
         var lObject = lNode.firstElementChild;
 
-        lObject.setAttribute("data", lFilename);
+        lObject.setAttribute("src", lFilename);
     }
     //===============================================
     onDeletePdf1(_obj, _data) {
