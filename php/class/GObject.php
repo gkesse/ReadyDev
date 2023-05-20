@@ -177,15 +177,28 @@
             return $lUrl;
         }
         //===============================================
-        public function getGet($key, $defaultValue = "") {
-            if(!isset($_GET[$key])) return $defaultValue;
-            return $_GET[$key];
+        public function getGet($_key, $_defaultValue = "") {
+            if(!isset($_GET[$_key])) return $_defaultValue;
+            return $_GET[$_key];
         }
         //===============================================
-        public function getEnv($key, $defaultValue = "") {
-            $lEnv = getenv($key);
-            if($lEnv == false) return $defaultValue;
+        public function getEnv($_key, $_defaultValue = "") {
+            $lEnv = getenv($_key);
+            if(!$lEnv) return $_defaultValue;
             return $lEnv;
+        }
+        //===============================================
+        public function setSession($_key, $_value) {
+            $_SESSION[$_key] = $_value;
+        }
+        //===============================================
+        public function usetSession($_key) {
+            if(isset($_SESSION[$_key])) unset($_SESSION[$_key]);
+        }
+        //===============================================
+        public function getSession($_key, $_defaultValue = "") {
+            if(!isset($_SESSION[$_key])) return $_defaultValue;
+            return $_SESSION[$_key];
         }
         //===============================================
         public function redirectUrl($_url) {
@@ -228,6 +241,7 @@
             }
             else if(!file_exists($this->toPath())) {
                 $lRedirectOk = true;
+                $this->setSession("page_not_found", true);
             }
             
             if($lRedirectOk) {
@@ -236,6 +250,13 @@
                     $this->redirectUrl($lHome);
                 }
             }
+            else {
+                if($this->getSession("page_not_found")) {
+                    $this->addError("Page non trouvée !");
+                }
+            }
+
+            $this->usetSession("page_not_found");
         }
         //===============================================
         public function print() {
