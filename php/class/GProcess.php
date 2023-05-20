@@ -6,16 +6,6 @@ class GProcess extends GObject {
         parent::__construct();
     }
     //===============================================
-    public function redirectHomePage() {
-        $lPageId = $this->getPageId();
-        if($lPageId == "/") {
-            $lHome = $this->getHomePage();
-            if($lHome != "" && $lHome != "/") {
-                $this->redirectUrl($lHome);
-            }
-        }
-    }
-    //===============================================
     public function main() {
         $this->redirectHomePage();
 

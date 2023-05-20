@@ -195,6 +195,32 @@
             }
         }
         //===============================================
+        public function redirectHomePage() {
+            $lPageId = $this->getPageId();
+            $lRedirectOk = false;
+            
+            if($lPageId == "/") {
+                $lRedirectOk = true;
+            }
+            else if($lPageId == "/home/admin") {
+                if(!$this->isLogin()) {
+                    $lRedirectOk = true;
+                }
+            }
+            else if($lPageId == "/home/connexion") {
+                if($this->isLogin()) {
+                    $lRedirectOk = true;
+                }
+            }
+            
+            if($lRedirectOk) {
+                $lHome = $this->getHomePage();
+                if($lHome != "" && $lHome != "/") {
+                    $this->redirectUrl($lHome);
+                }
+            }
+        }
+        //===============================================
         public function print() {
             echo sprintf("<xmp style='text-align: left;'>%s</xmp>\n", $this->serialize());
         }

@@ -17,7 +17,8 @@ class GReady extends GObject {
     }
     //===============================================
     public function setObj($_obj) {
-        parent::setObj($_obj);
+        $this->m_index = $_obj->m_index;
+        $this->m_parentIndex = $_obj->m_parentIndex;
         $this->m_name = $_obj->m_name;
         $this->m_label = $_obj->m_label;
         $this->m_title = $_obj->m_title;
@@ -337,11 +338,12 @@ class GReady extends GObject {
     public function serialize($_code = "ready") {
         $lDom = new GCode();
         $lDom->createDoc();
-        $lDom->addData($_code, "category", $this->m_category);
-        $lDom->addData($_code, "model", $this->m_model);
+        $lDom->addData($_code, "index", $this->m_index);
+        $lDom->addData($_code, "parent_index", $this->m_parentIndex);
+        $lDom->addData($_code, "name", $this->m_name);
+        $lDom->addData($_code, "label", $this->m_label);
         $lDom->addData($_code, "title", $this->m_title);
         $lDom->addData($_code, "link", $this->m_link);
-        $lDom->addData($_code, "name", $this->m_name);
         $lDom->addData($_code, "active", $this->m_isActive);
         $lDom->addMap($_code, $this->m_map);
         return $lDom->toString();
@@ -350,11 +352,12 @@ class GReady extends GObject {
     public function deserialize($_data, $_code = "ready") {
         $lDom = new GCode();
         $lDom->loadXml($_data);
-        $this->m_category = $lDom->getItem($_code, "category");
-        $this->m_model = $lDom->getItem($_code, "model");
+        $this->m_index = $lDom->getItem($_code, "index");
+        $this->m_parentIndex = $lDom->getItem($_code, "parent_index");
+        $this->m_name = $lDom->getItem($_code, "name");
+        $this->m_label = $lDom->getItem($_code, "label");
         $this->m_title = $lDom->getItem($_code, "title");
         $this->m_link = $lDom->getItem($_code, "link");
-        $this->m_name = $lDom->getItem($_code, "name");
         $this->m_isActive = $lDom->getItem($_code, "active");
         $lDom->getMap($_code, $this->m_map, $this);
     }
