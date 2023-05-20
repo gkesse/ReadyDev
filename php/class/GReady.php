@@ -196,25 +196,11 @@ class GReady extends GObject {
         return true;
     }
     //===============================================
-    public function toPath() {
-        $lPath = sprintf("%s/%s%s/main.php", $this->toRoot(), $this->toProjectName(), $this->getPageId());
-        $lPath = $this->getPath($lPath);
-        return $lPath;
-    }
-    //===============================================
     public function toAdminIntroPath() {
         $lPath = "/home/admin/intro";
         $lPath = sprintf("%s/%s%s/main.php", $this->toRoot(), $this->toProjectName(), $lPath);
         $lPath = $this->getPath($lPath);
         return $lPath;
-    }
-    //===============================================
-    public function toRoot() {
-        return "/data/cache/page";
-    }
-    //===============================================
-    public function toProjectName() {
-        return "readydev";
     }
     //===============================================
     public function showPage($_path) {

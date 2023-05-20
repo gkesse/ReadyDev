@@ -85,6 +85,20 @@
             return $lEnv;
         }
         //===============================================
+        public function toRoot() {
+            return "/data/cache/page";
+        }
+        //===============================================
+        public function toProjectName() {
+            return "readydev";
+        }
+        //===============================================
+        public function toPath() {
+            $lPath = sprintf("%s/%s%s/main.php", $this->toRoot(), $this->toProjectName(), $this->getPageId());
+            $lPath = $this->getPath($lPath);
+            return $lPath;
+        }
+        //===============================================
         public function getHomePage() {
             return "/home";
         }
@@ -211,6 +225,9 @@
                 if($this->isLogin()) {
                     $lRedirectOk = true;
                 }
+            }
+            else if(!file_exists($this->toPath())) {
+                $lRedirectOk = true;
             }
             
             if($lRedirectOk) {
