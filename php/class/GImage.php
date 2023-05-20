@@ -305,6 +305,9 @@ class GImage extends GModule {
         else if($this->m_method == "load_image") {
             $this->onLoadImage($_data);
         }
+        else if($this->m_method == "load_parallax_image") {
+            $this->onLoadParallaxImage($_data);
+        }
         //===============================================
         else {
             $this->addError("La méthode est inconnue.");
@@ -313,8 +316,29 @@ class GImage extends GModule {
     //===============================================
     public function onLoadImage($_data) {
         $this->loadImagePng();
-        $this->loadImageJpg();
+        //$this->loadImageJpg();
         $this->loadImageGif();
+    }
+    //===============================================
+    public function onLoadParallaxImage($_data) {
+        $lPath = $this->getPath($this->m_path);
+        $lMimeType = mime_content_type($lPath);
+        
+        if($lMimeType == "image/png") {
+            $lImgSrc = @imagecreatefrompng($lPath);
+            
+            ob_start();
+            imagepng($lImgSrc);
+            $lImgData = ob_get_contents();
+            ob_end_clean ();
+            $lImgData64 = base64_encode($lImgData);
+
+            $lPathInfo = pathinfo($this->m_path);
+            
+            $this->m_mimeType = $lMimeType;
+            $this->m_name = $lPathInfo["basename"];
+            $this->m_img = $lImgData64;
+        }
     }
     //===============================================
 }

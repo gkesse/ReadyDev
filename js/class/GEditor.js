@@ -229,11 +229,12 @@ class GEditor extends GObject {
     }
     //===============================================
     toParallax() {
+        var lImage = GImage.Instance();
         var lBgImg = "/data/img/defaults/binary.png";
         var lBgColor = "#803300";
         
         var lHtml = "";
-        lHtml += sprintf("<div class='GParallax1 Parallax1'>\n");
+        lHtml += sprintf("<div class='GParallax1 Parallax1' data-bg-img='%s'>\n", lBgImg);
         lHtml += sprintf("<div class='Parallax2'>\n");
         lHtml += sprintf("<div class='Parallax3'>\n");
         lHtml += sprintf("<a href='#' class='Parallax4'>Ajouter un titre...</a>\n");
@@ -245,7 +246,7 @@ class GEditor extends GObject {
         var lNode = this.createNode(lHtml);
         var lImgId = lNode.firstElementChild;
         var lBodyId = lNode.firstElementChild.nextElementSibling;
-        lImgId.style.backgroundImage = sprintf("url('%s')", lBgImg);
+        lImgId.style.backgroundImage = sprintf("url('%s')", lImage.getParallaxImg());
         lBodyId.style.backgroundColor = lBgColor;
         lHtml = lNode.outerHTML;
 

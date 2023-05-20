@@ -573,7 +573,7 @@ class GForm extends GObject {
                 lContent += sprintf("<img class='Forms16'/>\n");
                 lContent += sprintf("<div class='Forms17'>\n");
                 
-                for(var j = 0; j < lForm.m_map.length; j++) {
+                for(var j = 1; j <= lForm.size(); j++) {
                     lForm.loadFromMap(j);
                     lContent += sprintf("<div class='Forms18 FormLine' data-type='image' data-index='%s' data-position='%s' data-value='%s'>%s <img class='Forms19' src='%s' alt='%s'/></div>\n", j, lObj.m_position, lForm.m_value, lForm.m_value, lForm.m_img, lForm.m_value);
                 }
@@ -602,7 +602,7 @@ class GForm extends GObject {
                 lContent += sprintf("<i data-type='combo' class='Forms15 FormCaret fa fa-caret-down'></i>\n");
                 lContent += sprintf("<div class='Forms17'>\n");
                 
-                for(var j = 0; j < lForm.m_map.length; j++) {
+                for(var j = 1; j <= lForm.size(); j++) {
                     lForm.loadFromMap(j);
                     lContent += sprintf("<div class='Forms18 FormLine' data-type='combo' data-index='%s' data-position='%s' data-value='%s'>%s</div>\n", j, lObj.m_position, lForm.m_value, lForm.m_value);
                 }
@@ -632,7 +632,7 @@ class GForm extends GObject {
                 lContent += sprintf("<i class='Forms22 fa fa-book'></i>\n");
                 lContent += sprintf("<div class='Forms17'>\n");
                 
-                for(var j = 0; j < lForm.m_map.length; j++) {
+                for(var j = 1; j <= lForm.size(); j++) {
                     lForm.loadFromMap(j);
                     lContent += sprintf("<div class='Forms18 FormLine' data-type='picto' data-index='%s' data-position='%s' data-value='%s'>%s <i class='Forms21 fa %s'></i></div>\n", j, lObj.m_position, lForm.m_value, lForm.m_value, lForm.m_value);
                 }

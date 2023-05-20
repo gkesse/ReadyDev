@@ -10,6 +10,8 @@ class GImage extends GObject {
         this.m_path = "";
         this.m_img = "";
         this.m_data = "";
+        //
+        this.m_parallaxImg = null
     }
     //===============================================
     static Instance() {
@@ -38,12 +40,30 @@ class GImage extends GObject {
     //===============================================
     init() {
         if(this.isAdmin()) {
+            this.initObj();
             this.onLoadImage();
+            this.onLoadParallaxImage();
         }
+    }
+    //===============================================
+    initObj() {
+        this.m_parallaxImg = new GImage();
+        this.setParallaxImg("/data/img/defaults/binary.png");
+    }
+    //===============================================
+    setParallaxImg(_parallaxImg) {
+        var lImg = this.m_parallaxImg;
+        lImg.m_path = _parallaxImg;
     }
     //===============================================
     getImageData() {
         var lData = sprintf("data:%s;base64,%s", this.m_mimeType, this.m_img);
+        return lData;
+    }
+    //===============================================
+    getParallaxImg() {
+        var lImg = this.m_parallaxImg;
+        var lData = sprintf("data:%s;base64,%s", lImg.m_mimeType, lImg.m_img);
         return lData;
     }
     //===============================================
@@ -63,7 +83,7 @@ class GImage extends GObject {
         var lForm = new GForm();
         for(var i = 0; i < this.m_map.length; i++) {
             var lImg = this.m_map[i];
-            lForm.addImage(lImg.m_name, lImg.getImageData);
+            lForm.addImage(lImg.m_name, lImg.getImageData());
         }
         var lData = lForm.serialize();
         return lData;
@@ -125,6 +145,21 @@ class GImage extends GObject {
         if(_isOk) {
             var lObj = GImage.Instance();
             lObj.deserialize(_data);
+        }
+    }
+    //===============================================
+    onLoadParallaxImage(_obj, _data) {
+        var lImg = this.m_parallaxImg;
+        var lAjax = new GAjax();
+        var lData = lImg.serialize();
+        lAjax.callLocal("image", "load_parallax_image", lData, this.onLoadParallaxImageCB);
+    }
+    //===============================================
+    onLoadParallaxImageCB(_data, _isOk) {
+        if(_isOk) {
+            var lObj = GImage.Instance();
+            var lImg = lObj.m_parallaxImg;
+            lImg.deserialize(_data);
         }
     }
     //===============================================
