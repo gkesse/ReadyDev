@@ -1397,6 +1397,10 @@ thead tr:first-child {
     -o-background-size: cover; 
 }
 
+.Parallax1.NoScroll .Parallax2 {
+    background-attachment: scroll;
+}
+
 .Parallax3 {
     background-color: #051039;
     position: absolute;

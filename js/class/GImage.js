@@ -42,7 +42,7 @@ class GImage extends GObject {
         if(this.isAdmin()) {
             this.initObj();
             this.onLoadImage();
-            this.onLoadParallaxImage();
+            //this.onLoadParallaxImage();
         }
     }
     //===============================================
