@@ -463,6 +463,16 @@ class GEditor extends GObject {
         var lFile = this.toPdfFile();
         var lHtml = "";
         lHtml += sprintf("<div class='GPdf1 Pdf1'>\n");
+        lHtml += sprintf("<iframe class='Pdf2' src='%s'>", lFile);
+        lHtml += sprintf("</iframe>\n");
+        lHtml += sprintf("</div>\n");
+        return lHtml;
+    }
+    //===============================================
+    toPdf12() {
+        var lFile = this.toPdfFile();
+        var lHtml = "";
+        lHtml += sprintf("<div class='GPdf1 Pdf1'>\n");
         lHtml += sprintf("<object data='%s#navpanes=0' class='Pdf2' type='application/pdf'>\n", lFile);
         lHtml += sprintf("</object>\n");
         lHtml += sprintf("</div>\n");
