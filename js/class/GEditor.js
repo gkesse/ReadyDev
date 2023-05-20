@@ -455,14 +455,17 @@ class GEditor extends GObject {
         return lHtml;
     }
     //===============================================
-    toPdfFile() {
-        return "/data/file/cv/KESSE_Gerard_CV_Simplifie.pdf";
+    toPdfFile(_path) {
+        var lPath = sprintf("https://github.com/gkesse/ReadyDev/raw/2.0%s", _path);
+        lPath = sprintf("https://docs.google.com/viewer?url=%s&embedded=true", lPath);
+        return lPath;
     }
     //===============================================
     toPdf1() {
-        var lFile = this.toPdfFile();
+        var lPdf = "/data/file/cv/KESSE_Gerard_CV_Simplifie.pdf";
+        var lFile = this.toPdfFile(lPdf);
         var lHtml = "";
-        lHtml += sprintf("<div class='GPdf1 Pdf1'>\n");
+        lHtml += sprintf("<div class='GPdf1 Pdf1' data-pdf='%s'>\n", lPdf);
         lHtml += sprintf("<iframe class='Pdf2' src='%s'>", lFile);
         lHtml += sprintf("</iframe>\n");
         lHtml += sprintf("</div>\n");
@@ -1573,9 +1576,8 @@ class GEditor extends GObject {
         }
 
         var lNode = this.m_node;
-        var lObject = lNode.firstElementChild;
         
-        var lFilename = lObject.getAttribute("src");
+        var lFilename = lNode.dataset.pdf;
         
         var lFile = GFile.Instance();
         var lIndex = lFile.findObj(lFilename);
@@ -1616,8 +1618,9 @@ class GEditor extends GObject {
                 
         var lNode = this.m_node;
         var lObject = lNode.firstElementChild;
-
-        lObject.setAttribute("src", lFilename);
+        
+        lNode.dataset.pdf = lFilename;
+        lObject.setAttribute("src", this.toPdfFile(lFilename));
     }
     //===============================================
     onDeletePdf1(_obj, _data) {
