@@ -91,6 +91,7 @@ class GReady extends GObject {
         // tutoriels/php
         $lObj2 = $lMenu->addMenu("tutoriels", "PHP", "PHP", "", $lObj);
         $lMenu->addMenu("tutoriels", "Cours", "PHP", "/home/tutoriels/php/cours", $lObj2);
+        $lMenu->addMenu("tutoriels", "Xdebug", "Xdebug", "/home/tutoriels/php/xdebug", $lObj2);
         $lMenu->addMenu("tutoriels", "Smarty", "Smarty", "/home/tutoriels/php/smarty", $lObj2);
         // tutoriels/css
         $lObj2 = $lMenu->addMenu("tutoriels", "CSS", "CSS", "", $lObj);
