@@ -103,6 +103,9 @@ class GReady extends GObject {
         // tutoriels/controle_version
         $lObj2 = $lMenu->addMenu("tutoriels", "Contrôle de version", "Contrôle de version", "", $lObj);
         $lMenu->addMenu("tutoriels", "Git", "Git", "/home/tutoriels/controle_version/git", $lObj2);
+        // tutoriels/ide
+        $lObj2 = $lMenu->addMenu("tutoriels", "IDE", "Environnement de développement intégré", "", $lObj);
+        $lMenu->addMenu("tutoriels", "Eclipse", "Eclipse", "/home/tutoriels/ide/eclipse", $lObj2);
         //===============================================
         // cours
         //===============================================
