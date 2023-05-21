@@ -457,17 +457,16 @@ class GEditor extends GObject {
     //===============================================
     toPdfFile(_path) {
         var lPath = sprintf("https://github.com/gkesse/ReadyDev/raw/2.0%s", _path);
-        lPath = sprintf("https://docs.google.com/viewer?url=%s&embedded=true", lPath);
         return lPath;
     }
     //===============================================
     toPdf1() {
         var lPdf = "/data/file/cv/KESSE_Gerard_CV_Simplifie.pdf";
-        var lFile = this.toPdfFile(lPdf);
         var lHtml = "";
         lHtml += sprintf("<div class='GPdf1 Pdf1' data-pdf='%s'>\n", lPdf);
-        lHtml += sprintf("<iframe class='Pdf2' src='%s'>", lFile);
-        lHtml += sprintf("</iframe>\n");
+        lHtml += sprintf("<object class='Pdf2' type='application/pdf' frameborder='0' data='%s'>\n", lPdf);
+        lHtml += sprintf("<embed src='https://drive.google.com/file/d/1CRFdbp6uBDE-YKJFaqRm4uy9Z4wgMS7H/preview?usp=sharing'/>\n");
+        lHtml += sprintf("</object>\n");
         lHtml += sprintf("</div>\n");
         return lHtml;
     }
@@ -1620,7 +1619,7 @@ class GEditor extends GObject {
         var lObject = lNode.firstElementChild;
         
         lNode.dataset.pdf = lFilename;
-        lObject.setAttribute("src", this.toPdfFile(lFilename));
+        lObject.setAttribute("data", lFilename);
     }
     //===============================================
     onDeletePdf1(_obj, _data) {
