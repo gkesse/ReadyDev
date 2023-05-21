@@ -5,7 +5,6 @@
 <div class="Parallax3"><a href="#" class="Parallax4">CV Détaillé</a></div>
 </div>
 <div class="Parallax5" style="background-color: rgb(128, 51, 0);"><br><div class="GPdf1 Pdf1" data-pdf="/data/file/cv/KESSE_Gerard_CV_Detaille.pdf">
-<object class="Pdf2" type="application/pdf" frameborder="0" data="/data/file/cv/KESSE_Gerard_CV_Detaille.pdf">
-<embed src="https://drive.google.com/file/d/1CRFdbp6uBDE-YKJFaqRm4uy9Z4wgMS7H/preview?usp=sharing">
-</object>
+<iframe class="Pdf2" src="https://docs.google.com/viewer?url=https://github.com/gkesse/ReadyDev/raw/2.0/data/file/cv/KESSE_Gerard_CV_Detaille.pdf&amp;embedded=true" frameborder="0">
+</iframe>
 </div><br></div></div>
