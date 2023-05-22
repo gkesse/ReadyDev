@@ -529,16 +529,16 @@ class GEditor extends GObject {
         if(!lSummaryNs.length) return;
         var lSummaryN = lSummaryNs[0];
         
-        var lNodes = lEditionN.getElementsByClassName("GSection1");
+        var lSectionNs = lEditionN.getElementsByClassName("GSection1");
         
         var lHtml = "";
 
-        for(var i = 0; i < lNodes.length; i++) {
-            var lNode = lNodes[i];
-            var lTitleId = lNode.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
+        for(var i = 0; i < lSectionNs.length; i++) {
+            var lSectionN = lSectionNs[i];
+            var lSectionTN = lSectionN.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
 
-            var lTitle = lTitleId.innerHTML;
-            var lId = lTitleId.id;
+            var lTitle = lSectionTN.innerHTML;
+            var lId = lSectionTN.id;
 
             lHtml += sprintf("<div class='GSummary11 Summary1'>\n");
             lHtml += sprintf("<i class='Summary2 fa fa-book'></i>\n");
@@ -3160,7 +3160,7 @@ class GEditor extends GObject {
         lForm.setCallback("editor", "update_section_form");
         lForm.setCallbackEdit("editor", "update_section_form_edit");
         lForm.addLabelEdit("m_title", "Titre :", lTitle);
-        lForm.addLabelLine("m_id", "Identifiant :", lId);
+        lForm.addLabelEdit("m_id", "Identifiant :", lId);
         lForm.showForm();
         this.addLogs(lForm.getLogs());
         
@@ -3182,13 +3182,13 @@ class GEditor extends GObject {
         lForm.readForm();
 
         var lTitle = lForm.loadFromMap(1).m_value;
-        var lId = lTitle.getNormalize();
+        var lId = lForm.loadFromMap(2).m_value;
 
-        var lNode = this.m_node;
-        var lTitleId = lNode.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
+        var lSectionN = this.m_node;
+        var lSectionTN = lSectionN.firstElementChild.firstElementChild.firstElementChild.firstElementChild;
 
-        lTitleId.innerHTML = lTitle;
-        lTitleId.id = lId;
+        lSectionTN.innerHTML = lTitle;
+        lSectionTN.id = lId;
     }
     //===============================================
     onUpdateSectionFormEdit(_obj, _data) {
