@@ -456,7 +456,7 @@ class GForm extends GObject {
             var lFormJ = _form.findMap(lFormI.m_index);
             
             if(!lFormI.m_isDir) {
-                lHtml += sprintf("<div class='Forms18 FormLine' data-type='tree' data-index='%s' data-position='%s' data-value='%s'>%s\n"
+                lHtml += sprintf("<div class='Forms18 FormLine' data-type='tree' data-index='%s' data-position='%s' data-value=\"%s\">%s\n"
                 , lFormI.m_index
                 , _obj.m_position
                 , lFormI.m_value
@@ -465,7 +465,7 @@ class GForm extends GObject {
             }
             else {
                 if(lFormJ.size() > 0) {
-                    lHtml += sprintf("<div class='Forms18 FormMenu' data-type='tree' data-index='%s' data-position='%s' data-value='%s'>%s\n"
+                    lHtml += sprintf("<div class='Forms18 FormMenu' data-type='tree' data-index='%s' data-position='%s' data-value=\"%s\">%s\n"
                     , lFormI.m_index
                     , _obj.m_position
                     , lFormI.m_value
@@ -474,7 +474,7 @@ class GForm extends GObject {
                     lHtml += sprintf("<i class='Forms24 fa fa-caret-down'></i>\n");
                 }
                 else {
-                    lHtml += sprintf("<div class='Forms25 FormEmpty' data-type='tree' data-index='%s' data-position='%s' data-value='%s'>%s\n"
+                    lHtml += sprintf("<div class='Forms25 FormEmpty' data-type='tree' data-index='%s' data-position='%s' data-value=\"%s\">%s\n"
                     , lFormI.m_index
                     , _obj.m_position
                     , lFormI.m_value
@@ -520,7 +520,7 @@ class GForm extends GObject {
             if(lObj.m_model == "label_edit") {
                 lContent += sprintf("<div class='Forms10'>\n");
                 lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
-                lContent += sprintf("<div class='Forms12'><input type='text' class='Forms20 FormEdit' id='%s' value='%s' data-index='%s' data-position='%s'/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
+                lContent += sprintf("<div class='Forms12'><input type='text' class='Forms20 FormEdit' id='%s' value=\"%s\" data-index='%s' data-position='%s'/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
                 lContent += sprintf("</div>\n");
             }
             //===============================================
@@ -540,7 +540,7 @@ class GForm extends GObject {
             else if(lObj.m_model == "label_line") {
                 lContent += sprintf("<div class='Forms10'>\n");
                 lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
-                lContent += sprintf("<div class='Forms12'><input type='text' class='Forms20 FormReadOnly' id='%s' value='%s' data-index='%s' data-position='%s' readonly/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
+                lContent += sprintf("<div class='Forms12'><input type='text' class='Forms20 FormReadOnly' id='%s' value=\"%s\" data-index='%s' data-position='%s' readonly/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
                 lContent += sprintf("</div>\n");
             }
             //===============================================
@@ -549,7 +549,7 @@ class GForm extends GObject {
             else if(lObj.m_model == "label_color") {
                 lContent += sprintf("<div class='Forms10'>\n");
                 lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
-                lContent += sprintf("<div class='Forms12'><input type='color' class='Forms20 FormColor' id='%s' value='%s' data-index='%s' data-position='%s'/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
+                lContent += sprintf("<div class='Forms12'><input type='color' class='Forms20 FormColor' id='%s' value=\"%s\" data-index='%s' data-position='%s'/></div>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
                 lContent += sprintf("</div>\n");
             }
             //===============================================
@@ -568,14 +568,14 @@ class GForm extends GObject {
                 lContent += sprintf("<div class='Forms10'>\n");
                 lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
                 lContent += sprintf("<div class='Forms13'>\n");
-                lContent += sprintf("<input type='text' data-type='image' class='Forms14 FormInput' id='%s' value='%s' data-index='%s' data-position='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index, lObj.m_position);
+                lContent += sprintf("<input type='text' data-type='image' class='Forms14 FormInput' id='%s' value=\"%s\" data-index='%s' data-position='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index, lObj.m_position);
                 lContent += sprintf("<i data-type='image' class='Forms15 FormCaret fa fa-caret-down'></i>\n");
                 lContent += sprintf("<img class='Forms16'/>\n");
                 lContent += sprintf("<div class='Forms17'>\n");
                 
                 for(var j = 1; j <= lForm.size(); j++) {
                     lForm.loadFromMap(j);
-                    lContent += sprintf("<div class='Forms18 FormLine' data-type='image' data-index='%s' data-position='%s' data-value='%s'>%s <img class='Forms19' src='%s' alt='%s'/></div>\n", j, lObj.m_position, lForm.m_value, lForm.m_value, lForm.m_img, lForm.m_value);
+                    lContent += sprintf("<div class='Forms18 FormLine' data-type='image' data-index='%s' data-position='%s' data-value=\"%s\">%s <img class='Forms19' src='%s' alt='%s'/></div>\n", j, lObj.m_position, lForm.m_value, lForm.m_value, lForm.m_img, lForm.m_value);
                 }
                 
                 lContent += sprintf("</div>\n");
@@ -598,13 +598,13 @@ class GForm extends GObject {
                 lContent += sprintf("<div class='Forms10'>\n");
                 lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
                 lContent += sprintf("<div class='Forms13'>\n");
-                lContent += sprintf("<input type='text' data-type='combo' class='Forms14 FormInput' id='%s' value='%s' data-index='%s' data-position='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index, lObj.m_position);
+                lContent += sprintf("<input type='text' data-type='combo' class='Forms14 FormInput' id='%s' value=\"%s\" data-index='%s' data-position='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index, lObj.m_position);
                 lContent += sprintf("<i data-type='combo' class='Forms15 FormCaret fa fa-caret-down'></i>\n");
                 lContent += sprintf("<div class='Forms17'>\n");
                 
                 for(var j = 1; j <= lForm.size(); j++) {
                     lForm.loadFromMap(j);
-                    lContent += sprintf("<div class='Forms18 FormLine' data-type='combo' data-index='%s' data-position='%s' data-value='%s'>%s</div>\n", j, lObj.m_position, lForm.m_value, lForm.m_value);
+                    lContent += sprintf("<div class='Forms18 FormLine' data-type='combo' data-index='%s' data-position='%s' data-value=\"%s\">%s</div>\n", j, lObj.m_position, lForm.m_value, lForm.m_value);
                 }
                 
                 lContent += sprintf("</div>\n");
@@ -627,14 +627,14 @@ class GForm extends GObject {
                 lContent += sprintf("<div class='Forms10'>\n");
                 lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
                 lContent += sprintf("<div class='Forms13'>\n");
-                lContent += sprintf("<input type='text' data-type='picto' class='Forms14 FormInput' id='%s' value='%s' data-index='%s' data-position='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index, lObj.m_position);
+                lContent += sprintf("<input type='text' data-type='picto' class='Forms14 FormInput' id='%s' value=\"%s\" data-index='%s' data-position='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index, lObj.m_position);
                 lContent += sprintf("<i data-type='picto' class='Forms15 FormCaret fa fa-caret-down'></i>\n");
                 lContent += sprintf("<i class='Forms22 fa fa-book'></i>\n");
                 lContent += sprintf("<div class='Forms17'>\n");
                 
                 for(var j = 1; j <= lForm.size(); j++) {
                     lForm.loadFromMap(j);
-                    lContent += sprintf("<div class='Forms18 FormLine' data-type='picto' data-index='%s' data-position='%s' data-value='%s'>%s <i class='Forms21 fa %s'></i></div>\n", j, lObj.m_position, lForm.m_value, lForm.m_value, lForm.m_value);
+                    lContent += sprintf("<div class='Forms18 FormLine' data-type='picto' data-index='%s' data-position='%s' data-value=\"%s\">%s <i class='Forms21 fa %s'></i></div>\n", j, lObj.m_position, lForm.m_value, lForm.m_value, lForm.m_value);
                 }
                 
                 lContent += sprintf("</div>\n");
@@ -657,7 +657,7 @@ class GForm extends GObject {
                 lContent += sprintf("<div class='Forms10'>\n");
                 lContent += sprintf("<label class='Forms11' for='%s'>%s</label>\n", lObj.m_id, lObj.m_label);
                 lContent += sprintf("<div class='Forms13'>\n");
-                lContent += sprintf("<input type='text' data-type='tree' class='Forms14 FormInput' id='%s' value='%s' data-index='%s' data-position='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index, lObj.m_position);
+                lContent += sprintf("<input type='text' data-type='tree' class='Forms14 FormInput' id='%s' value=\"%s\" data-index='%s' data-position='%s' readonly/>\n", lObj.m_id, lForm.m_value, lObj.m_index, lObj.m_position);
                 lContent += sprintf("<i data-type='tree' class='Forms15 FormCaret fa fa-caret-down'></i>\n");
                 lContent += sprintf("<div class='Forms17 FormPopup'>\n");
                 //
@@ -671,7 +671,7 @@ class GForm extends GObject {
             // variable
             //===============================================
             else if(lObj.m_model == "variable") {
-                lContent += sprintf("<input type='hidden' id='%s' value='%s' data-index='%s' data-position='%s'/>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
+                lContent += sprintf("<input type='hidden' id='%s' value=\"%s\" data-index='%s' data-position='%s'/>\n", lObj.m_id, lObj.m_value, lObj.m_index, lObj.m_position);
             }
         }
         
