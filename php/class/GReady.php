@@ -73,6 +73,7 @@ class GReady extends GObject {
         $lObj2 = $lMenu->addMenu("tutoriels", "C", "C", "", $lObj);
         $lMenu->addMenu("tutoriels", "Cours", "C", "/home/tutoriels/c/cours", $lObj2);
         $lMenu->addMenu("tutoriels", "MinGW", "MinGW", "/home/tutoriels/c/mingw", $lObj2);
+        $lMenu->addMenu("tutoriels", "WinLibs", "WinLibs", "/home/tutoriels/c/winlibs", $lObj2);
         // tutoriels/c++
         $lObj2 = $lMenu->addMenu("tutoriels", "C++", "C++", "", $lObj);
         $lMenu->addMenu("tutoriels", "Cours", "C++", "/home/tutoriels/cpp/cours", $lObj2);
