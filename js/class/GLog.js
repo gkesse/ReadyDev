@@ -150,7 +150,7 @@ class GLog {
             if(lObj.m_type != "data") continue;
             var lData = lObj.m_msg;
             if(i != 0) lDatas += "<br>";
-            lData = sprintf("<xmp>%s</xmp>", lData);
+            lData = sprintf("<xmp>%s</xmp>\n", lData);
             lDatas += lData;
         }
         return lDatas;

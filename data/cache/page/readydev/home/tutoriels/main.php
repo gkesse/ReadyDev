@@ -32,6 +32,10 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#css">Développement CSS</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#versioning">Versioning</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -140,5 +144,17 @@
 <div class="Tuto3"><i class="Tuto6 fa fa-desktop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Google Fonts</div></div>
 <div class="Tuto5"><div class="Tuto8">Apprenez à utiliser<br>Google Fonts</div></div>
+</a>
+</div><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="versioning">Versioning</a>
+</h1>
+<div class="Section6"><br><div class="GTuto1 Tuto1">
+<a class="GTuto2 Tuto2" href="/home/tutoriels/versioning/tortoisegit">
+<div class="Tuto3"><i class="Tuto6 fa fa-desktop"></i></div>
+<div class="Tuto4"><div class="Tuto7">TortoiseGit</div></div>
+<div class="Tuto5"><div class="Tuto8">Apprenez à utiliser<br>TortoiseGit</div></div>
 </a>
 </div><br></div></div></div></div><br>
