@@ -158,7 +158,7 @@
 <div class="Tuto5"><div class="Tuto8">Apprenez à utiliser<br>TortoiseGit</div></div>
 </a><a class="GTuto2 Tuto2" href="/home/tutoriels/versioning/kdiff3">
 <div class="Tuto3"><i class="Tuto6 fa fa-book"></i></div>
-<div class="Tuto4"><div class="Tuto7">KDiff3+</div></div>
+<div class="Tuto4"><div class="Tuto7">KDiff3</div></div>
 <div class="Tuto5"><div class="Tuto8">Apprenez à utiliser<br>KDiff3</div></div>
 </a>
 </div><br></div></div></div></div><br>
