@@ -31,6 +31,14 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#conditions">Conditions</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#boucle-for">Boucle For</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#boucle-while">Boucle While</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -142,4 +150,35 @@ void GProcess::run(int _argc, char** _argv) {
     }
 }
 //===============================================</pre><br></div>
-</div></div></div><br>
+</div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="boucle-for">Boucle For</a>
+</h1>
+<div class="Section6"><br>L'opérateur (for) permet de réaliser une boucle (Pour Tout).<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GLog::print() const {
+    for(int i = 0; i &lt; size(); i++) {
+        GLog* lObj = m_map[i];
+        printf("[%-5s] : %s\n", lObj-&gt;m_type.c_str(), lObj-&gt;m_msg.c_str());
+    }
+}
+//===============================================</pre><br>De manière générale, l'opérateur (break) permet de casser une boucle.<br>Alors que l'opérateur (continue) permet de continuer la boucle.<br><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="boucle-while">Boucle While</a>
+</h1>
+<div class="Section6"><br>L'opérateur (while) permet de réaliser une boucle (Tant Que).&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GSocket::sendData(const GString&amp; _data) {
+    int lIndex = 0;
+    const char* lBuffer = _data.c_str();
+    int lSize = _data.size();
+    while(1) {
+        int lBytes = send(m_socket, &amp;lBuffer[lIndex], lSize - lIndex, 0);
+        if(lBytes == SOCKET_ERROR) break;
+        lIndex += lBytes;
+        if(lIndex &gt;= lSize) break;
+    }
+}
+//===============================================</pre><br>De manière générale, l'opérateur (break) permet de casser une boucle.<br>Alors que l'opérateur (continue) permet de continuer la boucle.<br>&nbsp;<br></div></div></div></div><br>
