@@ -443,12 +443,16 @@ class GReady extends GObject {
         echo sprintf("<i class='Footer2 fa fa-facebook'></i>\n");
         echo sprintf("</a>\n");
         // skype
-        echo sprintf("<a href='https://github.com/gkesse/' target='_blank'>\n");
+        echo sprintf("<a href='#'>\n");
         echo sprintf("<i class='Footer2 fa fa-skype'></i>\n");
         echo sprintf("</a>\n");
-        // skype
+        // linkedin
         echo sprintf("<a href='https://www.linkedin.com/in/tia-gerard-kesse/' target='_blank'>\n");
-        echo sprintf("<i class='Footer2 fa fa-skype'></i>\n");
+        echo sprintf("<i class='Footer2 fa fa-linkedin'></i>\n");
+        echo sprintf("</a>\n");
+        // github
+        echo sprintf("<a href='https://github.com/gkesse/' target='_blank'>\n");
+        echo sprintf("<i class='Footer2 fa fa-github'></i>\n");
         echo sprintf("</a>\n");
         //
         echo sprintf("</div>\n");
