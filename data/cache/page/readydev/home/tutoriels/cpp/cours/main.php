@@ -39,6 +39,10 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#boucle-while">Boucle While</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#multithreading">Multithreading</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -181,4 +185,45 @@ void GSocket::sendData(const GString&amp; _data) {
         if(lIndex &gt;= lSize) break;
     }
 }
-//===============================================</pre><br>De manière générale, l'opérateur (break) permet de casser une boucle.<br>Alors que l'opérateur (continue) permet de continuer la boucle.<br>&nbsp;<br></div></div></div></div><br>
+//===============================================</pre><br>De manière générale, l'opérateur (break) permet de casser une boucle.<br>Alors que l'opérateur (continue) permet de continuer la boucle.<br>&nbsp;<br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="multithreading">Multithreading</a>
+</h1>
+<div class="Section6"><br>La fonction (CreateThread) permet de créer un Thread et de le lancer sous (Windows).&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GSocket::runServer() {
+    while(1) {
+        GSocket* lClient = new GSocket;
+        lClient-&gt;m_socket = accept(lServer, (struct sockaddr*)&amp;lAddressC, &amp;lAddressCL);
+
+        DWORD lThreadId;
+        HANDLE lThreadH = CreateThread(
+                NULL,
+                0,
+                onThread,
+                lClient,
+                0,
+                &amp;lThreadId
+        );
+
+        if(!lThreadH) {
+            printf("La création du thread a échoué\n");
+        }
+    }
+}
+//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">lThreadH --&gt; gestionnaire du Thread
+lThreadId -&gt; identifiant du Thread
+onThread --&gt; fonction de rappel du Thread
+lClient ---&gt; paramètre de la fonction de rappel du Thread</pre><br>Fonction de rappel du Thread sous (Windows).<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+DWORD WINAPI GSocket::onThread(LPVOID _params) {
+    GSocket* lClient = (GSocket*)_params;
+    GString lData = lClient-&gt;readData();
+    GServer lServer;
+    lServer.run(lData);
+    lServer.sendResponse(lClient);
+    closesocket(lClient-&gt;m_socket);
+    delete lClient;
+    return 0;
+}
+//===============================================</pre>&nbsp;<br></div></div></div></div><br>
