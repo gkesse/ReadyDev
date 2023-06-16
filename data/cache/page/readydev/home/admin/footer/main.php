@@ -6,6 +6,10 @@
 </h1>
 <div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ressources_c-c--">C/C++</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#ressources_php">PHP</a>
 </div>
 <div class="GSummary21 Summary4">
@@ -17,6 +21,8 @@
 <a class="Summary6" href="#ressources_site">Site</a>
 </div>
 </div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ressources_c-c--" href="#ressources">C/C++</a>
+</h2><br><a class="GLink3 Link4" style=" color: lime;" href="http://xmlsoft.org/sources/win32/64bit/" target="_blank">http://xmlsoft.org/sources/win32/64bit/</a><br><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="ressources_php" href="#ressources">PHP</a>
 </h2><br><div class="GSummary3"><div class="Summary7">
 <i class="Summary8 fa fa-book"></i>

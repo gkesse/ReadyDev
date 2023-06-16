@@ -203,6 +203,13 @@ class GReady extends GObject {
         return $lPath;
     }
     //===============================================
+    public function toAdminFooterPath() {
+        $lPath = "/home/admin/footer";
+        $lPath = sprintf("%s/%s%s/main.php", $this->toRoot(), $this->toProjectName(), $lPath);
+        $lPath = $this->getPath($lPath);
+        return $lPath;
+    }
+    //===============================================
     public function showPage($_path) {
         if(!file_exists($_path)) {
             $this->addError("Page non trouvée !");
@@ -619,7 +626,7 @@ class GReady extends GObject {
                 $lObj = new GAdmin();
                 $lObj->run();
                 $this->addLogs($lObj->getLogs());
-                $this->showPage($this->toPath());
+                $this->showPage($this->toAdminFooterPath());
             }
         }
         else {
