@@ -376,7 +376,7 @@ struct _GCalculator {
 <h1 class="Section4">
 <a class="Section5" href="#" id="notion-de-classe">Notion de classe</a>
 </h1>
-<div class="Section6"><br>L'opérateur (struct) permet de définir une structure.<br><br>Une structure peut contenir des attributs et des pointeurs de fonction.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+<div class="Section6"><br>L'opérateur (struct) permet d'introduire la notion de classe en C.<br><br>Une classe peut contenir des attributs et des pointeurs de fonction.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 typedef struct _GCalculator GCalculator;
 //===============================================
 struct _GCalculator {
@@ -391,4 +391,52 @@ struct _GCalculator {
 };
 //===============================================
 GCalculator* GCalculator_new();
-//===============================================</pre><br>Une classe peut posséder un constructeur.<br><br><br><br></div></div></div></div><br>
+//===============================================</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Les méthodes sont représentées par les pointeurs de fonction.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'objet (this) est représenté par le premier argument de chaque méthode.&nbsp;</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">méthodes -------&gt; pointeurs de fonction.
+objet (this) ---&gt; premier argument de chaque méthode.<br></pre><br>Une classe peut posséder un constructeur.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+GCalculator* GCalculator_new() {
+    GCalculator* lObj = (GCalculator*)malloc(sizeof(GCalculator));
+    lObj-&gt;m_mgr = GManager_new();
+    lObj-&gt;m_obj = GObject_new();
+    lObj-&gt;m_expression = GString_new();
+    lObj-&gt;m_result = GString_new();
+
+    lObj-&gt;delete = GCalculator_delete;
+    lObj-&gt;run = GCalculator_run;
+    lObj-&gt;onRunCalculator = GCalculator_onRunCalculator;
+
+    lObj-&gt;m_obj-&gt;clone = GCalculator_clone;
+    lObj-&gt;m_obj-&gt;serialize = GCalculator_serialize;
+    lObj-&gt;m_obj-&gt;deserialize = GCalculator_deserialize;
+    lObj-&gt;m_obj-&gt;m_child = lObj;
+    return lObj;
+}
+//===============================================</pre><br>Une classe peut posséder un destructeur.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GCalculator_delete(GCalculator* _this) {
+    assert(_this);
+    _this-&gt;m_mgr-&gt;delete(_this-&gt;m_mgr);
+    _this-&gt;m_obj-&gt;delete(_this-&gt;m_obj);
+    _this-&gt;m_expression-&gt;delete(_this-&gt;m_expression);
+    _this-&gt;m_result-&gt;delete(_this-&gt;m_result);
+    free(_this);
+}
+//===============================================</pre><br>Une classe peut posséder des méthodes.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GCalculator_onRunCalculator(GCalculator* _this, const char* _data) {
+    assert(_this);
+    GLog* lLog = _this-&gt;m_obj-&gt;m_logs;
+
+    if(!strcmp(_this-&gt;m_expression-&gt;m_data, "")) {
+        lLog-&gt;addError(lLog, "L'expression est vide.");
+        return;
+    }
+
+    double lResult = te_interp(_this-&gt;m_expression-&gt;m_data, 0);
+    _this-&gt;m_result-&gt;format(_this-&gt;m_result, "%.2f", lResult);
+}
+//===============================================</pre><br></div></div></div></div><br>
