@@ -10,7 +10,7 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#structure-de-base">Structure de base</a>
+<a class="Summary3" href="#programme-principal">Programme principal</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
@@ -26,7 +26,7 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#variables">Variables</a>
+<a class="Summary3" href="#fonctions">Fonctions</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
@@ -61,12 +61,18 @@
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="structure-de-base">Structure de base</a>
+<a class="Section5" href="#" id="programme-principal">Programme principal</a>
 </h1>
-<div class="Section6"><br>Un programme C commence toujours par l'inclusion des fichiers header.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include &lt;stdio.h&gt;</pre><br>La fonction (main) est le point d'entrée de tout programme C.<br>Il n'en existe qu'une seule dans tout programme C.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">int main(int _argc, char** _argv) {
-    // programme principal
+<div class="Section6"><br>La fonction (main) est le point d'entrée d'un programme C.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+int main(int _argc, char** _argv) {
+    GProcess* lProcess = GProcess_new();
+    lProcess-&gt;init(lProcess);
+    lProcess-&gt;run(lProcess, _argc, _argv);
+    lProcess-&gt;clean(lProcess);
+    lProcess-&gt;delete(lProcess);
     return 0;
-}</pre><br>La fonction (printf) permet d'afficher un message à l'écran.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">printf("Bonjour tout le monde.\n");</pre><br></div>
+}
+//===============================================</pre><br></div>
 </div>
 </div></div><br><div class="GSection1 Section1">
 <div class="Section2">
@@ -74,7 +80,11 @@
 <h1 class="Section4">
 <a class="Section5" href="#" id="compilation">Compilation</a>
 </h1>
-<div class="Section6"><br>L'utilitaire (gcc) permet de compiler un programme C à la fois sous Windows et sous Linux. L'utilitaire (gcc) peut être fourni par l'utilitaire (MinGW), (Cygwin), (MSYS2), (WinLibs),&nbsp; (TMD-GCC) sous Windows.<br><br>Installer WinLibs.<br><br><a class="GLink2 Link4" style=" color: lime;" href="https://readydev.ovh/home/tutoriels/c/winlibs">Apprendre à utiliser WinLibs</a><br><br>Compiler un programme C.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">gcc -c main.c -o main.o</pre><br>Editer les liens et générer le fichier exécutable.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">gcc -o setup.exe main.o</pre><br>Exécuter le programme.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">./setup.exe</pre><br>Exécuter le programme en passant des arguments en ligne de commande.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">gdb -ex run --args setup.exe arg1 arg2</pre><br></div>
+<div class="Section6"><br>L'utilitaire (gcc) permet de compiler un programme C.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">::===============================================
+gcc -c main.c -o main.o
+gcc -o rdv_c.exe main.o
+rdv_c.exe
+::===============================================</pre><br></div>
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
@@ -83,7 +93,11 @@
 <h1 class="Section4">
 <a class="Section5" href="#" id="standards-c11">Standards C11</a>
 </h1>
-<div class="Section6"><br>Les standards (c11) apportent plus de fonctionnalités au noyau C rendant la programmation beaucoup plus aisée.&nbsp;Son équivalent sous (gcc) est (gnu11).<br><br>Activer les standards (c11).<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">gcc -std=gnu11 -c main.c -o main.o</pre><br></div>
+<div class="Section6"><br>Les standards (c11) apportent plus de fonctionnalités lors de la programmation en C.<br><br>Ils s'activent au moment de la compilation.<br><br>Activer les standards (gnu11) sous (gcc).<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">::===============================================
+gcc -std=gnu11 -c main.c -o main.o
+gcc -std=gnu11 -o rdv_c.exe main.o
+rdv_c.exe
+::===============================================</pre><br></div>
 </div>
 </div></div><br><div class="GSection1 Section1">
 <div class="Section2">
@@ -91,19 +105,35 @@
 <h1 class="Section4">
 <a class="Section5" href="#" id="debogage">Débogage</a>
 </h1>
-<div class="Section6"><br>L'utilitaire (gdb) permet de déboguer un programme C.&nbsp;Un débogueur permet d'analyser les bugs d'un programme, exécuter le programme pas-à-pas, afficher le contenu des variables à tout moment et placer des points d'arrêt.<br><br>Activer le débogage.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">gcc -g -std=gnu11 -c main.c -o main.o</pre><br>Démarrer le débogueur.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">gdb -ex run setup.exe</pre><br>Démarrer le débogueur en passant des arguments en ligne de commande.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">gdb -ex run --args setup.exe arg1 arg2</pre><br></div>
+<div class="Section6"><br>L'utilitaire (gdb) permet de déboguer un programme C.<br><br>Il s'active au moment de la compilation.<br>On parle de compilation en mode (debug), s'il est activé, pour un projet en cours de développement.<br>Sinon, on parle de compilation en mode (release), s'il est désactivé, pour un projet en cours de livraison.<br><br>Activer le débogueur sous (gcc).<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">::===============================================
+gcc -g -std=gnu11 -c main.c -o main.o
+gcc -g -std=gnu11 -o rdv_c.exe main.o
+gdb -ex run --args rdv_c.exe test string
+::===============================================</pre><br></div>
 </div>
 </div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="variables">Variables</a>
+<a class="Section5" href="#" id="fonctions">Fonctions</a>
 </h1>
-<div class="Section6"><br>Une variable permet de manipuler des données qui peuvent changer au cours du programme.<br><br>Déclarer une variable.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">double maVariable;</pre><br>Initialiser une variable à la déclaration.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">double maVariable = 10.25;</pre><br>Assigner une variable.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">// déclarer la variable
-double maVariable = 0.0;
-
-// assigner la variable
-maVariable = 10.25;</pre><br></div>
+<div class="Section6"><br>Une fonction en C peut ne pas retourner un résultat.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GFunctions_delete() {
+    free(GFunctions_Buffer);
+}
+//===============================================</pre><br>Une fonction en C peut retourner un résultat.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+const char* sformat(const char* _format, ...) {
+    va_list lArgs;
+    va_start(lArgs, _format);
+    int lSize = vsnprintf(0, 0, _format, lArgs);
+    char* lBuffer = (char*)malloc(sizeof(char)*(lSize + 1));
+    vsnprintf(lBuffer, lSize + 1, _format, lArgs);
+    va_end(lArgs);
+    free(GFunctions_Buffer);
+    GFunctions_Buffer = lBuffer;
+    return lBuffer;
+}
+//===============================================</pre><br></div>
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
