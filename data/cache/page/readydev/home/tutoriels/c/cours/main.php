@@ -30,6 +30,22 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#fonctions-a-nombre-variable-d-arguments">Fonctions à nombre variable d'arguments</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#conditions">Conditions</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#boucle-for">Boucle For</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#boucle-while">Boucle While</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#arguments-en-ligne-de-commande">Arguments en ligne de commande</a>
 </div>
 <div class="GSummary11 Summary1">
@@ -39,14 +55,6 @@
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#multithreading">Multithreading</a>
-</div>
-<div class="GSummary11 Summary1">
-<i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#conditions">Conditions</a>
-</div>
-<div class="GSummary11 Summary1">
-<i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#fonctions-a-nombre-variable-d-arguments">Fonctions à nombre variable d'arguments</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
@@ -137,6 +145,88 @@ const char* sformat(const char* _format, ...) {
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="fonctions-a-nombre-variable-d-arguments">Fonctions à nombre variable d'arguments</a>
+</h1>
+<div class="Section6"><br>L'opérateur (...) permet à une fonction de recevoir un nombre variable d'arguments.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+const char* sformat(const char* _format, ...) {
+    va_list lArgs;
+    va_start(lArgs, _format);
+    int lSize = vsnprintf(0, 0, _format, lArgs);
+    char* lBuffer = (char*)malloc(sizeof(char)*(lSize + 1));
+    vsnprintf(lBuffer, lSize + 1, _format, lArgs);
+    va_end(lArgs);
+    free(gFunctions_Buffer);
+    gFunctions_Buffer = lBuffer;
+    return lBuffer;
+}
+//===============================================</pre><br>Ce qu'il faut savoir:<br><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">_fomat ---&gt; argument de référence</pre><br>La macro (va_start) permet d'alimenter un structure (va_list) correspondant à la liste des arguments à partir d'un argument de référence selon votre choix (_format).<br><br>La macro (va_end) permet de libérer les mémoires allouées dynamiquement lors du parcours de la liste d'arguments.<br><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="conditions">Conditions</a>
+</h1>
+<div class="Section6"><br>L'opérateur (if) permet de réaliser une condition (Si).<br>L'opérateur (lelse if) permet de réaliser une condition (Sinon Si).<br>L'opérateur (else) permet de réaliser une condition (Sinon).<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GProcess_run(GProcess* _this, int _argc, char** _argv) {
+    assert(_this);
+    GLog* lLog = _this-&gt;m_obj-&gt;m_logs;
+    const char* lModule = "";
+    if(_argc &gt; 1) lModule = _argv[1];
+
+    if(!strcmp(lModule, "")) {
+        lLog-&gt;addError(lLog, "Le module est obligatoire.");
+    }
+    else if(!strcmp(lModule, "test")) {
+        _this-&gt;runTest(_this, _argc, _argv);
+    }
+    else if(!strcmp(lModule, "server")) {
+        _this-&gt;runServer(_this, _argc, _argv);
+    }
+    else {
+        lLog-&gt;addError(lLog, "Le module est inconnu.");
+    }
+
+    lLog-&gt;showLogsX(lLog);
+}
+//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="boucle-for">Boucle For</a>
+</h1>
+<div class="Section6"><br>L'opérateur (for) permet de réaliser une boucle (Pour Tout).&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GLog_showLogs(GLog* _this) {
+    assert(_this);
+    GVector* lMap = _this-&gt;m_map;
+    for(int i = 0; i &lt; lMap-&gt;size(lMap); i++) {
+        GLog* lObj = lMap-&gt;get(lMap, i);
+        if(strcmp(lObj-&gt;m_type, "log")) continue;
+        printf("[%-5s] : %s\n", lObj-&gt;m_type, lObj-&gt;m_msg);
+    }
+}
+//===============================================</pre><br>De manière générale, l'opérateur (break) permet de casser une boucle.<br>Alors que l'opérateur (continue) permet de continuer la boucle.<br><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="boucle-while">Boucle While</a>
+</h1>
+<div class="Section6"><br>L'opérateur (while) permet de réaliser une boucle (Tant Que).&nbsp;&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GSocket_send(GSocket* _this, const char* _data) {
+    assert(_this);
+    SOCKET lSocket = _this-&gt;m_socket;
+    int lIndex = 0;
+    const char* lBuffer = _data;
+    int lSize = strlen(_data);
+    while(1) {
+        int lBytes = send(lSocket, &amp;lBuffer[lIndex], lSize - lIndex, 0);
+        if(lBytes == SOCKET_ERROR) break;
+        lIndex += lBytes;
+        if(lIndex &gt;= lSize) break;
+    }
+}
+//===============================================</pre><br>De manière générale, l'opérateur (break) permet de casser une boucle.<br>Alors que l'opérateur (continue) permet de continuer la boucle.<br><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
@@ -237,50 +327,4 @@ static DWORD WINAPI GSocket_onThread(LPVOID _params) {
     lClient-&gt;delete(lClient);
     return 0;
 }
-//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
-<div class="Section2">
-<div class="Section3">
-<h1 class="Section4">
-<a class="Section5" href="#" id="conditions">Conditions</a>
-</h1>
-<div class="Section6"><br>L'opérateur (if) permet de réaliser une condition (Si).<br>L'opérateur (lelse if) permet de réaliser une condition (Sinon Si).<br>L'opérateur (else) permet de réaliser une condition (Sinon).<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-static void GProcess_run(GProcess* _this, int _argc, char** _argv) {
-    assert(_this);
-    GLog* lLog = _this-&gt;m_obj-&gt;m_logs;
-    const char* lModule = "";
-    if(_argc &gt; 1) lModule = _argv[1];
-
-    if(!strcmp(lModule, "")) {
-        lLog-&gt;addError(lLog, "Le module est obligatoire.");
-    }
-    else if(!strcmp(lModule, "test")) {
-        _this-&gt;runTest(_this, _argc, _argv);
-    }
-    else if(!strcmp(lModule, "server")) {
-        _this-&gt;runServer(_this, _argc, _argv);
-    }
-    else {
-        lLog-&gt;addError(lLog, "Le module est inconnu.");
-    }
-
-    lLog-&gt;showLogsX(lLog);
-}
-//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
-<div class="Section2">
-<div class="Section3">
-<h1 class="Section4">
-<a class="Section5" href="#" id="fonctions-a-nombre-variable-d-arguments">Fonctions à nombre variable d'arguments</a>
-</h1>
-<div class="Section6"><br>L'opérateur (...) permet à une fonction de recevoir un nombre variable d'arguments.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-const char* sformat(const char* _format, ...) {
-    va_list lArgs;
-    va_start(lArgs, _format);
-    int lSize = vsnprintf(0, 0, _format, lArgs);
-    char* lBuffer = (char*)malloc(sizeof(char)*(lSize + 1));
-    vsnprintf(lBuffer, lSize + 1, _format, lArgs);
-    va_end(lArgs);
-    free(gFunctions_Buffer);
-    gFunctions_Buffer = lBuffer;
-    return lBuffer;
-}
-//===============================================</pre><br>Ce qu'il faut savoir:<br><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">_fomat ---&gt; argument de référence</pre><br>La macro (va_start) permet d'alimenter un structure (va_list) correspondant à la liste des arguments à partir d'un argument de référence selon votre choix (_format).<br><br>La macro (va_end) permet de libérer les mémoires allouées dynamiquement lors du parcours de la liste d'arguments.<br><br></div></div></div></div><br>
+//===============================================</pre><br></div></div></div></div><br>
