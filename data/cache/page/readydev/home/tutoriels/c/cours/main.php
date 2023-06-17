@@ -34,19 +34,19 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#erreurs">Erreurs</a>
+<a class="Summary3" href="#allocation-dynamique-de-memoire">Allocation dynamique de mémoire</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#sortie-du-programme">Sortie du programme</a>
+<a class="Summary3" href="#multithreading">Multithreading</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#recursivite">Récursivité</a>
+<a class="Summary3" href="#conditions">Conditions</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#arguments-variables">Arguments variables</a>
+<a class="Summary3" href="#fonctions-a-nombre-variable-d-arguments">Fonctions à nombre variable d'arguments</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
@@ -119,7 +119,7 @@ gdb -ex run --args rdv_c.exe test string
 </h1>
 <div class="Section6"><br>Une fonction en C peut ne pas retourner un résultat.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void GFunctions_delete() {
-    free(GFunctions_Buffer);
+    free(gFunctions_Buffer);
 }
 //===============================================</pre><br>Une fonction en C peut retourner un résultat.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 const char* sformat(const char* _format, ...) {
@@ -129,8 +129,8 @@ const char* sformat(const char* _format, ...) {
     char* lBuffer = (char*)malloc(sizeof(char)*(lSize + 1));
     vsnprintf(lBuffer, lSize + 1, _format, lArgs);
     va_end(lArgs);
-    free(GFunctions_Buffer);
-    GFunctions_Buffer = lBuffer;
+    free(gFunctions_Buffer);
+    gFunctions_Buffer = lBuffer;
     return lBuffer;
 }
 //===============================================</pre><br></div>
@@ -142,119 +142,145 @@ const char* sformat(const char* _format, ...) {
 <h1 class="Section4">
 <a class="Section5" href="#" id="arguments-en-ligne-de-commande">Arguments en ligne de commande</a>
 </h1>
-<div class="Section6"><br>Les arguments en ligne de commande permettent de passer des paramètres à un programme C au moment du démarrage du programme.<br><br>Passer des arguments en ligne de commande.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">./setup.exe arg1 arg2</pre><br>Récupérer les arguments passés en ligne de commande.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">int main(int _argc, char** _argv) {
-    // récupérer le nombre d'arguments
-    int nArgs = _argc;
+<div class="Section6"><br>La variable (_argc) contient le nombre d'arguments passés en ligne de commande.<br>La variable (_argv) contient la liste d'arguments passés en ligne de commande.<br><br>L'opération (_argv[i]) récupère la valeur d'un argument à la position (i).<br>L'argument à la position (0) correspond au nom du fichier exécutable.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GProcess_run(GProcess* _this, int _argc, char** _argv) {
+    assert(_this);
+    GLog* lLog = _this-&gt;m_obj-&gt;m_logs;
+    const char* lModule = "";
+    if(_argc &gt; 1) lModule = _argv[1];
 
-    // récupérer le nom du programme
-    char* nomProgramme = _argv[0];
-
-    // récupérer l'argument 1 (arg1)
-    char* arg1 = _argv[1];
-
-    // récupérer l'argument 2 (arg2)
-    char* arg2 = _argv[2];
-
-    // suite du programme
-
-    return 0;
-}</pre><br></div>
-</div></div></div><br><div class="GSection1 Section1">
-<div class="Section2">
-<div class="Section3">
-<h1 class="Section4">
-<a class="Section5" href="#" id="erreurs">Erreurs</a>
-</h1>
-<div class="Section6"><br>Un programme C dispose d'un mécanisme simple pour faire remonter les erreurs.<br>Le code d'erreur est fournit par la variable globale (errno).<br>La fonction (strerror) permet de récupérer la description&nbsp; de l'erreur.<br><br>Générer une erreur.<br>Ouvrir un fichier qui n'existe pas.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">FILE* monFichier = fopen("sans_titre.txt", "r");</pre><br>Vu que le fichier (sans_titre.txt) n'existe pas, cette instruction va générer une erreur.<br><br>Afficher le code d'erreur.<br>Afficher la description de l'erreur.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">if(monFichier == NULL) {
-    printf("%d : %s\n", errno, strerror(errno));
-}</pre><br></div>
-</div></div></div><br><div class="GSection1 Section1">
-<div class="Section2">
-<div class="Section3">
-<h1 class="Section4">
-<a class="Section5" href="#" id="sortie-du-programme">Sortie du programme</a>
-</h1>
-<div class="Section6"><br>La fonction (exit) permet de mettre fin à un programme C en spécifiant un code de retour.<br>En cas de succès, le code de retour correspond à la valeur (EXIT_SUCCESS).<br>En cas d'erreur, le code de retour correspond à la valeur (EXIT_FAILURE).<br><br>Créer une fonction.<br>Initialiser un module qui retourne (0) en cas d'échec.<br>Terminer le programme en cas d'erreur lors de l'initialisation.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include &lt;stdlib.h&gt;
-
-void maFonction() {
-    if(initModule() == 0) {
-        // libérer la mémoire allouée
-        
-        // sortir du programme
-        exit(EXIT_SUCCESS);
+    if(!strcmp(lModule, "")) {
+        lLog-&gt;addError(lLog, "Le module est obligatoire.");
     }
+    else if(!strcmp(lModule, "test")) {
+        _this-&gt;runTest(_this, _argc, _argv);
+    }
+    else if(!strcmp(lModule, "server")) {
+        _this-&gt;runServer(_this, _argc, _argv);
+    }
+    else {
+        lLog-&gt;addError(lLog, "Le module est inconnu.");
+    }
+
+    lLog-&gt;showLogsX(lLog);
 }
-
-int main(int _argc, char** _argv) {
-    // exécuter le programme
-    maFonction();
-
-    // sortie du programme en cas de succès
-    return EXIT_SUCCESS;
-}</pre><br>La fonction (atexit) permet d'installer une fonction de rappel qui sera exécutée en sortie de la fonction main ou de la sortie du processus du programme via un appel à la fonction (exit).<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include &lt;stdlib.h&gt;
-
-void maCallback1() {
-    // fermer les connexions ouvertes
-    // libérer les mémoire allouées
-}
-
-void maCallback2() {
-    // fermer les connexions ouvertes
-    // libérer les mémoire allouées    
-}
-
-int main(int _argc, char** _argv) {
-    // initialiser les fonctions de rappel
-    atexit(maCallback1);
-    atexit(maCallback2);
-
-    // corps du programme principal
-
-    return 0;
-}</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+//===============================================</pre><br>Passer des arguments en ligne de commande.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">rdv_c.exe test string</pre><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">_argv[0] -&gt; rdv_cpp.exe
+_argv[1] -&gt; test
+_argv[2] -&gt; string</pre><br></div>
+</div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="recursivite">Récursivité</a>
+<a class="Section5" href="#" id="allocation-dynamique-de-memoire">Allocation dynamique de mémoire</a>
 </h1>
-<div class="Section6"><br>Un programme C est capable d'exécuter les fonctions récursives.<br>Une fonction récursive est une fonction capable de s'appeler elle-même.<br>Une fonction récursive a toujours besoin d'une condition de sortie.<br><br>Calculer la somme S(n) des (n) nombres entiers naturels non nuls.<br>Sachant que S(0) = 0.<br>Et S(n) = n + S(n - 1)<br><br>Pour calculer S(3), on a besoin de connaître:<br><br>S(3) = 3 + S(2)&nbsp;<br>S(2) = 2 + S(1)<br>S(1) = 1 + S(0)<br>S(0) = 0<br><br>Alors:<br><br>S(0) = 0<br>S(1) = 1 + 0 = 1<br>S(2) = 2 + 1 = 3<br>S(3) = 3 + 3 = 6<br><br>Donc:<br><br>S(3) = 6<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include &lt;stdio.h&gt;
-
-int maSomme(int n) {
-    if(n == 0) return 0;
-    return (n + maSomme(n - 1));
-}
-
-int main(int _argc, char** _argv) {
-    int maVariable = maSomme(10);
-    return 0;
-}</pre><br></div></div></div></div><br><div class="GSection1 Section1">
-<div class="Section2">
-<div class="Section3">
-<h1 class="Section4">
-<a class="Section5" href="#" id="arguments-variables">Arguments variables</a>
-</h1>
-<div class="Section6"><br>Un programme C fournit un moyen de faire passer un nombre variable d'arguments en entrée d'une fonction.<br><br>Pour y arriver, la macro (va_start) initialise une structure de données (va_list) à partir d'un argument qui sert de pivot.<br><br>Calculer la moyenne de (n) nombres.<br>Utiliser comme argument pivot le nombre (n) de nombres.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include &lt;stdarg.h&gt;
-
-double calculerMoyenne(int n, ...) {
-    double maSomme = 0.0;
-
+<div class="Section6"><br>La fonction (malloc) permet de réserver dynamiquement de la mémoire sur le tas.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+const char* sformat(const char* _format, ...) {
     va_list lArgs;
-    va_start(lArgs, n);
+    va_start(lArgs, _format);
+    int lSize = vsnprintf(0, 0, _format, lArgs);
+    char* lBuffer = (char*)malloc(sizeof(char)*(lSize + 1));
+    vsnprintf(lBuffer, lSize + 1, _format, lArgs);
+    va_end(lArgs);
+    free(gFunctions_Buffer);
+    gFunctions_Buffer = lBuffer;
+    return lBuffer;
+}
+//===============================================</pre><br>La fonction (free) permet de libérer une mémoire réservée dynamiquement sur le tas.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GFunctions_delete() {
+    free(gFunctions_Buffer);
+}
+//===============================================</pre><br></div>
+</div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="multithreading">Multithreading</a>
+</h1>
+<div class="Section6"><br>La fonction (CreateThread) permet de créer un Thread et de le lancer sous (Windows).&nbsp;&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GSocket_runServer(GSocket* _this, int _argc, char** _argv) {
+    assert(_this);
+    while(1) {
+        GSocket* lClient = GSocket_new();
+        lClient-&gt;m_socket = accept(lServer, (struct sockaddr*)&amp;lAddressC, &amp;lAddressCL);
 
-    for (int i = 0; i &lt; n; i++) {
-        double maNote = va_arg(lArgs, double);
-        maSomme += maNote;
+        DWORD lThreadId;
+        HANDLE lThreadH = CreateThread(
+                NULL,
+                0,
+                GSocket_onThread,
+                lClient,
+                0,
+                &amp;lThreadId
+        );
+
+        if(!lThreadH) {
+            printf("La création du thread a échoué\n");
+        }
+    }
+}
+//===============================================</pre><br>Ce qu'il faut savoir:<br><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">lThreadH ----------&gt; gestionnaire du Thread
+lThreadId ---------&gt; identifiant du Thread
+GSocket_onThread --&gt; fonction de rappel du Thread
+lClient -----------&gt; paramètre de la fonction de rappel du Thread</pre><br>Fonction de rappel du Thread sous (Windows):<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static DWORD WINAPI GSocket_onThread(LPVOID _params) {
+    GSocket* lClient = (GSocket*)_params;
+    GServer* lServer = GServer_new();
+    GString* lRequest = GString_new();
+
+    lClient-&gt;read(lClient, lRequest);
+    lServer-&gt;run(lServer, lRequest-&gt;m_data);
+    lServer-&gt;send(lServer, lClient);
+
+    closesocket(lClient-&gt;m_socket);
+    lRequest-&gt;delete(lRequest);
+    lServer-&gt;delete(lServer);
+    lClient-&gt;delete(lClient);
+    return 0;
+}
+//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="conditions">Conditions</a>
+</h1>
+<div class="Section6"><br>L'opérateur (if) permet de réaliser une condition (Si).<br>L'opérateur (lelse if) permet de réaliser une condition (Sinon Si).<br>L'opérateur (else) permet de réaliser une condition (Sinon).<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GProcess_run(GProcess* _this, int _argc, char** _argv) {
+    assert(_this);
+    GLog* lLog = _this-&gt;m_obj-&gt;m_logs;
+    const char* lModule = "";
+    if(_argc &gt; 1) lModule = _argv[1];
+
+    if(!strcmp(lModule, "")) {
+        lLog-&gt;addError(lLog, "Le module est obligatoire.");
+    }
+    else if(!strcmp(lModule, "test")) {
+        _this-&gt;runTest(_this, _argc, _argv);
+    }
+    else if(!strcmp(lModule, "server")) {
+        _this-&gt;runServer(_this, _argc, _argv);
+    }
+    else {
+        lLog-&gt;addError(lLog, "Le module est inconnu.");
     }
 
-    va_end(lArgs);
-
-    double maMoyenne = maSomme / n;
-    return maMoyenne;
+    lLog-&gt;showLogsX(lLog);
 }
-
-int main(int _argc, char** _argv) {
-    double maVariable1 = calculerMoyenne(3, 11, 12, 13);
-    double maVariable2 = calculerMoyenne(4, 11, 12, 13, 14);
-    double maVariable3 = calculerMoyenne(5, 11, 12, 13, 14, 15);
-    return 0;
-}</pre><br></div></div></div></div><br>
+//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="fonctions-a-nombre-variable-d-arguments">Fonctions à nombre variable d'arguments</a>
+</h1>
+<div class="Section6"><br>L'opérateur (...) permet à une fonction de recevoir un nombre variable d'arguments.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+const char* sformat(const char* _format, ...) {
+    va_list lArgs;
+    va_start(lArgs, _format);
+    int lSize = vsnprintf(0, 0, _format, lArgs);
+    char* lBuffer = (char*)malloc(sizeof(char)*(lSize + 1));
+    vsnprintf(lBuffer, lSize + 1, _format, lArgs);
+    va_end(lArgs);
+    free(gFunctions_Buffer);
+    gFunctions_Buffer = lBuffer;
+    return lBuffer;
+}
+//===============================================</pre><br>Ce qu'il faut savoir:<br><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">_fomat ---&gt; argument de référence</pre><br>La macro (va_start) permet d'alimenter un structure (va_list) correspondant à la liste des arguments à partir d'un argument de référence selon votre choix (_format).<br><br>La macro (va_end) permet de libérer les mémoires allouées dynamiquement lors du parcours de la liste d'arguments.<br><br></div></div></div></div><br>
