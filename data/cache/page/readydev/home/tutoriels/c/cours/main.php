@@ -68,6 +68,14 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#notion-de-classe">Notion de classe</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#notion-d-heritage-de-classe">Notion d'héritage de classe</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#notion-de-polymorphisme">Notion de polymorphisme</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -439,4 +447,149 @@ static void GCalculator_onRunCalculator(GCalculator* _this, const char* _data) {
     double lResult = te_interp(_this-&gt;m_expression-&gt;m_data, 0);
     _this-&gt;m_result-&gt;format(_this-&gt;m_result, "%.2f", lResult);
 }
-//===============================================</pre><br></div></div></div></div><br>
+//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="notion-d-heritage-de-classe">Notion d'héritage de classe</a>
+</h1>
+<div class="Section6"><br>L'opérateur (void*) permet d'introduire la notion d'héritage de classe en C.<br><br>Classe mère:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+typedef struct _GObject GObject;
+//===============================================
+struct _GObject {
+    GLog* m_logs;
+    GCode* m_resp;
+    GVector* m_map;
+    void* m_child;
+
+    void (*delete)(GObject* _this);
+    void (*clear)(GObject* _this);
+    GObject* (*clone)(GObject* _this);
+    GString* (*serialize)(GObject* _this);
+    void (*deserialize)(GObject* _this, const char* _data);
+    void (*print)(GObject* _this);
+};
+//===============================================
+GObject* GObject_new();
+//===============================================</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'opérateur (void*) peut pointer tout type d'objet en C.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">La classe mère utilisera l'opérateur (void*) pour les classes fille.</div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Chaque classe fille connaît par avance le type de sa classe mère (pointeur explicite).</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">opérateur (void*) ---&gt; pointeur de tout type d'objet
+void* m_child -------&gt; pointeur de la classe fille</pre><br>classe fille:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+typedef struct _GCalculator GCalculator;
+//===============================================
+struct _GCalculator {
+    GManager* m_mgr;
+    GObject* m_obj;
+    GString* m_expression;
+    GString* m_result;
+
+    void (*delete)(GCalculator* _this);
+    void (*run)(GCalculator* _this, const char* _data);
+    void (*onRunCalculator)(GCalculator* _this, const char* _data);
+};
+//===============================================
+GCalculator* GCalculator_new();
+//===============================================</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="notion-de-polymorphisme">Notion de polymorphisme</a>
+</h1>
+<div class="Section6"><br>Les pointeurs de fonction permettent d'introduire la notion de polymorphisme en C.<br><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">La classe mère doit pointer les fonctions polymorphes de la classe fille.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Les fonctions polymorphes de la classe mère doivent posséder les mêmes signatures que celles de la classe fille.</div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Chaque classe fille implémentera sa propre stratégie (définition).</div>
+</div><br>Classe mère:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+typedef struct _GObject GObject;
+//===============================================
+struct _GObject {
+    GLog* m_logs;
+    GCode* m_resp;
+    GVector* m_map;
+    void* m_child;
+
+    void (*delete)(GObject* _this);
+    void (*clear)(GObject* _this);
+    GObject* (*clone)(GObject* _this);
+    GString* (*serialize)(GObject* _this);
+    void (*deserialize)(GObject* _this, const char* _data);
+    void (*print)(GObject* _this);
+};
+//===============================================
+GObject* GObject_new();
+//===============================================</pre><br>Classe fille:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+typedef struct _GCalculator GCalculator;
+//===============================================
+struct _GCalculator {
+    GManager* m_mgr;
+    GObject* m_obj;
+    GString* m_expression;
+    GString* m_result;
+
+    void (*delete)(GCalculator* _this);
+    void (*run)(GCalculator* _this, const char* _data);
+    void (*onRunCalculator)(GCalculator* _this, const char* _data);
+};
+//===============================================
+GCalculator* GCalculator_new();
+//===============================================</pre><br>Constructeur de la classe mère:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+GObject* GObject_new() {
+    GObject* lObj = (GObject*)malloc(sizeof(GObject));
+    lObj-&gt;m_logs = GLog_new();
+    lObj-&gt;m_resp = GCode_new();
+    lObj-&gt;m_resp-&gt;m_dom-&gt;createDoc(lObj-&gt;m_resp-&gt;m_dom);
+    lObj-&gt;m_resp-&gt;createDatas(lObj-&gt;m_resp);
+    lObj-&gt;m_map = GVector_new();
+    lObj-&gt;m_child = 0;
+
+    lObj-&gt;delete = GObject_delete;
+    lObj-&gt;clear = GObject_clear;
+    lObj-&gt;clone = GObject_clone;
+    lObj-&gt;serialize = GObject_serialize;
+    lObj-&gt;deserialize = GObject_deserialize;
+    lObj-&gt;print = GObject_print;
+    return lObj;
+}
+//===============================================</pre><br>Constructeur de la classe fille:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+GCalculator* GCalculator_new() {
+    GCalculator* lObj = (GCalculator*)malloc(sizeof(GCalculator));
+    lObj-&gt;m_mgr = GManager_new();
+    lObj-&gt;m_obj = GObject_new();
+    lObj-&gt;m_expression = GString_new();
+    lObj-&gt;m_result = GString_new();
+
+    lObj-&gt;delete = GCalculator_delete;
+    lObj-&gt;run = GCalculator_run;
+    lObj-&gt;onRunCalculator = GCalculator_onRunCalculator;
+
+    lObj-&gt;m_obj-&gt;clone = GCalculator_clone;
+    lObj-&gt;m_obj-&gt;serialize = GCalculator_serialize;
+    lObj-&gt;m_obj-&gt;deserialize = GCalculator_deserialize;
+    lObj-&gt;m_obj-&gt;m_child = lObj;
+    return lObj;
+}
+//===============================================</pre><br>Signatures des fonctions polymorphes de la classe mère:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">static GObject* GObject_clone(GObject* _this);
+static GString* GObject_serialize(GObject* _this);
+static void GObject_deserialize(GObject* _this, const char* _data);</pre><br>Signatures des fonctions polymorphes de la classe fille:&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">static GObject* GCalculator_clone(GObject* _this);
+static GString* GCalculator_serialize(GObject* _this);
+static void GCalculator_deserialize(GObject* _this, const char* _data);</pre><br></div>
+</div>
+</div>
+</div><br>
