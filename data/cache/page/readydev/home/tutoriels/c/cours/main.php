@@ -56,6 +56,18 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#multithreading">Multithreading</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#definition-d-un-type">Définition d'un type</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#structure">Structure</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#notion-de-classe">Notion de classe</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -327,4 +339,56 @@ static DWORD WINAPI GSocket_onThread(LPVOID _params) {
     lClient-&gt;delete(lClient);
     return 0;
 }
-//===============================================</pre><br></div></div></div></div><br>
+//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="definition-d-un-type">Définition d'un type</a>
+</h1>
+<div class="Section6"><br>L'opérateur (typedef) permet de définir un type.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+typedef struct _GCalculator GCalculator;
+//===============================================
+struct _GCalculator {
+    GManager* m_mgr;
+    GObject* m_obj;
+    GString* m_expression;
+    GString* m_result;
+};
+//===============================================
+</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="structure">Structure</a>
+</h1>
+<div class="Section6"><br>L'opérateur (struct) permet de définir une structure.<br><br>Une structure peut contenir des attributs.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+typedef struct _GCalculator GCalculator;
+//===============================================
+struct _GCalculator {
+    GManager* m_mgr;
+    GObject* m_obj;
+    GString* m_expression;
+    GString* m_result;
+};
+//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="notion-de-classe">Notion de classe</a>
+</h1>
+<div class="Section6"><br>L'opérateur (struct) permet de définir une structure.<br><br>Une structure peut contenir des attributs et des pointeurs de fonction.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+typedef struct _GCalculator GCalculator;
+//===============================================
+struct _GCalculator {
+    GManager* m_mgr;
+    GObject* m_obj;
+    GString* m_expression;
+    GString* m_result;
+
+    void (*delete)(GCalculator* _this);
+    void (*run)(GCalculator* _this, const char* _data);
+    void (*onRunCalculator)(GCalculator* _this, const char* _data);
+};
+//===============================================
+GCalculator* GCalculator_new();
+//===============================================</pre><br>Une classe peut posséder un constructeur.<br><br><br><br></div></div></div></div><br>
