@@ -6,7 +6,7 @@ class GProcess extends GObject {
         parent::__construct();
     }
     //===============================================
-    public function main() {
+    public function run() {
         $this->redirectHomePage();
 
         if($this->isTestEnv()) {
