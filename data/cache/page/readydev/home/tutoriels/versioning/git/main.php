@@ -21,6 +21,18 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#branches">Branches</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#recuperation-des-modifications">Récupération des modifications</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#etat-d-un-depot">Etat d'un dépôt</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#nettoyage-du-depot-local">Nettoyage du dépôt local</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -210,4 +222,127 @@ Switched to a new branch '1.0'</pre><br><pre class="GCode1 Code1 AceCode" data-m
   main</pre><br></div>
 </div>
 </div>
-</div><br>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="recuperation-des-modifications">Récupération des modifications</a>
+</h1>
+<div class="Section6"><br>La commande (pull) permet de récupérer les modifications.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">git pull</pre><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">remote: Enumerating objects: 33, done.
+remote: Counting objects: 100% (33/33), done.
+remote: Compressing objects: 100% (7/7), done.
+remote: Total 17 (delta 9), reused 17 (delta 9), pack-reused 0
+Unpacking objects: 100% (17/17), 4.91 KiB | 40.00 KiB/s, done.
+From https://github.com/gkesse/ReadyDev
+   3ed01d757..c2673ceac  2.0        -&gt; origin/2.0
+Updating 3ed01d757..c2673ceac
+Fast-forward
+ data/cache/data/cache_default_address.xml                       |   2 +-
+ data/cache/data/cache_default_page.xml                          |   2 +-
+ data/cache/page/readydev/home/tutoriels/versioning/git/main.php | 308 ++++++++++++++++++++++++++++++++++++++++++++++--------------------------------------
+ php/class/GReady.php                                            |   4 +-
+ 4 files changed, 172 insertions(+), 144 deletions(-)
+</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="etat-d-un-depot">Etat d'un dépôt</a>
+</h1>
+<div class="Section6"><br>La commande (status) permet de connaître l'état général d'un dépôt.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">git status</pre><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git restore &lt;file&gt;..." to discard changes in working directory)
+        modified:   app/python/c/unix/cmd/Makefile.cmd.mak
+        modified:   app/python/c/unix/cmd/envs.sh
+        modified:   app/python/c/unix/cmd/make_c.sh
+        modified:   app/python/c/unix/code/src/manager/GInclude.h
+        modified:   app/python/c/unix/code/src/rdvcpy_module.c
+        modified:   app/python/c/unix/code/src/setup.py
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+        app/python/c/unix/code/src/dist/
+        app/python/c/unix/code/src/manager/GCode.c
+        app/python/c/unix/code/src/manager/GCode.h
+        app/python/c/unix/code/src/manager/GLog.c
+        app/python/c/unix/code/src/manager/GLog.h
+        app/python/c/unix/code/src/manager/GObject.c
+        app/python/c/unix/code/src/manager/GObject.h
+        app/python/c/unix/code/src/manager/GServer.c
+        app/python/c/unix/code/src/manager/GServer.h
+        app/python/c/unix/code/src/manager/GString.c
+        app/python/c/unix/code/src/manager/GString.h
+        app/python/c/unix/code/src/manager/GVector.c
+        app/python/c/unix/code/src/manager/GVector.h
+        app/python/c/unix/code/src/manager/GXml.c
+        app/python/c/unix/code/src/manager/GXml.h
+        app/python/c/unix/code/src/rdvcpy.egg-info/</pre><br>Ce qu'il faut savoir:<br><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Changes not staged for commit ---&gt; concerne les fichiers suivis
+Untracked files -----------------&gt; concerne les fichiers non suivis</pre><br>La commande (status) permet de connaître l'état simplifié d'un dépôt.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">git status -s</pre><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;"> M app/python/c/unix/cmd/Makefile.cmd.mak
+ M app/python/c/unix/cmd/envs.sh
+ M app/python/c/unix/cmd/make_c.sh
+ M app/python/c/unix/code/src/manager/GInclude.h
+ M app/python/c/unix/code/src/rdvcpy_module.c
+ M app/python/c/unix/code/src/setup.py
+?? app/python/c/unix/code/src/dist/
+?? app/python/c/unix/code/src/manager/GCode.c
+?? app/python/c/unix/code/src/manager/GCode.h
+?? app/python/c/unix/code/src/manager/GLog.c
+?? app/python/c/unix/code/src/manager/GLog.h
+?? app/python/c/unix/code/src/manager/GObject.c
+?? app/python/c/unix/code/src/manager/GObject.h
+?? app/python/c/unix/code/src/manager/GServer.c
+?? app/python/c/unix/code/src/manager/GServer.h
+?? app/python/c/unix/code/src/manager/GString.c
+?? app/python/c/unix/code/src/manager/GString.h
+?? app/python/c/unix/code/src/manager/GVector.c
+?? app/python/c/unix/code/src/manager/GVector.h
+?? app/python/c/unix/code/src/manager/GXml.c
+?? app/python/c/unix/code/src/manager/GXml.h
+?? app/python/c/unix/code/src/rdvcpy.egg-info/</pre><br>Ce qu'il faut savoir:<br><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">M ----&gt; concerne les fichiers suivis
+?? ---&gt; concerne les fichiers non suivis</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="nettoyage-du-depot-local">Nettoyage du dépôt local</a>
+</h1>
+<div class="Section6"><br>La commande (checkout) permet nettoyer les fichiers suivis.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">git checkout .</pre><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Updated 6 paths from the index</pre><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">git status -s</pre><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">?? app/python/c/unix/code/src/dist/
+?? app/python/c/unix/code/src/manager/GCode.c
+?? app/python/c/unix/code/src/manager/GCode.h
+?? app/python/c/unix/code/src/manager/GLog.c
+?? app/python/c/unix/code/src/manager/GLog.h
+?? app/python/c/unix/code/src/manager/GObject.c
+?? app/python/c/unix/code/src/manager/GObject.h
+?? app/python/c/unix/code/src/manager/GServer.c
+?? app/python/c/unix/code/src/manager/GServer.h
+?? app/python/c/unix/code/src/manager/GString.c
+?? app/python/c/unix/code/src/manager/GString.h
+?? app/python/c/unix/code/src/manager/GVector.c
+?? app/python/c/unix/code/src/manager/GVector.h
+?? app/python/c/unix/code/src/manager/GXml.c
+?? app/python/c/unix/code/src/manager/GXml.h
+?? app/python/c/unix/code/src/rdvcpy.egg-info/</pre><br>La commande (clean) permet de nettoyer les fichiers non suivis.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">git clean -fdx</pre><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Removing app/python/c/unix/code/src/manager/GCode.c
+Removing app/python/c/unix/code/src/manager/GCode.h
+Removing app/python/c/unix/code/src/manager/GLog.c
+Removing app/python/c/unix/code/src/manager/GLog.h
+Removing app/python/c/unix/code/src/manager/GObject.c
+Removing app/python/c/unix/code/src/manager/GObject.h
+Removing app/python/c/unix/code/src/manager/GServer.c
+Removing app/python/c/unix/code/src/manager/GServer.h
+Removing app/python/c/unix/code/src/manager/GString.c
+Removing app/python/c/unix/code/src/manager/GString.h
+Removing app/python/c/unix/code/src/manager/GVector.c
+Removing app/python/c/unix/code/src/manager/GVector.h
+Removing app/python/c/unix/code/src/manager/GXml.c
+Removing app/python/c/unix/code/src/manager/GXml.h</pre><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">git status</pre><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean</pre><br></div>
+</div>
+</div></div><br>
