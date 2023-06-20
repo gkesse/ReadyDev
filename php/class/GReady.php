@@ -72,7 +72,6 @@ class GReady extends GObject {
         // tutoriels/c
         $lObj2 = $lMenu->addMenu("tutoriels", "C", "C", "", $lObj);
         $lMenu->addMenu("tutoriels", "Cours", "C", "/home/tutoriels/c/cours", $lObj2);
-        $lMenu->addMenu("tutoriels", "WinLibs", "WinLibs", "/home/tutoriels/c/winlibs", $lObj2);
         // tutoriels/c++
         $lObj2 = $lMenu->addMenu("tutoriels", "C++", "C++", "", $lObj);
         $lMenu->addMenu("tutoriels", "Cours", "C++", "/home/tutoriels/cpp/cours", $lObj2);
@@ -84,31 +83,10 @@ class GReady extends GObject {
         $lMenu->addMenu("tutoriels", "Cours", "Python", "/home/tutoriels/python/cours", $lObj2);
         // tutoriels/javascript
         $lObj2 = $lMenu->addMenu("tutoriels", "JavaScript", "JavaScript", "", $lObj);
-        $lMenu->addMenu("tutoriels", "Ace", "Ace", "/home/tutoriels/javascript/ace", $lObj2);
-        $lMenu->addMenu("tutoriels", "MathJax", "MathJax", "/home/tutoriels/javascript/mathjax", $lObj2);
-        $lMenu->addMenu("tutoriels", "Google Tag Manager", "Google Tag Manager", "/home/tutoriels/javascript/google_tag_manager", $lObj2);
+        $lMenu->addMenu("tutoriels", "Cours", "JavaScript", "/home/tutoriels/javascript/cours", $lObj2);
         // tutoriels/php
         $lObj2 = $lMenu->addMenu("tutoriels", "PHP", "PHP", "", $lObj);
         $lMenu->addMenu("tutoriels", "Cours", "PHP", "/home/tutoriels/php/cours", $lObj2);
-        $lMenu->addMenu("tutoriels", "WampServer", "WampServer", "/home/tutoriels/php/wampserver", $lObj2);
-        $lMenu->addMenu("tutoriels", "Xdebug", "Xdebug", "/home/tutoriels/php/xdebug", $lObj2);
-        $lMenu->addMenu("tutoriels", "Smarty", "Smarty", "/home/tutoriels/php/smarty", $lObj2);
-        // tutoriels/css
-        $lObj2 = $lMenu->addMenu("tutoriels", "CSS", "CSS", "", $lObj);
-        $lMenu->addMenu("tutoriels", "Font Awesome", "Font Awesome", "/home/tutoriels/css/font_awesome", $lObj2);
-        $lMenu->addMenu("tutoriels", "Google Fonts", "Google Fonts", "/home/tutoriels/css/google_fonts", $lObj2);
-        // tutoriels/batch
-        $lObj2 = $lMenu->addMenu("tutoriels", "Batch", "Batch", "", $lObj);
-        $lMenu->addMenu("tutoriels", "Cours", "Batch", "/home/tutoriels/batch/cours", $lObj2);
-        // tutoriels/database
-        $lObj2 = $lMenu->addMenu("tutoriels", "Base de données", "Base de données", "", $lObj);
-        $lMenu->addMenu("tutoriels", "SQLite", "SQLite", "/home/tutoriels/database/sqlite", $lObj2);
-        // tutoriels/versioning
-        $lObj2 = $lMenu->addMenu("tutoriels", "Contrôle de version", "Contrôle de version", "", $lObj);
-        $lMenu->addMenu("tutoriels", "Git", "Git", "/home/tutoriels/versioning/git", $lObj2);
-        // tutoriels/ide
-        $lObj2 = $lMenu->addMenu("tutoriels", "IDE", "Environnement de développement intégré", "", $lObj);
-        $lMenu->addMenu("tutoriels", "Eclipse", "Eclipse", "/home/tutoriels/ide/eclipse", $lObj2);
         //===============================================
         // cours
         //===============================================
