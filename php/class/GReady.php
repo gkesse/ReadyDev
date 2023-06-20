@@ -310,8 +310,8 @@ class GReady extends GObject {
     }
     //===============================================
     public function toScriptJsLib() {
-        echo sprintf("<script src='/libs/ace/v1.21.0/src-min-noconflict/ace.js'></script>");
-        echo sprintf("<script src='/libs/mathjax/v3.2.2/es5/tex-mml-chtml.js'></script>");
+        echo sprintf("<script src='/libs/ace/v1.21.0/src-min-noconflict/ace.js'></script>\n");
+        echo sprintf("<script src='/libs/mathjax/v3.2.2/es5/tex-mml-chtml.js'></script>\n");
     }
     //===============================================
     public function serialize($_code = "ready") {
