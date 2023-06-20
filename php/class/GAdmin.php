@@ -146,9 +146,9 @@ class GAdmin extends GObject {
     }
     //===============================================
     public function toEditorHomeForm() {
-        echo sprintf("<b>ReadyEditor</b> est un éditeur de pages HTML.<br/>\n");
-        echo sprintf("Il permet d'éditer les pages HTML du siteweb.\n");
-        echo sprintf("Cela accélère l'ajout de nouveaux contenus\n");
+        echo sprintf("<b>ReadyHTML</b> est un éditeur de pages HTML.<br/>\n");
+        echo sprintf("Il permet d'éditer les pages HTML du site ReadyDev.\n");
+        echo sprintf("Cela accélère l'ajout de nouveaux composants\n");
         echo sprintf("et évite de passer du temps inutilement à écrire du code\n");
         echo sprintf("dans le but d'ajouter de nouveaux contenus.\n");
         echo sprintf("<br/>Produit par <b>Gérard KESSE</b>.\n");

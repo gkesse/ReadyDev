@@ -2671,7 +2671,7 @@ class GEditor extends GObject {
 
         var lForm = GForm.Instance();
         lForm.clearMap();
-        lForm.setCallback("editor", "update_link_form");
+        lForm.setCallback("editor", "update_link_1_form");
         lForm.addLabelPicto("m_icon", "Icône :", lFont.toForm(), lIndex);
         lForm.addLabelEdit("m_link", "Lien :", lLink);
         lForm.addLabelEdit("m_title", "Titre :", lTitle);
