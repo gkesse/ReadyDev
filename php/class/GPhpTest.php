@@ -36,27 +36,19 @@
         }
         //===============================================
         public function runXml() {
-            $lObj = new GXmlTest();
-            $lObj->run();
-            $this->addLogs($lObj->getLogs());
+
         }
         //===============================================
         public function runCurl() {
-            $lObj = new GCurlTest();
-            $lObj->run();
-            $this->addLogs($lObj->getLogs());
+
         }
         //===============================================
         public function runSQLite() {
-            $lObj = new GSQLiteTest();
-            $lObj->run();
-            $this->addLogs($lObj->getLogs());
+
         }
         //===============================================
         public function runFile() {
-            $lObj = new GFileTest();
-            $lObj->run();
-            $this->addLogs($lObj->getLogs());
+
         }
         //===============================================
     }

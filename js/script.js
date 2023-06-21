@@ -36,8 +36,20 @@ function runAceJS() {
     }
 }
 //===============================================
+function runMathjax() {
+	MathJax = {
+	    tex: {
+	        inlineMath: [['$', '$'], ['\\(', '\\)']]
+	    },
+	    svg: {
+	        fontCache: 'global'
+	    }
+	};
+}
+//===============================================
 function mainJs() {
     runAceJS();
+    runMathjax();
 }
 //===============================================
 mainJs();
