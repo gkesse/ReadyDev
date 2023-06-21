@@ -90,7 +90,9 @@ class GReady extends GObject {
         //===============================================
         // cours
         //===============================================
-        $lMenu->addMenu("cours", "Cours", "Cours", "/home/cours", $this);
+        $lObj = $lMenu->addMenu("cours", "Cours", "Cours", "/home/cours", $this);
+        // cours/electronique
+        $lMenu->addMenu("cours", "Electronique", "Electronique", "/home/cours/electronique", $lObj);
         //===============================================
         // admin
         //===============================================
