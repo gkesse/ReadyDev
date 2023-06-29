@@ -31,6 +31,10 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#polymorphisme-de-classe">Polymorphisme de classe</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#communication-reseau">Communication réseau</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -287,4 +291,134 @@ public class GThread extends Thread {
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">Toutes méthodes en Java sont polymorphes.</div>
 </div><br></div>
-</div></div></div><br>
+</div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="communication-reseau">Communication réseau</a>
+</h1>
+<div class="Section6"><br>La classe (ServerSocket) permet de créer un point de connexion côté serveur.<br>Elle fournit la méthode (accept) qui permet d'attendre une connexion client.<br><br>Création du server.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public class GSocket extends GObject {  
+    //===============================================
+    public void runServer() {
+        int lPort = 9040;
+        ServerSocket lServer = null;
+        
+        try {            
+        	lServer = new ServerSocket(lPort);
+            
+            System.out.print(String.format("Démarrage du serveur...\n"));
+            
+            while(true) {
+                if(!m_continue) break;
+                
+                GSocket lClient = new GSocket();
+                
+                try {
+                    lClient.m_socket = lServer.accept();
+                }
+                catch(Exception e) {
+                	m_srvLogs.addError("La connexion au serveur a échoué.");
+                    break;
+                }
+                                
+                GThread lThread = new GThread();
+                lThread.setObj(lClient);
+                lThread.start();
+            }
+            
+            System.out.print(String.format("Arrêt du serveur...\n"));
+
+            lServer.close();
+        }
+        catch(Exception e) {
+        	m_srvLogs.addError("Le démarrage du serveur a échoué.");
+        }
+        
+        if(m_srvLogs.hasErrors()) {
+        	m_logs.addLogs(m_srvLogs);
+        }
+    }
+    //===============================================
+}
+//===============================================</pre><br>La classe (Socket) permet de créer une connexion côté client.<br><br>Création du client.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public class GSocket extends GObject {  
+    //===============================================
+    public String callServer(String _data) {
+        String lAddress = "127.0.0.1";
+        int lPort = 9040;
+        String lDataOut = "";
+        
+        try {
+            InetAddress lInetAddress = InetAddress.getByName(lAddress);
+            m_socket = new Socket(lInetAddress, lPort);
+            sendData(_data);
+            lDataOut = readData();
+            closeSocket();
+        }
+        catch(Exception e) {
+        	m_srvLogs.addError("La connexion au serveur a échoué.");
+        }
+        
+        if(m_srvLogs.hasErrors()) {
+        	m_logs.addError("La connexion au serveur a échoué.");
+        }
+        
+        return lDataOut;
+    }
+    //===============================================
+}
+//===============================================</pre><br>La classe (DataOutputStream) offre la méthode (write) qui permet d'envoyer un message vers un point de connexion.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public class GSocket extends GObject {  
+    //===============================================
+    public void sendData(String _data) {
+        try {
+            DataOutputStream lStreamOut = new DataOutputStream(m_socket.getOutputStream());
+            lStreamOut.write(_data.getBytes());
+        }
+        catch(Exception e) {
+            m_srvLogs.addError("L'envoi des données a échoué.");
+        }
+    }
+    //===============================================
+}
+//===============================================</pre><br>La classe (InputStream) offre la méthode (read) qui permet de recevoir un message à partir d'un point de connexion et la méthode (available) qui permet de déterminer le nombre de données disponible en lecture sur le réseau.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public class GSocket extends GObject {  
+    //===============================================
+    public String readData() {
+        String lData = "";
+        try {
+            InputStream lStreamIn = m_socket.getInputStream();
+            while(true) {
+                byte[] lBuffer = new byte[BUFFER_SIZE];
+                int lBytes = lStreamIn.read(lBuffer);
+                if(lBytes == -1) break;
+                lData += new String(lBuffer, 0, lBytes, StandardCharsets.UTF_8);
+                if(lStreamIn.available() &lt;= 0) break;
+                if(lData.length() &gt;= BUFFER_MAX) {
+                	m_srvLogs.addError("La limite des données est atteinte.");
+                    break;
+                }
+            }
+        }
+        catch(Exception e) {
+        	m_srvLogs.addError("La lecture des données a échoué.");
+        }
+        return lData;
+    }
+    //===============================================
+}
+//===============================================</pre><br>La classe (Socket) offre la méthode (close) qui permet de fermer le point de connexion.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public class GSocket extends GObject {  
+    //===============================================
+    public void closeSocket() {
+        try {
+            m_socket.close();
+        }
+        catch(Exception e) {
+        	m_srvLogs.addError("La fermeture du socket a échoué.");
+        }
+    }
+    //===============================================
+}
+//===============================================</pre><br></div></div></div></div><br>
