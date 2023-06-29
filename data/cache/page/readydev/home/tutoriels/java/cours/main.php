@@ -27,6 +27,10 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#heritage-de-classe">Héritage de classe</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#polymorphisme-de-classe">Polymorphisme de classe</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -188,7 +192,7 @@ public class GLog {
 public class GObject {  
     //===============================================
     public GObject() {
-        m_resp.createDoc();
+        
     }  
     //===============================================
     public String toBase64(String _data) {
@@ -236,4 +240,51 @@ public class GCalculator extends GManager {
 <div class="Bullet3">La méthode (deserailize) est définie dans la classe mère (GManager) et redéfinie dans la classe fille (GCalculator) avec la même signature.</div>
 </div><br></div>
 </div>
-</div></div><br>
+</div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="polymorphisme-de-classe">Polymorphisme de classe</a>
+</h1>
+<div class="Section6"><br>Java prend en charge la notion de polymorphisme de classe.<br><br>Définition de la classe mère.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public class GObject {  
+    //===============================================
+    public GObject() {
+
+    }  
+    //===============================================
+    public void runThread() {}  
+    //===============================================
+}
+//===============================================</pre><br>Définition de la classe fille.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public class GSocket extends GObject {  
+    //===============================================
+    public GSocket() {  
+
+    }  
+    //===============================================
+    public void runThread() {
+        GSocket lClient = this;
+        String lData = lClient.readData();
+        GServer lServer = new GServer();
+        lServer.run(lData);
+        lServer.sendResponse(lClient);
+        lClient.closeSocket();
+    }
+    //===============================================
+}
+//===============================================</pre><br>Appel de la méthode polymorphique.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public class GThread extends Thread {  
+    //===============================================
+    GObject m_obj = null;
+    //===============================================
+    public void run() {
+        m_obj.runThread();
+    }
+    //===============================================
+}
+//===============================================</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Toutes méthodes en Java sont polymorphes.</div>
+</div><br></div>
+</div></div></div><br>
