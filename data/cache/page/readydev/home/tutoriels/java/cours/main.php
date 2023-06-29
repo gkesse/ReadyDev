@@ -9,6 +9,14 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#surcharge-de-constructeurs">Surcharge de constructeurs</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#surcharge-de-methodes">Surcharge de méthodes</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#multithreading">Multithreading</a>
 </div>
 <div class="GSummary11 Summary1">
@@ -29,6 +37,61 @@
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="surcharge-de-constructeurs">Surcharge de constructeurs</a>
+</h1>
+<div class="Section6"><br>Java prend en charge la notion de surcharge de constructeurs.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public class GManager extends GObject {  
+    //===============================================
+    protected String m_module = "";
+    protected String m_method = "";
+    //===============================================
+    public GManager() {  
+
+    }  
+    //===============================================
+    public GManager(String _module, String _method) {  
+    	m_module = _module;
+    	m_method = _method;
+    }  
+    //===============================================
+}
+//===============================================</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Les constructeurs doivent avoir des signatures différentes.</div>
+</div><br></div>
+</div>
+</div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="surcharge-de-methodes">Surcharge de méthodes</a>
+</h1>
+<div class="Section6"><br>Java prend en charge la notion de surcharge de méthodes.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public class GXml {
+    //===============================================
+    public Element addObj(String _name) {
+        Element lNode = new Element(_name);
+        m_node.addContent(lNode);
+        return lNode;
+    }
+    //===============================================
+    public Element addObj(String _name, String _value) {
+        Element lNode = new Element(_name);
+        lNode.setText(_value);
+        m_node.addContent(lNode);
+        return lNode;
+    }
+    //===============================================
+}
+//===============================================</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Les méthodes doivent avoir des signatures différentes.</div>
+</div><br></div>
+</div>
+</div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
@@ -121,40 +184,56 @@ public class GLog {
 <h1 class="Section4">
 <a class="Section5" href="#" id="heritage-de-classe">Héritage de classe</a>
 </h1>
-<div class="Section6"><br>L'opérateur (class) permet de créer une classe en Java.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-public class GLog {
-
-}
-//===============================================</pre><br>Une classe peut contenir des attributs appelés des propriétés ou des variables membres.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-public class GLog {
+<div class="Section6"><br>L'opérateur (extends) permet d'introduire l'héritage de classe en Java.<br><br>Définition de la classe mère.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public class GObject {  
     //===============================================
-    private String m_type = "";
-    private String m_side = "";
-    private String m_msg = "";
-    private ArrayList&lt;GLog&gt; m_map = new ArrayList&lt;GLog&gt;();
+    public GObject() {
+        m_resp.createDoc();
+    }  
     //===============================================
-}
-//===============================================</pre><br>Une classe peut contenir un constructeur.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-public class GLog {
+    public String toBase64(String _data) {
+        return Base64.getEncoder().encodeToString(_data.getBytes());
+    }
     //===============================================
-    public GLog() {
-
+    public String fromBase64(String _data) {
+        return new String(Base64.getDecoder().decode(_data));
     }
     //===============================================
 }
-//===============================================</pre><br>Une classe peut contenir des méthodes.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-public class GLog {
+//===============================================</pre><br>Définition de la classe fille.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public class GCalculator extends GObject {  
     //===============================================
-    public void addLogs(GLog _obj) {
-        for(int i = 0; i &lt; _obj.m_map.size(); i++) {
-            GLog lObj = _obj.m_map.get(i);
-            GLog lNew = new GLog();
-            lNew.setObj(lObj);
-            m_map.add(lNew);
-        }
+    public GCalculator() {  
+
+    }  
+    //===============================================
+    public String serialize() {
+        lDom.addData(lCode, "expression", toBase64(m_expression));
+    }
+    //===============================================
+    public void deserialize(String _data) {
+        m_expression = fromBase64(lDom.getData(lCode, "expression"));
     }
     //===============================================
 }
-//===============================================</pre><br><br></div>
+//===============================================</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">La classe fille a directement accès aux méthodes de la classe mère (toBase64, fromBase64).</div>
+</div><br>L'opérateur (super) permet à la classe fille d'accéder à une méthode de même nom de la classe mère.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public class GCalculator extends GManager {  
+    //===============================================
+    public GCalculator() {  
+
+    }  
+    //===============================================
+    public void deserialize(String _data) {
+    	super.deserialize(_data);
+    }
+    //===============================================
+}
+//===============================================</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">La méthode (deserailize) est définie dans la classe mère (GManager) et redéfinie dans la classe fille (GCalculator) avec la même signature.</div>
+</div><br></div>
 </div>
 </div></div><br>
