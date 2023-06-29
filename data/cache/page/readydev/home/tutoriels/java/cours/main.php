@@ -35,6 +35,10 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#communication-reseau">Communication réseau</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#xml">XML</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -289,7 +293,7 @@ public class GThread extends Thread {
 }
 //===============================================</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">Toutes méthodes en Java sont polymorphes.</div>
+<div class="Bullet3">Toutes les méthodes en Java sont polymorphes.</div>
 </div><br></div>
 </div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
@@ -420,5 +424,99 @@ public class GSocket extends GObject {
         }
     }
     //===============================================
+}
+//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="xml">XML</a>
+</h1>
+<div class="Section6"><br>La librairie JDOM2 permet de manipuler un document XML.<br><br>La classe (Document) permet de créer un document XML.<br>La classe (Element) permet de créer un noeud XML.<br>La classe (Document) offre la méthode (addContent) qui permet d'ajouter un noeud à un document XML.&nbsp;<br><br>Création d'un document XML.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public void createDoc() {
+    m_doc = new Document();
+    m_node = new Element("root");
+    m_doc.addContent(m_node);
+}
+//===============================================</pre><br>La classe (SAXBuilder) offre la méthode (build) qui permet de charger des données XML.<br>La classe (Document) offre la méthode (getRootElement) qui permet de récupérer le noeud racine d'un document XML.<br>&nbsp;&nbsp;<br>Chargement de données XML.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public boolean loadXml(String _data) {
+    try {
+        SAXBuilder lSax = new SAXBuilder();
+        m_doc = lSax.build(new StringReader(_data));
+        m_node = m_doc.getRootElement();
+    }
+    catch (Exception e) {
+        m_logs.addError("La création du document a échoué.");
+    }
+    return !m_logs.hasErrors();
+}
+//===============================================</pre><br>La classe (SAXBuilder) offre la méthode (build) qui permet de charger un fichier XML.<br>La classe (Document) offre la méthode (getRootElement) qui permet de récupérer le noeud racine d'un document XML.<br><br>Chargement d'un fichier XML.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public boolean loadFile(String _filename) {
+    try {
+        SAXBuilder lSax = new SAXBuilder();
+        lSax.setProperty(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+        lSax.setProperty(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+        m_doc = lSax.build(new File(_filename));
+        m_node = m_doc.getRootElement();
+    }
+    catch(Exception ex) {
+        m_logs.addError("Le chargement du fichier a échoué.");
+    }
+    return !m_logs.hasErrors();
+}
+//===============================================</pre><br>La classe (Element) offre la méthode (addContent) qui permet d'ajouter un nouveau noeud à un noeud existant.<br><br>Ajout d'un nouveau noeud.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public Element addObj(String _name) {
+    Element lNode = new Element(_name);
+    m_node.addContent(lNode);
+    return lNode;
+}
+//===============================================</pre><br>La classe (Element) offre la méthode (setText) qui permet d'ajouter un texte au contenu d'un noeud.<br><br>Ajout d'un nouveau noeud avec un texte.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public Element addValue(String _name, String _value) {
+    Element lNode = new Element(_name);
+    lNode.setText(_value);
+    m_node.addContent(lNode);
+    return m_node;
+}
+//===============================================</pre><br>La classe (XPathFactory) offre la méthode (compile) qui permet de compiler un chemin XPath.<br>La classe (XPathExpression) offre la méthode (evaluate) qui permet de récupérer&nbsp; la liste des noeuds correspondant à chemin XPath à partir du noeud racine.<br><br>Récupération du nombre de noeuds lié à une requête XPath.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public int countNode(String _path) {
+    if(m_doc == null) return 0;
+    XPathFactory lXPathF = XPathFactory.instance();
+    XPathExpression&lt;Element&gt; lXPathE = lXPathF.compile(_path, Filters.element());
+    List&lt;Element&gt; lNodes = lXPathE.evaluate(m_node);
+    return lNodes.size();
+}
+//===============================================</pre><br>Récupération du noeud lié à une requête XPath.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public Element getNode(String _path) {
+    if(m_doc == null) return null;
+    XPathFactory lXPathF = XPathFactory.instance();
+    XPathExpression&lt;Element&gt; lXPathE = lXPathF.compile(_path, Filters.element());
+    List&lt;Element&gt; lNodes = lXPathE.evaluate(m_node);
+    if(lNodes.size() == 0) return null;
+    return lNodes.get(0);
+}
+//===============================================</pre><br>La classe (Element) offre la méthode (detach) qui permet de détacher un noeud de son document actuel et de le charger dans un autre document XML.&nbsp;<br><br>Chargement de noeuds à partir de données XML.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public void loadNode(String _data) {
+    if(_data.equals("")) return;
+    GCode lDom = new GCode();
+    lDom.loadXml(_data);
+    m_node.addContent(lDom.m_node.detach());
+}
+//===============================================</pre><br>La classe (Element) offre la méthode (getText) qui permet de récupérer le contenu d'un noeud.&nbsp;<br><br>Récupération du contenu d'un noeud.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public String getValue() {
+    if(m_node == null) return "";
+    return m_node.getValue();
+}
+//===============================================</pre><br>La classe (XMLOutputter) offre la méthode (outputString) qui permet de convertir un document XML en chaine de caractères.<br><br>Conversion d'un document XML en chaine de caractères.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public String toString() {
+    if(m_doc == null) return "";
+    XMLOutputter lXmlOut = new XMLOutputter(Format.getPrettyFormat());
+    String lData = lXmlOut.outputString(m_doc);
+    return lData;
+}
+//===============================================</pre><br>La classe (XMLOutputter) offre la méthode (outputString) qui permet de convertir un noeud XML en chaine de caractères.<br><br>Conversion d'un noeud XML en chaine de caractères.<br><br><pre class="GCode1 Code1 AceCode" data-mode="java" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+public String toNode() {
+    if(m_node == null) return "";
+    XMLOutputter lXmlOut = new XMLOutputter(Format.getPrettyFormat());
+    String lData = lXmlOut.outputString(m_node);
+    return lData;
 }
 //===============================================</pre><br></div></div></div></div><br>
