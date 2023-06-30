@@ -43,6 +43,14 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#multithreading">Multithreading</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#xml">XML</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#expressions-mathematiques">Expressions mathématiques</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -226,4 +234,119 @@ DWORD WINAPI GSocket::onThread(LPVOID _params) {
     delete lClient;
     return 0;
 }
-//===============================================</pre>&nbsp;<br></div></div></div></div><br>
+//===============================================</pre>&nbsp;<br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="xml">XML</a>
+</h1>
+<div class="Section6"><br>La bibliothèque (libXML2) permet de manipuler un document XML.<br><br>La fonction (xmlNewDoc) permet de créer un nouveau document XML.<br>La fonction (xmlNewNode) permet de créer un nouveau noeud XML.<br>La fonction (xmlDocSetRootElement) permet d'initialiser le noeud racine d'un document XML.
+<br><br>Création d'un document XML.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GXml::createDoc() {
+    m_doc = xmlNewDoc(BAD_CAST("1.0"));
+    m_node = xmlNewNode(NULL, BAD_CAST("rdv"));
+    xmlDocSetRootElement(m_doc, m_node);
+}
+//===============================================</pre><br>La fonction (xmlParseDoc) permet de charger des données XML.<br>La fonction (xmlDocGetRootElement) permet de récupérer le noeud racine d'un document XML.<br><br>Chargement de données XML.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+bool GXml::loadXml(const GString&amp; _data) {
+    m_doc = xmlParseDoc(BAD_CAST(_data.c_str()));
+    if(!m_doc) return false;
+    m_node = xmlDocGetRootElement(m_doc);
+    if(!m_node) return false;
+    return true;
+}
+//===============================================</pre><br>La fonction (xmlParseInNodeContext) permet de charger un noeud à partir de données XML.<br>La fonction (xmlAddChild) permet d'ajouter un nouveau noeud à un noeud existant.<br>La fonction (xmlCopyNode) permet de copier un noeud ainsi que les noeuds enfants.<br>&nbsp;<br>Chargement d'un noeud à partir de données XML.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GXml::loadNode(const GString&amp; _data) {
+    xmlNodePtr lNodes;
+    xmlParseInNodeContext(m_node, _data.c_str(), lSize, 0, &amp;lNodes);
+    xmlNodePtr lNode = lNodes-&gt;children;
+    while(lNode) {
+        xmlAddChild(m_node, xmlCopyNode(lNode, 1));
+        lNode = lNode-&gt;next;
+    }
+    xmlFreeNode(lNodes);
+}
+//===============================================</pre><br>La fonction (xmlNewNode) permet créer un nouveau noeud XML.<br>La fonction (xmlNodeSetContent) permet d'initialiser le contenu d'un noeud.<br>La fonction (xmlAddChild) permet d'ajouter un nouveau noeud à un noeud existant.<br>&nbsp; &nbsp;<br>Ajout d'un nouveau noeud XML.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+xmlNodePtr GXml::addObj(const GString&amp; _name) {
+    xmlNodePtr lNode = xmlNewNode(NULL, BAD_CAST(_name.c_str()));
+    xmlAddChild(m_node, lNode);
+    return lNode;
+}
+//===============================================</pre><br>Ajout d'un nouveau noeud XML avec un contenu.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GXml::addData(const GString&amp; _name, const GString&amp; _value) {
+    xmlNodePtr lNode = xmlNewNode(NULL, BAD_CAST(_name.c_str()));
+    xmlNodeSetContent(lNode, BAD_CAST(_value.c_str()));
+    xmlAddChild(m_node, lNode);
+}
+//===============================================</pre><br>Récupération du contenu d'un noeud XML.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+GString GXml::getValue() const {
+    GString lValue = (char*)xmlNodeGetContent(m_node);
+    return lValue;
+}
+//===============================================</pre><br>Modification du contenu d'un noeud XML.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GXml::setValue(const GString&amp; _value) {
+    xmlNodeSetContent(m_node, BAD_CAST(_value.c_str()));
+}
+//===============================================</pre><br>La fonction (xmlXPathNewContext) permet de créer un contexte XPath.<br>La fonction (xmlXPathNodeEval) permet d'évaluer une requête XPath à partir d'un noeud.<br>La structure (xmlXPathObjectPtr) fournit la propriété (nodesetval) qui pointe sur une structure contenant les noeuds trouvés.<br>La structure (xmlNodeSetPtr) fournit la propriété (nodeNr) qui contient le nombre de noeuds trouvés.<br>&nbsp;<br>Récupération du nombre de noeuds liés à une requête XPath.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+int GXml::countNode(const GXml&amp; _root, const GString&amp; _path) {
+    xmlXPathContextPtr lXPathC = xmlXPathNewContext(_root.m_doc);
+    if(!lXPathC) return 0;
+    xmlNodePtr lRoot = m_node;
+    if(_path[0] == '/') lRoot = _root.m_node;
+    xmlXPathObjectPtr lXPathO = xmlXPathNodeEval(lRoot, BAD_CAST(_path.c_str()), lXPathC);
+    if(!lXPathO) return 0;
+    xmlXPathFreeContext(lXPathC);
+    int lCount = 0;
+    if(lXPathO-&gt;nodesetval) {
+        lCount = lXPathO-&gt;nodesetval-&gt;nodeNr;
+    }
+    xmlXPathFreeObject(lXPathO);
+    return lCount;
+}
+//===============================================</pre><br>La structure (xmlNodeSetPtr) fournit la propriété (nodeTab) qui contient un tableau sur les noeuds trouvés.<br><br>Récupération du noeud liés à une requête XPath.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+xmlNodePtr GXml::getNode(const GXml&amp; _root, const GString&amp; _path) const {
+    xmlXPathContextPtr lXPathC = xmlXPathNewContext(_root.m_doc);
+    if(!lXPathC) return 0;
+    xmlNodePtr lRoot = m_node;
+    if(_path[0] == '/') lRoot = _root.m_node;
+    xmlXPathObjectPtr lXPathO = xmlXPathNodeEval(lRoot, BAD_CAST(_path.c_str()), lXPathC);
+    if(!lXPathO) return 0;
+    xmlXPathFreeContext(lXPathC);
+    xmlNodePtr lNode = 0;
+    if(lXPathO-&gt;nodesetval) {
+        if(lXPathO-&gt;nodesetval-&gt;nodeNr) {
+            lNode = lXPathO-&gt;nodesetval-&gt;nodeTab[0];
+        }
+    }
+    xmlXPathFreeObject(lXPathO);
+    return lNode;
+}
+//===============================================</pre><br>La fonction (xmlDocDumpFormatMemoryEnc) permet de convertir un document XML en chaînes de caractères.<br><br>Conversion d'un document XML en chaîne de caractères.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+GString GXml::toString() const {
+    xmlChar* lBuffer = NULL;
+    int lSize;
+    xmlDocDumpFormatMemoryEnc(m_doc, &amp;lBuffer, &amp;lSize, "UTF-8", 4);
+    GString lData((char*)lBuffer, lSize);
+    xmlFree(lBuffer);
+    return lData;
+}
+//===============================================</pre><br>La fonction (xmlNodeDump) permet de convertir un noeud XML en chaînes de caractères.<br><br>Conversion d'un noeud XML en chaîne de caractères.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+GString GXml::toNode(const GXml&amp; _root) const {
+    GString lData;
+    xmlBufferPtr lBuffer = xmlBufferCreate();
+    xmlNodeDump(lBuffer, _root.m_doc, m_node, 0, 1);
+    lData = (char*)lBuffer-&gt;content;
+    xmlBufferFree(lBuffer);
+    return lData;
+}
+//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="expressions-mathematiques">Expressions mathématiques</a>
+</h1>
+<div class="Section6"><br>La bibliothèque (TinyExpr) permet d'évaluer une expression mathématique.&nbsp;<br><br>La fonction (te_interp) permet d'évaluer une expression mathématique.<br><br>Evaluation d'une expression mathématique.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GCalculator::onRunCalculator(const GString&amp; _data) {
+    double lResult = te_interp(m_expression.c_str(), 0);
+}
+//===============================================</pre><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAiMAAAJ8CAYAAAAs8qGTAAAMM0lEQVR4nO3bMW/UdRzH8R/aeoWKrUapSCoSI5KQOLCRODlgIqsmDi4+A3cfDAurg+5uRIduhYFgJCRaBsMgNVV0wUUSjIltr0ffOXi9xhvu/xnf+d7/jiyuXnw4AAAiz9UDAIBnmxgBAFJiBABIiREAICVGAICUGAEAUmIEAEiJEQAgJUYAgJQYAQBSYgQASIkRACAlRgCAlBgBAFJiBABIiREAICVGAICUGAEAUmIEAEgtHPYD33v7r8N+JAAwY5s/vjCz73IZAQBSYgQASIkRACAlRgCAlBgBAFJiBABIHfpfe//PZ5//Vk8AAP5x9crxQ3mOywgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBqoR7wuKtXjtcTAIBD5jICAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMAAApMQIApMQIAJASIwBASowAACkxAgCkxAgAkBIjAEBKjAAAKTECAKTECACQEiMAQEqMsKvNzdtj5/c/6xkAPKXECHuytXVPkADwRIgR9uT+r3cFCQBPhBhhzwQJAE+CGGFfBAkAsyZG2DdBAsAsiRGmIkgAmBUxwtQECQCzIEY4EEECwEGJEQ7s7tZtQQLA1MQIB7a8vDR+uLUpSACYihhhJk6ceHXcuL4xtrbu1VMAmDML9QDmz87Og7G8vDTGGGNl9Y14DQDzToywLzs7D8bKysnx9TdfjcsffTDGGGNt7ZWx8tLReBkA88rPNOzZoxA5++76+OTjT8cYY9y4vjF+/umXeBkA80yMsCePh8jyscmYLE3GtWsbY3391JgsTcb97T/qiQDMKTHCrpaOTv4VImOMcfLky+PSpctjjDG+/+5b1xEApuadEXZ19p1T//ns0XXk5s1b49y5s8EqAJ4WYoSpnX7ztXHhwvtj+cVj460zr9dzAJhTYoSpLS4+P86fP13PAGDOeWcEAEiJEQAgJUYAgJQYAQBSYgQASIkRACAlRgCAlBgBAFJiBABIiREAICVGAICUGAEAUmIEAEiJEQAgJUYAgJQYAQBSYgQASIkRACAlRgCAlBgBAFJiBABIiREAICVGAICUGAEAUmIEAEiJEQAgJUYAgJQYAQBSYgQASIkRACAlRgCAlBgBAFJiBABIiREAICVGAICUGAEAUmIEAEiJEQAgJUYAgJQYAQBSYgQASIkRACAlRgCAlBgBAFJiBABIiREAICVGAICUGAEAUmIEAEiJEQAgJUYAgJQYAQBSYgQASIkRACAlRgCAlBgBAFJiBABIiREAICVGAICUGAEAUmIEAEiJEQAgJUYAgJQYAQBSYgQASIkRACAlRgCAlBgBAFJiBABIiREAICVGAICUGAEAUmIEAEiJEQAgJUYAgNSRxdWLD+sRAMCzy2UEAEiJEQAgJUYAgJQYAQBSYgQASIkRACAlRgCAlBgBAFJiBABIiREAICVGAICUGAEAUmIEAEiJEQAgJUYAgJQYAQBSYgQASIkRACAlRgCAlBgBAFJiBABIiREAICVGAICUGAEAUmIEAEgtfPnFh2Ntba3eAQA8Y+7cuTO2t7fH32dXmnSoy34yAAAAAElFTkSuQmCC"></div><br></div></div></div></div><br>
