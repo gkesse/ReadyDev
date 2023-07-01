@@ -179,7 +179,14 @@ void GLog::print() const {
         printf("[%-5s] : %s\n", lObj-&gt;m_type.c_str(), lObj-&gt;m_msg.c_str());
     }
 }
-//===============================================</pre><br>De manière générale, l'opérateur (break) permet de casser une boucle.<br>Alors que l'opérateur (continue) permet de continuer la boucle.<br><br></div></div></div></div><br><div class="GSection1 Section1">
+//===============================================</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">De manière générale, l'opérateur (break) permet de casser une boucle.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Alors que l'opérateur (continue) permet de continuer la boucle.</div>
+</div><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
@@ -197,7 +204,14 @@ void GSocket::sendData(const GString&amp; _data) {
         if(lIndex &gt;= lSize) break;
     }
 }
-//===============================================</pre><br>De manière générale, l'opérateur (break) permet de casser une boucle.<br>Alors que l'opérateur (continue) permet de continuer la boucle.<br>&nbsp;<br></div></div></div></div><br><div class="GSection1 Section1">
+//===============================================</pre><br>Ce qu'il faut savoir:<br>&nbsp;<br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">De manière générale, l'opérateur (break) permet de casser une boucle.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Alors que l'opérateur (continue) permet de continuer la boucle.</div>
+</div>&nbsp;<br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
