@@ -182,7 +182,7 @@ const char* sformat(const char* _format, ...) {
     gFunctions_Buffer = lBuffer;
     return lBuffer;
 }
-//===============================================</pre><br>Ce qu'il faut savoir:<br><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">_fomat ---&gt; argument de référence</pre><br>La macro (va_start) permet d'alimenter un structure (va_list) correspondant à la liste des arguments à partir d'un argument de référence selon votre choix (_format).<br><br>La macro (va_end) permet de libérer les mémoires allouées dynamiquement lors du parcours de la liste d'arguments.<br><br></div></div></div></div><br><div class="GSection1 Section1">
+//===============================================</pre><br>Ce qu'il faut savoir:<br><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">_fomat ---&gt; argument de référence</pre><br>La macro (va_start) permet d'alimenter un structure (va_list) correspondant à la liste des arguments à partir d'un argument de référence selon votre choix (_format).<br><br>La macro (va_end) permet de libérer les mémoires allouées dynamiquement lors du parcours de la liste d'arguments.<br><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
@@ -274,7 +274,7 @@ static void GProcess_run(GProcess* _this, int _argc, char** _argv) {
 
     lLog-&gt;showLogsX(lLog);
 }
-//===============================================</pre><br>Passer des arguments en ligne de commande.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">rdv_c.exe test string</pre><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">_argv[0] -&gt; rdv_cpp.exe
+//===============================================</pre><br>Passer des arguments en ligne de commande.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">rdv_c.exe test string</pre><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">_argv[0] -&gt; rdv_cpp.exe
 _argv[1] -&gt; test
 _argv[2] -&gt; string</pre><br></div>
 </div></div></div><br><div class="GSection1 Section1">
@@ -328,7 +328,7 @@ static void GSocket_runServer(GSocket* _this, int _argc, char** _argv) {
         }
     }
 }
-//===============================================</pre><br>Ce qu'il faut savoir:<br><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">lThreadH ----------&gt; gestionnaire du Thread
+//===============================================</pre><br>Ce qu'il faut savoir:<br><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">lThreadH ----------&gt; gestionnaire du Thread
 lThreadId ---------&gt; identifiant du Thread
 GSocket_onThread --&gt; fonction de rappel du Thread
 lClient -----------&gt; paramètre de la fonction de rappel du Thread</pre><br>Fonction de rappel du Thread sous (Windows):<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
@@ -406,7 +406,7 @@ GCalculator* GCalculator_new();
 <div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">L'objet (this) est représenté par le premier argument de chaque méthode.&nbsp;</div>
-</div><br><pre class="GCode1 Code1 AceCode" data-mode="txt" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">méthodes -------&gt; pointeurs de fonction.
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">méthodes -------&gt; pointeurs de fonction.
 objet (this) ---&gt; premier argument de chaque méthode.<br></pre><br>Une classe peut posséder un constructeur.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 GCalculator* GCalculator_new() {
     GCalculator* lObj = (GCalculator*)malloc(sizeof(GCalculator));

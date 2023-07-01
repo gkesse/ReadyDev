@@ -96,6 +96,7 @@
         public function toPath() {
             $lPath = sprintf("%s/%s%s/main.php", $this->toRoot(), $this->toProjectName(), $this->getPageId());
             $lPath = $this->getPath($lPath);
+            $lPath = str_replace("//", "/", $lPath);
             return $lPath;
         }
         //===============================================
