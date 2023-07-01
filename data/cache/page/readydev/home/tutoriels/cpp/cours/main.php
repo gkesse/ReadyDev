@@ -45,6 +45,10 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#communication-reseau">Communication réseau</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#xml">XML</a>
 </div>
 <div class="GSummary11 Summary1">
@@ -235,6 +239,153 @@ DWORD WINAPI GSocket::onThread(LPVOID _params) {
     return 0;
 }
 //===============================================</pre>&nbsp;<br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="communication-reseau">Communication réseau</a>
+</h1>
+<div class="Section6"><br>Les sockets permettent d'échanger des données via lé réseau internet.<br><br>Sous Windows.<br><br>La fonction (WSAStartup) permet d'initialiser un socket.<br>La fonction (socket) permet de créer un socket.<br>La structure (sockaddr_in) permet d'instancier l'adresse du socket.<br>La fonction (bind) permet de lier l'adresse au socket.&nbsp;<br>La fonction (listen) permet d'initialiser le nombre de connexions simultanées.&nbsp;<br>La fonction (accept) permet au serveur d'attendre une connexion client.<br>La fonction (closesocket) permet de fermer un socket.<br>La fonction (WSACleanup) permet de libérer les mémoires allouées au socket.<br><br>Création d'un server TCP/IP.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GSocket::runServer() {
+    if(WSAStartup(MAKEWORD(lMajor, lMinor), &amp;wsaData) == SOCKET_ERROR) {
+        m_logs.addError("L'initialisation du socket a échoué.");
+        return;
+    }
+
+    struct sockaddr_in lAddress;
+    lAddress.sin_family = AF_INET;
+    lAddress.sin_addr.s_addr = INADDR_ANY;
+    lAddress.sin_port = htons(lPort);
+
+    SOCKET lServer = socket(AF_INET, SOCK_STREAM, 0);
+
+    if(lServer == INVALID_SOCKET) {
+        m_logs.addError("La création du socket a échoué.");
+        return;
+    }
+
+    if(bind(lServer, (struct sockaddr *)&amp;lAddress, sizeof(lAddress)) == SOCKET_ERROR) {
+        m_logs.addError("La liaison du socket server a échoué.");
+        return;
+    }
+
+    if(listen(lServer, lBacklog) == SOCKET_ERROR) {
+        m_logs.addError("L'initialisation du nombre de connexions à écouter a échoué.");
+        return;
+    }
+
+    printf("Démarrage du serveur...\n");
+
+    struct sockaddr_in lAddressC;
+    int lAddressCL = sizeof(lAddressC);
+
+    while(1) {
+        GSocket* lClient = new GSocket;
+        lClient-&gt;m_socket = accept(lServer, (struct sockaddr*)&amp;lAddressC, &amp;lAddressCL);
+
+        DWORD lThreadId;
+        HANDLE lThreadH = CreateThread(
+                NULL,
+                0,
+                onThread,
+                lClient,
+                0,
+                &amp;lThreadId
+        );
+
+        if(!lThreadH) {
+            m_logs.addError("La création du thread a échoué.");
+            break;
+        }
+    }
+
+    closesocket(lServer);
+    WSACleanup();
+}
+//===============================================</pre><br>La fonction (connect) permet au client de se connecter au serveur.<br><br>Création d'un client TCP/IP.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+GString GSocket::callServer(const GString&amp; _dataIn) {
+    if(WSAStartup(MAKEWORD(lMajor, lMinor), &amp;lWsaData) == SOCKET_ERROR) {
+        m_srvLogs.addError("L'initilisation du socket a échoué.");
+        return "";
+    }
+
+    struct sockaddr_in lAddress;
+
+    inet_pton(AF_INET, lHostname.c_str(), &amp;lAddress.sin_addr.s_addr);
+    lAddress.sin_family = AF_INET;
+    lAddress.sin_port = htons(lPort);
+
+    SOCKET lClient = socket(AF_INET, SOCK_STREAM, 0);
+
+    if(lClient == INVALID_SOCKET) {
+        m_srvLogs.addError("La création du socket a échoué.");
+        return "";
+    }
+
+    m_socket = lClient;
+    int lConnectOk = connect(lClient, (SOCKADDR*)(&amp;lAddress), sizeof(lAddress));
+
+    if(lConnectOk == SOCKET_ERROR) {
+        m_srvLogs.addError("La connexion du socket a échoué.");
+        return "";
+    }
+
+    sendData(_dataIn);
+    GString lDataOut = readData();
+
+    closesocket(lClient);
+    WSACleanup();
+    return lDataOut;
+}
+//===============================================</pre><br>La fonction (send) permet d'envoyer des données sur le réseau.<br>&nbsp;<br>Emission des données sur le réseau.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GSocket::sendData(const GString&amp; _data) {
+    int lIndex = 0;
+    const char* lBuffer = _data.c_str();
+    int lSize = _data.size();
+    while(1) {
+        int lBytes = send(m_socket, &amp;lBuffer[lIndex], lSize - lIndex, 0);
+        if(lBytes == SOCKET_ERROR) break;
+        lIndex += lBytes;
+        if(lIndex &gt;= lSize) break;
+    }
+}
+//===============================================</pre><br>La fonction (recv) permet de recevoir des données sur le réseau.<br>La fonction (ioctlsocket) permet de déterminer le nombre de données disponibles en lecture sur le réseau.
+<br><br>Réception des données sur le réseau.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+GString GSocket::readData() {
+    GString lData = "";
+    while(1) {
+        char lBuffer[BUFFER_SIZE];
+        int lBytes = recv(m_socket, lBuffer, BUFFER_SIZE - 1, 0);
+        if(lBytes == SOCKET_ERROR) break;
+        lBuffer[lBytes] = '\0';
+        lData += lBuffer;
+
+        if(lData.size() &gt;= BUFFER_MAX) {
+            m_srvLogs.addError("La taille maximale des données est atteinte.");
+            break;
+        }
+
+        u_long lBytesIO;
+        int lOk = ioctlsocket(m_socket, FIONREAD, &amp;lBytesIO);
+
+        if(lOk == SOCKET_ERROR) break;
+        if(lBytesIO &lt;= 0) break;
+    }
+    return lData;
+}
+//===============================================</pre><br>Fonction de rappel liée à la connexion d'un client au serveur.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+DWORD WINAPI GSocket::onThread(LPVOID _params) {
+    GSocket* lClient = (GSocket*)_params;
+    GString lData = lClient-&gt;readData();
+    GServer lServer;
+    lServer.run(lData);
+    lServer.sendResponse(lClient);
+    closesocket(lClient-&gt;m_socket);
+    delete lClient;
+    return 0;
+}
+//===============================================</pre><br></div>
+</div>
+</div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
