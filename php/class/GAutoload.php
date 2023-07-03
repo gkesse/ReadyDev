@@ -5,7 +5,8 @@ namespace php\class;
 session_start();
 //===============================================
 function GAutoloadRegister($_className) {
-    $lFilename = $_SERVER["DOCUMENT_ROOT"].$_className.".php";
+    $lFilename = $_SERVER["DOCUMENT_ROOT"].DIRECTORY_SEPARATOR.$_className.".php";
+    $lFilename = str_replace("\\", "/", $lFilename);
 
     if (is_readable($lFilename)) {
         require $lFilename;
