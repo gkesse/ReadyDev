@@ -130,7 +130,9 @@ String.prototype.removeCharAt = function(i) {
 </h1>
 <div class="Section6"><br>La classe (DOMParser) permet de manipuler des documents XML.<br><br>La classe (DOMParser)&nbsp; fournit la méthode (parseFromString) qui permet de charger des données XML.<br>La classe (Document)  fournit la propriété (documentElement) qui permet de récupérer le noeud racine d'un document XML.&nbsp;<br><br>Création d'un document XML.<br><br><pre class="GCode1 Code1 AceCode" data-mode="javascript" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 createDoc() {
-    var lXml = sprintf("&lt;?xml version='1.0' encoding='UTF-8'?&gt;&lt;root&gt;&lt;/root&gt;");
+    var lXml = "";
+    lXml += sprintf("&lt;?xml version='1.0' encoding='UTF-8'?&gt;\n");
+    lXml += sprintf("&lt;root&gt;&lt;/root&gt;\n");
     var lParser = new DOMParser();
     this.m_doc = lParser.parseFromString(lXml, "text/xml");
     if(!this.m_doc) return false;
@@ -146,6 +148,35 @@ loadNode(_root, _data) {
         this.m_node.appendChild(lNodes[0]);
     }
     return true;
+}
+//===============================================</pre><br>La classe (Element) fournit la méthode (appendChild) qui permet d'ajouter un nouveau à un noeud existant.<br><br>Ajout d'un nouveau noeud.<br><br><pre class="GCode1 Code1 AceCode" data-mode="javascript" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+addObj(_root, _name) {
+    var lNode = _root.m_doc.createElement(_name);
+    this.m_node.appendChild(lNode);
+    return lNode;
+}    
+//===============================================</pre><br>La classe (Element) fournit la propriété (innerHTML) qui permet d'ajouter un contenu à un noeud.<br><br>Ajout d'un nouveau noeud avec un contenu.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="javascript" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+addValue(_root, _name, _value) {
+    lNode = _root.m_doc.createElement(_name);
+    lNode.innerHTML = _value;
+    this.m_node.appendChild(lNode);
+    return this.m_node;
+}    
+//===============================================</pre><br>La classe (Document) fournit la méthode (createCDATASection) qui permet créer une section CData.<br><br>Ajout d'un contenu CData à un noeud.<br><br><pre class="GCode1 Code1 AceCode" data-mode="javascript" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+setValue(_root, _value) {
+    var lCData = _root.m_doc.createCDATASection(_value);
+    this.m_node.appendChild(lCData);
+}
+//===============================================</pre><br>La classe (Element) fournit la propriété (outerHTML) qui permet récupérer le contenu d'un noeud XML.&nbsp;<br><br>Conversion d'un document XML en chaîne de caractères.<br><br><pre class="GCode1 Code1 AceCode" data-mode="javascript" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+toString() {
+    var lData = this.m_doc.documentElement.outerHTML;
+    lData = sprintf("&lt;?xml version='1.0' encoding='UTF-8'?&gt;\n%s", lData);
+    return lData.toXml();
+}
+//===============================================</pre><br>Conversion d'un noeud XML en chaîne de caractères.<br><br><pre class="GCode1 Code1 AceCode" data-mode="javascript" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+toNode() {
+    var lData = this.m_node.outerHTML;
+    return lData.toXml();
 }
 //===============================================</pre><br></div>
 </div>
