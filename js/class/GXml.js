@@ -145,7 +145,7 @@ class GXml {
             lData = this.m_node.innerHTML;
         }
         else {
-            lData = this.m_node.firstChild.nodeValue;
+            lData = this.m_node.firstElementChild.nodeValue;
         }
         return lData;
     }

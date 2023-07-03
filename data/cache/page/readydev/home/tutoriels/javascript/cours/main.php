@@ -167,7 +167,36 @@ setValue(_root, _value) {
     var lCData = _root.m_doc.createCDATASection(_value);
     this.m_node.appendChild(lCData);
 }
-//===============================================</pre><br>La classe (Element) fournit la propriété (outerHTML) qui permet récupérer le contenu d'un noeud XML.&nbsp;<br><br>Conversion d'un document XML en chaîne de caractères.<br><br><pre class="GCode1 Code1 AceCode" data-mode="javascript" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+//===============================================</pre><br>La classe (Element) fournit la propriété (innerHTML) qui permet de récupérer le contenu d'un noeud.<br><br>Récupération du contenu d'un noeud XML.<br><br><pre class="GCode1 Code1 AceCode" data-mode="javascript" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+getValue() {
+    lData = this.m_node.innerHTML;
+    return lData;
+}
+//===============================================</pre><br>La classe (Element) fournit la propriété (firstElementChild) qui permet de récupérer le premier noeud enfant d'un noued existant.<br>La classe (Element) fournit la propriété (nodeValue) qui permet de récupérer le contenu d'un noeud XML.
+<br><br>Récupération du contenu CData d'un noeud XML.<br><br><pre class="GCode1 Code1 AceCode" data-mode="javascript" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+getValue() {
+    lData = this.m_node.firstElementChild.nodeValue;
+    return lData;
+}
+//===============================================</pre><br>La classe (Document) fournit la méthode (evaluate) qui permet récupérer le noeud lié à une requête XPath.<br><br>Récupération du noeud lié à une requête XPath.<br><br><pre class="GCode1 Code1 AceCode" data-mode="javascript" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+getNode(_path) {
+    var lNode = this.m_node;
+    var lNodes = this.m_doc.evaluate(_path, lNode, null, XPathResult.ANY_TYPE, null);
+    lNodeI = lNodes.iterateNext();
+    return lNodeI;
+}
+//===============================================</pre><br>Comptage du nombre de noeuds liés à une requête XPath.<br><br><pre class="GCode1 Code1 AceCode" data-mode="javascript" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+countNode(_path) {
+    var lNode = this.m_node;
+    var lNodes = this.m_doc.evaluate(_path, lNode, null, XPathResult.ANY_TYPE, null);
+    while(1) {
+        var lNodeI = lNodes.iterateNext();
+        if(!lNodeI) break;
+        lCount++;
+    }
+    return lCount;
+}
+//===============================================</pre><br>La classe (Element) fournit la propriété (outerHTML) qui permet récupérer le contenu d'un noeud XML.<br><br>Conversion d'un document XML en chaîne de caractères.<br><br><pre class="GCode1 Code1 AceCode" data-mode="javascript" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 toString() {
     var lData = this.m_doc.documentElement.outerHTML;
     lData = sprintf("&lt;?xml version='1.0' encoding='UTF-8'?&gt;\n%s", lData);
