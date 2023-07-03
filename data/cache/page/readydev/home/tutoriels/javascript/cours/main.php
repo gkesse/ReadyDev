@@ -26,6 +26,10 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#ajax">Ajax</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#xml">XML</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
@@ -123,6 +127,38 @@ String.prototype.removeCharAt = function(i) {
 </div><br></div>
 </div>
 </div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="ajax">Ajax</a>
+</h1>
+<div class="Section6"><br>La classe (XMLHttpRequest) permet de réaliser des appels asynchrones vers le serveur.<br><br>La classe (XMLHttpRequest) fournit la fonction de rappel (onreadystatechange) qui est appelé à chaque changement d'état du traitement.<br>La classe (XMLHttpRequest) fournit la propriété (readyState) qui permet de déterminer l'état actuel du traitement.<br>La classe (XMLHttpRequest) fournit la propriété (status) qui permet de déterminer le statut actuel du traitement.<br>La classe (XMLHttpRequest) fournit la propriété (responseText) qui permet de récupérer le résultat du traitement.<br>La classe (XMLHttpRequest) fournit la méthode (open) qui permet d'ouvrir un point de connexion vers le serveur.<br>La classe (XMLHttpRequest) fournit la méthode (setRequestHeader) qui permet d'initialiser les entêtes de la requête à envoyer au serveur.&nbsp;<br>La classe (XMLHttpRequest) fournit la méthode (setRequestHeader) qui permet d'initialiser les entêtes de la requête à envoyer au serveur.<br>La classe (XMLHttpRequest) fournit la méthode (send) qui permet d'envoyer une requête au serveur.<br><br>Envoi d'une requête POST au serveur.<br><br><pre class="GCode1 Code1 AceCode" data-mode="javascript" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+callServer(_data, _callback) {
+    var lXhttp = new XMLHttpRequest();
+    lXhttp.onreadystatechange = function() {
+        if(this.readyState == 4 &amp;&amp; this.status == 200) {
+            var lData = this.responseText;
+            _callback(lData);
+        }
+    }
+    
+    var lMethod = "POST";
+    var lUrl = "/php/req/server.php";
+    var lAsync = true;
+    var lUser = null;
+    var lPassword = null;
+
+    lXhttp.open(lMethod, lUrl, lAsync, lUser, lPassword);
+    lXhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    var lReq = "";
+    lReq += sprintf("req=%s", _data);
+    lXhttp.send(lReq);
+}
+//===============================================</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
