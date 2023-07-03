@@ -8,10 +8,7 @@ class GXml {
     //===============================================
     createDoc() {
         var lXml = sprintf("<?xml version='1.0' encoding='UTF-8'?><rdv></rdv>");
-        var lParser = new DOMParser();
-        this.m_doc = lParser.parseFromString(lXml, "text/xml");
-        if(!this.m_doc) return false;
-        this.m_node = this.m_doc.firstElementChild;
+        if(!this.loadXml(lXml)) return false;
         return true;
     }
     //===============================================
@@ -21,15 +18,18 @@ class GXml {
         if(window.DOMParser) {
             var lParser = new DOMParser();
             this.m_doc = lParser.parseFromString(_data, "text/xml");            
+            if(!this.m_doc) return false;
+            this.m_node = this.m_doc.documentElement;
+            if(!this.m_node) return false;
         }
         else {
             this.m_doc = new ActiveXObject("Microsoft.XMLDOM");
+            if(!this.m_doc) return false;
             this.m_doc.async = false;
-            this.m_doc.loadXML(_data);
+            if(!this.m_doc.loadXML(_data)) return false;
+            this.m_node = this.m_doc.documentElement;
+            if(!this.m_node) return false;
         }
-        if(!this.m_doc) return false;
-        this.m_node = this.m_doc.documentElement;
-        if(!this.m_node) return false;
         return true;
     }
     //===============================================

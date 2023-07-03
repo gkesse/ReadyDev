@@ -1,5 +1,5 @@
 //===============================================
-class GModule extends GObject {
+class GManager extends GObject {
     //===============================================
     constructor() {
         super();
@@ -7,7 +7,7 @@ class GModule extends GObject {
         this.m_method = "";
     }
     //===============================================
-    serialize(_code = "request") {
+    serialize(_code = "manager") {
         var lDom = new GCode();
         lDom.createDoc();
         lDom.addData(_code, "module", this.m_module);
@@ -15,7 +15,7 @@ class GModule extends GObject {
         return lDom.toString();
     }
     //===============================================
-    deserialize(_data, _code = "request") {
+    deserialize(_data, _code = "manager") {
         var lData = new GCode();
         lData.loadXml(_data);
         this.m_module = lData.getData(_code, "module");

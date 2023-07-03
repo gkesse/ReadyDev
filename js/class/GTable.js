@@ -1,5 +1,5 @@
 //===============================================
-class GTable extends GModule {
+class GTable extends GManager {
     //===============================================
     constructor() {
         super();
