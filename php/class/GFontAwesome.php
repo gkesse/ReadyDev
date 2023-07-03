@@ -1,5 +1,8 @@
 <?php
-class GFontAwesome extends GModule {
+//===============================================
+namespace php\class;
+//===============================================
+class GFontAwesome extends GManager {
     //===============================================
     private $m_name = "";
     private $m_size = 0;
@@ -85,15 +88,15 @@ class GFontAwesome extends GModule {
         parent::deserialize($_data);
         $lDom = new GCode();
         $lDom->loadXml($_data);
-        $this->m_name = $lDom->getItem($_code, "name");
-        $this->m_size = $lDom->getItem($_code, "size");
+        $this->m_name = $lDom->getData($_code, "name");
+        $this->m_size = $lDom->getData($_code, "size");
         $lDom->getMap($_code, $this->m_map, $this);
     }
     //===============================================
     public function run($_data) {
         $this->deserialize($_data);
         if($this->m_method == "") {
-            $this->addError("La méthode est obligatoire.");
+            $this->m_logs->addError("La méthode est obligatoire.");
         } 
         //===============================================
         else if($this->m_method == "extract_font_awesome") {
@@ -104,9 +107,9 @@ class GFontAwesome extends GModule {
         }
         //===============================================
         else {
-            $this->addError("La méthode est inconnue.");
+            $this->m_logs->addError("La méthode est inconnue.");
         }
-        return !$this->hasErrors();
+        return !$this->m_logs->hasErrors();
     }
     //===============================================
     public function onExtractFontAwesome($_data) {        
@@ -115,7 +118,7 @@ class GFontAwesome extends GModule {
         $lDom = new DOMDocument();
         $lDomOk = $lDom->loadHTML($lReponseText);
         if(!$lDomOk) {
-            $this->addError("Le chargement du contenu web a échoué.");
+            $this->m_logs->addError("Le chargement du contenu web a échoué.");
         }
         $lXPath = new DOMXPath($lDom);
         $lNodes = $lXPath->query("//i[@class='fa fa-fw']");
@@ -135,7 +138,7 @@ class GFontAwesome extends GModule {
         $lPath = sprintf("%s/%s", $lPath, $this->toCacheFile());
         $lData = $this->serialize();
         file_put_contents($lPath, $lData);
-        return !$this->hasErrors();
+        return !$this->m_logs->hasErrors();
     }
     //===============================================
     public function onLoadFontAwesome($_data) {
@@ -148,4 +151,5 @@ class GFontAwesome extends GModule {
     }
     //===============================================
 }
+//===============================================
 ?>

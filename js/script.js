@@ -2,8 +2,10 @@
 function call_server(_module, _method, _obj = null, _data = null) {
     var lServer = new GServer();
     lServer.run(_module, _method, _obj, _data);
-    lServer.showLogsX();
-    return !lServer.hasErrors();
+    lServer.m_logs.showLogsX();
+    if(lServer.m_logs.hasErrors()) return false;
+    if(lServer.m_dataLogs.hasErrors()) return false;
+    return true;
 }
 //===============================================
 function runAceJS() {

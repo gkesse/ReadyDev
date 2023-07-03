@@ -91,12 +91,12 @@ class GImage extends GObject {
     //===============================================
     readData() {
         var lImageData = document.getElementById("ImageData");
-        this.m_data = b64_to_utf8(lImageData.innerHTML);
+        this.m_data = lImageData.innerHTML.fromBase64();
     }
     //===============================================
     writeData() {
         var lImageData = document.getElementById("ImageData");
-        lImageData.innerHTML = utf8_to_b64(this.serialize());
+        lImageData.innerHTML = this.serialize().toBase64();
     }
     //===============================================
     serialize(_code = "image") {
@@ -105,7 +105,7 @@ class GImage extends GObject {
         lDom.addData(_code, "mime_type", this.m_mimeType);
         lDom.addData(_code, "name", this.m_name);
         lDom.addData(_code, "path", this.m_path);
-        lDom.addData(_code, "img", utf8_to_b64(this.m_img));
+        lDom.addData(_code, "img", this.m_img.toBase64());
         lDom.addMap(_code, this.m_map);
         return lDom.toString();
     }
@@ -113,26 +113,24 @@ class GImage extends GObject {
     deserialize(_data, _code = "image") {
         var lDom = new GCode();
         lDom.loadXml(_data);
-        this.m_mimeType = lDom.getItem(_code, "mime_type");
-        this.m_name = lDom.getItem(_code, "name");
-        this.m_path = lDom.getItem(_code, "path");
-        this.m_img = b64_to_utf8(lDom.getItem(_code, "img"));
+        this.m_mimeType = lDom.getData(_code, "mime_type");
+        this.m_name = lDom.getData(_code, "name");
+        this.m_path = lDom.getData(_code, "path");
+        this.m_img = lDom.getData(_code, "img").fromBase64();
         lDom.getMap(_code, this.m_map, this);
     }
     //===============================================
     onModule(_method, _obj, _data) {
         if(_method == "") {
-            this.addError("La méthode est obligatoire.");
+            this.m_logs.addError("La méthode est obligatoire.");
         }
-        //===============================================
         else if(_method == "load_image") {
             this.onLoadImage(_obj, _data);
         }
-        //===============================================
         else {
-            this.addError("La méthode est inconnue.");
+            this.m_logs.addError("La méthode est inconnue.");
         }
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onLoadImage(_obj, _data) {

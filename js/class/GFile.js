@@ -78,18 +78,18 @@ class GFile extends GObject {
     deserialize(_data, _code = "file") {
         var lDom = new GCode();
         lDom.loadXml(_data);
-        this.m_id = lDom.getItem(_code, "id");
-        this.m_parentId = lDom.getItem(_code, "parent_id");
-        this.m_name = lDom.getItem(_code, "name");
-        this.m_path = lDom.getItem(_code, "path");
-        this.m_mimeType = lDom.getItem(_code, "mime_type");
-        this.m_isDir = lDom.getItem(_code, "is_dir");
+        this.m_id = lDom.getData(_code, "id");
+        this.m_parentId = lDom.getData(_code, "parent_id");
+        this.m_name = lDom.getData(_code, "name");
+        this.m_path = lDom.getData(_code, "path");
+        this.m_mimeType = lDom.getData(_code, "mime_type");
+        this.m_isDir = lDom.getData(_code, "is_dir");
         lDom.getMap(_code, this.m_map, this);
     }
     //===============================================
     run(_method, _obj, _data) {
         if(_method == "") {
-            this.addError("La méthode est obligatoire.");
+            this.m_logs.addError("La méthode est obligatoire.");
         }
         //===============================================
         else if(_method == "load_file_tree") {
@@ -97,9 +97,9 @@ class GFile extends GObject {
         }
         //===============================================
         else {
-            this.addError("La méthode est inconnue.");
+            this.m_logs.addError("La méthode est inconnue.");
         }
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onLoadFileTree(_obj, _data) {

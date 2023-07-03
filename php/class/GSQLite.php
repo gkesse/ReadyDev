@@ -1,5 +1,7 @@
 <?php   
 //===============================================
+namespace php\class;
+//===============================================
 class GSQLite extends  GObject {
     //===============================================
     private $m_lastId = 0;
@@ -36,9 +38,9 @@ class GSQLite extends  GObject {
         if(!file_exists($lPath)) {
             mkdir($lPath, 0777, true);
         }
-        $lPdo = new PDO($this->toPath());
-        $lPdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        $lPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+        $lPdo = new \PDO($this->toPath());
+        $lPdo->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
+        $lPdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_WARNING);
         return $lPdo;
     }
     //===============================================
@@ -46,7 +48,7 @@ class GSQLite extends  GObject {
         $lPdo = $this->toOpen();
         $Ok = $lPdo->query($_sql);
         if(!$Ok) {
-            $this->addError("L'exécution de la requête a échoué.");
+            $this->m_logs->addError("L'exécution de la requête a échoué.");
             return false;
         }
         $this->m_lastId = $lPdo->lastInsertId();
@@ -58,7 +60,7 @@ class GSQLite extends  GObject {
         $lPdo = $this->toOpen();
         $lResultat = $lPdo->query($_sql);
         if(!$lResultat) {
-            $this->addError("L'exécution de la requête a échoué.");
+            $this->m_logs->addError("L'exécution de la requête a échoué.");
         }
         $lData = "";
         foreach($lResultat as $lRow) {
@@ -76,7 +78,7 @@ class GSQLite extends  GObject {
         $lPdo = $this->toOpen();
         $lResultat = $lPdo->query($_sql);
         if(!$lResultat) {
-            $this->addError("L'exécution de la requête a échoué.");
+            $this->m_logs->addError("L'exécution de la requête a échoué.");
         }
         $lDataMap = array();
         $lColsOk = true;

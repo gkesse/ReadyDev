@@ -1,180 +1,96 @@
 <?php
 //===============================================
+namespace php\class;
+//===============================================
 class GSocket extends GObject {
     //===============================================
-    const BUFFER_DATA_SIZE = 1024;
-    const BUFFER_NDATA_SIZE = 256;
+    const BUFFER_SIZE = 1*1024;     // 1Ko
+    const BUFFER_MAX = 1*1024*1024; // 1Mo
     //===============================================
-    private $socket;
+    private $m_socket = null;
+    private $m_srvLogs = null;
     //===============================================
     public function __construct() {
         parent::__construct();
-        $this->createDoms();
+        $this->m_srvLogs = new GLog();
     }
     //===============================================
-    public function loadDomain() {
-        $lDomain = AF_INET;
-        $lName = $this->getItem("socket", "domain");
-        if($lName == "AF_INET") {
-            $lDomain = AF_INET;
+    public function checkErrors($_data) {
+        if($this->m_srvLogs->hasErrors()) {
+            $this->m_logs->addError("La connexion au serveur a échoué.");
         }
-        return $lDomain;
-    }
-    //===============================================
-    public function loadType() {
-        $lType = SOCK_STREAM;
-        $lName = $this->getItem("socket", "type");
-        if($lName == "SOCK_STREAM") {
-            $lType = SOCK_STREAM;
+        else if($_data != "") {
+            $lDom = new GCode();
+            if(!$lDom->loadXml($_data)) {
+                $this->m_logs->addError("La connexion au serveur a échoué.");
+            }
         }
-        return $lType;
     }
     //===============================================
-    public function loadProtocol() {
-        $lProtocol = SOL_TCP;
-        $lName = $this->getItem("socket", "protocol");
-        if($lName == "SOL_TCP") {
-            $lProtocol = SOL_TCP;
+    public function sendData($_data) {
+        $lBytes = fwrite($this->m_socket, $_data, strlen($_data));
+        if(!$lBytes) {
+            $this->m_srvLogs->addError("L'émission des données a échoué.");
         }
-        return $lProtocol;
-    }
-    //===============================================
-    public function loadPort() {
-        $lEnvObj = new GEnv();
-        $lPort = $this->loadPortEnv($lEnvObj->isTestEnv());
-        return $lPort;
-    }
-    //===============================================
-    public function loadPortEnv($isTestEnv) {
-        $lPort = intval($this->getItem("socket", "prod_port"));
-        if($isTestEnv) $lPort = intval($this->getItem("socket", "test_port"));
-        return $lPort;
-    }
-    //===============================================
-    public function createSocket($domain, $type, $protocol) {
-        $this->socket = socket_create($domain, $type, $protocol);
-        if($this->socket === false) return false;
-        return true;
-    }
-    //===============================================
-    public function bindSocket($address, $port) {
-        $lRes = socket_bind($this->socket, $address, $port);
-        if($lRes === false) return false;
-        return true;
-    }
-    //===============================================
-    public function listenSocket($backlog) {
-        $lRes = socket_listen($this->socket, $backlog);
-        if($lRes === false) return false;
-        return true;
-    }
-    //===============================================
-    public function acceptSocket(GSocket $socket) {
-        $socket->socket = socket_accept($this->socket);
-        if($socket->socket === false) return false;
-        return true;
-    }
-    //===============================================
-    public function connectSocket($address, $port) {
-        $lLog = GLog::Instance();
-        $lRes = @socket_connect($this->socket, $address, $port);
-        if($lRes == false) {$lLog->addError(sprintf("Erreur lors de la connexion au serveur.")); return false;}
-        return true;
-    }
-    //===============================================
-    public function sendData($data) {
-        $lBytes = socket_write($this->socket, $data, strlen($data));
-        return $lBytes;
-    }
-    //===============================================
-    public function writeData($data) {
-        $lLog = GLog::Instance();
-        if($lLog->hasErrors()) return 0;
-        $lSize = strlen($data);
-        $lKey = $this->getItem("socket", "api_key");
-        $lBuffer = sprintf("%s;%d", $lKey, $lSize);
-        $lBuffer = str_pad($lBuffer, self::BUFFER_NDATA_SIZE, " ", STR_PAD_RIGHT);
-        $this->sendData($lBuffer);
-        
-        $lBytes = 0;
-        
-        while(1) {
-            if($lBytes >= $lSize) break;
-            $lBuffer = substr($data, $lBytes, self::BUFFER_DATA_SIZE);
-            $iBytes = $this->sendData($lBuffer);
-            if($iBytes === false) break;
-            $lBytes += $iBytes;
-        }
-        return $lBytes;
-    }
-    //===============================================
-    public function recvData() {
-        $lBuffer = $this->recvDataSize(self::BUFFER_DATA_SIZE);
-        return $lBuffer;
-    }
-    //===============================================
-    public function recvDataSize($size) {
-        $lBuffer = socket_read($this->socket, $size, PHP_BINARY_READ);
-        return $lBuffer;
     }
     //===============================================
     public function readData() {
-        $lLog = GLog::Instance();
-        if($lLog->hasErrors()) return "";
-        $lBuffer = $this->recvData(self::BUFFER_NDATA_SIZE);
-        $lSize = strlen($lBuffer);
-        if($lSize != self::BUFFER_NDATA_SIZE) return "";
-        $lBuffer = trim($lBuffer);
-        $lMap = explode(";", $lBuffer);
-        if(count($lMap) != 2) return "";
-        $lBuffer = $lMap[0];
-        $lKey = $this->getItem("socket", "api_key");
-        if($lBuffer != $lKey) return "";
-        $lBuffer = $lMap[1];
-        $lSize = intval($lBuffer);
-        $lBytes = 0;
         $lData = "";
-        
         while(1) {
-            if($lBytes >= $lSize) break;
-            $lBuffer = $this->recvData();
-            if($lBuffer === false) break;
+            $lBuffer = fread($this->m_socket, self::BUFFER_SIZE);
+            if(!$lBuffer) {
+                $this->m_srvLogs->addError("La reception des données a échoué.");
+                break;
+            }
             $lData .= $lBuffer;
-            $lBytes += strlen($lBuffer);
+            if(strlen($lData) >= self::BUFFER_MAX) {
+                $this->m_srvLogs->addError("La taille maximale des données est atteinte.");
+                break;
+            }
+            $lStatus = socket_get_status($this->m_socket);
+            $lBytes = $lStatus["unread_bytes"];
+            if($lBytes <= 0) break;
         }
-        
         return $lData;
     }
     //===============================================
-    public function closeSocket() {
-        socket_close($this->socket);
+    public function callFacade($_module, $_method, $_params = "") {
+        $lDom = new GCode();
+        $lDom->createDoc();
+        $lDom->addData("manager", "module", $_module);
+        $lDom->addData("manager", "method", $_method);
+        $lDom->loadData($_params);
+        $lData = $lDom->toString();
+        $lData = $this->callServer($lData);
+        return $lData;
     }
     //===============================================
-    public function callServer($module, $method, $params = "") {
-        $lReq = new GCode();
-        $lReq->createDoc();
-        $lReq->createRequest($module, $method);
-        $lReq->loadCode($params);
-        $lDataOut = $this->callServerTcp($lReq->toString());
-        return $lDataOut;
+    public function callServer($_data) {
+        $lData = $this->callSocket($_data);
+        $this->checkErrors($lData);
+        return $lData;
     }
     //===============================================
-    public function callServerTcp($dataIn) {
-        $lLog = GLog::Instance();        
-        $lDomain = $this->loadDomain();
-        $lType = $this->loadType();
-        $lProtocol = $this->loadProtocol();
-        $lAddress = gethostbyname($this->getItem("socket", "server_ip"));
-        $lPort = $this->loadPort();
+    public function callSocket($_data) {
+        $lHostname = "127.0.0.1";
+        $lPort = 9010;
         
-        $this->createSocket($lDomain, $lType, $lProtocol);
-        $this->connectSocket($lAddress, $lPort);
-                
-        $this->writeData($dataIn);
-        $lDataOut = $this->readData();
-        $lLog->deserialize($lDataOut);       
-        $this->closeSocket();        
-        return $lDataOut;
+        $lAddress = sprintf("tcp://%s:%d", $lHostname, $lPort);
+        $lErrno = null;
+        $lErrstr = null;
+        
+        $this->m_socket = @stream_socket_client($lAddress, $lErrno, $lErrstr, 30);
+        
+        if(!$this->m_socket) {
+            $this->m_srvLogs->addError("La création du socket a échoué.");
+            return;
+        }
+        
+        $this->sendData($_data);
+        $lData = $this->readData();
+        
+        fclose($this->m_socket);
+        return $lData;
     }
     //===============================================
 }

@@ -1,1 +1,10 @@
-<rdv><datas><data><code>page</code><root>/data/cache/page/readydev</root><path>/home/tutoriels/c/cours</path></data></datas></rdv>
+<!--?xml version='1.0' encoding='UTF-8'?-->
+<rdv>
+  <datas>
+    <data>
+      <code>page</code>
+      <root>/data/cache/page/readydev</root>
+      <path>/home/tutoriels</path>
+    </data>
+  </datas>
+</rdv>

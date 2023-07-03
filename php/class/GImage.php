@@ -1,5 +1,8 @@
 <?php
-class GImage extends GModule {
+//===============================================
+namespace php\class;
+//===============================================
+class GImage extends GManager {
     //===============================================
     private $m_mimeType = "";
     private $m_name = "";
@@ -289,17 +292,17 @@ class GImage extends GModule {
         parent::deserialize($_data);
         $lDom = new GCode();
         $lDom->loadXml($_data);
-        $this->m_mimeType = $lDom->getItem($_code, "mime_type");
-        $this->m_name = $lDom->getItem($_code, "name");
-        $this->m_path = $lDom->getItem($_code, "path");
-        $this->m_img = base64_decode($lDom->getItem($_code, "img"));
+        $this->m_mimeType = $lDom->getData($_code, "mime_type");
+        $this->m_name = $lDom->getData($_code, "name");
+        $this->m_path = $lDom->getData($_code, "path");
+        $this->m_img = base64_decode($lDom->getData($_code, "img"));
         $lDom->getMap($_code, $this->m_map, $this);
     }
     //===============================================
     public function run($_data) {
         $this->deserialize($_data);
         if($this->m_method == "") {
-            $this->addError("La méthode est obligatoire.");
+            $this->m_logs->addError("La méthode est obligatoire.");
         }
         //===============================================
         else if($this->m_method == "load_image") {
@@ -310,7 +313,7 @@ class GImage extends GModule {
         }
         //===============================================
         else {
-            $this->addError("La méthode est inconnue.");
+            $this->m_logs->addError("La méthode est inconnue.");
         }
     }
     //===============================================
@@ -342,4 +345,5 @@ class GImage extends GModule {
     }
     //===============================================
 }
+//===============================================
 ?>

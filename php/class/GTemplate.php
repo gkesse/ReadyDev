@@ -1,4 +1,7 @@
 <?php
+//===============================================
+namespace php\class;
+//===============================================
 class GTemplate {
     //===============================================
     private $m_key;
@@ -83,12 +86,12 @@ class GTemplate {
                 echo $lHtml;
             }
             else {
-                require  $_path;
+                require $_path;
             }
         }
         else if($this->toLib() == "smarty") {
             if($this->size()) {
-                $lSmarty = new Smarty();
+                $lSmarty = new \Smarty();
                 $lSmarty->setCompileDir($this->toSmartyCompile());
                 $lSmarty->setCacheDir($this->toSmartyCache());
                 $lSmarty->setConfigDir($this->toSmartyConfig());
@@ -100,7 +103,7 @@ class GTemplate {
                 $lSmarty->display($_path);
             }
             else {
-                require  $_path;
+                require $_path;
             }
         }
     }
@@ -117,8 +120,8 @@ class GTemplate {
     public function deserialize($_data, $_code = "template") {
         $lDom = new GCode();
         $lDom->loadXml($_data);
-        $this->m_key = $lDom->getItem($_code, "key");
-        $this->m_value = $lDom->getItem($_code, "value");
+        $this->m_key = $lDom->getData($_code, "key");
+        $this->m_value = $lDom->getData($_code, "value");
         $lDom->getMap($_code, $this->m_map, $this);
     }
     //===============================================

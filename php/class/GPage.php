@@ -1,5 +1,8 @@
 <?php
-class GPage extends GModule {
+//===============================================
+namespace php\class;
+//===============================================
+class GPage extends GManager {
     //===============================================
     private $m_root = "";
     private $m_path = "";
@@ -53,19 +56,19 @@ class GPage extends GModule {
         parent::deserialize($_data);
         $lDom = new GCode();
         $lDom->loadXml($_data);
-        $this->m_root = $lDom->getItem($_code, "root");
-        $this->m_path = $lDom->getItem($_code, "path");
-        $this->m_name = $lDom->getItem($_code, "name");
-        $this->m_content = b64_to_utf8($lDom->getItem($_code, "content"));
-        $this->m_defaultAddress = b64_to_utf8($lDom->getItem($_code, "default_address"));
-        $this->m_defaultPage = b64_to_utf8($lDom->getItem($_code, "default_page"));
+        $this->m_root = $lDom->getData($_code, "root");
+        $this->m_path = $lDom->getData($_code, "path");
+        $this->m_name = $lDom->getData($_code, "name");
+        $this->m_content = b64_to_utf8($lDom->getData($_code, "content"));
+        $this->m_defaultAddress = b64_to_utf8($lDom->getData($_code, "default_address"));
+        $this->m_defaultPage = b64_to_utf8($lDom->getData($_code, "default_page"));
         $lDom->getMap($_code, $this->m_map, $this);
     }
     //===============================================
     public function run($_data) {
         $this->deserialize($_data);
         if($this->m_method == "") {
-            $this->addError("La méthode est obligatoire.");
+            $this->m_logs->addError("La méthode est obligatoire.");
         }
         //===============================================
         // page
@@ -105,9 +108,9 @@ class GPage extends GModule {
         }
         //===============================================
         else {
-            $this->addError("La méthode est inconnue.");
+            $this->m_logs->addError("La méthode est inconnue.");
         }
-        return !$this->hasErrors();
+        return !$this->m_logs->hasErrors();
     }
     //===============================================
     // page
@@ -127,7 +130,7 @@ class GPage extends GModule {
                 $this->m_map[] = $lObj;
             }
         }
-        return !$this->hasErrors();
+        return !$this->m_logs->hasErrors();
     }
     //===============================================
     public function onLoadPagePath($_data) {
@@ -147,7 +150,7 @@ class GPage extends GModule {
                 }
             }
         }
-        return !$this->hasErrors();
+        return !$this->m_logs->hasErrors();
     }
     //===============================================
     public function onCreatePage($_data) {
@@ -161,7 +164,7 @@ class GPage extends GModule {
                         file_put_contents($lFile, "");
                     }
                     else {
-                        $this->addError("Le fichier existe déjà.");
+                        $this->m_logs->addError("Le fichier existe déjà.");
                     }
                     $lFile = sprintf("%s/index.php", $lPath);
                     if(!file_exists($lFile)) {
@@ -169,30 +172,30 @@ class GPage extends GModule {
                     }
                 }
                 else {
-                    $this->addError("Il s'agit d'un fichier.");
+                    $this->m_logs->addError("Il s'agit d'un fichier.");
                 }
             }
             else {
-                $this->addError("Il s'agit d'un fichier.");
+                $this->m_logs->addError("Il s'agit d'un fichier.");
             }
         }
         else {
-            $this->addError("Le chemin du fichier est vide.");
+            $this->m_logs->addError("Le chemin du fichier est vide.");
         }
-        return !$this->hasErrors();
+        return !$this->m_logs->hasErrors();
     }
     //===============================================
     public function onCreateFolder($_data) {
         if($this->m_root == "") {
-            $this->addError("Le chemin du répertoire racine est vide.");
+            $this->m_logs->addError("Le chemin du répertoire racine est vide.");
             return false;
         }
         if($this->m_path == "") {
-            $this->addError("Le chemin du répertoire source est vide.");
+            $this->m_logs->addError("Le chemin du répertoire source est vide.");
             return false;
         }
         if($this->m_name == "") {
-            $this->addError("Le nom répertoire est vide.");
+            $this->m_logs->addError("Le nom répertoire est vide.");
             return false;
         }
         
@@ -206,12 +209,12 @@ class GPage extends GModule {
         }
         
         if(file_exists($lPath)) {
-            $this->addError("Le répertoire existe déjà.");
+            $this->m_logs->addError("Le répertoire existe déjà.");
             return false;
         }
         
         mkdir($lPath, 0777, true);
-        return !$this->hasErrors();
+        return !$this->m_logs->hasErrors();
     }
     //===============================================
     public function onStoreDefaultAddress($_data) {
@@ -222,7 +225,7 @@ class GPage extends GModule {
         }
         $lPath = sprintf("%s/%s", $lPath, $this->m_name);
         file_put_contents($lPath, $this->m_defaultAddress);
-        return !$this->hasErrors();
+        return !$this->m_logs->hasErrors();
     }
     //===============================================
     public function onLoadDefaultAddress($_data) {
@@ -231,7 +234,7 @@ class GPage extends GModule {
         if(file_exists($lPath)) {
             $this->m_defaultAddress = file_get_contents($lPath);
         }
-        return !$this->hasErrors();
+        return !$this->m_logs->hasErrors();
     }
     //===============================================
     public function onStoreDefaultPage($_data) {
@@ -242,7 +245,7 @@ class GPage extends GModule {
         }
         $lPath = sprintf("%s/%s", $lPath, $this->m_name);
         file_put_contents($lPath, $this->m_defaultPage);
-        return !$this->hasErrors();
+        return !$this->m_logs->hasErrors();
     }
     //===============================================
     public function onLoadDefaultPage($_data) {
@@ -251,7 +254,7 @@ class GPage extends GModule {
         if(file_exists($lPath)) {
             $this->m_defaultPage = file_get_contents($lPath);
         }
-        return !$this->hasErrors();
+        return !$this->m_logs->hasErrors();
     }
     //===============================================
     // edition
@@ -264,13 +267,13 @@ class GPage extends GModule {
                 file_put_contents($lPath, $this->m_content);
             }
             else {
-                $this->addError("La page est un répertoire.");
+                $this->m_logs->addError("La page est un répertoire.");
             }
         }
         else {
-            $this->addError("Le fichier n'existe pas.");
+            $this->m_logs->addError("Le fichier n'existe pas.");
         }
-        return !$this->hasErrors();
+        return !$this->m_logs->hasErrors();
     }
     //===============================================
     public function onLoadPageEdition($_data) {
@@ -279,8 +282,9 @@ class GPage extends GModule {
         if(file_exists($lPath)) {
             $this->m_content = file_get_contents($lPath);
         }
-        return !$this->hasErrors();
+        return !$this->m_logs->hasErrors();
     }
     //===============================================
 }
+//===============================================
 ?>

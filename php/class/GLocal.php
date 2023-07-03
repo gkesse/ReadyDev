@@ -1,5 +1,8 @@
 <?php
-class GLocal extends GModule {
+//===============================================
+namespace php\class;
+//===============================================
+class GLocal extends GManager {
     //===============================================
     public function __construct() {
         parent::__construct();
@@ -8,9 +11,8 @@ class GLocal extends GModule {
     public function run($_data) {
         parent::deserialize($_data);
         if($this->m_module == "") {
-            $this->addError("Le module est obligatoire.");
+            $this->m_logs->addError("Le module est obligatoire.");
         }
-        //===============================================
         else if($this->m_module == "page") {
             $this->onPage($_data);
         }
@@ -23,39 +25,39 @@ class GLocal extends GModule {
         else if($this->m_module == "file") {
             $this->onFile($_data);
         }
-        //===============================================
         else {
-            $this->addError("Le module est inconnu.");
+            $this->m_logs->addError("Le module est inconnu.");
         }
     }
     //===============================================
     public function onPage($_data) {
         $lObj = new GPage();
         $lObj->run($_data);
-        $this->addLogs($lObj->getLogs());
-        $this->addResponse($lObj->serialize());
+        $this->m_logs->addLogs($lObj->getLogs());
+        $this->m_resp->loadData($lObj->serialize());
     }
     //===============================================
     public function onImage($_data) {
         $lObj = new GImage();
         $lObj->run($_data);
-        $this->addLogs($lObj->getLogs());
-        $this->addResponse($lObj->serialize());
+        $this->m_logs->addLogs($lObj->getLogs());
+        $this->m_resp->loadData($lObj->serialize());
     }
     //===============================================
     public function onFontAwesome($_data) {
         $lObj = new GFontAwesome();
         $lObj->run($_data);
-        $this->addLogs($lObj->getLogs());
-        $this->addResponse($lObj->serialize());
+        $this->m_logs->addLogs($lObj->getLogs());
+        $this->m_resp->loadData($lObj->serialize());
     }
     //===============================================
     public function onFile($_data) {
         $lObj = new GFile();
         $lObj->run($_data);
-        $this->addLogs($lObj->getLogs());
-        $this->addResponse($lObj->serialize());
+        $this->m_logs->addLogs($lObj->getLogs());
+        $this->m_resp->loadData($lObj->serialize());
     }
     //===============================================
 }
+//===============================================
 ?>

@@ -1,4 +1,6 @@
 //===============================================
+// functions
+//===============================================
 function sprintf() {
     var args = arguments,
     string = args[0],
@@ -12,40 +14,18 @@ function sprintf() {
             val = args[i];
             // A switch statement so that the formatter can be extended. Default is %s
             switch (m) {
-                case '%d':
+                case '%d': {
                     val = parseFloat(val);
                     if (isNaN(val)) {
                         val = 0;
                     }
                     break;
+                }
             }
             i++;
         }
         return val;
     });
-}
-//===============================================
-function sprintfXml(sourceXml) {
-    var xmlDoc = new DOMParser().parseFromString(sourceXml, 'application/xml');
-    var xsltDoc = new DOMParser().parseFromString([
-        // describes how we want to modify the XML - indent everything
-        '<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform">',
-        '  <xsl:strip-space elements="*"/>',
-        '  <xsl:template match="para[content-style][not(text())]">', // change to just text() to strip space in text nodes
-        '    <xsl:value-of select="normalize-space(.)"/>',
-        '  </xsl:template>',
-        '  <xsl:template match="node()|@*">',
-        '    <xsl:copy><xsl:apply-templates select="node()|@*"/></xsl:copy>',
-        '  </xsl:template>',
-        '  <xsl:output indent="yes"/>',
-        '</xsl:stylesheet>',
-    ].join('\n'), 'application/xml');
-
-    var xsltProcessor = new XSLTProcessor();    
-    xsltProcessor.importStylesheet(xsltDoc);
-    var resultDoc = xsltProcessor.transformToDocument(xmlDoc);
-    var resultXml = new XMLSerializer().serializeToString(resultDoc);
-    return resultXml;
 }
 //===============================================
 function stob(_data) {
@@ -94,6 +74,31 @@ String.prototype.getNormalize = function() {
     var lData = this.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     lData = lData.replace(/\W/g, '-');
     lData = lData.toLowerCase()
+    return lData;
+}
+//===============================================
+String.prototype.toXml = function() {
+    var xml = this;
+    var tab = "  ";
+    var formatted = '', indent= '';
+    tab = tab || '\t';
+    xml.split(/>\s*</).forEach(function(node) {
+        if (node.match( /^\/\w/ )) indent = indent.substring(tab.length); // decrease indent by one 'tab'
+        formatted += indent + '<' + node + '>\r\n';
+        if (node.match( /^<?\w[^>]*[^\/]$/ )) indent += tab;              // increase indent
+    });
+    return formatted.substring(1, formatted.length-3);
+}
+//===============================================
+String.prototype.toBase64 = function() {
+    var lData = this;
+    lData = utf8_to_b64(lData);
+    return lData;
+}
+//===============================================
+String.prototype.fromBase64 = function() {
+    var lData = this;
+    lData = b64_to_utf8(lData);
     return lData;
 }
 //===============================================

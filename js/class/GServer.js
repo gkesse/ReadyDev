@@ -5,18 +5,13 @@ class GServer extends GObject {
         super();
     }
     //===============================================
-    hasErrors() {
-        var lErrorOk = false;
-        lErrorOk |= super.hasErrors();
-        lErrorOk |= super.hasErrorsNS();
-        return lErrorOk;
-    }
-    //===============================================
     run(_module, _method, _obj, _data) {
         if(_module == "") {
-            this.addError("Le module est obligatoire.");
+            this.m_logs.addError("Le module est obligatoire.");
         }
-        //===============================================
+        else if(_module == "test") {
+            this.onTest(_method, _obj, _data);
+        }
         else if(_module == "logs") {
             this.onLogs(_method, _obj, _data);
         }
@@ -41,10 +36,15 @@ class GServer extends GObject {
         else if(_module == "page") {
             this.onPage(_method, _obj, _data);
         }
-        //===============================================
         else {
-            this.addError("Le module est inconnu.");
+            this.m_logs.addError("Le module est inconnu.");
         }
+    }
+    //===============================================
+    onTest(_method, _obj, _data) {
+        var lObj = new GTest();
+        lObj.run(_method, _obj, _data)
+        this.m_logs.addLogs(lObj.m_logs);
     }
     //===============================================
     onLogs(_method, _obj, _data) {
@@ -55,43 +55,44 @@ class GServer extends GObject {
     onTable(_method, _obj, _data) {
         var lObj = new GTable();
         lObj.run(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
+        this.m_logs.addLogs(lObj.m_logs);
     }
     //===============================================
     onFontAwesome(_method, _obj, _data) {
         var lObj = new GFontAwesome();
         lObj.run(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
+        this.m_logs.addLogs(lObj.m_logs);
     }
     //===============================================
     onFile(_method, _obj, _data) {
         var lObj = new GFile();
         lObj.run(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
+        this.m_logs.addLogs(lObj.m_logs);
     }
     //===============================================
     onForm(_method, _obj, _data) {
         var lObj = new GForm();
         lObj.run(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
+        this.m_logs.addLogs(lObj.m_logs);
     }
     //===============================================
     onApp(_method, _obj, _data) {
         var lObj = new GApp();
         lObj.run(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
+        this.m_logs.addLogs(lObj.m_logs);
+        this.m_dataLogs.addLogs(lObj.m_dataLogs);
     }
     //===============================================
     onEditor(_method, _obj, _data) {
         var lObj = new GEditor();
         lObj.run(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
+        this.m_logs.addLogs(lObj.m_logs);
     }
     //===============================================
     onPage(_method, _obj, _data) {
         var lObj = new GPage();
         lObj.run(_method, _obj, _data)
-        this.addLogs(lObj.getLogs());
+        this.m_logs.addLogs(lObj.m_logs);
     }
     //===============================================
 }

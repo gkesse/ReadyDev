@@ -63,13 +63,13 @@ class GFontAwesome extends GObject {
     deserialize(_data, _code = "font_awesome") {
         var lDom = new GCode();
         lDom.loadXml(_data);
-        this.m_name = lDom.getItem(_code, "name");
+        this.m_name = lDom.getData(_code, "name");
         lDom.getMap(_code, this.m_map, this);
     }
     //===============================================
     run(_method, _obj, _data) {
         if(_method == "") {
-            this.addError("La méthode est obligatoire.");
+            this.m_logs.addError("La méthode est obligatoire.");
         }
         //===============================================
         else if(_method == "extract_font_awesome") {
@@ -77,9 +77,9 @@ class GFontAwesome extends GObject {
         }
         //===============================================
         else {
-            this.addError("La méthode est inconnue.");
+            this.m_logs.addError("La méthode est inconnue.");
         }
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onExtractFontAwesome(_obj, _data) {

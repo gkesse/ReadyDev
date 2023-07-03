@@ -1,5 +1,8 @@
 <?php
-class GFile extends GModule {
+//===============================================
+namespace php\class;
+//===============================================
+class GFile extends GManager {
     //===============================================
     private $m_id = 0;
     private $m_parentId = 0;
@@ -96,19 +99,19 @@ class GFile extends GModule {
         parent::deserialize($_data);
         $lDom = new GCode();
         $lDom->loadXml($_data);
-        $this->m_id = $lDom->getItem($_code, "id");
-        $this->m_parentId = $lDom->getItem($_code, "parent_id");
-        $this->m_name = $lDom->getItem($_code, "name");
-        $this->m_path = $lDom->getItem($_code, "path");
-        $this->m_mimeType = $lDom->getItem($_code, "mime_type");
-        $this->m_isDir = $lDom->getItem($_code, "is_dir");
+        $this->m_id = $lDom->getData($_code, "id");
+        $this->m_parentId = $lDom->getData($_code, "parent_id");
+        $this->m_name = $lDom->getData($_code, "name");
+        $this->m_path = $lDom->getData($_code, "path");
+        $this->m_mimeType = $lDom->getData($_code, "mime_type");
+        $this->m_isDir = $lDom->getData($_code, "is_dir");
         $lDom->getMap($_code, $this->m_map, $this);
     }
     //===============================================
     public function run($_data) {
         $this->deserialize($_data);
         if($this->m_method == "") {
-            $this->addError("La méthode est obligatoire.");
+            $this->m_logs->addError("La méthode est obligatoire.");
         }
         //===============================================
         else if($this->m_method == "load_file_tree") {
@@ -116,9 +119,9 @@ class GFile extends GModule {
         }
         //===============================================
         else {
-            $this->addError("La méthode est inconnue.");
+            $this->m_logs->addError("La méthode est inconnue.");
         }
-        return !$this->hasErrors();
+        return !$this->m_logs->hasErrors();
     }
     //===============================================
     public function onLoadFileTree($_data) {
@@ -126,4 +129,5 @@ class GFile extends GModule {
     }
     //===============================================
 }
+//===============================================
 ?>

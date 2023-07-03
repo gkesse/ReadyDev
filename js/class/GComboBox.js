@@ -103,7 +103,7 @@ class GComboBox extends GObject {
     //===============================================
     onModule(_method, _obj, _data) {
         if(_method == "") {
-            this.addError("La méthode est obligatoire.");
+            this.m_logs.addError("La méthode est obligatoire.");
         }
         else if(_method == "close_box") {
             this.onCloseBox(_obj, _data);
@@ -112,9 +112,9 @@ class GComboBox extends GObject {
             this.onSelectData(_obj, _data);
         }
         else {
-            this.addError("La méthode est inconnue.");
+            this.m_logs.addError("La méthode est inconnue.");
         }
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onCloseBox(_obj, _data) {

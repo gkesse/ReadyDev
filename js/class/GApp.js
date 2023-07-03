@@ -37,7 +37,7 @@ class GApp extends GObject {
     //===============================================
     run(_method, _obj, _data) {
         if(_method == "") {
-            this.addError("La méthode est obligatoire.");
+            this.m_logs.addError("La méthode est obligatoire.");
         }
         //===============================================
         else if(_method == "open_menu_bars") {
@@ -49,9 +49,9 @@ class GApp extends GObject {
         }
         //===============================================
         else {
-            this.addError("La méthode est inconnue.");
+            this.m_logs.addError("La méthode est inconnue.");
         }
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onOpenMenuBars(_obj, _data) {
@@ -80,7 +80,7 @@ class GApp extends GObject {
     //===============================================
     onOpenMenuGroup(_obj, _data) {
         if(this.toWidth() <= this.toWidthRWD()) {
-            this.addErrorNS("Le lien ne doit pas être suivi.");
+            this.m_dataLogs.addError("Le lien ne doit pas être suivi.");
             
             var lHref = _obj.getAttribute("href");
             var lTitle = _obj.firstElementChild.innerHTML;

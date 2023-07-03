@@ -3,174 +3,116 @@ class GCode extends GXml {
     //===============================================
     constructor() {
         super();
+    }   
+    //===============================================
+    createDatas() {
+        var lDom = new GXml();
+        lDom.m_node = this.getNode(this, sprintf("/rdv/datas"));
+        if(!lDom.m_node) {
+            lDom.m_node = this.createNode(this, "/rdv/datas");
+        }
+        return lDom.m_node;
     }
     //===============================================
-    addData(code, key, value, isCData = false) {
-        if(code == "") return false;
-        if(key == "") return false;
-        if(value == "") return false;
-        if(value == "0") return false;
-        this.createCode(code);
-        this.createVNode(key, value, isCData);
-        return true;
+    createCode(_code) {
+        var lDom = new GXml();
+        lDom.m_node = this.getNode(this, sprintf("/rdv/datas/data[code='%s']", _code));
+        if(!lDom.m_node) {
+            lDom.m_node = this.createDatas();
+            lDom.m_node = lDom.addObj(this, "data");
+            lDom.addValue(this, "code", _code);
+        }
+        return lDom.m_node;
     }
     //===============================================
-    addMap(_code, _map, _obj) {
-        if(!_map.length) return false;
-        this.createCode(_code);
-        this.getCode(_code);
-        this.createXNode("map");
+    addData(_code, _name, _value, _isCData) {
+        if(_value == 0) return;
+        if(_value == "") return;
+        var lDom = new GXml();
+        lDom.m_node = this.getNode(this, sprintf("/rdv/datas/data[code='%s']/%s", _code, _name));
+        if(!lDom.m_node) {
+            lDom.m_node = this.createCode(_code);
+            lDom.addValue(this, _name, _value, _isCData);
+        }
+        else {
+            lDom.setValue(this, _value, _isCData);
+        }
+        return lDom.m_node;
+    }
+    //===============================================
+    addMap(_code, _map) {
+        if(_map.length == 0) return;
+        
+        var lDom = new GXml();
+        lDom.m_node = this.getNode(this, sprintf("/rdv/datas/data[code='%s']/map", _code));
+        
+        if(!lDom.m_node) {
+            lDom.m_node = this.createCode(_code);
+            lDom.m_node = lDom.addObj(this, "map");
+        }
+        
         for(var i = 0; i < _map.length; i++) {
             var lObj = _map[i];
             var lData = lObj.serialize(_code);
-            var lDom = new GCode();
-            lDom.loadXml(lData);
-            lData = lDom.toStringData();
-            this.loadNode(lData);
-        }
-        return true;
-    }
-    //===============================================
-    countItem(code) {
-        if(code == "") return 0;
-        this.queryXPath(sprintf("/rdv/datas/data[code='%s']/map/data", code));
-        var lCount = this.countXPath();
-        return lCount;
-    }
-    //===============================================
-    createCode(code) {
-        if(!this.getCode(code)) {
-            this.createXNode("/rdv/datas");
-            this.createNode("data");
-            this.next();
-            this.createVNode("code", code);
+            lData = this.toDatas(lData);
+            lDom.loadNode(this, lData);
         }
     }
     //===============================================
-    createDatas() {
-        if(!this.getDatas()) {
-            this.createXNode("/rdv/datas");
-        }
-    }
-    //===============================================
-    getCode(code) {
-        return this.getXNode(sprintf("/rdv/datas/data[code='%s']", code));
-    }
-    //===============================================
-    getDatas() {
-        return this.getXNode(sprintf("/rdv/datas"));
-    }
-    //===============================================
-    getItem(code, key, isCData = false) {
-        this.getXNode(sprintf("/rdv/datas/data[code='%s']/%s", code, key));
-        var lData = this.getValue(isCData);
+    getData(_code, _name, _isCData) {
+        var lDom = new GXml();
+        lDom.m_node = this.getNode(this, sprintf("/rdv/datas/data[code='%s']/%s", _code, _name));
+        if(!lDom.m_node) return "";
+        var lData = lDom.getValue();
         return lData;
     }
     //===============================================
-    getItem2(code, index, isCData = false) {
-        this.getXNode(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]", code, index + 1));
-        var lData = this.getValue(isCData);
-        return lData;
-    }
-    //===============================================
-    getItem3(code, key, index, isCData = false) {
-        this.getXNode(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]/%s", code, index + 1, key));
-        var lData = this.getValue(isCData);
-        return lData;
-    }
-    //===============================================
-    getList(code, obj, category = "", isCData = false) {
-        var lCount = this.countItem(code);
-        for(var i = 0; i < lCount; i++) {
-            if(category == "") {
-                var lData = this.getItem2(code, i, isCData);
-                obj.push(lData);                
-            }
-            else {
-                var lCategory = this.getItem3(code, "category", i);
-                var lData = this.getItem3(code, "data", i, isCData);
-                if(lCategory == category) {
-                    obj.push(lData);                
-                }
-            }
-        }
-        return true;
-    }
-    //===============================================
-    getListCD(code, category = "") {
-        return this.getList(code, category, true);
-    }
-    //===============================================
-    getMap(_code, _map, _obj) {
-        var lCount = this.countItem(_code);
+    getMap(_code, _map, _obj) {        
+        var lSize = this.countNode(this, sprintf("/rdv/datas/data[code='%s']/map/data", _code));
+        if(!lSize) return;
         
-        for(var i = 0; i < lCount; i++) {
-            var lData = this.getMapItem(_code, i);
+        for(var i = 0; i < lSize; i++) {
+            var lDom = new GXml();
+            lDom.m_node = this.getNode(this, sprintf("/rdv/datas/data[code='%s']/map/data[position()=%s]", _code, i + 1));
+            var lData = lDom.toNode(this);
+            lData = this.toCode(lData);
             var lObj = _obj.clone();
             lObj.deserialize(lData, _code);
             _map.push(lObj);
         }
-        return true;
-    }
-    //===============================================
-    getMapItem(code, index) {
-        this.getXNode(sprintf("/rdv/datas/data[code='%s']/map/data[position()=%d]", code, index + 1));
-        var lData = this.toStringNode();
-        var lDom = new GCode();
-        lDom.createDoc();
-        lDom.createXNode("/rdv/datas");
-        lDom.loadNode(lData);
-        return lDom.toString();
-    }
-    //===============================================
-    hasData() {
-        this.queryXPath(sprintf("/rdv/datas/data[code]"));
-        var lCount = this.countXPath();
-        return (lCount != 0);
-    }
-    //===============================================
-    hasCode(code) {
-        this.queryXPath(sprintf("/rdv/datas/data[code='%s']", code));
-        var lData = this.countXPath();
-        return (lData != 0);
-    }
-    //===============================================
-    hasDatas() {
-        this.queryXPath(sprintf("/rdv/datas"));
-        var lCount = this.countXPath();
-        return (lCount != 0);
-    }
-    //===============================================
-    loadCode(data) {
-        data = data.trim()
-        if(data == "") return false;
-        this.createXNode(sprintf("/rdv/datas"));
-        this.loadNode(data);
-        return true;
     }
     //===============================================
     loadData(_data) {
-        _data = _data.trim()
-        if(_data == "") return false;
-        var lDom = new GCode();
-        lDom.loadXml(_data);
-        var lData = lDom.toStringData();
-        this.createDatas();
-        this.loadNode(lData);
-        return true;
+        if(_data == "") return;
+        var lData = this.toDatas(_data);
+        if(lData != "") {
+            var lDom = new GCode();
+            lDom.m_node = this.getNode(this, sprintf("/rdv/datas"));
+            lDom.loadNode(this, lData);
+        }
     }
     //===============================================
-    toStringCode(code) {
-        this.getXNode(sprintf("/rdv/datas/data[code='%s']", code));
-        var lData = this.toStringNode();
+    toDatas(_data) {
+        _data = _data.trim();
+        if(_data == "") return "";
+        var lDom = new GXml();
+        var lDomC = new GXml();
+        lDom.loadXml(_data);
+        lDomC.m_node = lDom.getNode(lDom, sprintf("/rdv/datas/data"));
+        if(!lDomC.m_node) return "";
+        var lData = lDomC.toNode(lDom);
         return lData;
     }
     //===============================================
-    toStringData() {
-        var lData = "";
-        if(this.getDatas()) {
-            lData = this.m_node.innerHTML;
-        }
+    toCode(_data) {
+        _data = _data.trim();
+        if(_data == "") return "";
+        var lDom = new GCode();
+        var lDomC = new GCode();
+        lDom.createDoc();
+        lDomC.m_node = lDom.createDatas();
+        lDomC.loadNode(lDom, _data);
+        var lData = lDom.toString();
         return lData;
     }
     //===============================================

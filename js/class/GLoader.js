@@ -15,7 +15,7 @@ class GLoader extends GObject {
     //===============================================
     onModule(_method, _obj, _data) {
         if(_method == "") {
-            this.addError("La méthode est obligatoire.");
+            this.m_logs.addError("La méthode est obligatoire.");
         }
         else if(_method == "open_loader") {
             this.onOpenLoader(_obj, _data);
@@ -24,9 +24,9 @@ class GLoader extends GObject {
             this.onCloseLoader(_obj, _data);
         }
         else {
-            this.addError("La méthode est inconnue.");
+            this.m_logs.addError("La méthode est inconnue.");
         }
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onOpenLoader(_obj, _data) {

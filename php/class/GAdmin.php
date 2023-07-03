@@ -1,5 +1,7 @@
 <?php
 //===============================================
+namespace php\class;
+//===============================================
 class GAdmin extends GObject {
     //===============================================
     private $m_title = "";
@@ -53,7 +55,7 @@ class GAdmin extends GObject {
         $lMenuI = $this->findMap($_parent);
         for($i = 1; $i <= $lMenuI->size(); $i++) {
             $lMenuI->loadFromMap($i);
-            $lMenuJ = $this->findMap($lMenuI);
+            $lMenuJ = $this->findMap($lMenuI->getIndex());
             
             if(!$lMenuJ->size()) {
                 echo sprintf("<div class='Block20' onclick='call_server(\"%s\", \"%s\", this, \"%s\")'>%s</div>\n",
@@ -63,7 +65,7 @@ class GAdmin extends GObject {
                 echo sprintf("<div class='Block21'>\n");
                 echo sprintf("<div class='Block20'>%s <i class='Block25 fa fa-caret-down'></i></div>\n", $lMenuI->m_title);
                 echo sprintf("<div class='Block22'>\n");
-                $this->toMenuItem($lMenuI);
+                $this->toMenuItem($lMenuI->getIndex());
                 echo sprintf("</div>\n");
                 echo sprintf("</div>\n");
             }
@@ -194,7 +196,7 @@ class GAdmin extends GObject {
         $lObj2 = $lMenu->addMenu("", "", "Répertoire", $lObj);
         $lMenu->addMenu("page", "create_folder", "Créer", $lObj2);
         //===============================================
-        $lMenu->toMenu($this);
+        $lMenu->toMenu(0);
     }
     //===============================================
     public function toEditorPageForm() {
@@ -458,7 +460,7 @@ class GAdmin extends GObject {
         $lObj2 = $lMenu->addMenu("", "", "Code", $lObj);
         $lMenu->addMenu("page", "show_edition_code", "Afficher", $lObj2);
         //===============================================
-        $lMenu->toMenu($this);
+        $lMenu->toMenu(0);
     }
     //===============================================
     public function toEditorEditionForm() {
@@ -505,7 +507,7 @@ class GAdmin extends GObject {
         $lObj2 = $lMenu->addMenu("", "", "Edition", $lObj);
         $lMenu->addMenu("page", "show_code_edition", "Afficher", $lObj2);
         //===============================================
-        $lMenu->toMenu($this);
+        $lMenu->toMenu(0);
     }
     //===============================================
     public function toEditorCodeForm() {

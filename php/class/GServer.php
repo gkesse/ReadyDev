@@ -1,6 +1,8 @@
 <?php   
 //===============================================
-class GServer extends GModule {
+namespace php\class;
+//===============================================
+class GServer extends GManager {
     //===============================================
     private $m_type;
     //===============================================
@@ -9,7 +11,7 @@ class GServer extends GModule {
     }
     //===============================================
     public function sendResponse() {
-        $this->addResponse($this->toLogs());
+        $this->m_resp->loadData($this->m_logs->serialize());
         $lData = $this->toResponse();
         echo $lData;
     }
@@ -25,13 +27,13 @@ class GServer extends GModule {
         parent::deserialize($_data);
         $lDom = new GCode();
         $lDom->loadXml($_data);
-        $this->m_type = $lDom->getItem($_code, "type");
+        $this->m_type = $lDom->getData($_code, "type");
     }
     //===============================================
     public function run($_data) {
         $this->deserialize($_data);
         if($this->m_type == "") {
-            $this->addError("Le type du traitement est obligatoire.");
+            $this->m_logs->addError("Le type du traitement est obligatoire.");
         }
         else if($this->m_type == "local") {
             $this->runLocal($_data);
@@ -40,22 +42,22 @@ class GServer extends GModule {
             $this->runRemote($_data);
         }
         else {
-            $this->addError("Le type du traitement est inconnu.");
+            $this->m_logs->addError("Le type du traitement est inconnu.");
         }
     }
     //===============================================
     public function runLocal($_data) {
         $lLocal = new GLocal();
         $lLocal->run($_data);
-        $this->addLogs($lLocal->getLogs());
-        $this->addResponse($lLocal->toResponse());
+        $this->m_logs->addLogs($lLocal->getLogs());
+        $this->m_resp->loadData($lLocal->toResponse());
     }
     //===============================================
     public function runRemote($_data) {
         $lCurl = new GCurl();
         $lCurl->callProxy($_data);
-        $this->addLogs($lCurl->getLogs());
-        $this->addResponse($lCurl->getResponseText());
+        $this->m_logs->addLogs($lCurl->getLogs());
+        $this->m_resp->loadData($lCurl->getResponseText());
     }
     //===============================================
  }

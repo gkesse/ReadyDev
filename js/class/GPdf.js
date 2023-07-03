@@ -39,7 +39,7 @@ class GPdf extends GObject {
     //===============================================
     run(_method, _obj, _data) {
         if(_method == "") {
-            this.addError("La méthode est obligatoire.");
+            this.m_logs.addError("La méthode est obligatoire.");
         }
         //===============================================
         else if(_method == "load_file_file") {
@@ -47,9 +47,9 @@ class GPdf extends GObject {
         }
         //===============================================
         else {
-            this.addError("La méthode est inconnue.");
+            this.m_logs.addError("La méthode est inconnue.");
         }
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onLoadPdfFile(_obj, _data) {

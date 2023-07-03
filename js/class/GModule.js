@@ -18,8 +18,8 @@ class GModule extends GObject {
     deserialize(_data, _code = "request") {
         var lData = new GCode();
         lData.loadXml(_data);
-        this.m_module = lData.getItem(_code, "module");
-        this.m_method = lData.getItem(_code, "method");
+        this.m_module = lData.getData(_code, "module");
+        this.m_method = lData.getData(_code, "method");
     }
     //===============================================
 }

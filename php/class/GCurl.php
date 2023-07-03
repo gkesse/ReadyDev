@@ -1,5 +1,7 @@
 <?php
 //===============================================
+namespace php\class;
+//===============================================
 class GCurl extends GObject {
     //===============================================
     private $m_url = "";
@@ -158,10 +160,10 @@ class GCurl extends GObject {
                 $lError = curl_error($lCurl);
                 if($lError) {
                     if(!$this->m_hasError) {
-                        $this->addError(sprintf("Erreur lors de la connexion au serveur."));
+                        $this->m_logs->addError(sprintf("Erreur lors de la connexion au serveur."));
                     }
                     else {
-                        $this->addError(sprintf("Erreur lors de la connexion au serveur.\n%s", $lError));
+                        $this->m_logs->addError(sprintf("Erreur lors de la connexion au serveur.\n%s", $lError));
                     }
                 }
             }

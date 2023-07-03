@@ -64,7 +64,7 @@ class GTable extends GModule {
         if(!this.m_headerVisible) return false;
         this.m_rowH = this.m_header.insertRow();
         this.writeUi();
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     pushColH(_data, _value, _icon = "") {
@@ -230,7 +230,7 @@ class GTable extends GModule {
     serialize(_code = "table") {
         var lDom = new GCode();
         lDom.createDoc();
-        lDom.addData(_code, "data", utf8_to_b64(this.m_data));
+        lDom.addData(_code, "data", this.m_data.toBase64());
         lDom.addData(_code, "type", this.m_type);
         lDom.addData(_code, "row", this.m_row);
         lDom.addData(_code, "col", this.m_col);
@@ -242,16 +242,16 @@ class GTable extends GModule {
         super.deserialize(_data);
         var lDom = new GCode();
         lDom.loadXml(_data);
-        this.m_data = b64_to_utf8(lDom.getItem(_code, "data"));
-        this.m_type = lDom.getItem(_code, "type");
-        this.m_row = lDom.getItem(_code, "row");
-        this.m_col = lDom.getItem(_code, "col");
-        this.m_value = lDom.getItem(_code, "value");
+        this.m_data = lDom.getData(_code, "data").fromBase64();
+        this.m_type = lDom.getData(_code, "type");
+        this.m_row = lDom.getData(_code, "row");
+        this.m_col = lDom.getData(_code, "col");
+        this.m_value = lDom.getData(_code, "value");
     }
     //===============================================
     run(_method, _obj, _data) {
         if(_method == "") {
-            this.addError("La méthode est obligatoire.");
+            this.m_logs.addError("La méthode est obligatoire.");
         }
         //===============================================
         else if(_method == "close_table") {
@@ -268,9 +268,9 @@ class GTable extends GModule {
         }
         //===============================================
         else {
-            this.addError("La méthode est inconnue.");
+            this.m_logs.addError("La méthode est inconnue.");
         }
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onCloseTable(_method, _obj, _data) {
@@ -296,26 +296,26 @@ class GTable extends GModule {
     onSelectData(_method, _obj, _data) {
         this.readUi();
         if(this.m_selectModule == "") {
-            this.addError("Le module courant est obligatoire.");
+            this.m_logs.addError("Le module courant est obligatoire.");
             return false;
         }
         if(this.m_selectMethod == "") {
-            this.addError("La méthode courant est obligatoire.");
+            this.m_logs.addError("La méthode courant est obligatoire.");
             return false;
         }
         call_server(this.m_selectModule, this.m_selectMethod, this, this.m_currentData);
         this.writeUi();
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onNextData(_method, _obj, _data) {
         this.readUi();
         if(this.m_nextModule == "") {
-            this.addError("Le module suivant est obligatoire.");
+            this.m_logs.addError("Le module suivant est obligatoire.");
             return false;
         }
         if(this.m_nextMethod == "") {
-            this.addError("La méthode suivante est obligatoire.");
+            this.m_logs.addError("La méthode suivante est obligatoire.");
             return false;
         }
         call_server(this.m_nextModule, this.m_nextMethod);

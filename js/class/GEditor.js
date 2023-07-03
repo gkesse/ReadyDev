@@ -647,7 +647,7 @@ class GEditor extends GObject {
     //===============================================
     run(_method, _obj, _data) {
         if(_method == "") {
-            this.addError("La méthode est obligatoire.");
+            this.m_logs.addError("La méthode est obligatoire.");
         }
         //===============================================
         // editeur
@@ -1102,7 +1102,7 @@ class GEditor extends GObject {
         //===============================================
         //===============================================
         else {
-            this.addError("La méthode est inconnue.");
+            this.m_logs.addError("La méthode est inconnue.");
         }
     }
     //===============================================
@@ -1129,11 +1129,11 @@ class GEditor extends GObject {
     //===============================================
     onExecCommand(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.isData()) {
-            this.addError("Vous n'avez pas sélectionné de texte.");
+            this.m_logs.addError("Vous n'avez pas sélectionné de texte.");
             return false;
         }
         document.execCommand(_data, false, null);
@@ -1143,15 +1143,15 @@ class GEditor extends GObject {
     //===============================================
     onAddTextColor1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GText2")) {
-            this.addError("Vous êtes dans un effet texte couleur premier plan.");
+            this.m_logs.addError("Vous êtes dans un effet texte couleur premier plan.");
             return false;
         }
         if(!this.isData()) {
-            this.addError("Vous n'avez pas sélectionné de texte.");
+            this.m_logs.addError("Vous n'avez pas sélectionné de texte.");
             return false;
         }
         document.execCommand("insertHTML", false, this.toTextColor1(this.toData()));
@@ -1159,11 +1159,11 @@ class GEditor extends GObject {
     //===============================================
     onUpdateTextColor1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GText2")) {
-            this.addError("Vous n'êtes pas dans un effet texte couleur premier plan.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet texte couleur premier plan.");
             return false;
         }
         
@@ -1175,7 +1175,7 @@ class GEditor extends GObject {
         lForm.setCallback("editor", "update_text_color_1_form");
         lForm.addLabelColor("m_color", "Couleur :", lColor);
         lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        this.m_logs.addLogs(lForm.m_logs);
         
         GEditor.Instance().saveRange();
     }
@@ -1183,11 +1183,11 @@ class GEditor extends GObject {
     onUpdateTextColor1Form(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GText2")) {
-            this.addError("Vous n'êtes pas dans un effet texte couleur premier plan.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet texte couleur premier plan.");
             return false;
         }
         
@@ -1203,11 +1203,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteTextColor1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GText2")) {
-            this.addError("Vous n'êtes pas dans un effet texte couleur premier plan.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet texte couleur premier plan.");
             return false;
         }
         var lNode = this.m_node;
@@ -1219,15 +1219,15 @@ class GEditor extends GObject {
     //===============================================
     onAddText3(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GText3")) {
-            this.addError("Vous êtes dans un effet texte icône bas horizontale.");
+            this.m_logs.addError("Vous êtes dans un effet texte icône bas horizontale.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
         document.execCommand("insertHTML", false, this.toText3Group());
@@ -1235,11 +1235,11 @@ class GEditor extends GObject {
     //===============================================
     onInsertText3Left(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GText4")) {
-            this.addError("Vous n'êtes pas dans un effet texte icône bas horizontale.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet texte icône bas horizontale.");
             return false;
         }
         
@@ -1250,11 +1250,11 @@ class GEditor extends GObject {
     //===============================================
     onInsertText3Right(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GText4")) {
-            this.addError("Vous n'êtes pas dans un effet texte icône bas horizontale.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet texte icône bas horizontale.");
             return false;
         }
         
@@ -1265,11 +1265,11 @@ class GEditor extends GObject {
     //===============================================
     onUpdateText3(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GText4")) {
-            this.addError("Vous n'êtes pas dans un effet texte icône bas horizontale.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet texte icône bas horizontale.");
             return false;
         }
         
@@ -1289,7 +1289,7 @@ class GEditor extends GObject {
         lForm.addLabelPicto("m_icon", "Icône :", lFont.toForm(), lIndex);
         lForm.addLabelEdit("m_link", "Lien :", lLink);
         lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        this.m_logs.addLogs(lForm.m_logs);
         
         GEditor.Instance().saveRange();
     }
@@ -1297,11 +1297,11 @@ class GEditor extends GObject {
     onUpdateText3Form(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GText4")) {
-            this.addError("Vous n'êtes pas dans un effet texte icône bas horizontale.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet texte icône bas horizontale.");
             return false;
         }
         
@@ -1323,19 +1323,19 @@ class GEditor extends GObject {
     //===============================================
     onDeleteText3Simple(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GText3")) {
-            this.addError("Vous n'êtes pas dans un effet texte icône bas horizontale groupe.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet texte icône bas horizontale groupe.");
             return false;
         }
         if(!this.hasParent("GText4")) {
-            this.addError("Vous n'êtes pas dans un effet texte icône bas horizontale simple.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet texte icône bas horizontale simple.");
             return false;
         }
         if(this.countNode("GText4") <= 1) {
-            this.addError("Vous voulez supprimer le parent.");
+            this.m_logs.addError("Vous voulez supprimer le parent.");
             return false;
         }
         this.removeNode();
@@ -1343,11 +1343,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteText3Group(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GText3")) {
-            this.addError("Vous n'êtes pas dans un effet texte icône bas horizontale groupe.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet texte icône bas horizontale groupe.");
             return false;
         }
         this.removeNode();
@@ -1357,29 +1357,29 @@ class GEditor extends GObject {
     //===============================================
     onAddTextImageLeft(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GText1")) {
-            this.addError("Vous êtes dans un effet texte image gauche.");
+            this.m_logs.addError("Vous êtes dans un effet texte image gauche.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
 
         document.execCommand("insertHTML", false, this.toTextImageLeft());
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onUpdateTextImageLeft(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GParallax1")) {
-            this.addError("Vous n'êtes pas dans un effet texte image gauche.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet texte image gauche.");
             return false;
         }
 
@@ -1401,7 +1401,7 @@ class GEditor extends GObject {
         lForm.addLabelImage("m_bgImg", "Image :", lImage.toForm(), lIndex);
         lForm.addLabelColor("m_bgColor", "Couleur :", lBgColor);
         lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        this.m_logs.addLogs(lForm.m_logs);
         
         GEditor.Instance().saveRange();
     }
@@ -1409,11 +1409,11 @@ class GEditor extends GObject {
     onUpdateTextImageLeftForm(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GParallax1")) {
-            this.addError("Vous n'êtes pas dans un effet parallax.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet parallax.");
             return false;
         }
         
@@ -1438,11 +1438,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteTextImageLeft(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GText1")) {
-            this.addError("Vous n'êtes pas dans un effet parallax.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet parallax.");
             return false;
         }
         this.removeNode();
@@ -1452,11 +1452,11 @@ class GEditor extends GObject {
     //===============================================
     onAddTextBold(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
         document.execCommand("bold", false, null);
@@ -1466,11 +1466,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteImage1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GImg1")) {
-            this.addError("Vous n'êtes pas dans un effet image.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet image.");
             return false;
         }
         this.removeNode();
@@ -1550,15 +1550,15 @@ class GEditor extends GObject {
     //===============================================
     onAddPdf1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GPdf1")) {
-            this.addError("Vous êtes dans un effet pdf.");
+            this.m_logs.addError("Vous êtes dans un effet pdf.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
 
@@ -1567,11 +1567,11 @@ class GEditor extends GObject {
     //===============================================
     onUpdatePdf1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GPdf1")) {
-            this.addError("Vous n'êtes pas dans un effet pdf.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet pdf.");
             return false;
         }
 
@@ -1587,7 +1587,7 @@ class GEditor extends GObject {
         lForm.setCallback("editor", "update_pdf_1_form");
         lForm.addLabelTree("m_filename", "Fichier :", lFile.toForm(), lIndex);
         lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        this.m_logs.addLogs(lForm.m_logs);
         
         GEditor.Instance().saveRange();
     }
@@ -1595,11 +1595,11 @@ class GEditor extends GObject {
     onUpdatePdf1Form(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GPdf1")) {
-            this.addError("Vous n'êtes pas dans un effet pdf.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet pdf.");
             return false;
         }
         
@@ -1612,7 +1612,7 @@ class GEditor extends GObject {
         var lMimeType = lFile.loadFromMap(lFilenameI).m_mimeType;
         
         if(lMimeType != "application/pdf") {
-            this.addError("Le fichier n'est pas un pdf.");
+            this.m_logs.addError("Le fichier n'est pas un pdf.");
             return false;
         }
                 
@@ -1625,11 +1625,11 @@ class GEditor extends GObject {
     //===============================================
     onDeletePdf1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GPdf1")) {
-            this.addError("Vous n'êtes pas dans un effet pdf.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet pdf.");
             return false;
         }
         
@@ -1640,15 +1640,15 @@ class GEditor extends GObject {
     //===============================================
     onAddTuto1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GTuto1")) {
-            this.addError("Vous êtes dans un effet tutoriel.");
+            this.m_logs.addError("Vous êtes dans un effet tutoriel.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
         
@@ -1657,11 +1657,11 @@ class GEditor extends GObject {
     //===============================================
     onInsertTuto1Left(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GTuto2")) {
-            this.addError("Vous n'êtes pas dans un effet tutoriel.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet tutoriel.");
             return false;
         }
         var lNode = this.m_node;
@@ -1671,11 +1671,11 @@ class GEditor extends GObject {
     //===============================================
     onInsertTuto1Right(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GTuto2")) {
-            this.addError("Vous n'êtes pas dans un effet tutoriel.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet tutoriel.");
             return false;
         }
         var lNode = this.m_node;
@@ -1685,15 +1685,15 @@ class GEditor extends GObject {
     //===============================================
     onDeleteTuto1Simple(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GTuto2")) {
-            this.addError("Vous n'êtes pas dans un effet tutoriel.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet tutoriel.");
             return false;
         }
         if(this.countNode("GTuto2") <= 1) {
-            this.addError("Vous voulez supprimer le parent.");
+            this.m_logs.addError("Vous voulez supprimer le parent.");
             return false;
         }
         this.removeNode();
@@ -1701,11 +1701,11 @@ class GEditor extends GObject {
     //===============================================
     onUpdateTuto1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GTuto2")) {
-            this.addError("Vous n'êtes pas dans un effet tutoriel.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet tutoriel.");
             return false;
         }
 
@@ -1726,7 +1726,7 @@ class GEditor extends GObject {
         lForm.addLabelPicto("m_icon", "Icône :", lFont.toForm(), lIconI);
         lForm.addLabelEdit("m_link", "Lien :", lLink);
         lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        this.m_logs.addLogs(lForm.m_logs);
         
         GEditor.Instance().saveRange();
     }
@@ -1734,11 +1734,11 @@ class GEditor extends GObject {
     onUpdateTuto1Form(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GTuto2")) {
-            this.addError("Vous n'êtes pas dans un effet tutoriel.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet tutoriel.");
             return false;
         }
 
@@ -1760,11 +1760,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteTuto1Group(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GTuto1")) {
-            this.addError("Vous n'êtes pas dans un effet tutoriel.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet tutoriel.");
             return false;
         }
         this.removeNode();
@@ -1774,15 +1774,15 @@ class GEditor extends GObject {
     //===============================================
     onAddFormula1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GFormula1")) {
-            this.addError("Vous êtes dans un effet formule.");
+            this.m_logs.addError("Vous êtes dans un effet formule.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
         
@@ -1791,11 +1791,11 @@ class GEditor extends GObject {
     //===============================================
     onCopyFormula1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GFormula1")) {
-            this.addError("Vous n'êtes pas dans un effet formule.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet formule.");
             return false;
         }
         
@@ -1804,23 +1804,23 @@ class GEditor extends GObject {
     //===============================================
     onPasteFormula1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GFormula1")) {
-            this.addError("Vous n'êtes pas dans un effet formule.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet formule.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
         if(!this.restoreCopy()) {
-            this.addError("Aucun noeud n'a été copié.");
+            this.m_logs.addError("Aucun noeud n'a été copié.");
             return false;
         }
         if(!this.isNode("GFormula1")) {
-            this.addError("Le noeud copié n'est pas un effet formule.");
+            this.m_logs.addError("Le noeud copié n'est pas un effet formule.");
             return false;
         }
 
@@ -1830,11 +1830,11 @@ class GEditor extends GObject {
     //===============================================
     onUpdateFormula1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GFormula1")) {
-            this.addError("Vous n'êtes pas dans un effet formule.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet formule.");
             return false;
         }
 
@@ -1846,7 +1846,7 @@ class GEditor extends GObject {
         lForm.setCallback("editor", "update_formula_1_form");
         lForm.addLabelText("m_formula", "Formule :", lFormula);
         lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        this.m_logs.addLogs(lForm.m_logs);
         
         GEditor.Instance().saveRange();
     }
@@ -1854,11 +1854,11 @@ class GEditor extends GObject {
     onUpdateFormula1Form(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GFormula1")) {
-            this.addError("Vous n'êtes pas dans un effet formule.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet formule.");
             return false;
         }
 
@@ -1874,11 +1874,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteFormula1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GFormula1")) {
-            this.addError("Vous n'êtes pas dans un effet formule.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet formule.");
             return false;
         }
         this.removeNode();
@@ -1888,15 +1888,15 @@ class GEditor extends GObject {
     //===============================================
     onAddAcess1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GAccess1")) {
-            this.addError("Vous êtes dans un effet barre d'accès rapide.");
+            this.m_logs.addError("Vous êtes dans un effet barre d'accès rapide.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
         
@@ -1905,11 +1905,11 @@ class GEditor extends GObject {
     //===============================================
     onInsertAcess1Left(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GAccess2")) {
-            this.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
             return false;
         }
         
@@ -1922,11 +1922,11 @@ class GEditor extends GObject {
     //===============================================
     onInsertAcess1Right(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GAccess2")) {
-            this.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
             return false;
         }
         
@@ -1939,11 +1939,11 @@ class GEditor extends GObject {
     //===============================================
     onCopyAccess1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GAccess1")) {
-            this.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
             return false;
         }
         
@@ -1952,23 +1952,23 @@ class GEditor extends GObject {
     //===============================================
     onPasteAccess1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GAccess1")) {
-            this.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
         if(!this.restoreCopy()) {
-            this.addError("Aucun noeud n'a été copié.");
+            this.m_logs.addError("Aucun noeud n'a été copié.");
             return false;
         }
         if(!this.isNode("GAccess1")) {
-            this.addError("Le noeud copié n'est pas un effet barre d'accès rapide.");
+            this.m_logs.addError("Le noeud copié n'est pas un effet barre d'accès rapide.");
             return false;
         }
 
@@ -1978,11 +1978,11 @@ class GEditor extends GObject {
     //===============================================
     onUpdateAcess1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GAccess2")) {
-            this.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
             return false;
         }
         
@@ -1997,7 +1997,7 @@ class GEditor extends GObject {
         lForm.addLabelEdit("m_text", "Texte :", lText);
         lForm.addLabelEdit("m_link", "Lien :", lLink);
         lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        this.m_logs.addLogs(lForm.m_logs);
         
         GEditor.Instance().saveRange();
     }
@@ -2005,11 +2005,11 @@ class GEditor extends GObject {
     onUpdateAcess1Form(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GAccess2")) {
-            this.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
             return false;
         }
         
@@ -2027,11 +2027,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteAcess1Simple(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GAccess2")) {
-            this.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
             return false;
         }
         
@@ -2039,7 +2039,7 @@ class GEditor extends GObject {
         var lChevron = lNode.previousElementSibling;
         
         if(!lChevron) {
-            this.addError("Vous voulez supprimer le parent.");
+            this.m_logs.addError("Vous voulez supprimer le parent.");
             return false;
         }
         
@@ -2049,11 +2049,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteAcess1Group(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GAccess1")) {
-            this.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet barre d'accès rapide.");
             return false;
         }
         this.removeNode();
@@ -2063,11 +2063,11 @@ class GEditor extends GObject {
     //===============================================
     onAddCode1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GCode1")) {
-            this.addError("Vous êtes dans un effet code.");
+            this.m_logs.addError("Vous êtes dans un effet code.");
             return false;
         }
         
@@ -2076,11 +2076,11 @@ class GEditor extends GObject {
     //===============================================
     onCopyCode1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GCode1")) {
-            this.addError("Vous n'êtes pas dans un effet code.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet code.");
             return false;
         }
         
@@ -2089,23 +2089,23 @@ class GEditor extends GObject {
     //===============================================
     onPasteCode1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GCode1")) {
-            this.addError("Vous êtes dans un effet code.");
+            this.m_logs.addError("Vous êtes dans un effet code.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
         if(!this.restoreCopy()) {
-            this.addError("Aucun noeud n'a été copié.");
+            this.m_logs.addError("Aucun noeud n'a été copié.");
             return false;
         }
         if(!this.isNode("GCode1")) {
-            this.addError("Le noeud copié n'est pas un effet code.");
+            this.m_logs.addError("Le noeud copié n'est pas un effet code.");
             return false;
         }
 
@@ -2115,11 +2115,11 @@ class GEditor extends GObject {
     //===============================================
     onUpdateCode1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GCode1")) {
-            this.addError("Vous n'êtes pas dans un effet code.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet code.");
             return false;
         }
         
@@ -2137,7 +2137,7 @@ class GEditor extends GObject {
         lForm.addLabelEdit("m_bgColor", "Couleur de fond :", lBgColor);
         lForm.addLabelText("m_code", "Code :", lCode);
         lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        this.m_logs.addLogs(lForm.m_logs);
         
         GEditor.Instance().saveRange();
     }
@@ -2145,11 +2145,11 @@ class GEditor extends GObject {
     onUpdateCode1Form(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GCode1")) {
-            this.addError("Vous n'êtes pas dans un effet code.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet code.");
             return false;
         }
         
@@ -2174,11 +2174,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteCode1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GCode1")) {
-            this.addError("Vous n'êtes pas dans un effet code.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet code.");
             return false;
         }
         this.removeNode();
@@ -2188,15 +2188,15 @@ class GEditor extends GObject {
     //===============================================
     onAddSkill(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GSkill1")) {
-            this.addError("Vous êtes dans un effet compétence.");
+            this.m_logs.addError("Vous êtes dans un effet compétence.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
 
@@ -2205,52 +2205,52 @@ class GEditor extends GObject {
     //===============================================
     onCopySkill(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GSkill1")) {
-            this.addError("Vous n'êtes pas dans un effet compétence.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet compétence.");
             return false;
         }
         
         this.copyNode();
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onPasteSkill(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GSkill1")) {
-            this.addError("Vous êtes dans un effet compétence.");
+            this.m_logs.addError("Vous êtes dans un effet compétence.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
         if(!this.restoreCopy()) {
-            this.addError("Aucun noeud n'a été copié.");
+            this.m_logs.addError("Aucun noeud n'a été copié.");
             return false;
         }
         if(!this.isNode("GSkill1")) {
-            this.addError("Le noeud copié n'est pas un effet compétence.");
+            this.m_logs.addError("Le noeud copié n'est pas un effet compétence.");
             return false;
         }
 
         var lNode = this.m_node;
         document.execCommand("insertHTML", false, lNode.outerHTML);
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onUpdateSkill(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GSkill1")) {
-            this.addError("Vous n'êtes pas dans un effet compétence.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet compétence.");
             return false;
         }
 
@@ -2272,7 +2272,7 @@ class GEditor extends GObject {
         lForm.addLabelPicto("m_icon", "Icône :", lFont.toForm(), lIndex);
         lForm.addLabelCombo("m_sort", "Tri :", lSort.serialize(), 1);
         lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        this.m_logs.addLogs(lForm.m_logs);
         
         GEditor.Instance().saveRange();
     }
@@ -2280,15 +2280,15 @@ class GEditor extends GObject {
     onUpdateSkillForm(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GSkill1")) {
-            this.addError("Vous n'êtes pas dans un effet compétence.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet compétence.");
             return false;
         }
         if(!this.hasParent("GSection1")) {
-            this.addError("Vous n'êtes pas dans un effet section.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet section.");
             return false;
         }
         
@@ -2321,11 +2321,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteSkill(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GSkill1")) {
-            this.addError("Vous n'êtes pas dans un effet compétence.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet compétence.");
             return false;
         }
         this.removeNode();
@@ -2335,70 +2335,70 @@ class GEditor extends GObject {
     //===============================================
     onAddGraduation(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GGraduation1")) {
-            this.addError("Vous êtes dans un effet formation.");
+            this.m_logs.addError("Vous êtes dans un effet formation.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
 
         document.execCommand("insertHTML", false, this.toGraduation());
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onCopyGraduation(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GGraduation1")) {
-            this.addError("Vous n'êtes pas dans un effet formation.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet formation.");
             return false;
         }
         
         this.copyNode();
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onPasteGraduation(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GGraduation1")) {
-            this.addError("Vous êtes dans un effet formation.");
+            this.m_logs.addError("Vous êtes dans un effet formation.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
         if(!this.restoreCopy()) {
-            this.addError("Aucun noeud n'a été copié.");
+            this.m_logs.addError("Aucun noeud n'a été copié.");
             return false;
         }
         if(!this.isNode("GGraduation1")) {
-            this.addError("Le noeud copié n'est pas un effet formation.");
+            this.m_logs.addError("Le noeud copié n'est pas un effet formation.");
             return false;
         }
 
         var lNode = this.m_node;
         document.execCommand("insertHTML", false, lNode.outerHTML);
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onUpdateGraduation(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GGraduation1")) {
-            this.addError("Vous n'êtes pas dans un effet formation.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet formation.");
             return false;
         }
 
@@ -2415,7 +2415,7 @@ class GEditor extends GObject {
         lForm.setCallback("editor", "update_graduation_form");
         lForm.addLabelPicto("m_icon", "Icône :", lFont.toForm(), lIndex);
         lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        this.m_logs.addLogs(lForm.m_logs);
         
         GEditor.Instance().saveRange();
     }
@@ -2423,11 +2423,11 @@ class GEditor extends GObject {
     onUpdateGraduationForm(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GGraduation1")) {
-            this.addError("Vous n'êtes pas dans un effet formation.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet formation.");
             return false;
         }
         
@@ -2446,11 +2446,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteGraduation(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GGraduation1")) {
-            this.addError("Vous n'êtes pas dans un effet formation.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet formation.");
             return false;
         }
         this.removeNode();
@@ -2460,11 +2460,11 @@ class GEditor extends GObject {
     //===============================================
     onAddLink2(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GLink2")) {
-            this.addError("Vous êtes dans un effet lien simple.");
+            this.m_logs.addError("Vous êtes dans un effet lien simple.");
             return false;
         }
         
@@ -2474,16 +2474,16 @@ class GEditor extends GObject {
         if(this.isData()) lHref = this.toData();
 
         document.execCommand("insertHTML", false, this.toLink2(lText, lHref));
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onUpdateLink2(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GLink2")) {
-            this.addError("Vous n'êtes pas dans un effet lien simple.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet lien simple.");
             return false;
         }
 
@@ -2500,7 +2500,7 @@ class GEditor extends GObject {
         lForm.addLabelEdit("m_text", "Texte :", lText);
         lForm.addLabelEdit("m_color", "Couleur :", lColor);
         lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        this.m_logs.addLogs(lForm.m_logs);
         
         GEditor.Instance().saveRange();
     }
@@ -2508,11 +2508,11 @@ class GEditor extends GObject {
     onUpdateLink2Form(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GLink2")) {
-            this.addError("Vous n'êtes pas dans un effet lien simple.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet lien simple.");
             return false;
         }
         
@@ -2532,11 +2532,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteLink2(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GLink2")) {
-            this.addError("Vous n'êtes pas dans un effet lien simple.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet lien simple.");
             return false;
         }
         this.removeNode();
@@ -2546,11 +2546,11 @@ class GEditor extends GObject {
     //===============================================
     onAddLink3(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GLink3")) {
-            this.addError("Vous êtes dans un effet lien simple externe.");
+            this.m_logs.addError("Vous êtes dans un effet lien simple externe.");
             return false;
         }
         
@@ -2560,16 +2560,16 @@ class GEditor extends GObject {
         if(this.isData()) lHref = this.toData();
         
         document.execCommand("insertHTML", false, this.toLink3(lText, lHref));
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onUpdateLink3(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GLink3")) {
-            this.addError("Vous n'êtes pas dans un effet lien simple externe.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet lien simple externe.");
             return false;
         }
 
@@ -2586,7 +2586,7 @@ class GEditor extends GObject {
         lForm.addLabelEdit("m_text", "Texte :", lText);
         lForm.addLabelEdit("m_color", "Couleur :", lColor);
         lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        this.m_logs.addLogs(lForm.m_logs);
         
         GEditor.Instance().saveRange();
     }
@@ -2594,11 +2594,11 @@ class GEditor extends GObject {
     onUpdateLink3Form(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GLink3")) {
-            this.addError("Vous n'êtes pas dans un effet lien simple externe.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet lien simple externe.");
             return false;
         }
         
@@ -2618,11 +2618,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteLink3(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GLink3")) {
-            this.addError("Vous n'êtes pas dans un effet lien simple externe.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet lien simple externe.");
             return false;
         }
         this.removeNode();
@@ -2632,29 +2632,29 @@ class GEditor extends GObject {
     //===============================================
     onAddLink1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GLink1")) {
-            this.addError("Vous êtes dans un effet lien groupe.");
+            this.m_logs.addError("Vous êtes dans un effet lien groupe.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
 
         document.execCommand("insertHTML", false, this.toLink1());
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onUpdateLink1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GLink1")) {
-            this.addError("Vous n'êtes pas dans un effet lien groupe.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet lien groupe.");
             return false;
         }
 
@@ -2676,7 +2676,7 @@ class GEditor extends GObject {
         lForm.addLabelEdit("m_link", "Lien :", lLink);
         lForm.addLabelEdit("m_title", "Titre :", lTitle);
         lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        this.m_logs.addLogs(lForm.m_logs);
         
         GEditor.Instance().saveRange();
     }
@@ -2684,11 +2684,11 @@ class GEditor extends GObject {
     onUpdateLink1Form(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GLink1")) {
-            this.addError("Vous n'êtes pas dans un effet lien groupe.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet lien groupe.");
             return false;
         }
         
@@ -2712,11 +2712,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteLink1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GLink1")) {
-            this.addError("Vous n'êtes pas dans un effet lien groupe.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet lien groupe.");
             return false;
         }
         this.removeNode();
@@ -2726,29 +2726,29 @@ class GEditor extends GObject {
     //===============================================
     onAddLine(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GLine1")) {
-            this.addError("Vous êtes dans un effet ligne.");
+            this.m_logs.addError("Vous êtes dans un effet ligne.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
 
         document.execCommand("insertHTML", false, this.toLineBar());
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onUpdateLine(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GLine1")) {
-            this.addError("Vous n'êtes pas dans un effet ligne.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet ligne.");
             return false;
         }
 
@@ -2770,7 +2770,7 @@ class GEditor extends GObject {
         lForm.addLabelEdit("m_link", "Lien :", lLink);
         lForm.addLabelEdit("m_title", "Titre :", lTitle);
         lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        this.m_logs.addLogs(lForm.m_logs);
         
         GEditor.Instance().saveRange();
     }
@@ -2778,11 +2778,11 @@ class GEditor extends GObject {
     onUpdateLineForm(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GLine1")) {
-            this.addError("Vous n'êtes pas dans un effet ligne.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet ligne.");
             return false;
         }
         
@@ -2806,11 +2806,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteLine(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GLine1")) {
-            this.addError("Vous n'êtes pas dans un effet ligne.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet ligne.");
             return false;
         }
         this.removeNode();
@@ -2820,29 +2820,29 @@ class GEditor extends GObject {
     //===============================================
     onAddParallax(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GParallax1")) {
-            this.addError("Vous êtes dans un effet parallax.");
+            this.m_logs.addError("Vous êtes dans un effet parallax.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
 
         document.execCommand("insertHTML", false, this.toParallax());
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onUpdateParallax(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GParallax1")) {
-            this.addError("Vous n'êtes pas dans un effet parallax.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet parallax.");
             return false;
         }
 
@@ -2864,7 +2864,7 @@ class GEditor extends GObject {
         lForm.addLabelImage("m_bgImg", "Image :", lImage.toForm(), lIndex);
         lForm.addLabelColor("m_bgColor", "Couleur :", lBgColor);
         lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        this.m_logs.addLogs(lForm.m_logs);
         
         GEditor.Instance().saveRange();
     }
@@ -2872,11 +2872,11 @@ class GEditor extends GObject {
     onUpdateParallaxForm(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GParallax1")) {
-            this.addError("Vous n'êtes pas dans un effet parallax.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet parallax.");
             return false;
         }
         
@@ -2901,11 +2901,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteParallax(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GParallax1")) {
-            this.addError("Vous n'êtes pas dans un effet parallax.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet parallax.");
             return false;
         }
         this.removeNode();
@@ -2915,15 +2915,15 @@ class GEditor extends GObject {
     //===============================================
     onAddBullet(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GBullet1")) {
-            this.addError("Vous êtes dans un effet puce.");
+            this.m_logs.addError("Vous êtes dans un effet puce.");
             return false;
         }
         if(this.isData()) {
-            this.addError("Vous avez sélectionné de texte.");
+            this.m_logs.addError("Vous avez sélectionné de texte.");
             return false;
         }
 
@@ -2931,20 +2931,20 @@ class GEditor extends GObject {
         if(this.selectLine()) lText = this.toLine();
         
         document.execCommand("insertHTML", false, this.toBullet(lText));
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onAddBulletGroup(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GBullet1")) {
-            this.addError("Vous êtes dans un effet puce.");
+            this.m_logs.addError("Vous êtes dans un effet puce.");
             return false;
         }
         if(!this.isData()) {
-            this.addError("Vous n'avez pas sélectionné de texte.");
+            this.m_logs.addError("Vous n'avez pas sélectionné de texte.");
             return false;
         }
 
@@ -2959,16 +2959,16 @@ class GEditor extends GObject {
         }
         
         document.execCommand("insertHTML", false, lHtml);
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onInsertBulletBefore(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GBullet1")) {
-            this.addError("Vous n'êtes pas dans un effet puce.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet puce.");
             return false;
         }
 
@@ -2976,16 +2976,16 @@ class GEditor extends GObject {
         var lText = "Ajouter un texte...";
         var lNew = this.createNode(this.toBullet(lText));
         lNode.appendBefore(lNew);
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onInsertBulletAfter(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GBullet1")) {
-            this.addError("Vous n'êtes pas dans un effet puce.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet puce.");
             return false;
         }
 
@@ -2993,16 +2993,16 @@ class GEditor extends GObject {
         var lText = "Ajouter un texte...";
         var lNew = this.createNode(this.toBullet(lText));
         lNode.appendAfter(lNew);
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onUpdateBullet(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GBullet1")) {
-            this.addError("Vous n'êtes pas dans un effet puce.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet puce.");
             return false;
         }
 
@@ -3019,7 +3019,7 @@ class GEditor extends GObject {
         lForm.setCallback("editor", "update_bullet_form");
         lForm.addLabelPicto("m_icon", "Icône :", lFont.toForm(), lIndex);
         lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        this.m_logs.addLogs(lForm.m_logs);
         
         GEditor.Instance().saveRange();
     }
@@ -3027,11 +3027,11 @@ class GEditor extends GObject {
     onUpdateBulletForm(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GBullet1")) {
-            this.addError("Vous n'êtes pas dans un effet puce.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet puce.");
             return false;
         }
         
@@ -3054,11 +3054,11 @@ class GEditor extends GObject {
     //===============================================
     onCancelBullet(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GBullet1")) {
-            this.addError("Vous n'êtes pas dans un effet puce.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet puce.");
             return false;
         }
         var lNode = this.m_node;
@@ -3068,11 +3068,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteBullet(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GBullet1")) {
-            this.addError("Vous n'êtes pas dans un effet puce.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet puce.");
             return false;
         }
         this.removeNode();
@@ -3082,70 +3082,70 @@ class GEditor extends GObject {
     //===============================================
     onAddSection(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GSection1")) {
-            this.addError("Vous êtes dans un effet section.");
+            this.m_logs.addError("Vous êtes dans un effet section.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
 
         document.execCommand("insertHTML", false, this.toSection());
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onCopySection(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GSection1")) {
-            this.addError("Vous n'êtes pas dans un effet section.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet section.");
             return false;
         }
         
         this.copyNode();
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onPasteSection(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GSection1")) {
-            this.addError("Vous êtes dans un effet section.");
+            this.m_logs.addError("Vous êtes dans un effet section.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
         if(!this.restoreCopy()) {
-            this.addError("Aucun noeud n'a été copié.");
+            this.m_logs.addError("Aucun noeud n'a été copié.");
             return false;
         }
         if(!this.isNode("GSection1")) {
-            this.addError("Le noeud copié n'est pas un effet compétence.");
+            this.m_logs.addError("Le noeud copié n'est pas un effet compétence.");
             return false;
         }
 
         var lNode = this.m_node;
         document.execCommand("insertHTML", false, lNode.outerHTML);
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onUpdateSection(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GSection1")) {
-            this.addError("Vous n'êtes pas dans un effet section.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet section.");
             return false;
         }
 
@@ -3162,7 +3162,7 @@ class GEditor extends GObject {
         lForm.addLabelEdit("m_title", "Titre :", lTitle);
         lForm.addLabelEdit("m_id", "Identifiant :", lId);
         lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        this.m_logs.addLogs(lForm.m_logs);
         
         GEditor.Instance().saveRange();
     }
@@ -3170,11 +3170,11 @@ class GEditor extends GObject {
     onUpdateSectionForm(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GSection1")) {
-            this.addError("Vous n'êtes pas dans un effet section.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet section.");
             return false;
         }
 
@@ -3212,11 +3212,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteSection(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GSection1")) {
-            this.addError("Vous n'êtes pas dans un effet section.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet section.");
             return false;
         }
         this.removeNode();
@@ -3226,33 +3226,33 @@ class GEditor extends GObject {
     //===============================================
     onAddSummary1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GSummary1")) {
-            this.addError("Vous êtes dans un effet sommaire principal.");
+            this.m_logs.addError("Vous êtes dans un effet sommaire principal.");
             return false;
         }
         if(this.hasParent("GSection1")) {
-            this.addError("Vous êtes dans un effet section.");
+            this.m_logs.addError("Vous êtes dans un effet section.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
 
         document.execCommand("insertHTML", false, this.toSummary1());
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onUpdateSummary1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GSummary1")) {
-            this.addError("Vous n'êtes pas dans un effet sommaire principal.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet sommaire principal.");
             return false;
         }
 
@@ -3279,11 +3279,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteSummary1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GSummary1")) {
-            this.addError("Vous n'êtes pas dans un effet sommaire principal.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet sommaire principal.");
             return false;
         }
         this.removeNode();
@@ -3293,33 +3293,33 @@ class GEditor extends GObject {
     //===============================================
     onAddSummary2(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GSummary2")) {
-            this.addError("Vous êtes dans un effet sommaire secondaire.");
+            this.m_logs.addError("Vous êtes dans un effet sommaire secondaire.");
             return false;
         }
         if(!this.hasParent("GSection1")) {
-            this.addError("Vous n'êtes pas dans un effet section.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet section.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
 
         document.execCommand("insertHTML", false, this.toSummary2());
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onUpdateSummary2(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GSummary2")) {
-            this.addError("Vous n'êtes pas dans un effet sommaire secondaire.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet sommaire secondaire.");
             return false;
         }
 
@@ -3348,11 +3348,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteSummary2(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GSummary2")) {
-            this.addError("Vous n'êtes pas dans un effet sommaire secondaire.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet sommaire secondaire.");
             return false;
         }
         this.removeNode();
@@ -3362,33 +3362,33 @@ class GEditor extends GObject {
     //===============================================
     onAddSummary3(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GSummary3")) {
-            this.addError("Vous êtes dans un effet sommaire tertiaire.");
+            this.m_logs.addError("Vous êtes dans un effet sommaire tertiaire.");
             return false;
         }
         if(!this.hasParent("GSection1")) {
-            this.addError("Vous n'êtes pas dans un effet section.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet section.");
             return false;
         }
         if(this.isLine()) {
-            this.addError("Vous êtes sur une ligne.");
+            this.m_logs.addError("Vous êtes sur une ligne.");
             return false;
         }
 
         document.execCommand("insertHTML", false, this.toSummary3());
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onUpdateSummary3(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GSummary3")) {
-            this.addError("Vous n'êtes pas dans un effet sommaire tertiaire.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet sommaire tertiaire.");
             return false;
         }
 
@@ -3410,11 +3410,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteSummary3(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GSummary3")) {
-            this.addError("Vous n'êtes pas dans un effet sommaire tertiaire.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet sommaire tertiaire.");
             return false;
         }
         this.removeNode();
@@ -3424,15 +3424,15 @@ class GEditor extends GObject {
     //===============================================
     onAddTitle1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GTitle1")) {
-            this.addError("Vous êtes dans un effet titre primaire.");
+            this.m_logs.addError("Vous êtes dans un effet titre primaire.");
             return false;
         }
         if(!this.hasParent("GSection1")) {
-            this.addError("Vous n'êtes pas dans un effet section.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet section.");
             return false;
         }
         
@@ -3449,16 +3449,16 @@ class GEditor extends GObject {
         }
 
         document.execCommand("insertHTML", false, this.toTitle1(lId, lHref, lText));
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onUpdateTitle1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GTitle1")) {
-            this.addError("Vous n'êtes pas dans un effet titre primaire.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet titre primaire.");
             return false;
         }
 
@@ -3482,7 +3482,7 @@ class GEditor extends GObject {
         lForm.addLabelLine("m_id", "Id :", lId);
         lForm.addVariable("m_idRef", lIdRef);
         lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        this.m_logs.addLogs(lForm.m_logs);
         
         GEditor.Instance().saveRange();
     }
@@ -3490,11 +3490,11 @@ class GEditor extends GObject {
     onUpdateTitle1Form(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GTitle1")) {
-            this.addError("Vous n'êtes pas dans un effet titre primaire.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet titre primaire.");
             return false;
         }
         
@@ -3535,11 +3535,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteTitle1(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GTitle1")) {
-            this.addError("Vous n'êtes pas dans un effet titre primaire.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet titre primaire.");
             return false;
         }
         
@@ -3553,15 +3553,15 @@ class GEditor extends GObject {
     //===============================================
     onAddTitle2(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(this.hasParent("GTitle2")) {
-            this.addError("Vous êtes dans un effet titre secondaire.");
+            this.m_logs.addError("Vous êtes dans un effet titre secondaire.");
             return false;
         }
         if(!this.hasParent("GSection1")) {
-            this.addError("Vous n'êtes pas dans un effet section.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet section.");
             return false;
         }
         
@@ -3574,7 +3574,7 @@ class GEditor extends GObject {
 
         if(this.isLine()) {
             if(!this.toPreviousNode(this.toNode(), "GTitle1")) {
-                this.addError("Vous n'êtes pas dans un effet titre primaire.");
+                this.m_logs.addError("Vous n'êtes pas dans un effet titre primaire.");
                 return false;
             }
 
@@ -3596,7 +3596,7 @@ class GEditor extends GObject {
             var lTitleN = lNode.firstElementChild;
             
             if(!this.toPreviousNode(lNode, "GTitle1")) {
-                this.addError("Vous n'êtes pas dans un effet titre primaire.");
+                this.m_logs.addError("Vous n'êtes pas dans un effet titre primaire.");
                 lNode.remove();
                 return false;
             }
@@ -3609,16 +3609,16 @@ class GEditor extends GObject {
             lTitleN.setAttribute("href", lHref);
         }
         
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onUpdateTitle2(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GTitle2")) {
-            this.addError("Vous n'êtes pas dans un effet titre secondaire.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet titre secondaire.");
             return false;
         }
 
@@ -3647,7 +3647,7 @@ class GEditor extends GObject {
         lForm.addLabelLine("m_id", "Id :", lId);
         lForm.addVariable("m_idRef", lIdRef);
         lForm.showForm();
-        this.addLogs(lForm.getLogs());
+        this.m_logs.addLogs(lForm.m_logs);
         
         GEditor.Instance().saveRange();
     }
@@ -3655,11 +3655,11 @@ class GEditor extends GObject {
     onUpdateTitle2Form(_obj, _data) {
         GEditor.Instance().restoreRange();
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GTitle2")) {
-            this.addError("Vous n'êtes pas dans un effet titre secondaire.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet titre secondaire.");
             return false;
         }
         
@@ -3700,11 +3700,11 @@ class GEditor extends GObject {
     //===============================================
     onDeleteTitle2(_obj, _data) {
         if(!this.isEditor()) {
-            this.addError("La sélection est hors du cadre.");
+            this.m_logs.addError("La sélection est hors du cadre.");
             return false;
         }
         if(!this.hasParent("GTitle2")) {
-            this.addError("Vous n'êtes pas dans un effet titre secondaire.");
+            this.m_logs.addError("Vous n'êtes pas dans un effet titre secondaire.");
             return false;
         }
         

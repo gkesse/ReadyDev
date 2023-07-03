@@ -502,15 +502,15 @@ class GForm extends GObject {
             var lObj = this.m_map[i];
 
             if(!lObj.m_model) {
-                this.addError("Le modèle est obligatoire.");
+                this.m_logs.addError("Le modèle est obligatoire.");
                 continue;
             }
             if(!lObj.m_label) {
-                this.addError("Le libellé est obligatoire.");
+                this.m_logs.addError("Le libellé est obligatoire.");
                 continue;
             }
             if(!lObj.m_id) {
-                this.addError("L'identifiant est obligatoire.");
+                this.m_logs.addError("L'identifiant est obligatoire.");
                 continue;
             }
 
@@ -561,7 +561,7 @@ class GForm extends GObject {
                 lForm.loadFromMap(lObj.m_index);
                 
                 if(!lForm.m_map.length) {
-                    this.addError("La donnée est obligatoire.");
+                    this.m_logs.addError("La donnée est obligatoire.");
                     continue;
                 }
 
@@ -591,7 +591,7 @@ class GForm extends GObject {
                 lForm.loadFromMap(lObj.m_index);
                 
                 if(!lForm.m_map.length) {
-                    this.addError("La donnée est obligatoire.");
+                    this.m_logs.addError("La donnée est obligatoire.");
                     continue;
                 }
                                 
@@ -620,7 +620,7 @@ class GForm extends GObject {
                 lForm.loadFromMap(lObj.m_index);
                 
                 if(!lForm.m_map.length) {
-                    this.addError("La donnée est obligatoire.");
+                    this.m_logs.addError("La donnée est obligatoire.");
                     continue;
                 }
                                 
@@ -650,7 +650,7 @@ class GForm extends GObject {
                 lForm.loadFromMap(lObj.m_index);
                 
                 if(!lForm.m_map.length) {
-                    this.addError("La donnée est obligatoire.");
+                    this.m_logs.addError("La donnée est obligatoire.");
                     continue;
                 }
                                 
@@ -768,21 +768,21 @@ class GForm extends GObject {
     deserialize(_data, _code = "form") {
         var lDom = new GCode();
         lDom.loadXml(_data);
-        this.m_position = lDom.getItem(_code, "position");
-        this.m_model = lDom.getItem(_code, "model");
-        this.m_label = lDom.getItem(_code, "label");
-        this.m_id = lDom.getItem(_code, "id");
-        this.m_img = lDom.getItem(_code, "img");
-        this.m_value = lDom.getItem(_code, "value");
-        this.m_index = lDom.getItem(_code, "index");
-        this.m_parentIndex = lDom.getItem(_code, "parent_index");
-        this.m_isDir = lDom.getItem(_code, "is_dir");
+        this.m_position = lDom.getData(_code, "position");
+        this.m_model = lDom.getData(_code, "model");
+        this.m_label = lDom.getData(_code, "label");
+        this.m_id = lDom.getData(_code, "id");
+        this.m_img = lDom.getData(_code, "img");
+        this.m_value = lDom.getData(_code, "value");
+        this.m_index = lDom.getData(_code, "index");
+        this.m_parentIndex = lDom.getData(_code, "parent_index");
+        this.m_isDir = lDom.getData(_code, "is_dir");
         lDom.getMap(_code, this.m_map, this);
     }
     //===============================================
     run(_method, _obj, _data) {
         if(_method == "") {
-            this.addError("La méthode est obligatoire.");
+            this.m_logs.addError("La méthode est obligatoire.");
         }
         //===============================================
         else if(_method == "open_form") {
@@ -805,9 +805,9 @@ class GForm extends GObject {
         }
         //===============================================
         else {
-            this.addError("La méthode est inconnue.");
+            this.m_logs.addError("La méthode est inconnue.");
         }
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onOpenForm(_obj, _data) {
@@ -837,7 +837,7 @@ class GForm extends GObject {
         if(this.m_method == "") return false;
         this.onCloseForm();
         call_server(this.m_module, this.m_method, _obj);
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onChangeInputForm(_obj, _data) {
@@ -851,7 +851,7 @@ class GForm extends GObject {
         lObj.m_value = lLine.dataset.value;
         var lData = lObj.serialize();
         call_server(this.m_moduleInput, this.m_methodInput, _obj, lData);
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onChangeLineForm(_obj, _data) {
@@ -865,7 +865,7 @@ class GForm extends GObject {
         lObj.m_value = lLine.dataset.value;
         var lData = lObj.serialize();
         call_server(this.m_moduleLine, this.m_methodLine, _obj, lData);
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onChangeEditForm(_obj, _data) {
@@ -879,7 +879,7 @@ class GForm extends GObject {
         lObj.m_value = lLine.value;
         var lData = lObj.serialize();
         call_server(this.m_moduleEdit, this.m_methodEdit, _obj, lData);
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
 }

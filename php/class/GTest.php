@@ -1,77 +1,50 @@
 <?php
+//===============================================
+namespace php\class;
+//===============================================
 class GTest extends GObject {
-    //===============================================
-    protected $m_lang;
-    protected $m_module;
-    protected $m_method;
     //===============================================
     public function __construct() {
         parent::__construct();
     }
     //===============================================
-    public function setObj($_obj) {
-        $this->m_lang = $_obj->m_lang;
-        $this->m_module = $_obj->m_module;
-        $this->m_method = $_obj->m_method;
-    }
-    //===============================================
-    public function setTest($_lang, $_module, $_method) {
-        $this->m_lang = $_lang;
-        $this->m_module = $_module;
-        $this->m_method = $_method;
-    }
-    //===============================================
-    public function initTest() {
-        $this->setTest("php", "prod", "test");
-    }
-    //===============================================
-    public function serialize($code = "test") {
-        $lData = new GCode();
-        $lData->createDoc();
-        $lData->addData($code, "lang", $this->m_lang);
-        $lData->addData($code, "module", $this->m_module);
-        $lData->addData($code, "method", $this->m_method);
-        return $lData->toString();
-    }
-    //===============================================
-    public function deserialize($data, $code = "test") {
-        $lData = new GCode();
-        $lData->loadXml($data);
-        $this->m_lang = $lData->getData($code, "lang");
-        $this->m_module = $lData->getData($code, "module");
-        $this->m_method = $lData->getData($code, "method");
-    }
-    //===============================================
-    public function run() {
-        $this->initTest();
-        
-        if($this->m_lang == "") {
-            $this->addError("Le langage est obligatoire.");
+    public function run($_module, $_method) {        
+        if($_module == "") {
+            $this->m_logs->addError("Le module est obligatoire.");
         }
-        else if($this->m_lang == "php") {
-            $this->runPhp();
+        else if($_module == "php") {
+            $this->runPhp($_module, $_method);
         }
-        else if($this->m_lang == "js") {
-            $this->runJs();
+        else if($_module == "js") {
+            $this->runJs($_module, $_method);
+        }
+        else if($_module == "prod") {
+            $this->runProd($_module, $_method);
         }
         else {
-            $this->addError("Le langage est inconnue.");
+            $this->m_logs->addError("Le module est inconnue.");
         }
     }
     //===============================================
-    public function runPhp() {
-        $lObj = new GPhpTest();
-        $lObj->setObj($this);
-        $lObj->run();
-        $this->addLogs($lObj->getLogs());
+    public function runPhp($_module, $_method) {
+        $lObj = new GTestPhp();
+        $lObj->run($_module, $_method);
+        $this->m_logs->addLogs($lObj->getLogs());
     }
     //===============================================
-    public function runJs() {
-        $lObj = new GJsTest();
-        $lObj->setObj($this);
+    public function runJs($_module, $_method) {
+        $lObj = new GTestJs();
+        $lObj->run($_module, $_method);
+        $this->m_logs->addLogs($lObj->getLogs());
+        $this->m_dataLogs->addLogs($lObj->getDataLogs());
+    }
+    //===============================================
+    public function runProd($_module, $_method) {
+        $lObj = new GReady();
         $lObj->run();
-        $this->addLogs($lObj->getLogs());
+        $this->m_logs->addLogs($lObj->getLogs());
     }
     //===============================================
 }
+//===============================================
 ?>

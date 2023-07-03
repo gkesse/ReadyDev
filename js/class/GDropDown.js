@@ -104,7 +104,7 @@ class GDropDown extends GObject {
         else {
             this.addError("La méthode est inconnue.");
         }
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     onToggleMenu(_obj, _data) {

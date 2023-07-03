@@ -10,7 +10,7 @@ class GStore extends GObject {
     }
     //===============================================
     getLocalData(key, defaultValue = "") {
-        var lData = localStorage.getItem(key);
+        var lData = localStorage.getData(key);
         if(!lData) return defaultValue;
         return lData;
     }
@@ -20,7 +20,7 @@ class GStore extends GObject {
     }
     //===============================================
     getSessionData(key, defaultValue = "") {
-        var lData = sessionStorage.getItem(key);
+        var lData = sessionStorage.getData(key);
         if(!lData) return defaultValue;
         return lData;
     }

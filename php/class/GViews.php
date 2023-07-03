@@ -1,5 +1,7 @@
 <?php   
 //===============================================
+namespace php\class;
+//===============================================
 class GViews extends GObject {
     //===============================================
     private $m_id = 0;
@@ -31,7 +33,7 @@ class GViews extends GObject {
             break;
         }
         //
-        $this->addLogs($lDB->getLogs());
+        $this->m_logs->addLogs($lDB->getLogs());
     }
     //===============================================
     public function insertView() {
@@ -45,7 +47,7 @@ class GViews extends GObject {
             $this->m_id = $lDB->getLastId();
         }
         //
-        $this->addLogs($lDB->getLogs());
+        $this->m_logs->addLogs($lDB->getLogs());
     }
     //===============================================
     public function updateView() {
@@ -61,7 +63,7 @@ class GViews extends GObject {
         $lDB = new GSQLite();
         $lDB->execQuery($lSql);
         //
-        $this->addLogs($lDB->getLogs());
+        $this->m_logs->addLogs($lDB->getLogs());
     }
     //===============================================
     public function getViews() {
@@ -86,9 +88,9 @@ class GViews extends GObject {
     public function deserialize($_data, $_code = "views") {
         $lDom = new GCode();
         $lDom->loadXml($_data);
-        $this->m_id = $lDom->getItem($_code, "id");
-        $this->m_url = $lDom->getItem($_code, "url");
-        $this->m_view = $lDom->getItem($_code, "view");
+        $this->m_id = $lDom->getData($_code, "id");
+        $this->m_url = $lDom->getData($_code, "url");
+        $this->m_view = $lDom->getData($_code, "view");
         $lDom->getMap($_code, $this->m_map, $this);
     }
     //===============================================

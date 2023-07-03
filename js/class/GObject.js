@@ -3,6 +3,7 @@ class GObject {
     //===============================================
     constructor() {
         this.m_logs = new GLog();
+        this.m_dataLogs = new GLog();
         this.m_map = [];
     }
     //===============================================
@@ -92,67 +93,8 @@ class GObject {
     //===============================================
     clearMap() {
         this.m_map = [];
-        this.m_logs.clearLogs();
-    }
-    //===============================================
-    clearLogs() {
-        this.m_logs.clearLogs();
-    }
-    //===============================================
-    addError(_error) {
-        this.m_logs.addError(_error);
-    }
-    //===============================================
-    addErrorNS(_error) {
-        this.m_logs.addErrorNS(_error);
-    }
-    //===============================================
-    addLog(_log) {
-        this.m_logs.addLog(_log);
-    }
-    //===============================================
-    addData(_data) {
-        this.m_logs.addData(_data);
-    }
-    //===============================================
-    addXml(_data) {
-        this.m_logs.addXml(_data);
-    }
-    //===============================================
-    addLogs(_logs) {
-        this.m_logs.addLogs(_logs);
-    }
-    //===============================================
-    loadLogs(_data) {
-        this.m_logs.deserialize(_data);
-    }
-    //===============================================
-    getLogs() {
-        return this.m_logs;
-    }
-    //===============================================
-    hasErrors() {
-        return this.m_logs.hasErrors();
-    }
-    //===============================================
-    hasErrorsNS() {
-        return this.m_logs.hasErrorsNS();
-    }
-    //===============================================
-    showErrors() {
-        this.m_logs.showErrors();
-    }
-    //===============================================
-    showLogs() {
-        this.m_logs.showLogs();
-    }
-    //===============================================
-    showLogsX() {
-        this.m_logs.showLogsX();
-    }
-    //===============================================
-    showDatas() {
-        this.m_logs.showDatas();
+        this.m_logs.clearMap();
+        this.m_dataLogs.clearMap();
     }
     //===============================================
     createNode(_data) {

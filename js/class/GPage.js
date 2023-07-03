@@ -184,9 +184,9 @@ class GPage extends GObject {
         lDom.addData(_code, "root", this.m_root);
         lDom.addData(_code, "path", this.m_path);
         lDom.addData(_code, "name", this.m_name);
-        lDom.addData(_code, "content", utf8_to_b64(this.m_content));
-        lDom.addData(_code, "default_address", utf8_to_b64(this.m_defaultAddress));
-        lDom.addData(_code, "default_page", utf8_to_b64(this.m_defaultPage));
+        lDom.addData(_code, "content", this.m_content.toBase64());
+        lDom.addData(_code, "default_address", this.m_defaultAddress.toBase64());
+        lDom.addData(_code, "default_page", this.m_defaultPage.toBase64());
         lDom.addMap(_code, this.m_map);
         return lDom.toString();
     }
@@ -194,18 +194,18 @@ class GPage extends GObject {
     deserialize(_data, _code = "page") {
         var lDom = new GCode();
         lDom.loadXml(_data);
-        this.m_root = lDom.getItem(_code, "root");
-        this.m_path = lDom.getItem(_code, "path");
-        this.m_name = lDom.getItem(_code, "name");
-        this.m_content = b64_to_utf8(lDom.getItem(_code, "content"));
-        this.m_defaultAddress = b64_to_utf8(lDom.getItem(_code, "default_address"));
-        this.m_defaultPage = b64_to_utf8(lDom.getItem(_code, "default_page"));
+        this.m_root = lDom.getData(_code, "root");
+        this.m_path = lDom.getData(_code, "path");
+        this.m_name = lDom.getData(_code, "name");
+        this.m_content = lDom.getData(_code, "content").fromBase64();
+        this.m_defaultAddress = lDom.getData(_code, "default_address").fromBase64();
+        this.m_defaultPage = lDom.getData(_code, "default_page").fromBase64();
         lDom.getMap(_code, this.m_map, this);
     }
     //===============================================
     run(_method, _obj, _data) {
         if(_method == "") {
-            this.addError("La méthode est obligatoire.");
+            this.m_logs.addError("La méthode est obligatoire.");
         }
         //===============================================
         // page
@@ -257,9 +257,9 @@ class GPage extends GObject {
         }
         //===============================================
         else {
-            this.addError("Erreur la méthode est inconnue.");            
+            this.m_logs.addError("Erreur la méthode est inconnue.");            
         }
-        return !this.hasErrors();
+        return !this.m_logs.hasErrors();
     }
     //===============================================
     // page
@@ -363,8 +363,8 @@ class GPage extends GObject {
                 lPage.showTable("load_page_path_select", "load_page_path_next");
             }
             else {
-                lPage.addLog("Le résultat est vide.");
-                lPage.showLogsX();
+                lPage.m_logs.addLog("Le résultat est vide.");
+                lPage.m_logs.showLogsX();
             }
         }
     }
