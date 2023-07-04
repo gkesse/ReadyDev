@@ -232,6 +232,47 @@ public function addValue($_root, $_name, $_value) {
     return $this-&gt;m_node;
 }
 //===============================================
+?&gt;</pre><br>La classe (DOMDocument) fournit la méthode (createCDATASection) qui permet de créer une section CData.<br><br>Ajout d'un nouveau noeud avec un contenu CData.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
+//===============================================
+public function addValue($_root, $_name, $_value) {
+    $lNode = $_root-&gt;m_doc-&gt;createElement($_name);
+    $lCData = $_root-&gt;m_doc-&gt;createCDATASection($_value);
+    $lNode-&gt;appendChild($lCData);
+    $this-&gt;m_node-&gt;appendChild($lNode);
+    return $this-&gt;m_node;
+}
+//===============================================
+?&gt;</pre><br>La classe (DOMElement) fournit la propriété (nodeValue) qui permet de récupérer le contenu d'un noeud XML.&nbsp;<br><br>Récupération du contenu d'un noeud.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
+//===============================================
+public function getValue() {
+    $lData = $this-&gt;m_node-&gt;nodeValue;
+    return $lData;
+}
+//===============================================
+?&gt;</pre><br>La classe (DOMElement) fournit la propriété (textContent) qui permet de récupérer le contenu d'un noeud CData.<br><br>Récupération du contenu d'un noeud CData.&nbsp;<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
+//===============================================
+public function getValue() {
+    $lData = $this-&gt;m_node-&gt;textContent;
+    return $lData;
+}
+//===============================================
+?&gt;</pre><br>La classe (DOMXpath) permet de manipuler des requêtes XPath.<br>La classe (DOMXpath) fournit la méthode (query) qui permet d'évaluer une requête XPath à partir d'un noeud XML.&nbsp;<br><br>Comptage du nombre de noeuds liés à une requête XPath.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
+//===============================================
+public function countNode($_root, $_path) {
+    $lXPath = new \DOMXpath($_root-&gt;m_doc);
+    $lNodes = $lXPath-&gt;query($_path, $this-&gt;m_node);
+    return $lNodes-&gt;length;
+}
+//===============================================
+?&gt;</pre><br>La classe (DOMNodeList) fournit la méthode (item) qui permet récupérer un noeud XML en fonction de son index.<br><br>Récupération du noeud lié à une requête XPath.&nbsp;<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
+//===============================================
+public function getNode($_root, $_path) {
+    $lXPath = new \DOMXpath($_root-&gt;m_doc);
+    $lNodes = $lXPath-&gt;query($_path, $$this-&gt;m_node);
+    if(!$lNodes-&gt;length) return null;
+    return $lNodes-&gt;item(0);
+}
+//===============================================
 ?&gt;</pre><br></div>
 </div>
 </div>
