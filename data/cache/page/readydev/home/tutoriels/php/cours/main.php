@@ -44,6 +44,10 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#xml">XML</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#classe">Classe</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -287,7 +291,15 @@ public function postHttp($_data) {
     return $lData;
 }
 //===============================================
-?&gt;</pre><br></div>
+?&gt;</pre><br>Structure d'une requête POST.<br><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">POST / HTTP/1.1\r\n
+Host: 127.0.0.1:9999\r\n
+Authorization: Basic XXXXXOYYYYYY=\r\n
+User-Agent: XXXXXX/Y.Y\r\n
+Accept: */*\r\n
+Content-Type: application/xml\r\n
+Content-Length: 22\r\n
+\r\n
+Bonjour tout le monde.</pre><br></div>
 </div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -400,4 +412,72 @@ public function getNode($_root, $_path) {
 ?&gt;</pre><br></div>
 </div>
 </div>
-</div><br>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="classe">Classe</a>
+</h1>
+<div class="Section6"><br>L'opérateur (class) permet de créer une classe en PHP.<br><br>Création d'une classe.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
+//===============================================
+class GObject {
+    
+}
+//===============================================
+?&gt;</pre><br>La fonction (__construct) permet de créer un constructeur de classe en PHP.<br><br>Création d'un constructeur de classe.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
+//===============================================
+class GObject {
+    //===============================================
+    public function __construct() {
+        $this-&gt;m_logs = new GLog();
+        $this-&gt;m_dataLogs = new GLog();
+        $this-&gt;m_template = new GTemplate();
+        $this-&gt;m_resp = new GCode();
+    }
+    //===============================================
+}
+//===============================================
+?&gt;</pre><br>Une classe peut posséder des attributs ou des propriétés.<br><br>Déclaration des attributs de classe.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
+//===============================================
+class GObject {
+    //===============================================
+    protected $m_logs = null;
+    protected $m_dataLogs = null;
+    protected $m_template = null;
+    protected $m_resp = null;
+    //===============================================
+    public function __construct() {
+
+    }
+    //===============================================
+}
+//===============================================
+?&gt;</pre><br>Une classe peut posséder des méthodes.<br><br>L'opérateur (function) permet de créer une méthode de classe.<br><br>Création d'une méthode de classe.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
+//===============================================
+class GObject {
+    //===============================================
+    public function toDescription() {
+        $lData = "";
+        $lData .= sprintf("Avec ReadyDev, apprenez en pratiquant grâce à des cours\n");
+        $lData .= sprintf("et tutoriels adaptés aux sciences de l'Ingénieur.\n");
+        $lData .= sprintf("Plateforme de Développement Continu.\n");
+        $lData .= sprintf("Produit par Gérard KESSE.\n");
+        return $lData;
+    }
+    //===============================================
+}
+//===============================================
+?&gt;</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'opérateur (private) permet de définir une portée privée.<br>Les attributs associés à cette portée ne sont accessibles qu'au sein de la classe qui les déclare.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'opérateur (protected) permet de définir une portée protégée.<br>Les attributs associés à cette portée ne sont accessibles qu'au sein de la classe qui les déclare (classe mère) et aussi au sein des classes filles (classe dérivées).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'opérateur (public) permet de définir une portée publique.<br>Les attributs associés à cette portée sont accessibles à tous les nivaux.</div>
+</div><br></div>
+</div>
+</div></div><br>
