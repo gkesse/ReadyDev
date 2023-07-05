@@ -2,7 +2,7 @@
 //===============================================
 namespace php\class;
 //===============================================
-class GTest extends GObject {
+class GTest extends GObject {//
     //===============================================
     public function __construct() {
         parent::__construct();

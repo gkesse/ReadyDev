@@ -74,10 +74,10 @@ class GSocket extends GObject {
         $lPort = 9010;
         
         $lAddress = sprintf("tcp://%s:%d", $lHostname, $lPort);
-        $lErrno = null;
-        $lErrstr = null;
+        $lErrCode = null;
+        $lErrMsg = null;
         
-        $this->m_socket = @stream_socket_client($lAddress, $lErrno, $lErrstr, 30);
+        $this->m_socket = @stream_socket_client($lAddress, $lErrCode, $lErrMsg, 30);
         
         if(!$this->m_socket) {
             $this->m_dataLogs->addError("La création du socket a échoué.");

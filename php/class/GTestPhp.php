@@ -97,7 +97,20 @@ class GTestPhp extends GObject {
     }
     //===============================================
     public function runCurl($_module, $_method) {
+        $lDom = new GCode();
+        $lDom->createDoc();
+        $lDom->addData("calculator", "expression", utf8_to_b64("22/7"));
+        $lDom->addData("facade", "facade", "server_cpp");
+        
+        // postHttpFacade
         $lClient = new GCurl();
+        $lData = $lDom->toString();
+        $lData = $lClient->postHttp("Boloss Boloss Boloss");
+        $this->m_logs->addLogs($lClient->getLogs());
+        $this->m_logs->deserialize($lData);
+        if(!$this->m_logs->hasErrors()) {
+            $this->m_logs->addData($lData);
+        }
     }
     //===============================================
 }

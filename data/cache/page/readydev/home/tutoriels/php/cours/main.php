@@ -38,6 +38,10 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#communication-reseau--curl-">Communication réseau (cURL)</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#xml">XML</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
@@ -251,6 +255,40 @@ public function readData() {
 ?&gt;</pre><br></div>
 </div>
 </div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="communication-reseau--curl-">Communication réseau (cURL)</a>
+</h1>
+<div class="Section6"><br>La bibliothèque (cURL) permet de réaliser des appels HTTP(S).<br><br>La fonction (curl_init) permet d'initialiser le module cURL.<br>La fonction (curl_setopt) permet d'initialiser les paramètres cURL.<br>&nbsp;<br>L'option (CURLOPT_URL) permet d'initialiser l'URL du serveur à joindre.<br>L'option (CURLOPT_TIMEOUT) permet d'initialiser le timeout associé à un appel.<br>L'option (CURLOPT_HTTPHEADER) permet d'initialiser l'entête de la requête HTTP.<br>L'option (CURLOPT_USERPWD) permet d'initialiser le nom d'utilisateur et le mot de passe de connexion.<br>L'option (CURLOPT_HTTPAUTH) permet d'initialiser la méthode d'authentification exigée par le serveur.<br>L'option (CURLOPT_USERAGENT) permet d'initialiser le nom de l'agent utilisateur associé au serveur.<br>L'option (CURLOPT_POST) permet d'initialiser l'appel à a méthode POST.<br>L'option (CURLOPT_RETURNTRANSFER) permet d'initialiser le suivi des liens de redirection.<br>&nbsp;L'option (CURLOPT_POSTFIELDS) permet d'initialiser le corps de la requête.<br><br>Réalisation d'un appel POST HTTP.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
+//===============================================
+public function postHttp($_data) {
+    $lCurl = curl_init();
+    curl_setopt($lCurl, CURLOPT_URL, $lUrl);
+    curl_setopt($lCurl, CURLOPT_TIMEOUT, $lTimeout);
+    
+    $lHeaders = array();
+    $lHeaders[] = sprintf("Content-Type: application/xml");
+    curl_setopt($lCurl, CURLOPT_HTTPHEADER, $lHeaders);
+    
+    $lUserPass = sprintf("%s:%s", $lUsername, $lPassword);
+    curl_setopt($lCurl, CURLOPT_USERPWD, $lUserPass);
+    curl_setopt($lCurl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+    
+    curl_setopt($lCurl, CURLOPT_USERAGENT, $lUserAgent);
+    curl_setopt($lCurl, CURLOPT_POST, true);
+    curl_setopt($lCurl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($lCurl, CURLOPT_POSTFIELDS, $_data);
+            
+    $lData = curl_exec($lCurl);
+    $lError = curl_error($lCurl);
+    $this-&gt;m_codeHttp = curl_getinfo($lCurl, CURLINFO_HTTP_CODE);
+    curl_close($lCurl);
+    return $lData;
+}
+//===============================================
+?&gt;</pre><br></div>
+</div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">

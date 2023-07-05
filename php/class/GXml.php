@@ -32,7 +32,7 @@ class GXml {
         }
         $this->m_doc->preserveWhiteSpace = false;
         $this->m_doc->formatOutput = true;
-        if(!$this->m_doc->loadXml($_data)) return false;
+        if(!@$this->m_doc->loadXML($_data)) return false;
         $this->m_node = $this->m_doc->documentElement;
         return true;
     }
@@ -45,7 +45,7 @@ class GXml {
         $lDom = new \DOMDocument("1.0", "UTF-8");
         $lDom->preserveWhiteSpace = false;
         $lDom->formatOutput = true;
-        if(!$lDom->loadXML($_data)) return false;
+        if(!@$lDom->loadXML($_data)) return false;
         $lChild = $lDom->documentElement->firstElementChild;
         while($lChild) {
             $lNode = $_root->m_doc->importNode($lChild, true);
