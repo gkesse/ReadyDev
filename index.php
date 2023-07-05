@@ -6,7 +6,7 @@ use php\class\GProcess;
 //===============================================
 $lProcess = new GProcess();
 $lProcess->init();
-$lProcess->run("prod", "log");
+$lProcess->run("prod", "socket");
 $lProcess->runFooter();
 $lProcess->clean();
 //===============================================

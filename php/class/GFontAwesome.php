@@ -115,12 +115,12 @@ class GFontAwesome extends GManager {
     public function onExtractFontAwesome($_data) {        
         $lReponseText = file_get_contents($this->toUrl());
         libxml_use_internal_errors(true);
-        $lDom = new DOMDocument();
+        $lDom = new \DOMDocument("1.0", "UTF-8");
         $lDomOk = $lDom->loadHTML($lReponseText);
         if(!$lDomOk) {
             $this->m_logs->addError("Le chargement du contenu web a échoué.");
         }
-        $lXPath = new DOMXPath($lDom);
+        $lXPath = new \DOMXPath($lDom);
         $lNodes = $lXPath->query("//i[@class='fa fa-fw']");
         for($i = 0; $i < $lNodes->length; $i++) {
             $lNode = $lNodes[$i];

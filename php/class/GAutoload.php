@@ -23,7 +23,9 @@ if (version_compare(PHP_VERSION, "5.1.2", ">=")) {
 } 
 else {
     function spl_autoload_register($_className) {
-        include $_className.".php";
+        $lFilename = $_SERVER["DOCUMENT_ROOT"].DIRECTORY_SEPARATOR.$_className.".php";
+        $lFilename = str_replace("\\", "/", $lFilename);
+        require $lFilename;
     }       
 }
 //===============================================

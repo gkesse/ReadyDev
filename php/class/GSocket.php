@@ -8,15 +8,13 @@ class GSocket extends GObject {
     const BUFFER_MAX = 1*1024*1024; // 1Mo
     //===============================================
     private $m_socket = null;
-    private $m_srvLogs = null;
     //===============================================
     public function __construct() {
         parent::__construct();
-        $this->m_srvLogs = new GLog();
     }
     //===============================================
     public function checkErrors($_data) {
-        if($this->m_srvLogs->hasErrors()) {
+        if($this->m_dataLogs->hasErrors()) {
             $this->m_logs->addError("La connexion au serveur a échoué.");
         }
         else if($_data != "") {
@@ -30,7 +28,7 @@ class GSocket extends GObject {
     public function sendData($_data) {
         $lBytes = fwrite($this->m_socket, $_data, strlen($_data));
         if(!$lBytes) {
-            $this->m_srvLogs->addError("L'émission des données a échoué.");
+            $this->m_dataLogs->addError("L'émission des données a échoué.");
         }
     }
     //===============================================
@@ -39,12 +37,12 @@ class GSocket extends GObject {
         while(1) {
             $lBuffer = fread($this->m_socket, self::BUFFER_SIZE);
             if(!$lBuffer) {
-                $this->m_srvLogs->addError("La reception des données a échoué.");
+                $this->m_dataLogs->addError("La reception des données a échoué.");
                 break;
             }
             $lData .= $lBuffer;
             if(strlen($lData) >= self::BUFFER_MAX) {
-                $this->m_srvLogs->addError("La taille maximale des données est atteinte.");
+                $this->m_dataLogs->addError("La taille maximale des données est atteinte.");
                 break;
             }
             $lStatus = socket_get_status($this->m_socket);
@@ -82,7 +80,7 @@ class GSocket extends GObject {
         $this->m_socket = @stream_socket_client($lAddress, $lErrno, $lErrstr, 30);
         
         if(!$this->m_socket) {
-            $this->m_srvLogs->addError("La création du socket a échoué.");
+            $this->m_dataLogs->addError("La création du socket a échoué.");
             return;
         }
         

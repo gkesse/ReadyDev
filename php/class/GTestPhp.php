@@ -27,6 +27,9 @@ class GTestPhp extends GObject {
         else if($_method == "socket") {
             $this->runSocket($_module, $_method);
         }
+        else if($_method == "curl") {
+            $this->runCurl($_module, $_method);
+        }
         else {
             $this->m_logs->addError("La méthode est inconnue.");
         }
@@ -79,9 +82,11 @@ class GTestPhp extends GObject {
     public function runSocket($_module, $_method) {
         $lClient = new GSocket();
         $lDom = new GCode();
+        
+        // callFacade
         $lDom->createDoc();
         $lDom->addData("calculator", "expression", utf8_to_b64("22/7"));
-        $lDom->addData("facade", "facade", "server_java");
+        $lDom->addData("facade", "facade", "server_cpp");
         $lData = $lDom->toString();
         $lData = $lClient->callFacade("calculator", "run_calculator", $lData);
         $this->m_logs->addLogs($lClient->getLogs());
@@ -89,6 +94,10 @@ class GTestPhp extends GObject {
         if(!$this->m_logs->hasErrors()) {
             $this->m_logs->addData($lData);
         }
+    }
+    //===============================================
+    public function runCurl($_module, $_method) {
+        $lClient = new GCurl();
     }
     //===============================================
 }

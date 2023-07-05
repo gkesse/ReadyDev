@@ -101,10 +101,34 @@ class GLog {
         return false;
     }
     //===============================================
+    hasServerCpp() {
+        for(var i = 0; i < this.m_map.length; i++) {
+            var lObj = this.m_map[i];
+            if(lObj.m_side == "server_cpp") return true;
+        }
+        return false;
+    }
+    //===============================================
     hasServerC() {
         for(var i = 0; i < this.m_map.length; i++) {
             var lObj = this.m_map[i];
             if(lObj.m_side == "server_c") return true;
+        }
+        return false;
+    }
+    //===============================================
+    hasServerJava() {
+        for(var i = 0; i < this.m_map.length; i++) {
+            var lObj = this.m_map[i];
+            if(lObj.m_side == "server_java") return true;
+        }
+        return false;
+    }
+    //===============================================
+    hasServerPython() {
+        for(var i = 0; i < this.m_map.length; i++) {
+            var lObj = this.m_map[i];
+            if(lObj.m_side == "server_python") return true;
         }
         return false;
     }
@@ -173,8 +197,11 @@ class GLog {
         
         lTitle += "-";
         
-        if(this.hasServerC()) lTitle += "C";
+        if(this.hasServerCpp()) lTitle += "Cpp";
+        else if(this.hasServerC()) lTitle += "C";
+        else if(this.hasServerJava()) lTitle += "Java";
         else if(this.hasServerPhp()) lTitle += "PHP";
+        else if(this.hasServerPython()) lTitle += "Python";
         else if(this.hasClientJs()) lTitle += "JS";
             
         return lTitle;

@@ -30,6 +30,14 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#chargement-automatique">Chargement automatique</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#communication-reseau--socket-">Communication réseau (socket)</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#xml">XML</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
@@ -165,6 +173,84 @@ public function readData() {
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="chargement-automatique">Chargement automatique</a>
+</h1>
+<div class="Section6"><br>La fonction (spl_autoload_register) permet d'enregistrer plusieurs fonctions de chargement automatique.<br><br>Fonction de chargement automatique.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
+//===============================================
+function GAutoloadRegister($_className) {
+    $lFilename = $_SERVER["DOCUMENT_ROOT"].DIRECTORY_SEPARATOR.$_className.".php";
+    $lFilename = str_replace("\\", "/", $lFilename);
+
+    if (is_readable($lFilename)) {
+        require $lFilename;
+    }    
+}       
+//===============================================
+?&gt;</pre><br>Enregistrement de la fonction de chargement automatique.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
+//===============================================
+if (version_compare(PHP_VERSION, "5.1.2", "&gt;=")) {
+    if (version_compare(PHP_VERSION, "5.3.0", "&gt;=")) {
+        spl_autoload_register("php\class\GAutoloadRegister", true, true);
+    } 
+    else {
+        spl_autoload_register("GAutoloadRegister");
+    }
+} 
+else {
+    function spl_autoload_register($_className) {
+        $lFilename = $_SERVER["DOCUMENT_ROOT"].DIRECTORY_SEPARATOR.$_className.".php";
+        $lFilename = str_replace("\\", "/", $lFilename);
+        require $lFilename;
+    }       
+}
+//===============================================
+?&gt;</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="communication-reseau--socket-">Communication réseau (socket)</a>
+</h1>
+<div class="Section6"><br>La fonction (stream_socket_client) permet de créer un point de connexion TCP/IP.<br><br>Création d'un client TCP/IP.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
+//===============================================
+public function callServer($_data) {
+    $lAddress = sprintf("tcp://%s:%d", $lHostname, $lPort);
+    $this-&gt;m_socket = @stream_socket_client($lAddress, $lErrCode, $lErrMsg, 30);
+    $this-&gt;sendData($_data);
+    $lData = $this-&gt;readData();
+    fclose($this-&gt;m_socket);
+    return $lData;
+}
+//===============================================
+?&gt;</pre><br>La fonction (fwrite) permet d'envoyer des données sur le réseau.<br><br>Emission de données sur le réseau.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
+//===============================================
+public function sendData($_data) {
+    fwrite($this-&gt;m_socket, $_data, strlen($_data));
+}
+//===============================================
+?&gt;</pre><br>La fonction (fread) permet de recevoir des données sur le réseau.<br><br>Réception de données sur le réseau.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
+//===============================================
+public function readData() {
+    $lData = "";
+    while(1) {
+        $lBuffer = fread($this-&gt;m_socket, self::BUFFER_SIZE);
+        $lData .= $lBuffer;
+        if(strlen($lData) &gt;= self::BUFFER_MAX) break;
+        $lStatus = socket_get_status($this-&gt;m_socket);
+        $lBytes = $lStatus["unread_bytes"];
+        if($lBytes &lt;= 0) break;
+    }
+    return $lData;
+}
+//===============================================
+?&gt;</pre><br></div>
+</div>
+</div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
