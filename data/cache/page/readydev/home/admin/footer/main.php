@@ -18,7 +18,7 @@
 </div>
 <div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
-<a class="Summary6" href="#ressources_site">Site</a>
+<a class="Summary6" href="#ressources_ressources-pdf">Ressources PDF</a>
 </div>
 </div><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="ressources_c-c--" href="#ressources">C/C++</a>
@@ -67,14 +67,8 @@ Version 1.12</a>
 </div><br><h3 class="GTitle2 Title3">
 <a class="Title4" id="ressources_blogger_creer-un-blog-avec-google" href="#ressources_blogger">Créer un blog avec Google</a>
 </h3><a class="GLink3 Link4" style=" color: lime;" href="https://atelierlorient.files.wordpress.com/2018/06/un-blog-avec-google.pdf" target="_blank">https://atelierlorient.files.wordpress.com/2018/06/un-blog-avec-google.pdf</a><br><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="ressources_site" href="#ressources">Site</a>
-</h2><br><div class="GSummary3"><div class="Summary7">
-<i class="Summary8 fa fa-book"></i>
-<a class="Summary9" href="#ressources_site_pdfcoffee">PdfCoffee</a>
-</div>
-</div><br><h3 class="GTitle2 Title3">
-<a class="Title4" id="ressources_site_pdfcoffee" href="#ressources_site">PdfCoffee</a>
-</h3><br><a class="GLink3 Link4" style=" color: lime;" href="https://pdfcoffee.com/" target="_blank">https://pdfcoffee.com/</a><br><br></div>
+<a class="Title2" id="ressources_ressources-pdf" href="#ressources">Ressources PDF</a>
+</h2><br><a class="GLink3 Link4" style=" color: lime;" href="https://pdfcoffee.com/" target="_blank">https://pdfcoffee.com/</a><br><a class="GLink3 Link4" style=" color: lime;" href="https://library.samdu.uz/" target="_blank">https://library.samdu.uz/</a><br><br></div>
 </div>
 </div>
 </div><br>

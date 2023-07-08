@@ -26,6 +26,10 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#identification-logicielle">Identification logicielle</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#fonctions">Fonctions</a>
 </div>
 <div class="GSummary11 Summary1">
@@ -140,6 +144,39 @@ gdb -ex run --args rdv_c.exe test string
 ::===============================================</pre><br></div>
 </div>
 </div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="identification-logicielle">Identification logicielle</a>
+</h1>
+<div class="Section6"><br>L'utilitaire (ident) permet d'identifier un&nbsp; programme C.<br><br>Programme principal.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+/*
+$Id: main.c $
+$Header: GInclude.h $
+$Date: 2023/07/07 $
+$DateTime: 2023/07/07 10:30:15 $
+$Change: 1745 $
+$File: main.c $
+$Revision: v1.0 $
+$Author: Gérard KESSE $
+*/
+//===============================================
+#include "GInclude.h"
+//===============================================
+int main(int _argc, char** _argv) {
+    printf("Bonjour tout le monde.\n");
+    return 0;
+}
+//===============================================</pre><br>Afficher les informations d'identification.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">ident main.c</pre><br>Résultat.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">main.c:
+     $Id: main.c $
+     $Header: GInclude.h $
+     $Date: 2023/07/07 $
+     $DateTime: 2023/07/07 10:30:15 $
+     $Change: 1745 $
+     $File: main.c $
+     $Revision: v1.0 $
+     $Author: Gérard KESSE $</pre><br></div>
+</div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
