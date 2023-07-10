@@ -65,9 +65,6 @@ class GSitemap extends GManager {
         else if($lModule == "readydev") {
             $this->onGenerateSitemapReadydev($_data);
         }
-        else if($lModule == "icamys") {
-            $this->onGenerateSitemapIcamys($_data);
-        }
         else {
             $this->m_logs->addError("Le module sitemap est inconnu.");
         }
@@ -132,59 +129,29 @@ class GSitemap extends GManager {
         $this->m_logs->addData($lRobotTxt);
     }
     //===============================================
-    public function onGenerateSitemapIcamys($_data) {
-        $lSiteUrl = "https://readydev.ovh";
-        $lOuputDir = $this->getPath("");
-        
-        $generator = new \Icamys\SitemapGenerator\SitemapGenerator($lSiteUrl, $lOuputDir);
-        
-        // Create a compressed sitemap
-        $generator->enableCompression();
-        
-        // Determine how many urls should be put into one file;
-        // this feature is useful in case if you have too large urls
-        // and your sitemap is out of allowed size (50Mb)
-        // according to the standard protocol 50000 urls per sitemap
-        // is the maximum allowed value (see http://www.sitemaps.org/protocol.html)
-        $generator->setMaxUrlsPerSitemap(50000);
-        
-        // Set the sitemap file name
-        $generator->setSitemapFileName("sitemap.xml");
-        
-        // Set the sitemap index file name
-        $generator->setSitemapIndexFileName("sitemap-index.xml");
-        
-        // Add alternate languages if needed
-        $alternates = [
-                ['hreflang' => 'de', 'href' => "http://www.example.com/de"],
-                ['hreflang' => 'fr', 'href' => "http://www.example.com/fr"],
-        ];
-        
-        // Add url components: `path`, `lastmodified`, `changefreq`, `priority`, `alternates`
-        // Instead of storing all urls in the memory, the generator will flush sets of added urls
-        // to the temporary files created on your disk.
-        // The file format is 'sm-{index}-{timestamp}.xml'
-        $generator->addURL('/path/to/page/', new \DateTime(), 'always', 0.5, $alternates);
-        
-        // Optional: add sitemap stylesheet. Note that you need to create
-        // the file 'sitemap.xsl' beforehand on your own.
-        $generator->setSitemapStylesheet('sitemap.xsl');
-        
-        // Flush all stored urls from memory to the disk and close all necessary tags.
-        $generator->flush();
-        
-        // Move flushed files to their final location. Compress if the option is enabled.
-        $generator->finalize();
-        
-        // Update robots.txt file in output directory or create a new one
-        $generator->updateRobots();
-        
-        // Submit your sitemaps to Google and Yandex.
-        //$generator->submitSitemap();
-    }
-    //===============================================
     public function onVisualizeSitemap($_data) {
-        $this->m_logs->addData("onVisualizeSitemap...");
+        $lSitemapFile = "sitemap.xml";
+        $lRobotFile = "robots.txt";
+        
+        $lSitemapFile = $this->getPath($lSitemapFile);
+        
+        if(!file_exists($lSitemapFile)) {
+            $this->m_logs->addError("Le fichier sitemap.xml n'existe pas.");
+            return;
+        }
+        
+        $lRobotFile = $this->getPath($lRobotFile);
+        
+        if(!file_exists($lRobotFile)) {
+            $this->m_logs->addError("Le fichier robot.txt n'existe pas.");
+            return;
+        }
+        
+        $lSitemapTxt = file_get_contents($lSitemapFile);
+        $lRobotTxt = file_get_contents($lRobotFile);
+        
+        $this->m_logs->addData($lSitemapTxt);
+        $this->m_logs->addData($lRobotTxt);
     }
     //===============================================
 }
