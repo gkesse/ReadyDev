@@ -25,6 +25,9 @@ class GLocal extends GManager {
         else if($this->m_module == "file") {
             $this->onFile($_data);
         }
+        else if($this->m_module == "sitemap") {
+            $this->onSitemap($_data);
+        }
         else {
             $this->m_logs->addError("Le module est inconnu.");
         }
@@ -53,6 +56,13 @@ class GLocal extends GManager {
     //===============================================
     public function onFile($_data) {
         $lObj = new GFile();
+        $lObj->run($_data);
+        $this->m_logs->addLogs($lObj->getLogs());
+        $this->m_resp->loadData($lObj->serialize());
+    }
+    //===============================================
+    public function onSitemap($_data) {
+        $lObj = new GSitemap();
         $lObj->run($_data);
         $this->m_logs->addLogs($lObj->getLogs());
         $this->m_resp->loadData($lObj->serialize());

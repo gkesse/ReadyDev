@@ -8,7 +8,7 @@ class GCode extends GXml {
         parent::__construct();
     }
     //===============================================
-    public function createRoot() {
+    public function createRdv() {
         $lNode = $this->getNode($this, sprintf("/rdv"));
         if(!$lNode) {
             $lNode = $this->addObj($this, "rdv");
@@ -20,7 +20,7 @@ class GCode extends GXml {
         $lDom = new GCode();
         $lDom->m_node = $this->getNode($this, sprintf("/rdv/datas"));
         if(!$lDom->m_node) {
-            $lDom->m_node = $this->createRoot();
+            $lDom->m_node = $this->createRdv();
             $lDom->m_node = $lDom->addObj($this, "datas");
         }
         return $lDom->m_node;

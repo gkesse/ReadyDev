@@ -75,6 +75,7 @@ class GMenu extends GObject {
         //===============================================
         // home
         //===============================================
+        $this->addMenu("home", "Accueil", "Accueil", "/", $this, false);
         $this->addMenu("home", "Accueil", "Accueil", "/home", $this, false);
         //===============================================
         // cv

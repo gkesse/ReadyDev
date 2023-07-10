@@ -36,6 +36,9 @@ class GServer extends GObject {
         else if(_module == "page") {
             this.onPage(_method, _obj, _data);
         }
+        else if(_module == "sitemap") {
+            this.onSitemap(_method, _obj, _data);
+        }
         else {
             this.m_logs.addError("Le module est inconnu.");
         }
@@ -91,6 +94,12 @@ class GServer extends GObject {
     //===============================================
     onPage(_method, _obj, _data) {
         var lObj = new GPage();
+        lObj.run(_method, _obj, _data)
+        this.m_logs.addLogs(lObj.m_logs);
+    }
+    //===============================================
+    onSitemap(_method, _obj, _data) {
+        var lObj = new GSitemap();
         lObj.run(_method, _obj, _data)
         this.m_logs.addLogs(lObj.m_logs);
     }

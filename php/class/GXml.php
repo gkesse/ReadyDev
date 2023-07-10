@@ -22,6 +22,23 @@ class GXml {
         return true;
     }
     //===============================================
+    public function createRoot($_root) {
+        $this->m_doc = new \DOMDocument("1.0", "UTF-8");
+        if(!$this->m_doc) return false;
+        $this->m_doc->preserveWhiteSpace = false;
+        $this->m_doc->formatOutput = true;
+        $this->m_node = $this->m_doc->createElement($_root);
+        if(!$this->m_node) return false;
+        $this->m_doc->appendChild($this->m_node);
+        return true;
+    }
+    //===============================================
+    public function createAttr($_root, $_name, $_value) {
+        $lNode = $_root->m_doc->createAttribute($_name);
+        $lNode->value = $_value;
+        $this->m_node->appendChild($lNode);
+    }
+    //===============================================
     public function loadXml($_data) {
         $_data = trim($_data);
         if($_data == "") return false;
