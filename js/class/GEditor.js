@@ -186,8 +186,9 @@ class GEditor extends GObject {
     openDefaultTab() {
         var lEditorDefaultTab = document.getElementById("EditorDefaultTab");
         var lIndex = +lEditorDefaultTab.value;
+        var lContentId = sprintf("EditorTab%s", lIndex);
         var lTab = document.getElementsByClassName("EditorTab")[lIndex];
-        this.onOpenEditorTab(lTab);
+        this.onOpenEditorTab(lTab, lContentId);
     }
     //===============================================
     copyNode() {
@@ -1109,18 +1110,12 @@ class GEditor extends GObject {
     // editor
     //===============================================
     onOpenEditorTab(_obj, _data) {
-        var lTabs = document.getElementsByClassName("EditorTab");
-        for(var i = 0; i < lTabs.length; i++) {
-            var lTab = lTabs[i];
-            lTab.classList.remove("Active");
-        }
-        _obj.classList.add("Active");
         var lContents = document.getElementsByClassName("EditorTabCtn");
         for(var i = 0; i < lContents.length; i++) {
             var lContent = lContents[i];
             lContent.style.display = "none";
         }
-        var lContentId = _obj.dataset.contentId;
+        var lContentId = _data;
         var lContent = document.getElementById(lContentId);
         lContent.style.display = "block";
     }
@@ -1531,7 +1526,7 @@ class GEditor extends GObject {
     //===============================================
     onOpenEditionTab(_obj, _data) {
         var lTab = document.getElementsByClassName("EditorTab")[2];
-        this.onOpenEditorTab(lTab);
+        this.onOpenEditorTab(lTab, "EditorTab2");
     }
     //===============================================
     onUpdateEditionPage(_obj, _data) {
@@ -1543,7 +1538,7 @@ class GEditor extends GObject {
     //===============================================
     onOpenCodeTab(_obj, _data) {
         var lTab = document.getElementsByClassName("EditorTab")[3];
-        this.onOpenEditorTab(lTab);
+        this.onOpenEditorTab(lTab, "EditorTab3");
     }
     //===============================================
     // edition/fichier/pdf

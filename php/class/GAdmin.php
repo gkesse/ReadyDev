@@ -72,6 +72,35 @@ class GAdmin extends GObject {
         }
     }
     //===============================================
+    public function toMenuBarWrite($_menu, $_parentIndex) {
+        $lMenuI = $_menu->findMap($_parentIndex);
+        for($i = 1; $i <= $lMenuI->size(); $i++) {
+            $lMenuI->loadFromMap($i);
+            $lMenuJ = $_menu->findMap($lMenuI->getIndex());
+            
+            if(!$_parentIndex) {
+                echo sprintf("<div class='Block26'>\n");
+                echo sprintf("<button class='Block29'>%s</button>\n", $lMenuI->getTitle());
+                echo sprintf("<div class='Block27'>\n");
+                $this->toMenuBarWrite($_menu, $lMenuI->getIndex());
+                echo sprintf("</div>\n");
+                echo sprintf("</div>\n");
+            }
+            else if(!$lMenuJ->size()) {
+                echo sprintf("<div class='Block32' onclick='call_server(\"%s\", \"%s\", this, \"%s\")'>%s</div>\n",
+                        $lMenuI->getModule(), $lMenuI->getMethod(), $lMenuI->getData(), $lMenuI->getTitle());
+            }
+            else {
+                echo sprintf("<div class='Block31'>\n");
+                echo sprintf("<div class='Block28'>%s <i class='Block25 fa fa-caret-down'></i></div>\n", $lMenuI->getTitle());
+                echo sprintf("<div class='Block30'>\n");
+                $this->toMenuBarWrite($_menu, $lMenuI->getIndex());
+                echo sprintf("</div>\n");
+                echo sprintf("</div>\n");
+            }
+        }
+    }
+    //===============================================
     public function run() {
         $this->runEditor();
     }
@@ -108,34 +137,34 @@ class GAdmin extends GObject {
     //===============================================
     public function toEditorTab() {
         echo sprintf("<div class='Block6' id='EditorTab'>\n");
-        // home
-        echo sprintf("<div class='Block7'>\n");
-        echo sprintf("<button class='Block8 EditorTab' data-content-id='EditorTab0'\n");
-        echo sprintf("onclick='call_server(\"editor\", \"open_editor_tab\", this)'><i class='fa fa-home'></i></button>\n");
+        $this->toMenuBar();
         echo sprintf("</div>\n");
-        // page
-        echo sprintf("<div class='Block7'>\n");
-        echo sprintf("<button class='Block8 EditorTab' data-content-id='EditorTab1'\n");
-        echo sprintf("onclick='call_server(\"editor\", \"open_editor_tab\", this)'>Page</button>\n");
-        echo sprintf("</div>\n");
-        // edition
-        echo sprintf("<div class='Block7'>\n");
-        echo sprintf("<button class='Block8 EditorTab' data-content-id='EditorTab2'\n");
-        echo sprintf("onclick='call_server(\"editor\", \"open_editor_tab\", this)'>Edition</button>\n");
-        echo sprintf("</div>\n");
-        // code
-        echo sprintf("<div class='Block7'>\n");
-        echo sprintf("<button class='Block8 EditorTab' data-content-id='EditorTab3'\n");
-        echo sprintf("onclick='call_server(\"editor\", \"open_editor_tab\", this)'>Code</button>\n");
-        echo sprintf("</div>\n");
-        //
-        echo sprintf("</div>\n");
+    }
+    //===============================================
+    public function toMenuBar() {
+        $lMenu = new GMenuJs();
+        //===============================================
+        // modules
+        //===============================================
+        $lObj = $lMenu->addMenu("", "", "Modules", $lMenu);
+        // editor
+        $lObj2 = $lMenu->addMenu("", "", "Editeur HTML", $lObj);
+        $lMenu->addMenu("editor", "open_editor_tab", "Accueil", $lObj2, "EditorTab0");
+        $lMenu->addMenu("editor", "open_editor_tab", "Page", $lObj2, "EditorTab1");
+        $lMenu->addMenu("editor", "open_editor_tab", "Edition", $lObj2, "EditorTab2");
+        $lMenu->addMenu("editor", "open_editor_tab", "Code", $lObj2, "EditorTab3");
+        // sitemap
+        $lObj2 = $lMenu->addMenu("", "", "Sitemap", $lObj);
+        $lMenu->addMenu("sitemap", "generate_sitemap", "Générer", $lObj2);
+        $lMenu->addMenu("sitemap", "visualize_sitemap", "Visualiser", $lObj2);
+        //===============================================
+        $this->toMenuBarWrite($lMenu, 0);
     }
     //===============================================
     public function toEditorHome() {
         echo sprintf("<div class='Block9 EditorTabCtn' id='EditorTab0'>\n");
         // title
-        echo sprintf("<h2 class='Block10'>ReadyHTML</h2>\n");
+        echo sprintf("<h2 class='Block10'>ReadyHTML | Accueil</h2>\n");
         //
         echo sprintf("<div class='Block11'>\n");
         echo sprintf("<div class='Block12'>\n");
@@ -160,7 +189,7 @@ class GAdmin extends GObject {
         echo sprintf("<div class='Block9 EditorTabCtn' id='EditorTab1'>\n");
         echo sprintf("<div class='Block16'>\n");
         // title
-        echo sprintf("<h2 class='Block10'>Page</h2>\n");
+        echo sprintf("<h2 class='Block10'>ReadyHTML | Page</h2>\n");
         //
         echo sprintf("<div class='Block17'>\n");
         // menu
@@ -233,7 +262,7 @@ class GAdmin extends GObject {
         echo sprintf("<div class='Block9 EditorTabCtn' id='EditorTab2'>\n");
         echo sprintf("<div class='Block16'>\n");
         // title
-        echo sprintf("<h2 class='Block10'>Edition</h2>\n");
+        echo sprintf("<h2 class='Block10'>ReadyHTML | Edition</h2>\n");
         //
         echo sprintf("<div class='Block17'>\n");
         // menu
@@ -475,7 +504,7 @@ class GAdmin extends GObject {
         echo sprintf("<div class='Block9 EditorTabCtn' id='EditorTab3'>\n");
         echo sprintf("<div class='Block16'>\n");
         // title
-        echo sprintf("<h2 class='Block10'>Code</h2>\n");
+        echo sprintf("<h2 class='Block10'>ReadyHTML | Code</h2>\n");
         //
         echo sprintf("<div class='Block17'>\n");
         // menu
