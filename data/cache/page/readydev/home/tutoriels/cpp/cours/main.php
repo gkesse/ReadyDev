@@ -59,6 +59,14 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#classe">Classe</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#heritage-de-classe">Héritage de classe</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#polymorphisme-de-classe">Polymorphisme de classe</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -588,4 +596,71 @@ L'accès à un attribut peut être limité à 3 types de portée:<br><br><div cl
 <div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">La portée privée (private) limite l'accès à l'attribut à la classe mère.</div>
-</div>&nbsp;<br></div></div></div></div><br>
+</div>&nbsp;<br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="heritage-de-classe">Héritage de classe</a>
+</h1>
+<div class="Section6"><br>L'opérateur (:) permet de créer un héritage de classe en C++.<br><br>Déclaration de la classe mère.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+class GObject {
+public:
+    GObject();
+    virtual ~GObject();
+};
+//===============================================</pre><br>Définition  de la classe mère.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+GObject::GObject() {
+
+}
+//===============================================
+GObject::~GObject() {
+
+}
+//===============================================</pre><br>Déclaration de la classe fille.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+class GProcess : public GObject {
+public:
+    GProcess();
+    ~GProcess();
+};
+//===============================================</pre><br>Définition de la classe fille.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+GProcess::GProcess()
+: GObject() {
+
+}
+//===============================================
+GProcess::~GProcess() {
+
+}
+//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="polymorphisme-de-classe">Polymorphisme de classe</a>
+</h1>
+<div class="Section6"><br>L'opérateur (virtual) permet de créer un polymorphisme de classe en C++.<br><br>Déclaration de la classe mère.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+class GObject {
+public:
+    virtual GString serialize(const GString&amp; _code = "object") const;
+    virtual void deserialize(const GString&amp; _data, const GString&amp; _code = "object");
+};
+//===============================================</pre><br>Définition  de la classe mère.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+GString GObject::serialize(const GString&amp; _code) const {return "";}
+void GObject::deserialize(const GString&amp; _data, const GString&amp; _code) {}
+//===============================================</pre><br>Déclaration de la classe fille.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+class GCalculator : public GObject {
+public:
+    GString serialize(const GString&amp; _code = "calculator") const;
+    void deserialize(const GString&amp; _data, const GString&amp; _code = "calculator");
+};
+//===============================================</pre><br>Définition de la classe fille.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+GString GCalculator::serialize(const GString&amp; _code) const {
+    lDom.addData(_code, "expression", m_expression);
+    lDom.addData(_code, "result", m_result);
+    return lDom.toString();
+}
+//===============================================
+void GCalculator::deserialize(const GString&amp; _data, const GString&amp; _code) {
+    m_expression = lDom.getData(_code, "expression");
+    m_result = lDom.getData(_code, "result");
+}
+//===============================================</pre><br></div></div></div></div><br>
