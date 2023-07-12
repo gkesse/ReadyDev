@@ -771,7 +771,7 @@ juil. 12 01:39:23 gkesse-desktop systemd[1]: Started readydev cpp server.</pre><
 <h1 class="Section4">
 <a class="Section5" href="#" id="freebox">FreeBox</a>
 </h1>
-<div class="Section6"><br>FreeBox est un fournisseur d'accès à internet (FAI).<br><br>Création d'une redirection de port.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Menu
+<div class="Section6"><br>FreeBox est un fournisseur d'accès à internet (FAI).<br><br>La redirection de port permet de connecter un serveur local à internet.<br><br>Création d'une redirection de port.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Menu
 Paramètres
 Paramètres de la Freebox
 Gestion des ports
