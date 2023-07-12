@@ -778,12 +778,12 @@ Gestion des ports
 Redirections des ports
 Ajouter une redirection
 
-IP Destination &gt; readydev-system (192.168.1.XX)
+IP Destination &gt; readydev-system (192.168.1.45)
 Redirection active &gt; Cocher
 IP source &gt; Toutes
-Port de début &gt; 90XX
-Port de fin &gt; 90XX
-Port de destination &gt; 90XX
+Port de début &gt; 9010
+Port de fin &gt; 9010
+Port de destination &gt; 9010
 Commentaire &gt; readydev-system
 Sauvegarder
 OK</pre><br></div>
