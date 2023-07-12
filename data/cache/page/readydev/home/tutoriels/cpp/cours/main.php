@@ -25,6 +25,14 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#bibliotheque-statique">Bibliothèque statique</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#bibliotheque-dynamique">Bibliothèque dynamique</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#arguments-en-ligne-de-commande">Arguments en ligne de commande</a>
 </div>
 <div class="GSummary11 Summary1">
@@ -66,6 +74,22 @@
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#polymorphisme-de-classe">Polymorphisme de classe</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#git">Git</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#cmake">CMake</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#systemd">Systemd</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#freebox">FreeBox</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
@@ -128,6 +152,24 @@ gdb -ex run --args rdv_cpp.exe test string
 ::===============================================</pre><br>Activer le débogueur sous Qt avec MinGW.<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">CONFIG += debug gnu++11</pre><br></div>
 </div>
 </div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="bibliotheque-statique">Bibliothèque statique</a>
+</h1>
+<div class="Section6"><br>La commande (gcc) permet de générer des bibliothèques statiques.<br><br>Génération des fichiers objet.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">gcc -c tinyexpr.c -o tinyexpr.o</pre><br>Génération de la bibliothèque statique.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">ar rcs libtinyexpr.a tinyexpr.o</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="bibliotheque-dynamique">Bibliothèque dynamique</a>
+</h1>
+<div class="Section6"><br>La commande (gcc) permet de générer des bibliothèques dynamiques.<br><br>Génération des fichiers objet.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">gcc -c -fPIC tinyexpr.c -o tinyexpr.o</pre><br>Génération de la bibliothèque dynamique.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">gcc -shared -o libtinyexpr.so tinyexpr.o</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
@@ -663,4 +705,88 @@ void GCalculator::deserialize(const GString&amp; _data, const GString&amp; _code
     m_expression = lDom.getData(_code, "expression");
     m_result = lDom.getData(_code, "result");
 }
-//===============================================</pre><br></div></div></div></div><br>
+//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="git">Git</a>
+</h1>
+<div class="Section6"><br>Git permet gérer les versions d'un projet.<br><br>La commande (clone) permet de cloner un dépôt distant.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">git clone https://github.com/jwerle/b64.c.git</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="cmake">CMake</a>
+</h1>
+<div class="Section6"><br>CMake permet de construire un programme.<br><br>La commande (cmake) permet de générer le fichier (Makefile) à partir du fichier (CMakeLists.txt).<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">mkdir build
+cd build
+cmake ..</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="systemd">Systemd</a>
+</h1>
+<div class="Section6"><br>L'utilitaire (systemd) permet de créer des services sous Linux.<br><br>Création du fichier de configuration.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">sudo nano /etc/systemd/system/rdv_cpp_server.service</pre><br>Edition du fichier de configuration.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="ini" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#================================================
+[Unit]
+Description=readydev cpp server
+After=network.target
+StartLimitIntervalSec=0
+#================================================
+[Service]
+EnvironmentFile=/etc/systemd/rdv_cpp_server.conf
+Type=simple
+Restart=always
+RestartSec=1
+User=gkesse
+ExecStart=/usr/local/bin/rdv_cpp_server.exe server
+#================================================
+[Install]
+WantedBy=multi-user.target
+#================================================</pre><br>Création du fichier des variables d'environnement.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">sudo nano /etc/systemd/rdv_cpp_server.conf</pre><br>Edition du fichier des variables d'environnement.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#================================================
+LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+#================================================
+GPROJECT_ENV=PROD
+GPROJECT_DATA=/var/lib/readydev
+#================================================</pre><br>La commande (systemctl) permet de gérer les services.<br><br>Chargement de tous les services.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">sudo systemctl daemon-reload</pre><br>Chargement d'un service.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">sudo systemctl reload rdv_cpp_server</pre><br>Redémarrage d'un service.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">sudo systemctl restart rdv_cpp_server</pre><br>Arrêt d'un service.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">sudo systemctl stop rdv_cpp_server</pre><br>Affichage du status.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">systemctl status rdv_cpp_server</pre><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">* rdv_cpp_server.service - readydev cpp server
+     Loaded: loaded (/etc/systemd/system/rdv_cpp_server.service; disabled; vendor preset: enabled)
+     Active: active (running) since Wed 2023-07-12 01:39:23 CEST; 11min ago
+   Main PID: 145033 (rdv_cpp_server.)
+      Tasks: 1 (limit: 8864)
+     Memory: 508.0K
+        CPU: 19ms
+     CGroup: /system.slice/rdv_cpp_server.service
+             |-145033 /usr/local/bin/rdv_cpp_server.exe server
+
+juil. 12 01:39:23 gkesse-desktop systemd[1]: Started readydev cpp server.</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="freebox">FreeBox</a>
+</h1>
+<div class="Section6"><br>FreeBox est un fournisseur d'accès à internet (FAI).<br><br>Création d'une redirection de port.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Menu
+Paramètres
+Paramètres de la Freebox
+Gestion des ports
+Redirections des ports
+Ajouter une redirection
+
+IP Destination &gt; readydev-system (192.168.1.XX)
+Redirection active &gt; Cocher
+IP source &gt; Toutes
+Port de début &gt; 90XX
+Port de fin &gt; 90XX
+Port de destination &gt; 90XX
+Commentaire &gt; readydev-system
+Sauvegarder
+OK</pre><br></div>
+</div>
+</div>
+</div><br>
