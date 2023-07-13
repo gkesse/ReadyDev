@@ -52,7 +52,7 @@ class GTestPhp extends GObject {
         $lDomC->addValue($lDom, "code", "logs");
         $lDomC->addValue($lDom, "type", "error");
         $lDomC->addValue($lDom, "side", "server_php");
-        $lDomC->addValue($lDom, "msg", "La connexion au serveur a échoué.");
+        $lDomC->addValue($lDom, "msg", "Le serveur n'est pas disponible.");
         $lDom->print();
     }
     //===============================================
@@ -63,7 +63,7 @@ class GTestPhp extends GObject {
         $lDom->createDoc();
         $lDom->addData("logs", "type", "error");
         $lDom->addData("logs", "side", "server_php");
-        $lDom->addData("logs", "msg", "La connexion au serveur a échoué.");
+        $lDom->addData("logs", "msg", "Le serveur n'est pas disponible.");
         $lDom->print();
     }
     //===============================================
@@ -71,7 +71,7 @@ class GTestPhp extends GObject {
         $lLog = new GLog();
         
         // addError - addLog - addData - print
-        $lLog->addError("La connexion au serveur a échoué.");
+        $lLog->addError("Le serveur n'est pas disponible.");
         $lLog->addLog("La module de communication est chargé.");
         $lLog->addData("La résolution est de 1200 x 796.");
         $lLog->loadFromMap(1);

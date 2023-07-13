@@ -15,12 +15,12 @@ class GSocket extends GObject {
     //===============================================
     public function checkErrors($_data) {
         if($this->m_dataLogs->hasErrors()) {
-            $this->m_logs->addError("La connexion au serveur a échoué.");
+            $this->m_logs->addError("Le serveur n'est pas disponible.");
         }
         else if($_data != "") {
             $lDom = new GCode();
             if(!$lDom->loadXml($_data)) {
-                $this->m_logs->addError("La connexion au serveur a échoué.");
+                $this->m_logs->addError("Le serveur n'est pas disponible.");
             }
         }
     }

@@ -43,7 +43,7 @@ class GTest extends GObject {
         lDom.createDoc();
         lDom.addData("logs", "type", "error");
         lDom.addData("logs", "side", "client_js");
-        lDom.addData("logs", "msg", "La connexion au serveur a échoué.");
+        lDom.addData("logs", "msg", "Le serveur n'est pas disponible.");
         this.m_logs.addData(lDom.toString());
     }
     //===============================================
@@ -52,7 +52,7 @@ class GTest extends GObject {
         var lLogC = new GLog();
         
         // addError - serialize
-        lLog.addError("La connexion au serveur a échoué.");
+        lLog.addError("Le serveur n'est pas disponible.");
         lLog.addLog("Le module de traitement a été chargé.");
         lLog.addData("La résolution de l'écran est de 1200 x 976.");
         lLog.loadFromMap(3);

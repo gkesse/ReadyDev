@@ -16,12 +16,12 @@ class GCurl extends GObject {
     //===============================================
     public function checkErrors($_data) {
         if($this->m_dataLogs->hasErrors()) {
-            $this->m_logs->addError(sprintf("La connexion au serveur a échoué."));
+            $this->m_logs->addError(sprintf("Le serveur n'est pas disponible."));
         }
         else if(!empty($_data)) {
             $lDom = new GCode();
             if(!$lDom->loadXml($_data)) {
-                $this->m_logs->addError(sprintf("La connexion au serveur a échoué."));
+                $this->m_logs->addError(sprintf("Le serveur n'est pas disponible."));
                 $this->m_logs->addData($_data);
             }
         }
@@ -69,7 +69,7 @@ class GCurl extends GObject {
         $lError = curl_error($lCurl);
         
         if($lError) {
-            $this->m_dataLogs->addError(sprintf("La connexion au serveur a échoué.\n%s", $lError));
+            $this->m_dataLogs->addError(sprintf("Le serveur n'est pas disponible.\n%s", $lError));
         }
         
         $this->m_codeHttp = curl_getinfo($lCurl, CURLINFO_HTTP_CODE);
