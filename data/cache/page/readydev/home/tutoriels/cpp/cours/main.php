@@ -779,7 +779,7 @@ juil. 12 01:39:23 gkesse-desktop systemd[1]: Started readydev cpp server.</pre><
 <h1 class="Section4">
 <a class="Section5" href="#" id="openssl">OpenSSL</a>
 </h1>
-<div class="Section6"><br>La commande (openssl) permet de créer des certificats SSL.<br><br>Un certificat racine permet d'identifier une autorité de certification (CA).<br><br>Création d'un certificat racine.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">mkdir -p ca/private
+<div class="Section6"><br>La commande (openssl) permet de créer des certificats SSL.<br><br>Le certificat racine permet d'identifier une autorité de certification (CA).<br><br>La commande (req) permet de générer un certificat auto-signé.<br><br>Génération du certificat racine auto-signé.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">mkdir -p ca/private
 
 openssl req \
 -x509 \
@@ -801,6 +801,58 @@ openssl req \
 </div><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">Le certificat racine utilise l'algorithme (RSA) sur une longueur de (4096) bits.</div>
+</div><br>La commande (genrsa) permet de générer une clé privée.<br>La commande (req) permet de générer une demande de signature.<br>La commande (x509) permet de générer le certificat.<br>&nbsp;<br>Le certificat server permet d'identifier une machine serveur.<br><br>Génération du certificat serveur.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">mkdir -p server/private
+
+openssl genrsa -out server/private/server_key.pem 4096
+
+openssl req -new \
+-key server/private/server_key.pem \
+-out server/server.csr \
+-subj "/C=FR/ST=Bas-Rhin State/L=Strasbourg City/O=ReadyDev Inc./CN=server.readydev.ovh"
+
+openssl x509 -req -days 1460 -in server/server.csr \
+-CA ca/ca_cert.pem -CAkey ca/private/ca_key.pem \
+-CAcreateserial -out server/server_cert.pem</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Le fichier (server_key.pem) est la clé privée du certificat serveur (à ne pas partager).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Le fichier (server.csr) est la demande de signature  du certificat serveur (à ne pas partager).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Le fichier (server_cert.pem) est la clé publique du certificat serveur (à partager).&nbsp;</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">La durée de validité du certificat serveur est définie sur 4 ans (1460).</div>
+</div><br>Le certificat client permet d'identifier une machine client.<br><br>Génération du certificat client.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">mkdir -p client/private
+
+openssl genrsa -out client/private/client_key.pem 4096
+
+openssl req -new \
+-key client/private/client_key.pem \
+-out client/client.csr \
+-subj "/C=US/ST=Bas-Rhin State/L=Strasbourg City/O=ReadyDev Inc./CN=client.readydev.ovh"
+
+openssl x509 -req -days 1460 -in client/client.csr \
+-CA ca/ca_cert.pem -CAkey ca/private/ca_key.pem \
+-CAcreateserial -out client/client_cert.pem</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Le fichier (client_key.pem) est la clé privée du certificat client (à ne pas partager).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Le fichier (client.csr) est la demande de signature du certificat client (à ne pas partager).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Le fichier (client_cert.pem) est la clé publique du certificat client (à partager).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">La durée de validité du certificat client est définie sur 4 ans (1460).</div>
 </div><br></div>
 </div>
 </div>
