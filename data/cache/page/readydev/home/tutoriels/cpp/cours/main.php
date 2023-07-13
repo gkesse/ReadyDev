@@ -89,6 +89,14 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#openssl">OpenSSL</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#shell">Shell</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#freebox">FreeBox</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
@@ -766,6 +774,59 @@ juil. 12 01:39:23 gkesse-desktop systemd[1]: Started readydev cpp server.</pre><
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="openssl">OpenSSL</a>
+</h1>
+<div class="Section6"><br>La commande (openssl) permet de créer des certificats SSL.<br><br>Un certificat racine permet d'identifier une autorité de certification (CA).<br><br>Création d'un certificat racine.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">mkdir -p ca/private
+
+openssl req \
+-x509 \
+-nodes \
+-days 3650 \
+-newkey rsa:4096 \
+-keyout ca/private/ca_key.pem \
+-out ca/ca_cert.pem \
+-subj "/C=FR/ST=Bas-Rhin State/L=Strasbourg City/O=ReadyDev Inc./CN=ca.readydev.ovh"</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Le fichier (ca_key.pem) est la clé privée du certificat racine (à ne pas partager).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Le fichier (ca_cert.pem) est la clé publique du certificat racine (à partager).</div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">La durée de validité du certificat racine est définie sur 10 ans (3650).</div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Le certificat racine utilise l'algorithme (RSA) sur une longueur de (4096) bits.</div>
+</div><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="shell">Shell</a>
+</h1>
+<div class="Section6"><br>Shell est un interpréteur de ligne de commande sous Linux.<br><br>La commande (tree) permet d'afficher l'arborescence d'un répertoire.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">tree</pre><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">.
+|-- ca
+|&nbsp;&nbsp; |-- ca_cert.pem
+|&nbsp;&nbsp; |-- private
+|&nbsp;&nbsp;     |-- ca_key.pem
+|-- client
+|&nbsp;&nbsp; |-- client_cert.pem
+|&nbsp;&nbsp; |-- client.csr
+|&nbsp;&nbsp; |-- private
+|&nbsp;&nbsp;     |-- client_key.pem
+|-- server
+    |-- private
+    |&nbsp;&nbsp; |-- server_key.pem
+    |-- server_cert.pem
+    |-- server.csr</pre><br></div>
+</div>
+</div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
