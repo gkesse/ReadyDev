@@ -57,6 +57,10 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#communication-reseau-securisee--openssl-">Communication réseau sécurisée (OpenSSL)</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#xml">XML</a>
 </div>
 <div class="GSummary11 Summary1">
@@ -294,10 +298,6 @@ void GSocket::runServer() {
                 0,
                 &amp;lThreadId
         );
-
-        if(!lThreadH) {
-            printf("La création du thread a échoué\n");
-        }
     }
 }
 //===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">lThreadH --&gt; gestionnaire du Thread
@@ -330,12 +330,9 @@ DWORD WINAPI GSocket::onThread(LPVOID _params) {
 </div>
 </div><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="communication-reseau--socket-_sous-windows" href="#communication-reseau--socket-">Sous Windows</a>
-</h2><br>La fonction (WSAStartup) permet d'initialiser un socket.<br>La fonction (socket) permet de créer un socket.<br>La structure (sockaddr_in) permet d'instancier l'adresse du socket.<br>La fonction (bind) permet de lier l'adresse au socket.&nbsp;<br>La fonction (listen) permet d'initialiser le nombre de connexions simultanées.&nbsp;<br>La fonction (accept) permet au serveur d'attendre une connexion client.<br>La fonction (closesocket) permet de fermer un socket.<br>La fonction (WSACleanup) permet de libérer les mémoires allouées au socket.<br><br>Création d'un server TCP/IP.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+</h2><br>La fonction (WSAStartup) permet d'initialiser un socket.<br>La fonction (socket) permet de créer un socket.<br>La structure (sockaddr_in) permet d'instancier l'adresse du socket.<br>La fonction (bind) permet de lier l'adresse au socket.&nbsp;<br>La fonction (listen) permet d'initialiser le nombre de connexions simultanées.&nbsp;<br>La fonction (accept) permet au serveur d'attendre une connexion client.<br>La fonction (closesocket) permet de fermer un socket.<br>La fonction (WSACleanup) permet de libérer les mémoires allouées au socket.<br>La fonction (CreateThread) permet de créer un Thread serveur de gestion d'un client connecté.<br>&nbsp;<br>Création d'un server TCP/IP.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void GSocket::runServer() {
-    if(WSAStartup(MAKEWORD(lMajor, lMinor), &amp;wsaData) == SOCKET_ERROR) {
-        m_logs.addError("L'initialisation du socket a échoué.");
-        return;
-    }
+    WSAStartup(MAKEWORD(lMajor, lMinor), &amp;wsaData);
 
     struct sockaddr_in lAddress;
     lAddress.sin_family = AF_INET;
@@ -343,21 +340,8 @@ void GSocket::runServer() {
     lAddress.sin_port = htons(lPort);
 
     SOCKET lServer = socket(AF_INET, SOCK_STREAM, 0);
-
-    if(lServer == INVALID_SOCKET) {
-        m_logs.addError("La création du socket a échoué.");
-        return;
-    }
-
-    if(bind(lServer, (struct sockaddr *)&amp;lAddress, sizeof(lAddress)) == SOCKET_ERROR) {
-        m_logs.addError("La liaison du socket server a échoué.");
-        return;
-    }
-
-    if(listen(lServer, lBacklog) == SOCKET_ERROR) {
-        m_logs.addError("L'initialisation du nombre de connexions à écouter a échoué.");
-        return;
-    }
+    bind(lServer, (struct sockaddr *)&amp;lAddress, sizeof(lAddress));
+    listen(lServer, lBacklog);
 
     printf("Démarrage du serveur...\n");
 
@@ -377,22 +361,25 @@ void GSocket::runServer() {
                 0,
                 &amp;lThreadId
         );
-
-        if(!lThreadH) {
-            m_logs.addError("La création du thread a échoué.");
-            break;
-        }
     }
 
     closesocket(lServer);
     WSACleanup();
 }
+//===============================================</pre><br>Fonction de rappel liée à la connexion d'un client au serveur.&nbsp;&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+DWORD WINAPI GSocket::onThread(LPVOID _params) {
+    GSocket* lClient = (GSocket*)_params;
+    GString lData = lClient-&gt;readData();
+    GServer lServer;
+    lServer.run(lData);
+    lServer.sendResponse(lClient);
+    closesocket(lClient-&gt;m_socket);
+    delete lClient;
+    return 0;
+}
 //===============================================</pre><br>La fonction (connect) permet au client de se connecter au serveur.<br><br>Création d'un client TCP/IP.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 GString GSocket::callServer(const GString&amp; _dataIn) {
-    if(WSAStartup(MAKEWORD(lMajor, lMinor), &amp;lWsaData) == SOCKET_ERROR) {
-        m_srvLogs.addError("L'initilisation du socket a échoué.");
-        return "";
-    }
+    WSAStartup(MAKEWORD(lMajor, lMinor), &amp;lWsaData);
 
     struct sockaddr_in lAddress;
 
@@ -402,18 +389,8 @@ GString GSocket::callServer(const GString&amp; _dataIn) {
 
     SOCKET lClient = socket(AF_INET, SOCK_STREAM, 0);
 
-    if(lClient == INVALID_SOCKET) {
-        m_srvLogs.addError("La création du socket a échoué.");
-        return "";
-    }
-
     m_socket = lClient;
-    int lConnectOk = connect(lClient, (SOCKADDR*)(&amp;lAddress), sizeof(lAddress));
-
-    if(lConnectOk == SOCKET_ERROR) {
-        m_srvLogs.addError("La connexion du socket a échoué.");
-        return "";
-    }
+    connect(lClient, (SOCKADDR*)(&amp;lAddress), sizeof(lAddress));
 
     sendData(_dataIn);
     GString lDataOut = readData();
@@ -445,10 +422,7 @@ GString GSocket::readData() {
         lBuffer[lBytes] = '\0';
         lData += lBuffer;
 
-        if(lData.size() &gt;= BUFFER_MAX) {
-            m_srvLogs.addError("La taille maximale des données est atteinte.");
-            break;
-        }
+        if(lData.size() &gt;= BUFFER_MAX) break;
 
         u_long lBytesIO;
         int lOk = ioctlsocket(m_socket, FIONREAD, &amp;lBytesIO);
@@ -471,7 +445,7 @@ DWORD WINAPI GSocket::onThread(LPVOID _params) {
 }
 //===============================================</pre><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="communication-reseau--socket-_sous-linux" href="#communication-reseau--socket-">Sous Linux</a>
-</h2><br>Création d'un serveur TCP/IP.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+</h2><br>La fonction (socket) permet de créer un socket.<br>La structure (sockaddr_in) permet d'instancier l'adresse du socket.<br>La fonction (bind) permet de lier l'adresse au socket.<br>La fonction (listen) permet d'initialiser le nombre de connexions simultanées.<br>La fonction (accept) permet au serveur d'attendre une connexion client.<br>La fonction (close) permet de fermer un socket.<br>La fonction (pthread_create) permet de créer un Thread serveur de gestion d'un client connecté.<br><br>Création d'un serveur TCP/IP.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void GSocket::runServer() {
     int lServer = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 
@@ -510,7 +484,7 @@ void* GSocket::onThreadCB(void* _params) {
     delete lClient;
     return 0;
 }
-//===============================================</pre><br>Création d'un client TCP/IP.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+//===============================================</pre><br>La fonction (connect) permet au client de se connecter au serveur.&nbsp;<br><br>Création d'un client TCP/IP.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 GString GSocket::callServer(const GString&amp; _dataIn, const GString&amp; _facade) {
     GString lHostname = toHostname(_facade);
     int lPort = toPort(_facade);
@@ -532,7 +506,19 @@ GString GSocket::callServer(const GString&amp; _dataIn, const GString&amp; _faca
     close(lClient);
     return lDataOut;
 }
-//===============================================</pre><br>Réception des données sur le réseau.&nbsp;&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+//===============================================</pre><br>La fonction (send) permet d'envoyer des données sur le réseau.&nbsp;<br><br>Emission des données sur le réseau.<br>&nbsp;&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GSocket::sendData(const GString&amp; _data) {
+    int lIndex = 0;
+    const char* lBuffer = _data.c_str();
+    int lSize = _data.size();
+    while(1) {
+        int lBytes = send(m_socket, &amp;lBuffer[lIndex], lSize - lIndex, 0);
+        if(lBytes == -1) break;
+        lIndex += lBytes;
+        if(lIndex &gt;= lSize) break;
+    }
+}
+//===============================================</pre><br>La fonction (recv) permet de recevoir des données sur le réseau.<br>La fonction (ioctlsocket) permet de déterminer le nombre de données disponibles en lecture sur le réseau.<br>&nbsp;<br>Réception des données sur le réseau.&nbsp;&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 GString GSocket::readData() {
     GString lData = "";
     while(1) {
@@ -548,21 +534,254 @@ GString GSocket::readData() {
     }
     return lData;
 }
-//===============================================</pre><br>Emission des données sur le réseau.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-void GSocket::sendData(const GString&amp; _data) {
+//===============================================</pre><br></div>
+</div>
+</div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="communication-reseau-securisee--openssl-">Communication réseau sécurisée (OpenSSL)</a>
+</h1>
+<div class="Section6"><br>Les sockets permettent d'échanger des données via lé réseau internet.<br><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#communication-reseau-securisee--openssl-_sous-windows">Sous Windows</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#communication-reseau-securisee--openssl-_sous-linux">Sous Linux</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="communication-reseau-securisee--openssl-_sous-windows" href="#communication-reseau-securisee--openssl-">Sous Windows</a>
+</h2>&nbsp;<br>Création d'un client SSL TCP/IP.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+GString GOpenSSL::callSocket(const GString&amp; _dataIn) {
+    WSADATA lWsaData;
+    WSAStartup(MAKEWORD(lMajor, lMinor) 
+
+    SOCKET lClient = socket(AF_INET, SOCK_STREAM, 0);
+
+    SOCKADDR_IN lAddress;
+    lAddress.sin_family = AF_INET;
+    lAddress.sin_addr.s_addr = inet_addr(lHostname.c_str());
+    lAddress.sin_port = htons(lPort);
+    memset(&amp;lAddress.sin_zero, 0, sizeof(lAddress.sin_zero));
+
+    connect(lClient, (SOCKADDR*)(&amp;lAddress), sizeof(lAddress));
+
+    SSL_CTX* lContext = 0;
+
+    if(!initContext(&amp;lContext)) return "";
+    if(!initSSL(&amp;m_ssl, lContext, lClient)) return "";
+
+    sendData(_dataIn);
+    GString lDataOut = readData();
+
+    SSL_free(m_ssl);
+    SSL_CTX_free(lContext);
+
+    closesocket(lClient);
+    WSACleanup();
+
+    return lDataOut;
+}
+//===============================================</pre><br>Création du contexte SSL.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+bool GOpenSSL::initContext(SSL_CTX** _context) {
+    const SSL_METHOD* lMethod = SSLv23_client_method();
+    SSL_CTX* lContext = SSL_CTX_new(lMethod);
+    
+    SSL_CTX_load_verify_locations(lContext, lCaFile.c_str(), 0);
+    SSL_CTX_use_certificate_file(lContext, lCertificateFile.c_str(), SSL_FILETYPE_PEM);
+    SSL_CTX_use_PrivateKey_file(lContext, lPrivateFile.c_str(), SSL_FILETYPE_PEM);
+    SSL_CTX_check_private_key(lContext);
+    SSL_CTX_set_verify(lContext, SSL_VERIFY_NONE, 0);
+
+    (*_context) = lContext;
+    return true;
+}
+//===============================================</pre><br>Création du module SSL.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+bool GOpenSSL::initSSL(SSL** _ssl, SSL_CTX* _context, SOCKET _socket) {
+    SSL* lSSL = SSL_new(_context);
+    
+    SSL_set_fd(lSSL, _socket);
+    SSL_connect(lSSL);
+    showCerts(lSSL);
+    
+    (*_ssl) = lSSL;
+    return true;
+}
+//===============================================</pre><br>Affichage des informations sur le certificat.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GOpenSSL::showCerts(SSL* _ssl) {
+    X509* lCertificate = SSL_get_peer_certificate(_ssl);
+    printf("Server certificates:\n");
+
+    const int lSize = 256;
+    char lLine[lSize];
+
+    X509_NAME_oneline(X509_get_subject_name(lCertificate), lLine, lSize);
+    printf("Subject: %s\n", lLine);
+
+    X509_NAME_oneline(X509_get_issuer_name(lCertificate), lLine, lSize);
+    printf("Issuer: %s\n", lLine);
+
+    X509_free(lCertificate);
+}
+//===============================================</pre><br>Emission des données sur le réseau.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GOpenSSL::sendData(const GString&amp; _dataIn) {
+    int lSize = _dataIn.size();
+    const char* lBuffer = _dataIn.c_str();
     int lIndex = 0;
-    const char* lBuffer = _data.c_str();
-    int lSize = _data.size();
+
     while(1) {
-        int lBytes = send(m_socket, &amp;lBuffer[lIndex], lSize - lIndex, 0);
+        int lBytes = SSL_write(m_ssl, &amp;lBuffer[lIndex], lSize - lIndex);
         if(lBytes == -1) break;
         lIndex += lBytes;
         if(lIndex &gt;= lSize) break;
     }
 }
+//===============================================</pre><br>Réception des données sur le réseau.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+GString GOpenSSL::readData() {
+    GString lData = "";
+    while(1) {
+        char lBuffer[BUFFER_SIZE];
+        int lBytes = SSL_read(m_ssl, lBuffer, BUFFER_SIZE - 1);
+
+        if(lBytes == -1) break;
+
+        lBuffer[lBytes] = '\0';
+        lData += lBuffer;
+
+        if(lData.size() &gt;= BUFFER_MAX) break;
+
+        lBytes = SSL_pending(m_ssl);
+
+        if(lBytes &lt;= 0) break;
+    }
+    return lData;
+}
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="communication-reseau-securisee--openssl-_sous-linux" href="#communication-reseau-securisee--openssl-">Sous Linux</a>
+</h2><br>Création d'un serveur SSL TCP/IP.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GOpenSSL::runServer() {
+    int lServer = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+
+    struct sockaddr_in lAddress;
+    bzero(&amp;lAddress, sizeof(lAddress));
+    lAddress.sin_family = AF_INET;
+    lAddress.sin_addr.s_addr = inet_addr(lHostname.c_str());
+    lAddress.sin_port = htons(lPort);
+
+    bind(lServer, (struct sockaddr*)&amp;lAddress, sizeof(lAddress));
+    listen(lServer, lBacklog);
+
+    SSL_CTX* lContext = 0;
+    if(!initContext(&amp;lContext)) return;
+
+    printf("Démarrage du serveur...\n");
+
+    struct sockaddr_in lAddressC;
+    socklen_t lAddressCL = sizeof(lAddressC);
+
+    while(1) {
+        GOpenSSL* lClient = new GOpenSSL;
+        lClient-&gt;m_socket = accept(lServer, (struct sockaddr*)&amp;lAddressC, &amp;lAddressCL);
+        lClient-&gt;m_context = lContext;
+
+        pthread_t lThreadH;
+        pthread_create(&amp;lThreadH, 0, onThreadCB, lClient);
+    }
+
+    close(lServer);
+    SSL_CTX_free(lContext);
+}
+//===============================================</pre><br>Fonction de rappel liée à la connexion d'un client au serveur.&nbsp;&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void* GOpenSSL::onThreadCB(void* _params) {
+    GOpenSSL* lClient = (GOpenSSL*)_params;
+    if(lClient-&gt;initSSL()) {
+        GString lData = lClient-&gt;readData();
+        GServer lServer;
+        lServer.run(lData);
+        lServer.sendResponse(lClient);
+    }
+    lClient-&gt;closeSocket();
+    delete lClient;
+    return 0;
+}
+//===============================================</pre><br>Création d'un contexte SSL.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+bool GOpenSSL::initContext(SSL_CTX** _context) {
+    const SSL_METHOD* lMethod = SSLv23_server_method();
+    SSL_CTX* lContext = SSL_CTX_new(lMethod);
+
+    SSL_CTX_load_verify_locations(lContext, lCaFile.c_str(), 0);
+    SSL_CTX_set_client_CA_list(lContext, SSL_load_client_CA_file(lCaFile.c_str()));
+    SSL_CTX_use_certificate_file(lContext, lCertificateFile.c_str(), SSL_FILETYPE_PEM) == -1);
+    SSL_CTX_use_PrivateKey_file(lContext, lPrivateFile.c_str(), SSL_FILETYPE_PEM);
+    SSL_CTX_check_private_key(lContext);
+
+    SSL_CTX_set_mode(lContext, SSL_MODE_AUTO_RETRY);
+    SSL_CTX_set_verify(lContext, SSL_VERIFY_PEER | SSL_VERIFY_FAIL_IF_NO_PEER_CERT, 0);
+    SSL_CTX_set_verify_depth(lContext, 1);
+
+    (*_context) = lContext;
+    return true;
+}
+//===============================================</pre><br>Création du module SSL.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+bool GOpenSSL::initSSL() {
+    m_ssl = SSL_new(m_context);
+    
+    SSL_set_fd(m_ssl, m_socket);
+    SSL_accept(m_ssl);
+    showCerts(m_ssl);
+
+    return true;
+}
+//===============================================</pre><br>Affichage des informations sur le certificat.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GOpenSSL::showCerts(SSL* _ssl) {
+    X509* lCertificate = SSL_get_peer_certificate(_ssl);
+
+    printf("Server certificates:\n");
+
+    const int lSize = 256;
+    char lLine[lSize];
+
+    X509_NAME_oneline(X509_get_subject_name(lCertificate), lLine, 1024);
+    printf("Subject: %s\n", lLine);
+
+    X509_NAME_oneline(X509_get_issuer_name(lCertificate), lLine, 1024);
+    printf("Issuer: %s\n", lLine);
+
+    X509_free(lCertificate);
+}
+//===============================================</pre>&nbsp;<br>Emission des données sur le réseau.<br>&nbsp;&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GOpenSSL::sendData(const GString&amp; _dataIn) {
+    int lSize = _dataIn.size();
+    const char* lBuffer = _dataIn.c_str();
+    int lIndex = 0;
+
+    while(1) {
+        int lBytes = SSL_write(m_ssl, &amp;lBuffer[lIndex], lSize - lIndex);
+        if(lBytes == -1) break;
+        lIndex += lBytes;
+        if(lIndex &gt;= lSize) break;
+    }
+}
+//===============================================</pre>&nbsp;<br>Réception des données sur le réseau.&nbsp;&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+GString GOpenSSL::readData() {
+    GString lData = "";
+    while(1) {
+        char lBuffer[BUFFER_SIZE];
+        int lBytes = SSL_read(m_ssl, lBuffer, BUFFER_SIZE - 1);
+        if(lBytes == -1) break;
+
+        lBuffer[lBytes] = '\0';
+        lData += lBuffer;
+
+        if(lData.size() &gt;= BUFFER_MAX) break;
+        lBytes = SSL_pending(m_ssl);
+        if(lBytes &lt;= 0) break;
+    }
+    return lData;
+}
 //===============================================</pre><br></div>
-</div>
-</div></div><br><div class="GSection1 Section1">
+</div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
@@ -977,7 +1196,7 @@ openssl x509 -req -days 1460 -in client/client.csr \
     |-- private
     |&nbsp;&nbsp; |-- server_key.pem
     |-- server_cert.pem
-    |-- server.csr</pre><br></div>
+    |-- server.csr</pre><br>La commande (screen) fournit l'option (-S) qui permet de créer un screen.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">screen -S gke</pre><br>La commande (screen) fournit l'option (-r) qui permet de récupérer un screen existant.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">screen -r gke</pre>&nbsp;&nbsp;<br></div>
 </div>
 </div></div><br><div class="GSection1 Section1">
 <div class="Section2">
