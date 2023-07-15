@@ -32,6 +32,8 @@ class GObject {
     //===============================================
     public function clearMap() {
         $this->m_map = array();
+        $this->m_logs->clearMap();
+        $this->m_dataLogs->clearMap();
     }
     //===============================================
     public function getLogs() {
@@ -106,7 +108,7 @@ class GObject {
     }
     //===============================================
     public function isLogin() {
-        return $this->isTestEnv();
+        return $this->isSession("user_login");
     }
     //===============================================
     public function isEmpty() {
@@ -205,6 +207,10 @@ class GObject {
     public function getSession($_key, $_defaultValue = "") {
         if(!isset($_SESSION[$_key])) return $_defaultValue;
         return $_SESSION[$_key];
+    }
+    //===============================================
+    public function isSession($_key) {
+        return isset($_SESSION[$_key]);
     }
     //===============================================
     public function redirectUrl($_url) {

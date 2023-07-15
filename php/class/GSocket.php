@@ -13,6 +13,11 @@ class GSocket extends GObject {
         parent::__construct();
     }
     //===============================================
+    public function toPort() {
+        if($this->isTestEnv()) return 9011;
+        return 9010;
+    }
+    //===============================================
     public function checkErrors($_data) {
         if($this->m_dataLogs->hasErrors()) {
             $this->m_logs->addError("Le serveur n'est pas disponible.");
@@ -21,6 +26,9 @@ class GSocket extends GObject {
             $lDom = new GCode();
             if(!$lDom->loadXml($_data)) {
                 $this->m_logs->addError("Le serveur n'est pas disponible.");
+            }
+            else {
+                $this->m_logs->deserialize($_data);
             }
         }
     }
@@ -57,6 +65,7 @@ class GSocket extends GObject {
         $lDom->createDoc();
         $lDom->addData("manager", "module", $_module);
         $lDom->addData("manager", "method", $_method);
+        $lDom->addData("facade", "facade", "server_cpp");
         $lDom->loadData($_params);
         $lData = $lDom->toString();
         $lData = $this->callServer($lData);
@@ -70,8 +79,8 @@ class GSocket extends GObject {
     }
     //===============================================
     public function callSocket($_data) {
-        $lHostname = "127.0.0.1";
-        $lPort = 9010;
+        $lHostname = "readydev.ovh";
+        $lPort = $this->toPort();
         
         $lAddress = sprintf("tcp://%s:%d", $lHostname, $lPort);
         $lErrCode = null;

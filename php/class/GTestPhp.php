@@ -30,6 +30,9 @@ class GTestPhp extends GObject {
         else if($_method == "curl") {
             $this->runCurl($_module, $_method);
         }
+        else if($_method == "connexion") {
+            $this->runConnexion($_module, $_method);
+        }
         else {
             $this->m_logs->addError("La méthode est inconnue.");
         }
@@ -110,6 +113,49 @@ class GTestPhp extends GObject {
         $this->m_logs->deserialize($lData);
         if(!$this->m_logs->hasErrors()) {
             $this->m_logs->addData($lData);
+        }
+    }
+    //===============================================
+    public function runConnexion($_module, $_method) {
+        $lAction = "login_user";
+        
+        if($lAction == "") {
+            $this->m_logs->addError("L'action est obligatoire");
+        }
+        else if($lAction == "insert") {
+            $lUser = new GUser();
+            $lUser->setPseudo("admin");
+            $lUser->setPassword("admin");
+            $lUser->insertUser();
+            $this->m_logs->addLogs($lUser->getLogs());
+            if(!$this->m_logs->hasErrors()) {
+                $this->m_logs->addData($lUser->serialize());
+            }
+        }
+        else if($lAction == "login_user") {
+            $lUser = new GUser();
+            $lUser->setPseudo("admin");
+            $lUser->setPassword("admin");
+            $lUser->loginUser();
+            $this->m_logs->addLogs($lUser->getLogs());
+            if(!$this->m_logs->hasErrors()) {
+                $this->m_logs->addData($lUser->serialize());
+            }
+        }
+        else if($lAction == "update_user") {
+            $lUser = new GUser();
+            $lUser->setId(1);
+            $lUser->setPseudo("admin");
+            $lUser->setPassword("admin");
+            $lUser->setEmail("admin@gmail.com");
+            $lUser->updateUser();
+            $this->m_logs->addLogs($lUser->getLogs());
+            if(!$this->m_logs->hasErrors()) {
+                $this->m_logs->addData($lUser->serialize());
+            }
+        }
+        else {
+            $this->m_logs->addError("L'action est inconnue.");
         }
     }
     //===============================================
