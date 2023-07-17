@@ -238,7 +238,7 @@ class GLog {
 
         lLogTitle.innerHTML = this.toTitle();
         lLogIntro.innerHTML = "Consultez les logs.";
-        lLogBody.innerHTML = this.m_logs;
+        lLogBody.innerHTML = this.getLogs();
 
         var lLogModal = document.getElementById("LogModal");
         var lLogForm = document.getElementById("LogForm");

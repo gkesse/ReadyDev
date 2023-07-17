@@ -6,7 +6,7 @@ use php\class\GProcess;
 //===============================================
 $lProcess = new GProcess();
 $lProcess->init();
-$lProcess->run("php", "connexion");
+$lProcess->run("php", "email");
 $lProcess->runFooter();
 $lProcess->clean();
 //===============================================

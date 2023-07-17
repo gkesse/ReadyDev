@@ -108,7 +108,10 @@ class GObject {
     }
     //===============================================
     public function isLogin() {
-        return $this->isSession("user_login");
+        $lLoginOk = false;
+        $lLoginOk |= $this->isTestEnv();
+        $lLoginOk |= $this->isSession("user_login");
+        return $lLoginOk;
     }
     //===============================================
     public function isEmpty() {

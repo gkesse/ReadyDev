@@ -61,7 +61,7 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#xml">XML</a>
+<a class="Summary3" href="#format-de-donnees-xml--libxml2-">Format de données XML (LibXML2)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
@@ -102,6 +102,10 @@
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#freebox">FreeBox</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#google">Google</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
@@ -785,7 +789,7 @@ GString GOpenSSL::readData() {
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="xml">XML</a>
+<a class="Section5" href="#" id="format-de-donnees-xml--libxml2-">Format de données XML (LibXML2)</a>
 </h1>
 <div class="Section6"><br>La bibliothèque (libXML2) permet de manipuler un document XML.<br><br>La fonction (xmlNewDoc) permet de créer un nouveau document XML.<br>La fonction (xmlNewNode) permet de créer un nouveau noeud XML.<br>La fonction (xmlDocSetRootElement) permet d'initialiser le noeud racine d'un document XML.
 <br><br>Création d'un document XML.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
@@ -1219,6 +1223,23 @@ Port de fin &gt; 9010
 Port de destination &gt; 9010
 Commentaire &gt; readydev-system
 Sauvegarder
+OK</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="google">Google</a>
+</h1>
+<div class="Section6"><br>Google est une société spécialisée dans les technologies du web.<br><br>Enregistrement du mot de passe d'une application.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Google Compte
+Sécurité
+Validation en deux étapes
+Mots de passe des applications
+Autre (Nom personnalisé)
+PHPMailer
+Générer
+Copier le mot de passe (xxxxxxx)
 OK</pre><br></div>
 </div>
 </div>

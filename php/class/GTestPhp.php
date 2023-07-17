@@ -33,6 +33,9 @@ class GTestPhp extends GObject {
         else if($_method == "connexion") {
             $this->runConnexion($_module, $_method);
         }
+        else if($_method == "email") {
+            $this->runEmail($_module, $_method);
+        }
         else {
             $this->m_logs->addError("La méthode est inconnue.");
         }
@@ -120,12 +123,12 @@ class GTestPhp extends GObject {
         $lAction = "login_user";
         
         if($lAction == "") {
-            $this->m_logs->addError("L'action est obligatoire");
+            $this->m_logs->addError("L'action est obligatoire.");
         }
         else if($lAction == "insert") {
             $lUser = new GUser();
-            $lUser->setPseudo("admin");
-            $lUser->setPassword("admin");
+            $lUser->setPseudo("gadmin");
+            $lUser->setPassword("gadmin");
             $lUser->insertUser();
             $this->m_logs->addLogs($lUser->getLogs());
             if(!$this->m_logs->hasErrors()) {
@@ -134,8 +137,8 @@ class GTestPhp extends GObject {
         }
         else if($lAction == "login_user") {
             $lUser = new GUser();
-            $lUser->setPseudo("admin");
-            $lUser->setPassword("admin");
+            $lUser->setPseudo("gadmin");
+            $lUser->setPassword("gadmin");
             $lUser->loginUser();
             $this->m_logs->addLogs($lUser->getLogs());
             if(!$this->m_logs->hasErrors()) {
@@ -153,6 +156,34 @@ class GTestPhp extends GObject {
             if(!$this->m_logs->hasErrors()) {
                 $this->m_logs->addData($lUser->serialize());
             }
+        }
+        else {
+            $this->m_logs->addError("L'action est inconnue.");
+        }
+    }
+    //===============================================
+    public function runEmail($_module, $_method) {
+        $lAction = "no_reply";
+        
+        if($lAction == "") {
+            $this->m_logs->addError("L'action est obligatoire");
+        }
+        else if($lAction == "reply") {
+            $lEmail = new GEmail();
+            $lEmail->addTo("kernelly.blavatsky@outlook.fr", "Kernelly BLAVATSKY");
+            $lEmail->setSubject("Salutations (Reply)");
+            $lEmail->setBody("Bonjour à tout les webmasters.");
+            $lEmail->sendEmail();
+            $this->m_logs->addLogs($lEmail->getLogs());
+        }
+        else if($lAction == "no_reply") {
+            $lEmail = new GEmail();
+            $lEmail->setReply("no-reply@readydev.com", "No-Reply [ReadyDev]");
+            $lEmail->addTo("kernelly.blavatsky@outlook.fr", "Kernelly BLAVATSKY");
+            $lEmail->setSubject("Salutations (No-Reply)");
+            $lEmail->setBody("Bonjour à tout les webmasters.");
+            $lEmail->sendEmail();
+            $this->m_logs->addLogs($lEmail->getLogs());
         }
         else {
             $this->m_logs->addError("L'action est inconnue.");

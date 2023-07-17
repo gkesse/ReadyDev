@@ -33,7 +33,7 @@ class GServer extends GManager {
     public function run($_data) {
         $this->deserialize($_data);
         if($this->m_type == "") {
-            $this->m_logs->addError("Le type du traitement est obligatoire.");
+            $this->m_logs->addError("Le type du serveur est obligatoire.");
         }
         else if($this->m_type == "local") {
             $this->runLocal($_data);
@@ -42,7 +42,7 @@ class GServer extends GManager {
             $this->runRemote($_data);
         }
         else {
-            $this->m_logs->addError("Le type du traitement est inconnu.");
+            $this->m_logs->addError("Le type du serveur est inconnu.");
         }
     }
     //===============================================
