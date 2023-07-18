@@ -170,7 +170,7 @@ class GTestPhp extends GObject {
         }
         else if($lAction == "reply") {
             $lEmail = new GEmail();
-            $lEmail->addTo("kernelly.blavatsky@outlook.fr", "Kernelly BLAVATSKY");
+            $lEmail->getTo()->addAddr("kernelly.blavatsky@outlook.fr", "Kernelly BLAVATSKY");
             $lEmail->setSubject("Salutations (Reply)");
             $lEmail->setBody("Bonjour à tout les webmasters.");
             $lEmail->sendEmail();
@@ -178,9 +178,9 @@ class GTestPhp extends GObject {
         }
         else if($lAction == "no_reply") {
             $lEmail = new GEmail();
-            $lEmail->setReply("no-reply@readydev.com", "No-Reply [ReadyDev]");
-            $lEmail->addTo("kernelly.blavatsky@outlook.fr", "Kernelly BLAVATSKY");
-            $lEmail->setSubject("Salutations (No-Reply)");
+            $lEmail->getReply()->setAddr("no-reply@readydev.com", "No-Reply [ReadyDev]");
+            $lEmail->getTo()->addAddr("kernelly.blavatsky@outlook.fr", "Kernelly BLAVATSKY");
+            $lEmail->setSubject("Salutations (No-Reply-O)");
             $lEmail->setBody("Bonjour à tout les webmasters.");
             $lEmail->sendEmail();
             $this->m_logs->addLogs($lEmail->getLogs());

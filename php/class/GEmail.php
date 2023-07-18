@@ -6,15 +6,20 @@ class GEmail extends GManager {
     //===============================================
     private $m_subject = "";
     private $m_body = "";
-    private $m_addrTo = array();
-    private $m_addrReply = array();
-    private $m_addrCC = array();
-    private $m_addrBCC = array();
-    private $m_attachFile = array();
+    private $m_addrTo = null;
+    private $m_addrReply = null;
+    private $m_addrCC = null;
+    private $m_addrBCC = null;
+    private $m_attachFile = null;
     //===============================================
     public function __construct() {
         parent::__construct();
-        $this->setReply("readydevz@gmail.com", "ReadyDev");
+        $this->m_addrTo = new GEmailAddr();
+        $this->m_addrReply = new GEmailAddr();
+        $this->m_addrCC = new GEmailAddr();
+        $this->m_addrBCC = new GEmailAddr();
+        $this->m_attachFile= new GEmailFile();
+        $this->m_addrReply->setAddr("readydevz@gmail.com", "ReadyDev");
     }
     //===============================================
     public function clone() {
@@ -26,13 +31,6 @@ class GEmail extends GManager {
         $this->m_body = $_obj->m_body;
     }
     //===============================================
-    public function isEqual($_obj) {
-        $lEqualOk = true;
-        $lEqualOk &= ($this->m_subject == $_obj->m_subject);
-        $lEqualOk &= ($this->m_body == $_obj->m_body);
-        return $lEqualOk;
-    }
-    //===============================================
     public function setSubject($_subject) {
         $this->m_subject = $_subject;
     }
@@ -41,24 +39,24 @@ class GEmail extends GManager {
         $this->m_body = $_body;
     }
     //===============================================
-    public function addTo($_email, $_name) {
-        $this->m_addrTo[] = array($_email, $_name);
+    public function getTo() {
+        return $this->m_addrTo;
     }
     //===============================================
-    public function setReply($_email, $_name) {
-        $this->m_addrReply = array($_email, $_name);
+    public function getReply() {
+        return $this->m_addrReply;
     }
     //===============================================
-    public function addAddrCC($_email, $_name) {
-        $this->m_addrCC[] = array($_email, $_name);
+    public function getCC() {
+        return $this->m_addrCC;
     }
     //===============================================
-    public function addAddrBCC($_email, $_name) {
-        $this->m_addrBCC[] = array($_email, $_name);
+    public function getBCC() {
+        return $this->m_addrBCC;
     }
     //===============================================
-    public function addAttachFile($_file) {
-        $this->m_attachFile[] = $_file;
+    public function getAttach() {
+        return $this->m_attachFile;
     }
     //===============================================
     public function sendEmail() {
@@ -76,7 +74,7 @@ class GEmail extends GManager {
     }
     //===============================================
     public function sendGmail() {
-        if(empty($this->m_addrTo)) {
+        if(!$this->m_addrTo->size()) {
             $this->m_logs->addError("L'adresse de destination est obligatoire.");
             return;
         }
@@ -105,33 +103,34 @@ class GEmail extends GManager {
         
         $lMailer->setFrom("readydevz@gmail.com", "ReadyDev");
         
-        $lEmail = $this->m_addrReply[0];
-        $lName = $this->m_addrReply[1];
+        $lEmail = $this->m_addrReply->getEmail();
+        $lName = $this->m_addrReply->getName();
         $lMailer->addReplyTo($lEmail, $lName);
         
-        for($i = 0; $i < count($this->m_addrTo); $i++) {
-            $lAddr = $this->m_addrTo[$i];
-            $lEmail = $lAddr[0];
-            $lName = $lAddr[1];
+        for($i = 1; $i <= $this->m_addrTo->size(); $i++) {
+            $this->m_addrTo->loadFromMap($i);
+            $lEmail = $this->m_addrTo->getEmail();
+            $lName = $this->m_addrTo->getName();
             $lMailer->addAddress($lEmail, $lName);
         }
         
-        for($i = 0; $i < count($this->m_addrCC); $i++) {
-            $lAddr = $this->m_addrCC[$i];
-            $lEmail = $lAddr[0];
-            $lName = $lAddr[1];
+        for($i = 1; $i <= $this->m_addrCC->size(); $i++) {
+            $this->m_addrCC->loadFromMap($i);
+            $lEmail = $this->m_addrCC->getEmail();
+            $lName = $this->m_addrCC->getName();
             $lMailer->addCC($lEmail, $lName);
         }
         
-        for($i = 0; $i < count($this->m_addrBCC); $i++) {
-            $lAddr = $this->m_addrBCC[$i];
-            $lEmail = $lAddr[0];
-            $lName = $lAddr[1];
+        for($i = 1; $i <= $this->m_addrBCC->size(); $i++) {
+            $this->m_addrBCC->loadFromMap($i);
+            $lEmail = $this->m_addrBCC->getEmail();
+            $lName = $this->m_addrBCC->getName();
             $lMailer->addBCC($lEmail, $lName);
         }
         
-        for($i = 0; $i < count($this->m_attachFile); $i++) {
-            $lFile = $this->m_attachFile[$i];
+        for($i = 1; $i <= $this->m_attachFile->size(); $i++) {
+            $this->m_attachFile->loadFromMap($i);
+            $lFile = $this->m_attachFile->getFile();
             $lMailer->addAttachment($lFile);
         }
         
@@ -154,7 +153,13 @@ class GEmail extends GManager {
     public function serialize($_code = "email") {
         $lDom = new GCode();
         $lDom->createDoc();
-        $lDom->addData($_code, "root", $this->m_subject);
+        $lDom->addData($_code, "subject", $this->m_subject);
+        $lDom->addData($_code, "body", utf8_to_b64($this->m_body));
+        $lDom->addData($_code, "addr_to", utf8_to_b64($this->m_addrTo->serialize()));
+        $lDom->addData($_code, "addr_reply", utf8_to_b64($this->m_addrReply->serialize()));
+        $lDom->addData($_code, "addr_cc", utf8_to_b64($this->m_addrCC->serialize()));
+        $lDom->addData($_code, "addr_bcc", utf8_to_b64($this->m_addrBCC->serialize()));
+        $lDom->addData($_code, "attach_file", utf8_to_b64($this->m_attachFile->serialize()));
         $lDom->addMap($_code, $this->m_map);
         return $lDom->toString();
     }
@@ -163,7 +168,13 @@ class GEmail extends GManager {
         parent::deserialize($_data);
         $lDom = new GCode();
         $lDom->loadXml($_data);
-        $this->m_subject = $lDom->getData($_code, "root");
+        $this->m_subject = $lDom->getData($_code, "subject");
+        $this->m_body = b64_to_utf8($lDom->getData($_code, "body"));
+        $this->m_addrTo->deserialize(b64_to_utf8($lDom->getData($_code, "addr_to")));
+        $this->m_addrReply->deserialize(b64_to_utf8($lDom->getData($_code, "addr_reply")));
+        $this->m_addrCC->deserialize(b64_to_utf8($lDom->getData($_code, "addr_cc")));
+        $this->m_addrBCC->deserialize(b64_to_utf8($lDom->getData($_code, "addr_bcc")));
+        $this->m_attachFile->deserialize(b64_to_utf8($lDom->getData($_code, "attach_file")));
         $lDom->getMap($_code, $this->m_map, $this);
     }
     //===============================================
@@ -182,7 +193,7 @@ class GEmail extends GManager {
     }
     //===============================================
     public function onSendEmail($_data) {
-
+        $this->sendEmail();
     }
     //===============================================
 }

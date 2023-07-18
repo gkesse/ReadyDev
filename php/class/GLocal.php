@@ -28,6 +28,9 @@ class GLocal extends GManager {
         else if($this->m_module == "sitemap") {
             $this->onSitemap($_data);
         }
+        else if($this->m_module == "email") {
+            $this->onEmail($_data);
+        }
         else {
             $this->m_logs->addError("Le module est inconnu.");
         }
@@ -63,6 +66,13 @@ class GLocal extends GManager {
     //===============================================
     public function onSitemap($_data) {
         $lObj = new GSitemap();
+        $lObj->run($_data);
+        $this->m_logs->addLogs($lObj->getLogs());
+        $this->m_resp->loadData($lObj->serialize());
+    }
+    //===============================================
+    public function onEmail($_data) {
+        $lObj = new GEmail();
         $lObj->run($_data);
         $this->m_logs->addLogs($lObj->getLogs());
         $this->m_resp->loadData($lObj->serialize());
