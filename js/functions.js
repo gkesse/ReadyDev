@@ -92,13 +92,44 @@ String.prototype.toXml = function() {
 //===============================================
 String.prototype.toBase64 = function() {
     var lData = this;
-    lData = utf8_to_b64(lData);
+    lData = btoa(encodeURIComponent(lData));
     return lData;
 }
 //===============================================
 String.prototype.fromBase64 = function() {
     var lData = this;
-    lData = b64_to_utf8(lData);
+    lData = decodeURIComponent(atob(lData));
+    return lData;
+}
+//===============================================
+String.prototype.substr = function(_start, _length = null) {
+    var lData = this;
+    if(!_length) {
+        lData = lData.substring(_start);
+    }
+    else {
+        lData = lData.substring(_start, _start + _length);
+    }
+    return lData;
+}
+//===============================================
+String.prototype.extractData = function(_start, _end) {
+    var lData = this;
+    var lStart = lData.indexOf(_start);
+    if(lStart == -1) return "";
+    var lPos = lStart + _start.length;
+    var lEnd = lData.indexOf(_end, lPos);
+    if(lEnd == -1) return "";
+    lData = lData.substring(lPos, lEnd);
+    return lData;
+}
+//===============================================
+String.prototype.extractFrom = function(_start) {
+    var lData = this;
+    var lStart = lData.indexOf(_start);
+    if(lStart == -1) return "";
+    var lPos = lStart + _start.length;
+    lData = lData.substring(lPos);
     return lData;
 }
 //===============================================

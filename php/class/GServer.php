@@ -54,10 +54,10 @@ class GServer extends GManager {
     }
     //===============================================
     public function runRemote($_data) {
-        $lCurl = new GCurl();
-        $lCurl->callProxy($_data);
-        $this->m_logs->addLogs($lCurl->getLogs());
-        $this->m_resp->loadData($lCurl->getResponseText());
+        $lClient = new GCurl();
+        $lData = $lClient->postHttp($_data);
+        $this->m_logs->addLogs($lClient->getLogs());
+        $this->m_resp->loadData($lData);
     }
     //===============================================
  }

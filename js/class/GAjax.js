@@ -34,6 +34,7 @@ class GAjax extends GObject {
         lDom.addData("manager", "module", _module);
         lDom.addData("manager", "method", _method);
         lDom.addData("server", "type", _type);
+        lDom.addData("facade", "facade", "server_cpp");
         lDom.loadData(_params);
         var lData = lDom.toString();
         this.callServer(lData, _callback);
@@ -84,7 +85,8 @@ class GAjax extends GObject {
         lXhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
         var lReq = "";
-        lReq += sprintf("req=%s", _data);
+        var lData = encodeURIComponent(_data);
+        lReq += sprintf("req=%s", lData);
         lXhttp.send(lReq);
         lLoader.onOpenLoader();
         return !this.m_logs.hasErrors();

@@ -14,6 +14,11 @@ class GCurl extends GObject {
         return $this->m_codeHttp;
     }
     //===============================================
+    public function toPort() {
+        if($this->isTestEnv()) return 9011;
+        return 9010;
+    }
+    //===============================================
     public function checkErrors($_data) {
         if($this->m_dataLogs->hasErrors()) {
             $this->m_logs->addError(sprintf("Le serveur n'est pas disponible."));
@@ -39,17 +44,18 @@ class GCurl extends GObject {
     }
     //===============================================
     public function postHttp($_data) {
-        if(empty($_data)) return "";
-        
-        $lUrl = "http://127.0.0.1:9010";
+        if($_data == "") return "";
+
+        $lPort = $this->toPort();        
+        $lUrl = sprintf("http://readydev.ovh:%d", $lPort);
         $lUsername = "Admin";
         $lPassword = "Admin";
         $lUserAgent = "ReadyApi/1.0";
-        $lTimeout = 10;
+        $lTimeout = 0;
                 
         $lCurl = curl_init();
         curl_setopt($lCurl, CURLOPT_URL, $lUrl);
-        curl_setopt($lCurl, CURLOPT_TIMEOUT, $lTimeout);
+        //curl_setopt($lCurl, CURLOPT_TIMEOUT, $lTimeout);
         
         $lHeaders = array();
         $lHeaders[] = sprintf("Content-Type: application/xml");

@@ -9,8 +9,12 @@ class GFile extends GObject {
         this.m_parentId = 0;
         this.m_name = "";
         this.m_path = "";
-        this.m_mimeType = "";
         this.m_isDir = false;
+        this.m_mimeType = "";
+        this.m_size = "";
+        this.m_createDate = "";
+        this.m_updateDate = "";
+        this.m_data = "";
     }
     //===============================================
     static Instance() {
@@ -29,9 +33,13 @@ class GFile extends GObject {
         this.m_parentId = _obj.m_parentId;
         this.m_name = _obj.m_name;
         this.m_path = _obj.m_path;
-        this.m_mimeType = _obj.m_mimeType;
         this.m_isDir = _obj.m_isDir;
-    }
+        this.m_mimeType = _obj.m_mimeType;
+        this.m_size = _obj.m_size;
+        this.m_createDate = _obj.m_createDate;
+        this.m_updateDate = _obj.m_updateDate;
+        this.m_data = _obj.m_data;
+   }
     //===============================================
     isEqual(_obj) {
         var lEqualOk = true;
@@ -69,8 +77,12 @@ class GFile extends GObject {
         lDom.addData(_code, "parent_id", this.m_parentId);
         lDom.addData(_code, "name", this.m_name);
         lDom.addData(_code, "path", this.m_path);
-        lDom.addData(_code, "mime_type", this.m_mimeType);
         lDom.addData(_code, "is_dir", this.m_isDir);
+        lDom.addData(_code, "mime_type", this.m_mimeType);
+        lDom.addData(_code, "size", this.m_size);
+        lDom.addData(_code, "create_date", this.m_createDate);
+        lDom.addData(_code, "update_date", this.m_updateDate);
+        lDom.addData(_code, "data", this.m_data);
         lDom.addMap(_code, this.m_map);
         return lDom.toString();
     }
@@ -82,8 +94,12 @@ class GFile extends GObject {
         this.m_parentId = lDom.getData(_code, "parent_id");
         this.m_name = lDom.getData(_code, "name");
         this.m_path = lDom.getData(_code, "path");
-        this.m_mimeType = lDom.getData(_code, "mime_type");
         this.m_isDir = lDom.getData(_code, "is_dir");
+        this.m_mimeType = lDom.getData(_code, "mime_type");
+        this.m_size = lDom.getData(_code, "size");
+        this.m_createDate = lDom.getData(_code, "create_date");
+        this.m_updateDate = lDom.getData(_code, "update_date");
+        this.m_data = lDom.getData(_code, "data");
         lDom.getMap(_code, this.m_map, this);
     }
     //===============================================
@@ -91,11 +107,12 @@ class GFile extends GObject {
         if(_method == "") {
             this.m_logs.addError("La méthode est obligatoire.");
         }
-        //===============================================
         else if(_method == "load_file_tree") {
             this.onLoadFileTree(_obj, _data);
         }
-        //===============================================
+        else if(_method == "save_file") {
+            this.onSaveFile(_obj, _data);
+        }
         else {
             this.m_logs.addError("La méthode est inconnue.");
         }
@@ -112,6 +129,18 @@ class GFile extends GObject {
         if(_isOk) {
             var lObj = GFile.Instance();
             lObj.deserialize(_data);
+        }
+    }
+    //===============================================
+    onSaveFile(_obj, _data) {
+        var lAjax = new GAjax();
+        var lData = this.serialize();
+        lAjax.callRemote("file", "save_file", lData, this.onSaveFileCB);
+    }
+    //===============================================
+    onSaveFileCB(_data, _isOk) {
+        if(_isOk) {
+
         }
     }
     //===============================================
