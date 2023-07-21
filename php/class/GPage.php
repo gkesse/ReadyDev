@@ -202,18 +202,19 @@ class GPage extends GManager {
         $lPath = sprintf("%s%s/%s", $this->m_root, $this->m_path, $this->m_name);
         $lPath = $this->getPath($lPath);
         
-        $lFile = sprintf("%s/index.php", $lPath);
-        
-        if(!file_exists($lFile)) {
-            file_put_contents($lFile, "");
-        }
-        
         if(file_exists($lPath)) {
             $this->m_logs->addError("Le répertoire existe déjà.");
             return false;
         }
         
         mkdir($lPath, 0777, true);
+        
+        $lFile = sprintf("%s/index.php", $lPath);
+        
+        if(!file_exists($lFile)) {
+            file_put_contents($lFile, "");
+        }
+        
         return !$this->m_logs->hasErrors();
     }
     //===============================================

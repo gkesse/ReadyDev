@@ -92,13 +92,39 @@ String.prototype.toXml = function() {
 //===============================================
 String.prototype.toBase64 = function() {
     var lData = this;
-    lData = btoa(encodeURIComponent(lData));
+    lData = encodeURIComponent(lData);
+    lData = btoa(lData);
     return lData;
 }
 //===============================================
 String.prototype.fromBase64 = function() {
     var lData = this;
-    lData = decodeURIComponent(atob(lData));
+    lData = atob(lData);
+    lData = decodeURIComponent(lData);
+    return lData;
+}
+//===============================================
+String.prototype.toB64 = function() {
+    var lData = this;
+    lData = btoa(lData);
+    return lData;
+}
+//===============================================
+String.prototype.fromB64 = function() {
+    var lData = this;
+    lData = atob(lData);
+    return lData;
+}
+//===============================================
+String.prototype.toUri = function() {
+    var lData = this;
+    lData = encodeURIComponent(lData);
+    return lData;
+}
+//===============================================
+String.prototype.fromUri = function() {
+    var lData = this;
+    lData = decodeURIComponent(lData);
     return lData;
 }
 //===============================================

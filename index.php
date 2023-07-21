@@ -6,7 +6,7 @@ use php\class\GProcess;
 //===============================================
 $lProcess = new GProcess();
 $lProcess->init();
-$lProcess->run("js", "email");
+$lProcess->run("prod", "file");
 $lProcess->runFooter();
 $lProcess->clean();
 //===============================================

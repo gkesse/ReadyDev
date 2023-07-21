@@ -21,8 +21,8 @@ class GTest extends GObject {
         else if(_method == "log") {
             this.onLog(_method, _obj, _data);
         }
-        else if(_method == "email") {
-            this.onEmail(_method, _obj, _data);
+        else if(_method == "file") {
+            this.onFile(_method, _obj, _data);
         }
         else {
             this.m_logs.addError("La méthode est inconnue.");
@@ -94,7 +94,7 @@ class GTest extends GObject {
         this.m_logs.addData(lLogC.serialize());
     }
     //===============================================
-    onEmail(_method, _obj, _data) {
+    onFile(_method, _obj, _data) {
         var lAction = "load_file";
         
         if(!_obj) {
@@ -105,7 +105,7 @@ class GTest extends GObject {
                 var lBody = document.getElementById("TestBodyJs");
                 var lHtml = "";
                 lHtml += sprintf("<input id='TestEmailLoadFile' type='file' name='fileupload'/>\n");
-                lHtml += sprintf("<button onclick='call_server(\"test\", \"email\", this)'>Charger</button>\n");
+                lHtml += sprintf("<button onclick='call_server(\"test\", \"file\", this)'>Charger</button>\n");
                 lBody.innerHTML = lHtml;
             }
             else {
@@ -130,9 +130,6 @@ class GTest extends GObject {
                         lFile.m_mimeType = lFileI.type;
                         lFile.m_size = lFileI.size;
                         lFile.m_data = lData;
-                        /*var lLog = new GLog();
-                        lLog.addData(lData);
-                        lLog.showLogsX();*/
                         lFile.onSaveFile();
                     };
                     lReader.readAsDataURL(lFileI);

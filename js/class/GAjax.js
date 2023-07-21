@@ -85,8 +85,7 @@ class GAjax extends GObject {
         lXhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
         var lReq = "";
-        var lData = encodeURIComponent(_data);
-        lReq += sprintf("req=%s", lData);
+        lReq += sprintf("req=%s", _data);
         lXhttp.send(lReq);
         lLoader.onOpenLoader();
         return !this.m_logs.hasErrors();

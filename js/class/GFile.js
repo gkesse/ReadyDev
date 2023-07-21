@@ -82,7 +82,7 @@ class GFile extends GObject {
         lDom.addData(_code, "size", this.m_size);
         lDom.addData(_code, "create_date", this.m_createDate);
         lDom.addData(_code, "update_date", this.m_updateDate);
-        lDom.addData(_code, "data", this.m_data);
+        lDom.addData(_code, "data", this.m_data.toUri());
         lDom.addMap(_code, this.m_map);
         return lDom.toString();
     }
@@ -99,7 +99,7 @@ class GFile extends GObject {
         this.m_size = lDom.getData(_code, "size");
         this.m_createDate = lDom.getData(_code, "create_date");
         this.m_updateDate = lDom.getData(_code, "update_date");
-        this.m_data = lDom.getData(_code, "data");
+        this.m_data = lDom.getData(_code, "data").fromUri();
         lDom.getMap(_code, this.m_map, this);
     }
     //===============================================

@@ -286,8 +286,8 @@ class GPage extends GObject {
                 lPage.showTable("load_page_select", "load_page_next");
             }
             else {
-                lPage.addLog("Le résultat est vide.");
-                lPage.showLogsX();
+                lPage.m_logs.addLog("Le résultat est vide.");
+                lPage.m_logs.showLogsX();
             }
         }
     }
