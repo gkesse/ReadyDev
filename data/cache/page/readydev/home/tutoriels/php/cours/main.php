@@ -42,11 +42,15 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#xml">XML</a>
+<a class="Summary3" href="#format-de-donnees-xml--domdocument-">Format de données XML (DOMDocument)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#classe">Classe</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#wampserver">WampServer</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
@@ -304,7 +308,7 @@ Bonjour tout le monde.</pre><br></div>
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="xml">XML</a>
+<a class="Section5" href="#" id="format-de-donnees-xml--domdocument-">Format de données XML (DOMDocument)</a>
 </h1>
 <div class="Section6"><br>La classe (DOMDocument) permet de manipuler des documents XML.<br><br>La classe (DOMDocument) fournit la méthode (createElement) qui permet de créer un noeud XML.<br>La classe (DOMDocument) fournit la propriété (preserveWhiteSpace) qui permet de préserver les espaces dans un document XML.<br>La classe (DOMDocument) fournit la propriété (formatOutput) qui permet de formater un document XML.&nbsp;<br>La classe (DOMDocument) fournit la méthode (appendChild) qui permet d'ajouter un noeud à un document XML.<br><br>Création d'un document XML.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
 //===============================================
@@ -480,4 +484,24 @@ class GObject {
 <div class="Bullet3">L'opérateur (public) permet de définir une portée publique.<br>Les attributs associés à cette portée sont accessibles à tous les nivaux.</div>
 </div><br></div>
 </div>
-</div></div><br>
+</div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="wampserver">WampServer</a>
+</h1>
+<div class="Section6"><br>L'utilitaire (WampServer) permet de créer un serveur web PHP.<br><br>WampServer fournit l'utilitaire (httpd) qui permet d'identifier des erreurs de démarrage de WampServer.<br><br>Identification des erreurs de démarrage (en cas d'erreur).<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">cd C:\wamp64\bin\apache\apache2.4.54.2\bin
+
+httpd -t
+
+(OS 2)Le fichier spÚcifiÚ est introuvable.  : AH02291:
+Cannot access directory 'C:/dev/php/.../logs/'
+for error log of vhost defined at C:/wamp64/.../httpd-vhosts.conf:34
+AH00014: Configuration check failed</pre><br>Identification des erreurs de démarrage (en cas de succès).&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">cd C:\wamp64\bin\apache\apache2.4.54.2\bin
+
+httpd -t
+
+Syntax OK</pre><br></div>
+</div>
+</div>
+</div><br>
