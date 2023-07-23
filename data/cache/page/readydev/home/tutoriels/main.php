@@ -120,9 +120,13 @@
 <a class="Section5" href="#" id="embedsys">Système embarqué</a>
 </h1>
 <div class="Section6"><br><div class="GTuto1 Tuto1">
-<a class="GTuto2 Tuto2" href="/home/tutoriels/embedsys/pic">
+<a class="GTuto2 Tuto2" href="/home/tutoriels/embedsys/8051">
+<div class="Tuto3"><i class="Tuto6 fa fa-microchip"></i></div>
+<div class="Tuto4"><div class="Tuto7">8051</div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez en C avec le<br>8051</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/embedsys/pic">
 <div class="Tuto3"><i class="Tuto6 fa fa-microchip"></i></div>
 <div class="Tuto4"><div class="Tuto7">PIC</div></div>
-<div class="Tuto5"><div class="Tuto8">Programmez avec le<br>PIC</div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez en C avec le<br>PIC</div></div>
 </a>
 </div><br></div></div></div></div><br>
