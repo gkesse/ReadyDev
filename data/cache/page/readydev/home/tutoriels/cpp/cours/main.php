@@ -1136,7 +1136,7 @@ public:
 </div><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">Il faudra qualifier l'appel à la méthode (f).</div>
-</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+</div><br>L'opérateur (::) permet de qualifier l'appel à une méthode.<br><br>Qualification de l'appel à une méthode.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 class A {
 public:
     void f();
