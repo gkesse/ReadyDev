@@ -1023,7 +1023,17 @@ L'accès à un attribut peut être limité à 3 types de portée:<br><br><div cl
 <h1 class="Section4">
 <a class="Section5" href="#" id="heritage-de-classe">Héritage de classe</a>
 </h1>
-<div class="Section6"><br>L'opérateur (:) permet de créer un héritage de classe en C++.<br><br>Déclaration de la classe mère.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#heritage-de-classe_heritage-simple">Héritage simple</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#heritage-de-classe_heritage-multiple">Héritage multiple</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="heritage-de-classe_heritage-simple" href="#heritage-de-classe">Héritage simple</a>
+</h2><br>L'opérateur (:) permet de créer un héritage de classe en C++.<br><br>Déclaration de la classe mère.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 class GObject {
 public:
     GObject();
@@ -1052,7 +1062,39 @@ GProcess::GProcess()
 GProcess::~GProcess() {
 
 }
-//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="heritage-de-classe_heritage-multiple" href="#heritage-de-classe">Héritage multiple</a>
+</h2><br>Le langage (C++) offre la possibilité de réaliser l'héritage multiple.<br><br>Réalisation de l'héritage multiple.<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">On peut avoir une classe (C) qui hérite des classes (A) et (B).</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+class A {
+
+}
+//===============================================
+class B {
+
+}
+//===============================================
+class C : public A, public B {
+
+}
+//===============================================</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une classe (B) ne peut pas hériter plusieurs d'une classe (A).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">On ne peut pas avoir une classe (B) qui hérite plusieurs fois d'une classe (A).</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+class A {
+
+}
+//===============================================
+class B : public A, public A {
+
+}
+//===============================================</pre><br><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
