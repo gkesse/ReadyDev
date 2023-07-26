@@ -1094,7 +1094,69 @@ class A {
 class B : public A, public A {
 
 }
-//===============================================</pre><br><br></div></div></div></div><br><div class="GSection1 Section1">
+//===============================================</pre><br>Un appel ambigu se produit lorsque:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une classe (C) hérite des classes (A) et (B).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Les classes (A) et (B) implémentent la méthode (f).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">La classe (C) utilise la méthode (f).</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+class A {
+public:
+    void f();
+}
+//===============================================
+class B {
+public:
+    void f();
+}
+//===============================================
+class C : public A, public B {
+public:
+    void g() {
+        f();
+    }
+}
+//===============================================</pre><br>La question ?<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Quelle est la méthode (f) à appeler ?</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">La réponse est indéterminée.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Le compilateur ne compilera pas.</div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Il faudra qualifier l'appel à la méthode (f).</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+class A {
+public:
+    void f();
+}
+//===============================================
+class B {
+public:
+    void f();
+}
+//===============================================
+class C : public A, public B {
+public:
+    void gA() {
+        A::f();
+    }
+    void gB() {
+        B::f();
+    }
+}
+//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
