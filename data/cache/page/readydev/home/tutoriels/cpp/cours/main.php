@@ -1031,6 +1031,10 @@ L'accès à un attribut peut être limité à 3 types de portée:<br><br><div cl
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#heritage-de-classe_heritage-multiple">Héritage multiple</a>
 </div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#heritage-de-classe_heritage-en-diamant">Héritage en diamant</a>
+</div>
 </div><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="heritage-de-classe_heritage-simple" href="#heritage-de-classe">Héritage simple</a>
 </h2><br>L'opérateur (:) permet de créer un héritage de classe en C++.<br><br>Déclaration de la classe mère.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
@@ -1156,7 +1160,35 @@ public:
         B::f();
     }
 }
-//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="heritage-de-classe_heritage-en-diamant" href="#heritage-de-classe">Héritage en diamant</a>
+</h2><br>L'héritage en diamant se produit lorsque:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une classe (D) hérite des classes (B) et (C).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Les classes (B) et (C) héritent virtuellement d'une classe (A).</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+class A {
+
+}
+//===============================================
+class B : public virtual A {
+
+}
+//===============================================
+class C : public virtual A {
+
+}
+//===============================================
+class D : public B, public C {
+
+}
+//===============================================</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'héritage virtuel permet d'éviter la duplication des données de la classe (A) dans la classe (D).</div>
+</div><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
