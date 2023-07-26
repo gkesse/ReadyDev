@@ -92,15 +92,15 @@ String.prototype.toXml = function() {
 //===============================================
 String.prototype.toBase64 = function() {
     var lData = this;
-    lData = encodeURIComponent(lData);
     lData = btoa(lData);
+    lData = encodeURIComponent(lData);
     return lData;
 }
 //===============================================
 String.prototype.fromBase64 = function() {
     var lData = this;
-    lData = atob(lData);
     lData = decodeURIComponent(lData);
+    lData = atob(lData);
     return lData;
 }
 //===============================================

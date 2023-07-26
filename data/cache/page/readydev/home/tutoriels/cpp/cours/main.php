@@ -85,6 +85,10 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#transtypage--cast-">Transtypage (Cast)</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#git">Git</a>
 </div>
 <div class="GSummary11 Summary1">
@@ -938,7 +942,7 @@ void GCalculator::onRunCalculator(const GString&amp; _data) {
 </div>
 </div><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="base-de-donnees--sql-_index-sql" href="#base-de-donnees--sql-">Index SQL</a>
-</h2><br>Un index SQL permet de rechercher rapidement des données dans une Table.<br><br>Les système de gestion de base données relationnelle (SGBDR) créée systématiquement un index chaque fois que l’on pose une clé primaire (PRIMARY KEY) ou une contrainte d’unicité (UNIQUE) sur une table. En revanche, il n’y a pas d’index créé automatiquement par le système (SGBDR) derrière une contrainte (FOREIGN KEY).<br><br><h2 class="GTitle1 Title1">
+</h2><br>Un index SQL permet de rechercher rapidement des données dans une Table.<br><br>Les système de gestion de base données relationnelle (SGBDR) créée systématiquement un index chaque fois que l?on pose une clé primaire (PRIMARY KEY) ou une contrainte d?unicité (UNIQUE) sur une table. En revanche, il n?y a pas d?index créé automatiquement par le système (SGBDR) derrière une contrainte (FOREIGN KEY).<br><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="base-de-donnees--sql-_injection-sql" href="#base-de-donnees--sql-">Injection SQL</a>
 </h2><br>L'injection SQL (SQLi) est une attaque qui consiste à injecter des instruction SQL dans des données utilisateur afin de détourner le comportement du serveur. Cela peut permettre d'accéder à l'interface d'administration d'un système sans s'y être autoriser.<br><br></div>
 </div>
@@ -1081,6 +1085,39 @@ void GCalculator::deserialize(const GString&amp; _data, const GString&amp; _code
     m_result = lDom.getData(_code, "result");
 }
 //===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="transtypage--cast-">Transtypage (Cast)</a>
+</h1>
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#transtypage--cast-_transtypage--const_cast-">Transtypage (const_cast)</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#transtypage--cast-_transtypage--dynamic_cast-">Transtypage (dynamic_cast)</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#transtypage--cast-_transtypage--reinterpret_cast--">Transtypage (reinterpret_cast)&nbsp;</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#transtypage--cast-_transtypage--static_cast-">Transtypage (static_cast)</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="transtypage--cast-_transtypage--const_cast-" href="#transtypage--cast-">Transtypage (const_cast)</a>
+</h2><br><type>L'opérateur (const_cast) est utilisé pour remplacer explicitement const et/ou volatile dans un cast. Le type cible doit être le même que le type source à l'exception de la modification de ses attributs const ou volatile. Ce type de transtypage manipule l'attribut const de l'objet passé, qu'il soit défini ou supprimé.<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="transtypage--cast-_transtypage--dynamic_cast-" href="#transtypage--cast-">Transtypage (dynamic_cast)</a>
+</h2>&nbsp;<br><type>L'opérateur (dynamic_cast) effectue un cast d'exécution qui vérifie la validité du cast. Si le transtypage ne peut pas être effectué, le transtypage échoue et l'expression prend la valeur null. Un dynamic_cast effectue des transtypages sur des types polymorphes et ne peut convertir un pointeur A* en un pointeur B* que si l'objet pointé est réellement un objet B.<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="transtypage--cast-_transtypage--reinterpret_cast--" href="#transtypage--cast-">Transtypage (reinterpret_cast)&nbsp;</a>
+</h2><type><br>L'opérateur (reinterpret_cast) change un pointeur en tout autre type de pointeur. Il permet également de convertir un pointeur en un type entier et vice versa.<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="transtypage--cast-_transtypage--static_cast-" href="#transtypage--cast-">Transtypage (static_cast)</a>
+</h2>&nbsp;&nbsp;<br><type>L'opérateur (static_cast) effectue un cast non polymorphe. Par exemple, il peut être utilisé pour convertir un pointeur de classe de base en un pointeur de classe dérivée.</type></type></type></type><br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
