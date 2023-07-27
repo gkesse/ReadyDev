@@ -89,6 +89,10 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#modeles-generiques--template-">Modèles génériques (template)</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#git">Git</a>
 </div>
 <div class="GSummary11 Summary1">
@@ -1399,6 +1403,73 @@ void GCalculator::deserialize(const GString&amp; _data, const GString&amp; _code
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="modeles-generiques--template-">Modèles génériques (template)</a>
+</h1>
+<div class="Section6"><br>L'opérateur (template) permet de créer des modèles génériques de fonctions.<br><br>Création d'un modèle générique de fonction.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+template &lt;typename T&gt;
+T fmax(T x, T y) {
+    return (x &gt; y) ? x : y;
+}
+//===============================================
+int main(int _argc, char** _argv) {
+    printf("fmax&lt;int&gt;(3, 7) : %d\n", fmax&lt;int&gt;(3, 7));
+    printf("fmax&lt;double&gt;(3.0, 7.0) : %f\n", fmax&lt;double&gt;(3.0, 7.0));
+    printf("fmax&lt;char&gt;('g', 'e') : %c\n", fmax&lt;char&gt;('g', 'e'));
+    return 0;
+}
+//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">fmax&lt;int&gt;(3, 7) : 7
+fmax&lt;double&gt;(3.0, 7.0) : 7.000000
+fmax&lt;char&gt;('g', 'e') : g</pre><br>L'opérateur (template) permet de créer des modèles génériques de classes.&nbsp;<br><br>Création d'un modèle générique de classe.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+template &lt;typename T&gt;
+class GArray {
+public:
+    GArray(T _arr[], int _size);
+    ~GArray();
+    void print();
+
+private:
+    T* m_ptr;
+    int m_size;
+};
+//===============================================
+template &lt;typename T&gt;
+GArray&lt;T&gt;::GArray(T _arr[], int _size) {
+    m_ptr = new T[_size];
+    m_size = _size;
+    for (int i = 0; i &lt; m_size; i++) {
+        m_ptr[i] = _arr[i];
+    }
+}
+//===============================================
+template &lt;typename T&gt;
+GArray&lt;T&gt;::~GArray() {
+    delete[] m_ptr;
+}
+//===============================================
+template &lt;typename T&gt;
+void GArray&lt;T&gt;::print() {
+    std::cout &lt;&lt; "[";
+    for (int i = 0; i &lt; m_size; i++) {
+        if(i != 0) std::cout &lt;&lt; " ; ";
+        std::cout &lt;&lt; *(m_ptr + i);
+    }
+    std::cout &lt;&lt; "]\n";
+}
+//===============================================
+int main(int _argc, char** _argv) {
+    int lInt[5] = {1, 2, 3, 4, 5};
+    GArray&lt;int&gt; lIntA(lInt, 5);
+    lIntA.print();
+    return 0;
+}
+//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">[1 ; 2 ; 3 ; 4 ; 5]</pre><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
