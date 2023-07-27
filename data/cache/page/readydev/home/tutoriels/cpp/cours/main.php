@@ -73,15 +73,15 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#classe">Classe</a>
+<a class="Summary3" href="#notion-de-classe--class-">Notion de classe (class)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#heritage-de-classe">Héritage de classe</a>
+<a class="Summary3" href="#heritage-de-classe---public-">Héritage de classe (:public)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#polymorphisme-de-classe">Polymorphisme de classe</a>
+<a class="Summary3" href="#polymorphisme-de-classe--virtual-">Polymorphisme de classe (virtual)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
@@ -955,7 +955,7 @@ void GCalculator::onRunCalculator(const GString&amp; _data) {
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="classe">Classe</a>
+<a class="Section5" href="#" id="notion-de-classe--class-">Notion de classe (class)</a>
 </h1>
 <div class="Section6"><br>L'opérateur (class) permet de créer une classe en C++.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 class GObject {
@@ -1025,7 +1025,7 @@ L'accès à un attribut peut être limité à 3 types de portée:<br><br><div cl
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="heritage-de-classe">Héritage de classe</a>
+<a class="Section5" href="#" id="heritage-de-classe---public-">Héritage de classe (:public)</a>
 </h1>
 <div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
@@ -1044,7 +1044,7 @@ L'accès à un attribut peut être limité à 3 types de portée:<br><br><div cl
 <a class="Summary6" href="#heritage-de-classe_probleme-du-diamant">Problème du diamant</a>
 </div>
 </div><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="heritage-de-classe_heritage-simple" href="#heritage-de-classe">Héritage simple</a>
+<a class="Title2" id="heritage-de-classe_heritage-simple" href="#heritage-de-classe---public-">Héritage simple</a>
 </h2><br>L'opérateur (:) permet de créer un héritage de classe en C++.<br><br>Déclaration de la classe mère.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 class GObject {
 public:
@@ -1075,7 +1075,7 @@ GProcess::~GProcess() {
 
 }
 //===============================================</pre><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="heritage-de-classe_heritage-multiple" href="#heritage-de-classe">Héritage multiple</a>
+<a class="Title2" id="heritage-de-classe_heritage-multiple" href="#heritage-de-classe---public-">Héritage multiple</a>
 </h2><br>Le langage (C++) offre la possibilité de réaliser l'héritage multiple.<br><br>Réalisation de l'héritage multiple.<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">On peut avoir une classe (C) qui hérite des classes (A) et (B).</div>
@@ -1173,7 +1173,7 @@ a : 40
 b : 21
 c : 31
 d : 41</pre><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="heritage-de-classe_heritage-en-diamant" href="#heritage-de-classe">Héritage en diamant</a>
+<a class="Title2" id="heritage-de-classe_heritage-en-diamant" href="#heritage-de-classe---public-">Héritage en diamant</a>
 </h2><br>L'héritage en diamant se produit lorsque:<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">Une classe (D) hérite des classes (B) et (C).</div>
@@ -1268,7 +1268,7 @@ a : 40
 b : 21
 c : 31
 d : 41</pre><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="heritage-de-classe_probleme-du-diamant" href="#heritage-de-classe">Problème du diamant</a>
+<a class="Title2" id="heritage-de-classe_probleme-du-diamant" href="#heritage-de-classe---public-">Problème du diamant</a>
 </h2><br>Le problème du diamant se produit lorsque:<br><br><div class="GBullet1 Bullet1"><i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">Les classes (A), (B) et (C) implémentent une méthode (f).</div>
 </div>
@@ -1341,7 +1341,7 @@ public:
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="polymorphisme-de-classe">Polymorphisme de classe</a>
+<a class="Section5" href="#" id="polymorphisme-de-classe--virtual-">Polymorphisme de classe (virtual)</a>
 </h1>
 <div class="Section6"><br>L'opérateur (virtual) permet de créer un polymorphisme de classe en C++.<br><br>Déclaration de la classe mère.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 class GObject {
@@ -1409,7 +1409,7 @@ void GCalculator::deserialize(const GString&amp; _data, const GString&amp; _code
 <a class="Section5" href="#" id="modeles-generiques--template-">Modèles génériques (template)</a>
 </h1>
 <div class="Section6"><br>L'opérateur (template) permet de créer des modèles génériques de fonctions.<br><br>Création d'un modèle générique de fonction.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-#include &lt;stdio.h&gt;
+#include &lt;iostream&gt;
 //===============================================
 template &lt;typename T&gt;
 T fmax(T x, T y) {
@@ -1417,9 +1417,9 @@ T fmax(T x, T y) {
 }
 //===============================================
 int main(int _argc, char** _argv) {
-    printf("fmax&lt;int&gt;(3, 7) : %d\n", fmax&lt;int&gt;(3, 7));
-    printf("fmax&lt;double&gt;(3.0, 7.0) : %f\n", fmax&lt;double&gt;(3.0, 7.0));
-    printf("fmax&lt;char&gt;('g', 'e') : %c\n", fmax&lt;char&gt;('g', 'e'));
+    std::cout &lt;&lt; "fmax&lt;int&gt;(3, 7) : " &lt;&lt; fmax&lt;int&gt;(3, 7) &lt;&lt; "\n";
+    std::cout &lt;&lt; "fmax&lt;double&gt;(3.0, 7.0) : " &lt;&lt; fmax&lt;double&gt;(3.0, 7.0) &lt;&lt; "\n";
+    std::cout &lt;&lt; "fmax&lt;char&gt;('g', 'e') : " &lt;&lt; fmax&lt;char&gt;('g', 'e') &lt;&lt; "\n";
     return 0;
 }
 //===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">fmax&lt;int&gt;(3, 7) : 7
