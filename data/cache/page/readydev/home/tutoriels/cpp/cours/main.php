@@ -1035,6 +1035,10 @@ L'accès à un attribut peut être limité à 3 types de portée:<br><br><div cl
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#heritage-de-classe_heritage-en-diamant">Héritage en diamant</a>
 </div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#heritage-de-classe_probleme-du-diamant">Problème du diamant</a>
+</div>
 </div><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="heritage-de-classe_heritage-simple" href="#heritage-de-classe">Héritage simple</a>
 </h2><br>L'opérateur (:) permet de créer un héritage de classe en C++.<br><br>Déclaration de la classe mère.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
@@ -1126,9 +1130,9 @@ public:
         f();
     }
 }
-//===============================================</pre><br>La question ?<br><br><div class="GBullet1 Bullet1">
+//===============================================</pre><br>La question est:<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">Quelle est la méthode (f) à appeler ?</div>
+<div class="Bullet3">Quelle est la méthode (f) à appeler dans la classe (C).</div>
 </div>
 <div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
@@ -1139,8 +1143,8 @@ public:
 <div class="Bullet3">Le compilateur ne compilera pas.</div>
 </div><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">Il faudra qualifier l'appel à la méthode (f).</div>
-</div><br>L'opérateur (::) permet de qualifier l'appel à une méthode.<br><br>Qualification de l'appel à une méthode.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+<div class="Bullet3">Il faudra qualifier l'appel à la méthode (f) en utilisant l'opérateur de résolution de portée.</div>
+</div><br>L'opérateur de résolution de portée (::) permet de qualifier l'appel à une méthode.<br><br>Résolution de portée lors de l'appel à une méthode.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 class A {
 public:
     void f();
@@ -1160,7 +1164,11 @@ public:
         B::f();
     }
 }
-//===============================================</pre><br><h2 class="GTitle1 Title1">
+//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">main...
+a : 40
+b : 21
+c : 31
+d : 41</pre><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="heritage-de-classe_heritage-en-diamant" href="#heritage-de-classe">Héritage en diamant</a>
 </h2><br>L'héritage en diamant se produit lorsque:<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
@@ -1169,6 +1177,9 @@ public:
 <div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">Les classes (B) et (C) héritent virtuellement d'une classe (A).</div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Cela correspond à une forme en losange dans le diagramme de classes (UML), ce qui conduit à l'appellation en (diamant).</div>
 </div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 class A {
 
@@ -1187,8 +1198,142 @@ class D : public B, public C {
 }
 //===============================================</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">L'héritage virtuel permet d'éviter la duplication des données de la classe (A) dans la classe (D).</div>
-</div><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Bullet3">L'héritage virtuel permet d'éviter la duplication des données de la classe (A) dans la classe (D) comme dans le cas de l'héritage simple.</div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'héritage virtuel empêche les classes (B) et (C) d'appeler le constructeur de la classe (A) depuis la classe (D).</div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'héritage virtuel impose à la classe (D), au moment de sa construction de spécifier la construction de la classe (A).</div>
+</div><br>Constructeur d'un héritage en diamant.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+class A {
+public:
+    A() {
+        a = 10;
+    }
+    A(int _a) {
+        a = _a;
+    }
+protected:
+    int a;
+};
+//===============================================
+class B : public virtual A {
+public:
+    B() : A(20) {
+        b = 21;
+    }
+protected:
+    int b;
+};
+//===============================================
+class C : public virtual A {
+public:
+    C() : A(30) {
+        c = 31;
+    }
+protected:
+    int c;
+};
+//===============================================
+class D : public B, public C {
+public:
+    D() : A(40) {
+        d = 41;
+    }
+    void print() {
+        printf("a : %d\n", a);
+        printf("b : %d\n", b);
+        printf("c : %d\n", c);
+        printf("d : %d\n", d);
+    }
+private:
+    int d;
+};
+//===============================================
+int main(int _argc, char** argv) {
+    printf("%s...\n", __FUNCTION__);
+    D a;
+    a.print();
+    return 0;
+}
+//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">main...
+a : 40
+b : 21
+c : 31
+d : 41</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="heritage-de-classe_probleme-du-diamant" href="#heritage-de-classe">Problème du diamant</a>
+</h2><br>Le problème du diamant se produit lorsque:<br><br><div class="GBullet1 Bullet1"><i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Les classes (A), (B) et (C) implémentent une méthode (f).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">La classe (D) utilise la méthode (f).</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+class A {
+public:
+    virtual void f();
+}
+//===============================================
+class B : public virtual A {
+public:
+    void f();
+}
+//===============================================
+class C : public virtual A {
+public:
+    void f();
+}
+//===============================================
+class D : public B, public C {
+public:
+    void g() {
+        f();
+    }
+}
+//===============================================</pre><br>La question est:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Quelle est la méthode (f) à appeler dans la classe (D).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">La réponse est indéterminée.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Le compilateur ne compilera pas.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Il faudra qualifier l'appel à la méthode (f) en utilisant l'opérateur de résolution de portée.</div>
+</div><br>L'opérateur de résolution de portée (::) permet de qualifier l'appel à une méthode.<br><br>Résolution de portée lors de l'appel à une méthode.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+class A {
+public:
+    virtual void f();
+}
+//===============================================
+class B : public virtual A {
+public:
+    void f();
+}
+//===============================================
+class C : public virtual A {
+public:
+    void f();
+}
+//===============================================
+class D : public B, public C {
+public:
+    void gB() {
+        B::f();
+    }
+    void gC() {
+        C::f();
+    }
+}
+//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
