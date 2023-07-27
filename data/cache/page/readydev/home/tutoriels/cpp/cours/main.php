@@ -93,6 +93,10 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#union-de-types--union-">Union de types (union)</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#git">Git</a>
 </div>
 <div class="GSummary11 Summary1">
@@ -348,7 +352,34 @@ DWORD WINAPI GSocket::onThread(LPVOID _params) {
 <a class="Title2" id="traitements-asynchrones--multithreading-_race-condition" href="#traitements-asynchrones--multithreading-">Race condition</a>
 </h2><br>Race condition est une situation dans laquelle 2 threads essayent d'accéder simultanément à une variable partagée qui n'est pas protégée par un mutex, ce qui conduit à des résultats indésirables.<br><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="traitements-asynchrones--multithreading-_deadlock" href="#traitements-asynchrones--multithreading-">Deadlock</a>
-</h2><br>Deadlock est une situation d'interblocage dans laquelle 2 threads restent bloqués mutuellement parce qu'ils attendent que l'un d'entre eux déverrouille une variable verrouillée par l'autre.<br><br>- Le thread T1 verrouille la variable V1 pour l'utiliser.<br>- Le thread T2 verrouille la variable V2 pour l'utiliser.<br>- Le thread T2 veut utiliser la variable V1 qui est déjà verrouillée par le thread T1.<br>- Le thread T2 attend que le thread T1 libère la variable V1.<br>- Le thread T1 veut utiliser la variable V2 qui est déjà verrouillée par le thread T2.<br>- Le thread T1 attend que le thread T2 libère la variable V2.<br>- Les threads T1 et T2 restent bloqués mutuellement (Deadlock)<br>&nbsp;<br></div></div></div></div><br><div class="GSection1 Section1">
+</h2><br>Deadlock est une situation d'interblocage dans laquelle 2 threads restent bloqués mutuellement parce qu'ils attendent que l'un d'entre eux déverrouille une variable verrouillée par l'autre.<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Le thread T1 verrouille la variable V1 pour l'utiliser.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Le thread T2 verrouille la variable V2 pour l'utiliser.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Le thread T2 veut utiliser la variable V1 qui est déjà verrouillée par le thread T1.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Le thread T2 attend que le thread T1 libère la variable V1.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Le thread T1 veut utiliser la variable V2 qui est déjà verrouillée par le thread T2.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Le thread T1 attend que le thread T2 libère la variable V2.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Les threads T1 et T2 restent bloqués mutuellement (Deadlock)</div>
+</div>&nbsp;<br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
@@ -1470,6 +1501,78 @@ int main(int _argc, char** _argv) {
     return 0;
 }
 //===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">[1 ; 2 ; 3 ; 4 ; 5]</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="union-de-types--union-">Union de types (union)</a>
+</h1>
+<div class="Section6"><br>L'opérateur (union) permet de créer des unions de types.<br><br>Une union de type a la même taille que le plus grand membre.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+//===============================================
+union GData {
+   int i;
+   float f;
+   char str[20];
+};
+//===============================================
+int main(int _argc, char** _argv) {
+   union GData lData;        
+   printf( "Memory size occupied by data : %d\n", sizeof(lData));
+   return 0;
+}
+//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Memory size occupied by data : 20</pre><br>Une union de type ne peut alimenter qu'un seul membre à la fois.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+//===============================================
+union GData {
+   int i;
+   float f;
+   char str[20];
+};
+//===============================================
+int main(int _argc, char** _argv) {
+   union GData lData;        
+
+   lData.i = 10;
+   lData.f = 220.5;
+   strcpy( lData.str, "C Programming");
+
+   printf("lData.i : %d\n", lData.i);
+   printf("lData.f : %f\n", lData.f);
+   printf("lData.str : %s\n", lData.str);
+
+   return 0;
+}
+//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">lData.i : 1917853763
+lData.f : 4122360580327794860452759994368.000000
+lData.str : C Programming</pre><br>Utilisation d'une union de type.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+//===============================================
+union GData {
+   int i;
+   float f;
+   char str[20];
+};
+//===============================================
+int main(int _argc, char** _argv) {
+   union GData lData;        
+
+   lData.i = 10;
+   printf("lData.i : %d\n", lData.i);
+
+   lData.f = 220.5;
+   printf("lData.f : %f\n", lData.f);
+
+   strcpy( lData.str, "C Programming");
+   printf("lData.str : %s\n", lData.str);
+
+   return 0;
+}
+//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">lData.i : 10
+lData.f : 220.500000
+lData.str : C Programming</pre><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
