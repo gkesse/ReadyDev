@@ -9,35 +9,35 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#programme-principal">Programme principal</a>
+<a class="Summary3" href="#programme-principal--main-">Programme principal (main)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#compilation">Compilation</a>
+<a class="Summary3" href="#compilation-d-un-programme--g---">Compilation d'un programme (g++)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#standards-c--11">Standards C++11</a>
+<a class="Summary3" href="#standards-c--11--gnu--11-">Standards C++11 (gnu++11)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#debogage">Débogage</a>
+<a class="Summary3" href="#debogage-d-un-programme--gdb-">Débogage d'un programme (gdb)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#bibliotheque-statique">Bibliothèque statique</a>
+<a class="Summary3" href="#bibliotheque-statique--ar-rcs-">Bibliothèque statique (ar rcs)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#bibliotheque-dynamique">Bibliothèque dynamique</a>
+<a class="Summary3" href="#bibliotheque-dynamique--shared-">Bibliothèque dynamique (shared)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#arguments-en-ligne-de-commande">Arguments en ligne de commande</a>
+<a class="Summary3" href="#arguments-en-ligne-de-commande--argc--argv-">Arguments en ligne de commande (argc, argv)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#conditions">Conditions</a>
+<a class="Summary3" href="#gestion-des-conditions--if--else-if--else-">Gestion des conditions (if, else if, else)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
@@ -97,6 +97,10 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#gestion-des-exceptions--try--catch--throw-">Gestion des exceptions (try, catch, throw)</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#git">Git</a>
 </div>
 <div class="GSummary11 Summary1">
@@ -136,7 +140,7 @@
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="programme-principal">Programme principal</a>
+<a class="Section5" href="#" id="programme-principal--main-">Programme principal (main)</a>
 </h1>
 <div class="Section6"><br>La fonction (main) est le point d'entrée d'un programme C++.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 int main(int _argc, char** _argv) {
@@ -154,7 +158,7 @@ int main(int _argc, char** _argv) {
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="compilation">Compilation</a>
+<a class="Section5" href="#" id="compilation-d-un-programme--g---">Compilation d'un programme (g++)</a>
 </h1>
 <div class="Section6"><br>L'utilitaire (g++) permet de compiler un programme C++.<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">::===============================================
 g++ -c main.cpp -o main.o
@@ -164,7 +168,7 @@ rdv_cpp.exe
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="standards-c--11">Standards C++11</a>
+<a class="Section5" href="#" id="standards-c--11--gnu--11-">Standards C++11 (gnu++11)</a>
 </h1>
 <div class="Section6"><br>Les standards (c++11) apportent plus de fonctionnalités lors de la programmation en C++.<br><br>Ils introduisent le concept du C++ moderne.<br>Ils s'activent au moment de la compilation.<br><br>Activer les standards (gnu++11) sous (g++).<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">::===============================================
 g++ -std=gnu++11 -c main.cpp -o main.o
@@ -175,7 +179,7 @@ rdv_cpp.exe
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="debogage">Débogage</a>
+<a class="Section5" href="#" id="debogage-d-un-programme--gdb-">Débogage d'un programme (gdb)</a>
 </h1>
 <div class="Section6"><br>L'utilitaire (gdb) permet de déboguer un programme C++.<br><br>Il s'active au moment de la compilation.<br>On parle de compilation en mode (debug), s'il est activé, pour un projet en cours de développement.<br>Sinon, on parle de compilation en mode (release), s'il est désactivé, pour un projet en cours de livraison.<br><br>Activer le débogueur sous (g++).<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">::===============================================
 g++ -g -std=gnu++11 -c main.cpp -o main.o
@@ -187,7 +191,7 @@ gdb -ex run --args rdv_cpp.exe test string
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="bibliotheque-statique">Bibliothèque statique</a>
+<a class="Section5" href="#" id="bibliotheque-statique--ar-rcs-">Bibliothèque statique (ar rcs)</a>
 </h1>
 <div class="Section6"><br>La commande (gcc) permet de générer des bibliothèques statiques.<br><br>Génération des fichiers objet.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">gcc -c tinyexpr.c -o tinyexpr.o</pre><br>Génération de la bibliothèque statique.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">ar rcs libtinyexpr.a tinyexpr.o</pre><br></div>
 </div>
@@ -196,7 +200,7 @@ gdb -ex run --args rdv_cpp.exe test string
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="bibliotheque-dynamique">Bibliothèque dynamique</a>
+<a class="Section5" href="#" id="bibliotheque-dynamique--shared-">Bibliothèque dynamique (shared)</a>
 </h1>
 <div class="Section6"><br>La commande (gcc) permet de générer des bibliothèques dynamiques.<br><br>Génération des fichiers objet.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">gcc -c -fPIC tinyexpr.c -o tinyexpr.o</pre><br>Génération de la bibliothèque dynamique.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">gcc -shared -o libtinyexpr.so tinyexpr.o</pre><br></div>
 </div>
@@ -205,7 +209,7 @@ gdb -ex run --args rdv_cpp.exe test string
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="arguments-en-ligne-de-commande">Arguments en ligne de commande</a>
+<a class="Section5" href="#" id="arguments-en-ligne-de-commande--argc--argv-">Arguments en ligne de commande (argc, argv)</a>
 </h1>
 <div class="Section6"><br>La variable (_argc) contient le nombre d'arguments passés en ligne de commande.<br>La variable (_argv) contient la liste d'arguments passés en ligne de commande.<br><br>L'opération (_argv[i]) récupère la valeur d'un argument à la position (i).<br>L'argument à la position (0) correspond au nom du fichier exécutable.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void GProcess::run(int _argc, char** _argv) {
@@ -231,7 +235,7 @@ _argv[2] -&gt; string</pre><br></div></div></div></div><br><div class="GSection1
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="conditions">Conditions</a>
+<a class="Section5" href="#" id="gestion-des-conditions--if--else-if--else-">Gestion des conditions (if, else if, else)</a>
 </h1>
 <div class="Section6"><br>L'opérateur (if) permet de réaliser une condition (Si).<br>L'opérateur (lelse if) permet de réaliser une condition (Sinon Si).<br>L'opérateur (else) permet de réaliser une condition (Sinon).<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void GProcess::run(int _argc, char** _argv) {
@@ -1505,6 +1509,78 @@ int main(int _argc, char** _argv) {
 <div class="Section3">
 <h1 class="Section4">
 <a class="Section5" href="#" id="union-de-types--union-">Union de types (union)</a>
+</h1>
+<div class="Section6"><br>L'opérateur (union) permet de créer des unions de types.<br><br>Une union de type a la même taille que le plus grand membre.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+//===============================================
+union GData {
+   int i;
+   float f;
+   char str[20];
+};
+//===============================================
+int main(int _argc, char** _argv) {
+   union GData lData;        
+   printf( "Memory size occupied by data : %d\n", sizeof(lData));
+   return 0;
+}
+//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Memory size occupied by data : 20</pre><br>Une union de type ne peut alimenter qu'un seul membre à la fois.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+//===============================================
+union GData {
+   int i;
+   float f;
+   char str[20];
+};
+//===============================================
+int main(int _argc, char** _argv) {
+   union GData lData;        
+
+   lData.i = 10;
+   lData.f = 220.5;
+   strcpy( lData.str, "C Programming");
+
+   printf("lData.i : %d\n", lData.i);
+   printf("lData.f : %f\n", lData.f);
+   printf("lData.str : %s\n", lData.str);
+
+   return 0;
+}
+//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">lData.i : 1917853763
+lData.f : 4122360580327794860452759994368.000000
+lData.str : C Programming</pre><br>Utilisation d'une union de type.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+//===============================================
+union GData {
+   int i;
+   float f;
+   char str[20];
+};
+//===============================================
+int main(int _argc, char** _argv) {
+   union GData lData;        
+
+   lData.i = 10;
+   printf("lData.i : %d\n", lData.i);
+
+   lData.f = 220.5;
+   printf("lData.f : %f\n", lData.f);
+
+   strcpy( lData.str, "C Programming");
+   printf("lData.str : %s\n", lData.str);
+
+   return 0;
+}
+//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">lData.i : 10
+lData.f : 220.500000
+lData.str : C Programming</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="gestion-des-exceptions--try--catch--throw-">Gestion des exceptions (try, catch, throw)</a>
 </h1>
 <div class="Section6"><br>L'opérateur (union) permet de créer des unions de types.<br><br>Une union de type a la même taille que le plus grand membre.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 #include &lt;stdio.h&gt;
