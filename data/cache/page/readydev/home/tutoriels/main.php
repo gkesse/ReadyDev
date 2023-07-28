@@ -128,5 +128,9 @@
 <div class="Tuto3"><i class="Tuto6 fa fa-microchip"></i></div>
 <div class="Tuto4"><div class="Tuto7">PIC</div></div>
 <div class="Tuto5"><div class="Tuto8">Programmez en C avec le<br>PIC</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/embedsys/linux">
+<div class="Tuto3"><i class="Tuto6 fa fa-linux"></i></div>
+<div class="Tuto4"><div class="Tuto7">Linux Embarqué</div></div>
+<div class="Tuto5"><div class="Tuto8">Apprenez<br>Linux Embarqué</div></div>
 </a>
 </div><br></div></div></div></div><br>
