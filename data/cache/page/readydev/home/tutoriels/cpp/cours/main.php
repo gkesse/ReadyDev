@@ -41,11 +41,11 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#boucle-for">Boucle For</a>
+<a class="Summary3" href="#boucle-pour-tout--for-">Boucle Pour Tout (for)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#boucle-while">Boucle While</a>
+<a class="Summary3" href="#boucle-tant-que--while-">Boucle Tant Que (while)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
@@ -260,7 +260,7 @@ void GProcess::run(int _argc, char** _argv) {
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="boucle-for">Boucle For</a>
+<a class="Section5" href="#" id="boucle-pour-tout--for-">Boucle Pour Tout (for)</a>
 </h1>
 <div class="Section6"><br>L'opérateur (for) permet de réaliser une boucle (Pour Tout).<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void GLog::print() const {
@@ -280,7 +280,7 @@ void GLog::print() const {
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="boucle-while">Boucle While</a>
+<a class="Section5" href="#" id="boucle-tant-que--while-">Boucle Tant Que (while)</a>
 </h1>
 <div class="Section6"><br>L'opérateur (while) permet de réaliser une boucle (Tant Que).&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void GSocket::sendData(const GString&amp; _data) {
@@ -1582,73 +1582,92 @@ lData.str : C Programming</pre><br></div></div></div></div><br><div class="GSect
 <h1 class="Section4">
 <a class="Section5" href="#" id="gestion-des-exceptions--try--catch--throw-">Gestion des exceptions (try, catch, throw)</a>
 </h1>
-<div class="Section6"><br>L'opérateur (union) permet de créer des unions de types.<br><br>Une union de type a la même taille que le plus grand membre.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
+<div class="Section6"><br>L'opérateur (throw) permet de lancer une exception.<br><br>Lancement d'une exception.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#include &lt;iostream&gt;
 //===============================================
-union GData {
-   int i;
-   float f;
-   char str[20];
-};
+double division(int a, int b) {
+    if(b == 0) {
+        throw "Division by zero condition!";
+    }
+    return (a/b);
+}
 //===============================================
 int main(int _argc, char** _argv) {
-   union GData lData;        
-   printf( "Memory size occupied by data : %d\n", sizeof(lData));
-   return 0;
+    double lDivision = division(22, 0);
+    printf("division : %f\n", lDivision);
+    return 0;
 }
-//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Memory size occupied by data : 20</pre><br>Une union de type ne peut alimenter qu'un seul membre à la fois.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
+//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">terminate called after throwing an instance of 'char const*'</pre><br>L'opérateur (try) permet d'activer la capture des exceptions.<br>L'opérateur (catch) permet de capturer les exceptions.&nbsp;<br>&nbsp;<br>Capture d'une exception.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#include &lt;iostream&gt;
 //===============================================
-union GData {
-   int i;
-   float f;
-   char str[20];
-};
+double division(int a, int b) {
+    if(b == 0) {
+        throw "Division by zero condition!";
+    }
+    return (a/b);
+}
 //===============================================
 int main(int _argc, char** _argv) {
-   union GData lData;        
-
-   lData.i = 10;
-   lData.f = 220.5;
-   strcpy( lData.str, "C Programming");
-
-   printf("lData.i : %d\n", lData.i);
-   printf("lData.f : %f\n", lData.f);
-   printf("lData.str : %s\n", lData.str);
-
-   return 0;
+    try {
+        double lDivision = division(22, 0);
+        printf("division : %f\n", lDivision);
+    }
+    catch(const char* e) {
+        printf("%s\n", e);
+    }
+    return 0;
 }
-//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">lData.i : 1917853763
-lData.f : 4122360580327794860452759994368.000000
-lData.str : C Programming</pre><br>Utilisation d'une union de type.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-#include &lt;stdio.h&gt;
-#include &lt;string.h&gt;
+//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Division by zero condition!</pre><br>L'opérateur (...) permet de capturer toutes les exceptions.<br>&nbsp;&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#include &lt;iostream&gt;
 //===============================================
-union GData {
-   int i;
-   float f;
-   char str[20];
-};
+double division(int a, int b) {
+    if(b == 0) {
+        throw "Division by zero condition!";
+    }
+    return (a/b);
+}
 //===============================================
 int main(int _argc, char** _argv) {
-   union GData lData;        
-
-   lData.i = 10;
-   printf("lData.i : %d\n", lData.i);
-
-   lData.f = 220.5;
-   printf("lData.f : %f\n", lData.f);
-
-   strcpy( lData.str, "C Programming");
-   printf("lData.str : %s\n", lData.str);
-
-   return 0;
+    try {
+        double lDivision = division(22, 0);
+        printf("division : %f\n", lDivision);
+    }
+    catch(...) {
+        printf("Vous essayez de réaliser une division par zero!\n");
+    }
+    return 0;
 }
-//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">lData.i : 10
-lData.f : 220.500000
-lData.str : C Programming</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Vous essayez de réaliser une division par zero!</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une gestion d'exception ne possède qu'un bloc d'activation (try).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une gestion d'exception peut posséder plusieurs blocs de capture (catch).</div>
+</div><br>Enchainement des blocs de capture d'exceptions.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+double division(int a, int b) {
+    if(b == 0) {
+        throw "Division by zero condition!";
+    }
+    return (a/b);
+}
+//===============================================
+int main(int _argc, char** _argv) {
+    try {
+        double lDivision = division(22, 0);
+        printf("division : %f\n", lDivision);
+    }
+    catch(const char* e) {
+        printf("%s\n", e);
+    }
+    catch(...) {
+        printf("Vous essayez de réaliser une division par zero!\n");
+    }
+    return 0;
+}
+//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Division by zero condition!</pre><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
