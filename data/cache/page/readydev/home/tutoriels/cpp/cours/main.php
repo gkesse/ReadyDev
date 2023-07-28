@@ -1667,7 +1667,30 @@ int main(int _argc, char** _argv) {
     }
     return 0;
 }
-//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Division by zero condition!</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Division by zero condition!</pre><br>La classe (std::exception) permet de créer une exception.<br><br>Création d'une exception.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#include &lt;iostream&gt;
+#include &lt;exception&gt;
+//===============================================
+class GException : public std::exception {
+public:
+    const char* what() const throw() {
+        return "C++ Exception";
+    }
+};
+//===============================================
+int main(int _argc, char** _argv) {
+    try {
+        throw GException();
+    }
+    catch(GException&amp; e) {
+        std::cout &lt;&lt; e.what() &lt;&lt; std::endl;
+    }
+    catch(std::exception&amp; e) {
+        std::cout &lt;&lt; e.what() &lt;&lt; std::endl;
+    }
+    return 0;
+}
+//===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">C++ Exception</pre><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
