@@ -26,6 +26,18 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#structure-boucle-infinie-simple">Structure boucle infinie simple</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#structure-boucle-infinie-amelioree">Structure boucle infinie améliorée</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#systeme-d-exploitation-embarque-simple">Système d'exploitation embarqué simple</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#clignotement-d-une-led">Clignotement d'une LED</a>
 </div>
 <div class="GSummary11 Summary1">
@@ -116,6 +128,242 @@ void GDelay_ms(uint _ms) {
     }
 }
 //===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="structure-boucle-infinie-simple">Structure boucle infinie simple</a>
+</h1>
+<div class="Section6"><br>La structure boucle infinie simple est la structure de base de tout programme embarqué.<br><br>Elle comporte:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase d'initialisation (GProcess_init).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase de mise à jour (GProcess_run).</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void main() {
+    GProcess_init();
+    
+    while(1) {
+        GProcess_run();
+    }
+}
+//===============================================</pre><br>Dans le cas du clignotement d'une diode LED,<br><br>La phase d'initialisation se traduira par:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'extinction de toutes les LEDs du port (P1) avec la combinaison (P1, 0xFF).&nbsp;</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GProcess_init() {
+    GPort_writePort(1, 0xFF); 
+}
+//===============================================</pre><br>La phase de mise à jour se traduira par:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'allumage de la LED (L0) du port (P1) avec la combinaison (P1, L0, 0).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'extinction de la LED (L0) du port (P1) avec la combinaison (P1, L0, 1).</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GProcess_run() {
+    GPort_writePin(1, 0, 0);
+    GDelay_ms(500);
+    GPort_writePin(1, 0, 1);
+    GDelay_ms(500);
+}
+//===============================================</pre><br>L'avantage de la structure boucle infinie:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Simple à mettre en oeuvre.</div>
+</div><br>L'inconvénient de la structure boucle infinie:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">N'est pas multitâche.</div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Trop gourmand en énergie.</div>
+</div><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="structure-boucle-infinie-amelioree">Structure boucle infinie améliorée</a>
+</h1>
+<div class="Section6"><br>La structure boucle infinie améliorée est basée sur la structure boucle infinie simple.<br><br>Elle comporte:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase d'initialisation (GProcess_init).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase de mise à jour des tâches (GProcess_update).</div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase d'attente pour la synchronisation des tâches (GDelay_ms).</div>
+</div><br>Le programme principal est basique.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void main() {
+    GProcess_init();
+    
+    while(1) {
+        GProcess_run();
+    }
+}
+//===============================================</pre><br>Le processus d'initialisation comprend:<br>&nbsp;<br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">La phase de mise à jour des tâches (GProcess_update).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">La phase d'attente pour la synchronisation des tâches (GDelay_ms).</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GProcess_run() {
+    GProcess_update();
+    GDelay_ms(10);
+}
+//===============================================</pre><br>Dans le cas du clignotement d'une diode LED,<br><br>La phase d'initialisation se traduira par:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'extinction de toutes les LEDs du port (P1) avec la combinaison (P1, 0xFF).&nbsp;</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GProcess_init() {
+    GPort_writePort(1, 0xFF);
+}
+//===============================================</pre><br>La phase de mise à jour se traduira par:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'allumage de la LED (L0) du port (P1) avec la combinaison (P1, L0, 0).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'extinction de la LED (L0) du port (P1) avec la combinaison (P1, L0, 1).</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GProcess_update() {
+    if(++gTime &gt;= 50) {
+        gFlash = !gFlash;
+        GPort_writePin(1, 0, gFlash);
+        gTime = 0;
+    }
+}
+//===============================================</pre><br>L'avantage de la structure boucle infinie:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Multitâche.</div>
+</div><br>L'inconvénient de la structure boucle infinie:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Trop gourmand en temps CPU.</div>
+</div><br></div>
+</div>
+</div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="systeme-d-exploitation-embarque-simple">Système d'exploitation embarqué simple</a>
+</h1>
+<div class="Section6"><br>Le système d'exploitation embarqué simple (sEOS) est basé sur l'utilisation d'un timer.<br><br>Il comporte:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase d'initialisation du timer (GSeos_init).</div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase d'initialisation des tâches (GSeosTask_init).</div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase de démarrage du système (GSeos_start).</div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase de mise à jour des tâches (GSeos_update)</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase de mise en sommeil du système (GSeos_goToSleep).</div>
+</div><br>Le programme principal est basique.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void main() {
+    GProcess_init();
+    
+    while(1) {
+        GProcess_run();
+    }
+}
+//===============================================</pre><br>Le processus d'initialisation comprend:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">La phase d'initialisation du timer (GSeos_init).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">La phase d'initialisation des tâches (GSeosTask_init).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">La phase de démarrage du système (GSeos_start).</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GProcess_init() {
+    GSeos_init(10);
+    GSeosTask_init();
+    GSeos_start();
+}
+//===============================================
+</pre><br>La boucle principale consiste à mettre le système en sommeil (mode IDLE).<br><br>Le système dort tout le temps. Il se réveille à chaque interruption timer pour mettre à jour les tâches dans un laps de temps. Puis, il repasse en mode sommeil. Cela conduit à un gain considérable d'énergie. Le mode (IDLE) est le mode économie d'énergie.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GProcess_runSeos() {
+    GSeos_goToSleep();
+}
+//===============================================</pre><br>La mise à jour des tâches est réalisée dans le gestionnaire d'interruption du timer.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GSeos_update() interrupt INTERRUPT_TIMER_T0 {
+    GSeos_reload(10);
+    GSeosTask_update();
+}
+//===============================================</pre><br>La phase d'initialisation du timer est en ms.<br><div class="GBullet1 Bullet1">
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GSeos_init(uchar _ms) {
+    TMOD &amp;= 0xF0;
+    TMOD |= 0x01;
+    TL0 = PRELOAD_L(_ms);
+    TH0 = PRELOAD_H(_ms);
+    TF0 = 0;
+    ET0 = 1;
+    TR0 = 1;
+}
+//===============================================</pre><br>La phase de rechargement du timer est en ms.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GSeos_reload(uchar _ms) {
+    TF0 = 0;
+    TR0 = 0;
+    TL0 = PRELOAD_L(_ms);
+    TH0 = PRELOAD_H(_ms);
+    TR0 = 1;
+}
+//===============================================</pre><br>La phase de démarrage du système se traduit par l'activation de toutes les interruptions.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GSeos_start() {
+    EA = 1;
+}
+//===============================================</pre><br>La phase de mise en sommeil se traduit par le passage en mode IDLE.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GSeos_goToSleep() {
+    PCON |= 0x01;
+}
+//===============================================</pre><br>Dans le cas du clignotement d'une diode LED,<br><br>La phase d'initialisation des tâches se traduira par:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'extinction de toutes les LEDs du port (P1) avec la combinaison (P1, 0xFF).</div>
+</div>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GSeosTask_init() {
+    GPort2_writePort(1, 0xFF);
+}
+//===============================================</pre><br>La phase de mise à jour des tâches se traduira par:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'allumage de la LED (L0) du port (P1) avec la combinaison (P1, L0, 0).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'extinction de la LED (L0) du port (P1) avec la combinaison (P1, L0, 1).</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GSeosTask_update() {
+    if(++gTime &gt;= 50) {
+        gFlash = !gFlash;
+        GPort2_writePin(1, 0, gFlash);
+        gTime = 0;
+    }
+}
+//===============================================</pre><br>L'avantage du système d'exploitation embarqué simple:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Multitâche.</div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Faible consommation d'énergie.</div>
+</div><br>L'inconvénient du système d'exploitation embarqué simple:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Encombrement du gestionnaire d'interruption du timer.</div>
+</div><br></div>
+</div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
