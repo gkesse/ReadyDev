@@ -598,9 +598,15 @@ void GLedFlash_update() {
 </div><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">Faible consommation d'énergie.</div>
-</div><br>L'inconvénient du système d'exploitation embarqué simple:<br><br><div class="GBullet1 Bullet1">
+</div><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">Encombrement du gestionnaire d'interruption du timer.</div>
+<div class="Bullet3">Faible encombrement du gestionnaire d'interruption du timer.</div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Temps réel (précis et déterministe).</div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Portable sur toutes les architectures dotées d'un Timer.</div>
 </div><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
