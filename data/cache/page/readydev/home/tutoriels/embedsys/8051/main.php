@@ -34,7 +34,11 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#systeme-d-exploitation-embarque-simple">Système d'exploitation embarqué simple</a>
+<a class="Summary3" href="#systeme-d-exploitation-embarque-simple--seos-">Système d'exploitation embarqué simple (sEOS)</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#ordonnanceur-multitache-temps-reel--scheduler-">Ordonnanceur multitâche temps réel (Scheduler)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
@@ -251,7 +255,7 @@ void GProcess_update() {
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="systeme-d-exploitation-embarque-simple">Système d'exploitation embarqué simple</a>
+<a class="Section5" href="#" id="systeme-d-exploitation-embarque-simple--seos-">Système d'exploitation embarqué simple (sEOS)</a>
 </h1>
 <div class="Section6"><br>Le système d'exploitation embarqué simple (sEOS) est basé sur l'utilisation d'un timer.<br><br>Il comporte:<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
@@ -296,7 +300,7 @@ static void GProcess_init() {
 }
 //===============================================
 </pre><br>La boucle principale consiste à mettre le système en sommeil (mode IDLE).<br><br>Le système dort tout le temps. Il se réveille à chaque interruption timer pour mettre à jour les tâches dans un laps de temps. Puis, il repasse en mode sommeil. Cela conduit à un gain considérable d'énergie. Le mode (IDLE) est le mode économie d'énergie.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-static void GProcess_runSeos() {
+static void GProcess_run() {
     GSeos_goToSleep();
 }
 //===============================================</pre><br>La mise à jour des tâches est réalisée dans le gestionnaire d'interruption du timer.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
@@ -364,6 +368,240 @@ void GSeosTask_update() {
 <div class="Bullet3">Encombrement du gestionnaire d'interruption du timer.</div>
 </div><br></div>
 </div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="ordonnanceur-multitache-temps-reel--scheduler-">Ordonnanceur multitâche temps réel (Scheduler)</a>
+</h1>
+<div class="Section6"><br>L'ordonnanceur multitâche temps réel (Scheduler) est basé sur la structure logicielle d'un système Time-Triggered Architecture (TTA) et est réalisé en utilisant un timer et une liste de tâches.<br><br>Time-Triggered Architecture (TTA), également connue sous le nom de système déclenché par le temps, est un système informatique qui exécute un ou plusieurs ensembles de tâches selon un calendrier de tâches prédéterminé et défini. La mise en oeuvre d'un système TTA impliquera généralement l'utilisation d'une seule interruption liée au débordement périodique d'un temporisateur (timer). Cette interruption peut piloter un planificateur de tâches, une forme restreinte de système d'exploitation en temps réel (RTOS). Le planificateur à son tour libérera les tâches système à des moments prédéfinis (<a class="GLink3 Link4" style=" color: lime;" href="https://en.wikipedia.org/wiki/Time-triggered_architecture" target="_blank">Wikipedia</a>).<br><br>La structure de la tâche comporte:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Un pointeur de tâche (m_pTask).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une date de démarrage de la tâche (m_delay).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une période d'exécution de la tâche (m_period).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Un drapeau d'exécution de la tâche (m_runMe).</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+struct _sGTask {
+    void (*m_pTask)();
+    uint m_delay;
+    uint m_period;
+    uchar m_runMe;
+};
+//===============================================</pre><br>L'ordonnanceur comporte:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase d'initialisation du timer (GSch_init).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase d'initialisation des tâches (GSchTask_init).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase de démarrage du système (GSch_start).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase de mise à jour des tâches (GSch_update).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase d'exécution des tâches (GSch_dispatchTasks).&nbsp;</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase de mise en sommeil du système (GSch_goToSleep).</div>
+</div><br>Le programme principal se traduit par:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Un processus d'initialisation (GProcess_init).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une boucle principale (GProcess_run).&nbsp;</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void main() {
+    GProcess_init();
+    
+    while(1) {
+        GProcess_run();
+    }
+}
+//===============================================</pre><br>Le processus d'initialisation comprend:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase d'initialisation du timer (GSch_init).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase d'initialisation des tâches (GSchTask_init).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase de démarrage du système (GSch_start).</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GProcess_init() {
+    GSch_init(1);
+    GSchTask_init();
+    GSch_start();
+}
+//===============================================</pre><br>La boucle principale se traduit par:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'appel du répartiteur de tâches (GSch_dispatchTasks).</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GProcess_run() {
+    GSch_dispatchTasks();
+}
+//===============================================</pre><br>La phase de mise à jour des tâches se traduit par:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase de mise à jour du délai de démarrage par tâche (m_delay) s'il est différent de (0).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase de mise à jour du drapeau d'exécution par tâche (m_runMe) si le délai de démarrage (m_delay) est égal (0).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase de mise à jour du délai de démarrage par tâche (m_delay) si la période d'exécution (m_period) est différente de (0).&nbsp;</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GSch_update() interrupt INTERRUPT_TIMER_T2 {
+    uchar lIndex;
+    TF2 = 0;
+    for(lIndex = 0; lIndex &lt; SCH_MAX_TASKS; lIndex++) {
+        if(gTaskMap[lIndex].m_pTask != 0) {
+            if(gTaskMap[lIndex].m_delay == 0) {
+                gTaskMap[lIndex].m_runMe += 1;
+                if(gTaskMap[lIndex].m_period != 0) {
+                    gTaskMap[lIndex].m_delay = gTaskMap[lIndex].m_period;
+                }
+            }
+            else {
+                gTaskMap[lIndex].m_delay -= 1;
+            }
+        }
+    }
+}
+//===============================================</pre><br>Le répartiteur de tâches (dispatcher) comprend:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase d'exécution de la tâche (m_pTask) si le drapeau d'exécution par tâche est strictement supérieur à (0).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase de mise à jour du drapeau d'exécution (m_runMe) par tâche après chaque exécution de tâche (m_pTask).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase suppression de la tâche après chaque exécution de tâche (m_pTask) si sa période d'exécution est égale à (0).&nbsp;</div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase de mise en sommeil (GSch_goToSleep) après l'exécution de toutes les tâches.</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GSch_dispatchTasks() {
+    uchar lIndex;
+    for(lIndex = 0; lIndex &lt; SCH_MAX_TASKS; lIndex++) {
+        if(gTaskMap[lIndex].m_runMe &gt; 0) {
+            (*gTaskMap[lIndex].m_pTask)();
+            gTaskMap[lIndex].m_runMe -= 1;
+            if(gTaskMap[lIndex].m_period == 0) {
+                GSch_deleteTask(lIndex);
+            }
+        }
+    }
+    GSch_goToSleep();
+}
+//===============================================</pre><br>La phase de suppression d'une tâche consiste à réinitialiser à (0) toutes ses propriétés.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GSch_deleteTask(uchar _index) {
+    gTaskMap[_index].m_pTask = 0x0000;
+    gTaskMap[_index].m_delay = 0;
+    gTaskMap[_index].m_period = 0;
+    gTaskMap[_index].m_runMe = 0;
+}
+//===============================================</pre><br>La phase d'initialisation du système comporte:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">La suppression de toutes les tâches (GSch_deleteTask).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'initialisation du timer en ms.</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GSch_init(uchar _ms) {
+    uchar lIndex;
+    for(lIndex = 0; lIndex &lt; SCH_MAX_TASKS; lIndex++) {
+        GSch_deleteTask(lIndex);
+    }
+    T2CON = 0x00; 
+    TH2 = PRELOAD_H(_ms); 
+    TL2 = PRELOAD_L(_ms); 
+    RCAP2H = PRELOAD_H(_ms); 
+    RCAP2L = PRELOAD_L(_ms);
+    TF2 = 0;
+    ET2 = 1;
+    TR2 = 1;
+}
+//===============================================</pre><br>La phase d'initialisation des tâches se traduit par:<br><br>Une phase d'initialisation spécifique à la tâche (GLedFlash_init).<br>Une phase d'ajout de la tâche dans l'ordonnanceur (GLedFlash_update).<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GSchTask_init() {
+    GLedFlash_init();
+    GSch_addTask(GLedFlash_update, 0, 500);
+}
+//===============================================</pre><br>L'ajout d'une tâche dans l'ordonnanceur comporte:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase de recherche d'une place disponible dans la liste des tâches.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Une phase d'initialisation des propriétés de la tâche.</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GSch_addTask(void (*_pTask)(), const uint _delay, const uint _period) {
+    uchar lIndex = 0;
+    while((gTaskMap[lIndex].m_pTask != 0) &amp;&amp; (lIndex &lt; SCH_MAX_TASKS)) lIndex++;
+    if(lIndex == SCH_MAX_TASKS) return;
+    gTaskMap[lIndex].m_pTask = _pTask;
+    gTaskMap[lIndex].m_delay = _delay;
+    gTaskMap[lIndex].m_period = _period;
+    gTaskMap[lIndex].m_runMe = 0;
+}
+//===============================================</pre><br>La phase de démarrage du système se traduit par l'activation de toutes les interruptions.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GSeos_start() {
+    EA = 1;
+}
+//===============================================</pre><br>La phase de mise en sommeil se traduit par le passage en mode IDLE.&nbsp;&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GSch_goToSleep() {
+    PCON |= 0x01;
+}
+//===============================================</pre><br>Dans le cas du clignotement d'une diode LED,<br><br>La phase d'initialisation des tâches se traduira par:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'extinction de toutes les LEDs du port (P1) avec la combinaison (P1, 0xFF).</div>
+</div>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GLedFlash_init() {
+    GPort2_writePort(1, 0xFF);
+}
+//===============================================</pre><br>La phase de mise à jour des tâches se traduira par:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'allumage de la LED (L0) du port (P1) avec la combinaison (P1, L0, 0).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">L'extinction de la LED (L0) du port (P1) avec la combinaison (P1, L0, 1).</div>
+</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GLedFlash_update() {
+    gFlash = !gFlash;
+    GPort_writePin(1, 0, gFlash);
+}
+//===============================================</pre><br>L'avantage du système d'exploitation embarqué simple:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Multitâche.</div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Faible consommation d'énergie.</div>
+</div><br>L'inconvénient du système d'exploitation embarqué simple:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Encombrement du gestionnaire d'interruption du timer.</div>
+</div><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
