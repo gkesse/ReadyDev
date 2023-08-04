@@ -6,31 +6,35 @@
 </div>
 <div class="Parallax5" style="background-color: rgb(128, 51, 0);"><br>Le but de ce tutoriel est de vous apprendre à programmer en <b>C</b> avec le&nbsp;<b>8051</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="GSummary1"><div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#introduction">Introduction</a>
+<a class="Summary3" href="#introduction--8051-">Introduction (8051)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#programme-principal">Programme principal</a>
+<a class="Summary3" href="#programme-principal--main-">Programme principal (main)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#definition-de-nouveaux-types">Définition de nouveaux types</a>
+<a class="Summary3" href="#definition-de-nouveaux-types--typedef-">Définition de nouveaux types (typedef)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#manipulation-des-ports">Manipulation des ports</a>
+<a class="Summary3" href="#manipulation-des-ports---define-">Manipulation des ports (#define)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#delai-logiciel">Délai logiciel</a>
+<a class="Summary3" href="#manipulation-des-broches--sbit-">Manipulation des broches (sbit)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#structure-boucle-infinie-simple">Structure boucle infinie simple</a>
+<a class="Summary3" href="#delai-logiciel--for-">Délai logiciel (for)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#structure-boucle-infinie-amelioree">Structure boucle infinie améliorée</a>
+<a class="Summary3" href="#structure-boucle-infinie-simple--while-">Structure boucle infinie simple (while)</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#structure-boucle-infinie-amelioree--delay-">Structure boucle infinie améliorée (delay)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
@@ -64,7 +68,7 @@
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="introduction">Introduction</a>
+<a class="Section5" href="#" id="introduction--8051-">Introduction (8051)</a>
 </h1>
 <div class="Section6"><br><b>8051 </b>est l'un des microcontrôleurs à usage général les plus populaires actuellement utilisés. Le succès du 8051 a engendré un certain nombre de clones, qui sont collectivement appelés la famille de microcontrôleurs MCS-51, qui comprend des puces de fournisseurs tels qu'Atmel, Philips, Infineon et Texas Instruments.&nbsp;Le 8051 est un microcontrôleur 8 bits, ce qui signifie que la plupart des opérations disponibles sont limitées à 8 bits. Il existe 3 tailles de base du 8051 : Court, Standard et Etendu. Les puces Short et Standard sont souvent disponibles sous forme DIP (boîtier double en ligne), mais les modèles Extended 8051 ont souvent un facteur de forme différent et ne sont pas compatibles drop-in. Toutes ces puces sont appelées 8051 car elles peuvent toutes être programmées en utilisant le langage d'assemblage 8051, et elles partagent toutes certaines caractéristiques (bien que les différents modèles aient tous leurs propres caractéristiques spéciales).&nbsp;Les variantes du 8051 peuvent également avoir un certain nombre de fonctionnalités spéciales spécifiques au modèle, telles que UART, ADC, AOP, I2C, CAN, SPI, ce qui en fait un microcontrôleur encore plus puissant.&nbsp;Les puces 8051 sont utilisées dans une grande variété de systèmes de contrôle, d'applications de télécommunications, de robotique ainsi que dans l'industrie automobile. Selon certaines estimations, les puces de la famille 8051 représentent plus de 50% du marché des puces embarquées.<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,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ZVvs6oB2UbbV9zWt/eSapm3quq18Q88Ys6M5+f4/AABI4iZ3AIBkAgsAIJnAAgBIJrAAAJIJLACAZAILACCZwAIASCawAACSCSwAgGQCCwAgmcACAEgmsAAAkgksAIBkAgsAIJnAAgBIJrAAAJIJLACAZAILACCZwAIASCawAACSCSwAgGQCCwAgmcACAEgmsAAAkgksAIBkAgsAIJnAAgBIJrAAAJIJLACAZAILACCZwAIASCawAACSCSwAgGQCCwAgmcACAEgmsAAAkgksAIBkAgsAIJnAAgBIJrAAAJIJLACAZAILACCZwAIASCawAACSCSwAgGQCCwAgmcACAEgmsAAAkgksAIBkAgsAIJnAAgBIJrAAAJIJLACAZAILACCZwAIASCawAACSCSwAgGQCCwAgmcACAEgmsAAAkgksAIBkAgsAIJnAAgBIJrAAAJIJLACAZAILACCZwAIASCawAACSCSwAgGQCCwAgmcACAEgmsAAAkgksAIBkAgsAIJnAAgBIJrAAAJIJLACAZAILACCZwAIASCawAACSCSwAgGQCCwAgmcACAEgmsAAAkgksAIBkAgsAIJnAAgBIJrAAAJIJLACAZAILACCZwAIASCawAACSCSwAgGQCCwAgmcACAEgmsAAAkgksAIBkAgsAIJnAAgBIJrAAAJIJLACAZAILACCZwAIASCawAACSCSwAgGQCCwAgmcACAEgmsAAAkgksAIBkAgsAIJnAAgBIJrAAAJIJLACAZAILACCZwAIASCawAACSCSwAgGQCCwAgmcACAEgmsAAAkgksAIBkAgsAIJnAAgBIJrAAAJIJLACAZAILACCZwAIASCawAACSCSwAgGQCCwAgmcACAEgmsAAAkgksAIBkAgsAIJnAAgBIJrAAAJIJLACAZAILACCZwAIASCawAACSCSwAgGQCCwAgmcACAEgmsAAAkgksAIBkAgsAIJnAAgBIJrAAAJIJLACAZP8HhfhURYXPVgYAAAAASUVORK5CYII="></div><br></div>
 </div>
@@ -73,7 +77,7 @@
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="programme-principal">Programme principal</a>
+<a class="Section5" href="#" id="programme-principal--main-">Programme principal (main)</a>
 </h1>
 <div class="Section6"><br>La fonction (main) est le point d'entrée de tout programme C embarqué.<br><br>Programme principal.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void main() {
@@ -91,7 +95,7 @@ void main() {
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="definition-de-nouveaux-types">Définition de nouveaux types</a>
+<a class="Section5" href="#" id="definition-de-nouveaux-types--typedef-">Définition de nouveaux types (typedef)</a>
 </h1>
 <div class="Section6"><br>L'opérateur (typedef) permet de définir un nouveau type.<br><br>Définition d'un nouveau type.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 typedef unsigned char uchar;
@@ -102,39 +106,44 @@ typedef bit ubit;
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="manipulation-des-ports">Manipulation des ports</a>
+<a class="Section5" href="#" id="manipulation-des-ports---define-">Manipulation des ports (#define)</a>
 </h1>
-<div class="Section6"><br>L'opérateur (P0) permet de manipuler le port (0).<br>L'opérateur (P1) permet de manipuler le port (1).<br>L'opérateur (P2) permet de manipuler le port (2).
-<br>L'opérateur (P3) permet de manipuler le port (3).
-&nbsp;<br><br>Ecriture sur le port (0).<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-void GPort_writePort0(uchar _data) {
-    P0 = _data;
+<div class="Section6"><br>L'opérateur (#define) permet de définir un port.<br><br>Définition d'un port.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#define DATA_PORT   P1
+//===============================================</pre><br>Mise à jour d'un port.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GLedFlash_init() {
+    DATA_PORT = 0xFF;
 }
-//===============================================</pre><br>L'opérateur (sbit) permet de déclarer une broche.<br><br>Déclaration des broches du port (0).<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-sbit P0_0 = P0^0;
-sbit P0_1 = P0^1;
-sbit P0_2 = P0^2;
-sbit P0_3 = P0^3;
-sbit P0_4 = P0^4;
-sbit P0_5 = P0^5;
-sbit P0_6 = P0^6;
-sbit P0_7 = P0^7;
-//===============================================</pre><br>Ecriture sur une broche du port (0).&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-void GPort_writePinP0(uchar _pin, ubit _data) {
-    if(_pin == 0) P0_0 = _data;
-    else if(_pin == 1) P0_1 = _data;
-    else if(_pin == 2) P0_2 = _data;
-    else if(_pin == 3) P0_3 = _data;
-    else if(_pin == 4) P0_4 = _data;
-    else if(_pin == 5) P0_5 = _data;
-    else if(_pin == 6) P0_6 = _data;
-    else if(_pin == 7) P0_7 = _data;
+//===============================================</pre><br>Lecture d'un port.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void G7Seg_writeData(uchar _cmd, uchar _data) {
+    uchar lPort = DATA_PORT;
 }
 //===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="delai-logiciel">Délai logiciel</a>
+<a class="Section5" href="#" id="manipulation-des-broches--sbit-">Manipulation des broches (sbit)</a>
+</h1>
+<div class="Section6"><br>L'opérateur (sbit) permet de définir une broche.<br><br>Définition d'une broche.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#define DATA_PORT   P1
+//===============================================
+sbit DATA_PIN       = DATA_PORT^0;
+//===============================================</pre><br>Mise à jour d'une broche.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GProcess_run() {
+    DATA_PIN = 1;
+    GDelay_ms(500);
+    DATA_PIN = 0;
+    GDelay_ms(500);
+}
+//===============================================</pre><br>Lecture d'une broche.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+static void GProcess_run() {
+    ubit lPin = DATA_PIN;
+}
+//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="delai-logiciel--for-">Délai logiciel (for)</a>
 </h1>
 <div class="Section6"><br>L'opérateur (for) permet de réaliser des délais logiciel.<br><br>Réalisation d'un délai logiciel en ms.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void GDelay_ms(uint _ms) {
@@ -147,7 +156,7 @@ void GDelay_ms(uint _ms) {
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="structure-boucle-infinie-simple">Structure boucle infinie simple</a>
+<a class="Section5" href="#" id="structure-boucle-infinie-simple--while-">Structure boucle infinie simple (while)</a>
 </h1>
 <div class="Section6"><br>La structure boucle infinie simple est la structure de base de tout programme embarqué.<br><br>Elle comporte:<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
@@ -169,7 +178,7 @@ void main() {
 <div class="Bullet3">L'extinction de toutes les LEDs du port (P1) avec la combinaison (P1, 0xFF).&nbsp;</div>
 </div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 static void GProcess_init() {
-    GPort_writePort(1, 0xFF); 
+    DATA_PORT = 0xFF;
 }
 //===============================================</pre><br>La phase de mise à jour se traduira par:<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
@@ -180,9 +189,9 @@ static void GProcess_init() {
 <div class="Bullet3">L'extinction de la LED (L0) du port (P1) avec la combinaison (P1, L0, 1).</div>
 </div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 static void GProcess_run() {
-    GPort_writePin(1, 0, 0);
+    DATA_PIN = 1;
     GDelay_ms(500);
-    GPort_writePin(1, 0, 1);
+    DATA_PIN = 0;
     GDelay_ms(500);
 }
 //===============================================</pre><br>L'avantage de la structure boucle infinie:<br><br><div class="GBullet1 Bullet1">
@@ -201,7 +210,7 @@ static void GProcess_run() {
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="structure-boucle-infinie-amelioree">Structure boucle infinie améliorée</a>
+<a class="Section5" href="#" id="structure-boucle-infinie-amelioree--delay-">Structure boucle infinie améliorée (delay)</a>
 </h1>
 <div class="Section6"><br>La structure boucle infinie améliorée est basée sur la structure boucle infinie simple.<br><br>Elle comporte:<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
@@ -238,7 +247,7 @@ static void GProcess_run() {
 <div class="Bullet3">L'extinction de toutes les LEDs du port (P1) avec la combinaison (P1, 0xFF).&nbsp;</div>
 </div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 static void GProcess_init() {
-    GPort_writePort(1, 0xFF);
+    DATA_PORT = 0xFF;
 }
 //===============================================</pre><br>La phase de mise à jour se traduira par:<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
@@ -250,8 +259,7 @@ static void GProcess_init() {
 </div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void GProcess_update() {
     if(++gTime &gt;= 50) {
-        gFlash = !gFlash;
-        GPort_writePin(1, 0, gFlash);
+        DATA_PIN = !DATA_PIN;
         gTime = 0;
     }
 }
@@ -352,7 +360,7 @@ void GSeos_goToSleep() {
 <div class="Bullet3">L'extinction de toutes les LEDs du port (P1) avec la combinaison (P1, 0xFF).</div>
 </div>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void GSeosTask_init() {
-    GPort2_writePort(1, 0xFF);
+    DATA_PORT = 0xFF;
 }
 //===============================================</pre><br>La phase de mise à jour des tâches se traduira par:<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
@@ -364,8 +372,7 @@ void GSeosTask_init() {
 </div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void GSeosTask_update() {
     if(++gTime &gt;= 50) {
-        gFlash = !gFlash;
-        GPort2_writePin(1, 0, gFlash);
+        DATA_PIN = !DATA_PIN;
         gTime = 0;
     }
 }
@@ -590,7 +597,7 @@ static void GSch_goToSleep() {
 <div class="Bullet3">L'extinction de toutes les LEDs du port (P1) avec la combinaison (P1, 0xFF).</div>
 </div>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void GLedFlash_init() {
-    GPort2_writePort(1, 0xFF);
+    DATA_PORT = 0xFF;
 }
 //===============================================</pre><br>La phase de mise à jour des tâches se traduira par:<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
@@ -601,8 +608,7 @@ void GLedFlash_init() {
 <div class="Bullet3">L'extinction de la LED (L0) du port (P1) avec la combinaison (P1, L0, 1).</div>
 </div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void GLedFlash_update() {
-    gFlash = !gFlash;
-    GPort_writePin(1, 0, gFlash);
+    DATA_PIN = !DATA_PIN;
 }
 //===============================================</pre><br>L'avantage du système d'exploitation embarqué simple:<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
@@ -632,12 +638,12 @@ static void GSchTask_initLedFlash() {
 }
 //===============================================</pre><br>Initialisation des LEDs.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void GLedFlash_init() {
-    GPort_writePort(gPort, 0x0F);
+    DATA_PORT = 0xFF;
 }
 //===============================================</pre><br>Clignotement de la LED.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void GLedFlash_update() {
     gFlash = !gFlash;
-    GPort_writePin(gPort, gPin, gFlash);
+    DATA_PIN = !DATA_PIN;
 }
 //===============================================</pre><br></div>
 </div>
@@ -655,7 +661,7 @@ static void GSchTask_initLedChenillard() {
 }
 //===============================================</pre><br>Initialisation du chenillard.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void GChenillard_init() {
-    GPort_writePort(gPort, 0xFF);
+    DATA_PORT = 0xFF;
 }
 //===============================================</pre><br>Pilotage du chenillard.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void GChenillard_update() {
@@ -674,7 +680,7 @@ static void GChenillard_updateM0() {
     else if(gCount == 5) {gData = 0x20; gCount = 6;}
     else if(gCount == 6) {gData = 0x40; gCount = 7;}
     else if(gCount == 7) {gData = 0x80; gCount = 8;}
-    GPort_writePort(gPort, ~gData);
+    DATA_PORT = ~gData;
 }
 //===============================================</pre><br>Pilotage du mode M1.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 static void GChenillard_updateM1() {
@@ -687,7 +693,7 @@ static void GChenillard_updateM1() {
     else if(gCount == 14) {gData = 0x60; gCount = 15;}
     else if(gCount == 15) {gData = 0xC0; gCount = 16;}
     else if(gCount == 16) {gData = 0x80; gCount = 17;}
-    GPort_writePort(gPort, ~gData);
+    DATA_PORT = ~gData;
 }
 //===============================================</pre><br>Pilotage du mode M2.
 <br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
@@ -702,7 +708,7 @@ static void GChenillard_updateM2() {
     else if(gCount == 24) {gData = 0xE0; gCount = 25;}
     else if(gCount == 25) {gData = 0xC0; gCount = 26;}
     else if(gCount == 26) {gData = 0x80; gCount = 27;}
-    GPort_writePort(gPort, ~gData);
+    DATA_PORT = ~gData;
 }
 //===============================================</pre><br>Pilotage du mode M3.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 static void GChenillard_updateM3() {
@@ -716,7 +722,7 @@ static void GChenillard_updateM3() {
     else if(gCount == 34) {gData = 0xE0; gCount = 35;}
     else if(gCount == 35) {gData = 0xC0; gCount = 36;}
     else if(gCount == 36) {gData = 0x80; gCount = 0;}
-    GPort_writePort(gPort, ~gData);
+    DATA_PORT = ~gData;
 }
 //===============================================</pre><br></div>
 </div>
@@ -732,8 +738,7 @@ static code uchar gDigitMap[] = {
 };
 //===============================================</pre><br>Affichage des digits 7-segment.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void G7Seg_write(uchar _data) {
-    if(_data &gt; 9) return;
-    GPort_writePort(gPort, ~gDigitMap[_data]);
+    DATA_PORT = ~gDigitMap[_data];
 }
 //===============================================</pre><br></div>
 </div></div></div><br><div class="GSection1 Section1">
