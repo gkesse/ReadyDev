@@ -23,6 +23,10 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#gestion-d-une-liste--qvector-">Gestion d'une liste (QVector)</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#gestion-des-layouts--qlayout-">Gestion des layouts (QLayout)</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -166,4 +170,22 @@ for(auto task : mTasks)  {
         completedCount++;
     }
 }
-//===============================================</pre><br></div></div></div></div><br>
+//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="gestion-des-layouts--qlayout-">Gestion des layouts (QLayout)</a>
+</h1>
+<div class="Section6"><br>La classe (QLayout) fournit la méthode (addWidget) qui permet d'ajouter un composant graphique (widget) au layout.<br><br>Ajouter un composant graphique (widget) au layout.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+QVBoxLayout *tasksLayout;
+//===============================================
+ui-&gt;tasksLayout-&gt;addWidget(task);
+//===============================================</pre><br>La classe (QLayout) fournit la méthode (removeWidget) qui permet de supprimer un composant graphique (widget) du layout.<br><br>Suppression d'un composant graphique (widget) du layout.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+QVBoxLayout *tasksLayout;
+//===============================================
+ui-&gt;tasksLayout-&gt;removeWidget(task);
+delete task;
+//===============================================</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Il faudra utiliser l'opérateur (delete) pour supprimer le composant de la mémoire dynamique.</div>
+</div><br></div></div></div></div><br>
