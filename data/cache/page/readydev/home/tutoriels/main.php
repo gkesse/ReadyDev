@@ -58,6 +58,10 @@
 <div class="Tuto3"><i class="Tuto6 fa fa-desktop"></i></div>
 <div class="Tuto4"><div class="Tuto7">C++</div></div>
 <div class="Tuto5"><div class="Tuto8">Programmez en<br>C++</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/qt">
+<div class="Tuto3"><i class="Tuto6 fa fa-desktop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Qt</div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez avec<br>Qt</div></div>
 </a>
 </div><br></div>
 </div>
