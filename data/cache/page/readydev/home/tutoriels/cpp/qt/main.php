@@ -27,6 +27,10 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#gestion-des-layouts--qlayout-">Gestion des layouts (QLayout)</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#utilisation-du-designer--qtdesigner-">Utilisation du designer (QtDesigner)</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -131,7 +135,14 @@ MainWindow::MainWindow(QWidget *parent)
 <div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">Le slot reçu est représenté par la méthode (addTask).</div>
-</div><br>La fenêtre (MainWindow) définit le slot (addTask) qui permet d'ajouter une tâche.<br><br>Ajouter d'une nouvelle tâche.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+</div><br>La fenêtre (MainWindow) définit le slot (addTask) qui permet d'ajouter une tâche.<br><br>La macro (Q_OBJECT) permet d'autoriser l'utilisation des connexions (signal/slot) au sein d'une classe.<br><br>La macro (slots) permet de déclarer une méthode en tant que slot.<br><br>Déclaration d'un slot:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+class MainWindow : public QMainWindow {
+    Q_OBJECT
+
+public slots:
+    void addTask();
+};
+//===============================================</pre><br>Définition d'un slot.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void MainWindow::addTask() {
     bool ok;
     QString name = QInputDialog::getText(this, tr("Add task"),
@@ -188,4 +199,96 @@ delete task;
 //===============================================</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">Il faudra utiliser l'opérateur (delete) pour supprimer le composant de la mémoire dynamique.</div>
-</div><br></div></div></div></div><br>
+</div><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="utilisation-du-designer--qtdesigner-">Utilisation du designer (QtDesigner)</a>
+</h1>
+<div class="Section6"><br>L'utilitaire (QtCreator) permet créer des composants graphiques éditable par le designer (QtDesigner).<br><br>Création d'une classe d'interface graphique (QtDesigner).<br><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Fichier
+New File
+Files and Classes &gt; Qt &gt; Classe d'interface graphique Qt Designer
+Choose
+Templates\Forms &gt; Widget
+Suivant
+Class name &gt; GTask
+Header file &gt; GTask.h
+Source file &gt; GTask.cpp
+Form file &gt; GTask.ui
+Path &gt; C:\dev\qt\designer
+Suivant
+Terminer</pre><br>Cela génèrera 3 fichiers:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Un fichier header (GTask.h)</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Un fichier source (GTask.cpp)</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Un fichier form (GTask.ui)</div>
+</div><br>Ficher header (GTask.h).<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#ifndef _GTask_
+#define _GTask_
+//===============================================
+#include &lt;QWidget&gt;
+//===============================================
+namespace Ui {
+class GTask;
+}
+//===============================================
+class GTask : public QWidget {
+    Q_OBJECT
+
+public:
+    explicit GTask(QWidget *parent = nullptr);
+    ~GTask();
+
+private:
+    Ui::GTask *ui;
+};
+//===============================================
+#endif
+//===============================================</pre><br>Fichier source (GTask.cpp).<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#include "GTask.h"
+#include "ui_GTask.h"
+//===============================================
+GTask::GTask(QWidget *parent)
+: QWidget(parent)
+, ui(new Ui::GTask) {
+    ui-&gt;setupUi(this);
+}
+//===============================================
+GTask::~GTask() {
+    delete ui;
+}
+//===============================================</pre><br>Fichier form (GTask.ui).<br><br><pre class="GCode1 Code1 AceCode" data-mode="xml" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;!-- ============================================ --&gt;
+&lt;ui version="4.0"&gt;
+    &lt;author/&gt;
+    &lt;comment/&gt;
+    &lt;exportmacro/&gt;
+    &lt;!-- ============================================ --&gt;
+    &lt;class&gt;GTask&lt;/class&gt;
+    &lt;!-- ============================================ --&gt;
+    &lt;widget name="GTask" class="QWidget"&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;property name="geometry"&gt;
+            &lt;rect&gt;
+                &lt;x&gt;0&lt;/x&gt;
+                &lt;y&gt;0&lt;/y&gt;
+                &lt;width&gt;400&lt;/width&gt;
+                &lt;height&gt;300&lt;/height&gt;
+            &lt;/rect&gt;
+        &lt;/property&gt;
+        &lt;!-- ============================================ --&gt;
+        &lt;property name="windowTitle"&gt;
+            &lt;string&gt;Form&lt;/string&gt;
+        &lt;/property&gt;
+        &lt;!-- ============================================ --&gt;
+    &lt;/widget&gt;
+    &lt;!-- ============================================ --&gt;
+    &lt;pixmapfunction/&gt;
+    &lt;connections/&gt;
+&lt;/ui&gt;
+&lt;!-- ============================================ --&gt;</pre><br>Forme initiale dans le designer.<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,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"></div><br>Edition dans le designer.<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,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"></div><br></div></div></div></div><br>
