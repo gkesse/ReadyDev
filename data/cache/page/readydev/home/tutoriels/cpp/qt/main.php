@@ -5,7 +5,7 @@
 </div>
 <div class="Parallax5" style="background-color: rgb(128, 51, 0);"><br>Le but de ce tutoriel est de vous apprendre à programmer en <b>C++</b>&nbsp;avec <b>Qt</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="GSummary1"><div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#introduction">Introduction</a>
+<a class="Summary3" href="#introduction--qt-">Introduction (Qt)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
@@ -39,7 +39,7 @@
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="introduction">Introduction</a>
+<a class="Section5" href="#" id="introduction--qt-">Introduction (Qt)</a>
 </h1>
 <div class="Section6"><br><b>Qt</b> est une API orientée objet et développée en C++ par Qt Development Frameworks, filiale de Nokia. Qt offre des composants d'interface graphique (widgets), d'accès aux données, de connexions réseaux, de gestion des fils d'exécution, d'analyse XML, etc. Qt ressemble à un framework lorsqu'on l'utilise pour concevoir des interfaces graphiques ou que l'on conçoit l'architecture de son application en utilisant les mécanismes des signaux et slots par exemple.
 Qt permet la portabilité des applications qui n'utilisent que ses composants par simple recompilation du code source. Les environnements pris en charge sont les Unix (dont GNU/Linux) qui utilisent le système graphique X Window System ou Wayland, Windows, Mac OS X, Tizen et également Genode. Le fait d'être une bibliothèque logicielle multiplateforme attire un grand nombre de personnes qui ont donc l'occasion de diffuser leurs programmes sur les principaux OS existants.
@@ -146,7 +146,7 @@ class MainWindow : public QMainWindow {
 public slots:
     void addTask();
 };
-//===============================================</pre><br>Définition d'un slot.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+//===============================================</pre><br>Définition d'un slot (addTask).<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void MainWindow::addTask() {
     bool ok;
     QString name = QInputDialog::getText(this, tr("Add task"),
@@ -161,6 +161,27 @@ void MainWindow::addTask() {
         ui-&gt;tasksLayout-&gt;addWidget(task);
         updateStatus();
     }
+}
+//===============================================</pre><br>La macro (signals) permet de déclarer une méthode en tant que signal&nbsp;<br><br>Déclaration d'un signal (remove).<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+class Task : public QWidget {
+    Q_OBJECT
+
+signals:
+    void removed(Task* task);
+};
+//===============================================</pre><br>L'opérateur (emit) permet d'émettre un signal.<br><br>Un signal peut être connecté à un autre signal.<br><br>Les expressions lambda peuvent être utilisées lors de la connexion à un signal.<br><br>Connexion du signal à un autre signal.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+Task::Task(const QString&amp; name, QWidget *parent)
+: QWidget(parent)
+, ui(new Ui::Task) {
+    ui-&gt;setupUi(this);
+    connect(ui-&gt;removeButton, &amp;QPushButton::clicked, [this] {
+        emit removed(this);
+    });
+}
+//===============================================</pre><br>La classe (QObject) fournit la méthode (connect) qui permet de connecter le signal à un slot.<br><br>Connexion du signal à un slot.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void MainWindow::addTask() {
+    Task* task = new Task(name);
+    connect(task, &amp;Task::removed, this, &amp;MainWindow::removeTask);
 }
 //===============================================</pre><br></div>
 </div></div></div><br><div class="GSection1 Section1">
