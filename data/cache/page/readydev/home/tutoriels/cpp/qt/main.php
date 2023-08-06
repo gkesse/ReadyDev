@@ -13,23 +13,27 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#installation-de-qt--qt-unified-online-">Installation de Qt (qt-unified-online)</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#debogage-d-un-programme--gdb-">Débogage d'un programme (gdb)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#gestion-des-connexions--signal-slot-">Gestion des connexions (signal/slot)</a>
+<a class="Summary3" href="#manipulation-des-connexions--signal-slot-">Manipulation des connexions (signal/slot)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#gestion-d-une-liste--qvector-">Gestion d'une liste (QVector)</a>
+<a class="Summary3" href="#manipulation-des-listes--qvector-">Manipulation des listes (QVector)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#gestion-des-layouts--qlayout-">Gestion des layouts (QLayout)</a>
+<a class="Summary3" href="#manipulation-des-layouts--qlayout-">Manipulation des layouts (QLayout)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#utilisation-du-designer--qtdesigner-">Utilisation du designer (QtDesigner)</a>
+<a class="Summary3" href="#manipulation-du-designer--qtdesigner-">Manipulation du designer (QtDesigner)</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
@@ -46,6 +50,22 @@
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#manipulation-des-cases-a-cocher--qcheckbox-">Manipulation des cases à cocher (QCheckBox)</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#maintenance-des-composants--maintenancetool-exe-">Maintenance des composants (MaintenanceTool.exe)</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#manipulation-des-timers--qtimer-">Manipulation des timers (QTimer)</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#manipulation-des-fenetres-principales--qmainwindow-">Manipulation des fenêtres principales (QMainWindow)</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#identification-de-la-plateforme--q_os_win--q_os_mac--q_os_linux-">Identification de la plateforme (Q_OS_WIN, Q_OS_MAC, Q_OS_LINUX)</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
@@ -112,6 +132,19 @@ release\setup.exe
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
+<a class="Section5" href="#" id="installation-de-qt--qt-unified-online-">Installation de Qt (qt-unified-online)</a>
+</h1>
+<div class="Section6"><br>L'utilitaire (qt-unified-online) permet d'installer Qt en ligne à partir d'une connexion internet.<br><br>Téléchargement de l'utilitaire (qt-unified-online).<br><br><a class="GLink3 Link4" style=" color: lime;" href="https://login.qt.io/login" target="_blank">https://login.qt.io/login</a><br><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Email &gt; xxxxxx
+Password &gt; xxxxxx
+Sign in
+https://www.qt.io/download-open-source
+Download the Qt Online Installer
+Windows
+Qt Online Installer for Windows</pre><br>Installation Qt.<br><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Lancer l'utilitaire (qt-unified-online)
+Suivre les instructions pour l'installation.</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
 <a class="Section5" href="#" id="debogage-d-un-programme--gdb-">Débogage d'un programme (gdb)</a>
 </h1>
 <div class="Section6"><br>L'opérateur (debug) permet d'activer les options de débogage à partir fichier projet (GProject.pro).<br><br>Activation des options de débogage.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#================================================
@@ -125,7 +158,7 @@ gdb -ex run --args debug\setup
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="gestion-des-connexions--signal-slot-">Gestion des connexions (signal/slot)</a>
+<a class="Section5" href="#" id="manipulation-des-connexions--signal-slot-">Manipulation des connexions (signal/slot)</a>
 </h1>
 <div class="Section6"><br>La classe (QObject) fournit la méthode (connect) qui permet de définir une connexion (signa/slot).<br><br>Définition d'une connexion (signal/slot).<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 MainWindow::MainWindow(QWidget *parent)
@@ -204,7 +237,7 @@ void Task::checked(bool checked) {
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="gestion-d-une-liste--qvector-">Gestion d'une liste (QVector)</a>
+<a class="Section5" href="#" id="manipulation-des-listes--qvector-">Manipulation des listes (QVector)</a>
 </h1>
 <div class="Section6"><br>La classe (QVector) fournit la méthode (append) qui permet d'ajouter un élément à la fin de la liste.<br><br>Ajout d'un élément à la fin de la liste.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 QVector&lt;Task*&gt; mTasks;
@@ -226,7 +259,7 @@ for(auto task : mTasks)  {
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="gestion-des-layouts--qlayout-">Gestion des layouts (QLayout)</a>
+<a class="Section5" href="#" id="manipulation-des-layouts--qlayout-">Manipulation des layouts (QLayout)</a>
 </h1>
 <div class="Section6"><br>La classe (QLayout) fournit la méthode (addWidget) qui permet d'ajouter un composant graphique (widget) au layout.<br><br>Ajouter un composant graphique (widget) au layout.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 QVBoxLayout *tasksLayout;
@@ -244,7 +277,7 @@ delete task;
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="utilisation-du-designer--qtdesigner-">Utilisation du designer (QtDesigner)</a>
+<a class="Section5" href="#" id="manipulation-du-designer--qtdesigner-">Manipulation du designer (QtDesigner)</a>
 </h1>
 <div class="Section6"><br>L'utilitaire (QtCreator) permet créer des composants graphiques éditable par le designer (QtDesigner).<br><br>Création d'une classe d'interface graphique (QtDesigner).<br><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Fichier
 New File
@@ -387,4 +420,83 @@ ui-&gt;checkbox-&gt;setText(name);
 QCheckBox *checkbox;
 //===============================================
 return ui-&gt;checkbox-&gt;isChecked();
-//===============================================</pre><br></div></div></div></div><br>
+//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="maintenance-des-composants--maintenancetool-exe-">Maintenance des composants (MaintenanceTool.exe)</a>
+</h1>
+<div class="Section6"><br>L'utilitaire (MaintenanceTool.exe) permet de mettre à jour les composants Qt.<br><br>Mise à jour des composants Qt.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">MaintenanceTool.exe
+Autoriser l'accès
+Identifiant &gt; xxxxxxxx
+Mot de passe &gt; xxxxxxx
+Suivant
+Cocher &gt; Mettre à jour des composants
+Suivant
+Sélectionner tout
+Suivant
+Mettre à jour
+Redémarrer</pre><br>L'utilitaire (MaintenanceTool.exe) permet d'ajouter de nouveaux composants Qt.
+<br><br>Ajout de nouveaux composants Qt.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">MaintenanceTool.exe
+Autoriser l'accès
+Identifiant &gt; xxxxxxxx
+Mot de passe &gt; xxxxxxx
+Suivant
+Cocher &gt; Ajouter ou supprimer des composants
+Suivant
+Rechercher &gt; charts
+Cocher &gt; Qt 5.15.2 &gt; Additional Libraries &gt; Qt Charts
+Suivant
+Mettre à jour
+Redémarrer</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="manipulation-des-timers--qtimer-">Manipulation des timers (QTimer)</a>
+</h1>
+<div class="Section6"><br>La classe (QTimer) fournit la méthode (setInterval) qui permet définir le temps de sortie du timer en ms.<br>La classe (QTimer) fournit le signal (timeout) qui est déclenché à chaque expiration du temps de sortie.<br>La classe (QTimer) fournit la méthode (start) qui permet définir de démarrer le timer avec un délai d'attente en ms.<br><br>Démarrage d'un timer.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+QTimer mRefreshTimer;
+//===============================================
+mRefreshTimer.setInterval(updateSeriesDelayMs);
+connect(&amp;mRefreshTimer, &amp;QTimer::timeout, this, &amp;SysInfoWidget::updateSeries);
+mRefreshTimer.start(startDelayMs);
+//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="manipulation-des-fenetres-principales--qmainwindow-">Manipulation des fenêtres principales (QMainWindow)</a>
+</h1>
+<div class="Section6"><br><br><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="identification-de-la-plateforme--q_os_win--q_os_mac--q_os_linux-">Identification de la plateforme (Q_OS_WIN, Q_OS_MAC, Q_OS_LINUX)</a>
+</h1>
+<div class="Section6"><br>La macro (Q_OS_WIN) permet d'identifier la plateforme (Windows).<br>La macro (Q_OS_MAC) permet d'identifier la plateforme (MacOS).<br>La macro (Q_OS_LINUX) permet d'identifier la plateforme (Linux).<br><br>Identification de la plateforme (header).&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#ifdef Q_OS_WIN
+    #include "SysInfoWindowsImpl.h"
+#elif defined(Q_OS_MAC)
+    #include "SysInfoMacImpl.h"
+#elif defined(Q_OS_LINUX)
+    #include "SysInfoLinuxImpl.h"
+#endif
+//===============================================
+</pre><br>Identification de la plateforme (source).<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+SysInfo&amp; SysInfo::instance() {
+    #ifdef Q_OS_WIN
+        static SysInfoWindowsImpl singleton;
+    #elif defined(Q_OS_MAC)
+        static SysInfoMacImpl singleton;
+    #elif defined(Q_OS_LINUX)
+        static SysInfoLinuxImpl singleton;
+    #endif
+
+    return singleton;
+}
+//===============================================</pre><br></div>
+</div>
+</div>
+</div><br>
