@@ -735,7 +735,7 @@ else {
 <h1 class="Section4">
 <a class="Section5" href="#" id="manipulation-des-modeles-de-donnees-liste--qabstractlistmodel-">Manipulation des modèles de données liste (QAbstractListModel)</a>
 </h1>
-<div class="Section6"><br>La classe (QAbstractItemModel) fournit la méthode (beginInsertRows) qui permet de démarrer l'insertion de nouvelles lignes de données dans un modèle.<br>La classe (QAbstractItemModel) fournit la méthode (endInsertRows) qui permet de terminer l'insertion de nouvelles lignes de données dans un modèle.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+<div class="Section6"><br>La classe (QAbstractItemModel) fournit la méthode (beginInsertRows) qui permet de démarrer l'insertion de nouvelles lignes de données dans un modèle.<br>La classe (QAbstractItemModel) fournit la méthode (endInsertRows) qui permet de terminer l'insertion de nouvelles lignes de données dans un modèle.<br>La classe (QAbstractItemModel) fournit la méthode (index) qui permet de récupérer l'index d'un modèle à partir de la ligne (row) et de la colonne (col).<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 std::unique_ptr&lt;std::vector&lt;std::unique_ptr&lt;Album&gt;&gt;&gt; mAlbums;
 //===============================================
 QModelIndex AlbumModel::addAlbum(const Album&amp; album) {
