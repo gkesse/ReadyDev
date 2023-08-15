@@ -306,7 +306,7 @@ void GTest::runLsp(int _argc, char** _argv) {
     lSquare.setWidth(4);
     std::cout &lt;&lt; "aire carré : " &lt;&lt; lSquare.getArea() &lt;&lt; "\n";
 }
-//===============================================</pre><br></div>
+//===============================================</pre><br>Comment implémenter les membres de la classe Square ? Si nous voulons suivre le LSP et épargner aux utilisateurs de telles classes des surprises, nous ne pouvons pas: notre carré cesserait d'être un carré si nous appelions setWidth. Nous pouvons soit arrêter d'avoir un carré (non exprimable en utilisant le code précédent), soit modifier également la hauteur, rendant ainsi le carré différent d'un rectangle.<br><br>Si votre code enfreint le LSP, il est probable que vous utilisiez une abstraction incorrecte. Dans notre cas, le carré ne devrait pas hériter du rectangle.<br><br>Une meilleure approche pourrait consister à faire en sorte que les deux implémentent une interface (GShape).<br><br></div>
 </div>
 </div>
 </div><br>
