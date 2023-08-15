@@ -435,7 +435,7 @@ void GTest::runIsp(int _argc, char** _argv) {
     lFood.slice();
     lFood.dice();
 }
-//===============================================</pre><br></div>
+//===============================================</pre><br>Désormais, notre classe (GFood) peut simplement implémenter les deux interfaces (GBlendI, GFoodI), et nous n'avons pas besoin de modifier l'implémentation de notre robot culinaire existant (GBlend).<br><br></div>
 </div>
 </div>
 </div><br>
