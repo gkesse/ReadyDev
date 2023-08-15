@@ -91,6 +91,14 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#manipulation-des-modeles-de-donnees-liste--qabstractlistmodel-">Manipulation des modèles de données liste (QAbstractListModel)</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#fonctions-thread-safe">Fonctions thread-safe</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#fonctions-reentrantes">Fonctions réentrantes</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -821,6 +829,52 @@ QHash&lt;int, QByteArray&gt; AlbumModel::roleNames() const {
     return roles;
 }
 //===============================================</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="fonctions-thread-safe">Fonctions thread-safe</a>
+</h1>
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#fonctions-thread-safe_fonction-thread-safe">Fonction thread-safe</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#fonctions-thread-safe_classe-thread-safe">Classe thread-safe</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="fonctions-thread-safe_fonction-thread-safe" href="#fonctions-thread-safe">Fonction thread-safe</a>
+</h2><br>Une fonction est dite thread-safe lorsqu'elle peut être appelée en toute sécurité à partir de différents threads simultanément. Si deux fonctions thread-safe sont appelés simultanément à partir de différents threads sur les mêmes données partagées, le résultat est toujours défini.
+<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="fonctions-thread-safe_classe-thread-safe" href="#fonctions-thread-safe">Classe thread-safe</a>
+</h2><br>Par extension, on dit qu'une classe être thread-safe lorsque toutes ses fonctions peuvent être appelées à partir de différents threads simultanément sans interférer les unes avec les autres, même en travaillant sur le même objet.<br><br>Les classes thread-safe de Qt incluent QMutex, QMutexLocker, QReadWriteLock, QReadLocker, QWriteLocker, QSemaphore, QThreadStorage<t> et QWaitCondition. De plus, certaines parties de l'API QThread et plusieurs autres fonctions sont thread-safe, notamment QObject::connect(), QObject::disconnect(), QCoreApplication::postEvent() et QCoreApplication::removePostedEvents().<br><br>La plupart des classes non-GUI de Qt répondent à une exigence moins stricte : elles sont réentrantes.</t><br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="fonctions-reentrantes">Fonctions réentrantes</a>
+</h1>
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#fonctions-reentrantes_fonction-reentrante">Fonction réentrante</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#fonctions-reentrantes_classe-reentrante">Classe réentrante</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="fonctions-reentrantes_fonction-reentrante" href="#fonctions-reentrantes">Fonction réentrante</a>
+</h2><br>Une fonction est dite réentrante lorsqu'elle peut être appelée simultanément dans différents threads. Cependant, accéder simultanément au même objet réentrant dans plusieurs threads n'est pas sûr, et ces accès doivent être protégés par un mutex.<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="fonctions-reentrantes_classe-reentrante" href="#fonctions-reentrantes">Classe réentrante</a>
+</h2><br>Par extension, une classe est réentrante si différentes instances de la classe peuvent être utilisées simultanément dans différents threads. Cependant, accéder simultanément au même objet réentrant dans plusieurs threads n'est pas sûr, et ces accès doivent être protégés par un mutex.
+
+En règle générale, toute classe C++ qui ne fait pas référence à des données globales ou autrement partagées est réentrante.<br><br>En raison des limitations héritées des bibliothèques de bas niveau sur lesquelles le support de l'interface graphique de Qt est construit, QWidget et ses sous-classes ne sont pas réentrants. <br><br>Une conséquence de ceci est que nous ne pouvons pas appeler directement des fonctions sur un widget à partir d'un thread secondaire. Si nous voulons, par exemple, changer le texte d'un QLabel à partir d'un thread secondaire, nous pouvons émettre un signal connecté à QLabel::setText() ou appeler
+QMetaObject::invokeMethod() à partir de ce thread.<br><br></div>
 </div>
 </div>
 </div><br>

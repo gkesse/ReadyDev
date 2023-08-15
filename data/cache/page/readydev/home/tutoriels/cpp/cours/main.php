@@ -1,11 +1,19 @@
 <div class="GAccess1 Access1">
 <a class="GAccess2 Access2" href="/home">Accueil</a><i class="Access3 fa fa-chevron-right"></i><a class="GAccess2 Access2" href="/home/tutoriels">Tutoriels</a><i class="Access3 fa fa-chevron-right"></i><a class="GAccess2 Access2" href="/home/tutoriels#cpp">C++</a><i class="Access3 fa fa-chevron-right"></i><a class="GAccess2 Access2" href="/home/tutoriels/cpp/cours">Cours</a></div><div class="GParallax1 Parallax1">
 <div class="Parallax2" style="background-image: url(&quot;/data/img/defaults/binary.png&quot;);">
-<div class="Parallax3"><a href="#" class="Parallax4">Apprendre à programmer en C++</a></div>
+<div class="Parallax3"><a href="#" class="Parallax4">Programmation en C++</a></div>
 </div>
 <div class="Parallax5" style="background-color: rgb(128, 51, 0);"><br>Le but de ce tutoriel est de vous apprendre à programmer en <b>C++</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="GSummary1"><div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#introduction">Introduction</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#ce-qu-il-faut-savoir">Ce qu'il faut savoir</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#utilisation-de-winlibs-sous-windows">Utilisation de WinLibs sous Windows</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
@@ -101,6 +109,22 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#fonctions-thread-safe">Fonctions thread-safe</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#fonctions-reentrantes">Fonctions réentrantes</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#operations-atomiques">Opérations atomiques</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#barrieres-de-memoires">Barrières de mémoires</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#git">Git</a>
 </div>
 <div class="GSummary11 Summary1">
@@ -133,7 +157,171 @@
 <h1 class="Section4">
 <a class="Section5" href="#" id="introduction">Introduction</a>
 </h1>
-<div class="Section6"><br><b>C++</b>&nbsp;est un langage de programmation généraliste de haut niveau. Sorti pour la première fois en tant qu'extension du langage de programmation C, il s'est depuis considérablement développé au fil du temps. Le C++ moderne possède actuellement des fonctionnalités orientées objet, génériques et fonctionnelles, en plus des fonctionnalités de manipulation de mémoire de bas niveau. Il est presque toujours implémenté en tant que langage compilé et de nombreux fournisseurs proposent des compilateurs C++, notamment la Free Software Foundation, LLVM, Microsoft, Intel, Embarcadero, Oracle et IBM. C ++ a été conçu avec la programmation de systèmes et les logiciels embarqués à ressources limitées et les grands systèmes à l'esprit, avec des performances, une efficacité et une flexibilité d'utilisation comme points forts de sa conception. C++ s'est également avéré utile dans de nombreux autres contextes, les principaux atouts étant l'infrastructure logicielle et les applications à ressources limitées, y compris les applications de bureau , les jeux vidéo , les serveurs (par exemple, le commerce électronique, la recherche sur le Web ou les bases de données), et les applications critiques en termes de performances (par exemple, les commutateurs téléphoniques ou les sondes spatiales). C++ est normalisé par l' Organisation internationale de normalisation (ISO).<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,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"></div><br></div>
+<div class="Section6"><br>La plus part des systèmes d'exploitation les plus populaires sont principalement écrits en <b>C++</b>, ou utilisent des composants et des bibliothèques qui sont écrits en C++. Il est quasiment impossible de trouver un ordinateur qui ne contient pas de code écrit en C++. Le C++ offre une certaine flexibilité tout comme les langages modernes de haut niveau et une puissance de calcul considérable en vous donnant un accès direct à la mémoire afin d'optimiser sa gestion et augmenter ainsi les performances de votre application.&nbsp;Grâce à des fonctionnalités telles que les classes et la surcharge des opérateurs ou des méthodes, le C++ vous permet d'étendre les fonctionnalités du langage et d'écrire du code réutilisable.<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,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"></div><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="ce-qu-il-faut-savoir">Ce qu'il faut savoir</a>
+</h1>
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#le-langage-c_le-langage-c">Le langage C</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ce-qu-il-faut-savoir_le-besoin-du-c--">Le besoin du C++</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#le-langage-c_le-langage-c--">Le langage C++</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ce-qu-il-faut-savoir_l-operateur-d-incrementation---">L'opérateur d'incrémentation ++</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ce-qu-il-faut-savoir_la-generation-d-un-fichier-executable">La génération d'un fichier exécutable</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#la-compilation_le-compilateur-visual-c--">Le compilateur Visual C++</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ce-qu-il-faut-savoir_le-compilateur-gcc">Le compilateur GCC</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ce-qu-il-faut-savoir_le-compilateur-mingw">Le compilateur MinGW</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ce-qu-il-faut-savoir_le-compilateur-cygwin">Le compilateur Cygwin</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ce-qu-il-faut-savoir_le-compilateur-msys">Le compilateur MSYS</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ce-qu-il-faut-savoir_le-compilateur-winlibs">Le compilateur WinLibs</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ce-qu-il-faut-savoir_le-compilateur-tdm-gcc">Le compilateur TDM-GCC</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ce-qu-il-faut-savoir_le-compilateur">Le compilateur</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ce-qu-il-faut-savoir_l-archiveur">L'archiveur</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ce-qu-il-faut-savoir_l-editeur-de-liens">L'éditeur de liens</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ce-qu-il-faut-savoir_l-executable">L'exécutable</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ce-qu-il-faut-savoir_la-bibliotheque-dynamique">La bibliothèque dynamique</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ce-qu-il-faut-savoir_l-environnement-de-developpement-integre">L'environnement de développement intégré</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ce-qu-il-faut-savoir_les-systemes-de-construction">Les systèmes de construction</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="le-langage-c_le-langage-c" href="#ce-qu-il-faut-savoir">Le langage C</a>
+</h2><br>Le langage C est le prédécesseur du langage C++. Il a été conçu par <b>Dennis Ritchie</b> aux <b>Bell Labs</b> et publié pour la première fois en 1973. Le C est un langage largement utilisé. En effet, Il a été utilisé pour écrire les premières versions d'Unix et de Windows. Les bibliothèques de développement de logiciels de nombreux systèmes d'exploitation sont encore écrites pour avoir des interfaces en C. Le C est un puissant langage, il peut être utilisé pour écrire du code compilé sous une forme compacte, il utilise un système de typage statique (de sorte que le compilateur effectue le travail de vérification de type), et les types et structures du langage permettent un accès direct à la mémoire de l'architecture informatique.<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ce-qu-il-faut-savoir_le-besoin-du-c--" href="#ce-qu-il-faut-savoir">Le besoin du C++</a>
+</h2><br>Cependant, le C est un langage procédural, basé sur des fonctions. Et, bien que le C ait des types d'enregistrement (struct) pour encapsuler les données, il n'a pas de comportements orienté objet pour agir sur cet état encapsulé.<br><br>De toute évidence, il y avait un besoin pour la puissance de C, dans le but de faire face à la flexibilité et l'extensibilité des classes orientées objet, d'un langage qui était C, avec des classes.<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="le-langage-c_le-langage-c--" href="#ce-qu-il-faut-savoir">Le langage C++</a>
+</h2><br>Ainsi, en 1983, <b>Bjarne
+Stroustrup</b> a publié le C++. Le ++ vient de l'opérateur d'incrémentation ++ de C.<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ce-qu-il-faut-savoir_l-operateur-d-incrementation---" href="#ce-qu-il-faut-savoir">L'opérateur d'incrémentation ++</a>
+</h2><br>Strictement, lorsqu'il est postfixé à une variable, l'opérateur ++ signifie incrémenter la variable, mais renvoie la valeur de la variable avant qu'elle ne soit incrémentée.<br><br>Donc les instructions C suivantes:<br><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">int c = 1;
+int d = c++;</pre><br>Se traduiront par:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">La variable d ayant une valeur de 1.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">La variable c ayant une valeur de 2.</div>
+</div><br>Cela n'exprime pas tout à fait l'idée que C++ est un incrément sur C.<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ce-qu-il-faut-savoir_la-generation-d-un-fichier-executable" href="#ce-qu-il-faut-savoir">La génération d'un fichier exécutable</a>
+</h2><br>Pour exécuter un programme C++ sur votre ordinateur vous aurez besoin d'un compilateur C++ et d'un éditeur de liens pour transformer le code source en un fichier exécutable.<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="la-compilation_le-compilateur-visual-c--" href="#ce-qu-il-faut-savoir">Le compilateur Visual C++</a>
+</h2><br>Visual C++ est téléchargeable gratuitement et disponible uniquement pour les systèmes Windows. Il fournit un compilateur conforme aux normes C++ et il dispose d'une très large gamme d'outils pour faciliter l'écriture de code. Visual C++ fournit des fonctionnalités de langage conformes à C++11 et presque toutes les fonctionnalités de langage de C++14 et C++17. Visual C++ est également fourni avec la bibliothèque d'exécution C99, la bibliothèque standard C++11 et la bibliothèque standard C++14.<br><br><a class="GLink3 Link4" style=" color: lime;" href="https://learn.microsoft.com/en-us/cpp/?view=msvc-170" target="_blank">https://learn.microsoft.com/en-us/cpp/?view=msvc-170</a><br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ce-qu-il-faut-savoir_le-compilateur-gcc" href="#ce-qu-il-faut-savoir">Le compilateur GCC</a>
+</h2><br>GCC (GNU Compiler Collection) est un ensemble d'outils de programmation gratuit et open source qui prend en charge le développement de logiciels C++. GCC est extrêmement populaire sur Linux et disponible également pour les systèmes Windows et MacOS. GCC fonctionne dans un environnement de ligne de commande où vous tapez une commande pour que le compilateur C++ et l'éditeur de liens créent un programme.<br><br>Certains ordinateurs ont GCC installé avec le système d'exploitation. Si vous savez comment utiliser la ligne de commande sur votre ordinateur, vous pouvez taper la commande suivante pour voir si GCC est installé.<br><br>Vérification de l'installation de GCC:<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">g++ --version</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ce-qu-il-faut-savoir_le-compilateur-mingw" href="#ce-qu-il-faut-savoir">Le compilateur MinGW</a>
+</h2><br>MinGW&nbsp;est un ensemble d'outils de programmation gratuit et open source qui fournit le compilateur GCC pour les systèmes Windows.<br><br>MinGW signifie (Minimalist GNU for Windows), il fournit un environnement minimal pour créer des exécutables Windows à l'aide de GCC. Entre autres choses, MinGW inclut un portage de GCC, un portage de l'archiveur et de l'éditeur de liens GNU, et un portage du débogueur GNU GDB. Il comprend également MSYS, un environnement de ligne de commande capable d'exécuter des makefiles GNU et de configurer des scripts.<br><br>À quelques exceptions près, vous pouvez distribuer des binaires compilés avec le portage MinGW de GCC sous la licence de votre choix.<br><br><a class="GLink3 Link4" style=" color: lime;" href="https://www.mingw-w64.org/" target="_blank">https://www.mingw-w64.org/</a><br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ce-qu-il-faut-savoir_le-compilateur-cygwin" href="#ce-qu-il-faut-savoir">Le compilateur Cygwin</a>
+</h2><br>Cygwin est un ensemble d'outils de programmation gratuit et open source qui fournit le compilateur GCC pour les systèmes Windows. Il fournit un émulateur du noyau Linux pour les systèmes Windows.<br><br>Cygwin est un projet ambitieux visant à produire un environnement de type Unix hébergé par Windows. Il fournit une couche de compatibilité Unix qui permet aux programmes écrits pour Unix d'être compilés et exécutés sous Windows. Par conséquent, un énorme assortiment d'utilitaires Unix est disponible pour Cygwin. Même si vous n'êtes pas un développeur Unix, vous pourriez bientôt considérer les outils Cygwin comme indispensables.<br><br>Les binaires construits avec le port Cygwin de GCC, en revanche, sont couverts par la licence publique générale GNU (GPL) par défaut. Si vous souhaitez distribuer un programme compilé sous Cygwin sans rendre la source disponible, vous devez acheter une licence auprès de Red Hat.<br><br><a class="GLink3 Link4" style=" color: lime;" href="https://cygwin.com/" target="_blank">https://cygwin.com/</a><br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ce-qu-il-faut-savoir_le-compilateur-msys" href="#ce-qu-il-faut-savoir">Le compilateur MSYS</a>
+</h2><br>MSYS est un ensemble d'outils de programmation gratuit et open source qui fournit le compilateur GCC pour les systèmes Windows.&nbsp;Il fournit un émulateur du noyau Linux pour les système Windows avec un gestionnaire de package en ligne de commande (pacman).<br><br><a class="GLink3 Link4" style=" color: lime;" href="https://www.msys2.org/" target="_blank">https://www.msys2.org/</a><br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ce-qu-il-faut-savoir_le-compilateur-winlibs" href="#ce-qu-il-faut-savoir">Le compilateur WinLibs</a>
+</h2><br>WinLibs est un ensemble d'outils de programmation gratuit et open source qui fournit le compilateur GCC pour les systèmes Windows.<br><br><a class="GLink3 Link4" style=" color: lime;" href="https://winlibs.com/" target="_blank">https://winlibs.com/</a><br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ce-qu-il-faut-savoir_le-compilateur-tdm-gcc" href="#ce-qu-il-faut-savoir">Le compilateur TDM-GCC</a>
+</h2><br>TDM-GCC est un ensemble d'outils de programmation gratuit et open source qui fournit le compilateur GCC pour les systèmes Windows.<br><br><a class="GLink2 Link4" style=" color: lime;" href="https://jmeubank.github.io/tdm-gcc/">https://jmeubank.github.io/tdm-gcc/</a><br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ce-qu-il-faut-savoir_le-compilateur" href="#ce-qu-il-faut-savoir">Le compilateur</a>
+</h2><br>Le compilateur prend les fichiers source C++ en entrée et produit des fichiers objets, qui contiennent un mélange de code exécutable par la machine et de références symboliques aux fonctions et aux données.<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ce-qu-il-faut-savoir_l-archiveur" href="#ce-qu-il-faut-savoir">L'archiveur</a>
+</h2><br>L'archiveur prend une collection de fichiers objets en entrée et produit une bibliothèque statique, ou archive, qui est simplement une collection de fichiers objets regroupés pour une utilisation pratique.<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ce-qu-il-faut-savoir_l-editeur-de-liens" href="#ce-qu-il-faut-savoir">L'éditeur de liens</a>
+</h2><br>L'éditeur de liens prend une collection de fichiers objets et de bibliothèques et résout leurs références symboliques pour produire une bibliothèque exécutable ou dynamique. En gros, l'éditeur de liens fonctionne en faisant correspondre chaque utilisation d'un symbole à sa définition. Lorsqu'un exécutable ou une bibliothèque dynamique est créée, on dit qu'elle est liée; les bibliothèques utilisées pour construire l'exécutable ou la bibliothèque dynamique sont dites liées.<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ce-qu-il-faut-savoir_l-executable" href="#ce-qu-il-faut-savoir">L'exécutable</a>
+</h2><br>Un exécutable, ou une application, est tout simplement un programme qui peut être exécuté par le système d'exploitation.<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ce-qu-il-faut-savoir_la-bibliotheque-dynamique" href="#ce-qu-il-faut-savoir">La bibliothèque dynamique</a>
+</h2><br>Une bibliothèque dynamique, également appelée bibliothèque partagée, est comme un exécutable sauf qu'elle ne peut pas être exécutée seule; il se compose d'un corps de code exécutable par la machine qui est chargé en mémoire après le démarrage d'une application et peut être partagé par
+une ou plusieurs candidatures.<br><br>Sous Windows, les bibliothèques dynamiques sont également appelées bibliothèques de liens dynamiques (DLL).<br><br>Les fichiers objets et les bibliothèques statiques dont dépend un exécutable ne sont nécessaires que lorsque l'exécutable est construit.<br><br>Les bibliothèques dynamiques dont dépend un exécutable doivent cependant être présentes sur le système d'un utilisateur lorsque l'exécutable est exécuté.<br><br>Extensions de fichiers par système d'exploitation:<br><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">+-------------------+----------+--------------+--------------+
+| File type         | Windows  | Mac OS X     | Linux   |
++-------------------+----------+--------------+--------------+
+| Object files      | .obj     | .o           | .o           |
+| Static libraries  | .lib     | .a           | .a           |
+| Dynamic libraries | .dll     | .dylib       | .so          |
+| Executables       | .exe     | No extension | No extension |
++-------------------+----------+--------------+--------------+</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ce-qu-il-faut-savoir_l-environnement-de-developpement-integre" href="#ce-qu-il-faut-savoir">L'environnement de développement intégré</a>
+</h2><br>Un environnement de développement intégré (EDI) fournit une interface graphique pour organiser une collection de fichiers source et décrire les fichiers binaires qui doivent être générés à partir de ceux-ci. Une fois que vous avez spécifié ces informations, vous pouvez générer les fichiers binaires simplement en sélectionnant une commande appropriée dans un menu ou une barre d'outils. L'EDI est chargé de déterminer l'ordre dans lequel les fichiers binaires doivent être générés, les outils nécessaires pour les générer et les options de ligne de commande qui doivent être transmises aux outils.<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ce-qu-il-faut-savoir_les-systemes-de-construction" href="#ce-qu-il-faut-savoir">Les systèmes de construction</a>
+</h2><br>Un système de construction fournit un format de fichier texte pour décrire une collection de fichiers source et les fichiers binaires qui doivent être générés à partir de ceux-ci, ainsi qu'un outil de génération qui lit ces fichiers texte et génère les fichiers binaires en appelant les outils de ligne de commande appropriés. En règle générale, ces fichiers texte sont créés et modifiés à l'aide d'un éditeur de texte, et l'outil de génération est appelé à partir de la ligne de commande. Certains systèmes de construction, cependant, fournissent une interface graphique pour éditer les fichiers texte et appeler l'outil de construction.<br><br>Alors que les EDI organisent les fichiers en projets, les systèmes de construction organisent les fichiers en cibles. La plupart des cibles correspondent à des fichiers binaires qu'il faut générer; d'autres cibles correspondent à des actions que l'outil de génération doit effectuer, telles que l'installation d'une application. L'outil de construction le plus courant est l'utilitaire make; les fichiers texte sur lesquels il s'appuie sont appelés makefiles.<br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="utilisation-de-winlibs-sous-windows">Utilisation de WinLibs sous Windows</a>
+</h1>
+<div class="Section6"><br>WinLibs fournit l'utilitaire (g++) qui permet de compiler nos projets C++ afin de générer des fichiers objet (.o) et d'éditer les liens afin de générer un fichier exécutable (.exe).<br><br>Nous supposerons que WinLibs est installé sur votre machine Windows. Nous éditerons le programme C++. Nous compilerons le code. Nous exécuterons l'application.<br><br>Programme C++:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+#include &lt;iostream&gt;
+//===============================================
+int main(int _argc, char** _argv) {
+    std::cout &lt;&lt; "Bonjour tout le monde.\n";
+    return 0;
+}
+//===============================================</pre><br>Compilation du code:<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">@echo off
+::===============================================
+set "PATH="
+set "PATH=C:\dev\winlibs\mingw64\bin;%PATH%"
+::===============================================
+g++ -c main.cpp -o main.o
+g++ -o setup.exe main.o
+setup.exe
+::===============================================</pre><br>Nous vidons la variable d'environnement (PATH) à la ligne (3) afin de déterminer clairement les outils nécessaires à la compilation. Nous installons le compilateur (WinLibs) dans les variables d'environnement (PATH) à la ligne (4). Nous compilons le programme (main.cpp) afin de générer le fichier objet (main.o) à la ligne (6). Nous éditons les liens du programme afin de générer le fichier exécutable (setup.exe) à la ligne (7). Nous démarrons l'exécution du fichier exécutable à la ligne (8).<br><br>Exécution du programme:<br><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Bonjour tout le monde.</pre><br></div>
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
@@ -1691,6 +1879,110 @@ int main(int _argc, char** _argv) {
     return 0;
 }
 //===============================================</pre><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">C++ Exception</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="fonctions-thread-safe">Fonctions thread-safe</a>
+</h1>
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#fonctions-thread-safe_fonction-thread-safe">Fonction thread-safe</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#fonctions-thread-safe_classe-thread-safe">Classe thread-safe</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="fonctions-thread-safe_fonction-thread-safe" href="#fonctions-thread-safe">Fonction thread-safe</a>
+</h2><br>Une fonction est dite thread-safe lorsqu'elle peut être appelée en toute sécurité à partir de différents threads simultanément. Si deux fonctions thread-safe
+sont appelés simultanément à partir de différents threads sur les mêmes données partagées, le résultat est toujours défini.<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="fonctions-thread-safe_classe-thread-safe" href="#fonctions-thread-safe">Classe thread-safe</a>
+</h2><br>Par extension, on dit qu'une classe
+être thread-safe lorsque toutes ses fonctions peuvent être appelées à partir de différents threads simultanément sans interférer les unes avec les autres,
+même en travaillant sur le même objet.<br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="fonctions-reentrantes">Fonctions réentrantes</a>
+</h1>
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#fonctions-reentrantes_fonction-reentrante">Fonction réentrante</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#fonctions-reentrantes_classe-reentrante">Classe réentrante</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="fonctions-reentrantes_fonction-reentrante" href="#fonctions-reentrantes">Fonction réentrante</a>
+</h2><br>Une fonction est dite réentrante lorsqu'elle peut être appelée simultanément dans différents threads. Cependant, accéder simultanément au même objet réentrant dans plusieurs threads n'est pas sûr, et ces accès doivent être protégés par un mutex.<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="fonctions-reentrantes_classe-reentrante" href="#fonctions-reentrantes">Classe réentrante</a>
+</h2><br>Par extension, une classe est réentrante si différentes instances de la classe peuvent être utilisées simultanément dans différents threads. Cependant, accéder simultanément au même objet réentrant dans plusieurs threads n'est pas sûr, et ces accès doivent être protégés par un mutex.<br><br>En règle générale, toute classe C++ qui ne fait pas référence à des données globales ou autrement partagées est réentrante.<br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="operations-atomiques">Opérations atomiques</a>
+</h1>
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#operations-atomiques_operation-atomique">Opération atomique</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#operations-atomiques_visual-c--">Visual C++</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="operations-atomiques_operation-atomique" href="#operations-atomiques">Opération atomique</a>
+</h2><br>Une opération atomique est une opération que le processeur peut exécuter avec une seule instruction. Cela la rend atomique dans le sens où rien (à l'exception des interruptions) ne peut interférer avec elle ou modifier les variables ou les données qu'elle peut utiliser.<br><br>Cela concerne les applications dont la garantie de l'ordre d'exécution des instructions, les implémentations sans verrou et les utilisations associées où l'ordre d'exécution des instructions et les garanties d'accès à la mémoire sont importantes.<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="operations-atomiques_visual-c--" href="#operations-atomiques">Visual C++</a>
+</h2><br>Le compilateur MSVC de Microsoft fournit des fonctions qui permettent d'effectuer des opérations de manière atomique.<br><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">=&gt; InterlockedAdd
+Effectue une opération d'addition atomique sur les valeurs LONG spécifiées.
+
+=&gt; InterlockedAddAcquire
+Effectue une opération d'addition atomique sur les valeurs LONG spécifiées.
+L'opération est effectuée avec une sémantique d'ordre de mémoire
+d'acquisition.
+
+=&gt; InterlockedAddRelease
+Effectue une opération d'addition atomique sur les valeurs LONG spécifiées.
+L'opération est effectuée avec une sémantique d'ordonnancement
+de la mémoire de libération.
+
+=&gt; InterlockedAddNoFence
+Effectue une opération d'addition atomique sur les valeurs LONG spécifiées.
+L'opération est effectuée de manière atomique, mais sans utiliser de 
+barrières de mémoire.</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="barrieres-de-memoires">Barrières de mémoires</a>
+</h1>
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#barrieres-de-memoires_barriere-de-memoire">Barrière de mémoire</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#barrieres-de-memoires_visual-c---">Visual C++&nbsp;</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="barrieres-de-memoires_barriere-de-memoire" href="#barrieres-de-memoires">Barrière de mémoire</a>
+</h2><br>Normalement, les processeurs exécutent des instructions (y compris les lectures et écritures de mémoire) dans le désordre pour optimiser les performances. Étant donné que ce type de comportement n'est pas toujours souhaitable, des barrières de mémoire ont été ajoutées pour empêcher cette réorganisation des instructions.<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="barrieres-de-memoires_visual-c---" href="#barrieres-de-memoires">Visual C++&nbsp;</a>
+</h2><br>Le compilateur MSVC de Microsoft fournit la fonction (InterlockedAddNoFence) qui permet d'effectuer une opération d'addition atomique sur les valeurs LONG spécifiées sans utiliser de 
+barrières de mémoire.<br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
