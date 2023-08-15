@@ -21,11 +21,15 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#principe-de-responsabilite-unique-srp">Principe de responsabilité unique SRP</a>
+<a class="Summary3" href="#le-principe-de-responsabilite-unique-srp">Le principe de responsabilité unique SRP</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#le-principe-ouvert-ferme-ocp">Le principe ouvert-fermé OCP</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#le-principe-de-substitution-de-liskov-lsp">Le principe de substitution de Liskov LSP</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
@@ -182,7 +186,7 @@ void GTest::runPhilo(int _argc, char** _argv) {
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="principe-de-responsabilite-unique-srp">Principe de responsabilité unique SRP</a>
+<a class="Section5" href="#" id="le-principe-de-responsabilite-unique-srp">Le principe de responsabilité unique SRP</a>
 </h1>
 <div class="Section6"><br>Le principe de responsabilité unique SRP (Single Responsibility Principle) signifie que chaque unité de code doit avoir exactement une responsabilité. Cela signifie écrire des fonctions qui ne font qu'une seule chose, créer des types qui sont responsables d'une seule chose et créer des composants de niveau supérieur qui se concentrent sur un seul aspect.<br><br>Cela signifie que si votre classe gère un certain type de ressources, telles que des descripteurs de fichiers, elle ne devrait faire que cela, laissant leur analyse, par exemple, à un autre type.<br><br>Très souvent, si vous voyez une fonction avec un "Et" ou un "And" dans son nom, elle enfreint le SRP et doit être refactorisée. Un autre signe est lorsqu'une fonction a des commentaires indiquant ce que fait chaque section de la fonction. Chacune de ces sections serait probablement mieux en tant que fonction distincte.<br><br>Un principe similaire est le principe de connaissance minimale LKP (Least Knowledge Principle) qui stipule qu'aucun objet ne devrait en savoir plus que nécessaire sur les autres objets, de sorte qu'il ne dépend d'aucun de leurs éléments internes, par exemple. Son application conduit à un code plus maintenable avec moins d'interdépendances entre les composants.<br><br></div>
 </div>
@@ -229,4 +233,80 @@ std::ostream&amp; operator&lt;&lt;(std::ostream&amp; _stream, const GPerson2&amp
 }
 //===============================================</pre><br>Notez que cette définition de l'OCP est légèrement différente de celle liée au polymorphisme. Ce dernier consiste à créer des classes de base qui ne peuvent pas être modifiées elles-mêmes, mais qui sont ouvertes à d'autres pour en hériter.<br><br></div>
 </div>
-</div></div><br>
+</div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="le-principe-de-substitution-de-liskov-lsp">Le principe de substitution de Liskov LSP</a>
+</h1>
+<div class="Section6"><br>Le principe de substitution de Liskov LSP (Liskov Substitution Principle) stipule que si une fonction travaille avec un pointeur ou une référence à un objet de base, elle doit également travailler avec un pointeur ou une référence à l'un de ses objets dérivés.<br><br>Cette règle est parfois enfreinte car les techniques que nous appliquons dans le code source ne fonctionnent pas toujours dans les abstractions du monde réel.<br><br>Un exemple célèbre est un carré et un rectangle. Mathématiquement parlant, le premier est une spécialisation du second, il y a donc une relation de l'un à l'autre. Cela nous donne envie de créer une classe Carré qui hérite de la classe Rectangle. Ainsi, nous pourrions nous retrouver avec un code comme celui-ci&nbsp;:<br><br>Approche 1:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// GRectangle
+//===============================================
+class GRectangle {
+public:
+    GRectangle();
+    virtual ~GRectangle() = default;
+    virtual double getArea() const;
+    virtual void setWidth(double _width);
+    virtual void setHeight(double _height);
+
+private:
+    double m_width;
+    double m_height;
+};
+//===============================================
+// GSquare
+//===============================================
+class GSquare : public GRectangle {
+public:
+    GSquare();
+    double getArea() const override;
+    void setWidth(double _width) override;
+    void setHeight(double _height) override;
+};
+//===============================================
+// GRectangle
+//===============================================
+double GRectangle::getArea() const {
+    return m_width * m_height;
+}
+//===============================================
+void GRectangle::setWidth(double _width) {
+    m_width = _width;
+}
+//===============================================
+void GRectangle::setHeight(double _height) {
+    m_height = _height;
+}
+//===============================================
+// GSquare
+//===============================================
+double GSquare::getArea() const {
+    return GRectangle::getArea();
+}
+//===============================================
+void GSquare::setWidth(double _width) {
+    GRectangle::setWidth(_width);
+    GRectangle::setHeight(_width);
+}
+//===============================================
+void GSquare::setHeight(double _height) {
+    setWidth(_height);
+}
+//===============================================
+// GTest
+//===============================================
+void GTest::runLsp(int _argc, char** _argv) {
+    GRectangle lRect;
+    lRect.setWidth(4);
+    lRect.setHeight(3);
+    std::cout &lt;&lt; "aire rectangle : " &lt;&lt; lRect.getArea() &lt;&lt; "\n";
+
+    GSquare lSquare;
+    lSquare.setWidth(4);
+    std::cout &lt;&lt; "aire carré : " &lt;&lt; lSquare.getArea() &lt;&lt; "\n";
+}
+//===============================================</pre><br></div>
+</div>
+</div>
+</div><br>
