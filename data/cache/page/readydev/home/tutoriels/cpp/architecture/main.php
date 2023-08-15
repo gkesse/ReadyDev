@@ -31,6 +31,10 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#le-principe-de-substitution-de-liskov-lsp">Le principe de substitution de Liskov LSP</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#le-principe-de-segregation-d-interface-isp">Le principe de ségrégation d'interface ISP</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -69,7 +73,7 @@ Cela signifie que pour bien définir une architecture, nous devons y penser sous
 <div class="Bullet3">Lien du compilateur Cygwin sous Windows:&nbsp;<a class="GLink3 Link4" style=" color: lime;" href="https://cygwin.com/" target="_blank">https://cygwin.com/</a><br>Cygwin est émulateur de l'environnement Linux sous Windows.</div>
 </div><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">Sous Linux: Installer GCC (GNU Compiler Collection).</div>
+<div class="Bullet3">Sous Linux: Installer GCC (GNU Compiler Collection) en ligne de commande.</div>
 </div><br></div>
 </div>
 </div>
@@ -79,7 +83,7 @@ Cela signifie que pour bien définir une architecture, nous devons y penser sous
 <h1 class="Section4">
 <a class="Section5" href="#" id="la-philosophie-du-c--">La philosophie du C++</a>
 </h1>
-<div class="Section6"><br>C++ est un langage de programmation compilé multi-paradigme. Il permet la programmation procédurale, la programmation orientée objet et la programmation générique. Il existe depuis quelques décennies. Au cours des années qui ont suivi sa création, il a beaucoup changé. Lorsque C++11 est sorti, Bjarne Stroustrup, le créateur du langage, a déclaré que cela ressemblait à un langage complètement nouveau. La sortie de C++20 marque une autre étape importante dans l'évolution de cette bête, apportant une révolution similaire à la façon dont nous écrivons du code. Une chose, cependant, est restée la même pendant toutes ces années : la philosophie de la langue.<br><br>La philosophie du C++ peut se résumer en 3 points:<br><br><div class="GBullet1 Bullet1">
+<div class="Section6"><br>C++ est un langage de programmation compilé multi-paradigme. Il permet la programmation procédurale, la programmation orientée objet et la programmation générique. Il existe depuis quelques décennies. Au cours des années qui ont suivi sa création, il a beaucoup changé. Lorsque C++11 est sorti, Bjarne Stroustrup, le créateur du langage, a déclaré que cela ressemblait à un langage complètement nouveau. La sortie de C++20 marque une autre étape importante dans l'évolution de cette bête, apportant une révolution similaire à la façon dont nous écrivons du code. Une chose, cependant, est restée la même pendant toutes ces années : la philosophie du langage.<br><br>La philosophie du C++ peut se résumer en 3 points:<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">Ne pas avoir de langage sous C++ (sauf l'assembleur).</div>
 </div>
@@ -139,7 +143,7 @@ void GTest::runPhilo(int _argc, char** _argv) {
     GDot lDot;
     const char* lMsg = "Bonjour.Tout.Le.Monde.";
     int lCount = lDot.countDot(lMsg, strlen(lMsg));
-    std::cout &lt;&lt; "nombre de points (v1) : " &lt;&lt; lCount &lt;&lt; "\n";
+    std::cout &lt;&lt; lCount &lt;&lt; "\n";
 }
 //===============================================</pre><br>Approche 2:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 int GDot2::countDot(const std::string_view&amp; _str) {
@@ -149,7 +153,7 @@ int GDot2::countDot(const std::string_view&amp; _str) {
 void GTest::runPhilo(int _argc, char** _argv) {
     GDot2 lDot;
     int lCount = lDot.countDot("Bonjour.Tout.Le.Monde.");
-    std::cout &lt;&lt; "nombre de points (v2) : " &lt;&lt; lCount &lt;&lt; "\n";
+    std::cout &lt;&lt; lCount &lt;&lt; "\n";
 }
 //===============================================</pre><br>L'utilisation d'abstractions de niveau supérieur conduit à un code plus simple et plus maintenable. Le langage C++ s'est efforcé de fournir des abstractions à coût nul depuis sa création, alors appuyez vous dessus au lieu de repenser la roue en utilisant des niveaux d'abstraction inférieurs.<br><br></div>
 </div>
@@ -174,11 +178,11 @@ void GTest::runPhilo(int _argc, char** _argv) {
 </div>
 <div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">Ségrégation d'interface IS (Interface Segregation)</div>
+<div class="Bullet3">Principe de la ségrégation d'interface ISP (Interface Segregation Principle)</div>
 </div>
 <div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">Inversion de dépendance DI (Dependency Inversion)</div>
+<div class="Bullet3">Principe de l'inversion de dépendance DIP (Dependency Inversion Principle)</div>
 </div><br>Si vous écrivez du code orienté performances (et vous l'êtes probablement si vous avez choisi C++), vous devez savoir que l'utilisation du polymorphisme dynamique peut être une mauvaise idée en termes de performances, en particulier sur les séquences d'instructions exécutées très fréquemment (hot path).<br><br>Le&nbsp;patron de modèle curieusement récurrent CRTP (Curiously Recurring Template Pattern) permet d'écrire des classes statiquement polymorphes.<br><br></div>
 </div>
 </div>
@@ -207,7 +211,6 @@ std::ostream&amp; operator&lt;&lt;(std::ostream&amp; _stream, const GPerson&amp;
 }
 //===============================================
 void GTest::runOcp(int _argc, char** _argv) {
-    printf("%s...\n", __PRETTY_FUNCTION__);
     GPerson lPerson;
     lPerson.setId(123);
     lPerson.setName("Gerard");
@@ -218,6 +221,8 @@ class GPerson2 {
 public:
     GPerson2();
     ~GPerson2();
+    void setId(int _id);
+    void setName(const GString&amp; _name);
 
     friend std::ostream&amp; operator&lt;&lt;(std::ostream&amp; _stream, const GPerson2&amp; _person);
 
@@ -226,10 +231,25 @@ private:
     GString m_name;
 };
 //===============================================
+void GPerson2::setId(int _id) {
+    m_id = _id;
+}
+//===============================================
+void GPerson2::setName(const GString&amp; _name) {
+    m_name = _name;
+}
+//===============================================
 std::ostream&amp; operator&lt;&lt;(std::ostream&amp; _stream, const GPerson2&amp; _person) {
     _stream &lt;&lt; "id : " &lt;&lt; _person.m_id &lt;&lt; "\n";
     _stream &lt;&lt; "nom : " &lt;&lt; _person.m_name &lt;&lt; "\n";
     return _stream;
+}
+//===============================================
+void GTest::runOcp(int _argc, char** _argv) {
+    GPerson2 lPerson;
+    lPerson.setId(123);
+    lPerson.setName("Gerard");
+    std::cout &lt;&lt; lPerson;
 }
 //===============================================</pre><br>Notez que cette définition de l'OCP est légèrement différente de celle liée au polymorphisme. Ce dernier consiste à créer des classes de base qui ne peuvent pas être modifiées elles-mêmes, mais qui sont ouvertes à d'autres pour en hériter.<br><br></div>
 </div>
@@ -240,8 +260,6 @@ std::ostream&amp; operator&lt;&lt;(std::ostream&amp; _stream, const GPerson2&amp
 <a class="Section5" href="#" id="le-principe-de-substitution-de-liskov-lsp">Le principe de substitution de Liskov LSP</a>
 </h1>
 <div class="Section6"><br>Le principe de substitution de Liskov LSP (Liskov Substitution Principle) stipule que si une fonction travaille avec un pointeur ou une référence à un objet de base, elle doit également travailler avec un pointeur ou une référence à l'un de ses objets dérivés.<br><br>Cette règle est parfois enfreinte car les techniques que nous appliquons dans le code source ne fonctionnent pas toujours dans les abstractions du monde réel.<br><br>Un exemple célèbre est un carré et un rectangle. Mathématiquement parlant, le premier est une spécialisation du second, il y a donc une relation de l'un à l'autre. Cela nous donne envie de créer une classe Carré qui hérite de la classe Rectangle. Ainsi, nous pourrions nous retrouver avec un code comme celui-ci&nbsp;:<br><br>Approche 1:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-// GRectangle
-//===============================================
 class GRectangle {
 public:
     GRectangle();
@@ -255,8 +273,6 @@ private:
     double m_height;
 };
 //===============================================
-// GSquare
-//===============================================
 class GSquare : public GRectangle {
 public:
     GSquare();
@@ -264,8 +280,6 @@ public:
     void setWidth(double _width) override;
     void setHeight(double _height) override;
 };
-//===============================================
-// GRectangle
 //===============================================
 double GRectangle::getArea() const {
     return m_width * m_height;
@@ -278,8 +292,6 @@ void GRectangle::setWidth(double _width) {
 void GRectangle::setHeight(double _height) {
     m_height = _height;
 }
-//===============================================
-// GSquare
 //===============================================
 double GSquare::getArea() const {
     return GRectangle::getArea();
@@ -294,8 +306,6 @@ void GSquare::setHeight(double _height) {
     setWidth(_height);
 }
 //===============================================
-// GTest
-//===============================================
 void GTest::runLsp(int _argc, char** _argv) {
     GRectangle lRect;
     lRect.setWidth(4);
@@ -307,6 +317,125 @@ void GTest::runLsp(int _argc, char** _argv) {
     std::cout &lt;&lt; "aire carré : " &lt;&lt; lSquare.getArea() &lt;&lt; "\n";
 }
 //===============================================</pre><br>Comment implémenter les membres de la classe Square ? Si nous voulons suivre le LSP et épargner aux utilisateurs de telles classes des surprises, nous ne pouvons pas: notre carré cesserait d'être un carré si nous appelions setWidth. Nous pouvons soit arrêter d'avoir un carré (non exprimable en utilisant le code précédent), soit modifier également la hauteur, rendant ainsi le carré différent d'un rectangle.<br><br>Si votre code enfreint le LSP, il est probable que vous utilisiez une abstraction incorrecte. Dans notre cas, le carré ne devrait pas hériter du rectangle.<br><br>Une meilleure approche pourrait consister à faire en sorte que les deux implémentent une interface (GShape).<br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="le-principe-de-segregation-d-interface-isp">Le principe de ségrégation d'interface ISP</a>
+</h1>
+<div class="Section6"><br>Le principe de ségrégation d'interface ISP (Interface Segregation Principle) est un peu comme son nom l'indique.<br><br>Il est formulé comme suit:<br><br>Aucun client ne devrait être contraint de dépendre des méthodes qu'il n'utilise pas.
+Cela semble assez évident, mais cela a des connotations qui ne sont pas si évidentes.<br><br>Tout d'abord, vous devez préférer des interfaces plus nombreuses mais plus petites à une seule grande.<br><br>Deuxièmement, lorsque vous ajoutez une classe dérivée ou que vous étendez les fonctionnalités d'une classe existante, vous devez réfléchir avant d'étendre l'interface que la classe implémente.<br><br>Montrons cela sur un exemple qui viole ce principe, en commençant par l'interface suivante:<br><br>Approche 1:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+class GFoodProcessorI {
+public:
+    virtual ~GFoodProcessorI() = default;
+    virtual void blend() = 0;
+};
+//===============================================
+class GBlend : public GFoodProcessorI {
+public:
+    GBlend();
+    void blend() override;
+};
+//===============================================
+void GBlend::blend() {
+    printf("%s...\n", __PRETTY_FUNCTION__);
+}
+//===============================================
+void GTest::runIsp(int _argc, char** _argv) {
+    GBlend lBlend;
+    lBlend.blend();
+}
+//===============================================</pre><br>Nous pouvons avoir une classe simple (GBlend) qui l'implémente l'interface (GFoodProcessorI).<br><br>Jusqu'ici, tout va bien. Supposons maintenant que nous voulions modéliser un autre robot culinaire plus avancé et que nous essayions imprudemment d'ajouter plus de méthodes à notre interface:<br><br>Approche 2:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+class GFoodProcessorI2 {
+public:
+    virtual ~GFoodProcessorI2() = default;
+    virtual void blend() = 0;
+    virtual void slice() = 0;
+    virtual void dice() = 0;
+};
+//===============================================
+class GFood : public GFoodProcessorI2 {
+public:
+    GFood();
+    void blend() override;
+    void slice() override;
+    void dice() override;
+};
+//===============================================
+void GFood::blend() {
+    printf("%s...\n", __PRETTY_FUNCTION__);
+}
+//===============================================
+void GFood::slice() {
+    printf("%s...\n", __PRETTY_FUNCTION__);
+}
+//===============================================
+void GFood::dice() {
+    printf("%s...\n", __PRETTY_FUNCTION__);
+}
+//===============================================
+void GTest::runIsp(int _argc, char** _argv) {
+    GFood lFood;
+    lFood.blend();
+    lFood.slice();
+    lFood.dice();
+}
+//===============================================</pre><br>Maintenant, nous avons un problème avec la classe (GBlender) car elle ne prend pas en charge cette nouvelle interface, il n'y a pas de moyen approprié de l'implémenter. Nous pouvons essayer de bidouiller une solution de contournement ou lancer std::logic_error, mais une bien meilleure solution serait simplement de diviser l'interface en deux, chacune avec une responsabilité distincte.<br><br>Approche 3:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+class GBlendI {
+public:
+    virtual ~GBlendI() = default;
+    virtual void blend() = 0;
+};
+//===============================================
+class GFoodI {
+public:
+    virtual ~GFoodI() = default;
+    virtual void slice() = 0;
+    virtual void dice() = 0;
+};
+//===============================================
+class GBlend2 : public GBlendI {
+public:
+    GBlend2();
+    void blend() override;
+};
+//===============================================
+class GFood2 : public GBlendI, public GFoodI {
+public:
+    GFood2();
+    void blend() override;
+    void slice() override;
+    void dice() override;
+};
+//===============================================
+void GBlend2::blend() {
+    printf("%s...\n", __PRETTY_FUNCTION__);
+}
+//===============================================
+void GFood2::blend() {
+    printf("%s...\n", __PRETTY_FUNCTION__);
+}
+//===============================================
+void GFood2::slice() {
+    printf("%s...\n", __PRETTY_FUNCTION__);
+}
+//===============================================
+void GFood2::dice() {
+    printf("%s...\n", __PRETTY_FUNCTION__);
+}
+//===============================================
+void GTest::runIsp(int _argc, char** _argv) {
+    GBlend2 lBlend;
+    lBlend.blend();
+
+    GFood2 lFood;
+    lFood.blend();
+    lFood.slice();
+    lFood.dice();
+}
+//===============================================</pre><br></div>
 </div>
 </div>
 </div><br>
