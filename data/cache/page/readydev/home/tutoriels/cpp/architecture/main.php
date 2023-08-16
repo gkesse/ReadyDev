@@ -569,7 +569,7 @@ void GTest::runDip(int _argc, char** _argv) {
     lProject.addDeveloper(std::move(lFrontend));
     lProject.deliver();
 }
-//===============================================</pre><br>Dans cette approche, le projet (GProject) est découplé des implémentations concrètes et dépend uniquement de l'interface polymorphe des développeur (GDeveloper). Les classes concrètes "de niveau inférieur" dépendent également de cette interface. Cela peut vous aider à raccourcir votre temps de construction et permet des tests unitaires beaucoup plus faciles. maintenant vous pouvez facilement passer des simulations comme arguments dans votre code de test.<br><br></div>
+//===============================================</pre><br>Dans cette approche, le projet (GProject) est découplé des implémentations concrètes et dépend uniquement de l'interface polymorphe des développeur (GDeveloper). Les classes concrètes "de niveau inférieur" dépendent également de cette interface. Cela peut vous aider à raccourcir votre temps de construction et permet des tests unitaires beaucoup plus faciles. Maintenant vous pouvez facilement passer des mocks comme arguments dans votre code de test.<br><br></div>
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
