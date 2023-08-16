@@ -35,6 +35,14 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#le-principe-de-segregation-d-interface-isp">Le principe de ségrégation d'interface ISP</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#le-principe-de-l-inversion-de-dependance-dip">Le principe de l'inversion de dépendance DIP</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#a-suivre---">À suivre...</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -436,6 +444,141 @@ void GTest::runIsp(int _argc, char** _argv) {
     lFood.dice();
 }
 //===============================================</pre><br>Désormais, notre classe (GFood) peut simplement implémenter les deux interfaces (GBlendI, GFoodI), et nous n'avons pas besoin de modifier l'implémentation de notre robot culinaire existant (GBlend).<br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="le-principe-de-l-inversion-de-dependance-dip">Le principe de l'inversion de dépendance DIP</a>
+</h1>
+<div class="Section6"><br>Le principe de l'inversion de dépendance DIP (Dependency Inversion Principle) est un principe utile pour le découplage. Essentiellement, cela signifie que les modules de haut niveau ne doivent pas dépendre des modules de niveau inférieur.<br><br>Au lieu de cela, les deux devraient dépendre d'abstractions.<br><br>C++ permet deux manières d'inverser les dépendances entre vos classes. La première est l'approche régulière et polymorphe et la seconde utilise des modèles.<br><br>Supposons que vous modélisez un projet de développement logiciel censé avoir des développeurs frontend et backend.<br><br>Une approche simple serait de l'écrire comme ceci:<br><br>Approche 1:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+class GBackend {
+public:
+    GBackend();
+    void developBackend();
+};
+//===============================================
+class GFrontend {
+public:
+    GFrontend();
+    void developFrontend();
+};
+//===============================================
+class GProject {
+public:
+    GProject();
+    void deliver();
+
+private:
+    GBackend m_backend;
+    GFrontend m_frontend;
+};
+//===============================================
+void GBackend::developBackend() {
+    printf("%s...\n", __PRETTY_FUNCTION__);
+}
+//===============================================
+void GFrontend::developFrontend() {
+    printf("%s...\n", __PRETTY_FUNCTION__);
+}
+//===============================================
+void GProject::deliver() {
+    printf("%s...\n", __PRETTY_FUNCTION__);
+    m_backend.developBackend();
+    m_frontend.developFrontend();
+}
+//===============================================
+void GTest::runDip(int _argc, char** _argv) {
+    GProject lProject;
+    lProject.deliver();
+}
+//===============================================</pre><br>Chaque développeur (GFontend, GBackend) est construit par la classe projet (GProject). Cette approche n'est cependant pas idéale, car le concept de niveau supérieur (GProject) dépend désormais de ceux de niveau inférieur du processus de développement (GFrontend, GBackend).<br><br>Voyons comment l'application de l'inversion de dépendance à l'aide du polymorphisme change cela.<br><br>Nous pouvons définir nos développeurs  (GFrontend, GBackend) pour qu'ils dépendent d'une interface (GDeveloper) comme suit:<br><br>Approche 2:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+class GDeveloper {
+public:
+    virtual ~GDeveloper() = default;
+    virtual void develop() = 0;
+};
+//===============================================
+class GBackend2 : public GDeveloper {
+public:
+    GBackend2();
+    void develop() override;
+
+private:
+    void developBackend();
+};
+//===============================================
+class GFrontend2 : public GDeveloper {
+public:
+    GFrontend2();
+    void develop() override;
+
+private:
+    void developFrontend();
+};
+//===============================================
+class GProject2 {
+public:
+    using GDeveloperPtr = std::unique_ptr&lt;GDeveloper&gt;;
+    using GDeveloperMap = std::vector&lt;GDeveloperPtr&gt;;
+
+public:
+    GProject2();
+    void addDeveloper(GDeveloperPtr _developer);
+    void deliver();
+
+private:
+    GDeveloperMap m_developers;
+};
+//===============================================
+void GFrontend2::develop() {
+    printf("%s...\n", __PRETTY_FUNCTION__);
+    developFrontend();
+}
+//===============================================
+void GFrontend2::developFrontend() {
+    printf("%s...\n", __PRETTY_FUNCTION__);
+}
+//===============================================
+void GBackend2::develop() {
+    printf("%s...\n", __PRETTY_FUNCTION__);
+    developBackend();
+}
+//===============================================
+void GBackend2::developBackend() {
+    printf("%s...\n", __PRETTY_FUNCTION__);
+}
+//===============================================
+void GProject2::addDeveloper(GDeveloperPtr _developer) {
+    m_developers.push_back(std::move(_developer));
+}
+//===============================================
+void GProject2::deliver() {
+    printf("%s...\n", __PRETTY_FUNCTION__);
+    for (auto&amp; lDeveloper : m_developers) {
+        lDeveloper-&gt;develop();
+    }
+}
+//===============================================
+void GTest::runDip(int _argc, char** _argv) {
+    GProject2 lProject;
+    GProject2::GDeveloperPtr lBackend = std::make_unique&lt;GBackend2&gt;();
+    GProject2::GDeveloperPtr lFrontend = std::make_unique&lt;GFrontend2&gt;();
+    lProject.addDeveloper(std::move(lBackend));
+    lProject.addDeveloper(std::move(lFrontend));
+    lProject.deliver();
+}
+//===============================================</pre><br>Dans cette approche, le projet (GProject) est découplé des implémentations concrètes et dépend uniquement de l'interface polymorphe des développeur (GDeveloper). Les classes concrètes "de niveau inférieur" dépendent également de cette interface. Cela peut vous aider à raccourcir votre temps de construction et permet des tests unitaires beaucoup plus faciles. maintenant vous pouvez facilement passer des simulations comme arguments dans votre code de test.<br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="a-suivre---">À suivre...</a>
+</h1>
+<div class="Section6">Ajouter un texte ici...</div>
 </div>
 </div>
 </div><br>
