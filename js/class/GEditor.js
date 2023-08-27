@@ -340,7 +340,7 @@ class GEditor extends GObject {
         lHtml += sprintf("<h1 class='Section4'>\n");
         lHtml += sprintf("<a class='Section5' href='#'>Ajouter un titre...</a>\n");
         lHtml += sprintf("</h1>\n");
-        lHtml += sprintf("<div class='Section6'>Ajouter un texte ici...</div>\n");
+        lHtml += sprintf("<div class='Section6'><br>À suivre...<br><br></div>\n");
         lHtml += sprintf("</div>\n");
         lHtml += sprintf("</div>\n");
         lHtml += sprintf("</div>\n");

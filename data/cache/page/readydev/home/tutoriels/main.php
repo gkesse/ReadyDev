@@ -32,6 +32,10 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#embedsys">Système embarqué</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#linux">Système Linux</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -58,6 +62,10 @@
 <div class="Tuto3"><i class="Tuto6 fa fa-desktop"></i></div>
 <div class="Tuto4"><div class="Tuto7">C++</div></div>
 <div class="Tuto5"><div class="Tuto8">Programmation en<br>C++</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/structures">
+<div class="Tuto3"><i class="Tuto6 fa fa-desktop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Structures<br>de données</div></div>
+<div class="Tuto5"><div class="Tuto8">Structures de données en<br>C++</div></div>
 </a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/qt">
 <div class="Tuto3"><i class="Tuto6 fa fa-desktop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Qt</div></div>
@@ -140,5 +148,17 @@
 <div class="Tuto3"><i class="Tuto6 fa fa-linux"></i></div>
 <div class="Tuto4"><div class="Tuto7">Linux Embarqué</div></div>
 <div class="Tuto5"><div class="Tuto8">Apprenez<br>Linux Embarqué</div></div>
+</a>
+</div><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="linux">Système Linux</a>
+</h1>
+<div class="Section6"><br><div class="GTuto1 Tuto1">
+<a class="GTuto2 Tuto2" href="/home/tutoriels/linux/vim">
+<div class="Tuto3"><i class="Tuto6 fa fa-linux"></i></div>
+<div class="Tuto4"><div class="Tuto7">Vim</div></div>
+<div class="Tuto5"><div class="Tuto8">Editeur de texte<br>Linux</div></div>
 </a>
 </div><br></div></div></div></div><br>

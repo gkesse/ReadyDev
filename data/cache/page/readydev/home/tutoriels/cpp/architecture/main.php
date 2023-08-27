@@ -578,7 +578,7 @@ void GTest::runDip(int _argc, char** _argv) {
 <h1 class="Section4">
 <a class="Section5" href="#" id="a-suivre---">À suivre...</a>
 </h1>
-<div class="Section6">Ajouter un texte ici...</div>
+<div class="Section6">À suivre...</div>
 </div>
 </div>
 </div><br>
