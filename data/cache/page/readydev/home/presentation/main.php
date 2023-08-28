@@ -8,6 +8,10 @@
 <img class="Text2" src="/data/img/defaults/img_avatar.png" alt="image.png">
 <div class="Text3">Je suis <b>Gérard KESSE</b>,<br>Ingénieur en Développement Informatique <b>C/C++/Qt</b>,<br>Avec à la fois des compétences en <b>Système Embarqué</b> et en <b>Robotique</b>. Formé à Polytech'Montpellier, Je suis un professionnel de conception de projets logiciel applicatif ou embarqué dans les secteurs de l'<b>Aéronautique</b>, de la <b>Robotique</b>, des <b>Drones</b> et de la <b>Vision par Ordinateur</b>. Aussi, Je reste ouvert à d'autres types de secteurs tels que l'<b>Energie</b> et les <b>Finances</b>.<br></div></div><br>Pour ma présentation, Je propose de vous présenter:&nbsp;<br><br><div class="GSummary1"><div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#a-propos-de-l-auteur">À propos de l'auteur</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#mon-parcours-scolaire">Mon parcours scolaire</a>
 </div>
 <div class="GSummary11 Summary1">
@@ -23,6 +27,14 @@
 <a class="Summary3" href="#mes-atouts">Mes atouts</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="a-propos-de-l-auteur">À propos de l'auteur</a>
+</h1>
+<div class="Section6"><br><b>Gérard KESSE</b> programme en <b>C/C++</b> depuis plus de <b>7 ans</b>, travaillant sur des projets aussi divers que la gestion de réservation et de billetterie, les jeux de paris hippique, le contrôle environnemental, l'analyse scientifiques de données capteur et la vision par ordinateur pour les industries spécialisées en drone et en robotique mobile.<br><br>Durant ses 2 dernières années, Il travaille principalement en C++ auprès de la société <b>AMADEUS</b> dans une architecture client/serveur <b>TCP/IP</b> sécurisé <b>SSL</b> liée à une base de données <b>PL/SQL</b> transactionnelle <b>RPC</b>. Il réalise plusieurs <b>IHM</b> en C++ avec Borland C++ Builder pour faire évoluer la plupart des fiches du client riche, parmi lesquelles, la fiche client, la fiche commande, la fiche de facturation, la fiche de contrat et la fiche de supervision EDI. Il communique en <b>HTTPS</b> avec <b>cURL</b> et <b>OpenSSL</b>, pour faire évoluer le module de signature électronique via le webservice <b>YOUSIGN</b>, le module de paiement monétique via le webservice <b>PAYTWEAK</b>, le module de calcul de quota pour l'Assemblée Nationale via le webservice SAP et pour mettre à jour les données voyageur dans la base de données mutualisée (<b>BDM</b>) pour des clients tels que CARREFOUR via le webservice RCU, le référentiel de client unifié. Il réalise plusieurs évolutions sur la billetterie, parmi lesquelles, le décodage de nouvelles données AIR, leur sauvegarde en base et leur disponibilité via le client riche GESTOUR et le client web GESTOUR 360. Il met en place plusieurs traitements asynchrones pour l'analyse de lots de grand volume de données, entre autres, lors de l'importation des lignes de frais et lors de la réinitialisation des clients RCU. Il pousse plusieurs évolutions sur le webservice <b>XFT Booking</b> proposé par AMADEUS à des tiers pour réaliser des appels <b>GET</b>, <b>CREATE</b> et <b>UPDATE</b> sur les prestations et la billetterie. Côté SQL, il crée de nouvelles tables et met à jour les vues et les procédures stockées associées. Il manipule des schémas de validation <b>XSD</b> et <b>WSDL</b>, des feuilles de style XSL pour réaliser des requête <b>XPath</b> dans le but de générer des fichiers au format PDF via <b>Sablotron</b> et le serveur <b>FOP</b> et il travaille régulièrement avec les format de données <b>XML</b>, <b>JSON</b> et <b>CSV</b>.<br><br></div>
+</div>
+</div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
