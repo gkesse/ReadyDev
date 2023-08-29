@@ -174,7 +174,7 @@ int GAccumulate::product(int num1, int num2) {
 }
 //===============================================
 double GAccumulate::geometricMean(const std::vector&lt;int&gt;&amp; nums) {
-    double mult = accumulate(nums.begin(), nums.end(), 1, product);
+    double mult = std::accumulate(nums.begin(), nums.end(), 1, product);
     return (pow(mult, 1.0 / nums.size()));
 }
 //===============================================</pre><br>Résultat:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
@@ -198,11 +198,23 @@ geometricMean: 29.938
 </div>
 <div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#operations-sur-les-foncteurs_objets-fonction-de-comparaison">Objets fonction de comparaison</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#operations-sur-les-foncteurs_utilisation-de-la-classe-plus">Utilisation de la classe plus</a>
 </div>
 <div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#operations-sur-les-foncteurs_utilisation-d-un-objet-fonction-dans-un-algorithme">Utilisation d'un objet fonction dans un algorithme</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#operations-sur-les-foncteurs_utilisation-de-l-objet-fonction-de-comparaison--less-">Utilisation de l'objet fonction de comparaison (less)</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#operations-sur-les-foncteurs_utilisation-de-l-objet-fonction-de-comparaison--greater-">Utilisation de l'objet fonction de comparaison (greater)</a>
 </div>
 </div><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="operations-sur-les-tableaux_introduction" href="#operations-sur-les-foncteurs">Introduction</a>
@@ -211,6 +223,8 @@ geometricMean: 29.938
 De nombreux algorithmes STL, tels que find_if() et la deuxième forme de l'algorithme accumulate(), nécessitent un pointeur de fonction comme l'un des paramètres. Lorsque vous utilisez ces fonctions, vous pouvez transmettre un foncteur au lieu d'un pointeur de fonction.<br><br>Ce fait, en soi, n'est pas nécessairement une raison pour sauter de joie. Bien que vous puissiez certainement écrire vos propres classes de foncteurs, le véritable attrait est que C++ fournit plusieurs classes de foncteurs prédéfinies qui effectuent les opérations de rappel les plus couramment utilisées. Cette section décrit ces classes prédéfinies et vous montre comment les utiliser.<br><br>Toutes les classes d'objets fonction prédéfinies se trouvent dans le fichier d'en-tête &lt;functional&gt;.<br><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="operations-sur-les-foncteurs_objets-fonction-arithmetiques" href="#operations-sur-les-foncteurs">Objets fonction arithmétiques</a>
 </h2><br>C++ fournit des modèles de classes de foncteurs pour les cinq opérateurs arithmétiques binaires: plus (plus), moins (minus), multiplie (multiplies), divise (divides) et modulo (modulus). De plus, une négation unaire est fournie (negate). Ces classes fournissent un modèle générique sur le type des opérandes et sont des wrappers pour les opérateurs réels. Ils prennent un ou deux paramètres du type de modèle, effectuent l'opération et renvoient le résultat.<br><br>L'avantage des objets fonctions arithmétiques est que vous pouvez les transmettre sous forme de fonctions de rappel aux algorithmes, ce que vous ne pouvez pas faire directement avec les opérateurs arithmétiques.<br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="operations-sur-les-foncteurs_objets-fonction-de-comparaison" href="#operations-sur-les-foncteurs">Objets fonction de comparaison</a>
+</h2><br>En plus des classes d'objets fonctions arithmétiques, le langage C++ fournit toutes les comparaisons standards: equal_to, not_equal_to, less, greater, less_equal et greater_equal.<br><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="operations-sur-les-foncteurs_utilisation-de-la-classe-plus" href="#operations-sur-les-foncteurs">Utilisation de la classe plus</a>
 </h2><br>Exemple:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 void GPlus::run() {
@@ -222,7 +236,65 @@ void GPlus::run() {
 9
 //===============================================</pre><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="operations-sur-les-foncteurs_utilisation-d-un-objet-fonction-dans-un-algorithme" href="#operations-sur-les-foncteurs">Utilisation d'un objet fonction dans un algorithme</a>
-</h2><br>Par exemple, l'implémentation de la fonction géométriqueMean() utilisait l'algorithme accumulate() avec une fonction de rappel pour multiplier deux entiers. Vous pouvez le réécrire pour utiliser l'objet fonction multiplie (multiplies):<br><br>Exemple:<br><br><br>Résultat:<br><br></div>
+</h2><br>Par exemple, l'implémentation de la fonction géométriqueMean() utilisait l'algorithme accumulate() avec une fonction de rappel pour multiplier deux entiers. Vous pouvez le réécrire pour utiliser l'objet fonction multiplie (multiplies):<br><br>Exemple:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GMultiplies::run() {
+    std::vector&lt;int&gt; lVector = {10, 20, 30, 40, 50, 60};
+    std::cout &lt;&lt; "geometricMean: " &lt;&lt; geometricMean(lVector) &lt;&lt; '\n';
+}
+//===============================================
+double GMultiplies::geometricMean(const std::vector&lt;int&gt;&amp; nums) {
+    double mult = std::accumulate(nums.begin(), nums.end(), 1, std::multiplies&lt;int&gt;());
+    return (pow(mult, 1.0 / nums.size()));
+}
+//===============================================</pre><br>Résultat:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+geometricMean: 29.938
+//===============================================</pre><br>L'expression multiplies&lt;int&gt;()<int>&nbsp;crée un nouvel objet de la classe multiplies, en l'instanciant avec le type int.
+Les autres objets fonction arithmétiques se comportent de la même manière.</int><br><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="operations-sur-les-foncteurs_utilisation-de-l-objet-fonction-de-comparaison--less-" href="#operations-sur-les-foncteurs">Utilisation de l'objet fonction de comparaison (less)</a>
+</h2><br>L'objet fonction de comparaison (less) est celui utilisé par défaut par les éléments de la file d'attente prioritaire (priority_queue) et des conteneurs associatifs. Voici un exemple de file d'attente prioritaire utilisant l'opérateur de comparaison par défaut (less).<br><br>Exemple:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GPriority::run() {
+    std::priority_queue&lt;int&gt; myQueue;
+    myQueue.push(3);
+    myQueue.push(4);
+    myQueue.push(2);
+    myQueue.push(1);
+
+    while (!myQueue.empty()) {
+        std::cout &lt;&lt; myQueue.top() &lt;&lt; std::endl;
+        myQueue.pop();
+    }
+}
+//===============================================</pre><br>Résultat:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+4
+3
+2
+1
+//===============================================</pre><br>Comme vous pouvez le constater, les éléments de la file d'attente prioritaire (priority_queue) sont supprimés par ordre décroissant, selon l'opérateur de comparaison (less).
+Vous pouvez modifier la comparaison en la spécifiant comme argument du modèle de comparaison.<br><br>La définition du modèle de la file d'attente prioritaire (priority_queue) ressemble à ceci:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+template &lt;typename T
+, typename Container = vector&lt;T&gt;
+, typename Compare = less&lt;T&gt; &gt;;
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="operations-sur-les-foncteurs_utilisation-de-l-objet-fonction-de-comparaison--greater-" href="#operations-sur-les-foncteurs">Utilisation de l'objet fonction de comparaison (greater)</a>
+</h2><br>Le paramètre de type Compare est le dernier, ce qui signifie que pour spécifier la comparaison, vous devez également spécifier le conteneur. Voici un exemple du programme ci-dessus modifié pour que la file d'attente prioritaire (priotity_queue) trie les éléments par ordre croissant en utilisant l'opérateur plus grand (greater):<br><br>Exemple:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+void GPriority::run() {
+    std::priority_queue&lt;int, std::vector&lt;int&gt;, std::greater&lt;int&gt;&gt; myQueue;
+    myQueue.push(3);
+    myQueue.push(4);
+    myQueue.push(2);
+    myQueue.push(1);
+
+    while (!myQueue.empty()) {
+        std::cout &lt;&lt; myQueue.top() &lt;&lt; std::endl;
+        myQueue.pop();
+    }
+}
+//===============================================</pre><br>Résultat:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+1
+2
+3
+4
+//===============================================</pre><br></div>
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
