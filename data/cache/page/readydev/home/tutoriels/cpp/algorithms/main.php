@@ -294,7 +294,7 @@ void GPriority::run() {
 2
 3
 4
-//===============================================</pre><br></div>
+//===============================================</pre><br>Plusieurs algorithmes nécessitent des fonctions de rappel de comparaison, pour lesquels les comparateurs prédéfinis sont utiles.<br><br></div>
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
