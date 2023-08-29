@@ -97,6 +97,8 @@ class GMenu extends GObject {
         // tutoriels/c++
         $lObj2 = $this->addMenu("tutoriels", "C++", "C++", "", $lObj);
         $this->addMenu("tutoriels", "Cours", "C++", "/home/tutoriels/cpp/cours", $lObj2);
+        $this->addMenu("tutoriels", "Structures de données", "Structures de données", "/home/tutoriels/cpp/structures", $lObj2);
+        $this->addMenu("tutoriels", "Algorithmes", "Algorithmes", "/home/tutoriels/cpp/algorithms", $lObj2);
         $this->addMenu("tutoriels", "Qt", "Qt", "/home/tutoriels/cpp/qt", $lObj2);
         $this->addMenu("tutoriels", "Architecture Logicielle", "Architecture Logicielle", "/home/tutoriels/cpp/architecture", $lObj2);
         // tutoriels/java

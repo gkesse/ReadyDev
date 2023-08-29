@@ -66,6 +66,10 @@
 <div class="Tuto3"><i class="Tuto6 fa fa-desktop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Structures<br>de données</div></div>
 <div class="Tuto5"><div class="Tuto8">Structures de données en<br>C++</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/algorithms">
+<div class="Tuto3"><i class="Tuto6 fa fa-desktop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Algorithmes</div></div>
+<div class="Tuto5"><div class="Tuto8">Algorithmes en<br>C++</div></div>
 </a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/qt">
 <div class="Tuto3"><i class="Tuto6 fa fa-desktop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Qt</div></div>
