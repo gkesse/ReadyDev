@@ -70,14 +70,14 @@
 <div class="Tuto3"><i class="Tuto6 fa fa-desktop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Algorithmes</div></div>
 <div class="Tuto5"><div class="Tuto8">Algorithmes en<br>C++</div></div>
-</a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/qt">
-<div class="Tuto3"><i class="Tuto6 fa fa-desktop"></i></div>
-<div class="Tuto4"><div class="Tuto7">Qt</div></div>
-<div class="Tuto5"><div class="Tuto8">Programmation avec<br>Qt</div></div>
 </a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/architecture">
 <div class="Tuto3"><i class="Tuto6 fa fa-desktop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Architecture<br>Logicielle</div></div>
 <div class="Tuto5"><div class="Tuto8">Architecture Logicielle en<br>C++</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/qt">
+<div class="Tuto3"><i class="Tuto6 fa fa-desktop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Interface Homme Machine</div></div>
+<div class="Tuto5"><div class="Tuto8">Interface Homme Machine avec Qt en C++</div></div>
 </a>
 </div><br></div>
 </div>
