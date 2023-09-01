@@ -25,6 +25,10 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#utilisation-des-dispositions-en-qml">Utilisation des dispositions en QML</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#a-suivre---">À suivre...</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
@@ -476,6 +480,54 @@ Window {
     &lt;/qresource&gt;
 &lt;/RCC&gt;</pre><br>Vous devez informer Qt de l'utilisation du module QtQuick de la manière suivante dans le fichier projet (.pro):&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">QT += quick</pre><br>Vous devez informer Qt de l'utilisation du module QtQuick de la manière suivante dans le fichier projet (.pro):<br><br>Vous devez indiquer les fichiers ressources à Qt de la manière dans le fichier projet (.pro):<br><br><pre class="GCode1 Code1 AceCode" data-mode="prolog" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">RESOURCES +=\
     resources.qrc</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="utilisation-des-dispositions-en-qml">Utilisation des dispositions en QML</a>
+</h1>
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#utilisation-des-dispositions-en-qml_creation-de-rectangles-alignes-horizontalement">Création de rectangles alignés horizontalement</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="utilisation-des-dispositions-en-qml_creation-de-rectangles-alignes-horizontalement" href="#utilisation-des-dispositions-en-qml">Création de rectangles alignés horizontalement</a>
+</h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,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HHZH01nDM69sM0cDQ7JVxKGmGH3FuZFx/okjedNc2aazmRGHszeltV5h1mIxjZyn2QtJY0uHhPUlItO29kt4U+8c1mulWc1CnGieck9kLV7jkZ/agjOBiIT87iDuoX9iDUx9Bd34V0pIEmxs41mr5RTb46CJ/NK1Hk/Z1FfUtXgFJ99ShYQ11ayK7Qm2vJneEPq31NXPrHMkrJlprkibf+QxG5vhltsZ9K9YG70ApraiD7rjxSc7+CmvbkaEZAX9C2fz79AmN60VafMvc5vgeprZpT31Fb15gNOXwPBlMt5MObQ1wqCFa5M/XSyTaSyXWIVFhLW2+depYSbZUse7vZAMYfMerFkV29PWNmiJrGZiIyzGZNDrEdMmNfFTW/kXhWSAYYtta7xDHm4Tb2Kw+Y3YeWX3a86R9BkVkVk37XlfzxXlzAj2Zth0Zv05TG9NGP4X+xuw9s3oCn/6Eho8o3MLmf/5DsCW59AWAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClzC5Xe90PM9b4CeStsbnAGMiIBIEVIAEgREgBShASAFCEBIEVIAEgREgBShASAFCEBIEVIAEgREgBShASAFP+0EdbVBv/TxjnbM6u0UiIqRiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkDK3EKl9/0Qc72vQN4KmxucgYxIAEgREgBShASAFCEBIEVIAEgREgBShASAFCEBIEVIAEgREgBShASAlDH+1xYADGdEAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAClCAkCKkACQIiQApAgJAAml/D+ny4gU/s84MgAAAABJRU5ErkJggg=="></div><br>Implémentation de la fenêtre principale QML:<br><br><pre class="GCode1 Code1 AceCode" data-mode="qml" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+import QtQuick
+import QtQuick.Window
+import QtQuick.Layouts
+//===============================================
+Window {
+    width: 400
+    height: 200
+    visible: true
+    title: qsTr("ReadyDev")
+    RowLayout {
+        id: layout
+        anchors.fill: parent
+        spacing: 6
+        Rectangle {
+            color: 'yellow'
+            Layout.fillWidth: true
+            Layout.minimumWidth: 50
+            Layout.preferredWidth: 150
+            Layout.maximumWidth: 200
+            Layout.minimumHeight: 100
+            Layout.margins: 10
+        }
+        Rectangle {
+            color: 'red'
+            Layout.fillWidth: true
+            Layout.minimumWidth: 50
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 80
+            Layout.margins: 10
+        }
+    }
+}
+//===============================================</pre><br></div>
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
