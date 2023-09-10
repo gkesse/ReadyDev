@@ -82,6 +82,10 @@
 <div class="Tuto3"><i class="Tuto6 fa fa-desktop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Interface Homme Machine</div></div>
 <div class="Tuto5"><div class="Tuto8">Interface Homme Machine avec Qt en C++</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/qt_oscilloscope">
+<div class="Tuto3"><i class="Tuto6 fa fa-bar-chart"></i></div>
+<div class="Tuto4"><div class="Tuto7">Oscilloscope</div></div>
+<div class="Tuto5"><div class="Tuto8">C++ - Qt - SerialPort - Bluetooth - TCP/IP</div></div>
 </a>
 </div><br></div>
 </div>
