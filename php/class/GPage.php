@@ -274,6 +274,7 @@ class GPage extends GManager {
         else {
             $this->m_logs->addError("Le fichier n'existe pas.");
         }
+        $this->m_content = "";
         return !$this->m_logs->hasErrors();
     }
     //===============================================

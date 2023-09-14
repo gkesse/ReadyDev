@@ -102,6 +102,7 @@ class GMenu extends GObject {
         $this->addMenu("tutoriels", "Architecture Logicielle C++", "Architecture Logicielle C++", "/home/tutoriels/cpp/architecture", $lObj2);
         $this->addMenu("tutoriels", "Interface homme machine Qt", "Interface homme machine Qt", "/home/tutoriels/cpp/qt", $lObj2);
         $this->addMenu("tutoriels", "Qt Oscilloscope", "Qt Oscilloscope", "/home/tutoriels/cpp/qt_oscilloscope", $lObj2);
+        $this->addMenu("tutoriels", "Qt Ubuntu Installation", "Qt Ubuntu Installation", "/home/tutoriels/cpp/qt_ubuntu_installation", $lObj2, false);
         // tutoriels/java
         $lObj2 = $this->addMenu("tutoriels", "Java", "Java", "", $lObj);
         $this->addMenu("tutoriels", "Cours", "Java", "/home/tutoriels/java/cours", $lObj2);
@@ -123,6 +124,9 @@ class GMenu extends GObject {
         $this->addMenu("tutoriels", "8051", "8051", "/home/tutoriels/embedsys/8051", $lObj2);
         $this->addMenu("tutoriels", "PIC", "PIC", "/home/tutoriels/embedsys/pic", $lObj2);
         $this->addMenu("tutoriels", "Linux Embarqué", "Linux Embarqué", "/home/tutoriels/embedsys/linux", $lObj2);
+        // tutoriels/devops
+        $lObj2 = $this->addMenu("tutoriels", "DevOps", "DevOps", "", $lObj);
+        $this->addMenu("tutoriels", "VirtualBox Ubuntu Installation", "VirtualBox Ubuntu Installation", "/home/tutoriels/devops/virtualbox_ubuntu_installation", $lObj2);
         //===============================================
         // cours
         //===============================================

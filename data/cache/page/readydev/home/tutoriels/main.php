@@ -40,6 +40,10 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#linux">Système Linux</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#devops">DevOps</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -80,8 +84,8 @@
 <div class="Tuto5"><div class="Tuto8">Architecture Logicielle en<br>C++</div></div>
 </a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/qt">
 <div class="Tuto3"><i class="Tuto6 fa fa-desktop"></i></div>
-<div class="Tuto4"><div class="Tuto7">Interface Homme Machine</div></div>
-<div class="Tuto5"><div class="Tuto8">Interface Homme Machine avec Qt en C++</div></div>
+<div class="Tuto4"><div class="Tuto7">Interface<br>Homme Machine<br></div></div>
+<div class="Tuto5"><div class="Tuto8">C++ - Qt - QML - Desktop - Mobile - Android - iOS</div></div>
 </a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/qt_oscilloscope">
 <div class="Tuto3"><i class="Tuto6 fa fa-bar-chart"></i></div>
 <div class="Tuto4"><div class="Tuto7">Oscilloscope</div></div>
@@ -192,4 +196,19 @@
 <div class="Tuto4"><div class="Tuto7">Vim</div></div>
 <div class="Tuto5"><div class="Tuto8">Editeur de texte<br>Linux</div></div>
 </a>
-</div><br></div></div></div></div><br>
+</div><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="devops">DevOps</a>
+</h1>
+<div class="Section6"><br><div class="GTuto1 Tuto1">
+<a class="GTuto2 Tuto2" href="/home/tutoriels/devops/virtualbox_ubuntu_installation">
+<div class="Tuto3"><i class="Tuto6 fa fa-laptop"></i></div>
+<div class="Tuto4"><div class="Tuto7">VirtualBox<br>Ubuntu<br>Installation</div></div>
+<div class="Tuto5"><div class="Tuto8">VirtualBox - Ubuntu - SSH - MobaXterm</div></div>
+</a>
+</div><br></div>
+</div>
+</div>
+</div><br>
