@@ -982,7 +982,7 @@ Window {
 <h1 class="Section4">
 <a class="Section5" href="#" id="utilisation-d-une-vue-en-chemin-qml--pathview-">Utilisation d'une vue en chemin QML (PathView)</a>
 </h1>
-<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<div class="Section6"><br>Un PathView affiche les données des modèles créés à partir de types QML intégrés comme ListModel et XmlListModel, ou des classes de modèles personnalisées définies en C++ qui héritent de QAbstractListModel.<br><br><div class="GSummary2"><div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#utilisation-d-une-vue-en-chemin-qml--pathview-_affichage-d-un-rectangle">Affichage d'un rectangle</a>
 </div>
@@ -1271,7 +1271,7 @@ Window {
 <h1 class="Section4">
 <a class="Section5" href="#" id="utilisation-de-flux-de-donnees-qml--flow-">Utilisation de flux de données QML (Flow)</a>
 </h1>
-<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<div class="Section6"><br>L'élément Flow positionne ses éléments enfants comme des mots sur une page, en les enveloppant pour créer des lignes ou des colonnes d'éléments.<br><br><div class="GSummary2"><div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#utilisation-de-flux-de-donnees-qml--flow-_utilisation-d-un-flux-de-rectangles">Utilisation d'un flux de rectangles</a>
 </div>
