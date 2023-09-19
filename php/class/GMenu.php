@@ -102,6 +102,7 @@ class GMenu extends GObject {
         $this->addMenu("tutoriels", "Architecture Logicielle C++", "Architecture Logicielle C++", "/home/tutoriels/cpp/architecture", $lObj2);
         $this->addMenu("tutoriels", "Interface homme machine Qt", "Interface homme machine Qt", "/home/tutoriels/cpp/qt", $lObj2);
         $this->addMenu("tutoriels", "Qt Oscilloscope", "Qt Oscilloscope", "/home/tutoriels/cpp/qt_oscilloscope", $lObj2);
+        $this->addMenu("tutoriels", "Qt Automobile UI", "Qt Automobile UI", "/home/tutoriels/cpp/qt_automobile_ui", $lObj2);
         $this->addMenu("tutoriels", "Qt Ubuntu Installation", "Qt Ubuntu Installation", "/home/tutoriels/cpp/qt_ubuntu_installation", $lObj2, false);
         // tutoriels/java
         $lObj2 = $this->addMenu("tutoriels", "Java", "Java", "", $lObj);
