@@ -9,6 +9,7 @@ function utf8_to_b64($_data) {
 }
 //===============================================
 function b64_to_utf8($_data) {
+    ini_set("memory_limit", "128M");
     $lData = $_data;
     $lData = rawurldecode($lData);
     $lData = base64_decode($lData);
