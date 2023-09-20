@@ -34,6 +34,10 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#systeme-d-exploitation-embarque-simple--seos-">Système d'exploitation embarqué simple (sEOS)</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#clignotement-d-une-led">Clignotement d'une LED</a>
 </div>
 <div class="GSummary11 Summary1">
@@ -1051,6 +1055,182 @@ void GTimer_init() {
 static void GTimer_update() interrupt 5 {
     TF2 = 0;
     GLed_update();
+}
+//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="systeme-d-exploitation-embarque-simple--seos-">Système d'exploitation embarqué simple (sEOS)</a>
+</h1>
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#systeme-d-exploitation-embarque-simple--seos-_initialisation-du-systeme-seos">Initialisation du système sEOS</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#systeme-d-exploitation-embarque-simple--seos-_demarrage-du-systeme-seos">Démarrage du système sEOS</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#systeme-d-exploitation-embarque-simple--seos-_mise-en-veille-du-systeme-seos">Mise en veille du système sEOS</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#systeme-d-exploitation-embarque-simple--seos-_gestionnaire-des-taches-du-systeme-seos">Gestionnaire des tâches du système sEOS</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#systeme-d-exploitation-embarque-simple--seos-_inversion-d-une-broche-toutes-les-1ms">Inversion d'une broche toutes les 1ms</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#systeme-d-exploitation-embarque-simple--seos-_inversion-d-une-broche-toutes-les-500ms">Inversion d'une broche toutes les 500ms</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="systeme-d-exploitation-embarque-simple--seos-_initialisation-du-systeme-seos" href="#systeme-d-exploitation-embarque-simple--seos-">Initialisation du système sEOS</a>
+</h2><br>Initialisation du système sEOS:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// GInclude.h
+//===============================================
+#define OSC_FREQ (11059200UL)
+#define OSC_PER_INST (12)
+//===============================================
+// GSeos.c
+//===============================================
+#define PRELOAD(ms) (65536 - ((OSC_FREQ * ms) / (OSC_PER_INST * 1000))) 
+#define PRELOAD_H(ms) (PRELOAD(ms) / 256)
+#define PRELOAD_L(ms) (PRELOAD(ms) % 256)
+//===============================================
+void GSeos_init(uchar _ms) {
+    T2CON = 0x00;
+    TH2 = PRELOAD_H(_ms);
+    TL2 = PRELOAD_L(_ms);
+    RCAP2H = PRELOAD_H(_ms);
+    RCAP2L = PRELOAD_L(_ms);
+    TF2 = 0;
+    ET2 = 1;
+    TR2 = 1;
+}
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="systeme-d-exploitation-embarque-simple--seos-_demarrage-du-systeme-seos" href="#systeme-d-exploitation-embarque-simple--seos-">Démarrage du système sEOS</a>
+</h2><br>Démarrage du système sEOS:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// GSeos.c
+//===============================================
+void GSeos_start() {
+    EA = 1;
+}
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="systeme-d-exploitation-embarque-simple--seos-_mise-en-veille-du-systeme-seos" href="#systeme-d-exploitation-embarque-simple--seos-">Mise en veille du système sEOS</a>
+</h2><br>Mise en veille du système sEOS:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// GSeos.c
+//===============================================
+void GSeos_goToSleep() {
+    PCON |= 0x01;
+}
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="systeme-d-exploitation-embarque-simple--seos-_gestionnaire-des-taches-du-systeme-seos" href="#systeme-d-exploitation-embarque-simple--seos-">Gestionnaire des tâches du système sEOS</a>
+</h2><br>Gestionnaire des tâches du système sEOS:&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// GSeos.c
+//===============================================
+static void GSeos_update() interrupt 5 {
+    TF2 = 0;
+}
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="systeme-d-exploitation-embarque-simple--seos-_inversion-d-une-broche-toutes-les-1ms" href="#systeme-d-exploitation-embarque-simple--seos-">Inversion d'une broche toutes les 1ms</a>
+</h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,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"></div><br>Inversion d'une broche toutes les 1ms:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// main.c
+//===============================================
+void main() {
+    GLed_init();
+    GSeos_init(1);
+    GSeos_start();
+    while(1) {
+        GSeos_goToSleep();
+    }
+}
+//===============================================
+// GLed.c
+//===============================================
+void GLed_init() {
+    PORT = 0xFF;
+}
+//===============================================
+void GLed_update() {
+    LED = !LED;
+}
+//===============================================
+// GSeos.c
+//===============================================
+#define PRELOAD(ms) (65536 - ((OSC_FREQ * ms) / (OSC_PER_INST * 1000))) 
+#define PRELOAD_H(ms) (PRELOAD(ms) / 256)
+#define PRELOAD_L(ms) (PRELOAD(ms) % 256)
+//===============================================
+void GSeos_init(uchar _ms) {
+    T2CON = 0x00;
+    TH2 = PRELOAD_H(_ms);
+    TL2 = PRELOAD_L(_ms);
+    RCAP2H = PRELOAD_H(_ms);
+    RCAP2L = PRELOAD_L(_ms);
+    TF2 = 0;
+    ET2 = 1;
+    TR2 = 1;
+}
+//===============================================
+void GSeos_start() {
+    EA = 1;
+}
+//===============================================
+void GSeos_goToSleep() {
+    PCON |= 0x01;
+}
+//===============================================
+static void GSeos_update() interrupt 5 {
+    TF2 = 0;
+    GLed_update();
+}
+//===============================================
+// GInclude.h
+//===============================================
+#include &lt;reg52.h&gt;
+//===============================================
+typedef unsigned char uchar;
+typedef unsigned int uint;
+typedef unsigned long ulong;
+typedef bit ubit;
+//===============================================
+#define OSC_FREQ (11059200UL)
+#define OSC_PER_INST (12)
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="systeme-d-exploitation-embarque-simple--seos-_inversion-d-une-broche-toutes-les-500ms" href="#systeme-d-exploitation-embarque-simple--seos-">Inversion d'une broche toutes les 500ms</a>
+</h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,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"></div><br>Inversion d'une broche toutes les 500ms:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// main.c
+//===============================================
+void main() {
+    GLed_init();
+    GSeos_init(1);
+    GSeos_start();
+    while(1) {
+        GSeos_goToSleep();
+    }
+}
+//===============================================
+// GSeos.c
+//===============================================
+static void GSeos_update() interrupt 5 {
+    TF2 = 0;
+    GLed_update();
+}
+//===============================================
+// GLed.c
+//===============================================
+void GLed_init() {
+    PORT = 0xFF;
+}
+//===============================================
+void GLed_update() {
+    if(++gTime == 500) {
+        LED = !LED;
+        gTime = 0;
+    }
 }
 //===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
