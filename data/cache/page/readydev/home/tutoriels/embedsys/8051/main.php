@@ -30,6 +30,10 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#utilisation-de-l-interruption-d-un-timer">Utilisation de l'interruption d'un timer</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#clignotement-d-une-led">Clignotement d'une LED</a>
 </div>
 <div class="GSummary11 Summary1">
@@ -876,7 +880,7 @@ void GInterrupt_init() {
 </h2><br>Gestionnaire de l'interruption externe 0:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 // GInterrupt.c
 //===============================================
-void GInterrupt_update() interrupt 0 {
+static void GInterrupt_update() interrupt 0 {
 
 }
 //===============================================
@@ -911,6 +915,142 @@ void GInterrupt_init() {
 //===============================================
 void GInterrupt_update() interrupt 0 {
     GPort_update();
+}
+//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="utilisation-de-l-interruption-d-un-timer">Utilisation de l'interruption d'un timer</a>
+</h1>
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#utilisation-de-l-interruption-d-un-timer_initialisation-du-timer-0-pour-un-delai-de-50ms-sur-16-bit">Initialisation du timer 0 pour un délai de 50ms sur 16-bit</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#utilisation-de-l-interruption-d-un-timer_rechargement-du-timer-0-pour-un-delai-de-50ms">Rechargement du timer 0 pour un délai de 50ms</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#utilisation-de-l-interruption-d-un-timer_gestionnaire-de-l-interruption-du-timer-0">Gestionnaire de l'interruption du timer 0</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#utilisation-de-l-interruption-d-un-timer_inversion-d-une-broche-toutes-les-50ms-avec-le-timer-0">Inversion d'une broche toutes les 50ms avec le timer 0</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#utilisation-de-l-interruption-d-un-timer_inversion-d-une-broche-toutes-les-50ms-avec-le-timer-2">Inversion d'une broche toutes les 50ms avec le timer 2</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="utilisation-de-l-interruption-d-un-timer_initialisation-du-timer-0-pour-un-delai-de-50ms-sur-16-bit" href="#utilisation-de-l-interruption-d-un-timer">Initialisation du timer 0 pour un délai de 50ms sur 16-bit</a>
+</h2><br>Initialisation du timer 0 pour un délai de 50ms sur 16-bit:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// GTimer.c
+//===============================================
+void GTimer_init() {
+    TMOD = 0x01;
+    TH0 = 0x4B;
+    TL0 = 0xFD;
+    ET0 = 1;
+    EA = 1;
+    TR0 = 1;
+}
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="utilisation-de-l-interruption-d-un-timer_rechargement-du-timer-0-pour-un-delai-de-50ms" href="#utilisation-de-l-interruption-d-un-timer">Rechargement du timer 0 pour un délai de 50ms</a>
+</h2><br>Rechargement du timer 0 pour un délai de 50ms:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// GTimer.c
+//===============================================
+static void GTimer_reload() {
+    TH0 = 0x4B;
+    TL0 = 0xFD;
+}
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="utilisation-de-l-interruption-d-un-timer_gestionnaire-de-l-interruption-du-timer-0" href="#utilisation-de-l-interruption-d-un-timer">Gestionnaire de l'interruption du timer 0</a>
+</h2><br>Gestionnaire de l'interruption du timer 0:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// GTimer.c
+//===============================================
+static void GTimer_update() interrupt 1 {
+    GTimer_reload();
+}
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="utilisation-de-l-interruption-d-un-timer_inversion-d-une-broche-toutes-les-50ms-avec-le-timer-0" href="#utilisation-de-l-interruption-d-un-timer">Inversion d'une broche toutes les 50ms avec le timer 0</a>
+</h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,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"></div><br>Inversion d'une broche toutes les 50ms avec le timer 0:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// main.c
+//===============================================
+void main() {
+    GLed_init();
+    GTimer_init();
+    while(1);
+}
+//===============================================
+// GLed.c
+//===============================================
+void GLed_init() {
+    PORT = 0xFF;
+}
+//===============================================
+void GLed_update() {
+    LED = !LED;
+}
+//===============================================
+// GTimer.c
+//===============================================
+void GTimer_init() {
+    TMOD = 0x01;
+    TH0 = 0x4B;
+    TL0 = 0xFD;
+    ET0 = 1;
+    EA = 1;
+    TR0 = 1;
+}
+//===============================================
+static void GTimer_reload() {
+    TH0 = 0x4B;
+    TL0 = 0xFD;
+}
+//===============================================
+static void GTimer_update() interrupt 1 {
+    GTimer_reload();
+    GLed_update();
+}
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="utilisation-de-l-interruption-d-un-timer_inversion-d-une-broche-toutes-les-50ms-avec-le-timer-2" href="#utilisation-de-l-interruption-d-un-timer">Inversion d'une broche toutes les 50ms avec le timer 2</a>
+</h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,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"></div><br>Inversion d'une broche toutes les 50ms avec le timer 2:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// main.c
+//===============================================
+void main() {
+    GLed_init();
+    GTimer_init();
+    while(1);
+}
+//===============================================
+// GLed.c
+//===============================================
+void GLed_init() {
+    PORT = 0xFF;
+}
+//===============================================
+void GLed_update() {
+    LED = !LED;
+}
+//===============================================
+// GTimer.c
+//===============================================
+void GTimer_init() {
+    T2CON = 0x00;
+    TH2 = 0x4B;
+    TL2 = 0xFD;
+    RCAP2H = 0x4B;
+    RCAP2L = 0xFD;
+    TF2 = 0;
+    ET2 = 1;
+    EA = 1;
+    TR2 = 1;
+}
+//===============================================
+static void GTimer_update() interrupt 5 {
+    TF2 = 0;
+    GLed_update();
 }
 //===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
