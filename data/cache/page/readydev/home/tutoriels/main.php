@@ -93,7 +93,7 @@
 </a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/qt_automobile_ui">
 <div class="Tuto3"><i class="Tuto6 fa fa-road"></i></div>
 <div class="Tuto4"><div class="Tuto7">Automobile<br>Interface Utilisateur</div></div>
-<div class="Tuto5"><div class="Tuto8">C++ - Qt - Map - Desktop - Mobile - Android - iOS</div></div>
+<div class="Tuto5"><div class="Tuto8">C++ - Qt - GPS - Desktop - Mobile - Android - iOS</div></div>
 </a>
 </div><br></div>
 </div>
