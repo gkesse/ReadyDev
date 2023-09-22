@@ -22,6 +22,10 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#programmation-par-selection-de-projet">Programmation par sélection de projet</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#compilation-d-un-projet-c">Compilation d'un projet C</a>
 </div>
 <div class="GSummary11 Summary1">
@@ -35,22 +39,6 @@
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#utilisation-du-debogueur-gdb-">Utilisation du débogueur GDB </a>
-</div>
-<div class="GSummary11 Summary1">
-<i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#identification-logicielle">Identification logicielle</a>
-</div>
-<div class="GSummary11 Summary1">
-<i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#multithreading">Multithreading</a>
-</div>
-<div class="GSummary11 Summary1">
-<i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#notion-d-heritage-de-classe">Notion d'héritage de classe</a>
-</div>
-<div class="GSummary11 Summary1">
-<i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#notion-de-polymorphisme">Notion de polymorphisme</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
@@ -205,7 +193,7 @@ void GHello_sayHello() {
 </div>
 <div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
-<a class="Summary6" href="#programmation-par-objet_utilisation-d-une-macro-local">Utilisation d'une macro local</a>
+<a class="Summary6" href="#programmation-par-objet_utilisation-d-une-macro-locale">Utilisation d'une macro locale</a>
 </div>
 <div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
@@ -221,7 +209,11 @@ void GHello_sayHello() {
 </div>
 <div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
-<a class="Summary6" href="#programmation-par-objet_creation-d-un-objet-dynamique-via-une-macro-local">Création d'un objet dynamique via une macro local</a>
+<a class="Summary6" href="#programmation-par-objet_creation-d-un-objet-dynamique-via-une-macro-locale">Création d'un objet dynamique via une macro locale</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#programmation-par-objet_creation-d-un-objet-dynamique-via-une-macro-globale">Création d'un objet dynamique via une macro globale</a>
 </div>
 </div><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="affichage-d-un-message_affichage-d-un-message" href="#programmation-par-objet">Affichage d'un message</a>
@@ -280,7 +272,7 @@ static void GHello_sayHello() {
     printf("Bonjour tout le monde.\n");
 }
 //===============================================</pre><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="programmation-par-objet_utilisation-d-une-macro-local" href="#programmation-par-objet">Utilisation d'une macro local</a>
+<a class="Title2" id="programmation-par-objet_utilisation-d-une-macro-locale" href="#programmation-par-objet">Utilisation d'une macro locale</a>
 </h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARkAAAAdCAIAAAARlI/iAAAFlklEQVR4Ae1aMbLjKhDcA3AJncFn4Aa6gA+g3LlChYqVEZMqJ+ZQv3a7tms8QghbfMv1FgfvIYzomZ5pQCP/Mu3TGGgM1GDgV41J2hyNgcaAaVpqSdAYqMNA01IdHtssjYGmpZYDjYE6DDQt1eGxzdIY+BYtDcPgnOv7voWkLgPx+VN38m+bDb5eZdWTlsZxfGY+Oufu9/sHjAOuc+4DWCchrLV933ddd3KektvPY7m/n2vzrMTZ82Ou9TGhpXVdwf+6rjBuGIbzfuZn8N7HGOd5zg/7hm+dczHGz2yhFbGuzbPPBO5aHxNaGseRnj8ejxjjuq7s+Z8aXdd9JjvP218xvw+NqYh1bZ4delplwLU+HmjJGHOtfVUorjtJxfw+NKwi1r8Qx2t9fFNL4zjyBLh9pur7PsY4juMwDBgWQpimSaVO8vFMjTHG5LEwidxLgS4fvZCRMUbvvTFmmqYQAi6ttVvEZA+mRbS2f9UtJ21+CUtB710e5pm02Xv/xsEeEMMwhD8fa+2yLDjX3G43aZjEejt/OH+McVmWruuSPkqs9/ySlmfaB1rCGU89xszzDKOdc3jOiTFK6pnNyFemspITanfy2UwKAEYfYpVoaZom2jAMQ4y/ayoQefnx1VoLU6nDv0/1v/9Lis/bXI4lcfPtZJ7xFmkzuZIrFEdmGoBYlmWaJkhomiZkiJxKYr2dP9ZaBCKEgGhCtzFGaaHEetsvOWGmndASaw/ee+wnsmZlrQVlXNGhtxACYbissgaIHjmGg9GAJFRSlmCVaAkQjDQs5zKmlkxl2PYSIdl7uqtrcx5ra1umJ6Ol+/2udg9kaghBhj4zOb4CBJjBgoVjBfYNjCnhpyR/oBxsR5iZsqGdtfzihPlGQktgJMYIxc/zLPMGubssi5wXKwSHgQscqDgsE0syrrRUgvWqlh6PB016L1Pzd9W1OY9FR0oaGf6RhfJkYYxBJ2NaDpHUEiNbwk9J/iDluKAbY263m/Kxll8lvhvz/NvWbV5aa7ELk2hEV27Zxhh0cgy4IH0wRfmp7AO0uqUEa2tzEp1FlJeSQxmJy3x+17U5j5U0b68zwz9QMED9fYku3JvXUgk/yQgq+9UlvFadtfzao1T1J/YlpROchXg8q8WFsqNpiYciyQzYfimh5e2yrfJMfgWUeZ7HzeelAzAgvk1L5/2SXGXax1riio5ZkPQlZzy1yWRiWfeMx+qCcltGWn310iUyT54V5e0l/Gz30j2b81gS97AN95PPPzgLqTX0cMLtAMkwlwa1SpbwU74vSanvnfHO+7X1NNlzrCU4z32p/NnxvJZKsFSouq7DoVShc0U4v8ajSOW9T+ZlXZvzWMmI7nWibplcApC7IQSe0vcmyfeXaKmEnxItsfZAk7AiyDreS36h3LIXVqJkGgktsY7HwjFeFnEWGn1YE+ctTGXZI9tKEvzqEOt2u+ExFGaHEHjLuq72zwfFa0Tae++cU9V5wpU0iIjaDFiSEqUBe/xwhj2baQZH7mFx5GEDDPMtRQiBVVa8cwM/BPLev8pSiZZY1cDGla+JS6cwOXuoSRi8rmuyJo7FiIU0RCTpF/mRoSRcSSOhJRjNv8nXW+M4koXt77tL1hVlHDxRR0eMyWMZY/q+hzGo4JNl/GoOxtAdNLa7lrInf4m3hNAw4iTzEkfWDD+HNkv0Qyw5ON/mS2ooSu1Cfd8vy0KnYozJnMtAgNv88xJuz8e0MH/6vscZGLJknUxZWOhX5X1JGfHJS6zlHzvaftK1hvWPMPC0L13ic9d1eNsbY5SPkpcY00AbA28zcJmW8DMZeaJQR463XWo3NgYuYeAyLbHGgkpA25EuCX8DrcjAZVqq6EObqjHwDQw0LX1DFJoNP4GBpqWfEMXmwzcw0LT0DVFoNvwEBv4DAMMb7ZAPC6MAAAAASUVORK5CYII="></div><br>Utilisation d'une macro local:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 // main.c
 //===============================================
@@ -437,7 +429,7 @@ static void GHello_sayHello() {
     printf("Bonjour tout le monde.\n");
 }
 //===============================================</pre><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="programmation-par-objet_creation-d-un-objet-dynamique-via-une-macro-local" href="#programmation-par-objet">Création d'un objet dynamique via une macro local</a>
+<a class="Title2" id="programmation-par-objet_creation-d-un-objet-dynamique-via-une-macro-locale" href="#programmation-par-objet">Création d'un objet dynamique via une macro locale</a>
 </h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARkAAAAdCAIAAAARlI/iAAAFlklEQVR4Ae1aMbLjKhDcA3AJncFn4Aa6gA+g3LlChYqVEZMqJ+ZQv3a7tms8QghbfMv1FgfvIYzomZ5pQCP/Mu3TGGgM1GDgV41J2hyNgcaAaVpqSdAYqMNA01IdHtssjYGmpZYDjYE6DDQt1eGxzdIY+BYtDcPgnOv7voWkLgPx+VN38m+bDb5eZdWTlsZxfGY+Oufu9/sHjAOuc+4DWCchrLV933ddd3KektvPY7m/n2vzrMTZ82Ou9TGhpXVdwf+6rjBuGIbzfuZn8N7HGOd5zg/7hm+dczHGz2yhFbGuzbPPBO5aHxNaGseRnj8ejxjjuq7s+Z8aXdd9JjvP218xvw+NqYh1bZ4delplwLU+HmjJGHOtfVUorjtJxfw+NKwi1r8Qx2t9fFNL4zjyBLh9pur7PsY4juMwDBgWQpimSaVO8vFMjTHG5LEwidxLgS4fvZCRMUbvvTFmmqYQAi6ttVvEZA+mRbS2f9UtJ21+CUtB710e5pm02Xv/xsEeEMMwhD8fa+2yLDjX3G43aZjEejt/OH+McVmWruuSPkqs9/ySlmfaB1rCGU89xszzDKOdc3jOiTFK6pnNyFemspITanfy2UwKAEYfYpVoaZom2jAMQ4y/ayoQefnx1VoLU6nDv0/1v/9Lis/bXI4lcfPtZJ7xFmkzuZIrFEdmGoBYlmWaJkhomiZkiJxKYr2dP9ZaBCKEgGhCtzFGaaHEetsvOWGmndASaw/ee+wnsmZlrQVlXNGhtxACYbissgaIHjmGg9GAJFRSlmCVaAkQjDQs5zKmlkxl2PYSIdl7uqtrcx5ra1umJ6Ol+/2udg9kaghBhj4zOb4CBJjBgoVjBfYNjCnhpyR/oBxsR5iZsqGdtfzihPlGQktgJMYIxc/zLPMGubssi5wXKwSHgQscqDgsE0syrrRUgvWqlh6PB016L1Pzd9W1OY9FR0oaGf6RhfJkYYxBJ2NaDpHUEiNbwk9J/iDluKAbY263m/Kxll8lvhvz/NvWbV5aa7ELk2hEV27Zxhh0cgy4IH0wRfmp7AO0uqUEa2tzEp1FlJeSQxmJy3x+17U5j5U0b68zwz9QMED9fYku3JvXUgk/yQgq+9UlvFadtfzao1T1J/YlpROchXg8q8WFsqNpiYciyQzYfimh5e2yrfJMfgWUeZ7HzeelAzAgvk1L5/2SXGXax1riio5ZkPQlZzy1yWRiWfeMx+qCcltGWn310iUyT54V5e0l/Gz30j2b81gS97AN95PPPzgLqTX0cMLtAMkwlwa1SpbwU74vSanvnfHO+7X1NNlzrCU4z32p/NnxvJZKsFSouq7DoVShc0U4v8ajSOW9T+ZlXZvzWMmI7nWibplcApC7IQSe0vcmyfeXaKmEnxItsfZAk7AiyDreS36h3LIXVqJkGgktsY7HwjFeFnEWGn1YE+ctTGXZI9tKEvzqEOt2u+ExFGaHEHjLuq72zwfFa0Tae++cU9V5wpU0iIjaDFiSEqUBe/xwhj2baQZH7mFx5GEDDPMtRQiBVVa8cwM/BPLev8pSiZZY1cDGla+JS6cwOXuoSRi8rmuyJo7FiIU0RCTpF/mRoSRcSSOhJRjNv8nXW+M4koXt77tL1hVlHDxRR0eMyWMZY/q+hzGo4JNl/GoOxtAdNLa7lrInf4m3hNAw4iTzEkfWDD+HNkv0Qyw5ON/mS2ooSu1Cfd8vy0KnYozJnMtAgNv88xJuz8e0MH/6vscZGLJknUxZWOhX5X1JGfHJS6zlHzvaftK1hvWPMPC0L13ic9d1eNsbY5SPkpcY00AbA28zcJmW8DMZeaJQR463XWo3NgYuYeAyLbHGgkpA25EuCX8DrcjAZVqq6EObqjHwDQw0LX1DFJoNP4GBpqWfEMXmwzcw0LT0DVFoNvwEBv4DAMMb7ZAPC6MAAAAASUVORK5CYII="></div><br>Création d'un objet dynamique via une macro local:&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 // main.c
 //===============================================
@@ -484,8 +476,244 @@ void GHello_init(GHello* _obj) {
 static void GHello_sayHello() {
     printf("Bonjour tout le monde.\n");
 }
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="programmation-par-objet_creation-d-un-objet-dynamique-via-une-macro-globale" href="#programmation-par-objet">Création d'un objet dynamique via une macro globale</a>
+</h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARkAAAAdCAIAAAARlI/iAAAFlklEQVR4Ae1aMbLjKhDcA3AJncFn4Aa6gA+g3LlChYqVEZMqJ+ZQv3a7tms8QghbfMv1FgfvIYzomZ5pQCP/Mu3TGGgM1GDgV41J2hyNgcaAaVpqSdAYqMNA01IdHtssjYGmpZYDjYE6DDQt1eGxzdIY+BYtDcPgnOv7voWkLgPx+VN38m+bDb5eZdWTlsZxfGY+Oufu9/sHjAOuc+4DWCchrLV933ddd3KektvPY7m/n2vzrMTZ82Ou9TGhpXVdwf+6rjBuGIbzfuZn8N7HGOd5zg/7hm+dczHGz2yhFbGuzbPPBO5aHxNaGseRnj8ejxjjuq7s+Z8aXdd9JjvP218xvw+NqYh1bZ4delplwLU+HmjJGHOtfVUorjtJxfw+NKwi1r8Qx2t9fFNL4zjyBLh9pur7PsY4juMwDBgWQpimSaVO8vFMjTHG5LEwidxLgS4fvZCRMUbvvTFmmqYQAi6ttVvEZA+mRbS2f9UtJ21+CUtB710e5pm02Xv/xsEeEMMwhD8fa+2yLDjX3G43aZjEejt/OH+McVmWruuSPkqs9/ySlmfaB1rCGU89xszzDKOdc3jOiTFK6pnNyFemspITanfy2UwKAEYfYpVoaZom2jAMQ4y/ayoQefnx1VoLU6nDv0/1v/9Lis/bXI4lcfPtZJ7xFmkzuZIrFEdmGoBYlmWaJkhomiZkiJxKYr2dP9ZaBCKEgGhCtzFGaaHEetsvOWGmndASaw/ee+wnsmZlrQVlXNGhtxACYbissgaIHjmGg9GAJFRSlmCVaAkQjDQs5zKmlkxl2PYSIdl7uqtrcx5ra1umJ6Ol+/2udg9kaghBhj4zOb4CBJjBgoVjBfYNjCnhpyR/oBxsR5iZsqGdtfzihPlGQktgJMYIxc/zLPMGubssi5wXKwSHgQscqDgsE0syrrRUgvWqlh6PB016L1Pzd9W1OY9FR0oaGf6RhfJkYYxBJ2NaDpHUEiNbwk9J/iDluKAbY263m/Kxll8lvhvz/NvWbV5aa7ELk2hEV27Zxhh0cgy4IH0wRfmp7AO0uqUEa2tzEp1FlJeSQxmJy3x+17U5j5U0b68zwz9QMED9fYku3JvXUgk/yQgq+9UlvFadtfzao1T1J/YlpROchXg8q8WFsqNpiYciyQzYfimh5e2yrfJMfgWUeZ7HzeelAzAgvk1L5/2SXGXax1riio5ZkPQlZzy1yWRiWfeMx+qCcltGWn310iUyT54V5e0l/Gz30j2b81gS97AN95PPPzgLqTX0cMLtAMkwlwa1SpbwU74vSanvnfHO+7X1NNlzrCU4z32p/NnxvJZKsFSouq7DoVShc0U4v8ajSOW9T+ZlXZvzWMmI7nWibplcApC7IQSe0vcmyfeXaKmEnxItsfZAk7AiyDreS36h3LIXVqJkGgktsY7HwjFeFnEWGn1YE+ctTGXZI9tKEvzqEOt2u+ExFGaHEHjLuq72zwfFa0Tae++cU9V5wpU0iIjaDFiSEqUBe/xwhj2baQZH7mFx5GEDDPMtRQiBVVa8cwM/BPLev8pSiZZY1cDGla+JS6cwOXuoSRi8rmuyJo7FiIU0RCTpF/mRoSRcSSOhJRjNv8nXW+M4koXt77tL1hVlHDxRR0eMyWMZY/q+hzGo4JNl/GoOxtAdNLa7lrInf4m3hNAw4iTzEkfWDD+HNkv0Qyw5ON/mS2ooSu1Cfd8vy0KnYozJnMtAgNv88xJuz8e0MH/6vscZGLJknUxZWOhX5X1JGfHJS6zlHzvaftK1hvWPMPC0L13ic9d1eNsbY5SPkpcY00AbA28zcJmW8DMZeaJQR463XWo3NgYuYeAyLbHGgkpA25EuCX8DrcjAZVqq6EObqjHwDQw0LX1DFJoNP4GBpqWfEMXmwzcw0LT0DVFoNvwEBv4DAMMb7ZAPC6MAAAAASUVORK5CYII="></div><br>Création d'un objet dynamique via une macro globale:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// main.c
+//===============================================
+int main(int _argc, char** _argv) {
+    GDEFINE_OBJ_PTR(GHello, lHello)
+    lHello-&gt;sayHello();
+    lHello-&gt;delete(&amp;lHello);
+    return 0;
+}
+//===============================================
+// GInclude.h
+//===============================================
+#define GDEFINE_OBJ(_type, _obj) \
+    _type _obj; \
+    _type##_init(&amp;_obj);
+//===============================================
+#define GDEFINE_OBJ_PTR(_type, _obj) \
+    _type* _obj = _type##_new();
+//===============================================
+// GHello.h
+//===============================================
+typedef struct _GHello GHello;
+//===============================================
+struct _GHello {
+    void (*delete)(GHello** _obj);
+    void (*sayHello)();
+};
+//===============================================
+void GHello_init(GHello* _obj);
+GHello* GHello_new();
+//===============================================
+// GHello.h
+//===============================================
+GHello* GHello_new() {
+    GHello* lObj = (GHello*)malloc(sizeof(GHello));
+    GHello_init(lObj);
+    return lObj;
+}
+//===============================================
+static void GHello_delete(GHello** _obj) {
+    free(*_obj);
+    (*_obj) = 0;
+}
+//===============================================
+void GHello_init(GHello* _obj) {
+    _obj-&gt;delete = GHello_delete;
+    _obj-&gt;sayHello = GHello_sayHello;
+}
+//===============================================
+static void GHello_sayHello() {
+    printf("Bonjour tout le monde.\n");
+}
 //===============================================</pre><br></div>
-</div></div></div><br><div class="GSection1 Section1">
+</div></div></div><br><div class="GSection1 Section1"><div class="Section2"><div class="Section3"><h1 class="Section4"><a class="Section5" href="#" id="programmation-par-selection-de-projet">Programmation par sélection de projet</a>
+</h1>
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#programmation-par-selection-de-projet_affichage-d-un-message">Affichage d'un message</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#programmation-par-selection-de-projet_creation-d-un-module-de-selection-de-processus">Création d'un module de sélection de processus</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#programmation-par-selection-de-projet_utilisation-des-arguments-passes-en-ligne-de-commande">Utilisation des arguments passés en ligne de commande</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#programmation-par-selection-de-projet_integration-d-un-module-de-test">Intégration d'un module de test</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="programmation-par-selection-de-projet_affichage-d-un-message" href="#programmation-par-selection-de-projet">Affichage d'un message</a>
+</h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARkAAAAdCAIAAAARlI/iAAAFlklEQVR4Ae1aMbLjKhDcA3AJncFn4Aa6gA+g3LlChYqVEZMqJ+ZQv3a7tms8QghbfMv1FgfvIYzomZ5pQCP/Mu3TGGgM1GDgV41J2hyNgcaAaVpqSdAYqMNA01IdHtssjYGmpZYDjYE6DDQt1eGxzdIY+BYtDcPgnOv7voWkLgPx+VN38m+bDb5eZdWTlsZxfGY+Oufu9/sHjAOuc+4DWCchrLV933ddd3KektvPY7m/n2vzrMTZ82Ou9TGhpXVdwf+6rjBuGIbzfuZn8N7HGOd5zg/7hm+dczHGz2yhFbGuzbPPBO5aHxNaGseRnj8ejxjjuq7s+Z8aXdd9JjvP218xvw+NqYh1bZ4delplwLU+HmjJGHOtfVUorjtJxfw+NKwi1r8Qx2t9fFNL4zjyBLh9pur7PsY4juMwDBgWQpimSaVO8vFMjTHG5LEwidxLgS4fvZCRMUbvvTFmmqYQAi6ttVvEZA+mRbS2f9UtJ21+CUtB710e5pm02Xv/xsEeEMMwhD8fa+2yLDjX3G43aZjEejt/OH+McVmWruuSPkqs9/ySlmfaB1rCGU89xszzDKOdc3jOiTFK6pnNyFemspITanfy2UwKAEYfYpVoaZom2jAMQ4y/ayoQefnx1VoLU6nDv0/1v/9Lis/bXI4lcfPtZJ7xFmkzuZIrFEdmGoBYlmWaJkhomiZkiJxKYr2dP9ZaBCKEgGhCtzFGaaHEetsvOWGmndASaw/ee+wnsmZlrQVlXNGhtxACYbissgaIHjmGg9GAJFRSlmCVaAkQjDQs5zKmlkxl2PYSIdl7uqtrcx5ra1umJ6Ol+/2udg9kaghBhj4zOb4CBJjBgoVjBfYNjCnhpyR/oBxsR5iZsqGdtfzihPlGQktgJMYIxc/zLPMGubssi5wXKwSHgQscqDgsE0syrrRUgvWqlh6PB016L1Pzd9W1OY9FR0oaGf6RhfJkYYxBJ2NaDpHUEiNbwk9J/iDluKAbY263m/Kxll8lvhvz/NvWbV5aa7ELk2hEV27Zxhh0cgy4IH0wRfmp7AO0uqUEa2tzEp1FlJeSQxmJy3x+17U5j5U0b68zwz9QMED9fYku3JvXUgk/yQgq+9UlvFadtfzao1T1J/YlpROchXg8q8WFsqNpiYciyQzYfimh5e2yrfJMfgWUeZ7HzeelAzAgvk1L5/2SXGXax1riio5ZkPQlZzy1yWRiWfeMx+qCcltGWn310iUyT54V5e0l/Gz30j2b81gS97AN95PPPzgLqTX0cMLtAMkwlwa1SpbwU74vSanvnfHO+7X1NNlzrCU4z32p/NnxvJZKsFSouq7DoVShc0U4v8ajSOW9T+ZlXZvzWMmI7nWibplcApC7IQSe0vcmyfeXaKmEnxItsfZAk7AiyDreS36h3LIXVqJkGgktsY7HwjFeFnEWGn1YE+ctTGXZI9tKEvzqEOt2u+ExFGaHEHjLuq72zwfFa0Tae++cU9V5wpU0iIjaDFiSEqUBe/xwhj2baQZH7mFx5GEDDPMtRQiBVVa8cwM/BPLev8pSiZZY1cDGla+JS6cwOXuoSRi8rmuyJo7FiIU0RCTpF/mRoSRcSSOhJRjNv8nXW+M4koXt77tL1hVlHDxRR0eMyWMZY/q+hzGo4JNl/GoOxtAdNLa7lrInf4m3hNAw4iTzEkfWDD+HNkv0Qyw5ON/mS2ooSu1Cfd8vy0KnYozJnMtAgNv88xJuz8e0MH/6vscZGLJknUxZWOhX5X1JGfHJS6zlHzvaftK1hvWPMPC0L13ic9d1eNsbY5SPkpcY00AbA28zcJmW8DMZeaJQR463XWo3NgYuYeAyLbHGgkpA25EuCX8DrcjAZVqq6EObqjHwDQw0LX1DFJoNP4GBpqWfEMXmwzcw0LT0DVFoNvwEBv4DAMMb7ZAPC6MAAAAASUVORK5CYII="></div><br>Affichage d'un message:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// main.c
+//===============================================
+int main(int _argc, char** _argv) {
+    GDEFINE_OBJ_PTR(GHello, lHello)
+    lHello-&gt;sayHello();
+    lHello-&gt;delete(&amp;lHello);
+    return 0;
+}
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="programmation-par-selection-de-projet_creation-d-un-module-de-selection-de-processus" href="#programmation-par-selection-de-projet">Création d'un module de sélection de processus</a>
+</h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARkAAAAdCAIAAAARlI/iAAAFlklEQVR4Ae1aMbLjKhDcA3AJncFn4Aa6gA+g3LlChYqVEZMqJ+ZQv3a7tms8QghbfMv1FgfvIYzomZ5pQCP/Mu3TGGgM1GDgV41J2hyNgcaAaVpqSdAYqMNA01IdHtssjYGmpZYDjYE6DDQt1eGxzdIY+BYtDcPgnOv7voWkLgPx+VN38m+bDb5eZdWTlsZxfGY+Oufu9/sHjAOuc+4DWCchrLV933ddd3KektvPY7m/n2vzrMTZ82Ou9TGhpXVdwf+6rjBuGIbzfuZn8N7HGOd5zg/7hm+dczHGz2yhFbGuzbPPBO5aHxNaGseRnj8ejxjjuq7s+Z8aXdd9JjvP218xvw+NqYh1bZ4delplwLU+HmjJGHOtfVUorjtJxfw+NKwi1r8Qx2t9fFNL4zjyBLh9pur7PsY4juMwDBgWQpimSaVO8vFMjTHG5LEwidxLgS4fvZCRMUbvvTFmmqYQAi6ttVvEZA+mRbS2f9UtJ21+CUtB710e5pm02Xv/xsEeEMMwhD8fa+2yLDjX3G43aZjEejt/OH+McVmWruuSPkqs9/ySlmfaB1rCGU89xszzDKOdc3jOiTFK6pnNyFemspITanfy2UwKAEYfYpVoaZom2jAMQ4y/ayoQefnx1VoLU6nDv0/1v/9Lis/bXI4lcfPtZJ7xFmkzuZIrFEdmGoBYlmWaJkhomiZkiJxKYr2dP9ZaBCKEgGhCtzFGaaHEetsvOWGmndASaw/ee+wnsmZlrQVlXNGhtxACYbissgaIHjmGg9GAJFRSlmCVaAkQjDQs5zKmlkxl2PYSIdl7uqtrcx5ra1umJ6Ol+/2udg9kaghBhj4zOb4CBJjBgoVjBfYNjCnhpyR/oBxsR5iZsqGdtfzihPlGQktgJMYIxc/zLPMGubssi5wXKwSHgQscqDgsE0syrrRUgvWqlh6PB016L1Pzd9W1OY9FR0oaGf6RhfJkYYxBJ2NaDpHUEiNbwk9J/iDluKAbY263m/Kxll8lvhvz/NvWbV5aa7ELk2hEV27Zxhh0cgy4IH0wRfmp7AO0uqUEa2tzEp1FlJeSQxmJy3x+17U5j5U0b68zwz9QMED9fYku3JvXUgk/yQgq+9UlvFadtfzao1T1J/YlpROchXg8q8WFsqNpiYciyQzYfimh5e2yrfJMfgWUeZ7HzeelAzAgvk1L5/2SXGXax1riio5ZkPQlZzy1yWRiWfeMx+qCcltGWn310iUyT54V5e0l/Gz30j2b81gS97AN95PPPzgLqTX0cMLtAMkwlwa1SpbwU74vSanvnfHO+7X1NNlzrCU4z32p/NnxvJZKsFSouq7DoVShc0U4v8ajSOW9T+ZlXZvzWMmI7nWibplcApC7IQSe0vcmyfeXaKmEnxItsfZAk7AiyDreS36h3LIXVqJkGgktsY7HwjFeFnEWGn1YE+ctTGXZI9tKEvzqEOt2u+ExFGaHEHjLuq72zwfFa0Tae++cU9V5wpU0iIjaDFiSEqUBe/xwhj2baQZH7mFx5GEDDPMtRQiBVVa8cwM/BPLev8pSiZZY1cDGla+JS6cwOXuoSRi8rmuyJo7FiIU0RCTpF/mRoSRcSSOhJRjNv8nXW+M4koXt77tL1hVlHDxRR0eMyWMZY/q+hzGo4JNl/GoOxtAdNLa7lrInf4m3hNAw4iTzEkfWDD+HNkv0Qyw5ON/mS2ooSu1Cfd8vy0KnYozJnMtAgNv88xJuz8e0MH/6vscZGLJknUxZWOhX5X1JGfHJS6zlHzvaftK1hvWPMPC0L13ic9d1eNsbY5SPkpcY00AbA28zcJmW8DMZeaJQR463XWo3NgYuYeAyLbHGgkpA25EuCX8DrcjAZVqq6EObqjHwDQw0LX1DFJoNP4GBpqWfEMXmwzcw0LT0DVFoNvwEBv4DAMMb7ZAPC6MAAAAASUVORK5CYII="></div><br>Création d'un module de sélection de processus:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// main.c
+//===============================================
+int main(int _argc, char** _argv) {
+    GDEFINE_OBJ(GProcess, lProcess)
+    lProcess.run(_argc, _argv);
+    return 0;
+}
+//===============================================
+// GProcess.c
+//===============================================
+GProcess* GProcess_new() {
+    GProcess* lObj = (GProcess*)malloc(sizeof(GProcess));
+    GProcess_init(lObj);
+    return lObj;
+}
+//===============================================
+static void GProcess_delete(GProcess** _obj) {
+    free(*_obj);
+    (*_obj) = 0;
+}
+//===============================================
+void GProcess_init(GProcess* _obj) {
+    _obj-&gt;delete = GProcess_delete;
+    _obj-&gt;run = GProcess_run;
+}
+//===============================================
+static void GProcess_run(int _argc, char** _argv) {
+    GDEFINE_OBJ(GHello, lHello)
+    lHello.sayHello();
+}
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="programmation-par-selection-de-projet_utilisation-des-arguments-passes-en-ligne-de-commande" href="#programmation-par-selection-de-projet">Utilisation des arguments passés en ligne de commande</a>
+</h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARkAAAAdCAIAAAARlI/iAAAFlklEQVR4Ae1aMbLjKhDcA3AJncFn4Aa6gA+g3LlChYqVEZMqJ+ZQv3a7tms8QghbfMv1FgfvIYzomZ5pQCP/Mu3TGGgM1GDgV41J2hyNgcaAaVpqSdAYqMNA01IdHtssjYGmpZYDjYE6DDQt1eGxzdIY+BYtDcPgnOv7voWkLgPx+VN38m+bDb5eZdWTlsZxfGY+Oufu9/sHjAOuc+4DWCchrLV933ddd3KektvPY7m/n2vzrMTZ82Ou9TGhpXVdwf+6rjBuGIbzfuZn8N7HGOd5zg/7hm+dczHGz2yhFbGuzbPPBO5aHxNaGseRnj8ejxjjuq7s+Z8aXdd9JjvP218xvw+NqYh1bZ4delplwLU+HmjJGHOtfVUorjtJxfw+NKwi1r8Qx2t9fFNL4zjyBLh9pur7PsY4juMwDBgWQpimSaVO8vFMjTHG5LEwidxLgS4fvZCRMUbvvTFmmqYQAi6ttVvEZA+mRbS2f9UtJ21+CUtB710e5pm02Xv/xsEeEMMwhD8fa+2yLDjX3G43aZjEejt/OH+McVmWruuSPkqs9/ySlmfaB1rCGU89xszzDKOdc3jOiTFK6pnNyFemspITanfy2UwKAEYfYpVoaZom2jAMQ4y/ayoQefnx1VoLU6nDv0/1v/9Lis/bXI4lcfPtZJ7xFmkzuZIrFEdmGoBYlmWaJkhomiZkiJxKYr2dP9ZaBCKEgGhCtzFGaaHEetsvOWGmndASaw/ee+wnsmZlrQVlXNGhtxACYbissgaIHjmGg9GAJFRSlmCVaAkQjDQs5zKmlkxl2PYSIdl7uqtrcx5ra1umJ6Ol+/2udg9kaghBhj4zOb4CBJjBgoVjBfYNjCnhpyR/oBxsR5iZsqGdtfzihPlGQktgJMYIxc/zLPMGubssi5wXKwSHgQscqDgsE0syrrRUgvWqlh6PB016L1Pzd9W1OY9FR0oaGf6RhfJkYYxBJ2NaDpHUEiNbwk9J/iDluKAbY263m/Kxll8lvhvz/NvWbV5aa7ELk2hEV27Zxhh0cgy4IH0wRfmp7AO0uqUEa2tzEp1FlJeSQxmJy3x+17U5j5U0b68zwz9QMED9fYku3JvXUgk/yQgq+9UlvFadtfzao1T1J/YlpROchXg8q8WFsqNpiYciyQzYfimh5e2yrfJMfgWUeZ7HzeelAzAgvk1L5/2SXGXax1riio5ZkPQlZzy1yWRiWfeMx+qCcltGWn310iUyT54V5e0l/Gz30j2b81gS97AN95PPPzgLqTX0cMLtAMkwlwa1SpbwU74vSanvnfHO+7X1NNlzrCU4z32p/NnxvJZKsFSouq7DoVShc0U4v8ajSOW9T+ZlXZvzWMmI7nWibplcApC7IQSe0vcmyfeXaKmEnxItsfZAk7AiyDreS36h3LIXVqJkGgktsY7HwjFeFnEWGn1YE+ctTGXZI9tKEvzqEOt2u+ExFGaHEHjLuq72zwfFa0Tae++cU9V5wpU0iIjaDFiSEqUBe/xwhj2baQZH7mFx5GEDDPMtRQiBVVa8cwM/BPLev8pSiZZY1cDGla+JS6cwOXuoSRi8rmuyJo7FiIU0RCTpF/mRoSRcSSOhJRjNv8nXW+M4koXt77tL1hVlHDxRR0eMyWMZY/q+hzGo4JNl/GoOxtAdNLa7lrInf4m3hNAw4iTzEkfWDD+HNkv0Qyw5ON/mS2ooSu1Cfd8vy0KnYozJnMtAgNv88xJuz8e0MH/6vscZGLJknUxZWOhX5X1JGfHJS6zlHzvaftK1hvWPMPC0L13ic9d1eNsbY5SPkpcY00AbA28zcJmW8DMZeaJQR463XWo3NgYuYeAyLbHGgkpA25EuCX8DrcjAZVqq6EObqjHwDQw0LX1DFJoNP4GBpqWfEMXmwzcw0LT0DVFoNvwEBv4DAMMb7ZAPC6MAAAAASUVORK5CYII="></div><br>Passage des arguments en ligne de commande:<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">::===============================================
+:: Terminal
+::===============================================
+readyapp.exe hello
+::===============================================</pre><br>Utilisation des arguments passés en ligne de commande:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// main.c
+//===============================================
+int main(int _argc, char** _argv) {
+    GDEFINE_OBJ(GProcess, lProcess)
+    lProcess.run(_argc, _argv);
+    return 0;
+}
+//===============================================
+// GProcess.c
+//===============================================
+GProcess* GProcess_new() {
+    GProcess* lObj = (GProcess*)malloc(sizeof(GProcess));
+    GProcess_init(lObj);
+    return lObj;
+}
+//===============================================
+static void GProcess_delete(GProcess** _obj) {
+    free(*_obj);
+    (*_obj) = 0;
+}
+//===============================================
+void GProcess_init(GProcess* _obj) {
+    _obj-&gt;delete = GProcess_delete;
+    _obj-&gt;run = GProcess_run;
+}
+//===============================================
+static void GProcess_run(int _argc, char** _argv) {
+    char* lModule = "";
+    if(_argc &gt; 1) lModule = _argv[1];
+    if(!strcmp(lModule, "hello")) {
+        GProcess_runHello(_argc, _argv);
+    }
+}
+//===============================================
+static void GProcess_runHello(int _argc, char** _argv) {
+    GDEFINE_OBJ(GHello, lHello)
+    lHello.sayHello();
+}
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="programmation-par-selection-de-projet_integration-d-un-module-de-test" href="#programmation-par-selection-de-projet">Intégration d'un module de test</a>
+</h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARkAAAAdCAIAAAARlI/iAAAFlklEQVR4Ae1aMbLjKhDcA3AJncFn4Aa6gA+g3LlChYqVEZMqJ+ZQv3a7tms8QghbfMv1FgfvIYzomZ5pQCP/Mu3TGGgM1GDgV41J2hyNgcaAaVpqSdAYqMNA01IdHtssjYGmpZYDjYE6DDQt1eGxzdIY+BYtDcPgnOv7voWkLgPx+VN38m+bDb5eZdWTlsZxfGY+Oufu9/sHjAOuc+4DWCchrLV933ddd3KektvPY7m/n2vzrMTZ82Ou9TGhpXVdwf+6rjBuGIbzfuZn8N7HGOd5zg/7hm+dczHGz2yhFbGuzbPPBO5aHxNaGseRnj8ejxjjuq7s+Z8aXdd9JjvP218xvw+NqYh1bZ4delplwLU+HmjJGHOtfVUorjtJxfw+NKwi1r8Qx2t9fFNL4zjyBLh9pur7PsY4juMwDBgWQpimSaVO8vFMjTHG5LEwidxLgS4fvZCRMUbvvTFmmqYQAi6ttVvEZA+mRbS2f9UtJ21+CUtB710e5pm02Xv/xsEeEMMwhD8fa+2yLDjX3G43aZjEejt/OH+McVmWruuSPkqs9/ySlmfaB1rCGU89xszzDKOdc3jOiTFK6pnNyFemspITanfy2UwKAEYfYpVoaZom2jAMQ4y/ayoQefnx1VoLU6nDv0/1v/9Lis/bXI4lcfPtZJ7xFmkzuZIrFEdmGoBYlmWaJkhomiZkiJxKYr2dP9ZaBCKEgGhCtzFGaaHEetsvOWGmndASaw/ee+wnsmZlrQVlXNGhtxACYbissgaIHjmGg9GAJFRSlmCVaAkQjDQs5zKmlkxl2PYSIdl7uqtrcx5ra1umJ6Ol+/2udg9kaghBhj4zOb4CBJjBgoVjBfYNjCnhpyR/oBxsR5iZsqGdtfzihPlGQktgJMYIxc/zLPMGubssi5wXKwSHgQscqDgsE0syrrRUgvWqlh6PB016L1Pzd9W1OY9FR0oaGf6RhfJkYYxBJ2NaDpHUEiNbwk9J/iDluKAbY263m/Kxll8lvhvz/NvWbV5aa7ELk2hEV27Zxhh0cgy4IH0wRfmp7AO0uqUEa2tzEp1FlJeSQxmJy3x+17U5j5U0b68zwz9QMED9fYku3JvXUgk/yQgq+9UlvFadtfzao1T1J/YlpROchXg8q8WFsqNpiYciyQzYfimh5e2yrfJMfgWUeZ7HzeelAzAgvk1L5/2SXGXax1riio5ZkPQlZzy1yWRiWfeMx+qCcltGWn310iUyT54V5e0l/Gz30j2b81gS97AN95PPPzgLqTX0cMLtAMkwlwa1SpbwU74vSanvnfHO+7X1NNlzrCU4z32p/NnxvJZKsFSouq7DoVShc0U4v8ajSOW9T+ZlXZvzWMmI7nWibplcApC7IQSe0vcmyfeXaKmEnxItsfZAk7AiyDreS36h3LIXVqJkGgktsY7HwjFeFnEWGn1YE+ctTGXZI9tKEvzqEOt2u+ExFGaHEHjLuq72zwfFa0Tae++cU9V5wpU0iIjaDFiSEqUBe/xwhj2baQZH7mFx5GEDDPMtRQiBVVa8cwM/BPLev8pSiZZY1cDGla+JS6cwOXuoSRi8rmuyJo7FiIU0RCTpF/mRoSRcSSOhJRjNv8nXW+M4koXt77tL1hVlHDxRR0eMyWMZY/q+hzGo4JNl/GoOxtAdNLa7lrInf4m3hNAw4iTzEkfWDD+HNkv0Qyw5ON/mS2ooSu1Cfd8vy0KnYozJnMtAgNv88xJuz8e0MH/6vscZGLJknUxZWOhX5X1JGfHJS6zlHzvaftK1hvWPMPC0L13ic9d1eNsbY5SPkpcY00AbA28zcJmW8DMZeaJQR463XWo3NgYuYeAyLbHGgkpA25EuCX8DrcjAZVqq6EObqjHwDQw0LX1DFJoNP4GBpqWfEMXmwzcw0LT0DVFoNvwEBv4DAMMb7ZAPC6MAAAAASUVORK5CYII="></div><br>Exécution d'un module de test&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">::===============================================
+:: Terminal
+::===============================================
+readyapp.exe test
+::===============================================</pre><br>Intégration d'un module de test:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// main.c
+//===============================================
+int main(int _argc, char** _argv) {
+    GDEFINE_OBJ(GProcess, lProcess)
+    lProcess.run(_argc, _argv);
+    return 0;
+}
+//===============================================
+// GProcess.c
+//===============================================
+GProcess* GProcess_new() {
+    GProcess* lObj = (GProcess*)malloc(sizeof(GProcess));
+    GProcess_init(lObj);
+    return lObj;
+}
+//===============================================
+static void GProcess_delete(GProcess** _obj) {
+    free(*_obj);
+    (*_obj) = 0;
+}
+//===============================================
+void GProcess_init(GProcess* _obj) {
+    _obj-&gt;delete = GProcess_delete;
+    _obj-&gt;run = GProcess_run;
+}
+//===============================================
+static void GProcess_run(int _argc, char** _argv) {
+    char* lModule = "";
+    if(_argc &gt; 1) lModule = _argv[1];
+    if(!strcmp(lModule, "hello")) {
+        GProcess_runHello(_argc, _argv);
+    }
+    else if(!strcmp(lModule, "test")) {
+        GProcess_runTest(_argc, _argv);
+    }
+}
+//===============================================
+static void GProcess_runHello(int _argc, char** _argv) {
+    GDEFINE_OBJ(GHello, lHello)
+    lHello.sayHello();
+}
+//===============================================
+static void GProcess_runTest(int _argc, char** _argv) {
+    GDEFINE_OBJ(GTest, lObj)
+    lObj.run(_argc, _argv);
+}
+//===============================================
+// GTest.c
+//===============================================
+GTest* GTest_new() {
+    GTest* lObj = (GTest*)malloc(sizeof(GTest));
+    GTest_init(lObj);
+    return lObj;
+}
+//===============================================
+static void GTest_delete(GTest** _obj) {
+    free(*_obj);
+    (*_obj) = 0;
+}
+//===============================================
+void GTest_init(GTest* _obj) {
+    _obj-&gt;delete = GTest_delete;
+    _obj-&gt;run = GTest_run;
+}
+//===============================================
+static void GTest_run(int _argc, char** _argv) {
+    printf("Je suis le module de test.\n");
+}
+//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
@@ -549,7 +777,7 @@ int main(int _argc, char** _argv) {
     printf("Bonjour tout le monde.\n");
     return 0;
 }
-//===============================================</pre><br>Compilation du projet:&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">::===============================================
+//===============================================</pre><br>Compilation du projet:<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">::===============================================
 :: compile.bat
 ::===============================================
 @echo off
@@ -644,6 +872,14 @@ bin\readyapp.exe
 <div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#utilisation-d-un-makefile_generation-automatique-des-fichiers-objet-dans-un-makefile">Génération automatique des fichiers objet dans un Makefile</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#utilisation-d-un-makefile_passage-des-arguments-en-ligne-de-commande-dans-un-makefile">Passage des arguments en ligne de commande dans un Makefile</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#utilisation-d-un-makefile_utilisation-des-variables-d-environnement-dans-un-makefile">Utilisation des variables d'environnement dans un Makefile</a>
 </div>
 </div><br><h2 class="GTitle1 Title1">
 <a class="Title2" href="#utilisation-d-un-makefile" id="utilisation-d-un-makefile_definition-d-une-regle-par-defaut--all-">Définition d'une règle par défaut (all)</a>
@@ -848,7 +1084,57 @@ run:
 clean:
 	del /q /s $(GTARGET) $(GBUILD)\*.o
 #================================================
-</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="utilisation-d-un-makefile_passage-des-arguments-en-ligne-de-commande-dans-un-makefile" href="#utilisation-d-un-makefile">Passage des arguments en ligne de commande dans un Makefile</a>
+</h2><br>Passage des arguments en ligne de commande à un Makefile:&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">::===============================================
+:: Terminal
+::===============================================
+mingw32-make args="arg1 arg2 arg3"
+::===============================================</pre><br>Utilisation des arguments passés en ligne de commande dans un Makefile:<br>&nbsp;&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="makefile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#================================================
+# Makefile
+#================================================
+GSRC = .
+GBIN = bin
+GBUILD = build
+GTARGET = $(GBIN)\readyapp.exe
+#================================================
+GOBJS =\
+    $(patsubst $(GSRC)/%.c, $(GBUILD)/%.o, $(wildcard $(GSRC)/*.c)) \
+#================================================
+all: compile run
+#================================================
+compile: $(GOBJS)
+	gcc -o $(GTARGET) $(GOBJS)
+$(GBUILD)/%.o: $(GSRC)/%.c
+	gcc -c $&lt; -o $@
+run:
+	$(GTARGET) $(args)
+clean:
+	del /q /s $(GTARGET) $(GBUILD)\*.o
+#================================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="utilisation-d-un-makefile_utilisation-des-variables-d-environnement-dans-un-makefile" href="#utilisation-d-un-makefile">Utilisation des variables d'environnement dans un Makefile</a>
+</h2><br>Utilisation des variables d'environnement dans un Makefile:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#================================================
+# Makefile
+#================================================
+GSRC = .
+GBIN = bin
+GBUILD = build
+GTARGET = $(GBIN)\readyapp.exe
+#================================================
+GOBJS =\
+    $(patsubst $(GSRC)/%.c, $(GBUILD)/%.o, $(wildcard $(GSRC)/*.c)) \
+#================================================
+all: compile run
+#================================================
+compile: $(GOBJS)
+	gcc -o $(GTARGET) $(GOBJS)
+$(GBUILD)/%.o: $(GSRC)/%.c
+	gcc -c $&lt; -o $@
+run:
+	envs.bat &amp;&amp; $(GTARGET) $(args)
+clean:
+	del /q /s $(GTARGET) $(GBUILD)\*.o
+#================================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
@@ -967,7 +1253,7 @@ compile: $(GOBJS)
 $(GBUILD)/%.o: $(GSRC)/%.c
 	gcc $(GCFLAGS) -c $&lt; -o $@
 run:
-	$(GTARGET)
+	$(GTARGET) $(args)
 clean:
 	del /q /s $(GTARGET) $(GBUILD)\*.o
 #================================================<br></pre><br><h2 class="GTitle1 Title1">
@@ -993,9 +1279,9 @@ compile: $(GOBJS)
 $(GBUILD)/%.o: $(GSRC)/%.c
 	gcc $(GCFLAGS) -c $&lt; -o $@
 run:
-	$(GTARGET)
+	$(GTARGET) $(args)
 run_g:
-	gdb -ex run --args $(GTARGET) $(argv)
+	gdb -ex run --args $(GTARGET) $(args)
 clean:
 	del /q /s $(GTARGET) $(GBUILD)\*.o
 #================================================</pre><br>Utilisation du débogueur GDB:<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">::===============================================
@@ -1004,229 +1290,4 @@ clean:
 mingw32-make run_g
 ::===============================================</pre><br></div>
 </div>
-</div></div><br><div class="GSection1 Section1">
-<div class="Section2">
-<div class="Section3">
-<h1 class="Section4">
-<a class="Section5" href="#" id="identification-logicielle">Identification logicielle</a>
-</h1>
-<div class="Section6"><br>L'utilitaire (ident) permet d'identifier un&nbsp; programme C.<br><br>Programme principal.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-/*
-$Id: main.c $
-$Header: GInclude.h $
-$Date: 2023/07/07 $
-$DateTime: 2023/07/07 10:30:15 $
-$Change: 1745 $
-$File: main.c $
-$Revision: v1.0 $
-$Author: Gérard KESSE $
-*/
-//===============================================
-#include "GInclude.h"
-//===============================================
-int main(int _argc, char** _argv) {
-    printf("Bonjour tout le monde.\n");
-    return 0;
-}
-//===============================================</pre><br>Afficher les informations d'identification.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">ident main.c</pre><br>Résultat.<br><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">main.c:
-     $Id: main.c $
-     $Header: GInclude.h $
-     $Date: 2023/07/07 $
-     $DateTime: 2023/07/07 10:30:15 $
-     $Change: 1745 $
-     $File: main.c $
-     $Revision: v1.0 $
-     $Author: Gérard KESSE $</pre><br></div>
-</div></div></div><br><div class="GSection1 Section1">
-<div class="Section2">
-<div class="Section3">
-<h1 class="Section4">
-<a class="Section5" href="#" id="multithreading">Multithreading</a>
-</h1>
-<div class="Section6"><br>La fonction (CreateThread) permet de créer un Thread et de le lancer sous (Windows).&nbsp;&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-static void GSocket_runServer(GSocket* _this, int _argc, char** _argv) {
-    assert(_this);
-    while(1) {
-        GSocket* lClient = GSocket_new();
-        lClient-&gt;m_socket = accept(lServer, (struct sockaddr*)&amp;lAddressC, &amp;lAddressCL);
-
-        DWORD lThreadId;
-        HANDLE lThreadH = CreateThread(
-                NULL,
-                0,
-                GSocket_onThread,
-                lClient,
-                0,
-                &amp;lThreadId
-        );
-
-        if(!lThreadH) {
-            printf("La création du thread a échoué\n");
-        }
-    }
-}
-//===============================================</pre><br>Ce qu'il faut savoir:<br><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">lThreadH ----------&gt; gestionnaire du Thread
-lThreadId ---------&gt; identifiant du Thread
-GSocket_onThread --&gt; fonction de rappel du Thread
-lClient -----------&gt; paramètre de la fonction de rappel du Thread</pre><br>Fonction de rappel du Thread sous (Windows):<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-static DWORD WINAPI GSocket_onThread(LPVOID _params) {
-    GSocket* lClient = (GSocket*)_params;
-    GServer* lServer = GServer_new();
-    GString* lRequest = GString_new();
-
-    lClient-&gt;read(lClient, lRequest);
-    lServer-&gt;run(lServer, lRequest-&gt;m_data);
-    lServer-&gt;send(lServer, lClient);
-
-    closesocket(lClient-&gt;m_socket);
-    lRequest-&gt;delete(lRequest);
-    lServer-&gt;delete(lServer);
-    lClient-&gt;delete(lClient);
-    return 0;
-}
-//===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
-<div class="Section2">
-<div class="Section3">
-<h1 class="Section4">
-<a class="Section5" href="#" id="notion-d-heritage-de-classe">Notion d'héritage de classe</a>
-</h1>
-<div class="Section6"><br>L'opérateur (void*) permet d'introduire la notion d'héritage de classe en C.<br><br>Classe mère:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-typedef struct _GObject GObject;
-//===============================================
-struct _GObject {
-    GLog* m_logs;
-    GCode* m_resp;
-    GVector* m_map;
-    void* m_child;
-
-    void (*delete)(GObject* _this);
-    void (*clear)(GObject* _this);
-    GObject* (*clone)(GObject* _this);
-    GString* (*serialize)(GObject* _this);
-    void (*deserialize)(GObject* _this, const char* _data);
-    void (*print)(GObject* _this);
-};
-//===============================================
-GObject* GObject_new();
-//===============================================</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
-<i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">L'opérateur (void*) peut pointer tout type d'objet en C.</div>
-</div>
-<div class="GBullet1 Bullet1">
-<i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">La classe mère utilisera l'opérateur (void*) pour les classes fille.</div>
-</div><div class="GBullet1 Bullet1">
-<i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">Chaque classe fille connaît par avance le type de sa classe mère (pointeur explicite).</div>
-</div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">opérateur (void*) ---&gt; pointeur de tout type d'objet
-void* m_child -------&gt; pointeur de la classe fille</pre><br>classe fille:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-typedef struct _GCalculator GCalculator;
-//===============================================
-struct _GCalculator {
-    GManager* m_mgr;
-    GObject* m_obj;
-    GString* m_expression;
-    GString* m_result;
-
-    void (*delete)(GCalculator* _this);
-    void (*run)(GCalculator* _this, const char* _data);
-    void (*onRunCalculator)(GCalculator* _this, const char* _data);
-};
-//===============================================
-GCalculator* GCalculator_new();
-//===============================================</pre><br></div>
-</div>
-</div>
-</div><br><div class="GSection1 Section1">
-<div class="Section2">
-<div class="Section3">
-<h1 class="Section4">
-<a class="Section5" href="#" id="notion-de-polymorphisme">Notion de polymorphisme</a>
-</h1>
-<div class="Section6"><br>Les pointeurs de fonction permettent d'introduire la notion de polymorphisme en C.<br><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
-<i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">La classe mère doit pointer les fonctions polymorphes de la classe fille.</div>
-</div>
-<div class="GBullet1 Bullet1">
-<i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">Les fonctions polymorphes de la classe mère doivent posséder les mêmes signatures que celles de la classe fille.</div>
-</div><div class="GBullet1 Bullet1">
-<i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">Chaque classe fille implémentera sa propre stratégie (définition).</div>
-</div><br>Classe mère:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-typedef struct _GObject GObject;
-//===============================================
-struct _GObject {
-    GLog* m_logs;
-    GCode* m_resp;
-    GVector* m_map;
-    void* m_child;
-
-    void (*delete)(GObject* _this);
-    void (*clear)(GObject* _this);
-    GObject* (*clone)(GObject* _this);
-    GString* (*serialize)(GObject* _this);
-    void (*deserialize)(GObject* _this, const char* _data);
-    void (*print)(GObject* _this);
-};
-//===============================================
-GObject* GObject_new();
-//===============================================</pre><br>Classe fille:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-typedef struct _GCalculator GCalculator;
-//===============================================
-struct _GCalculator {
-    GManager* m_mgr;
-    GObject* m_obj;
-    GString* m_expression;
-    GString* m_result;
-
-    void (*delete)(GCalculator* _this);
-    void (*run)(GCalculator* _this, const char* _data);
-    void (*onRunCalculator)(GCalculator* _this, const char* _data);
-};
-//===============================================
-GCalculator* GCalculator_new();
-//===============================================</pre><br>Constructeur de la classe mère:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-GObject* GObject_new() {
-    GObject* lObj = (GObject*)malloc(sizeof(GObject));
-    lObj-&gt;m_logs = GLog_new();
-    lObj-&gt;m_resp = GCode_new();
-    lObj-&gt;m_resp-&gt;m_dom-&gt;createDoc(lObj-&gt;m_resp-&gt;m_dom);
-    lObj-&gt;m_resp-&gt;createDatas(lObj-&gt;m_resp);
-    lObj-&gt;m_map = GVector_new();
-    lObj-&gt;m_child = 0;
-
-    lObj-&gt;delete = GObject_delete;
-    lObj-&gt;clear = GObject_clear;
-    lObj-&gt;clone = GObject_clone;
-    lObj-&gt;serialize = GObject_serialize;
-    lObj-&gt;deserialize = GObject_deserialize;
-    lObj-&gt;print = GObject_print;
-    return lObj;
-}
-//===============================================</pre><br>Constructeur de la classe fille:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
-GCalculator* GCalculator_new() {
-    GCalculator* lObj = (GCalculator*)malloc(sizeof(GCalculator));
-    lObj-&gt;m_mgr = GManager_new();
-    lObj-&gt;m_obj = GObject_new();
-    lObj-&gt;m_expression = GString_new();
-    lObj-&gt;m_result = GString_new();
-
-    lObj-&gt;delete = GCalculator_delete;
-    lObj-&gt;run = GCalculator_run;
-    lObj-&gt;onRunCalculator = GCalculator_onRunCalculator;
-
-    lObj-&gt;m_obj-&gt;clone = GCalculator_clone;
-    lObj-&gt;m_obj-&gt;serialize = GCalculator_serialize;
-    lObj-&gt;m_obj-&gt;deserialize = GCalculator_deserialize;
-    lObj-&gt;m_obj-&gt;m_child = lObj;
-    return lObj;
-}
-//===============================================</pre><br>Signatures des fonctions polymorphes de la classe mère:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">static GObject* GObject_clone(GObject* _this);
-static GString* GObject_serialize(GObject* _this);
-static void GObject_deserialize(GObject* _this, const char* _data);</pre><br>Signatures des fonctions polymorphes de la classe fille:&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">static GObject* GCalculator_clone(GObject* _this);
-static GString* GCalculator_serialize(GObject* _this);
-static void GCalculator_deserialize(GObject* _this, const char* _data);</pre><br></div>
-</div>
-</div>
-</div><br>
+</div></div><br>
