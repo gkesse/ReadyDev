@@ -268,8 +268,6 @@ void GHello_sayHello() {
 </h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARkAAAAdCAIAAAARlI/iAAAFlklEQVR4Ae1aMbLjKhDcA3AJncFn4Aa6gA+g3LlChYqVEZMqJ+ZQv3a7tms8QghbfMv1FgfvIYzomZ5pQCP/Mu3TGGgM1GDgV41J2hyNgcaAaVpqSdAYqMNA01IdHtssjYGmpZYDjYE6DDQt1eGxzdIY+BYtDcPgnOv7voWkLgPx+VN38m+bDb5eZdWTlsZxfGY+Oufu9/sHjAOuc+4DWCchrLV933ddd3KektvPY7m/n2vzrMTZ82Ou9TGhpXVdwf+6rjBuGIbzfuZn8N7HGOd5zg/7hm+dczHGz2yhFbGuzbPPBO5aHxNaGseRnj8ejxjjuq7s+Z8aXdd9JjvP218xvw+NqYh1bZ4delplwLU+HmjJGHOtfVUorjtJxfw+NKwi1r8Qx2t9fFNL4zjyBLh9pur7PsY4juMwDBgWQpimSaVO8vFMjTHG5LEwidxLgS4fvZCRMUbvvTFmmqYQAi6ttVvEZA+mRbS2f9UtJ21+CUtB710e5pm02Xv/xsEeEMMwhD8fa+2yLDjX3G43aZjEejt/OH+McVmWruuSPkqs9/ySlmfaB1rCGU89xszzDKOdc3jOiTFK6pnNyFemspITanfy2UwKAEYfYpVoaZom2jAMQ4y/ayoQefnx1VoLU6nDv0/1v/9Lis/bXI4lcfPtZJ7xFmkzuZIrFEdmGoBYlmWaJkhomiZkiJxKYr2dP9ZaBCKEgGhCtzFGaaHEetsvOWGmndASaw/ee+wnsmZlrQVlXNGhtxACYbissgaIHjmGg9GAJFRSlmCVaAkQjDQs5zKmlkxl2PYSIdl7uqtrcx5ra1umJ6Ol+/2udg9kaghBhj4zOb4CBJjBgoVjBfYNjCnhpyR/oBxsR5iZsqGdtfzihPlGQktgJMYIxc/zLPMGubssi5wXKwSHgQscqDgsE0syrrRUgvWqlh6PB016L1Pzd9W1OY9FR0oaGf6RhfJkYYxBJ2NaDpHUEiNbwk9J/iDluKAbY263m/Kxll8lvhvz/NvWbV5aa7ELk2hEV27Zxhh0cgy4IH0wRfmp7AO0uqUEa2tzEp1FlJeSQxmJy3x+17U5j5U0b68zwz9QMED9fYku3JvXUgk/yQgq+9UlvFadtfzao1T1J/YlpROchXg8q8WFsqNpiYciyQzYfimh5e2yrfJMfgWUeZ7HzeelAzAgvk1L5/2SXGXax1riio5ZkPQlZzy1yWRiWfeMx+qCcltGWn310iUyT54V5e0l/Gz30j2b81gS97AN95PPPzgLqTX0cMLtAMkwlwa1SpbwU74vSanvnfHO+7X1NNlzrCU4z32p/NnxvJZKsFSouq7DoVShc0U4v8ajSOW9T+ZlXZvzWMmI7nWibplcApC7IQSe0vcmyfeXaKmEnxItsfZAk7AiyDreS36h3LIXVqJkGgktsY7HwjFeFnEWGn1YE+ctTGXZI9tKEvzqEOt2u+ExFGaHEHjLuq72zwfFa0Tae++cU9V5wpU0iIjaDFiSEqUBe/xwhj2baQZH7mFx5GEDDPMtRQiBVVa8cwM/BPLev8pSiZZY1cDGla+JS6cwOXuoSRi8rmuyJo7FiIU0RCTpF/mRoSRcSSOhJRjNv8nXW+M4koXt77tL1hVlHDxRR0eMyWMZY/q+hzGo4JNl/GoOxtAdNLa7lrInf4m3hNAw4iTzEkfWDD+HNkv0Qyw5ON/mS2ooSu1Cfd8vy0KnYozJnMtAgNv88xJuz8e0MH/6vscZGLJknUxZWOhX5X1JGfHJS6zlHzvaftK1hvWPMPC0L13ic9d1eNsbY5SPkpcY00AbA28zcJmW8DMZeaJQR463XWo3NgYuYeAyLbHGgkpA25EuCX8DrcjAZVqq6EObqjHwDQw0LX1DFJoNP4GBpqWfEMXmwzcw0LT0DVFoNvwEBv4DAMMb7ZAPC6MAAAAASUVORK5CYII="></div><br>Affichage d'un message:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 // main.c
 //===============================================
-#include "GHello.h"
-//===============================================
 int main(int _argc, char** _argv) {
     GHello_sayHello();
     return 0;
@@ -277,14 +275,7 @@ int main(int _argc, char** _argv) {
 //===============================================
 // GHello.h
 //===============================================
-#ifndef _GHello_
-#define _GHello_
-//===============================================
-#include "GInclude.h"
-//===============================================
 void GHello_sayHello();
-//===============================================
-#endif
 //===============================================
 // GHello.c
 //===============================================
@@ -298,8 +289,6 @@ void GHello_sayHello() {
 </h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARkAAAAdCAIAAAARlI/iAAAFlklEQVR4Ae1aMbLjKhDcA3AJncFn4Aa6gA+g3LlChYqVEZMqJ+ZQv3a7tms8QghbfMv1FgfvIYzomZ5pQCP/Mu3TGGgM1GDgV41J2hyNgcaAaVpqSdAYqMNA01IdHtssjYGmpZYDjYE6DDQt1eGxzdIY+BYtDcPgnOv7voWkLgPx+VN38m+bDb5eZdWTlsZxfGY+Oufu9/sHjAOuc+4DWCchrLV933ddd3KektvPY7m/n2vzrMTZ82Ou9TGhpXVdwf+6rjBuGIbzfuZn8N7HGOd5zg/7hm+dczHGz2yhFbGuzbPPBO5aHxNaGseRnj8ejxjjuq7s+Z8aXdd9JjvP218xvw+NqYh1bZ4delplwLU+HmjJGHOtfVUorjtJxfw+NKwi1r8Qx2t9fFNL4zjyBLh9pur7PsY4juMwDBgWQpimSaVO8vFMjTHG5LEwidxLgS4fvZCRMUbvvTFmmqYQAi6ttVvEZA+mRbS2f9UtJ21+CUtB710e5pm02Xv/xsEeEMMwhD8fa+2yLDjX3G43aZjEejt/OH+McVmWruuSPkqs9/ySlmfaB1rCGU89xszzDKOdc3jOiTFK6pnNyFemspITanfy2UwKAEYfYpVoaZom2jAMQ4y/ayoQefnx1VoLU6nDv0/1v/9Lis/bXI4lcfPtZJ7xFmkzuZIrFEdmGoBYlmWaJkhomiZkiJxKYr2dP9ZaBCKEgGhCtzFGaaHEetsvOWGmndASaw/ee+wnsmZlrQVlXNGhtxACYbissgaIHjmGg9GAJFRSlmCVaAkQjDQs5zKmlkxl2PYSIdl7uqtrcx5ra1umJ6Ol+/2udg9kaghBhj4zOb4CBJjBgoVjBfYNjCnhpyR/oBxsR5iZsqGdtfzihPlGQktgJMYIxc/zLPMGubssi5wXKwSHgQscqDgsE0syrrRUgvWqlh6PB016L1Pzd9W1OY9FR0oaGf6RhfJkYYxBJ2NaDpHUEiNbwk9J/iDluKAbY263m/Kxll8lvhvz/NvWbV5aa7ELk2hEV27Zxhh0cgy4IH0wRfmp7AO0uqUEa2tzEp1FlJeSQxmJy3x+17U5j5U0b68zwz9QMED9fYku3JvXUgk/yQgq+9UlvFadtfzao1T1J/YlpROchXg8q8WFsqNpiYciyQzYfimh5e2yrfJMfgWUeZ7HzeelAzAgvk1L5/2SXGXax1riio5ZkPQlZzy1yWRiWfeMx+qCcltGWn310iUyT54V5e0l/Gz30j2b81gS97AN95PPPzgLqTX0cMLtAMkwlwa1SpbwU74vSanvnfHO+7X1NNlzrCU4z32p/NnxvJZKsFSouq7DoVShc0U4v8ajSOW9T+ZlXZvzWMmI7nWibplcApC7IQSe0vcmyfeXaKmEnxItsfZAk7AiyDreS36h3LIXVqJkGgktsY7HwjFeFnEWGn1YE+ctTGXZI9tKEvzqEOt2u+ExFGaHEHjLuq72zwfFa0Tae++cU9V5wpU0iIjaDFiSEqUBe/xwhj2baQZH7mFx5GEDDPMtRQiBVVa8cwM/BPLev8pSiZZY1cDGla+JS6cwOXuoSRi8rmuyJo7FiIU0RCTpF/mRoSRcSSOhJRjNv8nXW+M4koXt77tL1hVlHDxRR0eMyWMZY/q+hzGo4JNl/GoOxtAdNLa7lrInf4m3hNAw4iTzEkfWDD+HNkv0Qyw5ON/mS2ooSu1Cfd8vy0KnYozJnMtAgNv88xJuz8e0MH/6vscZGLJknUxZWOhX5X1JGfHJS6zlHzvaftK1hvWPMPC0L13ic9d1eNsbY5SPkpcY00AbA28zcJmW8DMZeaJQR463XWo3NgYuYeAyLbHGgkpA25EuCX8DrcjAZVqq6EObqjHwDQw0LX1DFJoNP4GBpqWfEMXmwzcw0LT0DVFoNvwEBv4DAMMb7ZAPC6MAAAAASUVORK5CYII="></div><br>Utilisation de la notion d'objet:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 // main.c
 //===============================================
-#include "GHello.h"
-//===============================================
 int main(int _argc, char** _argv) {
     GHello lHello;
     GHello_init(&amp;lHello);
@@ -309,11 +298,6 @@ int main(int _argc, char** _argv) {
 //===============================================
 // GHello.h
 //===============================================
-#ifndef _GHello_
-#define _GHello_
-//===============================================
-#include "GInclude.h"
-//===============================================
 typedef struct _GHello GHello;
 //===============================================
 struct _GHello {
@@ -321,8 +305,6 @@ struct _GHello {
 };
 //===============================================
 void GHello_init(GHello* _obj);
-//===============================================
-#endif
 //===============================================
 // GHello.c
 //===============================================
