@@ -10,7 +10,15 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#recommandations-techniques">Recommandations techniques</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#affichage-d-un-message">Affichage d'un message</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#programmation-par-procedure">Programmation par procédure</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
@@ -27,6 +35,14 @@
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#creation-d-une-liste-de-donnees">Création d'une liste de données</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#creation-d-un-gestionnaire-de-logs">Création d'un gestionnaire de logs</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#creation-d-un-objet-parent">Création d'un objet parent</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
@@ -57,15 +73,34 @@
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
+<a class="Section5" href="#" id="recommandations-techniques">Recommandations techniques</a>
+</h1>
+<div class="Section6"><br>Pour tester les extraits de code dans ce tutoriel, vous aurez besoin des éléments suivants:<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Un compilateur C WinLibs sous Windows</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Activer les standards c11</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Lien vers WinLibs:&nbsp;<a class="GLink3 Link4" href="https://winlibs.com/#download-release" target="_blank" style="color: lime;">https://winlibs.com/#download-release</a></div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Installer GCC (GNU Compiler Collection) sous Linux.</div>
+</div><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
 <a class="Section5" href="#" id="affichage-d-un-message">Affichage d'un message</a>
 </h1>
 <div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#affichage-d-un-message_affichage-d-un-message">Affichage d'un message</a>
-</div>
-<div class="GSummary21 Summary4">
-<i class="Summary5 fa fa-book"></i>
-<a class="Summary6" href="#affichage-d-un-message_creation-d-une-fonction">Création d'une fonction</a>
 </div>
 </div><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="affichage-d-un-message_affichage-d-un-message" href="#affichage-d-un-message">Affichage d'un message</a>
@@ -78,8 +113,36 @@ int main(int _argc, char** _argv) {
     printf("Bonjour tout le monde.\n");
     return 0;
 }
+//===============================================</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="programmation-par-procedure">Programmation par procédure</a>
+</h1>
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#affichage-d-un-message_affichage-d-un-message">Affichage d'un message</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#affichage-d-un-message_creation-d-une-fonction">Création d'une fonction</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="affichage-d-un-message_affichage-d-un-message" href="#programmation-par-procedure">Affichage d'un message</a>
+</h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARkAAAAdCAIAAAARlI/iAAAFlklEQVR4Ae1aMbLjKhDcA3AJncFn4Aa6gA+g3LlChYqVEZMqJ+ZQv3a7tms8QghbfMv1FgfvIYzomZ5pQCP/Mu3TGGgM1GDgV41J2hyNgcaAaVpqSdAYqMNA01IdHtssjYGmpZYDjYE6DDQt1eGxzdIY+BYtDcPgnOv7voWkLgPx+VN38m+bDb5eZdWTlsZxfGY+Oufu9/sHjAOuc+4DWCchrLV933ddd3KektvPY7m/n2vzrMTZ82Ou9TGhpXVdwf+6rjBuGIbzfuZn8N7HGOd5zg/7hm+dczHGz2yhFbGuzbPPBO5aHxNaGseRnj8ejxjjuq7s+Z8aXdd9JjvP218xvw+NqYh1bZ4delplwLU+HmjJGHOtfVUorjtJxfw+NKwi1r8Qx2t9fFNL4zjyBLh9pur7PsY4juMwDBgWQpimSaVO8vFMjTHG5LEwidxLgS4fvZCRMUbvvTFmmqYQAi6ttVvEZA+mRbS2f9UtJ21+CUtB710e5pm02Xv/xsEeEMMwhD8fa+2yLDjX3G43aZjEejt/OH+McVmWruuSPkqs9/ySlmfaB1rCGU89xszzDKOdc3jOiTFK6pnNyFemspITanfy2UwKAEYfYpVoaZom2jAMQ4y/ayoQefnx1VoLU6nDv0/1v/9Lis/bXI4lcfPtZJ7xFmkzuZIrFEdmGoBYlmWaJkhomiZkiJxKYr2dP9ZaBCKEgGhCtzFGaaHEetsvOWGmndASaw/ee+wnsmZlrQVlXNGhtxACYbissgaIHjmGg9GAJFRSlmCVaAkQjDQs5zKmlkxl2PYSIdl7uqtrcx5ra1umJ6Ol+/2udg9kaghBhj4zOb4CBJjBgoVjBfYNjCnhpyR/oBxsR5iZsqGdtfzihPlGQktgJMYIxc/zLPMGubssi5wXKwSHgQscqDgsE0syrrRUgvWqlh6PB016L1Pzd9W1OY9FR0oaGf6RhfJkYYxBJ2NaDpHUEiNbwk9J/iDluKAbY263m/Kxll8lvhvz/NvWbV5aa7ELk2hEV27Zxhh0cgy4IH0wRfmp7AO0uqUEa2tzEp1FlJeSQxmJy3x+17U5j5U0b68zwz9QMED9fYku3JvXUgk/yQgq+9UlvFadtfzao1T1J/YlpROchXg8q8WFsqNpiYciyQzYfimh5e2yrfJMfgWUeZ7HzeelAzAgvk1L5/2SXGXax1riio5ZkPQlZzy1yWRiWfeMx+qCcltGWn310iUyT54V5e0l/Gz30j2b81gS97AN95PPPzgLqTX0cMLtAMkwlwa1SpbwU74vSanvnfHO+7X1NNlzrCU4z32p/NnxvJZKsFSouq7DoVShc0U4v8ajSOW9T+ZlXZvzWMmI7nWibplcApC7IQSe0vcmyfeXaKmEnxItsfZAk7AiyDreS36h3LIXVqJkGgktsY7HwjFeFnEWGn1YE+ctTGXZI9tKEvzqEOt2u+ExFGaHEHjLuq72zwfFa0Tae++cU9V5wpU0iIjaDFiSEqUBe/xwhj2baQZH7mFx5GEDDPMtRQiBVVa8cwM/BPLev8pSiZZY1cDGla+JS6cwOXuoSRi8rmuyJo7FiIU0RCTpF/mRoSRcSSOhJRjNv8nXW+M4koXt77tL1hVlHDxRR0eMyWMZY/q+hzGo4JNl/GoOxtAdNLa7lrInf4m3hNAw4iTzEkfWDD+HNkv0Qyw5ON/mS2ooSu1Cfd8vy0KnYozJnMtAgNv88xJuz8e0MH/6vscZGLJknUxZWOhX5X1JGfHJS6zlHzvaftK1hvWPMPC0L13ic9d1eNsbY5SPkpcY00AbA28zcJmW8DMZeaJQR463XWo3NgYuYeAyLbHGgkpA25EuCX8DrcjAZVqq6EObqjHwDQw0LX1DFJoNP4GBpqWfEMXmwzcw0LT0DVFoNvwEBv4DAMMb7ZAPC6MAAAAASUVORK5CYII="></div><br>Affichage d'un message:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// main.c
+//===============================================
+#include &lt;stdio.h&gt;
+//===============================================
+int main(int _argc, char** _argv) {
+    printf("Bonjour tout le monde.\n");
+    return 0;
+}
 //===============================================</pre><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="affichage-d-un-message_creation-d-une-fonction" href="#affichage-d-un-message">Création d'une fonction</a>
+<a class="Title2" id="affichage-d-un-message_creation-d-une-fonction" href="#programmation-par-procedure">Création d'une fonction</a>
 </h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARkAAAAdCAIAAAARlI/iAAAFlklEQVR4Ae1aMbLjKhDcA3AJncFn4Aa6gA+g3LlChYqVEZMqJ+ZQv3a7tms8QghbfMv1FgfvIYzomZ5pQCP/Mu3TGGgM1GDgV41J2hyNgcaAaVpqSdAYqMNA01IdHtssjYGmpZYDjYE6DDQt1eGxzdIY+BYtDcPgnOv7voWkLgPx+VN38m+bDb5eZdWTlsZxfGY+Oufu9/sHjAOuc+4DWCchrLV933ddd3KektvPY7m/n2vzrMTZ82Ou9TGhpXVdwf+6rjBuGIbzfuZn8N7HGOd5zg/7hm+dczHGz2yhFbGuzbPPBO5aHxNaGseRnj8ejxjjuq7s+Z8aXdd9JjvP218xvw+NqYh1bZ4delplwLU+HmjJGHOtfVUorjtJxfw+NKwi1r8Qx2t9fFNL4zjyBLh9pur7PsY4juMwDBgWQpimSaVO8vFMjTHG5LEwidxLgS4fvZCRMUbvvTFmmqYQAi6ttVvEZA+mRbS2f9UtJ21+CUtB710e5pm02Xv/xsEeEMMwhD8fa+2yLDjX3G43aZjEejt/OH+McVmWruuSPkqs9/ySlmfaB1rCGU89xszzDKOdc3jOiTFK6pnNyFemspITanfy2UwKAEYfYpVoaZom2jAMQ4y/ayoQefnx1VoLU6nDv0/1v/9Lis/bXI4lcfPtZJ7xFmkzuZIrFEdmGoBYlmWaJkhomiZkiJxKYr2dP9ZaBCKEgGhCtzFGaaHEetsvOWGmndASaw/ee+wnsmZlrQVlXNGhtxACYbissgaIHjmGg9GAJFRSlmCVaAkQjDQs5zKmlkxl2PYSIdl7uqtrcx5ra1umJ6Ol+/2udg9kaghBhj4zOb4CBJjBgoVjBfYNjCnhpyR/oBxsR5iZsqGdtfzihPlGQktgJMYIxc/zLPMGubssi5wXKwSHgQscqDgsE0syrrRUgvWqlh6PB016L1Pzd9W1OY9FR0oaGf6RhfJkYYxBJ2NaDpHUEiNbwk9J/iDluKAbY263m/Kxll8lvhvz/NvWbV5aa7ELk2hEV27Zxhh0cgy4IH0wRfmp7AO0uqUEa2tzEp1FlJeSQxmJy3x+17U5j5U0b68zwz9QMED9fYku3JvXUgk/yQgq+9UlvFadtfzao1T1J/YlpROchXg8q8WFsqNpiYciyQzYfimh5e2yrfJMfgWUeZ7HzeelAzAgvk1L5/2SXGXax1riio5ZkPQlZzy1yWRiWfeMx+qCcltGWn310iUyT54V5e0l/Gz30j2b81gS97AN95PPPzgLqTX0cMLtAMkwlwa1SpbwU74vSanvnfHO+7X1NNlzrCU4z32p/NnxvJZKsFSouq7DoVShc0U4v8ajSOW9T+ZlXZvzWMmI7nWibplcApC7IQSe0vcmyfeXaKmEnxItsfZAk7AiyDreS36h3LIXVqJkGgktsY7HwjFeFnEWGn1YE+ctTGXZI9tKEvzqEOt2u+ExFGaHEHjLuq72zwfFa0Tae++cU9V5wpU0iIjaDFiSEqUBe/xwhj2baQZH7mFx5GEDDPMtRQiBVVa8cwM/BPLev8pSiZZY1cDGla+JS6cwOXuoSRi8rmuyJo7FiIU0RCTpF/mRoSRcSSOhJRjNv8nXW+M4koXt77tL1hVlHDxRR0eMyWMZY/q+hzGo4JNl/GoOxtAdNLa7lrInf4m3hNAw4iTzEkfWDD+HNkv0Qyw5ON/mS2ooSu1Cfd8vy0KnYozJnMtAgNv88xJuz8e0MH/6vscZGLJknUxZWOhX5X1JGfHJS6zlHzvaftK1hvWPMPC0L13ic9d1eNsbY5SPkpcY00AbA28zcJmW8DMZeaJQR463XWo3NgYuYeAyLbHGgkpA25EuCX8DrcjAZVqq6EObqjHwDQw0LX1DFJoNP4GBpqWfEMXmwzcw0LT0DVFoNvwEBv4DAMMb7ZAPC6MAAAAASUVORK5CYII="></div><br>Création d'une fonction:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 // main.c
 //===============================================
@@ -95,8 +158,7 @@ int main(int _argc, char** _argv) {
 }
 //===============================================</pre><br></div>
 </div>
-</div>
-</div><br><div class="GSection1 Section1">
+</div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
@@ -725,10 +787,11 @@ static void GTest_run(int _argc, char** _argv) {
 </div>
 </div><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="creation-d-une-liste-de-donnees_-creation-d-une-liste-de-donnees" href="#creation-d-une-liste-de-donnees"> Création d'une liste de données</a>
-</h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIUAAABmCAYAAADlClIQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAuESURBVHhe7Z1bqE1fF8Cn7//PKdccPCAk1welELlT5F4ecDy5vbiW4gG5fUIol87J7Tw4LkWKR6FOcokQHhSi45Z7LuGBkvi+fsMe27LXWvvsc85a+5y1z/jVau699tprzTnXmGOOOecYazVp0aLF/5xhePhPKjWMNCYUhg8TCsOHCYXhI3KhmDFjhjtw4ICkRjKJfPRx5swZ16xZM/ft2zc3adKk1N7CA6GfOnWq69Kli3y/c+eOO3HihLt27Zp8TzKRa4rnz5//lRYiK1eudEuWLBGBePDggXv//r3r16+f27p1qxsyZEjqqOQSyzzFhAkT3Llz51LfCovevXu78vJy+bx371538uRJ+awCgZAsXLhQ9iWVWAzNQhUIGDdunKR0FyoQsGvXLuky+/Tpk3htEagp2rdv7+bPn++6desmhfQS1BIwLDOPO3v2rNu+fXvq2x9QvRMnTkx9C2b06NGpT3/gfwMHDpS8Ad3ThQsX3KFDh+R7ENycdevWuQ8fPrgVK1aImq8rpaWl0lWcOnXK7dmzJ7X3N1oPQb8liUBNsXPnTrlxFJDKRxB0e/PmTeqoP7BPf6+u4t+9e/fX+TL/R2vLBNVMfhAIPZ7+fM6cOSIsYYwcOVKMXo4dMGBAam/dKCoqkvTRo0eSn6VLl6ZHWk+fPpW0efPmkiaVf1NpGuwBKpGbQ6Xn0ro2btyY+lS9JqBlZ7ZubdFQVlYmqUKF8zv5WLt2rXv48KHs1/+MGjXKVVRUBObz8uXL8jua4vbt26m90VFSUuKmT58un1++fClpIZDVpkCNq7qOC725tOgjR4747JH+/ftLylBXBQIY+tGv878wLcAxDItnz56dk3DXlKRrhDB8QsFNoTKpbIZdGFNHjx4VFY4WiRIEbvny5WmBCLIP2rRpIyla6+LFi39tCFR9gobCfiDvhTA/oQRqitWrV8uGsaj9Nzdg1apVIhxRgEBgu5BSodkMRuAY8hO0aV+eD75//y5pjx49RPtgUGreMczh69evkiaV0O6Dm8DogZEG3ci2bdtkP8JR1xaqAoGwcR0EMIxPnz5J+vnzZ8lP0ObtVuKmqqpK0p49e0rqhfJAHPZLPslqU3j58uVL6lPdocugArEJsgkEXLp0SVIMxnnz5snnXEF4sUXo/qKyjSorKyVlWOpd39mwYYN0g2iPpHclvnkK7Aa6CYaiOjyksNoK2I/hpnCjBg8enPrmXNu2beUGUDkfP36UfQxZdYTCEE4tdu81vGT20VT4mDFj5DPH8z8gX48fP/5r9OPFOxJC00U1qeY9L92rlhmivE598U/Tpk3/m/osjBgxwnXq1Ml17NjRtWvXTrbWrVtL4W/evCnq2nsjx48fLy1Sj1WLnFT30Q+fPn1a9nNzVfVyXj3Gu926dUvmARS0xdu3b13Lli3lBnTo0EGO4//Pnj1La5NMfv365YYOHSpCefjw4UABrA1Xr151TZo0ccXFxa579+5SVrQe1yiE2Vzz0TR85GxTGI0HEwrDhwmF4cOEwvBhQmH4MKEwfJhQGD5MKAwfkQsF6wEW95FsLO6jFuDRPXfuXFk+1zUP1mOq8xlNCpFrCl2s0rTQYAFw9+7dst6DQLAmxOIfC4Y4ArHgl3QiFwr8L1gpTHrsQzbQhGgFukjKSYqzDwwaNEjSJGMLYrWA7iPTsUddDgqh27S4j4hAW+DTyhL6smXLUnuTSWD3YXEfNQPhw9Yg7wQZJ51QzysKmGvchxfVBGGaIght0dzATM8lbYHkIyjuA8LyGaemoAshhBCHIVzz0BD79u3Lq79oXGQ1NC3uIxw8unArRCAAT7Vp06bJ56QTaFNoBLVCF/Lq1Stxe6vO3awmmgKBo3WRhsV9BNkrmdSnXyR5p/Hosyqwc8J8RpOCz0cTzp8/L63yx48f7ufPn+KH2LlzZzd8+HBRm/weBsegUvGxxJcxDCoT24UWRovesWNH6pe/mTJlivhjcszdu3flvJnb9evX007C+YZu9v79++7KlStu5syZYpyT1/rKTxQECgUQG8lNxeEWh1QcZ7nhCAcCExY7mYtQqEDQsqjAbG7+w4YNk2siEGgezpm5NYQbgHBMnjxZnHjv3bsn5U8qOU9eWdzHbzhP0LmYydT9SQ8GCh19YEfo8FCHdcD+xhz3ofn35p26IS8QZhslCYv7qCFdu3Z1rVq1EjtL84vthV3BNQg4Tjo2zW34iHxBzEg+JhSGDxMKw4cJheHDhMLwYUJh+DChMHyYUBg+TCiyoI9mbGzUm1AwNc46S1QLVUZ01JtQ4ELHwlucvpNG7bDuw/BhQmH4CFwlpb+fNWtW2imVZXP8BFD5+EvWNi5DfTWqI+j8QL7i8M7OLC/OP5s3b06/5KUucShhPqtaF9StN45G/WMz93Md7gF+G943EsWBT1NoxVNB+B+QOXwYFi1aFOpAm2tcBt5b+rv6NlCZuk+3MEbGEMcRVF58SQgnCKO2cSi5wBuGqBPq2huXumnTJik7ghenQIBPKGgxXJzWQiE1VhJv7iD4jYql1S5YsECOZ8PNjkrGjU5bE95U+jsFh+PHj6f36RYG7+/gnPw3Kpe3sPKq0GZSk/LWBs67f/9+ORceXlwL4UBIKHc+PMV9QqFeUUQ6edUzXkVB1CUuo6ZwzqjjOBpieTmXagM0NMKBkGzZskX2xY1PKCgUkDEv3grw0pDfx5ELDbW82CYImfrG8j0sT1ET2eiDSsWYCtry+T6OfJGP8oZ1YXETKhQE/XjJ/K7U9X0cPA2mIZCv8io4H2cDL3k0j9pefA/LU9T4hAKVBYsXL5ZU4XE+QdQ2LkOj13nIR66GGZUUdRxHvsqrbw0C8q4hC0FQTjV2MTrRPnRza9asSR0RL755CjLEkAvIFJLKkPT169fpcXzmuL02cRlIPY8J4hjvf7jWwYMHA2M0dMwPUcVxxF1ebzkxZImFwU5AGLk2sJ+hKF0SAqPRc973m2pMbT5iVX1xH4QDEmNBPIPGV7x48cIdO3bMjR07Vo7JtMxrE5dB5Tx58kQqwfsf3qNBDAVbJnHEcWQrb69evaQMdSkv5VRBYP4D4bhx44ZoPK1PYmQ01oU5k759+8rcx/r16+V34D/E1ZIn3lEWVD9RkXPcB+qM50RwIwr1qXfGb6odfaD+6Du1/9Q+2ChcQmNJg6DvjPvZUUb9U62mQADo3zB6TCAaBxZLaviIbEbTKBxMKAwfJhSGDxMKw0fkQsEkl73vI9lEPvpg+lbXMwp55hOh12dnApN6OOpk+mUkkcg1hS4OaVqIsDDHlD8CwRwOczcsnqnTbdKJZZ6CWdH6egJu3DDtX15eLp+9XtUqEAhJNj/TJBCLoVmoAgE8pB3oLrxe1Sx902WyvJ10bRGoKVjOtvd9BFNaWipdhdfXQdF6CPotSQRqCnvfRzhFRUWS4vtAfnC/15GW+mbqs0STyr+pNA32AJXIzaHSc2ldXk+g6jQBLTuzdWuLhrKyMkkVKpzfyUfQ+z5wi6uoqAjMJ3Ei/I6miOPRyCUlJemnB4c9qzyJZLUpUOOqruNCby4tmrC4THukob7vA5KuEcLwCQU3hcqkshl2YUzhKIsKR4tECQLHw9tVIILsg4YcV4KGwn4g74UwP6EEagpC4NgwFrX/5gbgfKNOrnUFgcB2IaVCsxmMwDEaV5G55TOuhOeMA6EJaB8MSs27emzjQ5lkQrsPbgKjB0YadCN4TwPCUdcWqgKBsHGdbK93iCrOIiqqqqok1XBDL5QHkv5qh6w2hRd738dvKisrJWVY6l3fwe2fbhDtkfSuJNRHk6GoDg8prLYC9jfm932A97x0r1pmqM/3mUWFve+jFvCKKuJTiouL5b0flBWtxzUKYTbXfDQNHznbFEbjwYTC8GFCYfgwoTB8mFAYPkwoDB8mFIYPEwrDhwmFkYFz/wekYQ4Ht5lVHgAAAABJRU5ErkJggg=="></div><br>Création d'une liste de données:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+</h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,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"></div><br>Création d'une liste de données:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
 // GTest.c
 //===============================================
 static void GTest_runVector(int _argc, char** _argv) {
+    printf("%s...\n",  __PRETTY_FUNCTION__);
     GVector* lVector = GVector_new();
 
     // size - add - get - clear - delete
@@ -834,6 +897,410 @@ static void* GVector_get(GVector* _this, int i) {
     return lNode-&gt;m_data;
 }
 //===============================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="creation-d-un-gestionnaire-de-logs">Création d'un gestionnaire de logs</a>
+</h1>
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#creation-d-un-gestionnaire-de-logs_creation-d-un-gestionnaire-de-logs-">Création d'un gestionnaire de logs&nbsp;</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="creation-d-un-gestionnaire-de-logs_creation-d-un-gestionnaire-de-logs-" href="#creation-d-un-gestionnaire-de-logs">Création d'un gestionnaire de logs&nbsp;</a>
+</h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,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"></div><br>Création d'un gestionnaire de logs:&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// GTest.c
+//===============================================
+static void GTest_runLog(int _argc, char** _argv) {
+    printf("%s...\n",  __PRETTY_FUNCTION__);
+
+    // addError - addLog - addData - addLogs - print - clear - delete
+    GLog* lLog = GLog_new();
+    GLog* lLog2 = GLog_new();
+
+    lLog-&gt;addError(lLog, "Je suis une erreur.");
+    lLog-&gt;addLog(lLog, "Je suis une information.");
+    lLog-&gt;addData(lLog, "Je suis une donnée.");
+
+    // lLog-&gt;clear(lLog);
+
+    lLog-&gt;print(lLog);
+
+    lLog-&gt;loadFromMap(lLog, 2);
+    lLog-&gt;m_msg = "Je suis une information (2).";
+    lLog-&gt;loadToMap(lLog, 2);
+
+    lLog2-&gt;addLogs(lLog2, lLog);
+    lLog2-&gt;print(lLog2);
+
+    lLog-&gt;delete(&amp;lLog);
+    lLog2-&gt;delete(&amp;lLog2);
+}
+//===============================================
+// GLog.h
+//===============================================
+typedef struct _GLog GLog;
+typedef struct _GVector GVector;
+//===============================================
+struct _GLog {
+    void (*delete)(GLog** _this);
+    void (*clear)(GLog* _this);
+    void (*loadToMap)(GLog* _this, int _index);
+    void (*loadFromMap)(GLog* _this, int _index);
+    void (*addError)(GLog* _this, const char* _msg);
+    void (*addLog)(GLog* _this, const char* _msg);
+    void (*addData)(GLog* _this, const char* _msg);
+    void (*addLogs)(GLog* _this, GLog* _obj);
+    void (*print)(GLog* _this);
+
+    GVector* m_map;
+    const char* m_type;
+    const char* m_side;
+    const char* m_msg;
+};
+//===============================================
+void GLog_init(GLog* _this);
+GLog* GLog_new();
+//===============================================
+// GLog.c
+//===============================================
+GLog* GLog_new() {
+    GLog* lObj = (GLog*)malloc(sizeof(GLog));
+    GLog_init(lObj);
+    return lObj;
+}
+//===============================================
+void GLog_init(GLog* _this) {
+    assert(_this);
+    _this-&gt;delete = GLog_delete;
+    _this-&gt;clear = GLog_clear;
+    _this-&gt;loadToMap = GLog_loadToMap;
+    _this-&gt;loadFromMap = GLog_loadFromMap;
+    _this-&gt;addError = GLog_addError;
+    _this-&gt;addLog = GLog_addLog;
+    _this-&gt;addData = GLog_addData;
+    _this-&gt;addLogs = GLog_addLogs;
+    _this-&gt;print = GLog_print;
+
+    _this-&gt;m_map = GVector_new();
+    _this-&gt;m_type = 0;
+    _this-&gt;m_side = 0;
+    _this-&gt;m_msg = 0;
+}
+//===============================================
+static void GLog_delete(GLog** _this) {
+    assert(*_this);
+    GVector* lMap = (*_this)-&gt;m_map;
+    (*_this)-&gt;clear(*_this);
+    lMap-&gt;delete(&amp;lMap);
+    free(*_this);
+    (*_this) = 0;
+}
+//===============================================
+static void GLog_clear(GLog* _this) {
+    assert(_this);
+    GVector* lMap = _this-&gt;m_map;
+    for(int i = 0; i &lt; lMap-&gt;size(lMap); i++) {
+        GLog* lObj = lMap-&gt;get(lMap, i);
+        lObj-&gt;delete(&amp;lObj);
+    }
+    lMap-&gt;clear(lMap);
+}
+//===============================================
+static GLog* GLog_clone(GLog* _this) {
+    assert(_this);
+    GLog* lObj = GLog_new();
+    GLog_setObj(lObj, _this);
+    return lObj;
+}
+//===============================================
+static void GLog_setObj(GLog* _this, GLog* _obj) {
+    assert(_this);
+    _this-&gt;m_type = _obj-&gt;m_type;
+    _this-&gt;m_side = _obj-&gt;m_side;
+    _this-&gt;m_msg = _obj-&gt;m_msg;
+}
+//===============================================
+static void GLog_loadToMap(GLog* _this, int _index) {
+    assert(_this);
+    assert(_index &gt;= 1);
+    GVector* lMap = _this-&gt;m_map;
+    int lSize = lMap-&gt;size(lMap);
+    assert(_index &lt;= lSize);
+    GLog* lObj = lMap-&gt;get(lMap, _index - 1);
+    GLog_setObj(lObj, _this);
+}
+//===============================================
+static void GLog_loadFromMap(GLog* _this, int _index) {
+    assert(_this);
+    assert(_index &gt;= 1);
+    GVector* lMap = _this-&gt;m_map;
+    int lSize = lMap-&gt;size(lMap);
+    assert(_index &lt;= lSize);
+    GLog* lObj = lMap-&gt;get(lMap, _index - 1);
+    GLog_setObj(_this, lObj);
+}
+//===============================================
+static void GLog_addError(GLog* _this, const char* _msg) {
+    assert(_this);
+    GVector* lMap = _this-&gt;m_map;
+    GLog* lObj = GLog_new();
+    lObj-&gt;m_type = "error";
+    lObj-&gt;m_side = "server";
+    lObj-&gt;m_msg = _msg;
+    lMap-&gt;add(lMap, lObj);
+}
+//===============================================
+static void GLog_addLog(GLog* _this, const char* _msg) {
+    assert(_this);
+    GVector* lMap = _this-&gt;m_map;
+    GLog* lObj = GLog_new();
+    lObj-&gt;m_type = "log";
+    lObj-&gt;m_side = "server";
+    lObj-&gt;m_msg = _msg;
+    lMap-&gt;add(lMap, lObj);
+}
+//===============================================
+static void GLog_addData(GLog* _this, const char* _msg) {
+    assert(_this);
+    GVector* lMap = _this-&gt;m_map;
+    GLog* lObj = GLog_new();
+    lObj-&gt;m_type = "data";
+    lObj-&gt;m_side = "server";
+    lObj-&gt;m_msg = _msg;
+    lMap-&gt;add(lMap, lObj);
+}
+//===============================================
+static void GLog_addLogs(GLog* _this, GLog* _obj) {
+    assert(_this);
+    GVector* lMap = _this-&gt;m_map;
+    GVector* lMap2 = _obj-&gt;m_map;
+    for(int i = 0; i &lt; lMap2-&gt;size(lMap2); i++) {
+        GLog* lObj = lMap2-&gt;get(lMap2, i);
+        GLog* lObj2 = GLog_clone(lObj);
+        lMap-&gt;add(lMap, lObj2);
+    }
+}
+//===============================================
+static void GLog_print(GLog* _this) {
+    assert(_this);
+    GVector* lMap = _this-&gt;m_map;
+    for(int i = 0; i &lt; lMap-&gt;size(lMap); i++) {
+        GLog* lObj = lMap-&gt;get(lMap, i);
+        printf("[%-6s] : %s\n", lObj-&gt;m_type, lObj-&gt;m_msg);
+    }
+}
+//===============================================</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="creation-d-un-objet-parent">Création d'un objet parent</a>
+</h1>
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#creation-d-un-objet-parent_creation-d-un-objet-parent-">Création d'un objet parent&nbsp;</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#creation-d-un-objet-parent_integration-d-un-gestionnaire-de-logs">Intégration d'un gestionnaire de logs</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#creation-d-un-objet-parent_utilisation-d-un-objet-parent">Utilisation d'un objet parent</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#creation-d-un-objet-parent_utilisation-d-un-gestionnaire-de-logs">Utilisation d'un gestionnaire de logs</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="creation-d-un-objet-parent_creation-d-un-objet-parent-" href="#creation-d-un-objet-parent">Création d'un objet parent&nbsp;</a>
+</h2><br>Création d'un objet parent:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// GObject.h
+//===============================================
+typedef struct _GObject GObject;
+//===============================================
+struct _GObject {
+    void (*delete)(GObject** _this);
+};
+//===============================================
+void GObject_init(GObject* _this);
+GObject* GObject_new();
+//===============================================
+// GObject.c
+//===============================================
+GObject* GObject_new() {
+    GObject* lObj = (GObject*)malloc(sizeof(GObject));
+    GObject_init(lObj);
+    return lObj;
+}
+//===============================================
+void GObject_init(GObject* _this) {
+    assert(_this);
+    _this-&gt;delete = GObject_delete;
+}
+//===============================================
+static void GObject_delete(GObject** _this) {
+    assert(*_this);
+    free(*_this);
+    (*_this) = 0;
+}
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="creation-d-un-objet-parent_integration-d-un-gestionnaire-de-logs" href="#creation-d-un-objet-parent">Intégration d'un gestionnaire de logs</a>
+</h2><br>Intégration d'un gestionnaire de logs:&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// GObject.h
+//===============================================
+typedef struct _GObject GObject;
+//===============================================
+struct _GObject {
+    void (*delete)(GObject** _this);
+
+    GLog* m_logs;
+};
+//===============================================
+void GObject_init(GObject* _this);
+GObject* GObject_new();
+//===============================================
+// GObject.c
+//===============================================
+GObject* GObject_new() {
+    GObject* lObj = (GObject*)malloc(sizeof(GObject));
+    GObject_init(lObj);
+    return lObj;
+}
+//===============================================
+void GObject_init(GObject* _this) {
+    assert(_this);
+    _this-&gt;delete = GObject_delete;
+
+    _this-&gt;m_logs = GLog_new();
+}
+//===============================================
+static void GObject_delete(GObject** _this) {
+    assert(*_this);
+    GLog* lLog = (*_this)-&gt;m_logs;
+    lLog-&gt;delete(&amp;lLog);
+    free(*_this);
+    (*_this) = 0;
+}
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="creation-d-un-objet-parent_utilisation-d-un-objet-parent" href="#creation-d-un-objet-parent">Utilisation d'un objet parent</a>
+</h2><br>Utilisation d'un objet parent:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// GProcess.h
+//===============================================
+typedef struct _GProcess GProcess;
+//===============================================
+struct _GProcess {
+    void (*delete)(GProcess** _this);
+    void (*run)(GProcess* _this, int _argc, char** _argv);
+
+    GObject* m_obj;
+};
+//===============================================
+void GProcess_init(GProcess* _this);
+GProcess* GProcess_new();
+//===============================================
+// GProcess.c
+//===============================================
+GProcess* GProcess_new() {
+    GProcess* lObj = (GProcess*)malloc(sizeof(GProcess));
+    GProcess_init(lObj);
+    return lObj;
+}
+//===============================================
+void GProcess_init(GProcess* _this) {
+    assert(_this);
+    _this-&gt;delete = GProcess_delete;
+    _this-&gt;run = GProcess_run;
+
+    _this-&gt;m_obj = GObject_new();
+}
+//===============================================
+static void GProcess_delete(GProcess** _this) {
+    assert(*_this);
+    GObject* lObj = (*_this)-&gt;m_obj;
+    lObj-&gt;delete(&amp;lObj);
+    free(*_this);
+    (*_this) = 0;
+}
+//===============================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="creation-d-un-objet-parent_utilisation-d-un-gestionnaire-de-logs" href="#creation-d-un-objet-parent">Utilisation d'un gestionnaire de logs</a>
+</h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,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"></div><br>Utilisation d'un gestionnaire de logs:<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">//===============================================
+// main.c
+//===============================================
+int main(int _argc, char** _argv) {
+    GDEFINE_OBJ(GProcess, lProcess)
+    lProcess.run(&amp;lProcess, _argc, _argv);
+    lProcess.m_obj-&gt;m_logs-&gt;print(lProcess.m_obj-&gt;m_logs);
+    return 0;
+}
+//===============================================
+// GProcess.h
+//===============================================
+typedef struct _GProcess GProcess;
+//===============================================
+struct _GProcess {
+    void (*delete)(GProcess** _this);
+    void (*run)(GProcess* _this, int _argc, char** _argv);
+
+    GObject* m_obj;
+};
+//===============================================
+void GProcess_init(GProcess* _this);
+GProcess* GProcess_new();
+//===============================================
+// GProcess.c
+//===============================================
+GProcess* GProcess_new() {
+    GProcess* lObj = (GProcess*)malloc(sizeof(GProcess));
+    GProcess_init(lObj);
+    return lObj;
+}
+//===============================================
+void GProcess_init(GProcess* _this) {
+    assert(_this);
+    _this-&gt;delete = GProcess_delete;
+    _this-&gt;run = GProcess_run;
+
+    _this-&gt;m_obj = GObject_new();
+}
+//===============================================
+static void GProcess_delete(GProcess** _this) {
+    assert(*_this);
+    GObject* lObj = (*_this)-&gt;m_obj;
+    lObj-&gt;delete(&amp;lObj);
+    free(*_this);
+    (*_this) = 0;
+}
+//===============================================
+static void GProcess_run(GProcess* _this, int _argc, char** _argv) {
+    assert(_this);
+    char* lModule = "";
+    if(_argc &gt; 1) lModule = _argv[1];
+    GLog* lLog = _this-&gt;m_obj-&gt;m_logs;
+
+    if(!strcmp(lModule, "")) {
+        lLog-&gt;addError(lLog, "Le module est obligatoire.");
+    }
+    else if(!strcmp(lModule, "test")) {
+        GProcess_runTest(_this, _argc, _argv);
+    }
+    else {
+        lLog-&gt;addError(lLog, "Le module est inconnu.");
+    }
+}
+//===============================================
+static void GProcess_runTest(GProcess* _this, int _argc, char** _argv) {
+    assert(_this);
+    GDEFINE_OBJ(GTest, lObj)
+    lObj.run(&amp;lObj, _argc, _argv);
+    _this-&gt;m_obj-&gt;m_logs-&gt;addLogs(_this-&gt;m_obj-&gt;m_logs, lObj.m_obj-&gt;m_logs);
+}
+//===============================================</pre><br></div>
+</div>
+</div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
