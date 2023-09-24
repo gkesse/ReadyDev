@@ -1468,6 +1468,10 @@ bin\readyapp.exe
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#utilisation-d-un-makefile_utilisation-des-variables-d-environnement-dans-un-makefile">Utilisation des variables d'environnement dans un Makefile</a>
 </div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#utilisation-d-un-makefile_utilisation-d-une-librairie-dynamique-dans-un-makefile">Utilisation d'une librairie dynamique dans un Makefile</a>
+</div>
 </div><br><h2 class="GTitle1 Title1">
 <a class="Title2" href="#utilisation-d-un-makefile" id="utilisation-d-un-makefile_definition-d-une-regle-par-defaut--all-">Définition d'une règle par défaut (all)</a>
 </h2><br>Structure du dossier avant compilation:<br><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">src
@@ -1719,6 +1723,33 @@ $(GBUILD)/%.o: $(GSRC)/%.c
 	gcc -c $&lt; -o $@
 run:
 	envs.bat &amp;&amp; $(GTARGET) $(args)
+clean:
+	del /q /s $(GTARGET) $(GBUILD)\*.o
+#================================================</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="utilisation-d-un-makefile_utilisation-d-une-librairie-dynamique-dans-un-makefile" href="#utilisation-d-un-makefile">Utilisation d'une librairie dynamique dans un Makefile</a>
+</h2><br>Utilisation d'une librairie dynamique dans un Makefile:&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="makefile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#================================================
+GSRC = .
+GBIN = bin
+GBUILD = build
+GTARGET = $(GBIN)\readyapp.exe
+#================================================
+GLIBS =\
+	-lws2_32 \
+	
+GOBJS =\
+    $(patsubst $(GSRC)/%.c, $(GBUILD)/%.o, $(wildcard $(GSRC)/*.c)) \
+#================================================
+GCFLAGS =\
+    --std=gnu11 \
+#================================================
+all: compile run
+#================================================
+compile: $(GOBJS)
+	gcc $(GCFLAGS) -o $(GTARGET) $(GOBJS)  $(GLIBS) 
+$(GBUILD)/%.o: $(GSRC)/%.c
+	gcc $(GCFLAGS) -c $&lt; -o $@
+run:
+	$(GTARGET) $(args)
 clean:
 	del /q /s $(GTARGET) $(GBUILD)\*.o
 #================================================</pre><br></div></div></div></div><br><div class="GSection1 Section1">
