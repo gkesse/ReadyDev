@@ -53,8 +53,12 @@
 <div class="Section6"><br><div class="GTuto1 Tuto1">
 <a class="GTuto2 Tuto2" href="/home/tutoriels/c/cours">
 <div class="Tuto3"><i class="Tuto6 fa fa-desktop"></i></div>
-<div class="Tuto4"><div class="Tuto7">C</div></div>
-<div class="Tuto5"><div class="Tuto8">Programmez en<br>C</div></div>
+<div class="Tuto4"><div class="Tuto7">Programmation<br>C</div></div>
+<div class="Tuto5"><div class="Tuto8">C - Thread - Webservice - Socket - TCP/IP</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/c/drivers_linux">
+<div class="Tuto3"><i class="Tuto6 fa fa-cogs"></i></div>
+<div class="Tuto4"><div class="Tuto7">Drivers Linux<br>C</div></div>
+<div class="Tuto5"><div class="Tuto8">C - Drivers - Modules - insmod - rmmod - lsmod</div></div>
 </a>
 </div><br></div>
 </div>
