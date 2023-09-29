@@ -97,7 +97,7 @@ class GMenu extends GObject {
         $this->addMenu("tutoriels", "Drivers Linux C", "Drivers Linux C", "/home/tutoriels/c/drivers_linux", $lObj2);
         // tutoriels/c++
         $lObj2 = $this->addMenu("tutoriels", "C++", "C++", "", $lObj);
-        $this->addMenu("tutoriels", "Cours", "C++", "/home/tutoriels/cpp/cours", $lObj2);
+        $this->addMenu("tutoriels", "Programmation C++", "Programmation C++", "/home/tutoriels/cpp/cours", $lObj2);
         $this->addMenu("tutoriels", "Structures de données C++", "Structures de données C++", "/home/tutoriels/cpp/structures", $lObj2);
         $this->addMenu("tutoriels", "Algorithmes C++", "Algorithmes C++", "/home/tutoriels/cpp/algorithms", $lObj2);
         $this->addMenu("tutoriels", "Architecture Logicielle C++", "Architecture Logicielle C++", "/home/tutoriels/cpp/architecture", $lObj2);
@@ -116,7 +116,7 @@ class GMenu extends GObject {
         $this->addMenu("tutoriels", "Cours", "JavaScript", "/home/tutoriels/javascript/cours", $lObj2);
         // tutoriels/php
         $lObj2 = $this->addMenu("tutoriels", "PHP", "PHP", "", $lObj);
-        $this->addMenu("tutoriels", "Cours", "PHP", "/home/tutoriels/php/cours", $lObj2);
+        $this->addMenu("tutoriels", "Programmation PHP", "Programmation PHP", "/home/tutoriels/php/cours", $lObj2);
         // tutoriels/php
         $lObj2 = $this->addMenu("tutoriels", "Android", "Android", "", $lObj);
         $this->addMenu("tutoriels", "Android Studio", "Android Studio", "/home/tutoriels/android/android_studio", $lObj2);
