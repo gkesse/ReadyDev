@@ -30,27 +30,7 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#boucle-while">Boucle While</a>
-</div>
-<div class="GSummary11 Summary1">
-<i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#chargement-automatique">Chargement automatique</a>
-</div>
-<div class="GSummary11 Summary1">
-<i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#communication-reseau--socket-">Communication réseau (socket)</a>
-</div>
-<div class="GSummary11 Summary1">
-<i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#communication-reseau--curl-">Communication réseau (cURL)</a>
-</div>
-<div class="GSummary11 Summary1">
-<i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#format-de-donnees-xml--domdocument-">Format de données XML (DOMDocument)</a>
-</div>
-<div class="GSummary11 Summary1">
-<i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#classe">Classe</a>
+<a class="Summary3" href="#ajout-d-une-structure-html">Ajout d'une structure HTML</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
@@ -371,333 +351,66 @@ class GTest {
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="boucle-while">Boucle While</a>
+<a class="Section5" href="#" id="ajout-d-une-structure-html">Ajout d'une structure HTML</a>
 </h1>
-<div class="Section6"><br>L'opérateur (while) permet de réaliser une boucle (Tant Que).&nbsp; &nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-//===============================================
-public function readData() {
-    $lLength = 1024;
-    $lData = "";
-    while(1) {
-        $lBuffer = fread ($this-&gt;m_socket, $lLength);
-        if($lBuffer == "") break;
-        $lData .= $lBuffer;
-        $lStatus = socket_get_status($this-&gt;m_socket);
-        $lBytes = $lStatus["unread_bytes"];
-        if($lBytes &lt;= 0) break;
-    }
-    return $lData;
-}
-//===============================================
-?&gt;</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
-<i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">De manière générale, l'opérateur (break) permet de casser une boucle.</div>
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ajout-d-une-structure-html_affichage-d-un-message">Affichage d'un message</a>
 </div>
-<div class="GBullet1 Bullet1">
-<i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">Alors que l'opérateur (continue) permet de continuer la boucle.</div>
-</div><br></div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ajout-d-une-structure-html_ajout-d-une-structure-html">Ajout d'une structure HTML</a>
 </div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#ajout-d-une-structure-html_ajout-d-un-titre-de-page">Ajout d'un titre de page</a>
 </div>
-</div><br><div class="GSection1 Section1">
-<div class="Section2">
-<div class="Section3">
-<h1 class="Section4">
-<a class="Section5" href="#" id="chargement-automatique">Chargement automatique</a>
-</h1>
-<div class="Section6"><br>La fonction (spl_autoload_register) permet d'enregistrer plusieurs fonctions de chargement automatique.<br><br>Fonction de chargement automatique.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ajout-d-une-structure-html_affichage-d-un-message" href="#ajout-d-une-structure-html">Affichage d'un message</a>
+</h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,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"></div><br>Affichage d'un message:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
 //===============================================
-function GAutoloadRegister($_className) {
-    $lFilename = $_SERVER["DOCUMENT_ROOT"].DIRECTORY_SEPARATOR.$_className.".php";
-    $lFilename = str_replace("\\", "/", $lFilename);
-
-    if (is_readable($lFilename)) {
-        require $lFilename;
-    }    
-}       
+// index.php
 //===============================================
-?&gt;</pre><br>Enregistrement de la fonction de chargement automatique.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
+echo "Bonjour tout le monde.";
 //===============================================
-if (version_compare(PHP_VERSION, "5.1.2", "&gt;=")) {
-    if (version_compare(PHP_VERSION, "5.3.0", "&gt;=")) {
-        spl_autoload_register("php\class\GAutoloadRegister", true, true);
-    } 
-    else {
-        spl_autoload_register("GAutoloadRegister");
-    }
-} 
-else {
-    function spl_autoload_register($_className) {
-        $lFilename = $_SERVER["DOCUMENT_ROOT"].DIRECTORY_SEPARATOR.$_className.".php";
-        $lFilename = str_replace("\\", "/", $lFilename);
-        require $lFilename;
-    }       
-}
+?&gt;</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ajout-d-une-structure-html_ajout-d-une-structure-html" href="#ajout-d-une-structure-html">Ajout d'une structure HTML</a>
+</h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,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"></div><br>Ajout d'une structure HTML:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
+//===============================================
+// index.php
+//===============================================
+echo sprintf("&lt;!DOCTYPE html&gt;\n");
+echo sprintf("&lt;html&gt;\n");
+echo sprintf("&lt;head&gt;\n");
+echo sprintf("&lt;/head&gt;\n");
+echo sprintf("&lt;body&gt;\n");
+//===============================================
+echo sprintf("&lt;p&gt;Bonjour tout le monde.&lt;/p&gt;\n");
+//===============================================
+echo sprintf("&lt;/body&gt;\n");
+echo sprintf("&lt;/html&gt;\n");
+//===============================================
+?&gt;</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="ajout-d-une-structure-html_ajout-d-un-titre-de-page" href="#ajout-d-une-structure-html">Ajout d'un titre de page</a>
+</h2><br>Résultat:<br><br><div class="GImg1 Img1"><img alt="image.png" src="data:image/png;base64,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"></div><br>Ajout d'un titre de page:<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
+//===============================================
+// index.php
+//===============================================
+echo sprintf("&lt;!DOCTYPE html&gt;\n");
+echo sprintf("&lt;html&gt;\n");
+echo sprintf("&lt;head&gt;\n");
+//===============================================
+echo sprintf("&lt;title&gt;ReadyApp&lt;/title&gt;\n");
+//===============================================
+echo sprintf("&lt;/head&gt;\n");
+echo sprintf("&lt;body&gt;\n");
+//===============================================
+echo sprintf("&lt;p&gt;Bonjour tout le monde.&lt;/p&gt;\n");
+//===============================================
+echo sprintf("&lt;/body&gt;\n");
+echo sprintf("&lt;/html&gt;\n");
 //===============================================
 ?&gt;</pre><br></div>
-</div>
-</div>
-</div><br><div class="GSection1 Section1">
-<div class="Section2">
-<div class="Section3">
-<h1 class="Section4">
-<a class="Section5" href="#" id="communication-reseau--socket-">Communication réseau (socket)</a>
-</h1>
-<div class="Section6"><br>La fonction (stream_socket_client) permet de créer un point de connexion TCP/IP.<br><br>Création d'un client TCP/IP.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-//===============================================
-public function callServer($_data) {
-    $lAddress = sprintf("tcp://%s:%d", $lHostname, $lPort);
-    $this-&gt;m_socket = @stream_socket_client($lAddress, $lErrCode, $lErrMsg, 30);
-    $this-&gt;sendData($_data);
-    $lData = $this-&gt;readData();
-    fclose($this-&gt;m_socket);
-    return $lData;
-}
-//===============================================
-?&gt;</pre><br>La fonction (fwrite) permet d'envoyer des données sur le réseau.<br><br>Emission de données sur le réseau.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-//===============================================
-public function sendData($_data) {
-    fwrite($this-&gt;m_socket, $_data, strlen($_data));
-}
-//===============================================
-?&gt;</pre><br>La fonction (fread) permet de recevoir des données sur le réseau.<br><br>Réception de données sur le réseau.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-//===============================================
-public function readData() {
-    $lData = "";
-    while(1) {
-        $lBuffer = fread($this-&gt;m_socket, self::BUFFER_SIZE);
-        $lData .= $lBuffer;
-        if(strlen($lData) &gt;= self::BUFFER_MAX) break;
-        $lStatus = socket_get_status($this-&gt;m_socket);
-        $lBytes = $lStatus["unread_bytes"];
-        if($lBytes &lt;= 0) break;
-    }
-    return $lData;
-}
-//===============================================
-?&gt;</pre><br></div>
-</div>
-</div></div><br><div class="GSection1 Section1">
-<div class="Section2">
-<div class="Section3">
-<h1 class="Section4">
-<a class="Section5" href="#" id="communication-reseau--curl-">Communication réseau (cURL)</a>
-</h1>
-<div class="Section6"><br>La bibliothèque (cURL) permet de réaliser des appels HTTP(S).<br><br>La fonction (curl_init) permet d'initialiser le module cURL.<br>La fonction (curl_setopt) permet d'initialiser les paramètres cURL.<br>&nbsp;<br>L'option (CURLOPT_URL) permet d'initialiser l'URL du serveur à joindre.<br>L'option (CURLOPT_TIMEOUT) permet d'initialiser le timeout associé à un appel.<br>L'option (CURLOPT_HTTPHEADER) permet d'initialiser l'entête de la requête HTTP.<br>L'option (CURLOPT_USERPWD) permet d'initialiser le nom d'utilisateur et le mot de passe de connexion.<br>L'option (CURLOPT_HTTPAUTH) permet d'initialiser la méthode d'authentification exigée par le serveur.<br>L'option (CURLOPT_USERAGENT) permet d'initialiser le nom de l'agent utilisateur associé au serveur.<br>L'option (CURLOPT_POST) permet d'initialiser l'appel à a méthode POST.<br>L'option (CURLOPT_RETURNTRANSFER) permet d'initialiser le suivi des liens de redirection.<br>&nbsp;L'option (CURLOPT_POSTFIELDS) permet d'initialiser le corps de la requête.<br><br>Réalisation d'un appel POST HTTP.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-//===============================================
-public function postHttp($_data) {
-    $lCurl = curl_init();
-    curl_setopt($lCurl, CURLOPT_URL, $lUrl);
-    curl_setopt($lCurl, CURLOPT_TIMEOUT, $lTimeout);
-    
-    $lHeaders = array();
-    $lHeaders[] = sprintf("Content-Type: application/xml");
-    curl_setopt($lCurl, CURLOPT_HTTPHEADER, $lHeaders);
-    
-    $lUserPass = sprintf("%s:%s", $lUsername, $lPassword);
-    curl_setopt($lCurl, CURLOPT_USERPWD, $lUserPass);
-    curl_setopt($lCurl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-    
-    curl_setopt($lCurl, CURLOPT_USERAGENT, $lUserAgent);
-    curl_setopt($lCurl, CURLOPT_POST, true);
-    curl_setopt($lCurl, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($lCurl, CURLOPT_POSTFIELDS, $_data);
-            
-    $lData = curl_exec($lCurl);
-    $lError = curl_error($lCurl);
-    $this-&gt;m_codeHttp = curl_getinfo($lCurl, CURLINFO_HTTP_CODE);
-    curl_close($lCurl);
-    return $lData;
-}
-//===============================================
-?&gt;</pre><br>Structure d'une requête POST.<br><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">POST / HTTP/1.1\r\n
-Host: 127.0.0.1:9999\r\n
-Authorization: Basic XXXXXOYYYYYY=\r\n
-User-Agent: XXXXXX/Y.Y\r\n
-Accept: */*\r\n
-Content-Type: application/xml\r\n
-Content-Length: 22\r\n
-\r\n
-Bonjour tout le monde.</pre><br></div>
-</div></div></div><br><div class="GSection1 Section1">
-<div class="Section2">
-<div class="Section3">
-<h1 class="Section4">
-<a class="Section5" href="#" id="format-de-donnees-xml--domdocument-">Format de données XML (DOMDocument)</a>
-</h1>
-<div class="Section6"><br>La classe (DOMDocument) permet de manipuler des documents XML.<br><br>La classe (DOMDocument) fournit la méthode (createElement) qui permet de créer un noeud XML.<br>La classe (DOMDocument) fournit la propriété (preserveWhiteSpace) qui permet de préserver les espaces dans un document XML.<br>La classe (DOMDocument) fournit la propriété (formatOutput) qui permet de formater un document XML.&nbsp;<br>La classe (DOMDocument) fournit la méthode (appendChild) qui permet d'ajouter un noeud à un document XML.<br><br>Création d'un document XML.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-//===============================================
-public function createDoc() {
-    $this-&gt;m_doc = new \DOMDocument("1.0", "UTF-8");
-    if(!$this-&gt;m_doc) return false;
-    $this-&gt;m_doc-&gt;preserveWhiteSpace = false;
-    $this-&gt;m_doc-&gt;formatOutput = true;
-    $this-&gt;m_node = $this-&gt;m_doc-&gt;createElement("root");
-    if(!$this-&gt;m_node) return false;
-    $this-&gt;m_doc-&gt;appendChild($this-&gt;m_node);
-    return true;
-}
-//===============================================
-?&gt;</pre><br>La classe (DOMDocument) fournit la méthode (loadXml) qui permet de charger des données XML.<br>La classe (DOMDocument) fournit la propriété (documentElement) qui permet de récupérer le noeud racine d'un document XML.<br><br>Chargement de données XML.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-//===============================================
-public function loadXml($_data) {
-    $this-&gt;m_doc = new \DOMDocument("1.0", "UTF-8");
-    if(!$this-&gt;m_doc) return false;
-    $lXml = "&lt;?xml";
-    if(!str_starts_with($_data, "&lt;?xml")) {
-        $_data = sprintf("&lt;?xml version='1.0' encoding='UTF-8'?&gt;\n%s", $_data);
-    }
-    $this-&gt;m_doc-&gt;preserveWhiteSpace = false;
-    $this-&gt;m_doc-&gt;formatOutput = true;
-    if(!$this-&gt;m_doc-&gt;loadXml($_data)) return false;
-    $this-&gt;m_node = $this-&gt;m_doc-&gt;documentElement;
-    return true;
-}
-//===============================================
-?&gt;</pre><br>La classe (DOMElement) fournit la propriété (firstElementChild) qui permet de récupérer le premier noeud enfant d'un noeud XML.<br>La classe (DOMDocument) fournit la méthode (importNode) qui permet d'importer le noeud d'un document XML vers un noeud d'un autre document XML.<br><br>Chargement d'un noeud à partir de données XML.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-//===============================================
-public function loadNode($_root, $_data) {
-    $lDom = new \DOMDocument("1.0", "UTF-8");
-    $lDom-&gt;preserveWhiteSpace = false;
-    $lDom-&gt;formatOutput = true;
-    if(!$lDom-&gt;loadXML($_data)) return false;
-    $lChild = $lDom-&gt;documentElement-&gt;firstElementChild;
-    while($lChild) {
-        $lNode = $_root-&gt;m_doc-&gt;importNode($lChild, true);
-        $this-&gt;m_node-&gt;appendChild($lNode);
-        $lChild = $lChild-&gt;nextElementSibling;
-    }
-    return true;
-}
-//===============================================
-?&gt;</pre><br>Ajout d'un nouveau noeud.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-//===============================================
-public function addObj($_root, $_name) {
-    $lNode = $_root-&gt;m_doc-&gt;createElement($_name);
-    $this-&gt;m_node-&gt;appendChild($lNode);
-    return $lNode;
-}
-//===============================================
-?&gt;</pre><br>Ajout d'un nouveau noeud avec un contenu.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-//===============================================
-public function addValue($_root, $_name, $_value) {
-    $lNode = $_root-&gt;m_doc-&gt;createElement($_name);
-    $lNode-&gt;nodeValue = $_value;
-    $this-&gt;m_node-&gt;appendChild($lNode);
-    return $this-&gt;m_node;
-}
-//===============================================
-?&gt;</pre><br>La classe (DOMDocument) fournit la méthode (createCDATASection) qui permet de créer une section CData.<br><br>Ajout d'un nouveau noeud avec un contenu CData.<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-//===============================================
-public function addValue($_root, $_name, $_value) {
-    $lNode = $_root-&gt;m_doc-&gt;createElement($_name);
-    $lCData = $_root-&gt;m_doc-&gt;createCDATASection($_value);
-    $lNode-&gt;appendChild($lCData);
-    $this-&gt;m_node-&gt;appendChild($lNode);
-    return $this-&gt;m_node;
-}
-//===============================================
-?&gt;</pre><br>La classe (DOMElement) fournit la propriété (nodeValue) qui permet de récupérer le contenu d'un noeud XML.&nbsp;<br><br>Récupération du contenu d'un noeud.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-//===============================================
-public function getValue() {
-    $lData = $this-&gt;m_node-&gt;nodeValue;
-    return $lData;
-}
-//===============================================
-?&gt;</pre><br>La classe (DOMElement) fournit la propriété (textContent) qui permet de récupérer le contenu d'un noeud CData.<br><br>Récupération du contenu d'un noeud CData.&nbsp;<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-//===============================================
-public function getValue() {
-    $lData = $this-&gt;m_node-&gt;textContent;
-    return $lData;
-}
-//===============================================
-?&gt;</pre><br>La classe (DOMXpath) permet de manipuler des requêtes XPath.<br>La classe (DOMXpath) fournit la méthode (query) qui permet d'évaluer une requête XPath à partir d'un noeud XML.&nbsp;<br><br>Comptage du nombre de noeuds liés à une requête XPath.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-//===============================================
-public function countNode($_root, $_path) {
-    $lXPath = new \DOMXpath($_root-&gt;m_doc);
-    $lNodes = $lXPath-&gt;query($_path, $this-&gt;m_node);
-    return $lNodes-&gt;length;
-}
-//===============================================
-?&gt;</pre><br>La classe (DOMNodeList) fournit la méthode (item) qui permet récupérer un noeud XML en fonction de son index.<br><br>Récupération du noeud lié à une requête XPath.&nbsp;<br>&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-//===============================================
-public function getNode($_root, $_path) {
-    $lXPath = new \DOMXpath($_root-&gt;m_doc);
-    $lNodes = $lXPath-&gt;query($_path, $$this-&gt;m_node);
-    if(!$lNodes-&gt;length) return null;
-    return $lNodes-&gt;item(0);
-}
-//===============================================
-?&gt;</pre><br></div>
-</div>
-</div>
-</div><br><div class="GSection1 Section1">
-<div class="Section2">
-<div class="Section3">
-<h1 class="Section4">
-<a class="Section5" href="#" id="classe">Classe</a>
-</h1>
-<div class="Section6"><br>L'opérateur (class) permet de créer une classe en PHP.<br><br>Création d'une classe.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-//===============================================
-class GObject {
-    
-}
-//===============================================
-?&gt;</pre><br>La fonction (__construct) permet de créer un constructeur de classe en PHP.<br><br>Création d'un constructeur de classe.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-//===============================================
-class GObject {
-    //===============================================
-    public function __construct() {
-        $this-&gt;m_logs = new GLog();
-        $this-&gt;m_dataLogs = new GLog();
-        $this-&gt;m_template = new GTemplate();
-        $this-&gt;m_resp = new GCode();
-    }
-    //===============================================
-}
-//===============================================
-?&gt;</pre><br>Une classe peut posséder des attributs ou des propriétés.<br><br>Déclaration des attributs de classe.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-//===============================================
-class GObject {
-    //===============================================
-    protected $m_logs = null;
-    protected $m_dataLogs = null;
-    protected $m_template = null;
-    protected $m_resp = null;
-    //===============================================
-    public function __construct() {
-
-    }
-    //===============================================
-}
-//===============================================
-?&gt;</pre><br>Une classe peut posséder des méthodes.<br><br>L'opérateur (function) permet de créer une méthode de classe.<br><br>Création d'une méthode de classe.<br><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-//===============================================
-class GObject {
-    //===============================================
-    public function toDescription() {
-        $lData = "";
-        $lData .= sprintf("Avec ReadyDev, apprenez en pratiquant grâce à des cours\n");
-        $lData .= sprintf("et tutoriels adaptés aux sciences de l'Ingénieur.\n");
-        $lData .= sprintf("Plateforme de Développement Continu.\n");
-        $lData .= sprintf("Produit par Gérard KESSE.\n");
-        return $lData;
-    }
-    //===============================================
-}
-//===============================================
-?&gt;</pre><br>Ce qu'il faut savoir:<br><br><div class="GBullet1 Bullet1">
-<i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">L'opérateur (private) permet de définir une portée privée.<br>Les attributs associés à cette portée ne sont accessibles qu'au sein de la classe qui les déclare.</div>
-</div>
-<div class="GBullet1 Bullet1">
-<i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">L'opérateur (protected) permet de définir une portée protégée.<br>Les attributs associés à cette portée ne sont accessibles qu'au sein de la classe qui les déclare (classe mère) et aussi au sein des classes filles (classe dérivées).</div>
-</div>
-<div class="GBullet1 Bullet1">
-<i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">L'opérateur (public) permet de définir une portée publique.<br>Les attributs associés à cette portée sont accessibles à tous les nivaux.</div>
-</div><br></div>
 </div>
 </div></div><br><div class="GSection1 Section1">
 <div class="Section2">
