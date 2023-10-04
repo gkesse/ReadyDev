@@ -101,7 +101,7 @@ class GMenu extends GObject {
         $this->addMenu("tutoriels", "Structures de données C++", "Structures de données C++", "/home/tutoriels/cpp/structures", $lObj2);
         $this->addMenu("tutoriels", "Algorithmes C++", "Algorithmes C++", "/home/tutoriels/cpp/algorithms", $lObj2);
         $this->addMenu("tutoriels", "Architecture Logicielle C++", "Architecture Logicielle C++", "/home/tutoriels/cpp/architecture", $lObj2);
-        $this->addMenu("tutoriels", "Interface homme machine Qt", "Interface homme machine Qt", "/home/tutoriels/cpp/qt", $lObj2);
+        $this->addMenu("tutoriels", "Interface Homme Hachine Qt", "Interface Homme Machine Qt", "/home/tutoriels/cpp/qt", $lObj2);
         $this->addMenu("tutoriels", "Qt Oscilloscope", "Qt Oscilloscope", "/home/tutoriels/cpp/qt_oscilloscope", $lObj2);
         $this->addMenu("tutoriels", "Qt Automobile UI", "Qt Automobile UI", "/home/tutoriels/cpp/qt_automobile_ui", $lObj2);
         $this->addMenu("tutoriels", "Qt Ubuntu Installation", "Qt Ubuntu Installation", "/home/tutoriels/cpp/qt_ubuntu_installation", $lObj2, false);
@@ -122,13 +122,16 @@ class GMenu extends GObject {
         $this->addMenu("tutoriels", "Android Studio", "Android Studio", "/home/tutoriels/android/android_studio", $lObj2);
         $this->addMenu("tutoriels", "Android Qt", "Android Qt", "/home/tutoriels/android/qt", $lObj2);
         // tutoriels/embedsys
-        $lObj2 = $this->addMenu("tutoriels", "Système embarqué", "Système embarqué", "", $lObj);
+        $lObj2 = $this->addMenu("tutoriels", "Système Embarqué", "Système Embarqué", "", $lObj);
         $this->addMenu("tutoriels", "8051", "8051", "/home/tutoriels/embedsys/8051", $lObj2);
         $this->addMenu("tutoriels", "PIC", "PIC", "/home/tutoriels/embedsys/pic", $lObj2);
         $this->addMenu("tutoriels", "Linux Embarqué", "Linux Embarqué", "/home/tutoriels/embedsys/linux", $lObj2);
         // tutoriels/devops
         $lObj2 = $this->addMenu("tutoriels", "DevOps", "DevOps", "", $lObj);
         $this->addMenu("tutoriels", "VirtualBox Ubuntu Installation", "VirtualBox Ubuntu Installation", "/home/tutoriels/devops/virtualbox_ubuntu_installation", $lObj2);
+        // tutoriels/automate
+        $lObj2 = $this->addMenu("tutoriels", "Automate Programmable", "Automate Programmable", "", $lObj);
+        $this->addMenu("tutoriels", "Programmation CoDeSys", "Programmation CoDeSys", "/home/tutoriels/automate/codesys", $lObj2);
         //===============================================
         // cours
         //===============================================
