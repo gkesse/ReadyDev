@@ -145,7 +145,7 @@ class GMenu extends GObject {
         //===============================================
         // connection
         //===============================================
-        $this->addMenu("connection", "Connexion", "Connexion", "/home/connexion", $this);
+        $this->addMenu("connection", "Connexion", "Connexion", "/home/connexion", $this, false);
     }
     //===============================================
     public function toCurrentMenu() {
