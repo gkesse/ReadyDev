@@ -224,16 +224,16 @@ class GObject {
     //===============================================
     public function redirectPost() {
         if(!empty($_POST) OR !empty($_FILES)) {
-            $_SESSION["_SAVE_POST_"] = $_POST;
-            $_SESSION["_SAVE_FILES_"] = $_FILES;
+            $_SESSION["_save_post_"] = $_POST;
+            $_SESSION["_save_files_"] = $_FILES;
             $lUrl = $_SERVER["REQUEST_URI"];
             header("Location: " . $lUrl);
             exit;
         }
-        if(isset($_SESSION["_SAVE_POST_"])) {
-            $_POST = $_SESSION["_SAVE_POST_"];
-            $_FILES = $_SESSION["_SAVE_FILES_"];
-            unset($_SESSION["_SAVE_POST_"], $_SESSION["_SAVE_FILES_"]);
+        if(isset($_SESSION["_save_post_"])) {
+            $_POST = $_SESSION["_save_post_"];
+            $_FILES = $_SESSION["_save_files_"];
+            unset($_SESSION["_save_post_"], $_SESSION["_save_files_"]);
         }
     }
     //===============================================
