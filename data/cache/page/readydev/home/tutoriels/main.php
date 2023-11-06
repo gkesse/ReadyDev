@@ -10,6 +10,10 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#gaming">Jeu et Pari</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#c">Développement C</a>
 </div>
 <div class="GSummary11 Summary1">
@@ -67,6 +71,19 @@
 </div><br></div>
 </div>
 </div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="gaming">Jeu et Pari</a>
+</h1>
+<div class="Section6"><br><div class="GTuto1 Tuto1">
+<a class="GTuto2 Tuto2" href="/home/tutoriels/gaming/p01">
+<div class="Tuto3"><i class="Tuto6 fa fa-gamepad"></i></div>
+<div class="Tuto4"><div class="Tuto7">Jeu<br>Super Mario Bros<br>01</div></div>
+<div class="Tuto5"><div class="Tuto8">C++ - Qt - Gaming - Animation</div></div>
+</a>
+</div><br></div>
+</div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
