@@ -281,7 +281,7 @@ thead tr:first-child {
     min-height: 300px;
     z-index: -1;
         
-    background-image: url("/data/img/defaults/top_masque.png"),
+    background-image: url("/data/img/defaults/top_paris_2024.gif"),
     url("/data/img/defaults/fond.jpg");
     background-position: center top, left top;
     background-repeat: no-repeat, no-repeat;    

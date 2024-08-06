@@ -34,7 +34,7 @@ function runAceJS() {
             , highlightGutterLine: false
             , fontFamily: "courier"
             , useWorker: false
-        });                    
+        });
     }
 }
 //===============================================

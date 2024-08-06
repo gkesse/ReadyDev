@@ -242,17 +242,17 @@ class GAdmin extends GObject {
         // root
         echo sprintf("<div class='Form2'>\n");
         echo sprintf("<label class='Form3'>Racine :</label>\n");
-        echo sprintf("<div class='Form4'><input id='EditorPageRoot' class='Form5' type='text' value='/data/cache/page/readydev' disabled/></div>\n",);
+        echo sprintf("<div class='Form4'><input id='EditorPageRoot' class='Form5' type='text' value='/data/cache/page/readydev' disabled/></div>\n");
         echo sprintf("</div>\n");
         // path
         echo sprintf("<div class='Form2'>\n");
         echo sprintf("<label class='Form3'>Chemin :</label>\n");
-        echo sprintf("<div class='Form4'><input id='EditorPagePath' class='Form5' type='text' disabled/></div>\n",);
+        echo sprintf("<div class='Form4'><input id='EditorPagePath' class='Form5' type='text' disabled/></div>\n");
         echo sprintf("</div>\n");
         // name
         echo sprintf("<div class='Form2'>\n");
         echo sprintf("<label class='Form3'>Nom :</label>\n");
-        echo sprintf("<div class='Form4'><input id='EditorPageName' class='Form5' type='text'/></div>\n",);
+        echo sprintf("<div class='Form4'><input id='EditorPageName' class='Form5' type='text'/></div>\n");
         echo sprintf("</div>\n");
         //
         echo sprintf("</div>\n");

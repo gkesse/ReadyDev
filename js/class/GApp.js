@@ -12,7 +12,7 @@ class GApp extends GObject {
             this.m_instance = new GApp();
         }
         return this.m_instance;
-    }    
+    }
     //===============================================
     clone() {
         return new GApp();
@@ -57,50 +57,50 @@ class GApp extends GObject {
     onOpenMenuBars(_obj, _data) {
         var lHeaderMenu = document.getElementById("HeaderMenu");
         var lBars = '<i class="fa fa-bars"></i>';
-        
+
         if(lBars == _obj.innerHTML) {
             lBars = '<i class="fa fa-close"></i>';
             lHeaderMenu.classList.add("RWD");
-            
+
             var lMenus = document.getElementsByClassName("Menu7");
-            
+
             for(var i = 0; i < lMenus.length; i++) {
                 var lMenu = lMenus[i];
                 var lLine = lMenu.previousElementSibling;
                 if(lLine == _obj) continue;
                 lMenu.classList.remove("Show");
-            }            
+            }
         }
         else {
             lHeaderMenu.classList.remove("RWD");
         }
-        
+
         _obj.innerHTML = lBars;
     }
     //===============================================
     onOpenMenuGroup(_obj, _data) {
         if(this.toWidth() <= this.toWidthRWD()) {
             this.m_dataLogs.addError("Le lien ne doit pas être suivi.");
-            
+
             var lHref = _obj.getAttribute("href");
             var lTitle = _obj.firstElementChild.innerHTML;
-                        
+
             var lMenus = document.getElementsByClassName("Menu7");
-            
+
             for(var i = 0; i < lMenus.length; i++) {
                 var lMenu = lMenus[i];
                 var lLine = lMenu.previousElementSibling;
                 if(lLine == _obj) continue;
                 lMenu.classList.remove("Show");
             }
-            
+
             var lMenus = document.getElementsByClassName("Menu11");
-            
+
             for(var i = 0; i < lMenus.length; i++) {
                 var lMenu = lMenus[i];
                 lMenu.classList.remove("Show");
             }
-            
+
             var lMenu = _obj.nextElementSibling;
             lMenu.classList.toggle("Show");
         }
