@@ -212,7 +212,7 @@ Nous créons un menu avec la classe (QAction). Nous ajoutons une action (QAction
 </div>
 <div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">Une image de titre constitué d'une l'image d'accueil de Super Mario Bros.</div>
+<div class="Bullet3">Une image de titre constitué de l'image d'accueil de Super Mario Bros.</div>
 </div><br>Nous créons une image pouvant être ajoutée à une scène graphique (QGraphicsScene) en utilisant la classe (QGraphicsPixmapItem). Nous ajoutons une image (QGraphicsPixmapItem) à une scène graphique avec la méthode (addItem) de la classe (QGraphicsScene). Nous définissons le rectangle de la scène avec la méthode (setSceneRect) de la classe (QGraphicsScene).<br><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="scene-graphique-du-titre_animation-de-l-image-de-fond" href="#scene-graphique-du-titre">Animation de l'image de fond</a>
 </h2><br>Nous animons l'image de fond afin d'avoir un ciel avec une couleur de fond bleu ciel et des nuages en mouvement. Afin de pouvoir créer une image capable d'être animée:<br><br><div class="GBullet1 Bullet1">
