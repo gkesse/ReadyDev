@@ -1,5 +1,5 @@
 <div class="GAccess1 Access1">
-<a class="GAccess2 Access2" href="/home">Accueil</a><i class="Access3 fa fa-chevron-right"></i><a class="GAccess2 Access2" href="/home/tutoriels">Tutoriels</a><i class="Access3 fa fa-chevron-right"></i><a class="GAccess2 Access2" href="/home/tutoriels#application-excel">Application Excel</a><i class="Access3 fa fa-chevron-right"></i><a class="GAccess2 Access2" href="/home/tutoriels/excel/application/system_gestion_depenses">Système gestion dépenses</a></div><div class="GParallax1 Parallax1">
+<a class="GAccess2 Access2" href="/home">Accueil</a><i class="Access3 fa fa-chevron-right"></i><a class="GAccess2 Access2" href="/home/tutoriels">Tutoriels</a><i class="Access3 fa fa-chevron-right"></i><a class="GAccess2 Access2" href="/home/tutoriels#application-excel">Application Excel</a><i class="Access3 fa fa-chevron-right"></i><a class="GAccess2 Access2" href="/home/tutoriels/excel/application/systeme-gestion-depenses">Système gestion dépenses</a></div><div class="GParallax1 Parallax1">
 <div class="Parallax2" style="background-image: url(&quot;/data/img/defaults/binary.png&quot;);">
 <div class="Parallax3"><a href="#" class="Parallax4">Système de gestion des dépenses</a></div>
 </div>
