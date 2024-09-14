@@ -6,6 +6,7 @@ class GObject {
     //===============================================
     protected $m_index = 0;
     protected $m_parentIndex = 0;
+    protected $m_isActive = true;
     protected $m_map = array();
     //===============================================
     protected $m_logs = null;
@@ -93,7 +94,7 @@ class GObject {
         $lMap = $this->clone();
         for($i = 0; $i < $this->size(); $i++) {
             $lObj = $this->m_map[$i];
-            if($lObj->m_parentIndex == $_parentIndex) {
+            if($lObj->m_parentIndex == $_parentIndex && $lObj->m_isActive) {
                 $lNew = $this->clone();
                 $lNew->setObj($lObj);
                 $lMap->m_map[] = $lNew;
@@ -240,7 +241,7 @@ class GObject {
     public function redirectHomePage() {
         $lPageId = $this->getPageId();
         $lRedirectOk = false;
-        
+
         if($lPageId == "/") {
             $lRedirectOk = true;
         }
@@ -258,7 +259,7 @@ class GObject {
             $lRedirectOk = true;
             $this->setSession("page_not_found", true);
         }
-        
+
         if($lRedirectOk) {
             $lHome = $this->getHomePage();
             if($lHome != "" && $lHome != "/") {

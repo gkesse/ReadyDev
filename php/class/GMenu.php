@@ -1,4 +1,4 @@
-<?php   
+<?php
 //===============================================
 namespace php\class;
 //===============================================
@@ -8,10 +8,10 @@ class GMenu extends GObject {
     private $m_label = "";
     private $m_title = "";
     private $m_link = "";
-    private $m_isActive = false;
     //===============================================
     public function __construct() {
         parent::__construct();
+        $this->m_isActive = false;
     }
     //===============================================
     public function clone() {
@@ -109,6 +109,11 @@ class GMenu extends GObject {
         $this->addMenu("tutoriels", "Qt Oscilloscope", "Qt Oscilloscope", "/home/tutoriels/cpp/qt_oscilloscope", $lObj2);
         $this->addMenu("tutoriels", "Qt Automobile UI", "Qt Automobile UI", "/home/tutoriels/cpp/qt_automobile_ui", $lObj2);
         $this->addMenu("tutoriels", "Qt Ubuntu Installation", "Qt Ubuntu Installation", "/home/tutoriels/cpp/qt_ubuntu_installation", $lObj2, false);
+        // tutoriels/excel
+        $lObj2 = $this->addMenu("tutoriels", "Excel", "Excel", "", $lObj);
+        $lObj3 = $this->addMenu("tutoriels", "Application", "Application", "", $lObj2);
+        $lObj4 = $this->addMenu("tutoriels", "Système gestion dépenses", "Système de gestion des dépenses", "/home/tutoriels/excel/application/systeme-gestion-depenses", $lObj3);
+        $lObj5 = $this->addMenu("tutoriels", "", "Système de gestion des dépenses", "/home/tutoriels/excel/application/systeme-gestion-depenses/page-02", $lObj4, false);
         // tutoriels/java
         $lObj2 = $this->addMenu("tutoriels", "Java", "Java", "", $lObj);
         $this->addMenu("tutoriels", "Cours", "Java", "/home/tutoriels/java/cours", $lObj2);
