@@ -104,6 +104,10 @@
 <div class="Tuto3"><i class="Tuto6 fa fa-euro"></i></div>
 <div class="Tuto4"><div class="Tuto7">Système<br>de gestion des dépenses<br></div></div>
 <div class="Tuto5"><div class="Tuto8">Excel - VBA</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/excel/references-vba">
+<div class="Tuto3"><i class="Tuto6 fa fa-book"></i></div>
+<div class="Tuto4"><div class="Tuto7">Références<br>VBA</div></div>
+<div class="Tuto5"><div class="Tuto8">Excel - VBA</div></div>
 </a>
 </div><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">

@@ -3,7 +3,7 @@
 <div class="Parallax2" style="background-image: url(&quot;/data/img/defaults/binary.png&quot;);">
 <div class="Parallax3"><a href="#" class="Parallax4">Système de gestion des dépenses</a></div>
 </div>
-<div class="Parallax5" style="background-color: rgb(128, 51, 0);"><br>Le but de ce tutoriel est de vous apprendre à créer un <b>Système de gestion des dépenses</b> en <b>VBA</b>&nbsp;avec l'utilisation des <b>macros</b> et des <b>UserForm</b> sous <b>Excel</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="GSummary1"><div class="GSummary11 Summary1">
+<div class="Parallax5" style="background-color: rgb(128, 51, 0);"><br>Le but de ce tutoriel est de vous présenter le processus de conception d'un <b>Système de gestion des dépenses</b> en <b>VBA</b>&nbsp;avec l'utilisation des <b>macros</b> et des <b>UserForm</b> sous <b>Excel</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="GSummary1"><div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#introduction">Introduction</a>
 </div>

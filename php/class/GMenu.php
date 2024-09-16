@@ -111,9 +111,9 @@ class GMenu extends GObject {
         $this->addMenu("tutoriels", "Qt Ubuntu Installation", "Qt Ubuntu Installation", "/home/tutoriels/cpp/qt_ubuntu_installation", $lObj2, false);
         // tutoriels/excel
         $lObj2 = $this->addMenu("tutoriels", "Excel", "Excel", "", $lObj);
-        $lObj3 = $this->addMenu("tutoriels", "Application", "Application", "", $lObj2);
-        $lObj4 = $this->addMenu("tutoriels", "Système gestion dépenses", "Système de gestion des dépenses", "/home/tutoriels/excel/application/systeme-gestion-depenses", $lObj3);
-        $lObj5 = $this->addMenu("tutoriels", "", "Système de gestion des dépenses", "/home/tutoriels/excel/application/systeme-gestion-depenses/page-02", $lObj4, false);
+        $lObj3 = $this->addMenu("tutoriels", "Système gestion dépenses", "Système de gestion des dépenses", "/home/tutoriels/excel/application/systeme-gestion-depenses", $lObj2);
+        $lObj4 = $this->addMenu("tutoriels", "", "Système de gestion des dépenses", "/home/tutoriels/excel/application/systeme-gestion-depenses/page-02", $lObj3, false);
+        $lObj3 = $this->addMenu("tutoriels", "Références VBA", "Références VBA", "/home/tutoriels/excel/references-vba", $lObj2);
         // tutoriels/java
         $lObj2 = $this->addMenu("tutoriels", "Java", "Java", "", $lObj);
         $this->addMenu("tutoriels", "Cours", "Java", "/home/tutoriels/java/cours", $lObj2);
