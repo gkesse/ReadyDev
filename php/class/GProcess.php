@@ -1,39 +1,44 @@
-<?php   
+<?php
 //===============================================
 namespace php\class;
 //===============================================
-class GProcess extends GObject {
+class GProcess extends GObject
+{
     //===============================================
     private $m_menu = null;
     //===============================================
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->m_menu = new GMenu();
     }
     //===============================================
-    public function init() {
+    public function init()
+    {
         $this->redirectHomePage();
         $this->m_menu->init();
         $this->toHeader();
     }
     //===============================================
-    public function clean() {
-        
-    }
+    public function clean() {}
     //===============================================
-    public function toBanner() {
+    public function toBanner()
+    {
         return "https://raw.githubusercontent.com/gkesse/ReadyDev/2.0/data/img/defaults/b_readydev.png";
     }
     //===============================================
-    public function toStartYear() {
+    public function toStartYear()
+    {
         return "2017";
     }
     //===============================================
-    public function toEndYear() {
+    public function toEndYear()
+    {
         return date("Y");
     }
     //===============================================
-    public function toVision() {
+    public function toVision()
+    {
         $lData = "";
         $lData .= sprintf("Plateforme de Développement Continu<br/>\n");
         $lData .= sprintf("Produit par <b>Gérard KESSE</b><br/>\n");
@@ -41,13 +46,15 @@ class GProcess extends GObject {
         return $lData;
     }
     //===============================================
-    public function toTitle() {
+    public function toTitle()
+    {
         $lCurrentMenu = $this->m_menu->toCurrentMenu();
-        $lTitle = sprintf("%s | %s", $lCurrentMenu->getTitle(), $this->toSiteName());
+        $lTitle = sprintf("%s | %s", $this->toSiteName(), $lCurrentMenu->getTitle());
         return $lTitle;
     }
     //===============================================
-    public function toStyleCss() {
+    public function toStyleCss()
+    {
         echo sprintf("<link rel='stylesheet' href='/libs/google_fonts/v0.3.8/Aclonica/css.css'/>\n");
         echo sprintf("<link rel='stylesheet' href='/libs/google_fonts/v0.3.8/Akronim/css.css'/>\n");
         echo sprintf("<link rel='stylesheet' href='/libs/google_fonts/v0.3.8/Allan/css.css'/>\n");
@@ -60,7 +67,8 @@ class GProcess extends GObject {
         echo sprintf("<link rel='stylesheet' href='/css/style.css'/>\n");
     }
     //===============================================
-    public function toHeader() {
+    public function toHeader()
+    {
         echo sprintf("<!DOCTYPE html>\n");
         // lang
         echo sprintf("<html lang='fr'>\n");
@@ -113,7 +121,8 @@ class GProcess extends GObject {
         echo sprintf("<div class='Html2 HtmlPage'>\n");
     }
     //===============================================
-    public function toScriptJs() {
+    public function toScriptJs()
+    {
         echo sprintf("<script src='/libs/ace/v1.21.0/src-min-noconflict/ace.js'></script>\n");
         echo sprintf("<script src='/libs/mathjax/v3.2.2/es5/tex-mml-chtml.js' async></script>\n");
         //
@@ -143,7 +152,8 @@ class GProcess extends GObject {
         echo sprintf("<script src='/js/script.js'></script>\n");
     }
     //===============================================
-    public function runFooter() {
+    public function runFooter()
+    {
         echo sprintf("</div>\n");
         //
         $this->toCopyright();
@@ -158,16 +168,18 @@ class GProcess extends GObject {
         echo sprintf("</html>\n");
     }
     //===============================================
-    public function runTestJs() {
-        if(!$this->m_logs->size()) {
-            if($this->m_dataLogs->size()) {
+    public function runTestJs()
+    {
+        if (!$this->m_logs->size()) {
+            if ($this->m_dataLogs->size()) {
                 $this->m_dataLogs->loadFromMap(1);
                 echo $this->m_dataLogs->getMsg();
             }
         }
     }
     //===============================================
-    public function toCopyright() {
+    public function toCopyright()
+    {
         echo sprintf("<footer class='Footer1'>\n");
         // title
         echo sprintf("<div>Réseaux Sociaux - Réjoignez-nous</div>\n");
@@ -191,17 +203,18 @@ class GProcess extends GObject {
         echo sprintf("</a>\n");
         //
         echo sprintf("</div>\n");
-        
+
         echo sprintf("<div>\n");
         echo sprintf("<i class='fa fa-copyright'></i>\n");
         echo sprintf("<span>%s - %s | %s</span>\n", $this->toStartYear(), $this->toEndYear(), $this->toSiteName());
         echo sprintf("<div>%s</div>\n", $this->toVision());
         echo sprintf("</div>\n");
-        
+
         echo sprintf("</footer>\n");
     }
     //===============================================
-    public function runLog() {
+    public function runLog()
+    {
         echo sprintf("<div class='Log1' id='LogModal'>\n");
         echo sprintf("<div class='Log2' id='LogForm'>\n");
         // close
@@ -229,7 +242,8 @@ class GProcess extends GObject {
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function runForms() {
+    public function runForms()
+    {
         echo sprintf("<div class='Forms1' id='FormModal'>\n");
         echo sprintf("<div class='Forms2' id='FormForm'>\n");
         // close
@@ -268,7 +282,8 @@ class GProcess extends GObject {
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function runTable() {
+    public function runTable()
+    {
         echo sprintf("<div class='Table1' id='TableModal'>\n");
         echo sprintf("<div class='Table2' id='TableForm'>\n");
         // close
@@ -306,7 +321,8 @@ class GProcess extends GObject {
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function runLoader() {
+    public function runLoader()
+    {
         echo sprintf("<div class='Loader1' id='LoaderModal'>\n");
         echo sprintf("<div class='Loader2' id='LoaderBody'>\n");
         echo sprintf("<div class='Loader3'>\n");
@@ -321,28 +337,29 @@ class GProcess extends GObject {
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function run($_module, $_method) {
-        if($this->isTestEnv()) {
+    public function run($_module, $_method)
+    {
+        if ($this->isTestEnv()) {
             $this->runTest($_module, $_method);
-        }
-        else {
+        } else {
             $this->runProd($_module, $_method);
         }
     }
     //===============================================
-    public function runTest($_module, $_method) {
+    public function runTest($_module, $_method)
+    {
         $lObj = new GTest();
         $lObj->run($_module, $_method);
         $this->m_logs->addLogs($lObj->getLogs());
         $this->m_dataLogs->addLogs($lObj->getDataLogs());
     }
     //===============================================
-    public function runProd($_module, $_method) {
+    public function runProd($_module, $_method)
+    {
         $lObj = new GReady();
         $lObj->run();
         $this->m_logs->addLogs($lObj->getLogs());
     }
     //===============================================
- }
+}
 //===============================================
-?>
