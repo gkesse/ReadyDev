@@ -19,10 +19,10 @@
 <a class="Section5" href="#" id="php">Développement PHP</a>
 </h1>
 <div class="Section6"><br><div class="GTuto1 Tuto1">
-<a class="GTuto2 Tuto2" href="/home/tutoriels/php/cours">
-<div class="Tuto3"><i class="Tuto6 fa fa-desktop"></i></div>
-<div class="Tuto4"><div class="Tuto7">Programmation<br>PHP</div></div>
-<div class="Tuto5"><div class="Tuto8">PHP - HTML - CSS - JS</div></div>
+<a class="GTuto2 Tuto2" href="/home/tutoriels/php/application/systeme-gestion-contenu-web">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Système de gestion de contenu web (CMS)</div></div>
+<div class="Tuto5"><div class="Tuto8">Accédez au tutoriel<br>PHP</div></div>
 </a>
 </div><br></div>
 </div></div></div><br><div class="GSection1 Section1">
