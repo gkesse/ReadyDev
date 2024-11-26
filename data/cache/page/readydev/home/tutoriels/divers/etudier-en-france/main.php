@@ -111,7 +111,7 @@ Les équipes de Campus France Côte d'Ivoire ont à coeur de faciliter votre mob
 <div class="Bullet3">Nous ouvrons le lien ci-dessous à partir d'un navigateur web (Chrome) pour accéder au site internet Campus France Côte d'Ivoire.</div>
 </div><br><a class="GLink3 Link4" style=" color: lime;" href="https://www.ivoire.campusfrance.org/" target="_blank">https://www.ivoire.campusfrance.org/</a><br><br><div class="GSummary2"><div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
-<a class="Summary6" href="#se-connecter-sur-campus-france-cote-d-ivoire_ouvrir-le-page-d-inscription">Ouvrir le page d'inscription</a>
+<a class="Summary6" href="#s-inscrire-sur-campus-france-cote-d-ivoire_ouvrir-la-page-d-inscription">Ouvrir la page d'inscription</a>
 </div>
 <div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
@@ -162,7 +162,7 @@ Les équipes de Campus France Côte d'Ivoire ont à coeur de faciliter votre mob
 <a class="Summary6" href="#s-inscrire-sur-campus-france-cote-d-ivoire_demarrer-la-connexion-au-compte">Démarrer la connexion au compte</a>
 </div>
 </div><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="se-connecter-sur-campus-france-cote-d-ivoire_ouvrir-le-page-d-inscription" href="#s-inscrire-sur-campus-france-cote-d-ivoire">Ouvrir le page d'inscription</a>
+<a class="Title2" id="s-inscrire-sur-campus-france-cote-d-ivoire_ouvrir-la-page-d-inscription" href="#s-inscrire-sur-campus-france-cote-d-ivoire">Ouvrir la page d'inscription</a>
 </h2><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">Nous cliquons sur le bouton (S'inscrire) pour ouvrir la page d'inscription.</div>
