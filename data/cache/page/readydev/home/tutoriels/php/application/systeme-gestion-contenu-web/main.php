@@ -225,9 +225,6 @@ require $_SERVER["DOCUMENT_ROOT"] . "/php/class/GAutoload.php";
 ...</pre><br><span class="GText2" style="
 color: #00ff00;
 ">// GAutoload.php</span><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">&lt;?php
-...
-namespace php\class;
-...
 function GAutoloadRegister($_className)
 {
     $lFilename = $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . $_className . ".php";
@@ -240,9 +237,9 @@ function GAutoloadRegister($_className)
 ...
 if (version_compare(PHP_VERSION, "5.1.2", "&gt;=")) {
     if (version_compare(PHP_VERSION, "5.3.0", "&gt;=")) {
-        spl_autoload_register("php\class\GAutoloadRegister", true, true);
+        spl_autoload_register("GAutoloadRegister", true, true);
     } else {
-        spl_autoload_register("php\class\GAutoloadRegister");
+        spl_autoload_register("GAutoloadRegister");
     }
 } else {
     function spl_autoload_register($_className)
@@ -824,12 +821,17 @@ class GProcess
     ...
     public function run()
     {
-        $lEnv = GEnv::Instance();
-        if ($lEnv-&gt;isTestEnv()) {
+        if ($this-&gt;isTestEnv()) {
             echo sprintf("Démarrage de l'application (TEST)...\n");
         } else {
             echo sprintf("Démarrage de l'application (PROD)...\n");
         }
+    }
+    ...
+    private function isTestEnv()
+    {
+        $lEnv = GEnv::Instance();
+        return ($lEnv-&gt;m_envType == "TEST");
     }
     ...
 }
@@ -842,7 +844,7 @@ namespace php\class;
 class GEnv
 {
     private static $m_instance = null;
-    private $m_envType = "";
+    public $m_envType = "";
     ...
     private function __construct()
     {
@@ -855,11 +857,6 @@ class GEnv
             self::$m_instance = new GEnv();
         }
         return self::$m_instance;
-    }
-    ...
-    public function isTestEnv()
-    {
-        return ($this-&gt;m_envType == "TEST");
     }
     ...
     private function loadEnv($_env, $_defaultValue = "")
