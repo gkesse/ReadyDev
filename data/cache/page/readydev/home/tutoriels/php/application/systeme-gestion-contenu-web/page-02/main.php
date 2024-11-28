@@ -9,7 +9,7 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#a-suivre---">À suivre...</a>
+<a class="Summary3" href="#suite">Suite</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
@@ -24,9 +24,12 @@
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="a-suivre---">À suivre...</a>
+<a class="Section5" href="#" id="suite">Suite</a>
 </h1>
-<div class="Section6"><br>À suivre...<br><br></div>
+<div class="Section6"><br><div class="GLink1 Link1">
+<i class="Link2 fa fa-arrow-circle-left"></i>
+<a class="Link3" href="/home/tutoriels/php/application/systeme-gestion-contenu-web">Précédent</a>
+</div><br></div>
 </div>
 </div>
 </div><br>
