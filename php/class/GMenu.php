@@ -106,6 +106,7 @@ class GMenu extends GObject
         // tutoriels/php
         $lObj2 = $this->addMenu("tutoriels", "PHP", "PHP", "", $lObj);
         $this->addMenu("tutoriels", "Système CMS", "Système de gestion de contenu web (CMS)", "/home/tutoriels/php/application/systeme-gestion-contenu-web", $lObj2);
+        $this->addMenu("tutoriels", "Système CMS", "Système de gestion de contenu web (CMS)", "/home/tutoriels/php/application/systeme-gestion-contenu-web/page-02", $lObj2, false);
         // tutoriels/divers
         $lObj2 = $this->addMenu("tutoriels", "Divers", "Divers", "", $lObj);
         $this->addMenu("tutoriels", "Etudier en France", "Etudier en France", "/home/tutoriels/divers/etudier-en-france", $lObj2);
