@@ -224,7 +224,7 @@ color: #00ff00;
 </div>
 <div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
-<a class="Summary6" href="#configuration-des-proprietes-d-un-formulaire-c--windows-forms-_editer-les-fichiers">Editer les fichiers</a>
+<a class="Summary6" href="#configuration-des-proprietes-d-un-formulaire-c--windows-forms-_visualiser-les-fichiers">Visualiser les fichiers</a>
 </div>
 <div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
@@ -329,7 +329,7 @@ Button &gt; Event &gt; Click &gt; btnSave_Click
 </h2><br><span class="GText2" style="
 color: #00ff00;
 ">// Fichiers</span><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Ajouter le fichier &gt; data\img\app-logo.ico</pre><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="configuration-des-proprietes-d-un-formulaire-c--windows-forms-_editer-les-fichiers" href="#configuration-des-proprietes-d-un-formulaire-c--windows-forms-">Editer les fichiers</a>
+<a class="Title2" id="configuration-des-proprietes-d-un-formulaire-c--windows-forms-_visualiser-les-fichiers" href="#configuration-des-proprietes-d-un-formulaire-c--windows-forms-">Visualiser les fichiers</a>
 </h2><br><span class="GText2" style="
 color: #00ff00;
 ">// OscilloscopeGUI\Program.cs</span><br><pre class="GCode1 Code1 AceCode" data-mode="csharp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">namespace OscilloscopeGUI
