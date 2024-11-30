@@ -612,7 +612,7 @@ La dernière ressource est sélectionnée</pre><br><div class="GImg1 Img1"><img 
 </h1>
 <div class="Section6"><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">Nous téléchargeons le gestion de packages (NI-VISA) pour communiquer avec les périphériques de chez NI (National Instruments) sous Windows.</div>
+<div class="Bullet3">-	Nous éditons les fichiers (FrmMain.cs), (Oscilloscope.cs) pour configurer les packages (NI-VISA) afin de communiquer avec les périphériques NI (National Instruments) sous Windows.</div>
 </div><br><div class="GSummary2"><div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#configuration-des-packages-c--ni-visa--national-instruments--sous-visual-studio_telecharger-les-packages-ni-visa">Télécharger les packages NI-VISA</a>
