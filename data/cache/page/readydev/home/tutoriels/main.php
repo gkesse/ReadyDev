@@ -30,7 +30,7 @@
 <a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/application/oscilloscope-numerique">
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Oscilloscope numérique</div></div>
-<div class="Tuto5"><div class="Tuto8">Accédez au tutoriel<br>C++ - Qt</div></div>
+<div class="Tuto5"><div class="Tuto8">Accédez au tutoriel<br>C++ - Qt - CMake - Bluetooth<br>Port Série - TCP/IP</div></div>
 </a>
 </div><br></div></div></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
