@@ -1,5 +1,5 @@
 /* ============================================== */
-/* Global */ 
+/* Global */
 /* ============================================== */
 
 * {
@@ -9,7 +9,7 @@
     box-sizing: border-box;
 }
 
-*:focus { 
+*:focus {
     border: none;
     outline: none;
 }
@@ -25,23 +25,23 @@
 }
 
 ::-webkit-scrollbar-track {
-      background: transparent; 
+      background: transparent;
 }
 
 ::-webkit-scrollbar-thumb:horizontal {
-      background: #aaaaff; 
+      background: #aaaaff;
     border-left: 2px solid #111111;
     border-right: 2px solid #111111;
 }
 
 ::-webkit-scrollbar-thumb:vertical {
-      background: #aaaaff; 
+      background: #aaaaff;
     border-top: 2px solid #111111;
     border-bottom: 2px solid #111111;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-      background: #aaaaff; 
+      background: #aaaaff;
 }
 
 ::-webkit-scrollbar-button:horizontal {
@@ -95,8 +95,8 @@ input {
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     -webkit-text-fill-color: white ;
     -webkit-box-shadow: 0 0 0 30px #051039 inset !important;
@@ -224,17 +224,17 @@ thead tr:first-child {
 }
 
 @-webkit-keyframes AnimateShow {
-    from {top:-400px; opacity:0;} 
+    from {top:-400px; opacity:0;}
     to {top:0; opacity:1;}
 }
 
 @-moz-keyframes AnimateShow {
-    from {top:-400px; opacity:0;} 
+    from {top:-400px; opacity:0;}
     to {top:0; opacity:1;}
 }
 
 @-o-keyframes AnimateShow {
-    from {top:-400px; opacity:0;} 
+    from {top:-400px; opacity:0;}
     to {top:0; opacity:1;}
 }
 
@@ -270,7 +270,7 @@ thead tr:first-child {
 }
 
 /* ============================================== */
-/* Background */ 
+/* Background */
 /* ============================================== */
 
 .Background1 {
@@ -280,17 +280,17 @@ thead tr:first-child {
     right: 0px;
     min-height: 300px;
     z-index: -1;
-        
+
     background-image: url("/data/img/defaults/top_paris_2024.gif"),
     url("/data/img/defaults/fond.jpg");
     background-position: center top, left top;
-    background-repeat: no-repeat, no-repeat;    
-    background-size: auto 85%, 100% 100%;    
-    
+    background-repeat: no-repeat, no-repeat;
+    background-size: auto 85%, 100% 100%;
+
     border: 10px solid transparent;
     border-image: url("/data/img/defaults/border.png") 30 round;
-    -webkit-border-image: url("/data/img/defaults/border.png") 30 round; 
-    -moz-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -webkit-border-image: url("/data/img/defaults/border.png") 30 round;
+    -moz-border-image: url("/data/img/defaults/border.png") 30 round;
     -o-border-image: url("/data/img/defaults/border.png") 30 round;
 }
 
@@ -301,10 +301,10 @@ thead tr:first-child {
     left: 0px;
     right: 0px;
     z-index: -1;
-    
+
     background-image: url("/data/img/defaults/middle.gif");
     background-position: center center;
-    background-repeat: repeat;    
+    background-repeat: repeat;
     background-size: auto;
 }
 
@@ -318,13 +318,13 @@ thead tr:first-child {
 
     background-image: url("/data/img/defaults/footer.jpg");
     background-position: left top;
-    background-repeat: no-repeat;    
-    background-size: 100% 100%;    
-    
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
     border: 10px solid transparent;
     border-image: url("/data/img/defaults/border.png") 30 round;
-    -webkit-border-image: url("/data/img/defaults/border.png") 30 round; 
-    -moz-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -webkit-border-image: url("/data/img/defaults/border.png") 30 round;
+    -moz-border-image: url("/data/img/defaults/border.png") 30 round;
     -o-border-image: url("/data/img/defaults/border.png") 30 round;
 }
 
@@ -348,7 +348,7 @@ thead tr:first-child {
 }
 
 /* ============================================== */
-/* Block */ 
+/* Block */
 /* ============================================== */
 
 .Block1 {
@@ -588,7 +588,7 @@ thead tr:first-child {
 }
 
 .Block31 {
-    
+
 }
 
 .Block32 {
@@ -622,7 +622,7 @@ thead tr:first-child {
 }
 
 /* ============================================== */
-/* Code */ 
+/* Code */
 /* ============================================== */
 
 .Code1 {
@@ -631,7 +631,7 @@ thead tr:first-child {
 }
 
 /* ============================================== */
-/* Form */ 
+/* Form */
 /* ============================================== */
 
 .Form1 {
@@ -656,12 +656,12 @@ thead tr:first-child {
 .Form4 {
     border: 1px solid rgba(255, 255, 255, 0.2);
     margin-left: 200px;
-    height: 30px;   
+    height: 30px;
 }
 
 .Form5 {
     border: 1px solid #3a405b;
-    height: 100%;   
+    height: 100%;
     width: 100%;
     padding: 5px 10px;
 }
@@ -749,7 +749,7 @@ thead tr:first-child {
     vertical-align: middle;
     background-color: rgba(255, 255, 255, 0.2);
     padding: 0px 10px;
-    line-height: 30px; 
+    line-height: 30px;
     font-size: 16px;
     cursor: pointer;
     margin: 5px;
@@ -770,8 +770,8 @@ thead tr:first-child {
 
 .Forms11 {
     background-color: rgba(255, 255, 255, 0.2);
-    min-width: 150px; 
-    line-height: 30px;   
+    min-width: 150px;
+    line-height: 30px;
     padding: 0px 10px;
     position: absolute;
     top: 0px;
@@ -780,20 +780,20 @@ thead tr:first-child {
 
 .Forms12 {
     border: 1px solid rgba(255, 255, 255, 0.2);
-    height: 30px;   
+    height: 30px;
     margin-left: 150px;
 }
 
 .Forms13 {
     position: relative;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    height: 30px;   
+    height: 30px;
     margin-left: 150px;
 }
 
 .Forms14 {
     border: 1px solid #3A405B;
-    height: 100%;   
+    height: 100%;
     width: 100%;
     padding: 5px 10px;
     padding-right: 20px;
@@ -875,7 +875,7 @@ thead tr:first-child {
 
 .Forms20 {
     border: 1px solid #3A405B;
-    height: 100%;   
+    height: 100%;
     width: 100%;
     padding: 5px 10px;
 }
@@ -952,18 +952,18 @@ thead tr:first-child {
 .Forms27 {
     border: 1px solid rgba(255, 255, 255, 0.2);
     margin-left: 150px;
-    height: 200px;   
+    height: 200px;
 }
 
 .Forms28 {
     border: 1px solid #3A405B;
-    height: 100%;   
+    height: 100%;
     width: 100%;
     font-family: courier;
 }
 
 /* ============================================== */
-/* Formula */ 
+/* Formula */
 /* ============================================== */
 
 .Formula1 {
@@ -975,7 +975,7 @@ thead tr:first-child {
 }
 
 /* ============================================== */
-/* Footer */ 
+/* Footer */
 /* ============================================== */
 
 .Footer1 {
@@ -1024,7 +1024,7 @@ thead tr:first-child {
 }
 
 /* ============================================== */
-/* Html */ 
+/* Html */
 /* ============================================== */
 
 .Html1 {
@@ -1042,13 +1042,13 @@ thead tr:first-child {
 
     border: 10px solid transparent;
     border-image: url("/data/img/defaults/border.png") 30 round;
-    -webkit-border-image: url("/data/img/defaults/border.png") 30 round; 
-    -moz-border-image: url("/data/img/defaults/border.png") 30 round; 
+    -webkit-border-image: url("/data/img/defaults/border.png") 30 round;
+    -moz-border-image: url("/data/img/defaults/border.png") 30 round;
     -o-border-image: url("/data/img/defaults/border.png") 30 round;
 }
 
 /* ============================================== */
-/* Img */ 
+/* Img */
 /* ============================================== */
 
 .Img1 {
@@ -1066,7 +1066,7 @@ thead tr:first-child {
 }
 
 .Line2 {
-    background-color: #051039; 
+    background-color: #051039;
     height: 5px;
     position: absolute;
     top: 50%;
@@ -1077,7 +1077,7 @@ thead tr:first-child {
 }
 
 .Line3 {
-    background-color: #051039; 
+    background-color: #051039;
     display: inline-block;
     width: 40px;
     height: 40px;
@@ -1269,7 +1269,7 @@ thead tr:first-child {
     vertical-align: middle;
     background-color: rgba(255, 255, 255, 0.2);
     padding: 0px 10px;
-    line-height: 30px; 
+    line-height: 30px;
     font-size: 16px;
     cursor: pointer;
     margin: 5px;
@@ -1284,7 +1284,7 @@ thead tr:first-child {
 }
 
 /* ============================================== */
-/* Menu */ 
+/* Menu */
 /* ============================================== */
 
 .Menu1 {
@@ -1358,7 +1358,7 @@ thead tr:first-child {
     padding: 0px 10px;
     vertical-align: middle;
     font-size: 16px;
-    font-family: arial; 
+    font-family: arial;
 }
 
 .Menu10:hover .Menu8 {
@@ -1470,9 +1470,9 @@ thead tr:first-child {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    -webkit-background-size: cover; 
-    -moz-background-size: cover; 
-    -o-background-size: cover; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
 }
 
 .Parallax1.NoScroll .Parallax2 {
@@ -1486,7 +1486,7 @@ thead tr:first-child {
     left: 0;
     right: 0;
     height: 40px;
-    margin-top: -20px; 
+    margin-top: -20px;
     opacity: 0.8;
 }
 
@@ -1498,7 +1498,7 @@ thead tr:first-child {
     display: inline-block;
     font-family: Anton;
     letter-spacing: 5px;
-    margin-top: -20px; 
+    margin-top: -20px;
 }
 
 .Parallax5 {
@@ -1720,7 +1720,7 @@ thead tr:first-child {
     vertical-align: middle;
     background-color: rgba(255, 255, 255, 0.2);
     padding: 0px 10px;
-    line-height: 30px; 
+    line-height: 30px;
     font-size: 16px;
     cursor: pointer;
     margin: 5px;
@@ -1839,7 +1839,7 @@ thead tr:first-child {
 .Tuto2:hover {
     border: 2px solid #ffcc00;
 }
-    
+
 .Tuto3 {
     background-color: #5c5c5c;
     height: 40px;
@@ -1860,7 +1860,7 @@ thead tr:first-child {
 
 .Tuto5 {
     background-color: #ffcc00;
-    height: 40px;
+    height: 50px;
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -1965,7 +1965,7 @@ thead tr:first-child {
 }
 
 /* ============================================== */
-/* Mobile */ 
+/* Mobile */
 /* ============================================== */
 
 @media (max-width:1024px) {
@@ -1978,7 +1978,7 @@ thead tr:first-child {
     /* ---------------------------------------------- */
     /* Bar */
     /* ---------------------------------------------- */
-    
+
     .Bars1 {
         display: inline-block;
     }
@@ -1986,57 +1986,57 @@ thead tr:first-child {
     /* ---------------------------------------------- */
     /* Menu */
     /* ---------------------------------------------- */
-    
+
     .Menu2 {
         display: none;
     }
-    
+
     .RWD .Menu2 {
         display: block;
     }
-    
+
     .Menu6 {
         display: none;
     }
-    
+
     .RWD .Menu6 {
         display: block;
     }
-    
+
     .RWD .Menu7 {
         position: relative;
         width: 100%;
         max-height: 100%;
     }
-    
+
     .RWD .Menu7.Show {
         display: block;
     }
-    
+
     .RWD .Menu6:hover .Menu7 {
         display: none;
     }
-    
+
     .RWD .Menu6:hover .Menu7.Show {
         display: block;
     }
-    
+
     .RWD .Menu10 {
         display: block;
     }
-    
+
     .RWD .Menu10:hover {
         background-color: #051039;
     }
-    
+
     .RWD .Menu12:hover {
         background-color: #051039;
     }
-    
+
     .RWD .Menu6:hover .Menu12.Active {
         background-color: #051039;
     }
-    
+
     .RWD .Menu13 {
         position: absolute;
         top: 50%;
@@ -2044,7 +2044,7 @@ thead tr:first-child {
         transform: translate(-20px, -50%);
         z-index: 1;
     }
-    
+
     .RWD .Menu15 {
         position: absolute;
         top: 50%;
@@ -2052,11 +2052,11 @@ thead tr:first-child {
         transform: translate(0, -50%);
         z-index: 1;
     }
-    
+
     .RWD .Menu16 {
         display: block;
     }
-    
+
     /* ---------------------------------------------- */
 }
 
