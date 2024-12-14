@@ -1950,7 +1950,7 @@ MainWindow::iodevread... |data= "Demarrage du port serie..."</pre><br><div class
 </h1>
 <div class="Section6"><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">Nous éditons les fichiers (ParseConnection.cpp), (IoDevice.cpp), (MainWindow.cpp) pour lire des données sur le port série (/dev/pts/8) en C++ avec Qt.</div>
+<div class="Bullet3">Nous éditons le fichier (.gdbinit) pour configurer le débogage d'un projet C++ Qt sous VSCode.</div>
 </div><br><div class="GSummary2"><div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#configuration-du-debogage-d-un-projet-c---qt-sous-vscode_configurer-le-fichier--cmakelists-txt-">Configurer le fichier (CMakeLists.txt)</a>
