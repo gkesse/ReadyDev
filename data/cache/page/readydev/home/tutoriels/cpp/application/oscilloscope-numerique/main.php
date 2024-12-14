@@ -1967,6 +1967,10 @@ MainWindow::iodevread... |data= "Demarrage du port serie..."</pre><br><div class
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#configuration-du-debogage-d-un-projet-c---qt-sous-vscode_configurer-le-plugin-qt-pour-vscode">Configurer le plugin Qt pour VSCode</a>
 </div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#configuration-du-debogage-d-un-projet-c---qt-sous-vscode_executer-le-debogueur">Exécuter le débogueur</a>
+</div>
 </div><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="configuration-du-debogage-d-un-projet-c---qt-sous-vscode_configurer-le-fichier--cmakelists-txt-" href="#configuration-du-debogage-d-un-projet-c---qt-sous-vscode">Configurer le fichier (CMakeLists.txt)</a>
 </h2><br><span class="GText2" style="
@@ -2002,7 +2006,9 @@ sys.path.insert(0, os.path.expanduser("~/.qt-vscode"))
 from qt import register_qt_printers
 register_qt_printers (None)
 ...
-end</pre><br><span class="GText2" style="
+end</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="configuration-du-debogage-d-un-projet-c---qt-sous-vscode_executer-le-debogueur" href="#configuration-du-debogage-d-un-projet-c---qt-sous-vscode">Exécuter le débogueur</a>
+</h2><br><span class="GText2" style="
 color: #00ff00;
 ">// VSCode (Debug)</span><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">Placer des points d'arrêt aux lignes de débogage souhaitées
 ...
