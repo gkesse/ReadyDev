@@ -113,6 +113,9 @@ class GMenu extends GObject
         $lObj2 = $this->addMenu("tutoriels", "PHP", "PHP", "", $lObj);
         $this->addMenu("tutoriels", "Système CMS", "Système de gestion de contenu web (CMS)", "/home/tutoriels/php/application/systeme-gestion-contenu-web", $lObj2);
         $this->addMenu("tutoriels", "Système CMS", "Système de gestion de contenu web (CMS)", "/home/tutoriels/php/application/systeme-gestion-contenu-web/page-02", $lObj2, false);
+        // tutoriels/arduino
+        $lObj2 = $this->addMenu("tutoriels", "Arduino", "Arduino", "", $lObj);
+        $this->addMenu("tutoriels", "Oscilloscope numérique", "Oscilloscope numérique", "/home/tutoriels/arduino/application/oscilloscope-numerique", $lObj2);
         // tutoriels/divers
         $lObj2 = $this->addMenu("tutoriels", "Divers", "Divers", "", $lObj);
         $this->addMenu("tutoriels", "Etudier en France", "Etudier en France", "/home/tutoriels/divers/etudier-en-france", $lObj2);
