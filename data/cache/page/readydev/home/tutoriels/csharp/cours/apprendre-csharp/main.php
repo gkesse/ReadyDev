@@ -77,7 +77,7 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#travailler-avec-sipaaframework--">Travailler avec SipaaFramework  </a>
+<a class="Summary3" href="#travailler-avec-sipaaframework">Travailler avec SipaaFramework</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
@@ -1099,7 +1099,7 @@ namespace rdv_csharp
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="travailler-avec-sipaaframework--">Travailler avec SipaaFramework  </a>
+<a class="Section5" href="#" id="travailler-avec-sipaaframework">Travailler avec SipaaFramework</a>
 </h1>
 <div class="Section6"><br><b>SipaaFramework </b>est un gestionnaire de composants graphiques en C#.
 <br><br></div>

@@ -47,7 +47,7 @@
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Apprendre Application Windows Forms</div></div>
 <div class="Tuto5"><div class="Tuto8">Programmez en<br>C#</div></div>
-</a><a class="GTuto2 Tuto2" href="/home/tutoriels/csharp/cours/apprendre-csharp#travailler-avec-sipaaframework--">
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/csharp/cours/apprendre-csharp#travailler-avec-sipaaframework">
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Apprendre<br>Sipaa<br>Framework</div></div>
 <div class="Tuto5"><div class="Tuto8">Programmez en<br>C#</div></div>
