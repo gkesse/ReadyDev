@@ -108,6 +108,7 @@ class GMenu extends GObject
         $this->addMenu("tutoriels", "Oscilloscope numérique", "Oscilloscope numérique", "/home/tutoriels/cpp/application/oscilloscope-numerique", $lObj2);
         // tutoriels/c#
         $lObj2 = $this->addMenu("tutoriels", "C#", "C#", "", $lObj);
+        $this->addMenu("tutoriels", "Apprendre C#", "Apprendre C#", "/home/tutoriels/csharp/cours/apprendre-csharp", $lObj2);
         $this->addMenu("tutoriels", "Oscilloscope numérique", "Oscilloscope numérique", "/home/tutoriels/csharp/application/oscilloscope-numerique", $lObj2);
         // tutoriels/php
         $lObj2 = $this->addMenu("tutoriels", "PHP", "PHP", "", $lObj);
