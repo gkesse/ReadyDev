@@ -84,7 +84,11 @@
 <a class="Section5" href="#" id="arduino">Développement Arduino</a>
 </h1>
 <div class="Section6"><br><div class="GTuto1 Tuto1">
-<a class="GTuto2 Tuto2" href="/home/tutoriels/arduino/application/oscilloscope-numerique">
+<a class="GTuto2 Tuto2" href="/home/tutoriels/arduino/cours/apprendre-arduino">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Apprendre<br>Arduino</div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez avec<br>Arduino</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/arduino/application/oscilloscope-numerique">
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Oscilloscope numérique</div></div>
 <div class="Tuto5"><div class="Tuto8">Accédez au tutoriel<br>Arduino -&nbsp;Port Série - PWM</div></div>
