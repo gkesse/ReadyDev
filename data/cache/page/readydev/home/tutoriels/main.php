@@ -43,6 +43,14 @@
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Apprendre<br>C#</div></div>
 <div class="Tuto5"><div class="Tuto8">Programmez en<br>C#</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/csharp/cours/apprendre-csharp#travailler-avec-application-console">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Apprendre<br>Application<br>Console</div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez en<br>C#</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/csharp/cours/apprendre-csharp#travailler-avec-sqlconnection">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Apprendre<br>SqlConnection</div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez en<br>C#</div></div>
 </a><a class="GTuto2 Tuto2" href="/home/tutoriels/csharp/cours/apprendre-csharp#travailler-avec-application-windows-forms">
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Apprendre Application Windows Forms</div></div>
