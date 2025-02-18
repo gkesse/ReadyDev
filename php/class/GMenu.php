@@ -109,7 +109,9 @@ class GMenu extends GObject
         // tutoriels/c#
         $lObj2 = $this->addMenu("tutoriels", "C#", "C#", "", $lObj);
         $this->addMenu("tutoriels", "Apprendre C#", "Apprendre C#", "/home/tutoriels/csharp/cours/apprendre-csharp", $lObj2);
-        $this->addMenu("tutoriels", "Oscilloscope numérique", "Oscilloscope numérique", "/home/tutoriels/csharp/application/oscilloscope-numerique", $lObj2);
+        $this->addMenu("tutoriels", "Application console", "Application console", "/home/tutoriels/csharp/cours/apprendre-csharp#travailler-avec-application-console", $lObj2);
+        $this->addMenu("tutoriels", "Application Windows Forms", "Application Windows Forms", "/home/tutoriels/csharp/cours/apprendre-csharp#travailler-avec-application-windows-forms", $lObj2);
+        $this->addMenu("tutoriels", "Module SqlConnection", "Module SqlConnection", "/home/tutoriels/csharp/cours/apprendre-csharp#travailler-avec-sqlconnection", $lObj2);
         // tutoriels/php
         $lObj2 = $this->addMenu("tutoriels", "PHP", "PHP", "", $lObj);
         $this->addMenu("tutoriels", "Système CMS", "Système de gestion de contenu web (CMS)", "/home/tutoriels/php/application/systeme-gestion-contenu-web", $lObj2);
@@ -117,7 +119,10 @@ class GMenu extends GObject
         // tutoriels/arduino
         $lObj2 = $this->addMenu("tutoriels", "Arduino", "Arduino", "", $lObj);
         $this->addMenu("tutoriels", "Apprendre Arduino", "Apprendre Arduino", "/home/tutoriels/arduino/cours/apprendre-arduino", $lObj2);
-        $this->addMenu("tutoriels", "Oscilloscope numérique", "Oscilloscope numérique", "/home/tutoriels/arduino/application/oscilloscope-numerique", $lObj2);
+        $this->addMenu("tutoriels", "Module Port série", "Module Port série", "/home/tutoriels/arduino/cours/apprendre-arduino#travailler-avec-les-ports-serie", $lObj2);
+        // tutoriels/android
+        $lObj2 = $this->addMenu("tutoriels", "Android", "Android", "", $lObj);
+        $this->addMenu("tutoriels", "Apprendre Android", "Apprendre Android", "/home/tutoriels/android/cours/apprendre-android", $lObj2);
         // tutoriels/divers
         $lObj2 = $this->addMenu("tutoriels", "Divers", "Divers", "", $lObj);
         $this->addMenu("tutoriels", "Etudier en France", "Etudier en France", "/home/tutoriels/divers/etudier-en-france", $lObj2);
