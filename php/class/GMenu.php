@@ -123,6 +123,7 @@ class GMenu extends GObject
         // tutoriels/android
         $lObj2 = $this->addMenu("tutoriels", "Android", "Android", "", $lObj);
         $this->addMenu("tutoriels", "Apprendre Android", "Apprendre Android", "/home/tutoriels/android/cours/apprendre-android", $lObj2);
+        $this->addMenu("tutoriels", "Apprendre Android", "Apprendre Android", "/home/tutoriels/android/cours/apprendre-android/page-02", $lObj2);
         // tutoriels/divers
         $lObj2 = $this->addMenu("tutoriels", "Divers", "Divers", "", $lObj);
         $this->addMenu("tutoriels", "Etudier en France", "Etudier en France", "/home/tutoriels/divers/etudier-en-france", $lObj2);
