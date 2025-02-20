@@ -1,7 +1,7 @@
 <div class="GAccess1 Access1">
 <a class="GAccess2 Access2" href="/home">Accueil</a><i class="Access3 fa fa-chevron-right"></i><a class="GAccess2 Access2" href="/home/tutoriels">Tutoriels</a><i class="Access3 fa fa-chevron-right"></i><a class="GAccess2 Access2" href="/home/tutoriels#android">Android</a><i class="Access3 fa fa-chevron-right"></i><a class="GAccess2 Access2" href="/home/tutoriels/android/cours/apprendre-android">Cours</a><i class="Access3 fa fa-chevron-right"></i><a class="GAccess2 Access2" href="/home/tutoriels/android/cours/apprendre-android/page-02">Page 02</a></div><div class="GParallax1 Parallax1">
 <div class="Parallax2" style="background-image: url(&quot;/data/img/defaults/binary.png&quot;);">
-<div class="Parallax3"><a href="#" class="Parallax4">Apprendre Android</a></div>
+<div class="Parallax3"><a href="#" class="Parallax4">Apprendre Android (02)</a></div>
 </div>
 <div class="Parallax5" style="background-color: rgb(128, 51, 0);"><br>Bienvenue dans ce tutoriel consacré à l'apprentissage des technologies liées au développement d'applications&nbsp;<b>Android&nbsp;</b>sous l'environnement Windows.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="GSummary1"><div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
