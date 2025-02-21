@@ -114,6 +114,7 @@ class GMenu extends GObject
         $this->addMenu("tutoriels", "Module SqlConnection", "Module SqlConnection", "/home/tutoriels/csharp/cours/apprendre-csharp#travailler-avec-sqlconnection", $lObj2);
         // tutoriels/php
         $lObj2 = $this->addMenu("tutoriels", "PHP", "PHP", "", $lObj);
+        $this->addMenu("tutoriels", "Apprendre PHP", "Apprendre PHP", "/home/tutoriels/php/cours/apprendre-php", $lObj2);
         $this->addMenu("tutoriels", "Système CMS", "Système de gestion de contenu web (CMS)", "/home/tutoriels/php/application/systeme-gestion-contenu-web", $lObj2);
         $this->addMenu("tutoriels", "Système CMS", "Système de gestion de contenu web (CMS)", "/home/tutoriels/php/application/systeme-gestion-contenu-web/page-02", $lObj2, false);
         // tutoriels/arduino
