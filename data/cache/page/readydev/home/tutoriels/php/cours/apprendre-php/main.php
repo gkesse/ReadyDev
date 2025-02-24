@@ -930,27 +930,27 @@ class cMenu
         $this-&gt;m_oTrees = $_oTrees;
     }
 
-    public function run(&amp;$_aMenu)
+    public function run(&amp;$_aHtml)
     {
-        $_aMenu .= sprintf("&lt;div class='menu'&gt;\n");
-        $this-&gt;createMenu($_aMenu, 0);
-        $_aMenu .= sprintf("&lt;/div&gt;\n");
+        $_aHtml .= sprintf("&lt;div class='menu'&gt;\n");
+        $this-&gt;createMenu($_aHtml, 0);
+        $_aHtml .= sprintf("&lt;/div&gt;\n");
         return true;
     }
 
-    private function createMenu(&amp;$_aMenu, $_aIndex)
+    private function createMenu(&amp;$_aHtml, $_aIndex)
     {
         $oTrees = $this-&gt;m_oTrees-&gt;getNodes($_aIndex);
         if (count($oTrees)) {
-            $_aMenu .= sprintf("&lt;div class='menu_2'&gt;\n");
+            $_aHtml .= sprintf("&lt;div class='menu_2'&gt;\n");
             foreach ($oTrees as $oTree) {
                 $aParent = $oTree-&gt;getParent();
                 $aIndex = $oTree-&gt;getIndex();
                 $oData = $oTree-&gt;getData();
-                $_aMenu .= sprintf("&lt;div&gt;[%d][%d] : %s&lt;/div&gt;\n", $aParent, $aIndex, $oData);
-                $this-&gt;createMenu($_aMenu, $aIndex);
+                $_aHtml .= sprintf("&lt;div&gt;[%d][%d] : %s&lt;/div&gt;\n", $aParent, $aIndex, $oData);
+                $this-&gt;createMenu($_aHtml, $aIndex);
             }
-            $_aMenu .= sprintf("&lt;/div&gt;\n");
+            $_aHtml .= sprintf("&lt;/div&gt;\n");
         }
         return true;
     }
