@@ -1006,7 +1006,7 @@ http://localhost:8000/
 <h1 class="Section4">
 <a class="Section5" href="#" id="configurer-un-nom-de-site-php">Configurer un nom de site</a>
 </h1>
-<div class="Section6"><br>Un <b>nom de site</b> permet d'identifier très facilement le site web. Il est utilisé pour revenir à la page d'accueil du site web.<br><br><b>Prérequis :</b><br><br><div class="GBullet1 Bullet1">
+<div class="Section6"><br>Un <b>nom de site</b> permet d'identifier très facilement le site web. Il est utilisé pour revenir à la page d'accueil du site web. <b>Google Fonts</b> est un gestionnaire de polices personnalisées. Les polices personnalisées Google Fonts peuvent être utilisées pour améliorer grandement la mise en forme d'une page web. Le nom de site peut être mis en forme avec une police personnalisée Google Fonts.<br><br><b>Prérequis :</b><br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">Installer la police Google Fonts (Akronim).</div>
 </div>
@@ -1014,10 +1014,7 @@ http://localhost:8000/
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">Intégrer la police Google Fonts (Akronim) au projet.</div>
 </div>
-<div class="GBullet1 Bullet1">
-<i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">Utiliser la police Google Fonts (Akronim) pour la mise en forme du nom de site.</div>
-</div><br><span class="GText2" style="
+<br><span class="GText2" style="
 color: #00ff00;
 ">// index.php (Programme principal)</span><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
 &lt;?php
@@ -1499,7 +1496,7 @@ color: #00ff00;
 <h1 class="Section4">
 <a class="Section5" href="#" id="installer-une-police-google-fonts-config">Installer une police Google Fonts</a>
 </h1>
-<div class="Section6"><br><b>Google Fonts</b> un gestion de polices personnalisées. Les polices personnalisées Google Fonts peuvent être utilisées pour améliorer grandement la mise en forme d'une page web.
+<div class="Section6"><br><b>Google Fonts</b>&nbsp;est un gestionnaire de polices personnalisées. Les polices personnalisées Google Fonts peuvent être utilisées pour améliorer grandement la mise en forme d'une page web.
 <br><br><span class="GText2" style="
 color: #00ff00;
 ">// Google Chrome (Télécharger une police Google Fonts)</span><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
@@ -1745,7 +1742,7 @@ xdebug.start_with_request=true
 ;xdebug.log_level=7
 ;xdebug.profiler_output_name=trace.%H.%t.%p.cgrind
 ;xdebug.use_compression=false
-...</pre><br><b>VSCode </b>est environnement de développement intégré prenant le débogueur Xdebug et le développement d'applications web PHP.&nbsp;<br><br><span class="GText2" style="
+...</pre><br><b>VSCode </b>est un environnement de développement intégré prenant le débogueur Xdebug et le développement d'applications web PHP.&nbsp;<br><br><span class="GText2" style="
 color: #00ff00;
 ">// VSCode (Configurer la librairie dynamique Xdebug)</span><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
 # Installer l'extension PHP Xdebug
