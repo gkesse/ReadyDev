@@ -1,7 +1,7 @@
 # Plateforme de Développement Continu
 
-**ReadyDev** est une Plateforme de Développement Continu.
-C'est un site web développé en PHP et maintenu par **Gérard KESSE**.
+**ReadyDev** est une Plateforme de Développement Continu.  
+C'est un site web développé en PHP et maintenu par **Gérard KESSE**.  
 Vous trouverez sur ce site des **cours** et des **tutoriels** adaptés aux sciences de l'ingénieur.  
 Produit par [Gérard KESSE](https://readydev.ovh/home/ "Accédez à mon site web (ReadyDev)").
 
