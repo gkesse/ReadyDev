@@ -28,5 +28,5 @@ Ingénieur en Développement Informatique C/C++/Qt,
 Avec à la fois des compétences en Système Embarqué et en Robotique.  
 
 * Site Web : [ReadyDev](https://readydev.ovh/home/ "Accédez à mon site web (ReadyDev)")
-* Localité : **Strasbourg - France**
 * Contact : [LinkedIn](https://www.linkedin.com/in/tia-gerard-kesse/ "Envoyez-moi un message sur (LinkedIn)")
+* Localité : **Strasbourg - France**
