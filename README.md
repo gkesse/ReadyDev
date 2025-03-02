@@ -15,7 +15,7 @@ Il est construit autour de l'architecture Modèle Vue-Contrôleur **MVC**,
 dans laquelle les données de configuration sont stockées dans des fichiers au format de données **JSON**.
 Le code source de **ReadyDev** peut servir de support de base au développement
 de votre **site internet** pour la publication de vos **cours** et **tutoriels**.
-** ReadyDev ** dispose d'un **Editeur de page HTML** intégré permettant de créer rapidement
+**ReadyDev** dispose d'un **Editeur de page HTML** intégré permettant de créer rapidement
 des contenus web sans aucune ligne de code et d'un générateur automatique de **sitemap** afin d'automatiser
 le référencement de vos contenus web.
 
