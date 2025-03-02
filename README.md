@@ -1,8 +1,8 @@
 # Plateforme de Développement Continu
 
-**ReadyDev** est une Plateforme de Développement Continu.
-C'est un site web développé en PHP et maintenu par **Gérard KESSE**.
-Vous trouverez sur ce site des **cours** et des **tutoriels** adaptés aux sciences de l'ingénieur.
+**ReadyDev** est une Plateforme de Développement Continu.  
+C'est un site web développé en PHP et maintenu par **Gérard KESSE**.  
+Vous trouverez sur ce site des **cours** et des **tutoriels** adaptés aux sciences de l'ingénieur.  
 Produit par [Gérard KESSE](https://readydev.ovh/home/ "Accédez à mon site web (ReadyDev)").
 
 # Système de gestion de contenu web (CMS)
@@ -23,10 +23,10 @@ le référencement de vos contenus web.
 
 # Auteur
 
-Je suis **Gérard KESSE**,
-Ingénieur en Développement Informatique C/C++/Qt,
-Avec à la fois des compétences en Système Embarqué et en Robotique.
+Je suis **Gérard KESSE**,  
+Ingénieur en Développement Informatique C/C++/Qt,  
+Avec à la fois des compétences en Système Embarqué et en Robotique.  
 
 * Site Web : [ReadyDev](https://readydev.ovh/home/ "Accédez à mon site web (ReadyDev)")
-* Localité : **Strasbourg - France**
 * Contact : [LinkedIn](https://www.linkedin.com/in/tia-gerard-kesse/ "Envoyez-moi un message sur (LinkedIn)")
+* Localité : **Strasbourg - France**
