@@ -134,11 +134,15 @@
 <a class="GTuto2 Tuto2" href="/home/tutoriels/linux/cours/apprendre-linux">
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Apprendre<br>Linux</div></div>
-<div class="Tuto5"><div class="Tuto8">Opérations sous<br>Linux</div></div>
+<div class="Tuto5"><div class="Tuto8">Commandes<br>Linux</div></div>
 </a><a class="GTuto2 Tuto2" href="/home/tutoriels/linux/cours/apprendre-linux#travailler-avec-dpkg">
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Apprendre<br>DPKG</div></div>
-<div class="Tuto5"><div class="Tuto8">Opérations sous<br>Linux</div></div>
+<div class="Tuto5"><div class="Tuto8">Commandes<br>Linux</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/linux/cours/apprendre-linux#travailler-avec-apt">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Apprendre<br>APT</div></div>
+<div class="Tuto5"><div class="Tuto8">Commandes<br>Linux</div></div>
 </a>
 </div><br></div>
 </div>

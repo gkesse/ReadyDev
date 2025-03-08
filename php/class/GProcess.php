@@ -130,6 +130,7 @@ class GProcess extends GObject
         //
         echo sprintf("<script src='/js/class/GLog.js'></script>\n");
         echo sprintf("<script src='/js/class/GXml.js'></script>\n");
+        echo sprintf("<script src='/js/class/GCodeStore.js'></script>\n");
         echo sprintf("<script src='/js/class/GCode.js'></script>\n");
         echo sprintf("<script src='/js/class/GObject.js'></script>\n");
         echo sprintf("<script src='/js/class/GLoader.js'></script>\n");
