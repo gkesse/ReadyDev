@@ -35,7 +35,11 @@
 <a class="Section5" href="#" id="cpp">Développement C++</a>
 </h1>
 <div class="Section6"><br><div class="GTuto1 Tuto1">
-<a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/application/oscilloscope-numerique">
+<a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/cours/apprendre-cpp">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Apprendre<br>C++</div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez en<br>C++</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/application/oscilloscope-numerique">
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Oscilloscope numérique</div></div>
 <div class="Tuto5"><div class="Tuto8">Accédez au tutoriel<br>C++ - Qt - CMake - Bluetooth<br>Port Série - TCP/IP</div></div>

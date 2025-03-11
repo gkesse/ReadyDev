@@ -149,7 +149,7 @@
 <h1 class="Section4">
 <a class="Section5" href="#" id="introduction">Introduction</a>
 </h1>
-<div class="Section6"><br><b>Linux</b> est un système d'exploitation utilisé en général pour gérer les serveurs applicatifs. A chaque distribution Linux, correspond un gestionnaire de packages dédié qui automatise le processus d'installation et de mises à jours des packages.&nbsp;<br><br></div>
+<div class="Section6"><br><b>Linux</b> est un système d'exploitation utilisé en général pour gérer les serveurs applicatifs. A chaque distribution Linux, correspond un gestionnaire de packages dédié qui automatise le processus d'installation et de mises à jour des packages.&nbsp;<br><br></div>
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
