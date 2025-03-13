@@ -20,7 +20,16 @@
 </div><div class="GLink1 Link1">
 <i class="Link2 fa fa-book"></i>
 <a class="Link3" href="/home/tutoriels#linux">Commandes Linux</a>
-</div></div><br></div></div><div class="GParallax1 Parallax1">
+</div></div><b>Cours :</b><br><div class="GLink1 Link1">
+<i class="Link2 fa fa-book"></i>
+<a class="Link3" href="/home/cours/electronique">Electronique</a>
+</div><b>CV :</b><br><div class="GLink1 Link1">
+<i class="Link2 fa fa-book"></i>
+<a class="Link3" href="/home/cv/full">Dossier Compétences</a>
+</div><b>Contacts :</b><br><div class="GLink1 Link1">
+<i class="Link2 fa fa-book"></i>
+<a class="Link3" href="https://www.linkedin.com/in/tia-gerard-kesse/">LinkedIn</a>
+</div><br></div></div><div class="GParallax1 Parallax1">
 <div class="Parallax2" style="background-image: url(&quot;/data/img/defaults/developer.jpg&quot;);">
 <div class="Parallax3"><a href="#" class="Parallax4">Développeur</a></div>
 </div>
