@@ -93,8 +93,8 @@ class GMenu extends GObject
         // cv
         //===============================================
         $lObj = $this->addMenu("cv", "CV",  "CV", "/home/cv", $this);
-        $this->addMenu("cv", "CV Simplifié", "CV Simplifié", "/home/cv/simple", $lObj);
-        $this->addMenu("cv", "CV Détaillé", "CV Détaillé", "/home/cv/full", $lObj);
+        $this->addMenu("cv", "[CV] Curriculum vitae", "Curriculum vitae", "/home/cv/simple", $lObj);
+        $this->addMenu("cv", "[CV] Dossier Compétences", "[CV] Dossier Compétences", "/home/cv/full", $lObj);
         //===============================================
         // presentation
         //===============================================
