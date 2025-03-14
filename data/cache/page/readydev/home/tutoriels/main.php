@@ -39,6 +39,30 @@
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Apprendre<br>C++</div></div>
 <div class="Tuto5"><div class="Tuto8">Programmez en<br>C++</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/cours/apprendre-qt">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Apprendre<br>Qt</div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez en<br>C++</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/cours/apprendre-windows">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Apprendre<br>Windows</div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez en<br>C++</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/cours/apprendre-linux">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Apprendre<br>Linux</div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez en<br>C++</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/cours/apprendre-cmake">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Apprendre<br>CMake</div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez en<br>C++</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/cours/apprendre-visual-studio">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Apprendre<br>Visual Studio</div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez en<br>C++</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/cours/apprendre-vscode">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Apprendre<br>VSCode</div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez en<br>C++</div></div>
 </a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/application/oscilloscope-numerique">
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Oscilloscope numérique</div></div>

@@ -3,7 +3,7 @@
 <div class="Parallax2" style="background-image: url(&quot;/data/img/defaults/binary.png&quot;);">
 <div class="Parallax3"><a href="#" class="Parallax4">Apprendre C++</a></div>
 </div>
-<div class="Parallax5" style="background-color: rgb(128, 51, 0);"><br>Bienvenue dans ce tutoriel consacré à l'apprentissage des commandes&nbsp;<b>Linux</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="GSummary1"><div class="GSummary11 Summary1">
+<div class="Parallax5" style="background-color: rgb(128, 51, 0);"><br>Bienvenue dans ce tutoriel consacré à l'apprentissage des technologies liées au développement d'applications en <b>C++</b>.<br>Produit par <b>Gérard KESSE</b>.<br><br><div class="GSummary1"><div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#introduction">Introduction</a>
 </div>

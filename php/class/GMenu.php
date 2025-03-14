@@ -93,8 +93,8 @@ class GMenu extends GObject
         // cv
         //===============================================
         $lObj = $this->addMenu("cv", "CV",  "CV", "/home/cv", $this);
-        $this->addMenu("cv", "[CV] Curriculum vitae", "Curriculum vitae", "/home/cv/simple", $lObj);
-        $this->addMenu("cv", "[CV] Dossier Compétences", "[CV] Dossier Compétences", "/home/cv/full", $lObj);
+        $this->addMenu("cv", "Curriculum vitae", "Curriculum vitae", "/home/cv/simple", $lObj);
+        $this->addMenu("cv", "Dossier Compétences", "Dossier Compétences", "/home/cv/full", $lObj);
         //===============================================
         // presentation
         //===============================================
@@ -106,6 +106,12 @@ class GMenu extends GObject
         // tutoriels/c++
         $lObj2 = $this->addMenu("tutoriels", "C++", "C++", "", $lObj);
         $this->addMenu("tutoriels", "Apprendre C++", "Apprendre C++", "/home/tutoriels/cpp/cours/apprendre-cpp", $lObj2);
+        $this->addMenu("tutoriels", "Apprendre Qt", "Apprendre Qt", "/home/tutoriels/cpp/cours/apprendre-qt", $lObj2);
+        $this->addMenu("tutoriels", "Apprendre CMake", "Apprendre CMake", "/home/tutoriels/cpp/cours/apprendre-cmake", $lObj2);
+        $this->addMenu("tutoriels", "Apprendre Windows", "Apprendre Windows", "/home/tutoriels/cpp/cours/apprendre-windows", $lObj2);
+        $this->addMenu("tutoriels", "Apprendre Linux", "Apprendre Linux", "/home/tutoriels/cpp/cours/apprendre-linux", $lObj2);
+        $this->addMenu("tutoriels", "Apprendre Visual Studio", "Apprendre Visual Studio", "/home/tutoriels/cpp/cours/apprendre-visual-studio", $lObj2);
+        $this->addMenu("tutoriels", "Apprendre VSCode", "Apprendre VSCode", "/home/tutoriels/cpp/cours/apprendre-vscode", $lObj2);
         $this->addMenu("tutoriels", "Oscilloscope numérique", "Oscilloscope numérique", "/home/tutoriels/cpp/application/oscilloscope-numerique", $lObj2);
         // tutoriels/c#
         $lObj2 = $this->addMenu("tutoriels", "C#", "C#", "", $lObj);
