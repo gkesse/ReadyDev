@@ -820,7 +820,7 @@ color: #00ff00;
 <h1 class="Section4">
 <a class="Section5" href="#" id="gerer-une-communication-port-serie-en-cpp-sous-qt">Gérer une communication port série en C++ sous Qt</a>
 </h1>
-<div class="Section6"><br>Qt est une librairie de création d'interfaces homme machine prenant en charge la gestion de la communication port série. <b>QSerialPort</b> peut être utilisé pour concevoir en toute simplicité une interface de contrôle d'un système via le port série. Dans ce tutoriel, nous utilisons QSerialPort pour établir 2 connexions à partir d'une paire de ports série afin de mettre en place un système chat.<br><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<div class="Section6"><br>Qt est une librairie de création d'interfaces homme machine prenant en charge la gestion de la communication port série. <b>QSerialPort</b> peut être utilisé pour concevoir en toute simplicité une interface de contrôle d'un système via le port série. Dans ce tutoriel, nous utilisons <b>QSerialPort</b> pour établir 2 connexions à partir d'une paire de ports série afin de mettre en place un système chat.<br><br><div class="GSummary2"><div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#gerer-une-communication-port-serie-en-c---sous-qt_gestion-du-programme-principal">Gestion du programme principal</a>
 </div>
@@ -1535,7 +1535,31 @@ rdvcpp.exe
 <a class="Section5" href="#" id="gerer-des-configurations-utilisateur-en-cpp-sous-qt">Gérer des configurations utilisateur en C++ sous Qt</a>
 </h1>
 <div class="Section6"><br>Qt est une librairie de création d'interfaces homme machine prenant en charge la gestion des configurations utilisateur. <b>QSettings</b> peut être utilisé pour sauvegarder de manière permanente toutes les configurations utilisateur associées à une application. Dans ce tutoriel, nous utilisons <b>QSettings</b> pour sauvegarder les paramètres d'une application de gestion d'oscilloscope numérique.
-<br><br><h2 class="GTitle1 Title1">
+<br><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#gerer-des-configurations-utilisateur-en-cpp-sous-qt_gestion-du-programme-principal">Gestion du programme principal</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#gerer-des-configurations-utilisateur-en-cpp-sous-qt_gestion-de-la-fenetre-principale">Gestion de la fenêtre principale</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#gerer-des-configurations-utilisateur-en-cpp-sous-qt_gestion-du-fichier-cmake">Gestion du fichier CMake</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#gerer-des-configurations-utilisateur-en-cpp-sous-qt_gestion-du-fichier-ressource">Gestion du fichier ressource</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#gerer-des-configurations-utilisateur-en-cpp-sous-qt_execution-du-projet">Exécution du projet</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#gerer-des-configurations-utilisateur-en-cpp-sous-qt_demo-de-l-application">Démo de l'application</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="gerer-des-configurations-utilisateur-en-cpp-sous-qt_gestion-du-programme-principal" href="#gerer-des-configurations-utilisateur-en-cpp-sous-qt">Gestion du programme principal</a>
 </h2><br><span class="GText2" style="
 color: #00ff00;
