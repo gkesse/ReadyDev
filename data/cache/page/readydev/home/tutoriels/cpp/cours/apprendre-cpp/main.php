@@ -44,7 +44,7 @@
 <h1 class="Section4">
 <a class="Section5" href="#" id="creer-une-application-client-serveur-tcp-ip-en-cpp-sous-windows">Créer une application client-serveur TCP/IP en C++ sous Windows</a>
 </h1>
-<div class="Section6"><br>C++ est un langage de programmation orientée objet prenant en charge la création d'applications client/serveur. Dans ce tutoriel, nous utiliserons le module (<b>Winsock2</b>), pour établir une communication TCP/IP entre un client et un serveur.&nbsp;<br><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<div class="Section6"><br>C++ est un langage de programmation orientée objet prenant en charge la création d'applications client/serveur. Dans ce tutoriel, nous utilisons le module (<b>Winsock2</b>), pour établir une communication TCP/IP entre un client et un serveur.&nbsp;<br><br><div class="GSummary2"><div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#creer-une-application-client-serveur-tcp-ip-en-cpp-sous-windows_gestion-du-serveur">Gestion du serveur</a>
 </div>
