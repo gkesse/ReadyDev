@@ -138,10 +138,10 @@ class GMenu extends GObject
         $lObj2 = $this->addMenu("tutoriels", "Linux", "Linux", "", $lObj);
         $this->addMenu("tutoriels", "Apprendre Linux", "Apprendre Linux", "/home/tutoriels/linux/cours/apprendre-linux", $lObj2);
         // tutoriels/divers
-        $lObj2 = $this->addMenu("tutoriels", "Divers", "Divers", "", $lObj);
-        $this->addMenu("tutoriels", "Etudier en France", "Etudier en France", "/home/tutoriels/divers/etudier-en-france", $lObj2);
+        $lObj2 = $this->addMenu("tutoriels", "Divers", "Divers", "", $lObj, false);
+        $this->addMenu("tutoriels", "Etudier en France", "Etudier en France", "/home/tutoriels/divers/etudier-en-france", $lObj2, false);
         $this->addMenu("tutoriels", "Etudier en France", "Etudier en France", "/home/tutoriels/divers/etudier-en-france/page-02", $lObj2, false);
-        $this->addMenu("tutoriels", "Etudier en Tunisie", "Etudier en Tunisie", "/home/tutoriels/divers/etudier-en-tunisie", $lObj2);
+        $this->addMenu("tutoriels", "Etudier en Tunisie", "Etudier en Tunisie", "/home/tutoriels/divers/etudier-en-tunisie", $lObj2, false);
         //===============================================
         // cours
         //===============================================
