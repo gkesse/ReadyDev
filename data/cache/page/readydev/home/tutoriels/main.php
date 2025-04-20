@@ -39,6 +39,10 @@
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Apprendre<br>C++</div></div>
 <div class="Tuto5"><div class="Tuto8">Programmez en<br>C++</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/cours/concepts-cpp">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Concepts<br>C++</div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez en<br>C++</div></div>
 </a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/cours/apprendre-qt">
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Apprendre<br>Qt</div></div>

@@ -46,7 +46,7 @@
 <h1 class="Section4">
 <a class="Section5" href="#" id="travailler-avec-les-fichiers">### Travailler avec les fichiers</a>
 </h1>
-<div class="Section6"><br>C++ est un langage de programmation orientée objet prenant en charge la manipulation de <b>fichier</b>. Un <b>fichier </b>est un moyen de stocker des données de manière permanente sur un disque dur sous une forme <b>textuelle </b>ou <b>binaire</b>.&nbsp;<br><br></div>
+<div class="Section6"><br>C++ est un langage de programmation orientée objet prenant en charge la manipulation de <b>fichier</b>. Un fichier est un moyen de stocker des données de manière permanente sur un disque dur sous une forme <b>textuelle </b>ou <b>binaire</b>.&nbsp;<br><br></div>
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
