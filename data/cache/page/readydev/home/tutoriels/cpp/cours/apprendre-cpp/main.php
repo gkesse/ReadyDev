@@ -46,8 +46,7 @@
 <h1 class="Section4">
 <a class="Section5" href="#" id="travailler-avec-les-fichiers">### Travailler avec les fichiers</a>
 </h1>
-<div class="Section6"><br>Un <b>fichier</b> permet de stocker des données sous une forme textuelle ou binaire. La manipulation des fichiers est supportée par le langage C++.
-<br><br></div>
+<div class="Section6"><br>C++ est un langage de programmation orientée objet prenant en charge la manipulation de <b>fichier</b>. Un <b>fichier </b>est un moyen de stocker des données de manière permanente sur un disque dur sous une forme <b>textuelle </b>ou <b>binaire</b>.&nbsp;<br><br></div>
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
@@ -56,7 +55,7 @@
 <h1 class="Section4">
 <a class="Section5" href="#" id="manipuler-des-fichiers-textuels-ou-binaires-en-cpp-sous-windows">Manipuler des fichiers textuels ou binaires en C++ sous Windows</a>
 </h1>
-<div class="Section6"><br>C++ est un langage de programmation orientée objet prenant en charge la manipulation de fichiers textuels ou binaires. Dans ce tutoriel, nous utiliserons le module (<b>fstream</b>), pour vérifier l'existence d'un fichier et écrire ou lire des données textuelles ou binaires à partir d'un fichier. Nous utiliserons le module (<b>filesystem</b>), pour récupérer le nom, l'extension et le répertoire parent d'un fichier et pour créer un chemin de répertoires.
+<div class="Section6"><br>C++ est un langage de programmation orientée objet prenant en charge la manipulation de fichiers au format textuel ou binaire. Dans ce tutoriel, nous utiliserons le module (<b>fstream</b>), pour vérifier l'existence d'un fichier et écrire ou lire des données textuelles ou binaires à partir d'un fichier. Nous utiliserons le module (<b>filesystem</b>), pour récupérer le nom, l'extension et le répertoire parent d'un fichier et pour créer un chemin de répertoires.
 <br><br><div class="GSummary2"><div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#manipuler-des-fichiers-textuels-ou-binaires-en-cpp-sous-windows_gestion-du-programme-principal">Gestion du programme principal</a>
