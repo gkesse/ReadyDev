@@ -2737,7 +2737,7 @@ color: #00ff00;
 
 #include &lt;string&gt;
 
-class cHTTP : public std::string
+class cHTTP
 {
 private:
     struct sResponse
