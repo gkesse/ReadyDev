@@ -119,18 +119,10 @@
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Apprendre<br>PHP</div></div>
 <div class="Tuto5"><div class="Tuto8">Programmez en<br>PHP</div></div>
-</a><a class="GTuto2 Tuto2" href="/home/tutoriels/php/cours/apprendre-php#installer-wampserver-config">
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/php/cours/apprendre-php#creer-un-serveur-web-php-de-gestion-des-utilisateurs-avec-wampserver-sous-windows">
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
-<div class="Tuto4"><div class="Tuto7">Apprendre<br>WampServer</div></div>
+<div class="Tuto4"><div class="Tuto7">Système<br>de gestion des utilisateurs</div></div>
 <div class="Tuto5"><div class="Tuto8">Programmez en<br>PHP</div></div>
-</a><a class="GTuto2 Tuto2" href="/home/tutoriels/php/cours/apprendre-php#installer-une-police-google-fonts-config">
-<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
-<div class="Tuto4"><div class="Tuto7">Apprendre<br>Google Fonts</div></div>
-<div class="Tuto5"><div class="Tuto8">Programmez en<br>PHP</div></div>
-</a><a class="GTuto2 Tuto2" href="/home/tutoriels/php/application/systeme-gestion-contenu-web">
-<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
-<div class="Tuto4"><div class="Tuto7">Système de gestion de contenu web (CMS)</div></div>
-<div class="Tuto5"><div class="Tuto8">Accédez au tutoriel<br>PHP</div></div>
 </a>
 </div><br></div>
 </div></div></div><br><div class="GSection1 Section1">
