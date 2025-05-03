@@ -209,7 +209,7 @@ thead tr:first-child {
 
 .AnimateShow {
     animation-name: AnimateShow;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
     -webkit-animation-name: AnimateShow;
     -webkit-animation-duration: 0.4s;
     -moz-animation-name: AnimateShow;
@@ -240,7 +240,7 @@ thead tr:first-child {
 
 .AnimateHide {
     animation-name: AnimateHide;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
     -webkit-animation-name: AnimateHide;
     -webkit-animation-duration: 0.4s;
     -moz-animation-name: AnimateHide;
