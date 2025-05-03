@@ -349,7 +349,7 @@ color: #00ff00;
 <a class="Title4" id="creer-un-serveur-web-php-de-gestion-des-utilisateurs-avec-wampserver-sous-windows_gestion-de-l-interface-frontend-php_gestion-de-la-page-de-connexion" href="#creer-un-serveur-web-php-de-gestion-des-utilisateurs-avec-wampserver-sous-windows_gestion-de-l-interface-frontend-php">Gestion de la page de connexion</a>
 </h3><br><span class="GText2" style="
 color: #00ff00;
-">// php\ui\cLogin.php (Gérer la fenêtre popup des messages)</span><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+">// php\ui\cLogin.php (Gérer la page de connexion)</span><br><pre class="GCode1 Code1 AceCode" data-mode="php" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
 &lt;?php
 
 declare(strict_types=1);
