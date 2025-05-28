@@ -34,7 +34,7 @@
 <h1 class="Section4">
 <a class="Section5" href="#" id="introduction">Introduction</a>
 </h1>
-<div class="Section6"><br>Bonjour, nous espérons que vous allez bien et que vous avez passé une bonne semaine.<br>Bienvenue, dans ce guide consacré à la conception d'un système de navigation par GPS.<br><br>R01 : Sur le système de navigation :<br><br><div class="GBullet1 Bullet1">
+<div class="Section6"><br>Nous souhaitons concevoir un système de navigation par GPS.<br><br>R01 : Sur le système de navigation :<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">Est une application graphique bureau.</div>
 </div>
@@ -118,7 +118,7 @@
 </h1>
 <div class="Section6"><br>R01 : Sur le projet Qt :<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">Est réalisée en C++ sous l'éditeur VSCode.</div>
+<div class="Bullet3">Est réalisé en C++ sous l'éditeur VSCode.</div>
 </div>
 <div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
@@ -150,6 +150,9 @@
 <div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">Doit pouvoir comporter une barre de menu.</div>
+</div><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Doit pouvoir comporter une barre d'état.</div>
 </div>
 <div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
