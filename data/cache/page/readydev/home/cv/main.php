@@ -100,48 +100,54 @@ color: #00ff00;
 </h1>
 <div class="Section6"><br><div class="GSkill1 Skill1">
 <i class="Skill2 fa fa-building-o"></i>
-<div class="Skill3">11/11</div>
-<div class="Skill4"><b>AMADEUS GESTOUR - Strasbourg (France)</b><br><span class="GText2" style="
+<div class="Skill3">12/12</div>
+<div class="Skill4"><b>CLIENT: EURO INFORMATION - Strasbourg (France)</b><br><span class="GText2" style="
 color: #00ff00;
-">Juillet 2021 - Juillet 2023: 2 ans.</span><br>Développeur C++ système de billetterie.<br>C++, PL/SQL, Borland, Webservice, Client/Server, Windows/RedHat.<br>Signature électronique, Paiement électronique, Opt-in groupe, Supervision EDI.<br></div></div><br><div class="GSkill1 Skill1"><i class="Skill2 fa fa-building-o"></i>
-<div class="Skill3">10/11</div>
-<div class="Skill4"><b>PMC GROUPE CARRUS - Paris (France)</b><br><span class="GText2" style="
-color: #00ff00;
-">Mai 2019 - Novembre 2020: 1 an 6 mois.</span><br>Développeur C système de prise de paris hippiques.<br>C, Shell, PL/SQL, Client/Server, Master/Slave, ITSP, RedHat.<br>Echange de chronologie de courses de chevaux, Compilation croisée 32 &amp; 64-bit.<br></div></div><br><div class="GSkill1 Skill1"><i class="Skill2 fa fa-building-o"></i>
-<div class="Skill3">9/11</div>
-<div class="Skill4"><b>READYDEV (PROJET PERSONNEL) - Toulouse (France)</b><br><span class="GText2" style="
-color: #00ff00;
-">Mars 2017 - Mars 2019: 2 ans.</span><br>Développement PHP de mon site web.&nbsp;<br>PHP/HTML/CSS/JS, SQL, PHPMailer, AceJS, MathJax, LAMP, RaspberryPi.<br>Conception du serveur, Générateur de sitemap, Editeur de pages HTML.<br></div></div><br><div class="GSkill1 Skill1">
+">Novembre 2023 - Juin 2024: 7 mois</span><br><span class="GText2" style="color: rgb(255, 127, 0);">EMPLOYEUR: EASTELSON</span><br>Consultant Développeur C++ Paiement Monétique<br>Simulateur de parcours Cofidis, Arrêt STOP récurrence, Amélioration des diagnostics pour CCS<br>C++, HTML, CSS, Js, cURL, Certificats SSL, SHA-256, HMAC, SQL, MySQL, Boost, Postman, Git</div>
+</div><br><div class="GSkill1 Skill1">
 <i class="Skill2 fa fa-building-o"></i>
-<div class="Skill3">8/11</div>
-<div class="Skill4"><b>SIXENSE SOLDATA - Paris (France)</b><br><span class="GText2" style="
+<div class="Skill3">11/12</div>
+<div class="Skill4"><b>CLIENT: AMADEUS GESTOUR - Strasbourg (France)</b><br><span class="GText2" style="
 color: #00ff00;
-">Septembre 2016 - Décembre 2016: 3 mois.</span><br>Développeur C++ système de contrôle environnemental.<br>C++/Qt, SQL/Firebird/SQLite, LibXL, GSL, Git, Confluence, Windows.<br>Acquisition de données capteur, Calculs scientifiques, Rapports au format Excel.<br></div></div><br><div class="GSkill1 Skill1"><i class="Skill2 fa fa-building-o"></i>
-<div class="Skill3">7/11</div>
-<div class="Skill4"><b>ADENTIS - Toulouse (France)</b><br><span class="GText2" style="
+">Juillet 2021 - Juillet 2023: 2 ans</span><br><span class="GText2" style="color: rgb(255, 127, 0);">EMPLOYEUR: GENWINTECH</span><br>Consultant Développeur C++ Réservation et Billetterie<br>Réinitialisation du référentiel RCU, Signature électronique de contrat, Paiement monétique<br>C++, Borland, cURL, Certificat SSL, JWT, Bearer, PL/SQL, Oracle, API, Webservice<br></div></div><br><div class="GSkill1 Skill1"><i class="Skill2 fa fa-building-o"></i>
+<div class="Skill3">10/12</div>
+<div class="Skill4"><b>CLIENT: PMC GROUPE CARRUS - Paris (France)</b><br><span class="GText2" style="
 color: #00ff00;
-">Février 2016 - Juin 2016: 4 mois.</span><br>Développeur C++/VBA système de gestion de clients collaborateurs.<br>C/C++/Qt/SQLite, VBA/Excel/Macros/UserForms/Access, Windows.<br>Gestion de relation client collaborateur (CRM), Créer/Rechercher/Modifier/Supprimer.<br></div></div><br><div class="GSkill1 Skill1"><i class="Skill2 fa fa-building-o"></i>
-<div class="Skill3">6/11</div>
-<div class="Skill4"><b>PHILES - Toulouse (France)</b><br><span class="GText2" style="
+">Mai 2019 - Novembre 2020: 1 an 6 mois</span><br><span class="GText2" style="color: rgb(255, 127, 0);">EMPLOYEUR: SOGETEK</span><br>Consultant Développeur C Jeu de Pari Hippique.<br>Echange de chronologie de courses de chevaux, Compilation croisée 32 &amp; 64-bit.<br>C, Shell, Socket/TCP IP, cURL, Certificat SSL, PL/SQL, Sybase, Trame ITSP.<br></div></div><br><div class="GSkill1 Skill1"><i class="Skill2 fa fa-building-o"></i>
+<div class="Skill3">9/12</div>
+<div class="Skill4"><b>PROJET PERSONNEL PHP - Toulouse (France)</b><br><span class="GText2" style="
 color: #00ff00;
-">Novembre 2015 - Décembre 2015: 1 mois.</span><br>Développeur PHP réseau social live.<br>PHP/HTML/CSS/JS, PHPMailer, Google Maps, ChartJS, LAMP, Ubuntu.<br>Dashboard, Géolocalisation, Emailing.<br></div></div><br><div class="GSkill1 Skill1"><i class="Skill2 fa fa-building-o"></i>
-<div class="Skill3">5/11</div>
-<div class="Skill4"><b>TECHMAHINDRA / AIRBUS - Toulouse (France)</b><br><span class="GText2" style="
+">Mars 2017 - Mars 2019: 2 ans</span><br><span class="GText2" style="color: rgb(255, 127, 0);">EMPLOYEUR: AUCUN</span><br>Développement PHP de mon site internet (ReadyDEV)&nbsp;<br>Configuration du serveur Apache, Générateur de sitemap, Editeur de pages HTML<br>PHP, HTML, CSS, Js, SQL, MySQL, PHPMailer, AceJS, MathJax, RaspberryPi<br></div></div><br><div class="GSkill1 Skill1">
+<i class="Skill2 fa fa-building-o"></i>
+<div class="Skill3">8/12</div>
+<div class="Skill4"><b>CLIENT: SIXENSE SOLDATA&nbsp; GROUPE VINCI - Paris (France)</b><br><span class="GText2" style="
 color: #00ff00;
-">Mai 2015 - Novembre 2015: 6 mois.</span><br>Développeur C++ simulateur de test de vol.<br>C++/Qt, ILog Views, D-Bus, Shell, SVN, MediaWiki, Windows/RedHat.<br>Acquisition de données capteur, Simulation des tests en temps réel, Mise en alarme.<br></div></div><br><div class="GSkill1 Skill1"><i class="Skill2 fa fa-building-o"></i>
-<div class="Skill3">4/11</div>
+">Septembre 2016 - Décembre 2016: 3 mois</span><br><span class="GText2" style="color: rgb(255, 127, 0);">EMPLOYEUR: ACEFAS</span><br>Consultant Développeur C++ Contrôle Environnemental<br>Acquisition de données capteur, Calculs scientifiques, Rapports au format Excel.<br>C++, Qt, SQL, Firebird, SQLite, LibXL, GSL, Git, Confluence, Windows<br></div></div><br><div class="GSkill1 Skill1"><i class="Skill2 fa fa-building-o"></i>
+<div class="Skill3">7/12</div>
+<div class="Skill4"><b>CLIENT: ADENTIS - Toulouse (France)</b><br><span class="GText2" style="
+color: #00ff00;
+">Février 2016 - Juin 2016: 4 mois</span><br><span class="GText2" style="color: rgb(255, 127, 0);">EMPLOYEUR: ADENTIS</span><br>Consultant Développeur C++/VBA Gestion des clients<br>Gestion de relation client collaborateur (CRM), Create, Read, Update, Delete (CRUD)<br>C++, Qt, SQLite, VBA, Excel, Macros, UserForm, Access, Windows<br></div></div><br><div class="GSkill1 Skill1"><i class="Skill2 fa fa-building-o"></i>
+<div class="Skill3">6/12</div>
+<div class="Skill4"><b>CLIENT: PHILES - Toulouse (France)</b><br><span class="GText2" style="
+color: #00ff00;
+">Novembre 2015 - Décembre 2015: 1 mois.</span><br><span class="GText2" style="color: rgb(255, 127, 0);">EMPLOYEUR: PHILES</span><br>Consultant Développeur PHP Réseau Social Live<br>Conception de tableau de bord (Dashboard), Géolocalisation, Emailing<br>PHP, Symfony, HTML, CSS, Js, PHPMailer, GoogleMaps, ChartJS<br></div></div><br><div class="GSkill1 Skill1"><i class="Skill2 fa fa-building-o"></i>
+<div class="Skill3">5/12</div>
+<div class="Skill4"><b>CLIENT: TECHMAHINDRA / AIRBUS - Toulouse (France)</b><br><span class="GText2" style="
+color: #00ff00;
+">Mai 2015 - Novembre 2015: 6 mois.</span><br><span class="GText2" style="color: rgb(255, 127, 0);">EMPLOYEUR: PHILES</span><br>Consultant Développeur C++ Simulateur de Test de Vol.<br>C++/Qt, ILog Views, D-Bus, Shell, SVN, MediaWiki, Windows/RedHat.<br>Acquisition de données capteur, Simulation des tests en temps réel, Mise en alarme.<br></div></div><br><div class="GSkill1 Skill1"><i class="Skill2 fa fa-building-o"></i>
+<div class="Skill3">4/12</div>
 <div class="Skill4"><b>CYLEONE - Montpellier (France)</b><br><span class="GText2" style="
 color: #00ff00;
-">Septembre 2012 - Septembre 2014: 2 ans.</span><br>Développeur C++ drone vision par ordinateur.<br>C/C++/Qt, OpenCV, SQLite, Camera IP, Multithreading, RaspberryPi.<br>Identification et recensement d'une colonie d'oiseau, Calcul de stress hydrique de plants de blé, Calcul de pourcentage de dégâts de verses de blé.<br></div></div><br><div class="GSkill1 Skill1"><i class="Skill2 fa fa-building-o"></i>
-<div class="Skill3">3/11</div>
+">Septembre 2012 - Septembre 2014: 2 ans.</span><br><span class="GText2" style="color: rgb(255, 127, 0);">ENTREPRISE: CYLEONE (1 an stage + 1 an alternance)</span><br>Développeur C++ Système Embarqué Drone<br>Identification et recensement colonie d'oiseau, Calculs stress hydrique et dégâts de verses<br>C++, Qt, OpenCV, Traitements d'images, Camera IP/Infrarouge, Multithreading</div></div><br><div class="GSkill1 Skill1"><i class="Skill2 fa fa-building-o"></i>
+<div class="Skill3">3/12</div>
 <div class="Skill4"><b>ROBOTECH'MONTPELLIER - Montpellier (France)</b><br><span class="GText2" style="
 color: #00ff00;
-">Septembre 2011 - Septembre 2012: 1 an.</span><br>Développeur C++ robot mobile vision par ordinateur.<br>C/C++, OpenCV, Caméra USB, Multithreading, Client/Server, Xenomai, ARMadeus.<br>Identification et reconnaissance d'objets, Faible couplage entre les modules.<br></div></div><br><div class="GSkill1 Skill1"><i class="Skill2 fa fa-building-o"></i>
-<div class="Skill3">2/11</div>
+">Septembre 2011 - Septembre 2012: 1 an.</span><br>ENTREPRISE: CYLEONE (1 an stage + 1 an alternance)<br>Développeur C++ robot mobile vision par ordinateur.<br>C/C++, OpenCV, Caméra USB, Multithreading, Client/Server, Xenomai, ARMadeus.<br>Identification et reconnaissance d'objets, Faible couplage entre les modules.<br></div></div><br><div class="GSkill1 Skill1"><i class="Skill2 fa fa-building-o"></i>
+<div class="Skill3">2/12</div>
 <div class="Skill4"><b>SITARAIL - Abidjan (Côte d'Ivoire)</b><br><span class="GText2" style="
 color: #00ff00;
 ">Janvier 2010 - Avril 2010: 3 mois.</span><br>Technicien en maintenance télécom transport ferroviaire.<br>PABX, RTC, Fibres optiques, Câbles coaxiaux, Poste téléphoniques.<br>Maintenance de canal de transmission téléphonique inter-station, Installation de postes téléphoniques.<br></div></div><br><div class="GSkill1 Skill1"><i class="Skill2 fa fa-building-o"></i>
-<div class="Skill3">1/11</div>
+<div class="Skill3">1/12</div>
 <div class="Skill4"><b>ELECTRONIQUE LAB - Bizerte (Tunisie)</b><br><span class="GText2" style="
 color: #00ff00;
 ">Mars 2009 - Juin 2009: 3 mois</span><br>Développeur C microcontrôleur 8051 horloge numérique.<br>C, 8051, Time Triggered Archi, I2C, RS232, Keil µVision, Eagle, Proteus.<br>Carte alimentation, Carte d'affichage, Carte du calculateur, Horloge numérique
