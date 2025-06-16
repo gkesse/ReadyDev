@@ -14,6 +14,10 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#scripts">Développement Scripts</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#php">Développement PHP</a>
 </div>
 <div class="GSummary11 Summary1">
@@ -113,6 +117,21 @@
 <div class="Tuto5"><div class="Tuto8">Programmez en<br>C#</div></div>
 </a>
 </div><br></div></div></div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="scripts">Développement Scripts</a>
+</h1>
+<div class="Section6"><br><div class="GTuto1 Tuto1">
+<a class="GTuto2 Tuto2" href="/home/tutoriels/batch/references-batch">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Références<br>Batch</div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez en<br>Batch</div></div>
+</a>
+</div><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
