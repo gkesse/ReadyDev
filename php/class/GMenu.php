@@ -106,7 +106,15 @@ class GMenu extends GObject
         // tutoriels/c++
         $lObj2 = $this->addMenu("tutoriels", "C++", "C++", "", $lObj);
         $this->addMenu("tutoriels", "Références Boost", "Références Boost", "/home/tutoriels/cpp/references-boost", $lObj2);
+        // Références QML
         $this->addMenu("tutoriels", "Références QML", "Références QML", "/home/tutoriels/cpp/references-qml", $lObj2);
+        $this->addMenu("tutoriels", "Références QML", "Références QML | Opérations sur les versions de Qt", "/home/tutoriels/cpp/references-qml/versions-qt", $lObj2, false);
+        $this->addMenu("tutoriels", "Références QML", "Références QML | Opérations sur les écrans haute résolution", "/home/tutoriels/cpp/references-qml/ecrans-haute-resolution", $lObj2, false);
+        $this->addMenu("tutoriels", "Références QML", "Références QML | Opérations sur les composants QML", "/home/tutoriels/cpp/references-qml/composants-qml", $lObj2, false);
+        $this->addMenu("tutoriels", "Références QML", "Références QML | Opérations sur l'exécution d'un projet QML", "/home/tutoriels/cpp/references-qml/execution-projet-qml", $lObj2, false);
+        $this->addMenu("tutoriels", "Références QML", "Références QML | Opérations sur le linter QML", "/home/tutoriels/cpp/references-qml/linter-qml", $lObj2, false);
+        $this->addMenu("tutoriels", "Références QML", "Références QML | Opérations sur le débogage de fichiers QML", "/home/tutoriels/cpp/references-qml/debogage-fichiers-qml", $lObj2, false);
+        //
         $this->addMenu("tutoriels", "Système de navigation par GPS", "Système de navigation par GPS", "/home/tutoriels/cpp/application/systeme-navigation-gps", $lObj2);
         $this->addMenu("tutoriels", "Apprendre C++", "Apprendre C++", "/home/tutoriels/cpp/cours/apprendre-cpp", $lObj2);
         $this->addMenu("tutoriels", "Concepts du C++", "Concepts du C++", "/home/tutoriels/cpp/cours/concepts-cpp", $lObj2);
