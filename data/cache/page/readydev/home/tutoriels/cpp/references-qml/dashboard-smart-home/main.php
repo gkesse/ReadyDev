@@ -8,5 +8,5 @@
 <a class="Link3" href="/home/tutoriels/cpp/references-qml/dashboard-smart-home/main-cpp">Gestion du programme principal C++ (main.cpp)</a>
 </div><div class="GLink1 Link1">
 <i class="Link2 fa fa-book"></i>
-<a class="Link3" href="http://localhost:9050/home/tutoriels/cpp/references-qml/dashboard-smart-home/main-qml">Gestion du composant QML (Main.qml)</a>
+<a class="Link3" href="/home/tutoriels/cpp/references-qml/dashboard-smart-home/main-qml">Gestion du composant QML (Main.qml)</a>
 </div><br><div class="GSummary1"></div></div></div>
