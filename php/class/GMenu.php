@@ -108,9 +108,13 @@ class GMenu extends GObject
         $this->addMenu("tutoriels", "Références Boost", "Références Boost", "/home/tutoriels/cpp/references-boost", $lObj2);
         // Références QML
         $this->addMenu("tutoriels", "Références QML", "Références QML", "/home/tutoriels/cpp/references-qml", $lObj2);
+        $this->addMenu("tutoriels", "Références QML", "Références QML | Conception d'une Calculatrice", "/home/tutoriels/cpp/references-qml/calculator", $lObj, false);
         $lObj3 = $this->addMenu("tutoriels", "Références QML", "Références QML | Tableau de bord pour maison intelligente", "/home/tutoriels/cpp/references-qml/dashboard-smart-home", $lObj, false);
         $this->addMenu("tutoriels", "Références QML", "Références QML | Tableau de bord pour maison intelligente (main.cpp)", "/home/tutoriels/cpp/references-qml/dashboard-smart-home/main-cpp", $lObj3, false);
         $this->addMenu("tutoriels", "Références QML", "Références QML | Tableau de bord pour maison intelligente (Main.qml)", "/home/tutoriels/cpp/references-qml/dashboard-smart-home/main-qml", $lObj3, false);
+        $this->addMenu("tutoriels", "Références QML", "Références QML | Tableau de bord pour maison intelligente (LeftPane.qml)", "/home/tutoriels/cpp/references-qml/dashboard-smart-home/left-pane-qml", $lObj3, false);
+        $this->addMenu("tutoriels", "Références QML", "Références QML | Tableau de bord pour maison intelligente (MiddlePane.qml)", "/home/tutoriels/cpp/references-qml/dashboard-smart-home/middle-pane-qml", $lObj3, false);
+        $this->addMenu("tutoriels", "Références QML", "Références QML | Tableau de bord pour maison intelligente (RightPane.qml)", "/home/tutoriels/cpp/references-qml/dashboard-smart-home/right-pane-qml", $lObj3, false);
         //
         $this->addMenu("tutoriels", "Références QML", "Références QML | Opérations sur les versions de Qt", "/home/tutoriels/cpp/references-qml/versions-qt", $lObj2, false);
         $this->addMenu("tutoriels", "Références QML", "Références QML | Opérations sur les écrans haute résolution", "/home/tutoriels/cpp/references-qml/ecrans-haute-resolution", $lObj2, false);

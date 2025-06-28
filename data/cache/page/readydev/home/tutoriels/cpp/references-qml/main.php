@@ -5,6 +5,9 @@
 </div>
 <div class="Parallax5" style="background-color: rgb(128, 51, 0);"><br>Vous souhaitez réaliser des applications graphiques hautes performances en <b>C++</b> avec la bibliothèque graphique <b>Qt</b> fournissant le langage <b>QML</b> capable d'exploiter la puissance des processeurs graphiques <b>GPU</b> afin de bénéficier de l'accélération matérielle pour créer des interfaces graphiques fluides multiplateformes orientées bureau (<b>Windows, Linux, Mac OS</b>) ou mobile (<b>Android, iOS</b>).<br><br><div class="GLink1 Link1">
 <i class="Link2 fa fa-book"></i>
+<a class="Link3" href="/home/tutoriels/cpp/references-qml/calculator">Conception d'une Calculatrice</a>
+</div><div class="GLink1 Link1">
+<i class="Link2 fa fa-book"></i>
 <a class="Link3" href="/home/tutoriels/cpp/references-qml/dashboard-smart-home">Tableau de bord pour maison intelligente</a>
 </div><div class="GLink1 Link1">
 <i class="Link2 fa fa-book"></i>

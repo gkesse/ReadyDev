@@ -9,4 +9,13 @@
 </div><div class="GLink1 Link1">
 <i class="Link2 fa fa-book"></i>
 <a class="Link3" href="/home/tutoriels/cpp/references-qml/dashboard-smart-home/main-qml">Gestion du composant QML (Main.qml)</a>
+</div><div class="GLink1 Link1">
+<i class="Link2 fa fa-book"></i>
+<a class="Link3" href="/home/tutoriels/cpp/references-qml/dashboard-smart-home/left-pane-qml">Gestion du composant QML (LeftPane.qml)</a>
+</div><div class="GLink1 Link1">
+<i class="Link2 fa fa-book"></i>
+<a class="Link3" href="/home/tutoriels/cpp/references-qml/dashboard-smart-home/middle-pane-qml">Gestion du composant QML (MiddlePane.qml)</a>
+</div><div class="GLink1 Link1">
+<i class="Link2 fa fa-book"></i>
+<a class="Link3" href="/home/tutoriels/cpp/references-qml/dashboard-smart-home/right-pane-qml">Gestion du composant QML (RightPane.qml)</a>
 </div><br><div class="GSummary1"></div></div></div>
