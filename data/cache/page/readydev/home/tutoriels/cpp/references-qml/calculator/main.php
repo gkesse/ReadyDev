@@ -13,15 +13,15 @@
 <h1 class="Section4">
 <a class="Section5" href="#" id="programme-principal--main-cpp-">Programme principal (main.cpp)</a>
 </h1>
-<div class="Section6"><br><pre class="GCode1 Code1 AceCode" data-mode="qml" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include &lt;QGuiApplication&gt;
-#include &lt;QIcon&gt;
+<div class="Section6"><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include &lt;QGuiApplication&gt;
 #include &lt;QQmlApplicationEngine&gt;
-#include "Converter.h"
-#include "ConverterHandler.h"
+#include &lt;QIcon&gt;
 #include "History.h"
 #include "Standard.h"
+#include "Converter.h"
+#include "ConverterHandler.h"
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
@@ -38,13 +38,18 @@ int main(int argc, char* argv[])
     qmlRegisterSingletonInstance("rdv.ConverterHandler", 1, 0, "ConverterHandler", cnvtHandler.get());
 
     QQmlApplicationEngine engine;
-    QObject::connect(&amp;engine, &amp;QQmlApplicationEngine::objectCreationFailed, &amp;app, []() { QCoreApplication::exit(-1); }, Qt::QueuedConnection);
+    QObject::connect(
+        &amp;engine,
+        &amp;QQmlApplicationEngine::objectCreationFailed,
+        &amp;app,
+        []() { QCoreApplication::exit(-1); },
+        Qt::QueuedConnection);
     engine.load("qrc:/rdv/calculator/src/qml/MainWindow.qml");
 
     return app.exec();
 }</pre><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">(<b>L13</b>) : On initialise le nom de l'application pour les configurations (<span class="GText2" style="
+<div class="Bullet3">(<b>L13</b>) : On initialise le nom de l'application pour les configurations dans les registres du système (<span class="GText2" style="
 color: #00ff00;
 ">rdv.calculator</span>).</div>
 </div>
@@ -69,9 +74,11 @@ color: #00ff00;
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">(<b>L18</b>) : On charge le backend C++ (<span class="GText2" style="
 color: #00ff00;
-">History</span>) dans le contexte QML pour gérer l'historique de la calculatrice. On lui associe l'URI (rdv.Histroy) pour son importation et le nom (<span class="GText2" style="
+">History</span>) dans le contexte QML pour gérer l'historique de la calculatrice. On lui associe l'URI (<span class="GText2" style="
 color: #00ff00;
-">History</span>) pour utilisation en tant que composant QML.</div>
+">rdv.Histroy</span>) pour son importation et le nom (<span class="GText2" style="
+color: #00ff00;
+">History</span>) pour son utilisation en tant que composant QML.</div>
 </div>
 <div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
@@ -81,46 +88,46 @@ color: #00ff00;
 color: #00ff00;
 ">rdv.Calculator</span>) pour son importation et le nom (<span class="GText2" style="
 color: #00ff00;
-">Calculator</span>) pour utilisation en tant que composant QML.</div>
+">Calculator</span>) pour son utilisation en tant que composant QML.</div>
 </div>
 <div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">(<b>L20</b>) : On charge le backend C++ (<span class="GText2" style="
 color: #00ff00;
-">Converter</span>) dans le contexte QML pour gérer les conversions de données dans la calculatrice.&nbsp;On lui associe l'URI (<span class="GText2" style="
+">Converter</span>) dans le contexte QML pour gérer les conversions de données de la calculatrice.&nbsp;On lui associe l'URI (<span class="GText2" style="
 color: #00ff00;
 ">rdv.Converter</span>) pour son importation et le nom (<span class="GText2" style="
 color: #00ff00;
-">Converter</span>) pour utilisation en tant que composant QML.</div>
+">Converter</span>) pour son utilisation en tant que composant QML.</div>
 </div>
 
 <div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">(<b>L22</b>) : On crée le backend C++ (<span class="GText2" style="
 color: #00ff00;
-">ConverterHandler</span>) pour charger les configurations nécessaires à la conversion de données dans la calculatrice. On passe par un point intelligent pour travailler sur la pile et éviter les fuites de mémoire.</div>
+">ConverterHandler</span>) pour charger les configurations nécessaires à la conversion de données de la calculatrice. On le crée en tant que pointeur intelligent pour travailler sur la pile et éviter les problèmes de fuites de mémoire.</div>
 </div>
 <div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">(<b>L24</b>) : On charge le backend C++ (<span class="GText2" style="
+<div class="Bullet3">(<b>L23</b>) : On charge le backend C++ (<span class="GText2" style="
 color: #00ff00;
-">ConverterHandler</span>) dans le contexte QML pour gérer les configurations nécessaires à la conversion de données dans la calculatrice. On lui associe l'URI (<span class="GText2" style="
+">ConverterHandler</span>) dans le contexte QML pour gérer les configurations nécessaires à la conversion de données de la calculatrice. On lui associe l'URI (<span class="GText2" style="
 color: #00ff00;
 ">rdv.ConverterHandler</span>) pour son importation et le nom (<span class="GText2" style="
 color: #00ff00;
-">ConverterHandler</span>) pour utilisation en tant que composant QML. On le charge en tant que Singleton pour avoir une seule instance du composant (<span class="GText2" style="
+">ConverterHandler</span>) pour son utilisation en tant que composant QML. On le charge en tant que Singleton pour avoir une seule instance du composant (<span class="GText2" style="
 color: #00ff00;
 ">ConverterHandler</span>) dans tout le contexte QML et éviter de recharger les configurations en plusieurs fois.</div>
 </div>
 <div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">(<b>L27</b>) : On crée le chargeur C++ de composant QML (<span class="GText2" style="
+<div class="Bullet3">(<b>L25</b>) : On crée le chargeur C++ de composant QML (<span class="GText2" style="
 color: #00ff00;
 ">QQmlApplicationEngine</span>).</div>
 </div>
 <div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">(<b>L30</b>) : On charge le composant QML de la fenêtre principale de la calculatrice (<span class="GText2" style="
+<div class="Bullet3">(<b>L32</b>) : On charge le composant QML de la fenêtre principale de l'application (<span class="GText2" style="
 color: #00ff00;
 ">MainWindow.qml</span>).</div>
 </div><br></div>
