@@ -108,7 +108,12 @@ class GMenu extends GObject
         $this->addMenu("tutoriels", "Références Boost", "Références Boost", "/home/tutoriels/cpp/references-boost", $lObj2);
         // Références QML
         $this->addMenu("tutoriels", "Références QML", "Références QML", "/home/tutoriels/cpp/references-qml", $lObj2);
-        $this->addMenu("tutoriels", "Références QML", "Références QML | Conception d'une Calculatrice", "/home/tutoriels/cpp/references-qml/calculator", $lObj, false);
+        //
+        $lObj3 = $this->addMenu("tutoriels", "Références QML", "Références QML | Calculatrice", "/home/tutoriels/cpp/references-qml/calculator", $lObj, false);
+        $this->addMenu("tutoriels", "Références QML", "Références QML | Calculatrice | Main C++", "/home/tutoriels/cpp/references-qml/calculator/main-cpp", $lObj3, false);
+        $this->addMenu("tutoriels", "Références QML", "Références QML | Calculatrice | Frontend QML", "/home/tutoriels/cpp/references-qml/calculator/frontend-qml", $lObj3, false);
+        $this->addMenu("tutoriels", "Références QML", "Références QML | Calculatrice | Backend C++", "/home/tutoriels/cpp/references-qml/calculator/backend-cpp", $lObj3, false);
+        //
         $lObj3 = $this->addMenu("tutoriels", "Références QML", "Références QML | Tableau de bord pour maison intelligente", "/home/tutoriels/cpp/references-qml/dashboard-smart-home", $lObj, false);
         $this->addMenu("tutoriels", "Références QML", "Références QML | Tableau de bord pour maison intelligente (main.cpp)", "/home/tutoriels/cpp/references-qml/dashboard-smart-home/main-cpp", $lObj3, false);
         $this->addMenu("tutoriels", "Références QML", "Références QML | Tableau de bord pour maison intelligente (Main.qml)", "/home/tutoriels/cpp/references-qml/dashboard-smart-home/main-qml", $lObj3, false);
