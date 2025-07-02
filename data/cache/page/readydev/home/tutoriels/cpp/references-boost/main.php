@@ -25,6 +25,14 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#utilisation-de-boost-any">Utilisation de Boost Any</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#utilisation-de-boost-variant">Utilisation de Boost Variant</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#suite">### Suite</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
@@ -33,7 +41,7 @@
 <h1 class="Section4">
 <a class="Section5" href="#" id="installation-de-boost">Installation de Boost</a>
 </h1>
-<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<div class="Section6"><br>Vous souhaitez installer <b>Boost </b>dans votre environnement de développement.&nbsp;<br><br><div class="GSummary2"><div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#installation-de-boost_installation-sous-windows">Installation sous Windows</a>
 </div>
@@ -58,7 +66,7 @@ b2 install
 <h1 class="Section4">
 <a class="Section5" href="#" id="configuration-de-cmake">Configuration de CMake</a>
 </h1>
-<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<div class="Section6"><br>Vous pouvez utiliser l'outil <b>CMake </b>pour construire vos projets C++ à base de la librairie Boost.&nbsp;<br><br><div class="GSummary2"><div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#configuration-de-cmake_fichier-cmake-racine--cmakelists-txt-">Fichier CMake racine (CMakeLists.txt)</a>
 </div>
@@ -147,7 +155,7 @@ target_link_libraries(${PROJECT_NAME}
 <h1 class="Section4">
 <a class="Section5" href="#" id="configuration-de-vscode">Configuration de VSCode</a>
 </h1>
-<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<div class="Section6"><br>Vous pouvez utiliser l'éditeur <b>VSCode </b>pour développer vos projet C++ à base de la librairie Boost et l'outil CMake.&nbsp;<br><br><div class="GSummary2"><div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#_fichier-de-configuration--settings-json-">Fichier de configuration (settings.json)</a>
 </div>
@@ -177,65 +185,68 @@ target_link_libraries(${PROJECT_NAME}
 <h1 class="Section4">
 <a class="Section5" href="#" id="configuration-des-lanceurs-batch-sous-windows">Configuration des lanceurs Batch sous Windows</a>
 </h1>
-<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<div class="Section6"><br>Vous pouvez utiliser les scripts <b>Batch </b>sous Windows pour faciliter le lancement de vos exécutables construits à partir de la librairie Boost.&nbsp;<br><br><div class="GSummary2"><div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#configuration-des-lanceurs-batch-sous-windows_fichier-batch--cmd-config-bat-">Fichier Batch (cmd-config.bat)</a>
 </div>
 <div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
-<a class="Summary6" href="#configuration-des-lanceurs-batch-sous-windows_fichier-batch--cmd-help-bat-">Fichier Batch (cmd-help.bat)</a>
+<a class="Summary6" href="#configuration-des-lanceurs-batch-sous-windows_fichier-batch--cmd-run-help-bat-">Fichier Batch (cmd-run-help.bat)</a>
 </div>
 <div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
-<a class="Summary6" href="#configuration-des-lanceurs-batch-sous-windows_fichier-batch--cmd-options-none-bat-">Fichier Batch (cmd-options-none.bat)</a>
+<a class="Summary6" href="#configuration-des-lanceurs-batch-sous-windows_fichier-batch--cmd-run-bat-">Fichier Batch (cmd-run.bat)</a>
 </div>
 <div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
-<a class="Summary6" href="#configuration-des-lanceurs-batch-sous-windows_fichier-batch--cmd-options-define-bat-">Fichier Batch (cmd-options-define.bat)</a>
+<a class="Summary6" href="#configuration-des-lanceurs-batch-sous-windows_fichier-batch--cmd-run-options-define-bat-">Fichier Batch (cmd-run-options-define.bat)</a>
 </div>
 <div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
-<a class="Summary6" href="#configuration-des-lanceurs-batch-sous-windows_fichier-batch--cmd-options-help-bat-">Fichier Batch (cmd-options-help.bat)</a>
+<a class="Summary6" href="#configuration-des-lanceurs-batch-sous-windows_fichier-batch--cmd-run-options-help-bat-">Fichier Batch (cmd-run-options-help.bat)</a>
 </div>
 </div><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="configuration-des-lanceurs-batch-sous-windows_fichier-batch--cmd-config-bat-" href="#configuration-des-lanceurs-batch-sous-windows">Fichier Batch (cmd-config.bat)</a>
 </h2><br>On interdit d'afficher le contenu du script.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
 @echo off
 ...</pre><br>On initialise les paramètres du script.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
-set "root=..\..\.."
-set "program_name=program_options_short"
-set "config_mode=Debug"
-set "program_dir=%root%\build\src\%program_name%\%config_mode%"
-set "setup=%program_name%.exe"
-...</pre><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="configuration-des-lanceurs-batch-sous-windows_fichier-batch--cmd-help-bat-" href="#configuration-des-lanceurs-batch-sous-windows">Fichier Batch (cmd-help.bat)</a>
-</h2><br>On lance le programme avec l'option (--help).&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
 @echo off
-call config/cmd-config.bat
+set "root_dir=..\..\.."
+set "program_name=program_options_base"
+set "config_mode=Debug"
+set "build_dir=%root_dir%\build"
+set "program_dir=%root_dir%\build\src\%program_name%\%config_mode%"
+set "setup=%program_name%.exe"
+set cmake_exe="C:\Program Files\CMake\bin\cmake.exe"
+...</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="configuration-des-lanceurs-batch-sous-windows_fichier-batch--cmd-run-help-bat-" href="#configuration-des-lanceurs-batch-sous-windows">Fichier Batch (cmd-run-help.bat)</a>
+</h2><br>On lance le programme avec l'option (help).&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+@echo off
+call cmd-config.bat
 pushd %program_dir%
 %setup% --help
 popd
 ...</pre><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="configuration-des-lanceurs-batch-sous-windows_fichier-batch--cmd-options-none-bat-" href="#configuration-des-lanceurs-batch-sous-windows">Fichier Batch (cmd-options-none.bat)</a>
+<a class="Title2" id="configuration-des-lanceurs-batch-sous-windows_fichier-batch--cmd-run-bat-" href="#configuration-des-lanceurs-batch-sous-windows">Fichier Batch (cmd-run.bat)</a>
 </h2><br>On lance le programme sans aucune option.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
 @echo off
-call config/cmd-config.bat
+call cmd-config.bat
 pushd %program_dir%
 %setup%
 popd
 ...</pre><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="configuration-des-lanceurs-batch-sous-windows_fichier-batch--cmd-options-define-bat-" href="#configuration-des-lanceurs-batch-sous-windows">Fichier Batch (cmd-options-define.bat)</a>
+<a class="Title2" id="configuration-des-lanceurs-batch-sous-windows_fichier-batch--cmd-run-options-define-bat-" href="#configuration-des-lanceurs-batch-sous-windows">Fichier Batch (cmd-run-options-define.bat)</a>
 </h2><br>On lance le programme avec toutes les options.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
 @echo off
-call config/cmd-config.bat
+call cmd-config.bat
 pushd %program_dir%
 %setup% --oranges 5 --apples 10
 popd
 ...</pre><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="configuration-des-lanceurs-batch-sous-windows_fichier-batch--cmd-options-help-bat-" href="#configuration-des-lanceurs-batch-sous-windows">Fichier Batch (cmd-options-help.bat)</a>
+<a class="Title2" id="configuration-des-lanceurs-batch-sous-windows_fichier-batch--cmd-run-options-help-bat-" href="#configuration-des-lanceurs-batch-sous-windows">Fichier Batch (cmd-run-options-help.bat)</a>
 </h2><br>On lance le programme avec toutes les options y compris l'option (help).<br><br><pre class="GCode1 Code1 AceCode" data-mode="batchfile" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
 @echo off
-call config/cmd-config.bat
+call cmd-config.bat
 pushd %program_dir%
 %setup% --oranges 5 --apples 10 --help
 popd
@@ -248,7 +259,7 @@ popd
 <h1 class="Section4">
 <a class="Section5" href="#" id="utilisation-de-boost-program-options">Utilisation de Boost Program Options</a>
 </h1>
-<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<div class="Section6"><br>Vous pouvez utiliser la librairie <b>Boost Program Options</b> pour gérer les options de vos programmes C++.&nbsp;<br><br><div class="GSummary2"><div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#utilisation-de-boost-program-options_utilisation-de-base">Utilisation de base</a>
 </div>
@@ -268,10 +279,10 @@ popd
 </div>
 </div><br><h3 class="GTitle2 Title3">
 <a class="Title4" id="utilisation-de-boost-program-options_utilisation-de-base_programme-c----main-cpp-" href="#utilisation-de-boost-program-options_utilisation-de-base">Programme C++ (main.cpp)</a>
-</h3><br>On inclut les fichiers d'entête Boost.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+</h3><br>On inclut les fichiers d'entête.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
 #include &lt;boost/program_options.hpp&gt;
 #include &lt;iostream&gt;
-...</pre><br>On définit les raccourcis des espaces des noms Boost.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+...</pre><br>On définit les raccourcis des espaces des noms.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
 namespace opt = boost::program_options;
 ...</pre><br>On crée le module de description des options du programme.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
 int main(int argc, char **argv)
@@ -356,10 +367,10 @@ All options:
 </div>
 </div><br><h3 class="GTitle2 Title3">
 <a class="Title4" id="utilisation-de-boost-program-options_utilisation-des-options-courtes_programme-c----main-cpp-" href="#utilisation-de-boost-program-options_utilisation-des-options-courtes">Programme C++ (main.cpp)</a>
-</h3><br>On inclut les fichiers d'entête Boost.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+</h3><br>On inclut les fichiers d'entête.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
 #include &lt;boost/program_options.hpp&gt;
 #include &lt;iostream&gt;
-...</pre><br>On définit les raccourcis des espaces des noms Boost.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+...</pre><br>On définit les raccourcis des espaces des noms.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
 namespace opt = boost::program_options;
 ...</pre><br>On crée le module de description des options du programme.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
 int main(int argc, char **argv)
@@ -483,6 +494,311 @@ All options:
   --name arg                your name
   -a [ --apples ] arg (=10) apples that you have
   --help                    produce help message
+...</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="utilisation-de-boost-any">Utilisation de Boost Any</a>
+</h1>
+<div class="Section6"><br>Vous pouvez utiliser le type de donnée (<b>Boost Any</b>) pour stocker n'importe quel type de donnée dans vos projets C++.
+<br><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#utilisation-de-boost-any_utilisation-de-base">Utilisation de base</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#utilisation-de-boost-any_utilisation-d-une-base-de-donnees">Utilisation d'une base de données</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="utilisation-de-boost-any_utilisation-de-base" href="#utilisation-de-boost-any">Utilisation de base</a>
+</h2><br><div class="GSummary3"><div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#utilisation-de-boost-any_utilisation-de-base_programme-c----main-cpp-">Programme C++ (main.cpp)</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#utilisation-de-boost-any_utilisation-de-base_resultat-des-tests">Résultat des Tests</a>
+</div>
+</div><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="utilisation-de-boost-any_utilisation-de-base_programme-c----main-cpp-" href="#utilisation-de-boost-any_utilisation-de-base">Programme C++ (main.cpp)</a>
+</h3><br>On inclut les fichiers d'entête.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+#include &lt;boost/any.hpp&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+...</pre><br>On crée la liste de données de types quelconques.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+int main(int argc, char **argv)
+{
+    std::vector&lt;boost::any&gt; some_values;
+    ...
+    return 0 ;
+}
+...</pre><br>On stocke les données de types quelconques.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+int main(int argc, char **argv)
+{
+    ...
+    some_values.push_back(10);
+    const char *c_str = "Hello there!";
+    some_values.push_back(c_str);
+    some_values.push_back(std::string("Wow!"));
+    ...
+}
+...</pre><br>On récupère la référence sur la dernière donnée de la liste de données.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+int main(int argc, char **argv)
+{
+    ...
+    std::string &amp;s = boost::any_cast&lt;std::string &amp;&gt;(some_values.back());
+    ...
+}
+...</pre><br>On modifie et on affiche la dernière donnée pour vérifier le pointeur de référence.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+int main(int argc, char **argv)
+{
+    ...
+    s += " That is great!\n";
+    std::cout &lt;&lt; s;
+    std::cout &lt;&lt; boost::any_cast&lt;std::string &amp;&gt;(some_values.back());
+    ...
+}
+...</pre><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="utilisation-de-boost-any_utilisation-de-base_resultat-des-tests" href="#utilisation-de-boost-any_utilisation-de-base">Résultat des Tests</a>
+</h3><br>On lance le programme.<br><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+setup.exe
+...
+Wow! That is great!
+Wow! That is great!
+...
+Le pointeur de référence fonctionne correctement.
+...</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="utilisation-de-boost-any_utilisation-d-une-base-de-donnees" href="#utilisation-de-boost-any">Utilisation d'une base de données</a>
+</h2><br><div class="GSummary3"><div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#utilisation-de-boost-any_utilisation-d-une-base-de-donnees_programme-c----main-cpp-">Programme C++ (main.cpp)</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#utilisation-de-boost-any_utilisation-d-une-base-de-donnees_resultat-des-tests">Résultat des Tests</a>
+</div>
+</div><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="utilisation-de-boost-any_utilisation-d-une-base-de-donnees_programme-c----main-cpp-" href="#utilisation-de-boost-any_utilisation-d-une-base-de-donnees">Programme C++ (main.cpp)</a>
+</h3><br>On inclut les fichiers d'entête.<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+#include &lt;boost/any.hpp&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;typeinfo&gt;
+#include &lt;algorithm&gt;
+#include &lt;functional&gt;
+#include &lt;iostream&gt;
+...</pre><br>On crée les raccourcis de types.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+using cell_t = boost::any;
+using db_row_t = std::vector&lt;cell_t&gt;;
+...</pre><br>On crée la fonction de lecture d'une ligne de données.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+db_row_t get_row(const char *query)
+{
+    std::cout &lt;&lt; "Executing query: " &lt;&lt; query &lt;&lt; std::endl;
+    db_row_t row;
+    row.push_back(10);
+    row.push_back(10.1f);
+    row.push_back(std::string("hello again"));
+    return row;
+}
+...</pre><br>On crée le foncteur pour réaliser la somme des données numériques.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+struct db_sum : public std::function&lt;void(cell_t)&gt;
+{
+private:
+    double &amp;sum_;
+
+public:
+    explicit db_sum(double &amp;sum)
+        : sum_(sum)
+    {
+    }
+
+    void operator()(const cell_t &amp;value)
+    {
+        const std::type_info &amp;ti = value.type();
+        if (ti == typeid(int))
+        {
+            sum_ += boost::any_cast&lt;int&gt;(value);
+        }
+        else if (ti == typeid(float))
+        {
+            sum_ += boost::any_cast&lt;float&gt;(value);
+        }
+    }
+};
+...</pre><br>On récupère la ligne de données.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+int main(int argc, char **argv)
+{
+    db_row_t row = get_row("Query: Give me some row, please.");
+    ...
+    return 0 ;
+}
+...</pre><br>On réalise la somme des données numériques.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+int main(int argc, char **argv)
+{
+    ...
+    double res = 0.0;
+    std::for_each(row.begin(), row.end(), db_sum(res));
+    std::cout &lt;&lt; "Sum of arithmetic types in database row is: " &lt;&lt; res &lt;&lt; std::endl;
+    ...
+}
+...</pre><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="utilisation-de-boost-any_utilisation-d-une-base-de-donnees_resultat-des-tests" href="#utilisation-de-boost-any_utilisation-d-une-base-de-donnees">Résultat des Tests</a>
+</h3><br>On lance le programme.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+setup.exe
+...
+Executing query: Query: Give me some row, please.
+Sum of arithmetic types in database row is: 20.1
+...</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="utilisation-de-boost-variant">Utilisation de Boost Variant</a>
+</h1>
+<div class="Section6"><br>Vous pouvez utiliser le type de donnée (<b>Boost Variant</b>) pour stocker n'importe quel type de donnée à partir d'une liste de types de données prédéfinis dans vos projets C++.<br><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#utilisation-de-boost-variant_utilisation-de-base">Utilisation de base</a>
+</div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#utilisation-de-boost-variant_utilisation-d-une-base-de-donnees">Utilisation d'une base de données</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="utilisation-de-boost-variant_utilisation-de-base" href="#utilisation-de-boost-variant">Utilisation de base</a>
+</h2><br><div class="GSummary3"><div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#utilisation-de-boost-variant_utilisation-de-base_programme-c----main-cpp-">Programme C++ (main.cpp)</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#utilisation-de-boost-variant_utilisation-de-base_resultat-des-tests">Résultat des Tests</a>
+</div>
+</div><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="utilisation-de-boost-variant_utilisation-de-base_programme-c----main-cpp-" href="#utilisation-de-boost-variant_utilisation-de-base">Programme C++ (main.cpp)</a>
+</h3><br>On inclut les fichiers d'entête.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+#include &lt;boost/variant.hpp&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+#include &lt;iostream&gt;
+...</pre><br>On crée le type liste de types de données quelconques.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+int main(int argc, char **argv)
+{
+    typedef boost::variant&lt;int, const char *, std::string&gt; my_var_t;
+    ...
+    return 0 ;
+}
+...</pre><br>On crée la liste de données de types quelconques.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+int main(int argc, char **argv)
+{
+    ...
+    std::vector&lt;my_var_t&gt; some_values;
+    ...
+}
+...</pre><br>On stocke les données de types quelconques parmi la liste de types.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+int main(int argc, char **argv)
+{
+    ...
+    some_values.push_back(10);
+    some_values.push_back("Hello there!");
+    some_values.push_back(std::string("Wow!"));
+    ...
+}
+...</pre><br>On récupère la référence sur la dernière donnée de la liste de données.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+int main(int argc, char **argv)
+{
+    ...
+    s += " That is great!\n";
+    std::cout &lt;&lt; s;
+    std::cout &lt;&lt; boost::get&lt;std::string&gt;(some_values.back());
+    ...
+}
+...</pre><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="utilisation-de-boost-variant_utilisation-de-base_resultat-des-tests" href="#utilisation-de-boost-variant_utilisation-de-base">Résultat des Tests</a>
+</h3><br>On lance le programme.<br><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+setup.exe
+...
+Wow! That is great!
+Wow! That is great!
+...
+Le pointeur de référence fonctionne correctement.
+...</pre><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="utilisation-de-boost-variant_utilisation-d-une-base-de-donnees" href="#utilisation-de-boost-variant">Utilisation d'une base de données</a>
+</h2><br><div class="GSummary3"><div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#utilisation-de-boost-variant_utilisation-d-une-base-de-donnees_programme-c----main-cpp-">Programme C++ (main.cpp)</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#utilisation-de-boost-variant_utilisation-d-une-base-de-donnees_resultat-des-tests">Résultat des Tests</a>
+</div>
+</div><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="utilisation-de-boost-variant_utilisation-d-une-base-de-donnees_programme-c----main-cpp-" href="#utilisation-de-boost-variant_utilisation-d-une-base-de-donnees">Programme C++ (main.cpp)</a>
+</h3><br>On inclut les fichiers d'entête.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+#include &lt;boost/variant.hpp&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;string&gt;
+...</pre><br>On crée les raccourcis de types.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+using cell_t = boost::variant&lt;int, float, std::string&gt;;
+using db_row_t = std::vector&lt;cell_t&gt;;
+...</pre><br>On crée la fonction de lecture d'une ligne de données.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+db_row_t get_row(const char *query)
+{
+    std::cout &lt;&lt; "Executing query: " &lt;&lt; query &lt;&lt; std::endl;
+    db_row_t row;
+    row.push_back(10);
+    row.push_back(10.1f);
+    row.push_back("hello again");
+    return row;
+}
+...</pre><br>On crée le foncteur pour réaliser la somme des données numériques.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+struct db_sum_visitor : public boost::static_visitor&lt;double&gt;
+{
+    double operator()(int value) const
+    {
+        return value;
+    }
+    double operator()(float value) const
+    {
+        return value;
+    }
+    double operator()(const std::string &amp;value) const
+    {
+        return 0.0;
+    }
+};
+...</pre><br>On récupère la ligne de données.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+int main(int argc, char **argv)
+{
+    db_row_t row = get_row("Query: Give me some row, please.");
+    ...
+    return 0 ;
+}
+...</pre><br>On réalise la somme des données numériques.&nbsp;<br><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+int main(int argc, char **argv)
+{
+    ...
+    double res = 0.0;
+    for (db_row_t::const_iterator it = row.begin(), end = row.end(); it != end; ++it)
+    {
+        res += boost::apply_visitor(db_sum_visitor(), *it);
+    }
+    std::cout &lt;&lt; "Sum of arithmetic types in database row is: " &lt;&lt; res &lt;&lt; std::endl;
+    ...
+}
+...</pre><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="utilisation-de-boost-variant_utilisation-d-une-base-de-donnees_resultat-des-tests" href="#utilisation-de-boost-variant_utilisation-d-une-base-de-donnees">Résultat des Tests</a>
+</h3><br>On lance le programme.<br><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+setup.exe
+...
+Executing query: Query: Give me some row, please.
+Sum of arithmetic types in database row is: 20.1
 ...</pre><br></div>
 </div>
 </div>
