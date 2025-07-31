@@ -106,6 +106,7 @@ class GMenu extends GObject
         // tutoriels/c++
         $lObj2 = $this->addMenu("tutoriels", "C++", "C++", "", $lObj);
         $this->addMenu("tutoriels", "Références Boost", "Références Boost", "/home/tutoriels/cpp/references-boost", $lObj2);
+        $this->addMenu("tutoriels", "Références DDS", "Références DDS", "/home/tutoriels/cpp/references-dds", $lObj2);
         // Références QML
         $this->addMenu("tutoriels", "Références QML", "Références QML", "/home/tutoriels/cpp/references-qml", $lObj2);
         //
