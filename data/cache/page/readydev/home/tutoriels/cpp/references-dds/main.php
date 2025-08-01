@@ -35,6 +35,10 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#operations-sur-la-demo">Opérations sur la démo</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#suite">### Suite</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
@@ -1089,6 +1093,21 @@ ApplicationWindow {
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">Puis on vide le contenu du composant (TextField, id, publish_message).</div>
 </div><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="operations-sur-la-demo">Opérations sur la démo</a>
+</h1>
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#operations-sur-la-demo_demo-sur-linkedin">Démo sur LinkedIn</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="operations-sur-la-demo_demo-sur-linkedin" href="#operations-sur-la-demo">Démo sur LinkedIn</a>
+</h2><br>Accédez à la démo sur LinkedIn.<br><br><a class="GLink3 Link4" style=" color: lime;" href="https://www.linkedin.com/posts/tia-gerard-kesse_c-r%C3%A9f%C3%A9rence-dds-data-distribution-service-activity-7356852342345850881-7Tua?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAABOftRsB0Rh0MlSyRYweX14f_pNxyDgEm70" target="_blank">https://www.linkedin.com/posts/tia-gerard-kesse_c-r%C3%A9f%C3%A9rence-dds-data-distribution-service-activity-7356852342345850881-7Tua?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAABOftRsB0Rh0MlSyRYweX14f_pNxyDgEm70</a><br><br></div>
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
