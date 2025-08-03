@@ -5,7 +5,7 @@
 </div>
 <div class="Parallax5" style="background-color: rgb(128, 51, 0);"><br><b>DDS (Data Distribution Service)</b>&nbsp;est un middleware réseau qui simplifie la programmation réseau complexe. Il implémente un modèle de publication-abonnement pour l'envoi et la réception de données, d'événements et de commandes entre les noeuds. Les noeuds producteurs d'informations (éditeurs) créent des « sujets » (par exemple, température, localisation, pression) et publient des « échantillons ».
 
-<br><br>Dans ce tutoriel, vous apprendrez à communiquer des données à travers le réseau <b>DDS </b>fournit par la librairie <b>RTI Context</b> dans un environnement <b>C++</b> interfacé avec la librairie <b>Qt/QML</b>.&nbsp;<br><br><div class="GSummary1"><div class="GSummary11 Summary1">
+<br><br>Dans ce tutoriel, vous apprendrez à communiquer des données à travers le réseau <b>DDS </b>fourni par la librairie <b>RTI Context</b> dans un environnement <b>C++</b> interfacé avec la librairie <b>Qt/QML</b>.&nbsp;<br><br><div class="GSummary1"><div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#operations-sur-les-definitions">Opérations sur les définitions</a>
 </div>
