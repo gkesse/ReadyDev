@@ -41,10 +41,6 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#operations-sur-le-code-source">Opérations sur le code source</a>
 </div>
-<div class="GSummary11 Summary1">
-<i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#suite">### Suite</a>
-</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -1111,7 +1107,7 @@ ApplicationWindow {
 </div>
 </div><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="operations-sur-la-demo_demo-sur-linkedin" href="#operations-sur-la-demo">Démo sur LinkedIn</a>
-</h2><br>Regarder la démo sur LinkedIn.<br><br><a class="GLink3 Link4" style=" color: lime;" href="https://www.linkedin.com/posts/tia-gerard-kesse_c-r%C3%A9f%C3%A9rence-dds-data-distribution-service-activity-7356852342345850881-7Tua?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAABOftRsB0Rh0MlSyRYweX14f_pNxyDgEm70" target="_blank">https://www.linkedin.com/posts/tia-gerard-kesse_c-r%C3%A9f%C3%A9rence-dds-data-distribution-service-activity-7356852342345850881-7Tua?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAABOftRsB0Rh0MlSyRYweX14f_pNxyDgEm70</a><br><br></div>
+</h2><br>Voir la démo sur LinkedIn.<br><br><a class="GLink3 Link4" style=" color: lime;" href="https://www.linkedin.com/posts/tia-gerard-kesse_c-r%C3%A9f%C3%A9rence-dds-data-distribution-service-activity-7356852342345850881-7Tua?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAABOftRsB0Rh0MlSyRYweX14f_pNxyDgEm70" target="_blank">https://www.linkedin.com/posts/tia-gerard-kesse_c-r%C3%A9f%C3%A9rence-dds-data-distribution-service-activity-7356852342345850881-7Tua?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAABOftRsB0Rh0MlSyRYweX14f_pNxyDgEm70</a><br><br></div>
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
@@ -1126,22 +1122,7 @@ ApplicationWindow {
 </div>
 </div><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="operations-sur-le-code-source_code-source-sur-github" href="#operations-sur-le-code-source">Code source sur GitHub</a>
-</h2><br>Visualiser le code source sur GitHub.<br><br><a class="GLink3 Link4" style=" color: lime;" href="https://github.com/gkesse/rdv-cpp-qt-qml-dds" target="_blank">https://github.com/gkesse/rdv-cpp-qt-qml-dds</a><br><br></div>
-</div>
-</div>
-</div><br><div class="GSection1 Section1">
-<div class="Section2">
-<div class="Section3">
-<h1 class="Section4">
-<a class="Section5" href="#" id="suite">### Suite</a>
-</h1>
-<div class="Section6"><br><div class="GLink1 Link1">
-<i class="Link2 fa fa-arrow-circle-left"></i>
-<a class="Link3" href="#">Précédent</a>
-</div><div class="GLink1 Link1">
-<i class="Link2 fa fa-arrow-circle-right"></i>
-<a class="Link3" href="#">Suivant</a>
-</div><br></div>
+</h2><br>Voir le code source sur GitHub.<br><br><a class="GLink3 Link4" style=" color: lime;" href="https://github.com/gkesse/rdv-cpp-qt-qml-dds" target="_blank">https://github.com/gkesse/rdv-cpp-qt-qml-dds</a><br><br></div>
 </div>
 </div>
 </div><br>
