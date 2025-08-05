@@ -27,6 +27,14 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#operations-sur-le-programme--c-">Opérations sur le programme (C)</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#operations-sur-la-demo">Opérations sur la démo</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#operations-sur-le-code-source">Opérations sur le code source</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -1034,6 +1042,36 @@ void on_tta_update_tasks() interrupt TTA_INTERRUPT_TIMER_T2
     }
 }
 ...</pre><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="operations-sur-la-demo">Opérations sur la démo</a>
+</h1>
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#operations-sur-la-demo_demo-sur-linkedin">Démo sur LinkedIn</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="operations-sur-la-demo_demo-sur-linkedin" href="#operations-sur-la-demo">Démo sur LinkedIn</a>
+</h2><br>Voir la démo sur LinkedIn.<br><br><a class="GLink3 Link4" style=" color: lime;" href="https://www.linkedin.com/posts/tia-gerard-kesse_c-r%C3%A9f%C3%A9rences-tta-time-triggered-architecture-activity-7358278488631484416-sPiF?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAABOftRsB0Rh0MlSyRYweX14f_pNxyDgEm70" target="_blank">https://www.linkedin.com/posts/tia-gerard-kesse_c-r%C3%A9f%C3%A9rences-tta-time-triggered-architecture-activity-7358278488631484416-sPiF?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAABOftRsB0Rh0MlSyRYweX14f_pNxyDgEm70</a><br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="operations-sur-le-code-source">Opérations sur le code source</a>
+</h1>
+<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#operations-sur-le-code-source_code-source-sur-github">Code source sur GitHub</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="operations-sur-le-code-source_code-source-sur-github" href="#operations-sur-le-code-source">Code source sur GitHub</a>
+</h2><br>Voir le code source sur GitHub.<br><br><a class="GLink3 Link4" style=" color: lime;" href="https://github.com/gkesse/rdv-c-tta-8051-timer-t2" target="_blank">https://github.com/gkesse/rdv-c-tta-8051-timer-t2</a><br><br></div>
 </div>
 </div>
 </div><br>
