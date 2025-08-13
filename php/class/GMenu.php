@@ -166,6 +166,9 @@ class GMenu extends GObject
         // tutoriels/embedsys
         $lObj2 = $this->addMenu("tutoriels", "Système Embarqué", "Système Embarqué", "", $lObj);
         $this->addMenu("tutoriels", "Références TTA", "Références TTA", "/home/tutoriels/embedsys/references-tta", $lObj2);
+        // tutoriels/embedlinux
+        $lObj2 = $this->addMenu("tutoriels", "Linux Embarqué", "Linux Embarqué", "", $lObj);
+        $this->addMenu("tutoriels", "Dev Linux Embarqué Projet Yocto", "Développement Linux Embarqué Projet Yocto", "/home/tutoriels/embedlinux/developpement-linux-embarque-projet-yocto", $lObj2);
         // tutoriels/linux
         $lObj2 = $this->addMenu("tutoriels", "Linux", "Linux", "", $lObj);
         $this->addMenu("tutoriels", "Apprendre Linux", "Apprendre Linux", "/home/tutoriels/linux/cours/apprendre-linux", $lObj2);

@@ -34,6 +34,10 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#embedlinux">Développement Linux Embarqué</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#linux">Commandes Linux</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
@@ -205,6 +209,21 @@
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Références<br>TTA</div></div>
 <div class="Tuto5"><div class="Tuto8">Programmez en<br>C / 8051 / Timer T2 / TTA</div></div>
+</a>
+</div><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="embedlinux">Développement Linux Embarqué</a>
+</h1>
+<div class="Section6"><br><div class="GTuto1 Tuto1">
+<a class="GTuto2 Tuto2" href="/home/tutoriels/embedlinux/developpement-linux-embarque-projet-yocto">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Développement Linux Embarqué Projet Yocto</div></div>
+<div class="Tuto5"><div class="Tuto8">Développez avec<br>Yocto / Poky / QEMU</div></div>
 </a>
 </div><br></div>
 </div>
