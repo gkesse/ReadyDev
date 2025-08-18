@@ -40,6 +40,10 @@
 <i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#linux">Commandes Linux</a>
 </div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#vcs">Gestion de versions</a>
+</div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
 <div class="Section3">
@@ -250,4 +254,19 @@
 </a>
 </div><br></div>
 </div>
-</div></div><br>
+</div></div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="vcs">Gestion de versions</a>
+</h1>
+<div class="Section6"><br><div class="GTuto1 Tuto1">
+<a class="GTuto2 Tuto2" href="/home/tutoriels/vcs/git-pour-les-professionnels">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Git<br>pour les Professionnels</div></div>
+<div class="Tuto5"><div class="Tuto8">Gérez vos versions<br>Git / Gitk / alias / commits / branches</div></div>
+</a>
+</div><br></div>
+</div>
+</div>
+</div><br>

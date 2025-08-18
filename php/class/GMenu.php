@@ -172,6 +172,9 @@ class GMenu extends GObject
         // tutoriels/linux
         $lObj2 = $this->addMenu("tutoriels", "Linux", "Linux", "", $lObj);
         $this->addMenu("tutoriels", "Apprendre Linux", "Apprendre Linux", "/home/tutoriels/linux/cours/apprendre-linux", $lObj2);
+        // tutoriels/vcs
+        $lObj2 = $this->addMenu("tutoriels", "Gestion de versions", "Gestion de versions", "", $lObj);
+        $this->addMenu("tutoriels", "Git pour les Professionnels", "Git pour les Professionnels", "/home/tutoriels/vcs/git-pour-les-professionnels", $lObj2);
         // tutoriels/divers
         $lObj2 = $this->addMenu("tutoriels", "Divers", "Divers", "", $lObj, false);
         $this->addMenu("tutoriels", "Etudier en France", "Etudier en France", "/home/tutoriels/divers/etudier-en-france", $lObj2, false);
