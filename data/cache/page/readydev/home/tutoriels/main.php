@@ -51,7 +51,11 @@
 <a class="Section5" href="#" id="cpp">Développement C++</a>
 </h1>
 <div class="Section6"><br><div class="GTuto1 Tuto1">
-<a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/references-boost">
+<a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/vtk-vision-traitement-images-3d">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">VTK<br>Vision Traitement d'images 3D</div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez en<br>C++ / VTK / Image / 3D</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/references-boost">
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Références<br>Boost</div></div>
 <div class="Tuto5"><div class="Tuto8">Programmez en<br>C++</div></div>
@@ -66,7 +70,7 @@
 </a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/application/systeme-navigation-gps">
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Système de navigation par <br>GPS</div></div>
-<div class="Tuto5"><div class="Tuto8">Programmez en<br>C++ / Qt</div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez en<br>C++ / Qt / GPS</div></div>
 </a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/cours/apprendre-cpp">
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Apprendre<br>C++</div></div>
