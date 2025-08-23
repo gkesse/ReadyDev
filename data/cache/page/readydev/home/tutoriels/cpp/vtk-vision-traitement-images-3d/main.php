@@ -1081,7 +1081,7 @@ Method Plot
 <h1 class="Section4">
 <a class="Section5" href="#" id="video">Vidéo</a>
 </h1>
-<div class="Section6"><br>Voir la vidéo sur LinkedIn:<br><br><a class="GLink3 Link4" style=" color: lime;" href="https://www.linkedin.com/posts/tia-gerard-kesse_s02-e01-git-pour-les-professionnels-activity-7363383117006479360-mho1?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAABOftRsB0Rh0MlSyRYweX14f_pNxyDgEm70" target="_blank">https://www.linkedin.com/posts/tia-gerard-kesse_s02-e01-git-pour-les-professionnels-activity-7363383117006479360-mho1?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAABOftRsB0Rh0MlSyRYweX14f_pNxyDgEm70</a><br><br></div>
+<div class="Section6"><br>Voir la vidéo sur LinkedIn:<br><br><a class="GLink3 Link4" style=" color: lime;" href="https://www.linkedin.com/posts/tia-gerard-kesse_s03-e01-vision-et-traitement-dimages-3d-activity-7364946515531816960-98e-?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAABOftRsB0Rh0MlSyRYweX14f_pNxyDgEm70" target="_blank">https://www.linkedin.com/posts/tia-gerard-kesse_s03-e01-vision-et-traitement-dimages-3d-activity-7364946515531816960-98e-?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAABOftRsB0Rh0MlSyRYweX14f_pNxyDgEm70</a><br><br></div>
 </div>
 </div>
 </div><br>
