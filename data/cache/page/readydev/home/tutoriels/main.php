@@ -57,7 +57,7 @@
 <div class="Section6"><br><div class="GTuto1 Tuto1">
 <a class="GTuto2 Tuto2" href="/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c">
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
-<div class="Tuto4"><div class="Tuto7">Programmation réseau pratique avec C</div></div>
+<div class="Tuto4"><div class="Tuto7">Programmation Réseau Pratique</div></div>
 <div class="Tuto5"><div class="Tuto8">Programmez en<br>C / Socket / TCP / TLS / HTTP</div></div>
 </a>
 </div><br></div>
@@ -70,7 +70,11 @@
 <a class="Section5" href="#" id="cpp">Développement C++</a>
 </h1>
 <div class="Section6"><br><div class="GTuto1 Tuto1">
-<a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/vtk-vision-traitement-images-3d">
+<a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/structures-donnees-principes-conception-algorithmes">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Structures données Conception Algorithmes</div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez en<br>C++ / STL / Algo / Listes / Piles / Tas / Graphes</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/vtk-vision-traitement-images-3d">
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">VTK<br>Vision Traitement d'images 3D</div></div>
 <div class="Tuto5"><div class="Tuto8">Programmez en<br>C++ / VTK / Image / 3D</div></div>
