@@ -59,13 +59,17 @@
 </div>
 </div><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="listes--piles-et-files-d-attente_tableau-dynamique" href="#listes--piles-et-files-d-attente">Tableau dynamique</a>
-</h2><br>Nous souhaitons implémenter un tableau dynamique avec les caractéristiques suivantes.<br><br><div class="GBullet1 Bullet1">
+</h2><br>Nous souhaitons implémenter un tableau dynamique à partir d'une application avec les caractéristiques suivantes.<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">Le tableau dynamique sera construit sur la pile avec une taille fixe.</div>
+<div class="Bullet3">Le tableau dynamique sera construit sur la pile avec une taille et un type quelconque.</div>
 </div>
 <div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
 <div class="Bullet3">Le tableau dynamique disposera d'itérateur afin de parcourir automatiquement les données du tableau.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">On utilisera le tableau dynamique pour gérer une liste d'étudiants.</div>
 </div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include &lt;iostream&gt;
 #include &lt;sstream&gt;
 #include &lt;algorithm&gt;
@@ -218,31 +222,35 @@ int main(int argc, char **argv)
 {
     // construction d'un tableau dynamique
     dynamic_array&lt;student&gt; class1(2);
-    class1[0] = {"Name1", 1};
-    class1[1] = {"Name2", 2};
+    class1[0] = {"Pierre", 10};
+    class1[1] = {"Paul", 20};
     std::cout &lt;&lt; "(1): " &lt;&lt; class1 &lt;&lt; std::endl;
-    //(1): {{Name1, 1}, {Name2, 2}}
+    // (1): {{Pierre, 10}, {Paul, 20}}
 
     // construction par copie d'un tableau dynamique
     auto class2 = class1;
     std::cout &lt;&lt; "(2): " &lt;&lt; class2 &lt;&lt; std::endl;
-    //(2): {{Name1, 1}, {Name2, 2}}
+    // (2): {{Pierre, 10}, {Paul, 20}}
 
     // fusion de deux tableaux dynamiques
     auto class3 = class1 + class2;
     std::cout &lt;&lt; "(3): " &lt;&lt; class3 &lt;&lt; std::endl;
-    //(3): {{Name1, 1}, {Name2, 2}, {Name1, 1}, {Name2, 2}}
+    // (3): {{Pierre, 10}, {Paul, 20}, {Pierre, 10}, {Paul, 20}}
 
     return 0;
 }</pre><br>Résultat des tests.<br><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
-(1): {{Name1, 1}, {Name2, 2}}
-(2): {{Name1, 1}, {Name2, 2}}
-(3): {{Name1, 1}, {Name2, 2}, {Name1, 1}, {Name2, 2}}
+(1): {{Pierre, 10}, {Paul, 20}}
+(2): {{Pierre, 10}, {Paul, 20}}
+(3): {{Pierre, 10}, {Paul, 20}, {Pierre, 10}, {Paul, 20}}
 ...</pre><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="listes--piles-et-files-d-attente_tableau-polyvalent" href="#listes--piles-et-files-d-attente">Tableau polyvalent</a>
-</h2><br>Nous souhaitons implémenter un constructeur de tableau polyvalent avec les caractéristiques suivantes.<br><br><div class="GBullet1 Bullet1">
+</h2><br>Nous souhaitons implémenter un constructeur de tableau polyvalent à partir d'une application avec les caractéristiques suivantes.<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">Le constructeur permettra de créer un tableau pouvant stocker des données de différents types avec une taille quelconque.</div>
+<div class="Bullet3">Le constructeur permettra de créer un tableau pouvant stocker des données de différents types et de taille quelconque.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">On utilisera le constructeur de tableau polyvalent pour créer un tableau contenant des données de types (bool, char, int, float) sous condition que les données soient convertibles en un seul type (float).</div>
 </div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include &lt;iostream&gt;
 #include &lt;array&gt;
 #include &lt;type_traits&gt;
@@ -300,13 +308,13 @@ int main(int argc, char **argv)
 (2): {11, 21, 98, 31.5, 1, 12, 22, 99}
 ...</pre><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="listes--piles-et-files-d-attente_suppression-conditionnelle-d-une-liste-d-objets" href="#listes--piles-et-files-d-attente">Suppression conditionnelle d'une liste d'objets</a>
-</h2><br>Nous souhaitons mettre en oeuvre la suppression conditionnelle d'un ensemble d'objets à partir d'une liste. Pour cela, nous créons une application avec les caractéristiques suivantes.<br><br><div class="GBullet1 Bullet1">
+</h2><br>Nous souhaitons mettre en oeuvre la suppression conditionnelle d'un ensemble d'objets à partir d'une liste depuis une application avec les caractéristiques suivantes.<br><br><div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">L'application permettant de gérer une liste de citoyens.</div>
+<div class="Bullet3">L'application permettra de gérer une liste de citoyens.</div>
 </div>
 <div class="GBullet1 Bullet1">
 <i class="Bullet2 fa fa-check-square-o"></i>
-<div class="Bullet3">L'application permettant de supprimer des citoyens en fonction de leur âge.</div>
+<div class="Bullet3">L'application permettra de supprimer des citoyens en fonction de leur âge.</div>
 </div><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include &lt;iostream&gt;
 #include &lt;forward_list&gt;
 
