@@ -2,22 +2,26 @@
 //===============================================
 namespace php\class;
 //===============================================
-class GAdmin extends GObject {
+class GAdmin extends GObject
+{
     //===============================================
     private $m_title = "";
     private $m_module = "";
     private $m_method = "";
     private $m_key = "";
     //===============================================
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
     }
     //===============================================
-    public function clone() {
+    public function clone()
+    {
         return new GAdmin();
     }
     //===============================================
-    public function setObj($_obj) {
+    public function setObj($_obj)
+    {
         parent::setObj($_obj);
         $this->m_title = $_obj->m_title;
         $this->m_module = $_obj->m_module;
@@ -25,7 +29,8 @@ class GAdmin extends GObject {
         $this->m_key = $_obj->m_key;
     }
     //===============================================
-    public function isEqual($_obj) {
+    public function isEqual($_obj)
+    {
         $lEqualOk = true;
         $lEqualOk &= ($this->m_title == $_obj->m_title);
         $lEqualOk &= ($this->m_module == $_obj->m_module);
@@ -34,7 +39,8 @@ class GAdmin extends GObject {
         return $lEqualOk;
     }
     //===============================================
-    public function addMenu($_module, $_method, $_title, $_obj) {
+    public function addMenu($_module, $_method, $_title, $_obj)
+    {
         $lObj = new GAdmin();
         $lObj->m_index = $this->size() + 1;
         $lObj->m_parentIndex = $_obj->m_index;
@@ -45,23 +51,29 @@ class GAdmin extends GObject {
         return $lObj;
     }
     //===============================================
-    public function toMenu($_parent) {
+    public function toMenu($_parent)
+    {
         echo sprintf("<div class='Block19'>\n");
         echo $this->toMenuItem($_parent);
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function toMenuItem($_parent) {
+    public function toMenuItem($_parent)
+    {
         $lMenuI = $this->findMap($_parent);
-        for($i = 1; $i <= $lMenuI->size(); $i++) {
+        for ($i = 1; $i <= $lMenuI->size(); $i++) {
             $lMenuI->loadFromMap($i);
             $lMenuJ = $this->findMap($lMenuI->getIndex());
-            
-            if(!$lMenuJ->size()) {
-                echo sprintf("<div class='Block20' onclick='call_server(\"%s\", \"%s\", this, \"%s\")'>%s</div>\n",
-                        $lMenuI->m_module, $lMenuI->m_method, $lMenuI->m_key, $lMenuI->m_title);
-            }
-            else {
+
+            if (!$lMenuJ->size()) {
+                echo sprintf(
+                    "<div class='Block20' onclick='call_server(\"%s\", \"%s\", this, \"%s\")'>%s</div>\n",
+                    $lMenuI->m_module,
+                    $lMenuI->m_method,
+                    $lMenuI->m_key,
+                    $lMenuI->m_title
+                );
+            } else {
                 echo sprintf("<div class='Block21'>\n");
                 echo sprintf("<div class='Block20'>%s <i class='Block25 fa fa-caret-down'></i></div>\n", $lMenuI->m_title);
                 echo sprintf("<div class='Block22'>\n");
@@ -72,25 +84,29 @@ class GAdmin extends GObject {
         }
     }
     //===============================================
-    public function toMenuBarWrite($_menu, $_parentIndex) {
+    public function toMenuBarWrite($_menu, $_parentIndex)
+    {
         $lMenuI = $_menu->findMap($_parentIndex);
-        for($i = 1; $i <= $lMenuI->size(); $i++) {
+        for ($i = 1; $i <= $lMenuI->size(); $i++) {
             $lMenuI->loadFromMap($i);
             $lMenuJ = $_menu->findMap($lMenuI->getIndex());
-            
-            if(!$_parentIndex) {
+
+            if (!$_parentIndex) {
                 echo sprintf("<div class='Block26'>\n");
                 echo sprintf("<button class='Block29'>%s</button>\n", $lMenuI->getTitle());
                 echo sprintf("<div class='Block27'>\n");
                 $this->toMenuBarWrite($_menu, $lMenuI->getIndex());
                 echo sprintf("</div>\n");
                 echo sprintf("</div>\n");
-            }
-            else if(!$lMenuJ->size()) {
-                echo sprintf("<div class='Block32' onclick='call_server(\"%s\", \"%s\", this, \"%s\")'>%s</div>\n",
-                        $lMenuI->getModule(), $lMenuI->getMethod(), $lMenuI->getData(), $lMenuI->getTitle());
-            }
-            else {
+            } else if (!$lMenuJ->size()) {
+                echo sprintf(
+                    "<div class='Block32' onclick='call_server(\"%s\", \"%s\", this, \"%s\")'>%s</div>\n",
+                    $lMenuI->getModule(),
+                    $lMenuI->getMethod(),
+                    $lMenuI->getData(),
+                    $lMenuI->getTitle()
+                );
+            } else {
                 echo sprintf("<div class='Block31'>\n");
                 echo sprintf("<div class='Block28'>%s <i class='Block25 fa fa-caret-down'></i></div>\n", $lMenuI->getTitle());
                 echo sprintf("<div class='Block30'>\n");
@@ -101,11 +117,13 @@ class GAdmin extends GObject {
         }
     }
     //===============================================
-    public function run() {
+    public function run()
+    {
         $this->runEditor();
     }
     //===============================================
-    public function runEditor() {                
+    public function runEditor()
+    {
         echo sprintf("<div class='Block15'>\n");
         echo sprintf("<div class='Block1'>\n");
         echo sprintf("<div class='Block2'>\n");
@@ -126,22 +144,24 @@ class GAdmin extends GObject {
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
-        
     }
     //===============================================
-    public function toEditorTitle() {
+    public function toEditorTitle()
+    {
         echo sprintf("<h1 class='Block3' id='editeur_page_html'>\n");
         echo sprintf("<a class='Block4' href='#'>Editeur de page HTML</a>\n");
         echo sprintf("</h1>\n");
     }
     //===============================================
-    public function toEditorTab() {
+    public function toEditorTab()
+    {
         echo sprintf("<div class='Block6' id='EditorTab'>\n");
         $this->toMenuBar();
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function toMenuBar() {
+    public function toMenuBar()
+    {
         $lMenu = new GMenuJs();
         //===============================================
         // modules
@@ -161,7 +181,8 @@ class GAdmin extends GObject {
         $this->toMenuBarWrite($lMenu, 0);
     }
     //===============================================
-    public function toEditorHome() {
+    public function toEditorHome()
+    {
         echo sprintf("<div class='Block9 EditorTabCtn' id='EditorTab0'>\n");
         // title
         echo sprintf("<h2 class='Block10'>ReadyHTML | Accueil</h2>\n");
@@ -176,7 +197,8 @@ class GAdmin extends GObject {
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function toEditorHomeForm() {
+    public function toEditorHomeForm()
+    {
         echo sprintf("<b>ReadyHTML</b> est un éditeur de pages HTML.<br/>\n");
         echo sprintf("Il permet d'éditer les pages HTML du site ReadyDev.\n");
         echo sprintf("Cela accélère l'ajout de nouveaux composants\n");
@@ -185,7 +207,8 @@ class GAdmin extends GObject {
         echo sprintf("<br/>Produit par <b>Gérard KESSE</b>.\n");
     }
     //===============================================
-    public function toEditorPage() {
+    public function toEditorPage()
+    {
         echo sprintf("<div class='Block9 EditorTabCtn' id='EditorTab1'>\n");
         echo sprintf("<div class='Block16'>\n");
         // title
@@ -210,7 +233,8 @@ class GAdmin extends GObject {
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function toEditorPageMenu() {
+    public function toEditorPageMenu()
+    {
         $lMenu = new GAdmin();
         //===============================================
         // actions
@@ -228,7 +252,8 @@ class GAdmin extends GObject {
         $lMenu->toMenu(0);
     }
     //===============================================
-    public function toEditorPageForm() {
+    public function toEditorPageForm()
+    {
         echo sprintf("<div class='Form1'>\n");
         // address
         echo sprintf("<div class='Form2' id='EditorPageAddress'>\n");
@@ -258,7 +283,8 @@ class GAdmin extends GObject {
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function toEditorEdition() {
+    public function toEditorEdition()
+    {
         echo sprintf("<div class='Block9 EditorTabCtn' id='EditorTab2'>\n");
         echo sprintf("<div class='Block16'>\n");
         // title
@@ -283,7 +309,8 @@ class GAdmin extends GObject {
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function toEditorEditionMenu() {
+    public function toEditorEditionMenu()
+    {
         $lMenu = new GAdmin();
         //===============================================
         // texte
@@ -323,6 +350,11 @@ class GAdmin extends GObject {
         //===============================================
         $lObj = $lMenu->addMenu("", "", "Image", $this);
         $lMenu->addMenu("editor", "delete_image_1", "Supprimer", $lObj);
+        //===============================================
+        // video
+        //===============================================
+        $lObj = $lMenu->addMenu("", "", "Vidéo", $this);
+        $lMenu->addMenu("editor", "delete_video_1", "Supprimer", $lObj);
         //===============================================
         // fichier
         //===============================================
@@ -492,7 +524,8 @@ class GAdmin extends GObject {
         $lMenu->toMenu(0);
     }
     //===============================================
-    public function toEditorEditionForm() {
+    public function toEditorEditionForm()
+    {
         echo sprintf("<div class='Block24 GEndEditor'>\n");
         echo sprintf("<div id='EditorEditionPage' class='Block23 GEndEditor' contentEditable='true'\n");
         echo sprintf("onkeydown='call_server(\"editor\", \"keydown_event_edition\", event)'\n");
@@ -500,7 +533,8 @@ class GAdmin extends GObject {
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function toEditorCode() {
+    public function toEditorCode()
+    {
         echo sprintf("<div class='Block9 EditorTabCtn' id='EditorTab3'>\n");
         echo sprintf("<div class='Block16'>\n");
         // title
@@ -525,7 +559,8 @@ class GAdmin extends GObject {
         echo sprintf("</div>\n");
     }
     //===============================================
-    public function toEditorCodeMenu() {
+    public function toEditorCodeMenu()
+    {
         $lMenu = new GAdmin();
         //===============================================
         // actions
@@ -539,11 +574,11 @@ class GAdmin extends GObject {
         $lMenu->toMenu(0);
     }
     //===============================================
-    public function toEditorCodeForm() {
+    public function toEditorCodeForm()
+    {
         echo sprintf("<textarea id='EditorCodePage' class='Block23'\n");
         echo sprintf("placeholder='Code source de la page...'></textarea>\n");
     }
     //===============================================
 }
 //===============================================
-?>

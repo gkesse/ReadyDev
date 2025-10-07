@@ -74,10 +74,10 @@
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Structures données Conception Algorithmes</div></div>
 <div class="Tuto5"><div class="Tuto8">Programmez en<br>C++ / STL / Algo / Listes / Piles / Tas / Graphes</div></div>
-</a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/vtk-vision-traitement-images-3d">
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/vtk">
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
-<div class="Tuto4"><div class="Tuto7">VTK<br>Vision Traitement d'images 3D</div></div>
-<div class="Tuto5"><div class="Tuto8">Programmez en<br>C++ / VTK / Image / 3D</div></div>
+<div class="Tuto4"><div class="Tuto7">Visualisation<br>Rendu de scène 3D VTK<br></div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez en<br>C++ / Qt / VTK / OpenGL / 3D</div></div>
 </a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/references-boost">
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Références<br>Boost</div></div>

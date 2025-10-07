@@ -6,14 +6,15 @@ class GAjax extends GObject {
     }
     //===============================================
     isValid(_data) {
-        if(_data != "") {
+        if (_data != "") {
             var lDom = new GCode();
-            if(!lDom.loadXml(_data)) {
+            if (!lDom.loadXml(_data)) {
                 this.m_dataLogs.addError("La réponse n'est pas du XML valide.");
                 return false;
-            }
-            else if(lDom.m_node.nodeName != "rdv") {
-                this.m_dataLogs.addError("Le noeud racine de la réponse XML n'est pas valide.");
+            } else if (lDom.m_node.nodeName != "rdv") {
+                this.m_dataLogs.addError(
+                    "Le noeud racine de la réponse XML n'est pas valide."
+                );
                 return false;
             }
         }
@@ -21,12 +22,12 @@ class GAjax extends GObject {
     }
     //===============================================
     call(_module, _method, _params, _callback, _type) {
-        if(_module == "") {
-            this.m_logs.addError("Le module est obligatoire.");            
+        if (_module == "") {
+            this.m_logs.addError("Le module est obligatoire.");
             return false;
         }
-        if(_method == "") {
-            this.m_logs.addError("La méthode est obligatoire.");            
+        if (_method == "") {
+            this.m_logs.addError("La méthode est obligatoire.");
             return false;
         }
         var lDom = new GCode();
@@ -52,29 +53,28 @@ class GAjax extends GObject {
     }
     //===============================================
     callServer(_data, _callback) {
-        if(_data == "") {
-            this.m_logs.addError("La donnée est obligatoire.");            
+        if (_data == "") {
+            this.m_logs.addError("La donnée est obligatoire.");
             return false;
         }
         var lLoader = new GLoader();
         var lXhttp = new XMLHttpRequest();
         lXhttp.onreadystatechange = function() {
-            if(this.readyState == 4 && this.status == 200) {
+            if (this.readyState == 4 && this.status == 200) {
                 var lData = this.responseText;
                 var lLog = new GLog();
                 var lAjax = new GAjax();
-                if(!lAjax.isValid(lData)) {
+                if (!lAjax.isValid(lData)) {
                     lLog.addDataSrv(lData);
-                }
-                else {
+                } else {
                     lLog.deserialize(lData);
                 }
-                if(_callback) _callback(lData, !lLog.hasErrors());
+                if (_callback) _callback(lData, !lLog.hasErrors());
                 lLog.showLogsX();
                 lLoader.onCloseLoader();
             }
-        }
-        
+        };
+
         var lMethod = "POST";
         var lUrl = "/php/req/server.php";
         var lAsync = true;
@@ -82,7 +82,10 @@ class GAjax extends GObject {
         var lPassword = null;
 
         lXhttp.open(lMethod, lUrl, lAsync, lUser, lPassword);
-        lXhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        lXhttp.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+        );
 
         var lReq = "";
         lReq += sprintf("req=%s", _data);

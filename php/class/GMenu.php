@@ -109,7 +109,11 @@ class GMenu extends GObject
         // tutoriels/c++
         $lObj2 = $this->addMenu("tutoriels", "C++", "C++", "", $lObj);
         $this->addMenu("tutoriels", "Structures de données et principes de conception d'algorithmes en C++", "Structures données principes conception algorithmes C++", "/home/tutoriels/cpp/structures-donnees-principes-conception-algorithmes", $lObj2);
-        $this->addMenu("tutoriels", "Vision Traitement d'images 3D VTK", "Vision et Traitement d'images 3D avec VTK en C++", "/home/tutoriels/cpp/vtk-vision-traitement-images-3d", $lObj2);
+        //
+        $lObj3 = $this->addMenu("tutoriels", "Visualisation 3D avec VTK", "Visualisation 3D en C++ avec VTK", "/home/tutoriels/cpp/vtk", $lObj2);
+        $this->addMenu("tutoriels", "Visualisation 3D avec VTK", "rdvVTK - Visualisation 3D en C++ avec VTK", "/home/tutoriels/cpp/vtk/visualisation-3d-vtk", $lObj3, false);
+        //
+        $this->addMenu("tutoriels", "Vision Traitement d'images 3D VTK", "Vision et Traitement d'images 3D avec VTK en C++", "/home/tutoriels/cpp/vtk-vision-traitement-images-3d", $lObj2, false);
         $this->addMenu("tutoriels", "Références Boost", "Références Boost", "/home/tutoriels/cpp/references-boost", $lObj2);
         $this->addMenu("tutoriels", "Références DDS", "Références DDS", "/home/tutoriels/cpp/references-dds", $lObj2);
         // Références QML
