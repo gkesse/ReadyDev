@@ -175,9 +175,9 @@ class GEditor extends GObject {
     //===============================================
     toPasteVideo() {
         var lHtml = "";
-        lHtml += "<div class='GVideo1 Video1'>";
-        lHtml += "<video width='480' height='auto' controls>";
-        lHtml += "<source>";
+        lHtml += "<div class='GVideo1 Video1'>&nbsp;";
+        lHtml += "<video width='500' height='auto' controls>";
+        lHtml += "<source preload='none'>";
         lHtml += "</video>";
         lHtml += "</div>";
         return lHtml;
