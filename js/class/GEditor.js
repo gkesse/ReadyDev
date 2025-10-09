@@ -585,11 +585,13 @@ class GEditor extends GObject {
     }
     //===============================================
     toUpdateEditionPage() {
+        const oTools = base.Tools.Instance();
         this.toUpdateSummary1();
         this.toUpdateSummary2();
         this.toUpdateSummary3();
         this.toUpdateTitle1();
         this.toUpdateTitle2();
+        oTools.updateDataImageVideo();
     }
     //===============================================
     toUpdateSummary1() {
@@ -1499,33 +1501,51 @@ class GEditor extends GObject {
     }
     //===============================================
     onPasteEventEdition(_obj, _data) {
-        var lEvent = _obj || window.event;
-        var lClipboardData = lEvent.clipboardData || window.clipboardData;
-        // [info] : on récupère le texte pour vérifier si on a un texte ou une iamge
-        var lData = lClipboardData.getData("text");
-        // [info] : on vérifie si on a un texte
-        if (lData != "") {
-            if (this.isFilter()) {
+        const version = "v2";
+
+        if (version == "v1") {
+            var lEvent = _obj || window.event;
+            var lClipboardData = lEvent.clipboardData || window.clipboardData;
+            // [info] : on récupère le texte pour vérifier si on a un texte ou une iamge
+            var lData = lClipboardData.getData("text");
+            // [info] : on vérifie si on a un texte
+            if (lData != "") {
+                if (this.isFilter()) {
+                    lEvent.preventDefault();
+                    document.execCommand("insertHTML", false, lData);
+                }
+            } else {
+                // [info] : sinon on a une image
                 lEvent.preventDefault();
-                document.execCommand("insertHTML", false, lData);
-            }
-        } else {
-            // [info] : sinon on a une image
-            lEvent.preventDefault();
-            if (!lEvent.clipboardData) return false;
-            var lItems = lEvent.clipboardData.items;
-            if (!lItems) return false;
-            for (var i = 0; i < lItems.length; i++) {
-                if (lItems[i].type.startsWith("image/")) {
-                    var lBlob = lItems[i].getAsFile();
-                    this.onPasteImageCB(lBlob);
-                } else if (lItems[i].type.startsWith("video/")) {
-                    var lBlob = lItems[i].getAsFile();
-                    this.onPasteVideoCB(lBlob);
+                if (!lEvent.clipboardData) return false;
+                var lItems = lEvent.clipboardData.items;
+                if (!lItems) return false;
+                for (var i = 0; i < lItems.length; i++) {
+                    if (lItems[i].type.startsWith("image/")) {
+                        var lBlob = lItems[i].getAsFile();
+                        this.onPasteImageCB(lBlob);
+                    } else if (lItems[i].type.startsWith("video/")) {
+                        var lBlob = lItems[i].getAsFile();
+                        this.onPasteVideoCB(lBlob);
+                    }
                 }
             }
-        }
+        } else if (version == "v2") {
+            const event = _obj;
+            const clipboardData = event.clipboardData.items[0];
+            const type = clipboardData.type;
 
+            if (type.startsWith("text/")) {
+                event.preventDefault();
+                this.#onPasteTextV2(event.clipboardData);
+            } else if (type.startsWith("image/")) {
+                event.preventDefault();
+                this.#onPasteImageV2(clipboardData);
+            }
+            else if (type.startsWith("video/")) {
+                this.#onPasteVideoV2(clipboardData);
+            }
+        }
         return true;
     }
     //===============================================
@@ -1555,6 +1575,103 @@ class GEditor extends GObject {
         };
 
         lFileReader.readAsDataURL(_videoBlob);
+    }
+    //===============================================
+    #onPasteTextV2(_clipboardData) {
+        const data = _clipboardData.getData("text/plain");
+
+        if (!data) {
+            return;
+        }
+        if (this.isFilter()) {
+            document.execCommand("insertHTML", false, data);
+        }
+    }
+    //===============================================
+    #onPasteImageV2(_clipboardData) {
+        const oTools = base.Tools.Instance();
+
+        const blob = _clipboardData.getAsFile();
+
+        const fileReader = new FileReader();
+
+        fileReader.onload = function(e) {
+            const image = e.target.result;
+
+            const root = document.querySelector("#EditorPageRoot").value;
+            const path = document.querySelector("#EditorPagePath").value;
+            const filename = oTools.timestamp();
+
+            const params = {};
+            params["root"] = root;
+            params["path"] = path;
+            params["filename"] = filename;
+            params["name"] = blob.name;
+            params["image"] = image;
+            params["size"] = blob.size;
+            params["mimetype"] = blob.type;
+
+            const reqJSON = oTools.reqJson("clipboard", "paste", params);
+
+            const ajax = new callback.Ajax();
+            ajax.post(reqJSON, _data => {
+                if (!oTools.hasRepData(_data, "data", "source")) {
+                    oTools.showRepMessage(_data);
+                    return;
+                }
+
+                const source = oTools.repData(_data, "data", "source");
+                const node = oTools.createNode(oTools.divImage());
+                const img = node.firstElementChild;
+                img.src = source;
+                document.execCommand("insertHTML", false, node.outerHTML);
+            });
+        };
+
+        fileReader.readAsDataURL(blob);
+    }
+    //===============================================
+    #onPasteVideoV2(_clipboardData) {
+        const oTools = base.Tools.Instance();
+
+        const blob = _clipboardData.getAsFile();
+
+        const fileReader = new FileReader();
+
+        fileReader.onload = function(e) {
+            const image = e.target.result;
+
+            const root = document.querySelector("#EditorPageRoot").value;
+            const path = document.querySelector("#EditorPagePath").value;
+            const filename = oTools.timestamp();
+
+            const params = {};
+            params["root"] = root;
+            params["path"] = path;
+            params["filename"] = filename;
+            params["name"] = blob.name;
+            params["video"] = image;
+            params["size"] = blob.size;
+            params["mimetype"] = blob.type;
+
+            const reqJSON = oTools.reqJson("clipboard", "paste", params);
+
+            const ajax = new callback.Ajax();
+            ajax.post(reqJSON, _data => {
+                if (!oTools.hasRepData(_data, "data", "source")) {
+                    oTools.showRepMessage(_data);
+                    return;
+                }
+
+                const source = oTools.repData(_data, "data", "source");
+                const node = oTools.createNode(oTools.divVideo());
+                const video = node.firstElementChild;
+                video.dataset.src = source;
+                document.execCommand("insertHTML", false, node.outerHTML);
+            });
+        };
+
+        fileReader.readAsDataURL(blob);
     }
     //===============================================
     onOpenEditionTab(_obj, _data) {

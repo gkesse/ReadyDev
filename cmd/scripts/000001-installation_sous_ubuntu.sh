@@ -51,7 +51,7 @@ echo "" > /home/gkesse/Programs/ReadyCode/app/html/p01/index.html
 <VirtualHost *:80>
     ServerAdmin tiakagerard@hotmail.com
     ServerName readydev.ovh
-    ServerAlias www.readydev.ovh    
+    ServerAlias www.readydev.ovh
 	DocumentRoot /home/gkesse/Programs/ReadyCode/app/html/p01
 	ErrorLog /home/gkesse/Programs/ReadyCode/app/html/p01/logs/error.log
 	CustomLog /home/gkesse/Programs/ReadyCode/app/html/p01/logs/access.log combined
@@ -67,7 +67,7 @@ echo "" > /home/gkesse/Programs/ReadyCode/app/html/p01/index.html
 <VirtualHost *:80>
     ServerAdmin tiakagerard@hotmail.com
     ServerName readydev.ovh
-    ServerAlias www.readydev.ovh    
+    ServerAlias www.readydev.ovh
 	DocumentRoot /home/gkesse/Programs/ReadyDev
 	ErrorLog /home/gkesse/Programs/ReadyDev/logs/error.log
 	CustomLog /home/gkesse/Programs/ReadyDev/logs/access.log combined
@@ -78,7 +78,7 @@ echo "" > /home/gkesse/Programs/ReadyCode/app/html/p01/index.html
     <VirtualHost *:443>
         ServerAdmin tiakagerard@hotmail.com
         ServerName readydev.ovh
-        ServerAlias www.readydev.ovh    
+        ServerAlias www.readydev.ovh
         DocumentRoot /home/gkesse/Programs/ReadyDev
         ErrorLog /home/gkesse/Programs/ReadyDev/logs/error.log
         CustomLog /home/gkesse/Programs/ReadyDev/logs/access.log combined
@@ -102,7 +102,7 @@ echo "" > /home/gkesse/Programs/ReadyCode/app/html/p01/index.html
     <VirtualHost *:443>
         ServerAdmin tiakagerard@hotmail.com
         ServerName readydev.ovh
-        ServerAlias www.readydev.ovh    
+        ServerAlias www.readydev.ovh
         DocumentRoot /home/gkesse/Programs/ReadyDev
         ErrorLog /home/gkesse/Programs/ReadyDev/logs/error.log
         CustomLog /home/gkesse/Programs/ReadyDev/logs/access.log combined
@@ -110,7 +110,7 @@ echo "" > /home/gkesse/Programs/ReadyCode/app/html/p01/index.html
         Include /etc/letsencrypt/options-ssl-apache.conf
         SSLCertificateFile /etc/letsencrypt/live/readydev.ovh/fullchain.pem
         SSLCertificateKeyFile /etc/letsencrypt/live/readydev.ovh/privkey.pem
-        
+
         <Directory /home/gkesse/Programs/ReadyDev>
             Options All
             AllowOverride All
@@ -146,8 +146,8 @@ https://readydev.ovh/
 #================================================
 cd /home/gkesse/Programs/ReadyCode/app/cpp/unix/unix/
 . envs.sh
-export "GPROJECT_ENV=TEST"
-export "GPROJECT_ENV=PROD"
+export "PROJECT_ENV=TEST"
+export "PROJECT_ENV=PROD"
 tree $GPROJECT_DATA
 cat /home/gkesse/Programs/ReadyCode/app/cpp/unix/unix/Makefile.cmd.mak
 cat /home/gkesse/Programs/ReadyCode/app/cpp/unix/unix/envs.sh
@@ -176,7 +176,7 @@ StartLimitIntervalSec=0
 [Service]
 Environment="GPROJECT_DATA=/home/gkesse/Programs/ReadyCode/app/cpp/unix/code/src/data"
 Environment="GPROJECT_TMP=/home/gkesse/Programs/ReadyCode/app/cpp/unix/code/src/data/tmp"
-Environment="GPROJECT_ENV=PROD"
+Environment="PROJECT_ENV=PROD"
 Type=simple
 Restart=always
 RestartSec=1

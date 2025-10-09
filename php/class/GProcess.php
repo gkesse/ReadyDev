@@ -126,6 +126,7 @@ class GProcess extends GObject
         echo sprintf("<script src='/libs/ace/v1.21.0/src-min-noconflict/ace.js'></script>\n");
         echo sprintf("<script src='/libs/mathjax/v3.2.2/es5/tex-mml-chtml.js' async></script>\n");
         //
+        echo sprintf("<script src='/js/base/Tools.js'></script>\n");
         echo sprintf("<script src='/js/functions.js'></script>\n");
         //
         echo sprintf("<script src='/js/class/GLog.js'></script>\n");
@@ -134,6 +135,7 @@ class GProcess extends GObject
         echo sprintf("<script src='/js/class/GCode.js'></script>\n");
         echo sprintf("<script src='/js/class/GObject.js'></script>\n");
         echo sprintf("<script src='/js/class/GLoader.js'></script>\n");
+        echo sprintf("<script src='/js/callback/Ajax.js'></script>\n");
         echo sprintf("<script src='/js/class/GAjax.js'></script>\n");
         echo sprintf("<script src='/js/class/GParallax.js'></script>\n");
         echo sprintf("<script src='/js/class/GManager.js'></script>\n");
