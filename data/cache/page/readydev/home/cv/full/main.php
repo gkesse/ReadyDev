@@ -18,8 +18,8 @@
 <h1 class="Section4">
 <a class="Section5" href="#" id="cv">CV</a>
 </h1>
-<div class="Section6"><br><div class="GPdf1 Pdf1" data-pdf="/data/file/cv/KESSE_Gerard_CV_Detaille.pdf">
-<iframe class="Pdf2" src="https://docs.google.com/viewer?url=https://github.com/gkesse/ReadyDev/raw/2.0/data/file/cv/KESSE_Gerard_CV_Detaille.pdf&amp;embedded=true" frameborder="0">
+<div class="Section6"><br><div class="GPdf1 Pdf1" data-pdf="/data/file/cv/gkesse-developpeur-cpp-qt-sql-frontend-backend.pdf">
+<iframe class="Pdf2" src="https://docs.google.com/viewer?url=https://github.com/gkesse/ReadyDev/raw/2.0/data/file/cv/gkesse-developpeur-cpp-qt-sql-frontend-backend.pdf&amp;embedded=true" frameborder="0">
 </iframe>
 </div><br></div>
 </div>
