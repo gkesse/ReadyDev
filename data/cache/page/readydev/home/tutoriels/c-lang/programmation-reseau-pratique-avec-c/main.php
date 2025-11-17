@@ -1,12 +1,12 @@
 <div class="GAccess1 Access1">
 <a class="GAccess2 Access2" href="/home">Accueil</a><i class="Access3 fa fa-chevron-right"></i><a class="GAccess2 Access2" href="/home/tutoriels">Tutoriels</a><i class="Access3 fa fa-chevron-right"></i><a class="GAccess2 Access2" href="/home/tutoriels#c-lang">C</a><i class="Access3 fa fa-chevron-right"></i><a class="GAccess2 Access2" href="/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c">Programmation réseau pratique avec C</a></div><div class="GParallax1 Parallax1">
 <div class="Parallax2" style="background-image: url(&quot;/data/img/defaults/binary.png&quot;);">
-<div class="Parallax3"><a href="#" class="Parallax4">Programmation réseau pratique avec C</a></div>
+<div class="Parallax3"><a href="#" class="Parallax4">Mise en oeuvre d'une communication réseau en C/C++ avec les sockets</a></div>
 </div>
-<div class="Parallax5" style="background-color: rgb(128, 51, 0);"><br>La programmation <b>réseau </b>est un sujet passionnant, mais aussi très profond ; il se passe beaucoup de choses à de nombreux niveaux. Certains langages de programmation masquent ces abstractions. Avec le langage <b>Python</b>, par exemple, vous pouvez télécharger une page web entière en une seule ligne de code. Ce n'est pas le cas en <b>C</b> ! En <b>C</b>, pour télécharger une page web, il est essentiel de tout connaître. Il faut connaître les <b>sockets</b>, le protocole <b>TCP </b>(Transfer Control Protocol) et <b>HTTP</b>. En programmation réseau en <b>C</b>, rien n'est caché.<br><br>Le <b>C</b> est un excellent langage pour apprendre la programmation <b>réseau</b>. Non seulement parce qu'il permet de voir tous les détails, mais aussi parce que les <b>systèmes d'exploitation</b> les plus répandus utilisent tous des noyaux écrits en <b>C</b>. Aucun autre langage ne vous offre un accès aussi performant que le <b>C</b>. En <b>C</b>, tout est sous votre contrôle : vous pouvez organiser vos <b>structures de données</b> exactement comme vous le souhaitez, gérer la <b>mémoire </b>avec précision et même vous tirer une balle dans le pied comme bon vous semble.<br><br>En matière de programmation <b>réseau</b>, on ne peut pas se contenter de l'approche « <b>ça marche, c'est suffisant</b> » de la programmation par coïncidence. Il faut utiliser le raisonnement.<br><br>Dans ce tutoriel, je m'attache à aborder la programmation <b>réseau </b>de manière moderne et sécurisée. Les programmes d'exemple sont soigneusement conçus pour fonctionner avec <b>IPv4 </b>et <b>IPv6</b>, et sont tous écrits de manière <b>portable </b>et indépendante du <b>système d'exploitation</b>, dans la mesure du possible.<br><br>Dès qu'il existe un risque d'erreur de <b>mémoire</b>, je m'efforce d'en tenir compte et de le signaler. La <b>sécurité </b>est trop souvent négligée. Je suis convaincu que la <b>sécurité </b>est importante et qu'elle doit être intégrée au système dès le départ. C'est pourquoi, en plus d'enseigner les bases du <b>réseau</b>, ce tutoriel aborde en détail les <b>protocoles sécurisés</b>, tels que <b>TLS</b>. J'espère que vous prendrez autant de plaisir à lire ce tutoriel.
+<div class="Parallax5" style="background-color: rgb(128, 51, 0);"><br>La programmation <b>réseau </b>est un sujet passionnant, mais aussi très profond ; il se passe beaucoup de choses à de nombreux niveaux. Certains langages de programmation masquent ces abstractions. Avec le langage <b>Python</b>, par exemple, vous pouvez télécharger une page web entière en une seule ligne de code. Ce n'est pas le cas en <b>C</b> ! En <b>C</b>, pour télécharger une page web, il est essentiel de tout connaître. Il faut connaître les <b>sockets</b>, le protocole <b>TCP </b>(Transfer Control Protocol) et <b>HTTP</b>. En programmation réseau en <b>C</b>, rien n'est caché.<br><br>Le <b>C</b> est un excellent langage pour apprendre la programmation <b>réseau</b>. Non seulement parce qu'il permet de voir tous les détails, mais aussi parce que les <b>systèmes d'exploitation</b> les plus répandus utilisent tous des noyaux écrits en <b>C</b>. Aucun autre langage ne vous offre un accès aussi performant que le <b>C</b>. En <b>C</b>, tout est sous votre contrôle : vous pouvez organiser vos <b>structures de données</b> exactement comme vous le souhaitez, gérer la <b>mémoire </b>avec précision et même vous tirer une balle dans le pied comme bon vous semble.<br><br>En matière de programmation <b>réseau</b>, on ne peut pas se contenter de l'approche « <b>ça marche, c'est suffisant</b> » de la programmation par coïncidence. Il faut utiliser le raisonnement.<br><br>Dans ce document, nous nous attachons à aborder la programmation <b>réseau </b>de manière moderne et sécurisée. Les programmes d'exemple sont soigneusement conçus pour fonctionner avec <b>IPv4 </b>et <b>IPv6</b>, et sont tous écrits de manière <b>portable </b>et indépendante du <b>système d'exploitation</b>, dans la mesure du possible.<br><br>Dès qu'il existe un risque d'erreur de <b>mémoire</b>, nous nous efforçons d'en tenir compte et de le signaler. La <b>sécurité </b>est trop souvent négligée. Nous sommes convaincus que la <b>sécurité </b>est importante et qu'elle doit être intégrée au système dès le départ. C'est pourquoi, en plus d'enseigner les bases du <b>réseau</b>, ce document aborde en détail les <b>protocoles sécurisés</b>, tels que <b>TLS</b>. Nous espérons que vous prendrez autant de plaisir à lire ce document.
 &nbsp;<br><br><div class="GSummary1"><div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#contenu-de-ce-tutoriel">Contenu de ce tutoriel</a>
+<a class="Summary3" href="#contenu-de-ce-document">Contenu de ce document</a>
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
@@ -20,15 +20,64 @@
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="contenu-de-ce-tutoriel">Contenu de ce tutoriel</a>
+<a class="Section5" href="#" id="contenu-de-ce-document">Contenu de ce document</a>
 </h1>
-<div class="Section6"><br>La section, « <b>Introduction aux réseaux et aux protocoles</b> », présente les concepts importants liés aux réseaux. Cette section inclut des exemples de programmes pour déterminer votre adresse IP de manière pragmatique.<br><br>La section, « <b>Se familiariser avec les API Socket</b> », présente les API de programmation de sockets et vous permet de créer votre premier programme réseau : un petit serveur web.
-
-La section, « Présentation approfondie des connexions TCP », se concentre sur la programmation des sockets TCP. Cette section contient des exemples de programmes développés pour les côtés client et serveur.<br><br>La section, « <b>Établissement de connexions UDP</b> », aborde la programmation avec les sockets UDP (User Datagram Protocol).
-
-La section, « Résolution de noms d'hôtes et DNS », explique comment les noms d'hôtes sont traduits en adresses IP. Cette section présente un exemple de programme permettant d'effectuer des recherches DNS manuelles à l'aide d'UDP.<br><br>La section, « <b>Création d'un client web simple</b> », présente HTTP, le protocole qui alimente les sites web. Nous nous lançons directement dans la création d'un client HTTP en C.<br><br>La section, « <b>Construire un serveur web simple</b> », décrit comment construire un serveur web entièrement fonctionnel en C. Ce programme est capable de servir un site web statique à n'importe quel navigateur web moderne.<br><br>La section, « <b>Mettre votre programme en route pour l'envoi d'e-mails</b> », décrit le protocole SMTP (Simple Mail Transfer Protocol), qui gère les e-mails. Dans cette section, nous développons un programme permettant d'envoyer des e-mails sur Internet.<br><br>La section, « <b>Charger des pages web sécurisées avec HTTPS et OpenSSL</b> », explore TLS, le protocole qui sécurise les pages web. Dans cette section, nous développons un client HTTPS capable de télécharger des pages web en toute sécurité.<br><br>La section, « <b>Implémentation d'un serveur web sécurisé</b> », poursuit le thème de la sécurité et explore la construction d'un serveur web HTTPS sécurisé.<br><br>La section, « <b>Établissement de connexions SSH avec libssh</b> », poursuit le thème du protocole sécurisé. L'utilisation de Secure Shell (SSH) est abordée pour se connecter à un serveur distant, exécuter des commandes et télécharger des fichiers en toute sécurité.<br><br>La section, « <b>Surveillance et sécurité du réseau</b> », présente les outils et techniques utilisés pour tester les fonctionnalités du réseau, résoudre les problèmes et intercepter les protocoles de communication non sécurisés.<br><br>La section, « <b>Conseils et pièges de la programmation par socket</b> », détaille TCP et aborde de nombreux cas limites importants liés à la programmation par socket. Les techniques abordées sont précieuses pour créer des programmes réseau robustes.<br><br>La section, « <b>Programmation Web pour l'Internet des Objets</b> », offre un aperçu de la conception et de la programmation des applications de l'Internet des Objets (IoT).
-
-L'annexe, « Réponses aux questions », répond aux questions de compréhension posées à la fin de chaque section.<br><br>L'annexe, « <b>Configuration de votre compilateur C sous Windows</b> », explique comment configurer l'environnement de développement Windows nécessaire à la compilation de tous les programmes d'exemple de ce tutoriel.<br><br>L'annexe, « <b>Configuration de votre compilateur C sous Linux</b> », fournit les instructions de configuration pour préparer votre ordinateur Linux à compiler tous les programmes d'exemple de ce tutoriel.<br><br>L'annexe, « <b>Configuration de votre compilateur C sous macOS</b> », explique étape par étape comment configurer votre système macOS afin qu'il puisse compiler tous les programmes d'exemple de ce tutoriel.<br><br></div>
+<div class="Section6"><br>Nous avons rassemblé dans ce document un ensemble de recettes pratiques pour la mise en oeuvre d'une communication réseau en C/C++ avec les sockets.<br><br><div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Dans la section «&nbsp;<a class="GLink2 Link4" style=" color: lime;" href="#introduction-aux-reseaux-et-aux-protocoles"><b>Introduction aux réseaux et aux protocoles</b></a>&nbsp;», nous présenterons les concepts importants liés aux réseaux. Nous inclurons des exemples de programmes pour déterminer votre adresse IP de manière pragmatique.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Dans la section « <b>Se familiariser avec les API Socket</b> », nous présenterons les API de programmation de sockets et nous vous permettrons de créer votre premier programme réseau : un petit serveur web.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Dans la section « <b>Présentation approfondie des connexions TCP</b> », nous nous concentrerons sur la programmation des sockets TCP. Nous présenterons des exemples de programmes développés pour les côtés client et serveur.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Dans la section « <b>Établissement de connexions UDP</b> », nous aborderons la programmation avec les sockets UDP (User Datagram Protocol).</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Dans la section « <b>Résolution de noms d'hôtes et DNS</b> », nous expliquerons comment les noms d'hôtes sont traduits en adresses IP. Nous présenterons un exemple de programme permettant d'effectuer des recherches DNS manuelles à l'aide d'UDP.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Dans la section « <b>Création d'un client web simple</b> », nous présenterons HTTP, le protocole qui alimente les sites web. Nous nous lancerons directement dans la création d'un client HTTP en C/C++.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Dans la section « <b>Construire un serveur web simple</b> », nous décrirons comment construire un serveur web entièrement fonctionnel en C/C++. Ce programme sera capable de servir un site web statique à partir de n'importe quel navigateur web moderne.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Dans la section « <b>Mettre votre programme en route pour l'envoi d'e-mails</b> », nous décrirons le protocole SMTP (Simple Mail Transfer Protocol), qui gère les e-mails. Nous développerons un programme permettant d'envoyer des e-mails sur Internet.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Dans la section « <b>Charger des pages web sécurisées avec HTTPS et OpenSSL</b> », nous explorerons TLS, le protocole qui sécurise les pages web. Nous développerons un client HTTPS capable de télécharger des pages web en toute sécurité.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Dans la section « <b>Implémentation d'un serveur web sécurisé</b> », nous poursuivrons le thème de la sécurité et explorerons la construction d'un serveur web HTTPS sécurisé.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Dans la section « <b>Établissement de connexions SSH avec libssh</b> », nous poursuivrons le thème du protocole sécurisé. L'utilisation de Secure Shell (SSH) sera abordée pour nous connecter à un serveur distant, exécuter des commandes et télécharger des fichiers en toute sécurité.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Dans la section « <b>Surveillance et sécurité du réseau</b> », nous présenterons les outils et techniques utilisés pour tester les fonctionnalités du réseau, résoudre les problèmes et intercepter les protocoles de communication non sécurisés.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Dans la section « <b>Conseils et pièges de la programmation par socket</b> », nous détaillerons TCP et aborderons de nombreux cas limites importants liés à la programmation par socket. Les techniques abordées seront précieuses pour créer des programmes réseau robustes.</div>
+</div>
+<div class="GBullet1 Bullet1">
+<i class="Bullet2 fa fa-check-square-o"></i>
+<div class="Bullet3">Dans la section « <b>Programmation Web pour l'Internet des Objets</b> », nous offrirons un aperçu de la conception et de la programmation des applications de l'Internet des Objets (IoT).</div>
+</div><br></div>
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
@@ -37,256 +86,280 @@ L'annexe, « Réponses aux questions », répond aux questions de compréhension
 <h1 class="Section4">
 <a class="Section5" href="#" id="introduction-aux-reseaux-et-aux-protocoles">Introduction aux réseaux et aux protocoles</a>
 </h1>
-<div class="Section6"><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<div class="Section6"><br>Nous aborderons le routage du trafic Internet. Nous apprendrons qu'il existe deux versions du protocole Internet : IPv4 et IPv6. Nous découvrirons qu'IPv4 dispose d'un nombre limité d'adresses, et ces adresses s'épuisent. Nous verrons que l'un des principaux avantages d'IPv6 est qu'il offre suffisamment d'espace d'adressage pour que chaque système possède sa propre adresse unique routable publiquement. Nous découvrirons que le nombre limité d'adresses IPv4 est largement compensé par la traduction d'adresses réseau effectuée par les routeurs. Nous montrerons comment détecter votre adresse IP locale à l'aide des utilitaires et des API fournis par le système d'exploitation. Nous découvrirons que les API permettant de lister les adresses IP locales diffèrent sensiblement entre Windows et les systèmes d'exploitation de type Unix.<br><br><div class="GSummary2"><div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
-<a class="Summary6" href="#introduction-aux-reseaux-et-aux-protocoles_determination-des-routeurs-de-transit">Détermination des routeurs de transit</a>
+<a class="Summary6" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-du-routage-du-trafic-reseau">Affichage du routage du trafic réseau</a>
 </div>
 <div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
-<a class="Summary6" href="#introduction-aux-reseaux-et-aux-protocoles_determination-de-l-adresse-ip">Détermination de l'adresse IP</a>
+<a class="Summary6" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-de-l-adresses-ip-locales">Affichage de l'adresses IP locales</a>
 </div>
 <div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
-<a class="Summary6" href="#introduction-aux-reseaux-et-aux-protocoles_determination-de-l-adresse-ip-publique">Détermination de l'adresse IP publique</a>
+<a class="Summary6" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-de-l-adresse-ip-publique">Affichage de l'adresse IP publique</a>
 </div>
 <div class="GSummary21 Summary4">
 <i class="Summary5 fa fa-book"></i>
-<a class="Summary6" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-et-liberation-de-la-librairie-reseau-sous-windows">Initialisation et libération de la librairie réseau sous Windows</a>
-</div>
-<div class="GSummary21 Summary4">
-<i class="Summary5 fa fa-book"></i>
-<a class="Summary6" href="#introduction-aux-reseaux-et-aux-protocoles_determination-de-la-liste-des-cartes-reseau-sous-windows">Détermination de la liste des cartes réseau sous Windows</a>
-</div>
-<div class="GSummary21 Summary4">
-<i class="Summary5 fa fa-book"></i>
-<a class="Summary6" href="#introduction-aux-reseaux-et-aux-protocoles_determination-de-la-liste-des-cartes-reseau-sous-linux">Détermination de la liste des cartes réseau sous Linux</a>
+<a class="Summary6" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets">Initialisation de l'API des sockets</a>
 </div>
 </div><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="introduction-aux-reseaux-et-aux-protocoles_determination-des-routeurs-de-transit" href="#introduction-aux-reseaux-et-aux-protocoles">Détermination des routeurs de transit</a>
-</h2><br><span class="GText2" style="
+<a class="Title2" id="introduction-aux-reseaux-et-aux-protocoles_affichage-du-routage-du-trafic-reseau" href="#introduction-aux-reseaux-et-aux-protocoles">Affichage du routage du trafic réseau</a>
+</h2><br>Nous avons affiché les routeurs entre notre système Windows et un système de destination. Cette opération permet d'identifier les routeurs par lesquels doit transiter une requête en provenance de notre système avant d'atteindre une adresse de destination. Nous avons ouvert un Terminal et avons exécuté la commande d'affichage des routeurs.<br><br><span class="GText2" style="
 color: #00ff00;
-">Nous souhaitons déterminer les routeurs par lesquels transitent les messages sortant de notre machine vers une machine distante (readydev.ovh).</span><br><br>Nous lançons la commande de traçage (tracert) en indiquant la machine de destination (readydev.ovh) sous Windows (Voir Extrait 1 : Ligne 4).<br><br>Nous lançons la commande de traçage (traceroute) en indiquant la machine de destination (readydev.ovh) sous Linux (Voir Extrait 1 : Ligne 8).<br><br><span class="GText2" style="
+">// Terminal</span><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+tracert example.com
+...</pre><br><span class="GText2" style="
 color: #00ff00;
-">Extrait 1 : Affichage des routeurs de transit vers une machine distante</span><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
-Sous WIndows
-...
-&gt; tracert readydev.ovh
-...
-Sous Linux
-...
-$ traceroute readydev.ovh
-...</pre><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="introduction-aux-reseaux-et-aux-protocoles_determination-de-l-adresse-ip" href="#introduction-aux-reseaux-et-aux-protocoles">Détermination de l'adresse IP</a>
-</h2><br><span class="GText2" style="
+">// Terminal</span><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17633646995154950-image.png"></div><br>Nous avons listé les routeurs entre notre système Unix et un système de destination. Cela permet de connaître les routeurs par lesquels doit transiter une requête en provenance de notre système avant d'atteindre une adresse de destination. Nous avons ouvert un Terminal et avons exécuté la commande d'affichage des routeurs.&nbsp;<br><br><span class="GText2" style="
 color: #00ff00;
-">Nous souhaitons déterminer l'adresse IP de notre système.</span><br><br>Nous lançons la commande (ipconfig) pour afficher les adresses IP de nos cartes réseau sous Windows (Voir Extrait 1 : Ligne 4).<br><br>Nous lançons la commande (ifconfig) pour afficher les adresses IP de nos cartes réseau sous Linux (Voir Extrait 1 : Ligne 8). C'est l'ancienne procédure, obsolète aujourd'hui.<br><br>Nous pouvons aussi lancer la commande (ip addr) pour afficher les adresses IP de nos cartes réseau sous Linux (Voir Extrait 1 : Ligne 9). C'est la nouvelle procédure, recommandée.<br><br>Nous lançons la commande (ifconfig) pour afficher les adresses IP de nos cartes réseau sous MacOS (Voir Extrait 1 : Ligne 13).<br><br><span class="GText2" style="
+">// Terminal</span><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+traceroute example.com
+...</pre><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17633649371205783-image.png"></div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="introduction-aux-reseaux-et-aux-protocoles_affichage-de-l-adresses-ip-locales" href="#introduction-aux-reseaux-et-aux-protocoles">Affichage de l'adresses IP locales</a>
+</h2><br>Nous avons affiché les adresses IP locales disponibles sur notre système Windows. L'adresse IP locale permet à un client de notre réseau local d'accéder à notre serveur local. Nous avons ouvert un Terminal et avons exécuté la commande d'affichage des adresses IP.&nbsp;<br><br><span class="GText2" style="
 color: #00ff00;
-">Extrait 1 : Détermination de l'adresse IP</span><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
-&gt; ipconfig
-...
-Sous Linux
-...
-$ ifconfig
-$ ip addr
-...
-Sous MacOS
-...
-$ ifconfig
-...</pre><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="introduction-aux-reseaux-et-aux-protocoles_determination-de-l-adresse-ip-publique" href="#introduction-aux-reseaux-et-aux-protocoles">Détermination de l'adresse IP publique</a>
-</h2><br><span class="GText2" style="
+">// Terminal</span><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+ipconfig
+...</pre><br><span class="GText2" style="
 color: #00ff00;
-">Nous souhaitons déterminer l'adresse IP publique de notre système.</span><br><br>Nous cliquons sur l'un des liens ci-dessous pour afficher l'adresse IP publique de notre machine (Voir Extrait 1 : Ligne 2,3,4).&nbsp;&nbsp;<br><br><span class="GText2" style="
+">// Terminal</span><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17633656068398349-image.png"></div><br>Nous avons affiché les adresses IP locales disponibles sur notre système Unix. L'adresse IP locale permet à un client de notre réseau local d'accéder à notre serveur local. Nous avons ouvert un Terminal et avons exécuté la commande d'affichage des adresses IP.<br><br><span class="GText2" style="
 color: #00ff00;
-">Extrait 1 : Détermination de l'adresse IP</span><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
-- http://api.ipify.org/
-- http://icanhazip.com/
-- http://ifconfig.me/ip
-...</pre><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="introduction-aux-reseaux-et-aux-protocoles_initialisation-et-liberation-de-la-librairie-reseau-sous-windows" href="#introduction-aux-reseaux-et-aux-protocoles">Initialisation et libération de la librairie réseau sous Windows</a>
-</h2><br><span class="GText2" style="
+">// Terminal</span><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+ip a s
+...</pre><br><span class="GText2" style="
 color: #00ff00;
-">Nous souhaitons initialiser et libérer la librairie (Winsock2) chargée de la communication réseau sous notre système Windows à partir d'un programme C.</span><br><br>Nous incluons le fichier d'entête C de la librairie (Winsock2) (Voir Extrait 1 : Ligne 3).<br><br>Nous éditons les liens avec la libraire (Winsock2) à partir de la directive (#pragma comment) en indiquant la librairie (ws2_32.lib) (Voir Extrait 1 : Ligne 5).<br><br>Nous notons que, la directive (#pragma comment) est prise en compte par le compilateur MSVC, mais ignorée par le compilateur MinGW.<br><br>Nous construisons la version de la librairie (Winsock2) à utiliser grâce à la macro (MAKEWORD) en indiquant la version majeur (2) dans le premier argument et la version mineur (2) dans le deuxième argument pour correspondre à la version (2.2) et nous initialisons la libraire (Winsock2) grâce à la fonction (WSAStartup) (Voir Extrait 1 : Ligne 10).<br><br>Nous libérons la mémoire interne allouée par la librairie (Winsock2) grâce à la fonction (WSACleanup) à la fin de l'opération (Voir Extrait 1 : Ligne 16).<br><br><span class="GText2" style="
+">// Terminal</span><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17633656509369307-image.png"></div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="introduction-aux-reseaux-et-aux-protocoles_affichage-de-l-adresse-ip-publique" href="#introduction-aux-reseaux-et-aux-protocoles">Affichage de l'adresse IP publique</a>
+</h2><br>Nous avons affiché l'adresse IP publique de notre interface réseau. L'adresse IP publique permet à un client extérieur à notre réseau local d'accéder à notre serveur local depuis internet grâce à une redirection de port. Nous nous sommes rendus sur la page web d'un service de gestion d'adresse IP publique (<a class="GLink3 Link4" style=" color: lime;" href="https://api.ipify.org/" target="_blank">https://api.ipify.org/</a>) et avons vu afficher notre adresse IP publique.<br><br><span class="GText2" style="
 color: #00ff00;
-">Extrait 1 : Initialisation et libération de la librairie (Winsock2)</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
-#include &lt;stdio.h&gt;
-#include &lt;winsock2.h&gt;
-
-#pragma comment(lib, "ws2_32.lib")
-
-int main()
-{
-    WSADATA d;
-    if (WSAStartup(MAKEWORD(2, 2), &amp;d))
-    {
-        printf("Failed to initialize.\n");
-        return -1;
-    }
-
-    WSACleanup();
-    printf("Ok.\n");
-    return 0;
-}
-...</pre><br>Nous démarrons la compilation grâce à la commande (gcc) en indiquant le fichier source (main.c) et le nom du fichier exécutable (setup.exe) et nous éditions les liens avec la librairie (Winsock2) pour le compilateur MinGW sous Windows (Voir Extrait 2 : Ligne 2).<br><br><span class="GText2" style="
+">// Navigateur web</span><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+https://api.ipify.org/
+...</pre><br><span class="GText2" style="
 color: #00ff00;
-">Extrait 2 : Compilation et édition des liens avec la librairie (Winsock2)</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
-&gt; gcc main.c -o setup.exe -lws2_32
-...</pre><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="introduction-aux-reseaux-et-aux-protocoles_determination-de-la-liste-des-cartes-reseau-sous-windows" href="#introduction-aux-reseaux-et-aux-protocoles">Détermination de la liste des cartes réseau sous Windows</a>
-</h2><br><span class="GText2" style="
+">// Navigateur web</span><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17633656948059824-image.png"></div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets" href="#introduction-aux-reseaux-et-aux-protocoles">Initialisation de l'API des sockets</a>
+</h2><br>Nous avons écrit un programme en C/C++ permettant d'initialiser et de nettoyer l'API des sockets, portable sur les systèmes Windows, Linux ou MacOS. Même si cette opération est uniquement obligatoire pour les systèmes Windows, nous devons, néanmoins, assurer la portabilité du code source sur les autres systèmes afin d'offrir une même interface pour tous les systèmes.&nbsp;<br><br><div class="GSummary3"><div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_prerequis-sur-la-portabilite-du-code-source">Prérequis sur la portabilité du code source</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_prerequis-sur-l-initialisation-de-l-api-des-sockets">Prérequis sur l'initialisation de l'API des sockets</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_prerequis-sur-le-nettoyage-de-l-api-des-sockets">Prérequis sur le nettoyage de l'API des sockets</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_prerequis-sur-l-automatisation-du-nettoyage-de-l-api-des-sockets">Prérequis sur l'automatisation du nettoyage de l'API des sockets</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_developpement-du-programme-principal">Développement du programme principal</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_developpement-du-manager-de-l-api-des-sockets">Développement du manager de l'API des sockets</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_developpement-de-la-configuration-cmake">Développement de la configuration CMake</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_test-sur-l-initialisation-de-l-api-des-sockets">Test sur l'initialisation de l'API des sockets</a>
+</div>
+</div><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_prerequis-sur-la-portabilite-du-code-source" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets">Prérequis sur la portabilité du code source</a>
+</h3><br>Nous avons assuré la portabilité du code source dans le fichier (CMakeLists.txt). Sur les systèmes Windows (WIN32), nous avons ajouté le fichier (SocketWin.cpp) aux codes sources. Dans le cas contraire, sur les systèmes Linux ou MacOS, nous avons ajouté le fichier (SocketUnix.cpp) aux codes sources.<br><br><span class="GText2" style="
 color: #00ff00;
-">Nous souhaitons lister les cartes réseau sous notre système Windows à partir d'un programme C basé sur la librairie (Winsock2).</span><br><br>Nous définissons la macro (WIN32_WINNT) afin de pouvoir inclure les versions appropriées des fichiers d'entête C sous Windows (Voir Extrait 1 : Ligne 3).<br><br>Nous incluons les fichiers d'entête C de la librairie (Winsock2) (Voir Extrait 1 : Ligne 6,8).<br><br>Nous incluons les fichiers d'entête C de la librairie (IP Helper) (Voir Extrait 1 : Ligne 7).<br><br>Nous éditons par programmation les liens avec la librairie (Winsock2) grâce à la directive (#pragma comment) en indiquant la librairie (ws2_32.lib) (Voir Extrait 1 : Ligne 12).<br><br>Nous éditons par programmation les liens avec la librairie (IP Helper) grâce à la directive (#pragma comment) en indiquant la librairie (iphlpapi.lib) (Voir Extrait 1 : Ligne 13).<br><br>Nous initialisons la librairie (Winsock2) (Voir Extrait 1 : Ligne 18).<br><br>Nous créons dynamiquement de la mémoire pour les adaptateurs réseau (adapters) de type (PIP_ADAPTER_ADDRESSES) grâce à la fonction (malloc) en indiquant la taille de l'espace mémoire (asize) (Voir Extrait 1 : Ligne 28).<br><br>Nous réservons une mémoire de 20.000 octets (Voir Extrait 1 : Ligne 24).<br><br>Nous récupérons la liste chaînée de tous les adaptateurs réseau installés sur notre système Windows grâce à la méthode (GetAdaptersAddresses) en indiquant que nous souhaitons des adresses réseau IPv4 et IPv6 (AF_UNSPEC) (Voir Extrait 1 : Ligne 37).<br><br>Nous pouvons aussi spécifier (AF_INET) pour les adresses réseau IPv4 uniquement ou (AF_INET6) pour les adresses réseau IPv6 uniquement.
-
-La fonction (GetAdaptersAddresses) nous renvoie le code d'erreur (ERROR_BUFFER_OVERFLOW) si taille de la mémoire allouée (asize) est insuffisante pour stocker toutes les adresses des adaptateurs réseau disponibles 
-(Voir Extrait 1 : Ligne 39). Dans ce cas la variable (asize) est modifiée pour stocker la taille de la mémoire requise.<br><br>Nous libérons la mémoire allouée par les adaptateurs réseau (adapters) pour reprendre l'opérations (Voir Extrait 1 : Ligne 42). 
-
-La fonction (GetAdaptersAddresses) nous renvoie le code de succès (ERROR_SUCCESS) si l'opération s'est bien déroulée (Voir Extrait 1 : Ligne 44). Dans ce cas, nous cassons la boucle avec l'instruction (break) pour continuer l'opération (Voir Extrait 1 : Ligne 46).<br><br>Nous récupérons le pointeur direct vers le premier adaptateur réseau (adapter) (Voir Extrait 1 : Ligne 57).<br><br>Nous entrons dans une boucle pour parcourir la liste des adaptateurs réseau (adapter) 
-(Voir Extrait 1 : Ligne 58).<br><br>Nous affichons le nom de l'adaptateur réseau (FriendlyName) à partir du gestionnaire (adapter) (Voir Extrait 1 : Ligne 60).<br><br>Nous récupérons le pointeur direct vers l'adresse du premier adaptateur réseau (address) de type (PIP_ADAPTER_UNICAST_ADDRESS) à partir du gestionnaire (adapter) en indiquant le pointeur (FirstUnicastAddress) (Voir Extrait 1 : Ligne 62).<br><br>Nous entrons dans une boucle pour parcourir la liste des adresses des adaptateurs réseau (address) (Voir Extrait 1 : Ligne 63).<br><br>Nous récupérons le type de l'adresse IP (sa_family) à partir du gestionnaire (address) et nous affichons s'il s'agit d'une adresse IPv4 ou IPv6 (Voir Extrait 1 : Ligne 66).<br><br>Nous récupérons la chaîne de l'adresse IP (ap) grâce à la fonction (getnameinfo) en indiquant l'adresse du socket réseau (lpSockaddr) à partir du gestionnaire (address), la taille en octet de l'adresse du socket réseau (iSockaddrLength) à partir du gestionnaire (address) (Voir Extrait 1 : Ligne 71).<br><br>Nous affichons la chaîne de l'adresse IP de l'adaptateur réseau (Voir Extrait 1 : Ligne 74).<br><br>Nous récupérons l'adresse de l'adaptateur réseau suivante (address) à partir du gestionnaire (address) en indiquant le pointeur suivant (Next) (Voir Extrait 1 : Ligne 71).<br><br>Nous récupérons l'adaptateur réseau suivant (adapter) à partir du gestionnaire (adapter) en indiquant le pointeur (Next) (Voir Extrait 1 : Ligne 79).<br><br>Nous libérons la mémoire allouée par les adaptateurs réseau (adapters) (Voir Extrait 1 : Ligne 82).<br><br>Nous libérons la mémoire allouée par la librairie (Winsock2) (Voir Extrait 1 : Ligne 83).<br><br><span class="GText2" style="
+">// CMakeLists.txt</span><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
+if(WIN32)
+    list(APPEND SRC_FILES
+        SocketWin.cpp
+    )
+else()
+    list(APPEND SRC_FILES
+        SocketUnix.cpp
+    )
+endif()  
+...</pre><br>Nous avons assuré la portabilité du code source dans le fichier (Socket.hpp). Sur les systèmes Windows (_WIN32), nous avons défini la version minimale du système d'exploitation Windows compatible avec le code source (_WIN32_WINNT), nous avons inclus le fichier d'entête de l'API des sockets Windows (Winsock2.h) et nous avons édité les liens du code source à la librairie de l'API des sockets Windows (ws2_32.lib). Sur les systèmes Linux ou MacOS, nous n'avons pas d'initialiser ou de nettoyer l'API des sockets.<br><br><span class="GText2" style="
 color: #00ff00;
-">Extrait 1 : Détermination de la liste des cartes réseau sous Windows</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
+">// Socket.hpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
+#if defined(_WIN32)
 #ifndef _WIN32_WINNT
 #define _WIN32_WINNT 0x0600
 #endif
-
 #include &lt;winsock2.h&gt;
-#include &lt;iphlpapi.h&gt;
-#include &lt;ws2tcpip.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-
 #pragma comment(lib, "ws2_32.lib")
-#pragma comment(lib, "iphlpapi.lib")
-
-int main()
+#endif  
+...</pre><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_prerequis-sur-l-initialisation-de-l-api-des-sockets" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets">Prérequis sur l'initialisation de l'API des sockets</a>
+</h3><br>Nous avons initialisé l'API des sockets sur les systèmes Windows (WSAStartup). Sur les systèmes Linux ou MacOS, nous n'avons pas besoin d'initialiser l'API des sockets.<br><br><span class="GText2" style="
+color: #00ff00;
+">// SocketWin.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
+bool Socket::initSocket() const
 {
     WSADATA d;
+
     if (WSAStartup(MAKEWORD(2, 2), &amp;d))
     {
-        printf("Failed to initialize.\n");
-        return -1;
+        printf("initSocket() failed.\n");
+        return false;
     }
-
-    DWORD asize = 20000;
-    PIP_ADAPTER_ADDRESSES adapters;
-    do
-    {
-        adapters = (PIP_ADAPTER_ADDRESSES)malloc(asize);
-
-        if (!adapters)
-        {
-            printf("Couldn't allocate %ld bytes for adapters.\n", asize);
-            WSACleanup();
-            return -1;
-        }
-
-        int r = GetAdaptersAddresses(AF_UNSPEC, GAA_FLAG_INCLUDE_PREFIX, 0,
-                                     adapters, &amp;asize);
-        if (r == ERROR_BUFFER_OVERFLOW)
-        {
-            printf("GetAdaptersAddresses wants %ld bytes.\n", asize);
-            free(adapters);
-        }
-        else if (r == ERROR_SUCCESS)
-        {
-            break;
-        }
-        else
-        {
-            printf("Error from GetAdaptersAddresses: %d\n", r);
-            free(adapters);
-            WSACleanup();
-            return -1;
-        }
-    } while (!adapters);
-
-    PIP_ADAPTER_ADDRESSES adapter = adapters;
-    while (adapter)
-    {
-        printf("\nAdapter name: %S\n", adapter-&gt;FriendlyName);
-
-        PIP_ADAPTER_UNICAST_ADDRESS address = adapter-&gt;FirstUnicastAddress;
-        while (address)
-        {
-            printf("\t%s",
-                   address-&gt;Address.lpSockaddr-&gt;sa_family == AF_INET ? 
-                   "IPv4" : "IPv6");
-
-            char ap[100];
-
-            getnameinfo(address-&gt;Address.lpSockaddr,
-                        address-&gt;Address.iSockaddrLength,
-                        ap, sizeof(ap), 0, 0, NI_NUMERICHOST);
-            printf("\t%s\n", ap);
-
-            address = address-&gt;Next;
-        }
-
-        adapter = adapter-&gt;Next;
-    }
-
-    free(adapters);
-    WSACleanup();
-    return 0;
-}
-...</pre><br>Nous compilons le projet pour le compilateur MinGW (Voir Extrait 2 : Ligne 2).<br><br><span class="GText2" style="
+    return true;
+}  
+...</pre><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_prerequis-sur-le-nettoyage-de-l-api-des-sockets" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets">Prérequis sur le nettoyage de l'API des sockets</a>
+</h3><br>Nous avons nettoyé l'API des sockets sur les systèmes Windows (WSAStartup). Sur les systèmes Linux ou MacOS, nous n'avons pas besoin d'initialiser l'API des sockets.<br><br><span class="GText2" style="
 color: #00ff00;
-">Extrait 2 : Compilation et édition des liens du projet sous MinGW</span>&nbsp;&nbsp;&nbsp;<br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
-&gt; gcc main.c -o setup.exe -liphlpapi -lws2_32
-...</pre><br><h2 class="GTitle1 Title1">
-<a class="Title2" id="introduction-aux-reseaux-et-aux-protocoles_determination-de-la-liste-des-cartes-reseau-sous-linux" href="#introduction-aux-reseaux-et-aux-protocoles">Détermination de la liste des cartes réseau sous Linux</a>
-</h2><br><span class="GText2" style="
-color: #00ff00;
-">Nous souhaitons lister les cartes réseau sous notre système Linux ou MacOS à partir d'un programme C basé sur la librairie (socket).</span><br><br>Nous incluons les fichiers d'entête C de la librairie (socket) (Voir Extrait 1 : Ligne 2).<br><br>Nous récupérons la liste chainée des interfaces réseau (addresses) de type (ifaddrs) grâce à la fonction (getifaddrs) (Voir Extrait 1 : Ligne 12).<br><br>Nous récupérons le pointeur direct vers la première interface réseau (address) à partir du gestionnaire (Voir Extrait 1 : Ligne 18).<br><br>Nous entrons dans une boucle pour parcourir la liste des interfaces réseau (address) (Voir Extrait 1 : Ligne 19).<br><br>Nous récupérons le type de l'interface réseau (family) à partir du gestionnaire (address) en indiquant le type (sa_family) (Voir Extrait 1 : Ligne 26).<br><br>Nous affichons le nom de l'interface réseau (ifa_name) à partir du gestionnaire (address) (Voir Extrait 1 : Ligne 26).<br><br>Nous vérifions le type de l'interface réseau (family) pour afficher s'il s'agit d'une adresse IPv4 ou IPv6 (Voir Extrait 1 : Ligne 33).<br><br>Nous récupérons la taille en octets de l'adresse du socket réseau IPv4 ou IPv6 (family_size) en fonction du type (family) (Voir Extrait 1 : Ligne 30).<br><br>Nous récupérons la chaîne de l'adresse IP de l'interface réseau (ap) grâce à la fonction (getnameinfo) en indiquant l'adresse du socket réseau (ifa_addr) à partir du gestionnaire (address) et la taille en octet de l'adresse du socket réseau (family_size) (Voir Extrait 1 : Ligne 35).<br><br>Nous affichons la chaîne de l'adresse IP de l'interface réseau (ap) (Voir Extrait 1 : Ligne 37).<br><br>Nous récupérons l'adresse de l'interface réseau suivante (address) à partir du gestionnaire (address) en indiquant le pointeur suivant (ifa_next)  (Voir Extrait 1 : Ligne 39).<br><br>Nous libérons la mémoire allouée par le gestionnaire d'interfaces réseau (addresses)  (Voir Extrait 1 : Ligne 42).<br><br><span class="GText2" style="
-color: #00ff00;
-">Extrait 1 : Détermination de la liste des cartes réseau sous Linux ou MacOS</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
-#include &lt;sys/socket.h&gt;
-#include &lt;netdb.h&gt;
-#include &lt;ifaddrs.h&gt;
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-
-int main()
+">// SocketWin.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
+void Socket::cleanSocket() const
 {
-    struct ifaddrs *addresses;
-
-    if (getifaddrs(&amp;addresses) == -1)
-    {
-        printf("getifaddrs call failed\n");
-        return -1;
-    }
-
-    struct ifaddrs *address = addresses;
-    while (address)
-    {
-        if (address-&gt;ifa_addr == NULL)
-        {
-            address = address-&gt;ifa_next;
-            continue;
-        }
-        int family = address-&gt;ifa_addr-&gt;sa_family;
-        if (family == AF_INET || family == AF_INET6)
-        {
-            printf("%s\t", address-&gt;ifa_name);
-            printf("%s\t", family == AF_INET ? "IPv4" : "IPv6");
-
-            char ap[100];
-            const int family_size = family == AF_INET ? sizeof(struct 
-            sockaddr_in) : sizeof(struct sockaddr_in6);
-            getnameinfo(address-&gt;ifa_addr,
-                        family_size, ap, sizeof(ap), 0, 0, NI_NUMERICHOST);
-            printf("\t%s\n", ap);
-        }
-        address = address-&gt;ifa_next;
-    }
-
-    freeifaddrs(addresses);
-    return 0;
-}
-...</pre><br>Nous compilons le projet sous Linux ou MacOS (Voir Extrait 2 : Ligne 2).<br><br><span class="GText2" style="
+    WSACleanup();
+}  
+...</pre><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_prerequis-sur-l-automatisation-du-nettoyage-de-l-api-des-sockets" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets">Prérequis sur l'automatisation du nettoyage de l'API des sockets</a>
+</h3><br>Nous avons automatisé le nettoyage de l'API des sockets. Nous avons créé une classe (SocketClean) et avons appelé la méthode (cleanSocket) dans le destructeur de la classe (~SocketClean). Ainsi, après l'initialisation de l'API des sockets, nous pouvons créer une instance de la classe (SocketClean) pour garantir le nettoyage de l'API des sockets.<br><br><span class="GText2" style="
 color: #00ff00;
-">Extrait 2 : Compilation du projet sous Linux ou MacOS</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
-$ gcc main.c -o setup
-...</pre><br></div>
+">// Socket.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
+SocketClean::~SocketClean()
+{
+    Socket oSocket;
+    oSocket.cleanSocket();
+}  
+...</pre><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_developpement-du-programme-principal" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets">Développement du programme principal</a>
+</h3><br>Nous avons initialisé l'API des sockets (initSocket) et avons créé une instance de la classe (SocketClean) qui gère le nettoyage de l'API des sockets dans le destructeur de la classe.<br><br><span class="GText2" style="
+color: #00ff00;
+">// main.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include "Socket.hpp"
+
+int main(int _argc, char** _argv)
+{
+    Socket oSocket;
+    if (!oSocket.initSocket())
+        return 0;
+
+    SocketClean oSocketClean;
+
+    printf("Socket() Ok.\n");
+    return 0;
+}</pre><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_developpement-du-manager-de-l-api-des-sockets" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets">Développement du manager de l'API des sockets</a>
+</h3><br><span class="GText2" style="
+color: #00ff00;
+">// Socket.hpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#pragma once
+
+// Windows
+#if defined(_WIN32)
+#ifndef _WIN32_WINNT
+#define _WIN32_WINNT _WIN32_WINNT_WIN6
+#endif
+#include &lt;winsock2.h&gt;
+#pragma comment(lib, "ws2_32.lib")
+#endif
+
+#include &lt;iostream&gt;
+
+// Socket
+class Socket
+{
+public:
+    explicit Socket();
+    ~Socket();
+    bool initSocket() const;
+    void cleanSocket() const;
+};
+
+// SocketClean
+class SocketClean
+{
+public:
+    explicit SocketClean();
+    ~SocketClean();
+};</pre><br><span class="GText2" style="
+color: #00ff00;
+">// Socket.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include "Socket.hpp"
+
+// Socket
+Socket::Socket()
+{
+}
+
+Socket::~Socket()
+{
+}
+
+// SocketClean
+SocketClean::SocketClean()
+{
+}
+
+SocketClean::~SocketClean()
+{
+    Socket oSocket;
+    oSocket.cleanSocket();
+}</pre><br><span class="GText2" style="
+color: #00ff00;
+">// SocketWin.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include "Socket.hpp"
+
+bool Socket::initSocket() const
+{
+    WSADATA d;
+
+    if (WSAStartup(MAKEWORD(2, 2), &amp;d))
+    {
+        printf("initSocket() failed.\n");
+        return false;
+    }
+    return true;
+}
+
+void Socket::cleanSocket() const
+{
+    WSACleanup();
+}</pre><br><span class="GText2" style="
+color: #00ff00;
+">// SocketUnix.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include "Socket.hpp"
+
+bool Socket::initSocket() const
+{
+    return true;
+}
+
+void Socket::cleanSocket() const
+{
+}</pre><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_developpement-de-la-configuration-cmake" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets">Développement de la configuration CMake</a>
+</h3><br><span class="GText2" style="
+color: #00ff00;
+">// CMakeLists.txt</span><br><pre class="GCode1 Code1 AceCode" data-mode="javascript" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">cmake_minimum_required(VERSION 3.10.0)
+project(c01-socket-init VERSION 0.1.0 LANGUAGES C CXX)
+
+set(SRC_FILES
+    main.cpp
+    Socket.hpp
+    Socket.cpp
+)
+
+if(WIN32)
+    list(APPEND SRC_FILES
+        SocketWin.cpp
+    )
+else()
+    list(APPEND SRC_FILES
+        SocketUnix.cpp
+    )
+endif()
+
+add_executable(${PROJECT_NAME}
+    ${SRC_FILES}
+)</pre><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_test-sur-l-initialisation-de-l-api-des-sockets" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets">Test sur l'initialisation de l'API des sockets</a>
+</h3><br>Nous avons affiché un message « socket() Ok. » pour indiquer que l'initialisation de l'API des sockets s'est bien déroulé.<br><br><span class="GText2" style="
+color: #00ff00;
+">// Terminal</span><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17634083027066952-image.png"></div><br></div>
 </div>
 </div>
 </div><br><div class="GSection1 Section1">

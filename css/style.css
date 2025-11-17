@@ -1805,15 +1805,16 @@ thead tr:first-child {
 }
 
 .Title3 {
-    font-weight: bold;
+    font-weight: normal;
 }
 
 .Title4 {
+    background-color: #3a405b;
     display: inline-block;
     vertical-align: middle;
     font-family: arial;
     font-size: 18px;
-    color: dodgerblue;
+    color: #3089a8;
     padding: 10px;
 }
 
