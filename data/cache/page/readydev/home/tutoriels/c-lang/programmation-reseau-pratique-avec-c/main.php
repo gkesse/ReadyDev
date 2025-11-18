@@ -14,6 +14,14 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#se-familiariser-avec-les-api-socket">Se familiariser avec les API Socket</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#presentation-approfondie-des-connexions-tcp">Présentation approfondie des connexions TCP</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
 <a class="Summary3" href="#a-suivre">À suivre</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
@@ -1107,6 +1115,26 @@ color: #00ff00;
 ">// Terminal</span><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17634314883635606-image.png"></div><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17634315221283112-image.png"></div><br>Nous avons affiché la liste des cartes réseau sur les systèmes Linux ou MacOS.<br><br><span class="GText2" style="
 color: #00ff00;
 ">// Terminal</span><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17634315788271473-image.png"></div><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="se-familiariser-avec-les-api-socket">Se familiariser avec les API Socket</a>
+</h1>
+<div class="Section6"><br>Nous aborderons les bases de l'utilisation des sockets pour la programmation réseau. Nous découvrirons qu'il existe de nombreuses différences entre les sockets Berkeley (utilisées sur les systèmes d'exploitation de type Unix) et les sockets Winsock (utilisées sous Windows). Nous atténuerons ces différences grâce à des instructions de préprocesseur. Nous écrirons un programme C/C++ qui compile sans problème sous Windows, Linux et macOS. Nous comprendrons en quoi le protocole UDP est un protocole sans connexion et expliquerons ce que cela implique. Nous apprendrons que le protocole TCP est un protocole orienté connexion qui offre certaines garanties de fiabilité, comme la détection et le renvoi automatiques des paquets perdus. Nous constaterons que le protocole UDP est souvent utilisé pour les protocoles simples (par exemple, le DNS) et pour les applications de diffusion en continu en temps réel. Nous verrons que le protocole TCP est utilisé pour la plupart des autres protocoles. Nous travaillerons sur un exemple concret en convertissant une application console en serveur web. Nous apprendrons à écrire le programme C/C++ en utilisant la fonction (getaddrinfo), et comprendrons pourquoi cela est important pour rendre le programme compatible IPv4/IPv6. Nous utiliserons les fonctions (bind, listen, et accept) sur le serveur pour attendre une connexion entrante du navigateur web. Les données seront ensuite lues depuis le client à l'aide de la fonction (recv), et une réponse sera envoyée à l'aide de la fonction (send). Enfin, nous fermerons la connexion avec la fonction (close) sous Unix, et la fonction (closesocket) sous Windows. Nous construirons un serveur web pour afficher la date et l'heure courantes à partir d'un navigateur web.
+<br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="presentation-approfondie-des-connexions-tcp">Présentation approfondie des connexions TCP</a>
+</h1>
+<div class="Section6"><br>Nous aborderons le protocole TCP qui constitue véritablement l'épine dorsale de l'expérience Internet moderne. Nous comprendrons que le protocole TCP est utilisé par HTTP (HyperText Transfer Protocol), le protocole qui alimente les sites web, et par SMTP (Simple Mail Transfer Protocol), le protocole qui alimente la messagerie électronique. Nous découvrirons que la création d'un client TCP est relativement simple et montrerons que la seule difficulté réside dans la surveillance simultanée des entrées du terminal local et des données transitant par le socket. Nous verrons comment surmonter cette difficulté en utilisant la fonction (select) sur les systèmes Windows et Unix. Nous constaterons que de nombreuses applications concrètes n'ont pas besoin de surveiller les entrées du terminal et que cette étape n'est donc pas toujours nécessaire. Nous montrerons que la création d'un serveur TCP adapté à de nombreuses connexions parallèles n'est pas beaucoup plus difficile. Nous verrons comment utiliser la fonction (select) qui s'avère extrêmement utile pour gérer les connexions multiples en permettant de surveiller facilement le socket d'écoute pour les nouvelles connexions, tout en surveillant les connexions existantes pour les nouvelles données. Nous aborderons certains problèmes courants, par exemple, le protocole TCP ne fournit pas de méthode native pour partitionner les données. Nous verrons que pour surmonter cette problématique, pour les protocoles plus complexes où cela est nécessaire, il faudra mettre en mémoire tampon les données reçues par la fonction (recv) jusqu'à ce qu'une quantité suffisante soit disponible pour l'interprétation. Nous constaterons que pour les pairs TCP qui traitent de grandes quantités de données, la mise en mémoire tampon pour la fonction (send) est également nécessaire.
+<br><br></div>
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
