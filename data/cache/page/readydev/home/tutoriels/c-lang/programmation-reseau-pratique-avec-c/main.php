@@ -568,8 +568,7 @@ void Adapter::printAdapters(const AdapterParams&amp; _params) const
 <a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_developpement-du-programme-principal" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau">Développement du programme principal</a>
 </h3><br><span class="GText2" style="
 color: #00ff00;
-">// main.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
-#include "Adapter.hpp"
+">// main.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include "Adapter.hpp"
 
 int main(int _argc, char** _argv)
 {
@@ -588,8 +587,7 @@ int main(int _argc, char** _argv)
     oAdapter.printAdapters(adapterParams);
 
     return 0;
-}  
-...</pre><br><h3 class="GTitle2 Title3">
+}<br></pre><br><h3 class="GTitle2 Title3">
 <a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_test-sur-l-affichage-des-cartes-reseau" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau">Test sur l'affichage des cartes réseau</a>
 </h3><br>Nous avons affiché la liste des cartes réseau sur les systèmes Windows.<br><br><span class="GText2" style="
 color: #00ff00;
