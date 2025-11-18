@@ -235,7 +235,7 @@ SocketClean::~SocketClean()
 }  
 ...</pre><br><h3 class="GTitle2 Title3">
 <a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_developpement-du-programme-principal" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets">Développement du programme principal</a>
-</h3><br>Nous avons initialisé l'API des sockets (initSocket) et avons créé une instance de la classe (SocketClean) qui gère le nettoyage de l'API des sockets dans le destructeur de la classe.<br><br><span class="GText2" style="
+</h3><br>Nous avons initialisé l'API des sockets (initSocket) et avons créé une instance de la classe (SocketClean) pour nettoyer automatiquement l'API des sockets dans le destructeur de la classe sur les systèmes Windows, Linux ou MacOS.<br><br><span class="GText2" style="
 color: #00ff00;
 ">// main.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include "Socket.hpp"
 
@@ -380,6 +380,18 @@ color: #00ff00;
 <div class="Summary7">
 <i class="Summary8 fa fa-book"></i>
 <a class="Summary9" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_developpement-du-programme-principal">Développement du programme principal</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_developpement-du-manager-des-cartes-reseau">Développement du manager des cartes réseau</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_developpement-du-manager-des-outils">Développement du manager des outils</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_developpement-de-la-configuration-cmake">Développement de la configuration CMake</a>
 </div>
 <div class="Summary7">
 <i class="Summary8 fa fa-book"></i>
@@ -566,7 +578,7 @@ void Adapter::printAdapters(const AdapterParams&amp; _params) const
 }  
 ...</pre><br><h3 class="GTitle2 Title3">
 <a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_developpement-du-programme-principal" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau">Développement du programme principal</a>
-</h3><br><span class="GText2" style="
+</h3><br>Nous avons initialisé l'API des sockets (initSocket) et avons créé une instance de la classe (AdapterClean) pour nettoyer automatiquement l'API des sockets dans le destructeur de la classe. Nous avons chargé les cartes réseau disponibles sur notre système Windows, Linux ou MacOS (loadAdapters) et avons affiché la liste des cartes réseau (printAdapters).<br>&nbsp;<br><span class="GText2" style="
 color: #00ff00;
 ">// main.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include "Adapter.hpp"
 
@@ -588,6 +600,507 @@ int main(int _argc, char** _argv)
 
     return 0;
 }<br></pre><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_developpement-du-manager-des-cartes-reseau" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau">Développement du manager des cartes réseau</a>
+</h3><br><span class="GText2" style="
+color: #00ff00;
+">// Adapter.hpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#pragma once
+
+// Windows
+#if defined (_WIN32)
+#ifndef _WIN32_WINNT
+#define _WIN32_WINNT 0x0600
+#endif
+
+#include &lt;winsock2.h&gt;
+#include &lt;iphlpapi.h&gt;
+#include &lt;ws2tcpip.h&gt;
+
+#pragma comment(lib, "ws2_32.lib")
+#pragma comment(lib, "iphlpapi.lib")
+#else
+// Unix
+#include &lt;sys/socket.h&gt;
+#include &lt;netdb.h&gt;
+#include &lt;ifaddrs.h&gt;
+#endif
+
+// Common
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;vector&gt;
+
+// Params
+struct AdapterParams;
+struct AdapterNameParams;
+struct AdapterAddressParams;
+
+using AdapterNameList = std::vector&lt;AdapterNameParams*&gt;;
+using AdapterAddressList = std::vector&lt;AdapterAddressParams*&gt;;
+
+// AdapterParams
+struct AdapterParams
+{
+#if defined(_WIN32)
+    DWORD size;
+    PIP_ADAPTER_ADDRESSES adapters = nullptr;
+#else
+    struct ifaddrs* addresses = nullptr;
+#endif
+    AdapterNameList adapterNameList;
+    AdapterAddressList addressNameList;
+
+    explicit AdapterParams();
+    ~AdapterParams();
+    AdapterNameParams* addAdapterName();
+    AdapterAddressParams* addApaterAddress(AdapterNameParams* _adapterName);
+    bool getAdapterName(AdapterNameParams** _adapterName, const std::string&amp; _name) const;
+    AdapterAddressList getAddressList(AdapterNameParams* _adapterName) const;
+};
+
+// AdapterNameParams
+struct AdapterNameParams
+{
+    std::string name;
+};
+
+// AdapterAddressParams
+struct AdapterAddressParams
+{
+    AdapterNameParams* adapterName;
+    std::string address;
+    std::string family;
+
+    explicit AdapterAddressParams(AdapterNameParams* _adapterName);
+    ~AdapterAddressParams();
+};
+
+// Adapter
+class Adapter
+{
+public:
+    explicit Adapter();
+    ~Adapter();
+    bool initSocket() const;
+    void cleanSocket() const;
+    bool loadAdapters(AdapterParams&amp; _params) const;
+    void print(const AdapterParams&amp; _params) const;
+    void printAdapters(const AdapterParams&amp; _params) const;
+};
+
+// AdapterClean
+class AdapterClean
+{
+public:
+    explicit AdapterClean();
+    ~AdapterClean();
+};
+
+// AdapterException
+class AdapterException : public std::exception
+{
+public:
+    explicit AdapterException(const std::string&amp; _msg);
+    ~AdapterException();
+    const char* what() const throw();
+
+private:
+    std::string m_msg;
+};</pre><br><span class="GText2" style="
+color: #00ff00;
+">// Adapter.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include "Adapter.hpp"
+#include "Tools.hpp"
+
+// AdapterParams
+AdapterNameParams* AdapterParams::addAdapterName()
+{
+    AdapterNameParams* adapterName = new AdapterNameParams;
+    if (!adapterName)
+    {
+        throw AdapterException("addAdapterName() failed.");
+    }
+    adapterNameList.push_back(adapterName);
+    return adapterName;
+}
+
+AdapterAddressParams* AdapterParams::addApaterAddress(AdapterNameParams* _adapterName)
+{
+    AdapterAddressParams* addressName = new AdapterAddressParams(_adapterName);
+    if (!addressName)
+    {
+        throw AdapterException("addApaterAddress() failed.");
+    }
+    addressNameList.push_back(addressName);
+    return addressName;
+}
+
+bool AdapterParams::getAdapterName(AdapterNameParams** _adapterName, const std::string&amp; _name) const
+{
+    for (auto* adapterName : adapterNameList)
+    {
+        if (adapterName-&gt;name == _name)
+        {
+            (*_adapterName) = adapterName;
+            return true;
+        }
+    }
+    return false;
+}
+
+
+AdapterAddressList AdapterParams::getAddressList(AdapterNameParams* _adapterName) const
+{
+    AdapterAddressList addressNameNewList;
+    for (auto* addressName : addressNameList)
+    {
+        if (addressName-&gt;adapterName == _adapterName)
+        {
+            addressNameNewList.push_back(addressName);
+        }
+    }
+    return addressNameNewList;
+}
+
+// AdapterAddressParams
+AdapterAddressParams::AdapterAddressParams(AdapterNameParams* _adapterName)
+    : adapterName(_adapterName)
+{
+}
+
+AdapterAddressParams::~AdapterAddressParams()
+{
+}
+
+// Adapter
+Adapter::Adapter()
+{
+}
+
+Adapter::~Adapter()
+{
+}
+
+void Adapter::print(const AdapterParams&amp; _params) const
+{
+    const int margin = 13;
+    printf("---\n");
+    printf("AdapterNameParams:\n");
+    for (auto* adapterName : _params.adapterNameList)
+    {
+        printf("%*s:\n", margin, "---");
+        printf("%*s: %s\n", margin, "name", adapterName-&gt;name.c_str());
+
+        for (auto* addressName : _params.getAddressList(adapterName))
+        {
+            printf("%*s:\n", 2 * margin, "---");
+            printf("%*s: %s\n", 2 * margin, "family", addressName-&gt;family.c_str());
+            printf("%*s: %s\n", 2 * margin, "address", addressName-&gt;address.c_str());
+        }
+    }
+}
+
+void Adapter::printAdapters(const AdapterParams&amp; _params) const
+{
+    const int margin = 13;
+    printf("---\n");
+    printf("AdapterNameParams:\n");
+    for (auto* adapterName : _params.adapterNameList)
+    {
+        printf("---\n");
+        printf("Adapter name: %s\n", adapterName-&gt;name.c_str());
+
+        for (auto* addressName : _params.getAddressList(adapterName))
+        {
+            printf("\t%s\t%s\n", addressName-&gt;family.c_str(), addressName-&gt;address.c_str());
+        }
+    }
+
+}
+
+//AdapterClean
+AdapterClean::AdapterClean()
+{
+}
+
+AdapterClean::~AdapterClean()
+{
+}
+
+// AdapterException
+AdapterException::AdapterException(const std::string&amp; _msg)
+    : m_msg(_msg)
+{
+}
+
+AdapterException::~AdapterException()
+{
+}
+
+const char* AdapterException::what() const throw()
+{
+    return m_msg.c_str();
+}</pre><br><span class="GText2" style="
+color: #00ff00;
+">// AdapterWin.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include "Adapter.hpp"
+#include "Tools.hpp"
+
+// Config
+namespace config::adapter
+{
+    static const int memorySize = 20 * 1025; // 20ko
+}
+
+// AdapterParams
+AdapterParams::AdapterParams()
+    :size(config::adapter::memorySize)
+{
+}
+
+AdapterParams::~AdapterParams()
+{
+    if (adapters)
+    {
+        free(adapters);
+    }
+
+    for (auto* adapterName : adapterNameList)
+    {
+        delete adapterName;
+    }
+
+    for (auto* addressName : addressNameList)
+    {
+        delete addressName;
+    }
+}
+
+// Adapter
+bool Adapter::initSocket() const
+{
+    WSADATA d;
+
+    if (WSAStartup(MAKEWORD(2, 2), &amp;d))
+    {
+        printf("initSocket() failed.\n");
+        return false;
+    }
+    return true;
+}
+
+void Adapter::cleanSocket() const
+{
+    WSACleanup();
+}
+
+bool Adapter::loadAdapters(AdapterParams&amp; _params) const
+{
+    _params.adapters = (PIP_ADAPTER_ADDRESSES)malloc(config::adapter::memorySize);
+    if (!_params.adapters)
+    {
+        fprintf(stderr, "loadAdapters(1) failed.|size=%ld\n", _params.size);
+        return false;
+
+    }
+
+    int adpaterResult = GetAdaptersAddresses(AF_UNSPEC, GAA_FLAG_INCLUDE_PREFIX, 0, _params.adapters, &amp;_params.size);
+    if (adpaterResult == ERROR_BUFFER_OVERFLOW)
+    {
+        fprintf(stderr, "loadAdapters(2) failed.|size=%ld\n", _params.size);
+        return false;
+    }
+
+    PIP_ADAPTER_ADDRESSES adapter = _params.adapters;
+    while (adapter)
+    {
+        AdapterNameParams* adapterName = _params.addAdapterName();
+        adapterName-&gt;name = oTools.toString(adapter-&gt;FriendlyName);
+
+        PIP_ADAPTER_UNICAST_ADDRESS address = adapter-&gt;FirstUnicastAddress;
+        while (address)
+        {
+            int family = address-&gt;Address.lpSockaddr-&gt;sa_family;
+
+            if (family == AF_INET || family == AF_INET6)
+            {
+                AdapterAddressParams* addressName = _params.addApaterAddress(adapterName);
+
+                addressName-&gt;family = (family == AF_INET) ? "IPv4" : "IPv6";
+
+                char addressIP[100];
+
+                getnameinfo(address-&gt;Address.lpSockaddr,
+                    address-&gt;Address.iSockaddrLength,
+                    addressIP, sizeof(addressIP), 0, 0, NI_NUMERICHOST);
+
+                addressName-&gt;address = addressIP;
+            }
+
+            address = address-&gt;Next;
+        }
+
+        adapter = adapter-&gt;Next;
+    }
+
+    return true;
+}</pre><br><span class="GText2" style="
+color: #00ff00;
+">// AdapterUnix.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include "Adapter.hpp"
+
+// AdapterParams
+AdapterParams::AdapterParams()
+{
+}
+
+AdapterParams::~AdapterParams()
+{
+    if (addresses)
+    {
+        freeifaddrs(addresses);
+    }
+
+    for (auto* adapterName : adapterNameList)
+    {
+        delete adapterName;
+    }
+
+    for (auto* addressName : addressNameList)
+    {
+        delete addressName;
+    }
+}
+
+// Adapter
+bool Adapter::initSocket() const
+{
+    return true;
+}
+
+void Adapter::cleanSocket() const
+{
+}
+
+bool Adapter::loadAdapters(AdapterParams&amp; _params) const
+{
+    if (getifaddrs(&amp;_params.addresses) == -1)
+    {
+        fprintf(stderr, "loadAdapters() failed.\n");
+        return false;
+    }
+
+    struct ifaddrs* address = _params.addresses;
+    while (address)
+    {
+        if (address-&gt;ifa_addr == nullptr)
+        {
+            address = address-&gt;ifa_next;
+            continue;
+        }
+
+        int family = address-&gt;ifa_addr-&gt;sa_family;
+
+        if (family == AF_INET || family == AF_INET6)
+        {
+            AdapterNameParams* adapterName;
+
+            if (!_params.getAdapterName(&amp;adapterName, address-&gt;ifa_name))
+            {
+                adapterName = _params.addAdapterName();
+                adapterName-&gt;name = address-&gt;ifa_name;
+            }
+
+            AdapterAddressParams* addressName = _params.addApaterAddress(adapterName);
+            addressName-&gt;family = (family == AF_INET) ? "IPv4" : "IPv6";
+
+            char ap[100];
+            const int family_size = (family == AF_INET) ?
+                sizeof(struct sockaddr_in) : sizeof(struct sockaddr_in6);
+            getnameinfo(
+                address-&gt;ifa_addr, family_size, ap, sizeof(ap), 0, 0, NI_NUMERICHOST);
+            addressName-&gt;address = ap;
+        }
+
+        address = address-&gt;ifa_next;
+    }
+
+    return true;
+}</pre><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_developpement-du-manager-des-outils" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau">Développement du manager des outils</a>
+</h3><br><span class="GText2" style="
+color: #00ff00;
+">Tools.hpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#pragma once
+
+// Windows
+#if defined (_WIN32)
+#ifndef _WIN32_WINNT
+#define _WIN32_WINNT 0x0600
+#endif
+#include &lt;windows.h&gt;
+#endif
+
+// Common
+#include &lt;string&gt;
+
+#define oTools Tools::Instance()
+
+class Tools
+{
+private:
+    explicit Tools();
+
+public:
+    ~Tools();
+    static Tools&amp; Instance();
+    std::string toString(const wchar_t* _data) const;
+};</pre><br><span class="GText2" style="
+color: #00ff00;
+">Tools.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include "Tools.hpp"
+
+Tools::Tools()
+{
+}
+
+Tools::~Tools()
+{
+}
+
+Tools&amp; Tools::Instance()
+{
+    static Tools instance;
+    return instance;
+}
+
+// string
+std::string Tools::toString(const wchar_t* _data) const
+{
+    std::wstring ws(_data);
+    return std::string(ws.begin(), ws.end());
+}</pre><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_developpement-de-la-configuration-cmake" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau">Développement de la configuration CMake</a>
+</h3><br><span class="GText2" style="
+color: #00ff00;
+">// CMakeLists.txt</span><br><pre class="GCode1 Code1 AceCode" data-mode="javascript" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">cmake_minimum_required(VERSION 3.10.0)
+project(c01-adapter-list VERSION 0.1.0 LANGUAGES C CXX)
+
+set(SRC_FILES
+    main.cpp
+    Adapter.hpp
+    Adapter.cpp
+    Tools.hpp
+    Tools.cpp
+)
+
+if(WIN32)
+    list(APPEND SRC_FILES
+        AdapterWin.cpp
+    )
+else()
+    list(APPEND SRC_FILES
+        AdapterUnix.cpp
+    )
+endif()
+
+add_executable(${PROJECT_NAME}
+    ${SRC_FILES}
+)</pre><br><h3 class="GTitle2 Title3">
 <a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_test-sur-l-affichage-des-cartes-reseau" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau">Test sur l'affichage des cartes réseau</a>
 </h3><br>Nous avons affiché la liste des cartes réseau sur les systèmes Windows.<br><br><span class="GText2" style="
 color: #00ff00;
