@@ -102,6 +102,10 @@
 <i class="Summary5 fa fa-book"></i>
 <a class="Summary6" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets">Initialisation de l'API des sockets</a>
 </div>
+<div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau">Affichage des cartes réseau</a>
+</div>
 </div><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="introduction-aux-reseaux-et-aux-protocoles_affichage-du-routage-du-trafic-reseau" href="#introduction-aux-reseaux-et-aux-protocoles">Affichage du routage du trafic réseau</a>
 </h2><br>Nous avons affiché les routeurs entre notre système Windows et un système de destination. Cette opération permet d'identifier les routeurs par lesquels doit transiter une requête en provenance de notre système avant d'atteindre une adresse de destination. Nous avons ouvert un Terminal et avons exécuté la commande d'affichage des routeurs.<br><br><span class="GText2" style="
@@ -174,7 +178,7 @@ color: #00ff00;
 <a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_prerequis-sur-la-portabilite-du-code-source" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets">Prérequis sur la portabilité du code source</a>
 </h3><br>Nous avons assuré la portabilité du code source dans le fichier (CMakeLists.txt). Sur les systèmes Windows (WIN32), nous avons ajouté le fichier (SocketWin.cpp) aux codes sources. Dans le cas contraire, sur les systèmes Linux ou MacOS, nous avons ajouté le fichier (SocketUnix.cpp) aux codes sources.<br><br><span class="GText2" style="
 color: #00ff00;
-">// CMakeLists.txt</span><br><pre class="GCode1 Code1 AceCode" data-mode="text" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
+">// CMakeLists.txt</span><br><pre class="GCode1 Code1 AceCode" data-mode="javascript" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
 if(WIN32)
     list(APPEND SRC_FILES
         SocketWin.cpp
@@ -184,12 +188,12 @@ else()
         SocketUnix.cpp
     )
 endif()  
-...</pre><br>Nous avons assuré la portabilité du code source dans le fichier (Socket.hpp). Sur les systèmes Windows (_WIN32), nous avons défini la version minimale du système d'exploitation Windows compatible avec le code source (_WIN32_WINNT), nous avons inclus le fichier d'entête de l'API des sockets Windows (Winsock2.h) et nous avons édité les liens du code source à la librairie de l'API des sockets Windows (ws2_32.lib). Sur les systèmes Linux ou MacOS, nous n'avons pas d'initialiser ou de nettoyer l'API des sockets.<br><br><span class="GText2" style="
+...</pre><br>Nous avons assuré la portabilité du code source dans le fichier (Socket.hpp). Sur les systèmes Windows (_WIN32), nous avons défini la version minimale du système d'exploitation Windows compatible avec le code source (_WIN32_WINNT), nous avons inclus le fichier d'entête de l'API des sockets Windows (Winsock2.h) et nous avons édité les liens du code source avec la librairie de l'API des sockets Windows (ws2_32.lib). Sur les systèmes Linux ou MacOS, nous n'avons pas d'initialiser ou de nettoyer l'API des sockets.<br><br><span class="GText2" style="
 color: #00ff00;
 ">// Socket.hpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
 #if defined(_WIN32)
 #ifndef _WIN32_WINNT
-#define _WIN32_WINNT 0x0600
+#define _WIN32_WINNT _WIN32_WINNT_WIN6
 #endif
 #include &lt;winsock2.h&gt;
 #pragma comment(lib, "ws2_32.lib")
@@ -359,7 +363,239 @@ add_executable(${PROJECT_NAME}
 <a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_test-sur-l-initialisation-de-l-api-des-sockets" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets">Test sur l'initialisation de l'API des sockets</a>
 </h3><br>Nous avons affiché un message « socket() Ok. » pour indiquer que l'initialisation de l'API des sockets s'est bien déroulé.<br><br><span class="GText2" style="
 color: #00ff00;
-">// Terminal</span><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17634083027066952-image.png"></div><br></div>
+">// Terminal</span><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17634083027066952-image.png"></div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau" href="#introduction-aux-reseaux-et-aux-protocoles">Affichage des cartes réseau</a>
+</h2><br>Nous avons écrit un programme en C/C++ permettant d'afficher la liste des cartes réseau sur une machine. Nous avons assuré la portabilité du code source sur les systèmes Windows, Linux ou MacOS en offrant une même interface pour tous les systèmes.<br><br><div class="GSummary3"><div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_prerequis-sur-la-portabilite-du-code-source">Prérequis sur la portabilité du code source</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_prerequis-sur-le-chargement-des-cartes-reseau">Prérequis sur le chargement des cartes réseau</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_prerequis-sur-l-affichage-des-cartes-reseau">Prérequis sur l'affichage des cartes réseau</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_developpement-du-programme-principal">Développement du programme principal</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_test-sur-l-affichage-des-cartes-reseau">Test sur l'affichage des cartes réseau</a>
+</div>
+</div><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_prerequis-sur-la-portabilite-du-code-source" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau">Prérequis sur la portabilité du code source</a>
+</h3><br>Nous avons assuré la portabilité du code source sur les systèmes Windows, Linux ou MacOS à partir du fichier de configuration (CMakeLists.txt). Sur les systèmes Windows (WIN32), nous avons ajouté le fichier (AdapterWin.cpp) aux codes sources. Dans le cas contraire, sur les systèmes Linux ou MacOS, nous avons ajouté le fichier (AdapterUnix.cpp) aux codes sources.<br><br><span class="GText2" style="
+color: #00ff00;
+">// CMakeLists.txt</span><br><pre class="GCode1 Code1 AceCode" data-mode="javascript" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
+if(WIN32)
+    list(APPEND SRC_FILES
+        AdapterWin.cpp
+    )
+else()
+    list(APPEND SRC_FILES
+        AdapterUnix.cpp
+    )
+endif()  
+...</pre><br>Nous avons assuré la portabilité du code source dans le fichier (Adapter.hpp). Sur les systèmes Windows (_WIN32), nous avons défini la version minimale du système d'exploitation Windows compatible avec le code source (_WIN32_WINNT), nous avons inclus les fichiers d'entête de l'API des sockets Windows (winsock2.h, iphlpapi.h, ws2tcpip.h) et nous avons édité les liens du code source avec les librairies de l'API des sockets Windows (ws2_32.lib, iphlpapi.lib). Sur les systèmes Linux ou MacOS, nous avons inclus les fichiers d'entête de l'API des sockets Unix (socket.h, netdb.h, ifaddrs.h).<br><br><span class="GText2" style="
+color: #00ff00;
+">// Adapter.hpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
+// Windows
+#if defined (_WIN32)
+#ifndef _WIN32_WINNT
+#define _WIN32_WINNT _WIN32_WINNT_WIN6
+#endif
+
+#include &lt;winsock2.h&gt;
+#include &lt;iphlpapi.h&gt;
+#include &lt;ws2tcpip.h&gt;
+
+#pragma comment(lib, "ws2_32.lib")
+#pragma comment(lib, "iphlpapi.lib")
+#else
+// Unix
+#include &lt;sys/socket.h&gt;
+#include &lt;netdb.h&gt;
+#include &lt;ifaddrs.h&gt;
+#endif  
+...</pre><br>Nous avons assuré la portabilité du code source au niveau de la structure des paramètres de cartes réseau (AdapterParams) dans le fichier (Adapter.hpp). Sur les systèmes Windows (_WIN32), nous avons déclaré le pointeur de cartes réseau (adapters) de type (PIP_ADAPTER_ADDRESSES) et la taille de sa mémoire tampon (size) de type (DWORD). Sur les systèmes Linux ou MacOS, nous avons déclaré le pointeur d'interfaces réseau (addresses) de type (ifaddrs).<br><br><span class="GText2" style="
+color: #00ff00;
+">// Adapter.hpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
+struct AdapterParams
+{
+#if defined(_WIN32)
+    DWORD size;
+    PIP_ADAPTER_ADDRESSES adapters = nullptr;
+#else
+    struct ifaddrs* addresses = nullptr;
+#endif
+};  
+...</pre><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_prerequis-sur-le-chargement-des-cartes-reseau" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau">Prérequis sur le chargement des cartes réseau</a>
+</h3><br>Nous avons chargé les cartes réseau sur les systèmes Windows. Nous avons récupéré la liste des cartes réseau (GetAdaptersAddresses). Nous avons récupéré la famille de l'adresse IP (sa_family) de l'interface réseau. Nous avons récupéré l'adresse IP (getnameinfo) de l'interfacer réseau.<br><br><span class="GText2" style="
+color: #00ff00;
+">// AdapterWin.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
+bool Adapter::loadAdapters(AdapterParams&amp; _params) const
+{
+    _params.adapters = 
+    (PIP_ADAPTER_ADDRESSES)malloc(config::adapter::memorySize);
+    if (!_params.adapters)
+    {
+        fprintf(stderr, "loadAdapters(1) failed.|size=%ld\n", _params.size);
+        return false;
+
+    }
+
+    int adpaterResult = GetAdaptersAddresses(AF_UNSPEC, 
+    GAA_FLAG_INCLUDE_PREFIX, 0, _params.adapters, &amp;_params.size);
+    if (adpaterResult == ERROR_BUFFER_OVERFLOW)
+    {
+        fprintf(stderr, "loadAdapters(2) failed.|size=%ld\n", _params.size);
+        return false;
+    }
+
+    PIP_ADAPTER_ADDRESSES adapter = _params.adapters;
+    while (adapter)
+    {
+        AdapterNameParams* adapterName = _params.addAdapterName();
+        adapterName-&gt;name = oTools.toString(adapter-&gt;FriendlyName);
+
+        PIP_ADAPTER_UNICAST_ADDRESS address = adapter-&gt;FirstUnicastAddress;
+        while (address)
+        {
+            int family = address-&gt;Address.lpSockaddr-&gt;sa_family;
+
+            if (family == AF_INET || family == AF_INET6)
+            {
+                AdapterAddressParams* addressName = 
+               _params.addApaterAddress(adapterName);
+
+                addressName-&gt;family = (family == AF_INET) ? "IPv4" : "IPv6";
+
+                char addressIP[100];
+
+                getnameinfo(address-&gt;Address.lpSockaddr,
+                    address-&gt;Address.iSockaddrLength,
+                    addressIP, sizeof(addressIP), 0, 0, NI_NUMERICHOST);
+
+                addressName-&gt;address = addressIP;
+            }
+
+            address = address-&gt;Next;
+        }
+
+        adapter = adapter-&gt;Next;
+    }
+
+    return true;
+}  
+...</pre><br>Nous avons chargé les cartes réseau sur les systèmes Linux ou MacOS. Nous avons récupéré la liste des cartes réseau (getifaddrs). Nous avons récupéré la famille de l'adresse IP (family) de l'interface réseau. Nous avons récupéré l'adresse IP (getnameinfo) de l'interfacer réseau.<br><br><span class="GText2" style="
+color: #00ff00;
+">// AdapterUnix.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
+bool Adapter::loadAdapters(AdapterParams&amp; _params) const
+{
+    if (getifaddrs(&amp;_params.addresses) == -1)
+    {
+        fprintf(stderr, "loadAdapters() failed.\n");
+        return false;
+    }
+
+    struct ifaddrs* address = _params.addresses;
+    while (address)
+    {
+        if (address-&gt;ifa_addr == nullptr)
+        {
+            address = address-&gt;ifa_next;
+            continue;
+        }
+
+        int family = address-&gt;ifa_addr-&gt;sa_family;
+
+        if (family == AF_INET || family == AF_INET6)
+        {
+            AdapterNameParams* adapterName;
+
+            if (!_params.getAdapterName(&amp;adapterName, address-&gt;ifa_name))
+            {
+                adapterName = _params.addAdapterName();
+                adapterName-&gt;name = address-&gt;ifa_name;
+            }
+
+            AdapterAddressParams* addressName = 
+            _params.addApaterAddress(adapterName);
+            addressName-&gt;family = (family == AF_INET) ? "IPv4" : "IPv6";
+
+            char ap[100];
+            const int family_size = (family == AF_INET) ?
+                sizeof(struct sockaddr_in) : sizeof(struct sockaddr_in6);
+            getnameinfo(
+                address-&gt;ifa_addr, family_size, ap, sizeof(ap), 0, 0, 
+                NI_NUMERICHOST);
+            addressName-&gt;address = ap;
+        }
+
+        address = address-&gt;ifa_next;
+    }
+
+    return true;
+}  
+...</pre><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_prerequis-sur-l-affichage-des-cartes-reseau" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau">Prérequis sur l'affichage des cartes réseau</a>
+</h3><br>Nous avons affiché les cartes réseau sur les systèmes Windows, Linux ou MacOS.<br><br><span class="GText2" style="
+color: #00ff00;
+">// Adapter.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
+void Adapter::printAdapters(const AdapterParams&amp; _params) const
+{
+    const int margin = 13;
+    printf("---\n");
+    printf("AdapterNameParams:\n");
+    for (auto* adapterName : _params.adapterNameList)
+    {
+        printf("---\n");
+        printf("Adapter name: %s\n", adapterName-&gt;name.c_str());
+
+        for (auto* addressName : _params.getAddressList(adapterName))
+        {
+            printf("\t%s\t%s\n", addressName-&gt;family.c_str(), 
+            addressName-&gt;address.c_str());
+        }
+    }
+
+}  
+...</pre><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_developpement-du-programme-principal" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau">Développement du programme principal</a>
+</h3><br><span class="GText2" style="
+color: #00ff00;
+">// main.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
+#include "Adapter.hpp"
+
+int main(int _argc, char** _argv)
+{
+    Adapter oAdapter;
+    AdapterParams adapterParams;
+
+    if (!oAdapter.initSocket())
+        return 0;
+
+    AdapterClean oAdapterClean;
+
+    if (!oAdapter.loadAdapters(adapterParams))
+        return 0;
+
+    oAdapter.print(adapterParams);
+    oAdapter.printAdapters(adapterParams);
+
+    return 0;
+}  
+...</pre><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_test-sur-l-affichage-des-cartes-reseau" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau">Test sur l'affichage des cartes réseau</a>
+</h3><br>Nous avons affiché la liste des cartes réseau sur les systèmes Windows.<br><br><span class="GText2" style="
+color: #00ff00;
+">// Terminal</span><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17634314883635606-image.png"></div><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17634315221283112-image.png"></div><br>Nous avons affiché la liste des cartes réseau sur les systèmes Linux ou MacOS.<br><br><span class="GText2" style="
+color: #00ff00;
+">// Terminal</span><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17634315788271473-image.png"></div><br></div>
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
