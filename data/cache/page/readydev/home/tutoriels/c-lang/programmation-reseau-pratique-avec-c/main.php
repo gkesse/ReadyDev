@@ -22,7 +22,47 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#a-suivre">À suivre</a>
+<a class="Summary3" href="#etablissement-de-connexions-udp">Établissement de connexions UDP</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#resolution-de-noms-d-hotes-et-dns">Résolution de noms d'hôtes et DNS</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#creation-d-un-client-web-simple">Création d'un client web simple</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#construire-un-serveur-web-simple">Construire un serveur web simple</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#mettre-votre-programme-en-route-pour-l-envoi-d-e-mails">Mettre votre programme en route pour l'envoi d'e-mails</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#charger-des-pages-web-securisees-avec-https-et-openssl">Charger des pages web sécurisées avec HTTPS et OpenSSL</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#implementation-d-un-serveur-web-securise">Implémentation d'un serveur web sécurisé</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#etablissement-de-connexions-ssh-avec-libssh">Établissement de connexions SSH avec libssh</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#surveillance-et-securite-du-reseau">Surveillance et sécurité du réseau</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#conseils-et-pieges-de-la-programmation-par-socket">Conseils et pièges de la programmation par socket</a>
+</div>
+<div class="GSummary11 Summary1">
+<i class="Summary2 fa fa-book"></i>
+<a class="Summary3" href="#programmation-web-pour-l-internet-des-objets-iot">Programmation Web pour l'Internet des Objets IoT</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
@@ -142,7 +182,7 @@ ip a s
 color: #00ff00;
 ">// Terminal</span><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17633656509369307-image.png"></div><br><h2 class="GTitle1 Title1">
 <a class="Title2" id="introduction-aux-reseaux-et-aux-protocoles_affichage-de-l-adresse-ip-publique" href="#introduction-aux-reseaux-et-aux-protocoles">Affichage de l'adresse IP publique</a>
-</h2><br>Nous avons affiché l'adresse IP publique de notre interface réseau. L'adresse IP publique permet à un client extérieur à notre réseau local d'accéder à notre serveur local depuis internet grâce à une redirection de port. Nous nous sommes rendus sur la page web d'un service de gestion d'adresse IP publique (<a class="GLink3 Link4" style=" color: lime;" href="https://api.ipify.org/" target="_blank">https://api.ipify.org/</a>) et avons vu afficher notre adresse IP publique.<br><br><span class="GText2" style="
+</h2><br>Nous avons affiché l'adresse IP publique de notre interface réseau. L'adresse IP publique permet à un client extérieur à notre réseau local d'accéder à notre serveur local depuis internet grâce à une redirection de port. Nous nous sommes rendus sur la page web d'un service de gestion d'adresse IP publique (<a class="GLink3 Link4" style=" color: lime;" href="https://api.ipify.org/" target="_blank">https://api.ipify.org/</a>) et avons pu afficher notre adresse IP publique.<br><br><span class="GText2" style="
 color: #00ff00;
 ">// Navigateur web</span><br><pre class="GCode1 Code1 AceCode" data-mode="sh" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">...
 https://api.ipify.org/
@@ -196,7 +236,7 @@ else()
         SocketUnix.cpp
     )
 endif()  
-...</pre><br>Nous avons assuré la portabilité du code source dans le fichier (Socket.hpp). Sur les systèmes Windows (_WIN32), nous avons défini la version minimale du système d'exploitation Windows compatible avec le code source (_WIN32_WINNT), nous avons inclus le fichier d'entête de l'API des sockets Windows (Winsock2.h) et nous avons édité les liens du code source avec la librairie de l'API des sockets Windows (ws2_32.lib). Sur les systèmes Linux ou MacOS, nous n'avons pas d'initialiser ou de nettoyer l'API des sockets.<br><br><span class="GText2" style="
+...</pre><br>Nous avons assuré la portabilité du code source dans le fichier (Socket.hpp). Sur les systèmes Windows (_WIN32), nous avons défini la version minimale du système d'exploitation Windows compatible avec le code source (_WIN32_WINNT), nous avons inclus le fichier d'entête de l'API des sockets Windows (Winsock2.h) et nous avons édité les liens du code source avec la librairie de l'API des sockets Windows (ws2_32.lib). Sur les systèmes Linux ou MacOS, nous n'avons pas eu besoin d'initialiser ou de nettoyer l'API des sockets.<br><br><span class="GText2" style="
 color: #00ff00;
 ">// Socket.hpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
 #if defined(_WIN32)
@@ -208,7 +248,7 @@ color: #00ff00;
 #endif  
 ...</pre><br><h3 class="GTitle2 Title3">
 <a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_prerequis-sur-l-initialisation-de-l-api-des-sockets" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets">Prérequis sur l'initialisation de l'API des sockets</a>
-</h3><br>Nous avons initialisé l'API des sockets sur les systèmes Windows (WSAStartup). Sur les systèmes Linux ou MacOS, nous n'avons pas besoin d'initialiser l'API des sockets.<br><br><span class="GText2" style="
+</h3><br>Nous avons initialisé l'API des sockets sur les systèmes Windows avec la fonction (WSAStartup). Sur les systèmes Linux ou MacOS, nous n'avons pas eu besoin d'initialiser l'API des sockets.<br><br><span class="GText2" style="
 color: #00ff00;
 ">// SocketWin.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
 bool Socket::initSocket() const
@@ -224,7 +264,7 @@ bool Socket::initSocket() const
 }  
 ...</pre><br><h3 class="GTitle2 Title3">
 <a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_prerequis-sur-le-nettoyage-de-l-api-des-sockets" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets">Prérequis sur le nettoyage de l'API des sockets</a>
-</h3><br>Nous avons nettoyé l'API des sockets sur les systèmes Windows (WSAStartup). Sur les systèmes Linux ou MacOS, nous n'avons pas besoin d'initialiser l'API des sockets.<br><br><span class="GText2" style="
+</h3><br>Nous avons nettoyé l'API des sockets sur les systèmes Windows avec la fonction (WSACleanup). Sur les systèmes Linux ou MacOS, nous n'avons pas besoin d'initialiser l'API des sockets.<br><br><span class="GText2" style="
 color: #00ff00;
 ">// SocketWin.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
 void Socket::cleanSocket() const
@@ -233,7 +273,7 @@ void Socket::cleanSocket() const
 }  
 ...</pre><br><h3 class="GTitle2 Title3">
 <a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_prerequis-sur-l-automatisation-du-nettoyage-de-l-api-des-sockets" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets">Prérequis sur l'automatisation du nettoyage de l'API des sockets</a>
-</h3><br>Nous avons automatisé le nettoyage de l'API des sockets. Nous avons créé une classe (SocketClean) et avons appelé la méthode (cleanSocket) dans le destructeur de la classe (~SocketClean). Ainsi, après l'initialisation de l'API des sockets, nous pouvons créer une instance de la classe (SocketClean) pour garantir le nettoyage de l'API des sockets.<br><br><span class="GText2" style="
+</h3><br>Nous avons automatisé le nettoyage de l'API des sockets. Nous avons créé une classe (SocketClean) et avons appelé la méthode (cleanSocket) dans le destructeur de la classe (~SocketClean). Ainsi, après l'initialisation de l'API des sockets, nous pouvons créer une instance de la classe (SocketClean) pour garantir le nettoyage automatique de l'API des sockets.<br><br><span class="GText2" style="
 color: #00ff00;
 ">// Socket.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
 SocketClean::~SocketClean()
@@ -243,7 +283,7 @@ SocketClean::~SocketClean()
 }  
 ...</pre><br><h3 class="GTitle2 Title3">
 <a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets_developpement-du-programme-principal" href="#introduction-aux-reseaux-et-aux-protocoles_initialisation-de-l-api-des-sockets">Développement du programme principal</a>
-</h3><br>Nous avons initialisé l'API des sockets (initSocket) et avons créé une instance de la classe (SocketClean) pour nettoyer automatiquement l'API des sockets dans le destructeur de la classe sur les systèmes Windows, Linux ou MacOS.<br><br><span class="GText2" style="
+</h3><br>Nous avons initialisé l'API des sockets (initSocket) et avons créé une instance de la classe (SocketClean) pour nettoyer automatiquement l'API des sockets sur les systèmes Windows, Linux ou MacOS.<br><br><span class="GText2" style="
 color: #00ff00;
 ">// main.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include "Socket.hpp"
 
@@ -440,7 +480,7 @@ color: #00ff00;
 #include &lt;netdb.h&gt;
 #include &lt;ifaddrs.h&gt;
 #endif  
-...</pre><br>Nous avons assuré la portabilité du code source au niveau de la structure des paramètres de cartes réseau (AdapterParams) dans le fichier (Adapter.hpp). Sur les systèmes Windows (_WIN32), nous avons déclaré le pointeur de cartes réseau (adapters) de type (PIP_ADAPTER_ADDRESSES) et la taille de sa mémoire tampon (size) de type (DWORD). Sur les systèmes Linux ou MacOS, nous avons déclaré le pointeur d'interfaces réseau (addresses) de type (ifaddrs).<br><br><span class="GText2" style="
+...</pre><br>Nous avons assuré la portabilité du code source au niveau de la structure de données des paramètres de cartes réseau (AdapterParams) dans le fichier (Adapter.hpp). Sur les systèmes Windows (_WIN32), nous avons déclaré le pointeur de cartes réseau (adapters) de type (PIP_ADAPTER_ADDRESSES) et la taille de sa mémoire tampon (size) de type (DWORD). Sur les systèmes Linux ou MacOS, nous avons déclaré le pointeur d'interfaces réseau (addresses) de type (ifaddrs).<br><br><span class="GText2" style="
 color: #00ff00;
 ">// Adapter.hpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
 struct AdapterParams
@@ -454,7 +494,7 @@ struct AdapterParams
 };  
 ...</pre><br><h3 class="GTitle2 Title3">
 <a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_prerequis-sur-le-chargement-des-cartes-reseau" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau">Prérequis sur le chargement des cartes réseau</a>
-</h3><br>Nous avons chargé les cartes réseau sur les systèmes Windows. Nous avons récupéré la liste des cartes réseau (GetAdaptersAddresses). Nous avons récupéré la famille de l'adresse IP (sa_family) de l'interface réseau. Nous avons récupéré l'adresse IP (getnameinfo) de l'interfacer réseau.<br><br><span class="GText2" style="
+</h3><br>Nous avons chargé les cartes réseau sur les systèmes Windows. Nous avons récupéré la liste des cartes réseau avec la fonction (GetAdaptersAddresses). Nous avons récupéré la famille de l'adresse IP de l'interface réseau à partir de la propriété (sa_family). Nous avons récupéré l'adresse IP de l'interface réseau avec la fonction (getnameinfo).<br><br><span class="GText2" style="
 color: #00ff00;
 ">// AdapterWin.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
 bool Adapter::loadAdapters(AdapterParams&amp; _params) const
@@ -511,7 +551,7 @@ bool Adapter::loadAdapters(AdapterParams&amp; _params) const
 
     return true;
 }  
-...</pre><br>Nous avons chargé les cartes réseau sur les systèmes Linux ou MacOS. Nous avons récupéré la liste des cartes réseau (getifaddrs). Nous avons récupéré la famille de l'adresse IP (family) de l'interface réseau. Nous avons récupéré l'adresse IP (getnameinfo) de l'interfacer réseau.<br><br><span class="GText2" style="
+...</pre><br>Nous avons chargé les cartes réseau sur les systèmes Linux ou MacOS. Nous avons récupéré la liste des cartes réseau avec la fonction (getifaddrs). Nous avons récupéré la famille de l'adresse IP de l'interface réseau à partir de la propriété (family). Nous avons récupéré l'adresse IP de l'interface&nbsp; réseau avec la fonction (getnameinfo).<br><br><span class="GText2" style="
 color: #00ff00;
 ">// AdapterUnix.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">... 
 bool Adapter::loadAdapters(AdapterParams&amp; _params) const
@@ -586,7 +626,7 @@ void Adapter::printAdapters(const AdapterParams&amp; _params) const
 }  
 ...</pre><br><h3 class="GTitle2 Title3">
 <a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_developpement-du-programme-principal" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau">Développement du programme principal</a>
-</h3><br>Nous avons initialisé l'API des sockets (initSocket) et avons créé une instance de la classe (AdapterClean) pour nettoyer automatiquement l'API des sockets dans le destructeur de la classe. Nous avons chargé les cartes réseau disponibles sur notre système Windows, Linux ou MacOS (loadAdapters) et avons affiché la liste des cartes réseau (printAdapters).<br>&nbsp;<br><span class="GText2" style="
+</h3><br>Nous avons initialisé l'API des sockets avec la fonction (initSocket) et avons créé une instance de la classe (AdapterClean) pour nettoyer automatiquement l'API des sockets. Nous avons chargé les cartes réseau disponibles sur notre système Windows, Linux ou MacOS&nbsp;avec la fonction (loadAdapters) et avons affiché la liste des cartes réseau avec la fonction (printAdapters).<br>&nbsp;<br><span class="GText2" style="
 color: #00ff00;
 ">// main.cpp</span><br><pre class="GCode1 Code1 AceCode" data-mode="c_cpp" data-theme="gruvbox" data-bg-color="transparent" style="background-color: transparent;">#include "Adapter.hpp"
 
@@ -1110,9 +1150,9 @@ add_executable(${PROJECT_NAME}
     ${SRC_FILES}
 )</pre><br><h3 class="GTitle2 Title3">
 <a class="Title4" id="introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau_test-sur-l-affichage-des-cartes-reseau" href="#introduction-aux-reseaux-et-aux-protocoles_affichage-des-cartes-reseau">Test sur l'affichage des cartes réseau</a>
-</h3><br>Nous avons affiché la liste des cartes réseau sur les systèmes Windows.<br><br><span class="GText2" style="
+</h3><br>Nous avons pu afficher la liste des cartes réseau sur les systèmes Windows.<br><br><span class="GText2" style="
 color: #00ff00;
-">// Terminal</span><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17634314883635606-image.png"></div><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17634315221283112-image.png"></div><br>Nous avons affiché la liste des cartes réseau sur les systèmes Linux ou MacOS.<br><br><span class="GText2" style="
+">// Terminal</span><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17634314883635606-image.png"></div><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17634315221283112-image.png"></div><br>Nous avons pu afficher la liste des cartes réseau sur les systèmes Linux ou MacOS.<br><br><span class="GText2" style="
 color: #00ff00;
 ">// Terminal</span><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17634315788271473-image.png"></div><br></div>
 </div>
@@ -1141,9 +1181,112 @@ color: #00ff00;
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="a-suivre">À suivre</a>
+<a class="Section5" href="#" id="etablissement-de-connexions-udp">Établissement de connexions UDP</a>
 </h1>
-<div class="Section6"><br>À suivre...<br><br></div>
+<div class="Section6"><br>Nous verrons que la programmation avec les sockets UDP est plus simple qu'avec les sockets TCP. Nous apprendrons que les sockets UDP n'ont pas besoin des appels de fonction (listen), (accept) ou (connect). Ceci est principalement dû au fait que les fonction (sendto) et (recvfrom) gèrent directement les adresses. Pour les programmes plus complexes, nous pourrons toujours utiliser la fonction (select) pour voir quels sockets sont prêts pour les E/S. Nous découvrirons que les sockets UDP sont sans connexion. Ceci contraste avec les sockets TCP orientés connexion. Avec TCP, nous devions établir une connexion avant d'envoyer des données, tandis qu'avec UDP, nous envoyons simplement des paquets individuels directement à une adresse de destination. Cela simplifie la programmation des sockets UDP, mais peut complexifier la conception des protocoles d'application, et UDP ne gère pas automatiquement les échecs de communication ni ne garantit l'arrivée des paquets dans l'ordre.<br><br><br><br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="resolution-de-noms-d-hotes-et-dns">Résolution de noms d'hôtes et DNS</a>
+</h1>
+<div class="Section6"><br>Nous aborderons les noms d'hôtes et les requêtes DNS. Nous découvrirons le fonctionnement du DNS et apprendrons que la résolution d'un nom d'hôte peut impliquer l'envoi de nombreux paquets UDP sur le réseau. Nous examinerons plus en détail la fonction (getaddrinfo) et montrerons pourquoi elle est généralement la méthode privilégiée pour effectuer une recherche de nom d'hôte. Nous étudierons également sa fonction soeur, (getnameinfo), capable de convertir une adresse en texte ou même d'effectuer une requête DNS inverse. Enfin, nous implémenterons un programme envoyant des requêtes DNS. Ce programme constituera une excellente expérience d'apprentissage pour mieux comprendre le protocole DNS et nous permettra d'acquérir de l'expérience dans l'implémentation d'un protocole binaire. Lors de l'implémentation d'un protocole binaire, nous devrons porter une attention particulière à l'ordre des octets. Pour le format simple des messages DNS, cela sera réalisé en interprétant soigneusement les octets un par un.
+
+<br><br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="creation-d-un-client-web-simple">Création d'un client web simple</a>
+</h1>
+<div class="Section6"><br>Nous examinerons le format des messages HTTP. Nous implémenterons ensuite un programme en C capable de demander et de recevoir des pages Web. Nous découvrirons les types de requêtes HTTP. Nous explorerons les en-têtes HTTP courants. Nous analyserons le code de réponse HTTP. Nous verrons l'encodage des données de formulaire (POST). Nous aborderons le téléchargement de fichiers HTTP.
+<br><br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="construire-un-serveur-web-simple">Construire un serveur web simple</a>
+</h1>
+<div class="Section6"><br>Nous aborderons le protocole HTTP du point de vue du serveur. Nous y construirons un serveur web simple. Ce serveur fonctionnera avec le protocole HTTP et nous pourrons nous y connecter avec n'importe quel navigateur web standard. Bien qu'il ne soit pas complet, il conviendra parfaitement pour servir quelques fichiers statiques en local. Il pourra gérer plusieurs connexions simultanées de différents clients. Nous découvrirons l'acceptation et la mise en mémoire tampon de plusieurs connexions. Nous analyserons une ligne de requête HTTP. Nous explorerons le formatage d'une réponse HTTP. Nous montrerons comment servir un fichier. Nous prendrons en considération les notions de sécurité.
+<br><br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="mettre-votre-programme-en-route-pour-l-envoi-d-e-mails">Mettre votre programme en route pour l'envoi d'e-mails</a>
+</h1>
+<div class="Section6"><br>Nous aborderons le protocole assurant la distribution des courriels sur Internet. Ce protocole est appelé le protocole de transfert de courrier simple (SMTP). Nous expliquerons le fonctionnement interne du transfert de courriels. Nous construirons un client SMTP simple capable d'envoyer des courriels courts. Nous identifierons le serveur de messagerie responsable à un domaine donné. Nous découvrirons la protection contre le spam et pièges liés à l'envoi de courriels.
+<br><br><br><br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="charger-des-pages-web-securisees-avec-https-et-openssl">Charger des pages web sécurisées avec HTTPS et OpenSSL</a>
+</h1>
+<div class="Section6"><br>Nous apprendrons à établir des connexions sécurisées aux serveurs web à l'aide du protocole HTTPS (HyperText Transfer Protocol Secure). HTTPS offre plusieurs
+avantages par rapport à HTTP. Il fournit une méthode d'authentification permettant d'identifier les serveurs et de détecter les usurpateurs d'identité. Il protège également la confidentialité de toutes les données transmises et empêche les intercepteurs de les altérer ou de les falsifier. En HTTPS, la communication est sécurisée par le protocole TLS (Transport Layer Security). Nous apprendrons à utiliser la bibliothèque OpenSSL pour implémenter les fonctionnalités TLS. Nous aborderons les informations générales sur HTTPS. Nous découvrirons les types de chiffrements et l'authentification des serveurs. Nous aborderons une utilisation de base d'OpenSSL et créerons un client HTTPS simple.
+<br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="implementation-d-un-serveur-web-securise">Implémentation d'un serveur web sécurisé</a>
+</h1>
+<div class="Section6"><br>Nous créerons un serveur HTTPS simple. Il servira de composante au client HTTPS présenté dans le section précédente. Le protocole HTTPS repose sur le protocole TLS (Transport Layer Security). Contrairement aux clients HTTPS, les serveurs HTTPS doivent s'authentifier à l'aide de certificats. Nous verrons comment écouter les connexions HTTPS, fournir des certificats et envoyer une réponse HTTP via TLS. Nous aborderons la présentation du protocole HTTPS. Nous découvrirons les certificats HTTPS et la configuration d'un serveur HTTP avec OpenSSL. Nous apprendrons l'acceptation des connexions HTTPS.
+<br><br><br><br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="etablissement-de-connexions-ssh-avec-libssh">Établissement de connexions SSH avec libssh</a>
+</h1>
+<div class="Section6"><br>Nous aborderons la programmation avec le protocole Secure Shell (SSH). SSH est un protocole réseau sécurisé utilisé pour s'authentifier auprès de serveurs distants, accorder un accès en ligne de commande et transférer des fichiers en toute sécurité. SSH est largement utilisé pour la configuration et la gestion de serveurs distants. Souvent, les serveurs web ne sont pas connectés à des écrans ou à des claviers. Pour nombre de ces serveurs, SSH constitue la seule méthode d'accès en ligne de commande et d'administration. Nous présenterons le protocole SSH et la bibliothèque libssh. Nous découvrirons l'établissement d'une connexion et les méthodes d'authentification SSH. Nous analyserons l'exécution d'une commande distante et le transferts de fichiers via SSH.
+<br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="surveillance-et-securite-du-reseau">Surveillance et sécurité du réseau</a>
+</h1>
+<div class="Section6"><br>Nous examinerons les outils et techniques courants de surveillance réseau. Ces techniques pourront s'avérer utiles pour nous alerter de l'apparition de problèmes et pour résoudre les problèmes existants. La surveillance réseau est importante du point de vue de la sécurité, car elle permet de détecter, d'enregistrer, voire de prévenir les intrusions. Nous aborderons la vérification de l'accessibilité des hôtes et l'affichage d'un itinéraire de connexion. Nous découvrirons l'affichage des ports ouverts et la liste des connexions ouvertes. Nous analyserons le trafic réseau, le pare-feu et le filtrage des paquets.
+<br><br><br><br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="conseils-et-pieges-de-la-programmation-par-socket">Conseils et pièges de la programmation par socket</a>
+</h1>
+<div class="Section6"><br>Nous reviendrons sur toutes les connaissances acquises dans ce document. La programmation de sockets peut s'avérer complexe. De nombreux pièges sont à éviter et
+des techniques de programmation subtiles doivent être mises en oeuvre. Nous aborderons certains détails nuancés de la programmation réseau, essentiels à l'écriture de programmes robustes. Nous découvrirons la gestion et la description des erreurs. Nous analyserons les échanges TCP et la libération ordonnée. Nous explorerons le délai d'attente de la fonction (connect) et la prévention des blocages TCP. Nous verrons le contrôle de flux TCP et la prévention des erreurs d'adresse déjà utilisée. Nous apprendrons la prévention des plantages SIGPIPE et les limitations du multiplexage de la fonction (select).
+<br><br></div>
+</div>
+</div>
+</div><br><div class="GSection1 Section1">
+<div class="Section2">
+<div class="Section3">
+<h1 class="Section4">
+<a class="Section5" href="#" id="programmation-web-pour-l-internet-des-objets-iot">Programmation Web pour l'Internet des Objets IoT</a>
+</h1>
+<div class="Section6"><br>Nous nous intéresserons à l'Internet des objets (IoT). L'IoT est une nouvelle tendance passionnante qui consiste à ajouter une connectivité Internet aux objets physiques du quotidien. Associé à des composants électroniques et des capteurs embarqués, l'accès à Internet permet aux objets physiques d'interagir entre eux, d'être contrôlés et surveillés depuis n'importe où dans le monde. Nous aborderons la définition de l'IoT et les types de connectivité. Nous découvrirons les considérations relatives à la bande passante et les types de contrôleurs. Nous analyserons l'éthique de l'IoT et la sécurité de l'IoT.
+<br><br></div>
 </div>
 </div>
 </div><br>

@@ -46,7 +46,7 @@
 </div>
 <div class="GSummary11 Summary1">
 <i class="Summary2 fa fa-book"></i>
-<a class="Summary3" href="#vcs">Gestion de versions</a>
+<a class="Summary3" href="#devops">Développement DevOps</a>
 </div>
 </div><br></div></div><br><div class="GSection1 Section1">
 <div class="Section2">
@@ -70,7 +70,12 @@
 <a class="Section5" href="#" id="cpp">Développement C++</a>
 </h1>
 <div class="Section6"><br><div class="GTuto1 Tuto1">
-<a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/structures-donnees-principes-conception-algorithmes">
+<a class="GTuto2 Tuto2" href="/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Programmation Réseau Pratique</div></div>
+<div class="Tuto5"><div class="Tuto8">Programmez en
+<br>C/C++ / Socket / TCP / TLS / HTTP / SMTP / DNS</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/cpp/structures-donnees-principes-conception-algorithmes">
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Structures données Conception Algorithmes</div></div>
 <div class="Tuto5"><div class="Tuto8">Programmez en<br>C++ / STL / Algo / Listes / Piles / Tas / Graphes</div></div>
@@ -285,10 +290,14 @@
 <div class="Section2">
 <div class="Section3">
 <h1 class="Section4">
-<a class="Section5" href="#" id="vcs">Gestion de versions</a>
+<a class="Section5" href="#" id="devops">Développement DevOps</a>
 </h1>
 <div class="Section6"><br><div class="GTuto1 Tuto1">
-<a class="GTuto2 Tuto2" href="/home/tutoriels/vcs/git-pour-les-professionnels">
+<a class="GTuto2 Tuto2" href="/home/tutoriels/devops/gestion-versions-git-github">
+<div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
+<div class="Tuto4"><div class="Tuto7">Gestion<br>de versions&nbsp;avec<br>Git et GitHub</div></div>
+<div class="Tuto5"><div class="Tuto8">Git / GitHub / CircleCi / Branche / Commit / Tag / Build / Test / Pull Request</div></div>
+</a><a class="GTuto2 Tuto2" href="/home/tutoriels/vcs/git-pour-les-professionnels">
 <div class="Tuto3"><i class="Tuto6 fa fa-connectdevelop"></i></div>
 <div class="Tuto4"><div class="Tuto7">Git<br>pour les Professionnels</div></div>
 <div class="Tuto5"><div class="Tuto8">Gérez vos versions<br>Git / Gitk / alias / commits / branches</div></div>
