@@ -1164,7 +1164,37 @@ color: #00ff00;
 <a class="Section5" href="#" id="se-familiariser-avec-les-api-socket">Se familiariser avec les API Socket</a>
 </h1>
 <div class="Section6"><br>Nous aborderons les bases de l'utilisation des sockets pour la programmation réseau. Nous découvrirons qu'il existe de nombreuses différences entre les sockets Berkeley (utilisées sur les systèmes d'exploitation de type Unix) et les sockets Winsock (utilisées sous Windows). Nous atténuerons ces différences grâce à des instructions de préprocesseur. Nous écrirons un programme C/C++ qui compile sans problème sous Windows, Linux et macOS. Nous comprendrons en quoi le protocole UDP est un protocole sans connexion et expliquerons ce que cela implique. Nous apprendrons que le protocole TCP est un protocole orienté connexion qui offre certaines garanties de fiabilité, comme la détection et le renvoi automatiques des paquets perdus. Nous constaterons que le protocole UDP est souvent utilisé pour les protocoles simples (par exemple, le DNS) et pour les applications de diffusion en continu en temps réel. Nous verrons que le protocole TCP est utilisé pour la plupart des autres protocoles. Nous travaillerons sur un exemple concret en convertissant une application console en serveur web. Nous apprendrons à écrire le programme C/C++ en utilisant la fonction (getaddrinfo), et comprendrons pourquoi cela est important pour rendre le programme compatible IPv4/IPv6. Nous utiliserons les fonctions (bind, listen, et accept) sur le serveur pour attendre une connexion entrante du navigateur web. Les données seront ensuite lues depuis le client à l'aide de la fonction (recv), et une réponse sera envoyée à l'aide de la fonction (send). Enfin, nous fermerons la connexion avec la fonction (close) sous Unix, et la fonction (closesocket) sous Windows. Nous construirons un serveur web pour afficher la date et l'heure courantes à partir d'un navigateur web.
-<br><br></div>
+<br><br><div class="GSummary2"><div class="GSummary21 Summary4">
+<i class="Summary5 fa fa-book"></i>
+<a class="Summary6" href="#se-familiariser-avec-les-api-socket_creation-d-un-serveur-http-de-date">Création d'un serveur HTTP de date</a>
+</div>
+</div><br><h2 class="GTitle1 Title1">
+<a class="Title2" id="se-familiariser-avec-les-api-socket_creation-d-un-serveur-http-de-date" href="#se-familiariser-avec-les-api-socket">Création d'un serveur HTTP de date</a>
+</h2><br><div class="GSummary3"><div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#se-familiariser-avec-les-api-socket_creation-d-un-serveur-http-de-date_test-sur-la-recuperation-de-la-date-courante--serveur-">Test sur la récupération de la date courante (serveur)</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#se-familiariser-avec-les-api-socket_creation-d-un-serveur-http-de-date_test-sur-l-analyse-de-la-requete-http--serveur-">Test sur l'analyse de la requête HTTP (serveur)</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#se-familiariser-avec-les-api-socket_creation-d-un-serveur-http-de-date_test-sur-la-construction-de-la-reponse-http--serveur-">Test sur la construction de la réponse HTTP (serveur)</a>
+</div>
+<div class="Summary7">
+<i class="Summary8 fa fa-book"></i>
+<a class="Summary9" href="#se-familiariser-avec-les-api-socket_creation-d-un-serveur-http-de-date_test-sur-l-affichage-de-la-date-courante-dans-le-navigateur-web--client-">Test sur l'affichage de la date courante dans le navigateur web (client)</a>
+</div>
+</div><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="se-familiariser-avec-les-api-socket_creation-d-un-serveur-http-de-date_test-sur-la-recuperation-de-la-date-courante--serveur-" href="#se-familiariser-avec-les-api-socket_creation-d-un-serveur-http-de-date">Test sur la récupération de la date courante (serveur)</a>
+</h3><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17655163808300391-image.png"></div><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="se-familiariser-avec-les-api-socket_creation-d-un-serveur-http-de-date_test-sur-l-analyse-de-la-requete-http--serveur-" href="#se-familiariser-avec-les-api-socket_creation-d-un-serveur-http-de-date">Test sur l'analyse de la requête HTTP (serveur)</a>
+</h3><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17655164003370990-image.png"></div><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="se-familiariser-avec-les-api-socket_creation-d-un-serveur-http-de-date_test-sur-la-construction-de-la-reponse-http--serveur-" href="#se-familiariser-avec-les-api-socket_creation-d-un-serveur-http-de-date">Test sur la construction de la réponse HTTP (serveur)</a>
+</h3><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17655164300841307-image.png"></div><br><h3 class="GTitle2 Title3">
+<a class="Title4" id="se-familiariser-avec-les-api-socket_creation-d-un-serveur-http-de-date_test-sur-l-affichage-de-la-date-courante-dans-le-navigateur-web--client-" href="#se-familiariser-avec-les-api-socket_creation-d-un-serveur-http-de-date">Test sur l'affichage de la date courante dans le navigateur web (client)</a>
+</h3><br><div class="GImg1 Img1"><img loading="lazy" alt="image.png" src="/data/cache/page/readydev/home/tutoriels/c-lang/programmation-reseau-pratique-avec-c/data/17655164394470243-image.png"></div><br></div>
 </div>
 </div>
 </div><br><div class="GSection1 Section1">
